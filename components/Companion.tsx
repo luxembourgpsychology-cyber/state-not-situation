@@ -15,8 +15,7 @@ export function Companion({ locale }: { locale: Locale }) {
         </div>
         <div className="md:col-span-8 md:col-start-5">
           <Reveal delay={100}>
-            <h2 id="companion-title" className="serif-title text-[clamp(1.6rem,3.2vw,2.4rem)] max-w-2xl">{c.line}</h2>
-            <p className="prose-book text-ink-soft mt-5 text-[1rem]">{c.detail}</p>
+            <h2 id="companion-title" className={`serif-title text-[clamp(1.5rem,3vw,2.2rem)] max-w-2xl ${c.line.startsWith("[COPY NEEDED") ? "text-quiet !font-body !text-base !leading-relaxed" : ""}`}>{c.line}</h2>
           </Reveal>
         </div>
       </div>

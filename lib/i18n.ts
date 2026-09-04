@@ -14,11 +14,16 @@ export function isLocale(value: string): value is Locale {
 
 /** Languages that are switched on in site.config.ts. */
 export function enabledLocales(): Locale[] {
-  return locales.filter((l) => siteConfig.languages[l].enabled);
+  return locales.filter((l) => siteConfig.languages[l].enabled || draftPreview());
+}
+
+/** True in `next dev` when previewDraftLanguages is on: disabled languages become browsable. */
+export function draftPreview(): boolean {
+  return process.env.NODE_ENV !== "production" && siteConfig.previewDraftLanguages;
 }
 
 export function isEnabled(locale: Locale): boolean {
-  return siteConfig.languages[locale].enabled;
+  return siteConfig.languages[locale].enabled || draftPreview();
 }
 
 /**

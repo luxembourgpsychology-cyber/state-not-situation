@@ -45,7 +45,7 @@ export default async function ReadPage({ params }: { params: Promise<{ lang: str
             <p className="eyebrow eyebrow-quiet mb-4">{x.eyebrow} · {x.title}</p>
             <h1 className="serif-title text-[clamp(2.4rem,6vw,3.8rem)] mb-14 md:mb-20">{x.sectionLabel}</h1>
             {x.paragraphs.map((t, i) => (
-              <div key={i}>
+              <div key={i} className="reading-para">
                 <p className={i === 0 ? "dropcap" : undefined}>{t}</p>
                 {i === x.quoteAfter ? (
                   <blockquote className="my-8 md:my-10 pl-6 border-l-[1.5px] border-red font-mono text-[0.95em] leading-[1.7] text-ink">{x.quote}</blockquote>

@@ -1,30 +1,32 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   Tokens, taken from the book.
+   Tokens, taken from the printed book.
    Cover: red B5291C on cream F7F3EC, ink 111111.
-   Interior loop colours sampled from the state-line artwork.
+   Loop colours sampled from the state-line artwork.
+   Evidence-marker colours sampled from the pulse legend.
 ------------------------------------------------------------------ */
 :root {
-  --paper: #f7f3ec;        /* cover cream */
-  --page: #fffdf9;         /* interior page */
+  --paper: #f7f3ec;
+  --page: #fffdf9;
   --ink: #111111;
   --ink-soft: #3a3835;
-  --quiet: #8a857e;        /* running heads, folios */
+  --quiet: #8a857e;
   --rule: rgba(17, 17, 17, 0.14);
-  --rule-strong: rgba(17, 17, 17, 0.5);
-  --red: #b5291c;          /* brand red, cover */
+  --rule-strong: rgba(17, 17, 17, 0.45);
+  --red: #b5291c;
+
   --safety: #c75043;
-  --safety-light: #cf6a5e;
   --safety-pale: #f0d3cf;
   --time: #4b839a;
-  --time-light: #a0bcc7;
   --time-pale: #d3e1e7;
   --attention: #988349;
-  --attention-light: #b9a97a;
   --attention-pale: #dcd3bd;
 
-  --font-display: "Bebas Neue", var(--font-bebas), "Impact", sans-serif;
+  --grade-high: #c0392b;
+  --grade-medium: #d4881f;
+  --grade-low: #a8a29a;
+
   --font-din: "DIN Alternate", "din-2014", var(--font-barlow), "Helvetica Neue", Arial, sans-serif;
   --font-serif: "ivypresto-display", var(--font-instrument), "Times New Roman", serif;
   --font-body: var(--font-source), "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
@@ -32,7 +34,8 @@
 
   --measure: 62ch;
   --gutter: clamp(1.25rem, 5vw, 4rem);
-  --section: clamp(5rem, 12vw, 10rem);
+  --section: clamp(5rem, 12vw, 9rem);
+  --nav-h: 3.5rem;
 }
 
 @theme inline {
@@ -45,7 +48,6 @@
   --color-safety: var(--safety);
   --color-time: var(--time);
   --color-attention: var(--attention);
-  --font-display: var(--font-display);
   --font-din: var(--font-din);
   --font-serif: var(--font-serif);
   --font-body: var(--font-body);
@@ -74,16 +76,12 @@ body {
 }
 
 ::selection { background: var(--safety-pale); color: var(--ink); }
-
-:focus-visible {
-  outline: 2px solid var(--red);
-  outline-offset: 3px;
-}
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 
 /* ---------- Editorial primitives ---------- */
 .container-book {
   width: 100%;
-  max-width: 76rem;
+  max-width: 78rem;
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
@@ -94,7 +92,10 @@ body {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  line-height: 1.3;
+  line-height: 1.35;
+  /* French and German run longer: never clip, always wrap. */
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 .eyebrow-red { color: var(--red); }
 .eyebrow-quiet { color: var(--quiet); }
@@ -105,21 +106,16 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--quiet);
+  overflow-wrap: break-word;
 }
 
 .serif-title {
   font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.05;
-}
-
-.display {
-  font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 0.85;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 1.06;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .din-head {
@@ -127,23 +123,19 @@ body {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  line-height: 1.12;
+  line-height: 1.15;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
-
-.rule { border-top: 1px solid var(--rule); }
-.rule-red { border-top: 1.5px solid var(--red); }
 
 .prose-book {
   max-width: var(--measure);
   font-size: clamp(1.0625rem, 0.95rem + 0.45vw, 1.2rem);
   line-height: 1.58;
-  color: var(--ink);
 }
 .prose-book p + p { margin-top: 1.1em; }
 
-/* Running head like the interior: light, tracked, quiet */
 .running-head {
-  font-family: var(--font-body);
   font-weight: 300;
   font-size: 0.7rem;
   letter-spacing: 0.22em;
@@ -151,21 +143,7 @@ body {
   color: var(--quiet);
 }
 
-/* Cover-style bracket corners around a short line */
-.bracket {
-  position: relative;
-  padding: 1.1rem 1.4rem;
-}
-.bracket::before, .bracket::after {
-  content: "";
-  position: absolute;
-  width: 1.1rem; height: 1.1rem;
-  border: 1.5px solid var(--ink);
-}
-.bracket::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
-.bracket::after { bottom: 0; right: 0; border-left: 0; border-top: 0; }
-
-/* Buttons: text with a rule, not pills */
+/* Buttons: a rule under a word, never a pill. Sized for a thumb. */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -175,11 +153,12 @@ body {
   font-family: var(--font-din);
   font-weight: 700;
   font-size: 0.78rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink);
   border-bottom: 1.5px solid var(--ink);
   transition: color 160ms ease, border-color 160ms ease;
+  max-width: 100%;
 }
 .btn:hover { color: var(--red); border-color: var(--red); }
 .btn-red { color: var(--red); border-color: var(--red); }
@@ -189,6 +168,7 @@ body {
   background: var(--red);
   color: var(--paper);
   border: 0;
+  min-height: 3rem;
 }
 .btn-solid:hover { background: var(--ink); color: var(--paper); }
 
@@ -201,77 +181,304 @@ body {
 }
 .reveal.is-visible { opacity: 1; transform: none; }
 
-/* ---------- The day, read twice ---------- */
-.first-reading {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.7rem);
-  line-height: 1.28;
-  color: var(--ink);
+/* ==================================================================
+   THE BOOK
+   Built from the printed artwork: front board, spine, back board,
+   page block, and page 3 inside. Driven by --open (0 shut, 1 open).
+================================================================== */
+.book-stage {
+  --bw: min(41vw, 200px);
+  /* Spine depth. The printed spine is 17.65 mm on a 152.4 mm board (0.116),
+     which is honest but reads flat on a screen at this rotation. Trade
+     mockups all sit thicker; this is the restrained version of that. */
+  --bd: calc(var(--bw) * 0.19);
   position: relative;
-  transition: color 600ms ease;
+  width: calc(var(--bw) * 2);
+  height: calc(var(--bw) * 1.5);
+  perspective: 2400px;
+  perspective-origin: 50% 42%;
+  display: grid;
+  place-items: center;
 }
-.first-reading .strike {
-  background-image: linear-gradient(var(--safety), var(--safety));
-  background-repeat: no-repeat;
-  background-size: 0% 1.5px;
-  background-position: 0 58%;
-  transition: background-size 900ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 150ms;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+@media (min-width: 768px) {
+  .book-stage { --bw: min(30vw, 300px); }
 }
-.day-row.is-read .first-reading { color: var(--ink-soft); }
-.day-row.is-read .first-reading .strike { background-size: 100% 1.5px; }
-.state-line {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-  color: var(--red);
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 500ms ease, transform 500ms ease;
-  transition-delay: calc(500ms + var(--i) * 140ms);
+@media (min-width: 1280px) {
+  .book-stage { --bw: 340px; }
 }
-.day-row.is-read .state-line { opacity: 1; transform: none; }
-.loop-seg { transition: transform 900ms cubic-bezier(0.4, 0, 0.2, 1); transform-origin: top; transform: scaleY(0.12); }
-.day-row.is-read .loop-seg { transform: scaleY(1); }
 
-/* ---------- Audio ---------- */
-.pulse-path {
-  stroke: var(--red);
-  stroke-width: 2.2;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 8 300;
-  stroke-dashoffset: 0;
+.book {
+  position: relative;
+  width: var(--bw);
+  height: calc(var(--bw) * 1.5);
+  transform-style: preserve-3d;
+  transform:
+    translateX(calc(var(--open, 0) * var(--bw) * 0.42))
+    rotateX(3deg)
+    rotateY(calc(26deg - var(--open, 0) * 19deg));
 }
-.pulse-playing .pulse-path {
-  animation: pulse-trace 1.6s linear infinite;
+
+.book__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1px 3px 3px 1px;
+  overflow: hidden;
 }
-@keyframes pulse-trace {
-  to { stroke-dashoffset: -308; }
+
+/* Back board */
+.book__back {
+  background: var(--red);
+  transform: translateZ(0);
+  box-shadow: inset -6px 0 14px rgba(0, 0, 0, 0.22);
+}
+
+/* Spine: connects the two boards along the left edge */
+.book__spine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--bd);
+  height: 100%;
+  transform-origin: left center;
+  transform: rotateY(-90deg);
+  background: var(--red);
+  overflow: hidden;
+}
+.book__spine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.28), rgba(0,0,0,0) 45%, rgba(0,0,0,0.22));
+}
+
+/* The page block. Its face is the title page. */
+.book__block {
+  position: absolute;
+  top: 0.8%;
+  bottom: 0.8%;
+  left: 0;
+  right: 1.6%;
+  transform: translateZ(calc(var(--bd) * 0.86));
+  background:
+    linear-gradient(90deg, rgba(17,17,17,0.22) 0%, rgba(17,17,17,0.07) 4%, rgba(17,17,17,0) 13%),
+    var(--page);
+  border-radius: 0 2px 2px 0;
+  overflow: hidden;
+}
+
+/* Fore edge: the stack of leaves, visible once the board swings away */
+.book__edge {
+  position: absolute;
+  top: 0.8%;
+  bottom: 0.8%;
+  right: 1.6%;
+  width: calc(var(--bd) * 0.86);
+  transform-origin: right center;
+  transform: rotateY(90deg);
+  background:
+    repeating-linear-gradient(90deg, #e9e2d6 0 1px, #fbf8f2 1px 2.5px);
+  box-shadow: inset 0 0 8px rgba(17, 17, 17, 0.18);
+}
+
+/* Front board, hinged on the spine */
+.book__cover {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transform: translateZ(var(--bd)) rotateY(calc(var(--open, 0) * -138deg));
+  will-change: transform;
+}
+.book__cover-outer {
+  box-shadow: 2px 2px 14px rgba(17, 17, 17, 0.18);
+}
+.book__cover-inner {
+  transform: rotateY(180deg);
+  background:
+    linear-gradient(270deg, rgba(17,17,17,0.20) 0%, rgba(17,17,17,0.05) 4%, rgba(17,17,17,0) 12%),
+    var(--page);
+  border-radius: 3px 1px 1px 3px;
+}
+
+/* A soft sheen across the printed cover, strongest when shut */
+.book__gloss {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(255,255,255,0.32) 0%, rgba(255,255,255,0) 38%);
+  opacity: calc(1 - var(--open, 0) * 0.7);
+  pointer-events: none;
+}
+
+/* Contact shadow */
+.book__shadow {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--bw) * -0.06);
+  width: calc(var(--bw) * (1.35 + var(--open, 0) * 0.8));
+  height: calc(var(--bw) * 0.13);
+  transform: translateX(calc(-50% + var(--open, 0) * var(--bw) * 0.16));
+  background: radial-gradient(closest-side, rgba(17, 17, 17, 0.48), rgba(17, 17, 17, 0));
+  filter: blur(9px);
+  pointer-events: none;
+}
+
+/* Page 3, the title page, set inside the block */
+.book__titlepage {
+  position: absolute;
+  inset: 0;
+  padding: 9% 8% 7% 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  opacity: clamp(0, calc((var(--open, 0) - 0.42) * 3.2), 1);
+  color: var(--ink);
+}
+.book__strap {
+  font-family: var(--font-din);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--red);
+  font-size: calc(var(--bw) * 0.033);
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+.book__titlepage-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.02;
+  font-size: calc(var(--bw) * 0.135);
+  margin-block: auto;
+}
+.book__titlepage-title span { display: block; }
+.book__imprint {
+  font-family: var(--font-din);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: calc(var(--bw) * 0.03);
+  line-height: 2;
+  color: var(--ink-soft);
+}
+.book__imprint span { display: block; }
+
+/* ---------- The hero track ---------- */
+.hero-track {
+  position: relative;
+  height: calc(100svh + 92vh);
+  border-top: 6px solid var(--red);
+}
+@media (min-width: 768px) {
+  .hero-track { height: calc(100svh + 115vh); }
+  .hero-stage { min-height: 34rem; }
+}
+.hero-stage {
+  position: sticky;
+  top: var(--nav-h);
+  height: calc(100svh - var(--nav-h));
+  display: flex;
+  align-items: center;
+  padding-block: 1.5rem;
+}
+.hero-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  opacity: calc(1 - var(--open, 0) * 4);
+  transition: opacity 200ms linear;
+  pointer-events: none;
+}
+
+/* Short screens (landscape phones, small laptops): never pin, never clip. */
+@media (max-height: 700px) {
+  .hero-track { height: auto; }
+  .hero-stage { position: static; height: auto; min-height: 0; padding-block: 3.5rem; }
+  .hero-hint { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-track { height: auto; }
+  .hero-stage { position: static; height: auto; min-height: 0; padding-block: var(--section); }
+  .hero-hint { display: none; }
+  .book__cover { will-change: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .first-reading .strike, .state-line, .loop-seg { transition: none; }
-  .pulse-playing .pulse-path { animation: none; stroke-dasharray: none; }
 }
 
-/* ---------- Reading mode ---------- */
-.reading-page {
+/* ==================================================================
+   CASE EVIDENCE — the book's own chapter-opening pages
+================================================================== */
+.case-card {
+  position: relative;
   background: var(--page);
-  min-height: 100dvh;
+  border: 1px solid var(--rule);
+  padding: 1.6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
+@media (min-width: 640px) {
+  .case-card { padding: clamp(1.6rem, 3vw, 2.4rem); }
+}
+.case-card__time {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.case-card__quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  line-height: 1.25;
+  margin-top: 0.5rem;
+}
+/* Once the cards sit side by side they need matching internal rhythm. */
+@media (min-width: 640px) {
+  .case-card__quote { min-height: 2.6em; }
+}
+
+/* ==================================================================
+   THE READING — page 13, where the book asks the reader to check
+================================================================== */
+.reading-step {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 7vw, 4rem);
+  line-height: 1.08;
+  color: var(--ink);
+  transition: opacity 600ms ease;
+}
+/* The class is added by script, so with no JS nothing is ever dimmed. */
+.reading-list.is-dimmed .reading-step { opacity: 0.2; }
+.reading-list.is-dimmed .reading-step.is-on { opacity: 1; }
+.reading-step.is-on .reading-step__num { color: var(--red); }
+.reading-step__num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--quiet);
+  display: block;
+  margin-bottom: 0.4rem;
+  transition: color 600ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reading-list.is-dimmed .reading-step { opacity: 1; }
+  .reading-step { transition: none; }
+}
+
+/* ==================================================================
+   Reading mode
+================================================================== */
+.reading-page { background: var(--page); min-height: 100dvh; }
 .reading-body {
   max-width: 34rem;
   margin-inline: auto;
   font-size: clamp(1.1rem, 1rem + 0.5vw, 1.25rem);
   line-height: 1.62;
 }
-.reading-body p + p { margin-top: 1.15em; }
+.reading-body p + p,
+.reading-body .reading-para + .reading-para > p:first-child { margin-top: 1.15em; }
 .reading-body .dropcap::first-letter {
   font-family: var(--font-body);
   font-weight: 400;
@@ -280,4 +487,23 @@ body {
   float: left;
   padding-right: 0.08em;
   margin-top: 0.06em;
+}
+
+/* ---------- Audio ---------- */
+.pulse-path {
+  stroke: var(--red);
+  stroke-width: 2.2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pulse-playing .pulse-path {
+  stroke-dasharray: 8 300;
+  animation: pulse-trace 1.6s linear infinite;
+}
+@keyframes pulse-trace {
+  to { stroke-dashoffset: -308; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pulse-playing .pulse-path { animation: none; stroke-dasharray: none; }
 }

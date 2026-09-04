@@ -34,7 +34,6 @@ export function Notify({ content, edition, pressEmail, locale }: { content: Site
   return (
     <div className="max-w-xl">
       <h2 id="notify-title" className="serif-title text-[clamp(1.9rem,4vw,3rem)]">{content.notifyHeading}</h2>
-      <p className="prose-book text-ink-soft mt-4">{content.notifyBody}</p>
       {edition.newsletterUrl ? (
         state === "done" ? (
           <p className="mt-8 font-mono text-sm text-red" role="status">{content.success}</p>

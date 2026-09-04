@@ -1,9 +1,14 @@
 import type { SiteContent } from "./types";
 
 /**
- * FRENCH CONTENT. Structure mirrors content/en.ts.
- * Every "" is a string still to translate; it renders as ⟦fr: key⟧ until filled.
- * Do not enable this language in site.config.ts until the file is complete.
+ * FRENCH CONTENT. Same structure as content/en.ts.
+ *
+ * Every "" is a string still to translate. Until it is filled it renders as
+ * ⟦fr: the.key⟧ so nothing English can leak through unnoticed.
+ *
+ * Identifiers, page numbers, times and file paths are already correct and
+ * should not be changed. Do not enable this language in site.config.ts
+ * until the file is complete.
  */
 export const fr: SiteContent = {
   "meta": {
@@ -23,7 +28,6 @@ export const fr: SiteContent = {
     "author": "",
     "press": "",
     "skipToContent": "",
-    "languageLabel": "",
     "home": ""
   },
   "status": {
@@ -32,7 +36,6 @@ export const fr: SiteContent = {
     "publicationDatePrefix": "",
     "buy": "",
     "notifyHeading": "",
-    "notifyBody": "",
     "emailLabel": "",
     "emailPlaceholder": "",
     "submit": "",
@@ -51,134 +54,121 @@ export const fr: SiteContent = {
     "strap": "",
     "authorPrefix": "",
     "coverAlt": "",
+    "openAlt": "",
     "readCta": "",
-    "listenCta": ""
+    "scrollHint": ""
   },
-  "proposition": {
+  "reading": {
     "eyebrow": "",
-    "headline": [
+    "lead": "",
+    "steps": [
       "",
       "",
       ""
     ],
-    "headlineAccent": "",
-    "tableHeaders": [
-      "",
-      "",
-      ""
-    ],
-    "tableRows": [
-      [
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
-        "",
-        ""
-      ]
-    ],
-    "paragraphs": [
-      "",
-      "",
-      ""
-    ],
-    "closer": "",
-    "band": ""
+    "result": "",
+    "afterResult": "",
+    "question": ""
   },
-  "day": {
+  "loops": {
     "eyebrow": "",
     "title": "",
     "intro": "",
-    "columnFirst": "",
-    "columnState": "",
-    "rows": [
+    "items": [
       {
-        "time": "06:38",
-        "loop": "time",
-        "firstReading": "",
-        "state": [
-          "",
-          ""
-        ]
+        "key": "time",
+        "name": "",
+        "legend": "",
+        "body": ""
       },
       {
-        "time": "06:52",
-        "loop": "attention",
-        "firstReading": "",
-        "state": [
-          "",
-          "",
-          ""
-        ]
+        "key": "attention",
+        "name": "",
+        "legend": "",
+        "body": ""
       },
       {
-        "time": "07:25",
-        "loop": "safety",
-        "firstReading": "",
-        "state": [
-          "",
-          "",
-          ""
-        ]
-      },
-      {
-        "time": "08:05",
-        "loop": "safety",
-        "firstReading": "",
-        "state": [
-          "",
-          "",
-          "",
-          ""
-        ]
-      },
-      {
-        "time": "09:30",
-        "loop": "time",
-        "firstReading": "",
-        "state": [
-          "",
-          "",
-          ""
-        ]
-      },
-      {
-        "time": "10:00",
-        "loop": "safety",
-        "firstReading": "",
-        "state": [
-          ""
-        ]
+        "key": "safety",
+        "name": "",
+        "legend": "",
+        "body": ""
       }
     ],
-    "closing": [
-      "",
-      ""
-    ],
-    "loopLabels": {
-      "time": "",
-      "attention": "",
-      "safety": ""
-    }
+    "outro": ""
+  },
+  "cases": {
+    "eyebrow": "",
+    "title": "",
+    "intro": "",
+    "pageLabel": "",
+    "items": [
+      {
+        "chapter": "00",
+        "page": 16,
+        "time": "06:38",
+        "quote": "",
+        "inputLabel": "",
+        "input": "",
+        "verifiedLabel": "",
+        "verified": ""
+      },
+      {
+        "chapter": "02",
+        "page": 28,
+        "time": "22:47",
+        "quote": "",
+        "inputLabel": "",
+        "input": "",
+        "verifiedLabel": "",
+        "verified": ""
+      },
+      {
+        "chapter": "05",
+        "page": 66,
+        "time": "22:30",
+        "quote": "",
+        "inputLabel": "",
+        "input": "",
+        "verifiedLabel": "",
+        "verified": ""
+      },
+      {
+        "chapter": "11",
+        "page": 150,
+        "time": "16:00",
+        "quote": "",
+        "inputLabel": "",
+        "input": "",
+        "verifiedLabel": "",
+        "verified": ""
+      },
+      {
+        "chapter": "13",
+        "page": 182,
+        "time": "22:40",
+        "quote": "",
+        "inputLabel": "",
+        "input": "",
+        "verifiedLabel": "",
+        "verified": ""
+      },
+      {
+        "chapter": "15",
+        "page": 208,
+        "time": "22:14",
+        "quote": "",
+        "inputLabel": "",
+        "input": "",
+        "verifiedLabel": "",
+        "verified": ""
+      }
+    ]
   },
   "excerpt": {
     "eyebrow": "",
     "title": "",
     "sectionLabel": "",
     "runningHead": "",
-    "runningHeadVerso": "",
     "teaserCount": 2,
     "cta": "",
     "continueCta": "",
@@ -213,109 +203,127 @@ export const fr: SiteContent = {
     "progress": "",
     "elapsed": "",
     "duration": "",
-    "unavailable": "",
-    "unavailableDetail": ""
+    "unavailable": ""
   },
   "about": {
     "eyebrow": "",
     "title": "",
+    "quote": "",
+    "quoteSource": "",
     "paragraphs": [
-      "",
       ""
     ],
-    "auditEyebrow": "",
-    "audit": "",
-    "facts": [
+    "mapLine": "",
+    "evidenceEyebrow": "",
+    "evidenceIntro": "",
+    "grades": [
       {
+        "key": "high",
         "label": "",
-        "value": ""
+        "shape": "",
+        "meaning": ""
       },
       {
+        "key": "medium",
         "label": "",
-        "value": ""
+        "shape": "",
+        "meaning": ""
       },
       {
+        "key": "low",
         "label": "",
-        "value": ""
-      },
-      {
-        "label": "",
-        "value": ""
-      },
-      {
-        "label": "",
-        "value": ""
+        "shape": "",
+        "meaning": ""
       }
     ],
+    "overreachEyebrow": "",
+    "overreach": "",
     "readersEyebrow": "",
     "readers": "",
     "mapEyebrow": "",
     "mapTitle": "",
     "mapSubtitle": "",
+    "pageColumn": "",
     "chapters": [
       {
         "number": "00",
-        "title": ""
+        "title": "",
+        "page": 17
       },
       {
         "number": "01",
-        "title": ""
+        "title": "",
+        "page": 23
       },
       {
         "number": "02",
-        "title": ""
+        "title": "",
+        "page": 29
       },
       {
         "number": "03",
-        "title": ""
+        "title": "",
+        "page": 39
       },
       {
         "number": "04",
-        "title": ""
+        "title": "",
+        "page": 51
       },
       {
         "number": "05",
-        "title": ""
+        "title": "",
+        "page": 67
       },
       {
         "number": "06",
-        "title": ""
+        "title": "",
+        "page": 79
       },
       {
         "number": "07",
-        "title": ""
+        "title": "",
+        "page": 95
       },
       {
         "number": "08",
-        "title": ""
+        "title": "",
+        "page": 105
       },
       {
         "number": "09",
-        "title": ""
+        "title": "",
+        "page": 121
       },
       {
         "number": "10",
-        "title": ""
+        "title": "",
+        "page": 135
       },
       {
         "number": "11",
-        "title": ""
+        "title": "",
+        "page": 151
       },
       {
         "number": "12",
-        "title": ""
+        "title": "",
+        "page": 167
       },
       {
         "number": "13",
-        "title": ""
+        "title": "",
+        "page": 183
       },
       {
         "number": "14",
-        "title": ""
+        "title": "",
+        "page": 195
       },
       {
         "number": "15",
-        "title": ""
+        "title": "",
+        "page": 209
       }
     ],
     "mapFooter": ""
@@ -325,30 +333,30 @@ export const fr: SiteContent = {
     "title": "",
     "photoAlt": "",
     "photoPlaceholder": "",
-    "paragraphs": [
-      "",
-      ""
-    ],
+    "bio": "",
     "websiteLabel": "",
     "contactLabel": "",
     "pressLabel": ""
   },
   "companion": {
     "eyebrow": "",
-    "line": "",
-    "detail": ""
+    "line": ""
   },
   "press": {
     "eyebrow": "",
     "title": "",
     "intro": "",
     "contactHeading": "",
-    "contactBody": "",
     "assetsHeading": "",
     "assets": [
       {
         "label": "",
         "file": "/press/cover-front-2400.jpg",
+        "note": ""
+      },
+      {
+        "label": "",
+        "file": "/press/author-photo-1600.jpg",
         "note": ""
       },
       {
@@ -385,10 +393,6 @@ export const fr: SiteContent = {
     "photoUnavailable": "",
     "bioHeading": "",
     "bios": [
-      {
-        "label": "",
-        "text": ""
-      },
       {
         "label": "",
         "text": ""
@@ -435,6 +439,14 @@ export const fr: SiteContent = {
       {
         "label": "",
         "value": ""
+      },
+      {
+        "label": "",
+        "value": ""
+      },
+      {
+        "label": "",
+        "value": ""
       }
     ],
     "descriptionHeading": "",
@@ -443,11 +455,25 @@ export const fr: SiteContent = {
       "",
       ""
     ],
+    "creditsHeading": "",
+    "credits": [
+      {
+        "label": "",
+        "value": ""
+      },
+      {
+        "label": "",
+        "value": ""
+      },
+      {
+        "label": "",
+        "value": ""
+      }
+    ],
     "back": ""
   },
   "footer": {
     "band": "",
-    "publisher": "",
     "rights": "",
     "pressLink": "",
     "contactLink": "",
@@ -456,9 +482,9 @@ export const fr: SiteContent = {
   "a11y": {
     "mainLandmark": "",
     "coverFigure": "",
-    "pulseMark": "",
     "languageSwitcher": "",
-    "externalLink": "",
-    "dayRegion": ""
+    "languageComing": "",
+    "casesRegion": "",
+    "bookOpening": ""
   }
 };

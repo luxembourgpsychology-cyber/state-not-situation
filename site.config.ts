@@ -37,6 +37,8 @@ export interface SiteConfig {
   siteUrl: string;
   defaultLocale: Locale;
   languages: Record<Locale, { enabled: boolean; label: string; name: string; htmlLang: string }>;
+  /** Development only: show disabled languages as real links, with missing strings marked ⟦like this⟧. Never affects production. */
+  previewDraftLanguages: boolean;
   editions: Record<Locale, EditionSettings>;
   companion: { enabled: boolean };
   press: { enabled: boolean; authorPhoto: string | null; pressKitZipUrl: string | null };
@@ -69,6 +71,15 @@ export const siteConfig: SiteConfig = {
     de: { enabled: false, label: "DE", name: "Deutsch", htmlLang: "de" },
   },
 
+  /**
+   * While a language is disabled its mark (FR, DE) still appears in the switcher,
+   * muted and not clickable, so a visitor knows editions are coming. To walk
+   * through an unfinished translation on your own machine, set this to true and
+   * run `npm run dev`: the muted marks become links and every untranslated
+   * string shows as ⟦fr: key⟧. Production builds ignore this flag.
+   */
+  previewDraftLanguages: false,
+
   editions: {
     en: {
       publicationStatus: "forthcoming",
@@ -78,7 +89,7 @@ export const siteConfig: SiteConfig = {
       excerptAvailable: true,
       newsletterUrl: null,
       newsletterEmailField: "email",
-      isbn: null,
+      isbn: "978-2-87996-258-0",
     },
     fr: {
       publicationStatus: "forthcoming",
@@ -102,13 +113,16 @@ export const siteConfig: SiteConfig = {
     },
   },
 
-  /** The small placeholder for the future companion tool. Flip off to hide the section. */
-  companion: { enabled: true },
+  /**
+   * The companion tool. Off until there is a sentence to put here: write
+   * companion.line in content/en.ts, then set this to true.
+   */
+  companion: { enabled: false },
 
   /** Press section. authorPhoto: path under /public once supplied, else null. */
   press: {
     enabled: true,
-    authorPhoto: null,
+    authorPhoto: "/images/author.jpg",
     pressKitZipUrl: null,
   },
 
@@ -132,6 +146,7 @@ export const siteConfig: SiteConfig = {
   author: {
     name: "Ivana Budišin",
     /** Your psychology website. Null hides the link. */
+    // Your psychology practice website. Null hides the link.
     website: null,
     pressEmail: "luxembourgpsychology@gmail.com",
     social: {

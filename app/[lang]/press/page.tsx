@@ -24,7 +24,9 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
   const c = getContent(locale);
   const p = c.press;
   const ed = siteConfig.editions[locale];
-  const facts = p.facts.map((f) => (f.label === "ISBN" && ed.isbn ? { ...f, value: ed.isbn } : f));
+  const facts = p.facts.map((f) => (f.label.startsWith("ISBN") && ed.isbn ? { ...f, value: ed.isbn } : f));
+  const photo = siteConfig.press.authorPhoto;
+  const assets = p.assets.filter((a) => (a.file.includes("author-photo") ? Boolean(photo) : true));
 
   return (
     <>
@@ -34,13 +36,30 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
           <div className="md:col-span-4">
             <p className="eyebrow eyebrow-red mb-4">{p.eyebrow}</p>
             <h1 className="serif-title text-[clamp(2.2rem,5vw,3.6rem)]">{p.title}</h1>
+
             <div className="mt-10 max-w-[240px]">
-              <Image src="/images/cover-front.jpg" alt={c.hero.coverAlt} width={1200} height={1800} sizes="240px" className="w-full h-auto shadow-[0_18px_50px_-24px_rgba(17,17,17,0.45)]" />
+              <Image
+                src="/images/cover-front.jpg"
+                alt={c.hero.coverAlt}
+                width={1200}
+                height={1800}
+                sizes="240px"
+                className="w-full h-auto shadow-[0_18px_50px_-24px_rgba(17,17,17,0.45)]"
+              />
             </div>
+
+            {photo ? (
+              <div className="mt-8 max-w-[240px]">
+                <Image src={photo} alt={c.author.photoAlt} width={1200} height={1200} sizes="240px" className="w-full h-auto" />
+              </div>
+            ) : null}
+
             <div className="mt-10">
               <p className="mono-label mb-2">{p.contactHeading}</p>
-              <p className="font-serif text-xl">{p.contactBody}</p>
-              <a href={`mailto:${siteConfig.author.pressEmail}`} className="btn mt-2">{siteConfig.author.pressEmail}</a>
+              <p className="font-serif text-xl">{siteConfig.author.name}</p>
+              <a href={`mailto:${siteConfig.author.pressEmail}`} className="btn mt-2 break-all">
+                {siteConfig.author.pressEmail}
+              </a>
             </div>
           </div>
 
@@ -50,26 +69,21 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
             <section aria-labelledby="press-downloads">
               <h2 id="press-downloads" className="eyebrow eyebrow-red mb-4">{p.assetsHeading}</h2>
               <ul className="border-t border-[var(--rule)]">
-                {p.assets.map((a) => (
+                {assets.map((a) => (
                   <li key={a.file} className="border-b border-[var(--rule)]">
                     <a href={a.file} download className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4 hover:text-red">
-                      <span className="font-body text-lg">{a.label}</span>
+                      <span className="text-lg">{a.label}</span>
                       <span className="font-mono text-xs text-quiet">{a.note}</span>
                     </a>
                   </li>
                 ))}
-                {siteConfig.press.authorPhoto ? (
-                  <li className="border-b border-[var(--rule)]">
-                    <a href={siteConfig.press.authorPhoto} download className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4 hover:text-red">
-                      <span className="font-body text-lg">{c.author.title}</span>
-                      <span className="font-mono text-xs text-quiet">JPEG</span>
-                    </a>
-                  </li>
-                ) : (
+                {!photo ? (
                   <li className="border-b border-[var(--rule)] py-4 font-mono text-sm text-quiet">{p.photoUnavailable}</li>
-                )}
+                ) : null}
                 {siteConfig.press.pressKitZipUrl ? (
-                  <li className="border-b border-[var(--rule)]"><a href={siteConfig.press.pressKitZipUrl} download className="block py-4 btn">Press kit (.zip)</a></li>
+                  <li className="border-b border-[var(--rule)]">
+                    <a href={siteConfig.press.pressKitZipUrl} download className="block py-4 btn">Press kit (.zip)</a>
+                  </li>
                 ) : null}
               </ul>
             </section>
@@ -85,7 +99,7 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
                 {p.bios.map((b) => (
                   <div key={b.label}>
                     <dt className="mono-label mb-2">{b.label}</dt>
-                    <dd className="prose-book">{b.text}</dd>
+                    <dd className={`prose-book ${b.text.startsWith("[COPY NEEDED") ? "text-quiet" : ""}`}>{b.text}</dd>
                   </div>
                 ))}
               </dl>
@@ -95,9 +109,21 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
               <h2 id="press-facts" className="eyebrow eyebrow-red mb-4">{p.factsHeading}</h2>
               <dl className="border-t border-[var(--rule)]">
                 {facts.map((f) => (
-                  <div key={f.label} className="grid grid-cols-[8rem_1fr] sm:grid-cols-[11rem_1fr] gap-4 py-3 border-b border-[var(--rule)]">
+                  <div key={f.label} className="grid grid-cols-[7.5rem_1fr] sm:grid-cols-[11rem_1fr] gap-4 py-3 border-b border-[var(--rule)]">
                     <dt className="mono-label pt-1">{f.label}</dt>
-                    <dd className="font-body">{f.value}</dd>
+                    <dd>{f.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+
+            <section aria-labelledby="press-credits">
+              <h2 id="press-credits" className="eyebrow eyebrow-red mb-4">{p.creditsHeading}</h2>
+              <dl className="border-t border-[var(--rule)]">
+                {p.credits.map((f) => (
+                  <div key={f.label} className="grid grid-cols-[7.5rem_1fr] sm:grid-cols-[11rem_1fr] gap-4 py-3 border-b border-[var(--rule)]">
+                    <dt className="mono-label pt-1">{f.label}</dt>
+                    <dd>{f.value}</dd>
                   </div>
                 ))}
               </dl>

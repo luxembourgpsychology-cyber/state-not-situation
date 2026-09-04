@@ -79,7 +79,7 @@ export function AudioPlayer({ src, content, locale }: { src: string | null; cont
       </div>
 
       {src ? <audio ref={audio} src={src} preload="metadata" /> : (
-        <p className="mt-4 font-mono text-sm text-quiet">{content.unavailable} <span className="text-ink-soft">{content.unavailableDetail}</span></p>
+        <p className="mt-4 font-mono text-sm text-quiet">{content.unavailable}</p>
       )}
     </div>
   );

@@ -1,20 +1,49 @@
 /**
  * The shape every language file must follow. Interface strings and book copy
- * live together so a translator receives one file per language.
+ * live together so a translator receives exactly one file per language.
+ *
+ * RULE OF THIS FILE: a string here is either
+ *   (a) set in the printed book or on the printed cover, word for word,
+ *   (b) a plain functional interface label, or
+ *   (c) a marked [COPY NEEDED: …] placeholder.
+ * Nothing else. See CONTENT_SOURCES.md for the page reference behind each line.
  */
-export interface DayRow {
+
+export interface CaseEvidence {
+  /** Chapter number as printed, e.g. "00". */
+  chapter: string;
+  /** Printed page the panel appears on. */
+  page: number;
   time: string;
-  /** The loop that dominates this moment, colours the margin bar. */
-  loop: "time" | "attention" | "safety";
-  /** What the moment feels like: the first reading, in Katrin's words. */
-  firstReading: string;
-  /** What the instrument was set to, in the cover's annotation grammar. */
-  state: string[];
+  /** The line in quotation marks, as printed. */
+  quote: string;
+  inputLabel: string;
+  input: string;
+  /** VERIFIED EVENT / VERIFIED TONE / NEXT READING … varies by chapter. */
+  verifiedLabel: string;
+  verified: string;
+}
+
+export interface Loop {
+  key: "time" | "attention" | "safety";
+  name: string;
+  /** The one-line definition from the state-line legend. */
+  legend: string;
+  /** The fuller definition from the book's front matter. */
+  body: string;
+}
+
+export interface EvidenceGrade {
+  key: "high" | "medium" | "low";
+  label: string;
+  shape: string;
+  meaning: string;
 }
 
 export interface Chapter {
   number: string;
   title: string;
+  page: number;
 }
 
 export interface SiteContent {
@@ -35,7 +64,6 @@ export interface SiteContent {
     author: string;
     press: string;
     skipToContent: string;
-    languageLabel: string;
     home: string;
   };
   status: {
@@ -44,7 +72,6 @@ export interface SiteContent {
     publicationDatePrefix: string;
     buy: string;
     notifyHeading: string;
-    notifyBody: string;
     emailLabel: string;
     emailPlaceholder: string;
     submit: string;
@@ -57,48 +84,51 @@ export interface SiteContent {
   };
   hero: {
     eyebrow: string;
+    /** Title as set on the half title: "State." + "Not Situation" */
     titleA: string;
     titleB: string;
     subtitle: string;
     strap: string;
     authorPrefix: string;
     coverAlt: string;
+    openAlt: string;
     readCta: string;
-    listenCta: string;
+    scrollHint: string;
   };
-  proposition: {
+  /** Page 13: the reader is asked to take a reading. Verbatim. */
+  reading: {
     eyebrow: string;
-    headline: string[];
-    headlineAccent: string;
-    tableHeaders: [string, string, string];
-    tableRows: [string, string, string][];
-    paragraphs: string[];
-    closer: string;
-    band: string;
+    lead: string;
+    steps: string[];
+    result: string;
+    afterResult: string;
+    question: string;
   };
-  day: {
+  loops: {
     eyebrow: string;
     title: string;
     intro: string;
-    columnFirst: string;
-    columnState: string;
-    rows: DayRow[];
-    closing: string[];
-    loopLabels: { time: string; attention: string; safety: string };
+    outro: string;
+    items: Loop[];
+  };
+  cases: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    pageLabel: string;
+    items: CaseEvidence[];
   };
   excerpt: {
     eyebrow: string;
     title: string;
     sectionLabel: string;
     runningHead: string;
-    runningHeadVerso: string;
     teaserCount: number;
     cta: string;
     continueCta: string;
     back: string;
     readingModeLabel: string;
     paragraphs: string[];
-    /** Index of the paragraph after which the FAA quotation is set. */
     quoteAfter: number;
     quote: string;
     endNote: string;
@@ -115,15 +145,20 @@ export interface SiteContent {
     elapsed: string;
     duration: string;
     unavailable: string;
-    unavailableDetail: string;
   };
   about: {
     eyebrow: string;
     title: string;
+    /** A passage lifted from the book, shown as a quotation with its page. */
+    quote: string;
+    quoteSource: string;
     paragraphs: string[];
-    auditEyebrow: string;
-    audit: string;
-    facts: { label: string; value: string }[];
+    mapLine: string;
+    evidenceEyebrow: string;
+    evidenceIntro: string;
+    grades: EvidenceGrade[];
+    overreachEyebrow: string;
+    overreach: string;
     readersEyebrow: string;
     readers: string;
     mapEyebrow: string;
@@ -131,13 +166,14 @@ export interface SiteContent {
     mapSubtitle: string;
     chapters: Chapter[];
     mapFooter: string;
+    pageColumn: string;
   };
   author: {
     eyebrow: string;
     title: string;
     photoAlt: string;
     photoPlaceholder: string;
-    paragraphs: string[];
+    bio: string;
     websiteLabel: string;
     contactLabel: string;
     pressLabel: string;
@@ -145,14 +181,12 @@ export interface SiteContent {
   companion: {
     eyebrow: string;
     line: string;
-    detail: string;
   };
   press: {
     eyebrow: string;
     title: string;
     intro: string;
     contactHeading: string;
-    contactBody: string;
     assetsHeading: string;
     assets: { label: string; file: string; note: string }[];
     photoUnavailable: string;
@@ -162,11 +196,12 @@ export interface SiteContent {
     facts: { label: string; value: string }[];
     descriptionHeading: string;
     description: string[];
+    creditsHeading: string;
+    credits: { label: string; value: string }[];
     back: string;
   };
   footer: {
     band: string;
-    publisher: string;
     rights: string;
     pressLink: string;
     contactLink: string;
@@ -175,9 +210,9 @@ export interface SiteContent {
   a11y: {
     mainLandmark: string;
     coverFigure: string;
-    pulseMark: string;
     languageSwitcher: string;
-    externalLink: string;
-    dayRegion: string;
+    languageComing: string;
+    casesRegion: string;
+    bookOpening: string;
   };
 }
