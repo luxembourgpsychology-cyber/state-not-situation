@@ -93,9 +93,9 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   line-height: 1.35;
-  /* French and German run longer: never clip, always wrap. */
+  /* French and German run longer: wrap, but never hyphenate display type —
+     tracked capitals broken mid-word read as a defect. */
   overflow-wrap: break-word;
-  hyphens: auto;
 }
 .eyebrow-red { color: var(--red); }
 .eyebrow-quiet { color: var(--quiet); }
@@ -115,7 +115,6 @@ body {
   letter-spacing: -0.005em;
   line-height: 1.06;
   overflow-wrap: break-word;
-  hyphens: auto;
 }
 
 .din-head {
@@ -125,7 +124,6 @@ body {
   text-transform: uppercase;
   line-height: 1.15;
   overflow-wrap: break-word;
-  hyphens: auto;
 }
 
 .prose-book {

@@ -110,7 +110,6 @@ export interface SiteContent {
     eyebrow: string;
     title: string;
     intro: string;
-    outro: string;
     items: Loop[];
   };
   cases: {

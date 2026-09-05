@@ -3,16 +3,16 @@ import type { SiteContent } from "./types";
 /**
  * GERMAN CONTENT. Same structure as content/en.ts.
  *
- * A literary translation of the English site copy, for review by a native
- * speaker. No German edition of the book exists yet, so the title
- * "State. Not Situation." is left untranslated everywhere, as are the ISBN,
- * page numbers, times, file paths and proper nouns.
+ * Plain trade German, not a technical manual. No German edition of the book
+ * exists yet, so the title "State. Not Situation." is left untranslated
+ * everywhere, as are the ISBN, page numbers, times, file paths and proper nouns.
  *
  * Terminology held constant throughout:
  *   state       → Zustand
  *   situation   → Situation
- *   reading     → Messwert (the instrument sense; the verb is lesen / ablesen)
+ *   reading     → Befund (the instrument sense; the verb stays lesen / ablesen)
  *   settings    → Einstellungen
+ *   mind        → Kopf
  *   instrument  → Instrument, the cockpit panel → Instrumentenbrett
  *
  * Every [COPY NEEDED: …] placeholder is left in English on purpose, so that
@@ -23,7 +23,7 @@ export const de: SiteContent = {
     title: "State. Not Situation.",
     titleTemplate: "%s · State. Not Situation.",
     description:
-      "Ein Feldführer für den Moment, bevor aus Deutung Wirklichkeit wird. Sechzehn Fälle. Drei Messwerte. Eine Frage: Zustand oder Situation? Von Ivana Budišin.",
+      "Ein Feldführer für den Moment, bevor aus Deutung Wirklichkeit wird. Sechzehn Fälle. Drei Befunde. Eine Frage: Zustand oder Situation? Von Ivana Budišin.",
     ogImageAlt:
       "Das Cover zu State. Not Situation. von Ivana Budišin: das Wort STATE groß in Rot über NOT SITUATION in Schwarz, auf cremefarbenem Grund.",
     readTitle: "Einen Auszug lesen",
@@ -50,16 +50,16 @@ export const de: SiteContent = {
     publicationDatePrefix: "Erschienen",
     buy: "Bei Amazon kaufen",
     notifyHeading: "Lassen Sie sich benachrichtigen, wenn das Buch erscheint.",
-    notifyCta: "Benachrichtigt werden",
+    notifyCta: "Benachrichtigen lassen",
     emailLabel: "E-Mail-Adresse",
     emailPlaceholder: "ihre@email.com",
     submit: "Benachrichtigen Sie mich",
-    success: "Danke. Sie hören von mir, sobald das Buch erschienen ist.",
-    error: "Das wurde nicht gesendet. Bitte versuchen Sie es noch einmal oder schreiben Sie mir direkt.",
-    privacyNote: "Wird nur für diese Benachrichtigung verwendet.",
+    success: "Danke. Sie hören von mir, sobald das Buch da ist.",
+    error: "Das hat nicht geklappt. Bitte versuchen Sie es noch einmal oder schreiben Sie mir direkt.",
+    privacyNote: "Wird nur für diese Nachricht verwendet.",
     mailtoLabel: "Schreiben Sie mir, um benachrichtigt zu werden",
     mailtoSubject: "Sagen Sie mir Bescheid, wenn State. Not Situation. erscheint",
-    mailtoBody: "Bitte lassen Sie mich wissen, wenn State. Not Situation. erhältlich ist.",
+    mailtoBody: "Bitte sagen Sie mir Bescheid, wenn State. Not Situation. erhältlich ist.",
   },
 
   hero: {
@@ -68,24 +68,24 @@ export const de: SiteContent = {
     titleA: "State.",
     titleB: "Not Situation",
     subtitle: "Ein Feldführer für den Moment, bevor aus Deutung Wirklichkeit wird",
-    strap: "Ihr erster Messwert ist nicht die ganze Geschichte.",
+    strap: "Ihr erster Befund ist nicht die ganze Geschichte.",
     authorPrefix: "von",
     coverAlt:
-      "Vorderseite des Covers von State. Not Situation. Das Wort STATE groß in Rot über NOT SITUATION in Schwarz, auf cremefarbenem Grund, bedruckt mit blassen, durchgestrichenen Sätzen und kleinen Messwerten.",
+      "Vorderseite des Covers von State. Not Situation. Das Wort STATE groß in Rot über NOT SITUATION in Schwarz, auf cremefarbenem Grund, bedruckt mit blassen, durchgestrichenen Sätzen und kleinen Instrumentenanzeigen.",
     openAlt:
       "Das Buch, aufgeschlagen auf dem Schmutztitel, der State. Not Situation. trägt.",
     readCta: "Einen Auszug lesen",
     scrollHint: "Scrollen",
   },
 
-  // Seite 13, wortgetreu. Das Buch bittet die Lesenden um einen Messwert; die Website tut dasselbe.
+  // Seite 13, wortgetreu. Das Buch bittet die Lesenden um einen Befund; die Website tut dasselbe.
   reading: {
     eyebrow: "Bevor wir beginnen",
     lead: "Was auch immer Sie fühlen, während Sie diesen Satz lesen.",
     steps: ["Prüfen Sie Ihren Kiefer.", "Prüfen Sie Ihren Atem.", "Prüfen Sie Ihre Schultern."],
-    result: "Was Sie gefunden haben, ist ein Messwert.",
+    result: "Was Sie gefunden haben, ist ein Befund.",
     afterResult:
-      "Ein Messwert des Instruments, das in diesem Moment alles um Sie herum deutet, auch diese Worte. Der Messwert kann zutreffen. Er kann auch nicht zutreffen. Sie können es nicht wissen, bevor Sie die Einstellungen gesehen haben.",
+      "Ein Befund des Instruments, das gerade alles um Sie herum deutet, auch diese Worte. Der Befund kann stimmen. Er kann auch falsch sein. Wissen können Sie es erst, wenn Sie die Einstellungen gesehen haben.",
     question: "Ist das die Situation? Oder ist das der Zustand?",
   },
 
@@ -94,39 +94,37 @@ export const de: SiteContent = {
     eyebrow: "Die Zustandslinie",
     title: "Drei Systeme liefen durch Katrins Morgen.",
     intro:
-      "Die folgenden Kapitel sind um drei Systeme herum angeordnet, die prägen, wie die Signale Ihres Körpers gewichtet werden, bevor Ihr Verstand daraus eine Geschichte baut. Es sind keine Hirnregionen und keine neuronalen Bahnen. Sie sind ein Sortierwerkzeug, eine Möglichkeit, drei Fragen zu stellen, wenn sich alles auf einmal falsch anfühlt.",
+      "Die folgenden Kapitel sind um drei Systeme herum aufgebaut, die bestimmen, wie viel Gewicht die Signale Ihres Körpers bekommen, bevor Ihr Kopf daraus eine Geschichte macht. Es sind keine Hirnregionen und keine Nervenbahnen. Sie sind ein Werkzeug zum Sortieren, eine Möglichkeit, drei Fragen zu stellen, wenn sich alles auf einmal falsch anfühlt.",
     items: [
       {
         key: "time",
         name: "Zeit",
         legend: "Zirkadiane Phase, Schlafdefizit, Stoffwechselzustand",
         body:
-          "Schlaf, Essen, Koffein, zirkadiane Phase, Erholung. Wenn das Timing nicht stimmt, steigt die Grundempfindlichkeit. Dieselbe Welt fühlt sich härter an.",
+          "Schlaf, Essen, Koffein, zirkadiane Phase, Erholung. Wenn das Timing nicht stimmt, ist die Empfindlichkeit von vornherein höher. Dieselbe Welt fühlt sich härter an.",
       },
       {
         key: "attention",
         name: "Aufmerksamkeit",
-        legend: "Belohnungsschleifen, Kontrollieren, Aufgabenwechsel",
+        legend: "Belohnungsschleifen, ständiges Nachsehen, Aufgabenwechsel",
         body:
-          "Das System, das Belohnung, Neuheit und den nächsten Reiz verfolgt. Wenn es vereinnahmt ist, verengt sich der Fokus auf den billigsten verfügbaren Input, und die teure Arbeit fühlt sich schwer an.",
+          "Das System, das Belohnung, Neues und den nächsten Reiz verfolgt. Wenn es gekapert ist, verengt sich die Aufmerksamkeit auf den billigsten Input, der gerade da ist, und die teure Arbeit fühlt sich schwer an.",
       },
       {
         key: "safety",
         name: "Sicherheit",
-        legend: "Bedrohungserkennung, erste Entwürfe, Fehldeutungen",
+        legend: "Bedrohung erkennen, erste Entwürfe, Fehldeutungen",
         body:
-          "Das System, das Bedrohung überwacht, vor allem soziale Bedrohung. Zum Beispiel soziale Bewertung, Ausschluss, Mehrdeutigkeit, Status. Es ist schnell, es ist alt, und es neigt zu Fehlalarmen. Es erzeugt Deutungen, die sich wie Tatsachen anfühlen.",
+          "Das System, das auf Bedrohung achtet, vor allem auf soziale. Auf Dinge wie Bewertung durch andere, Ausschluss, Unklarheit, Status. Es ist schnell, es ist alt, und es neigt zu Fehlalarmen. Es erzeugt Deutungen, die sich wie Tatsachen anfühlen.",
       },
     ],
-    outro:
-      "Zeit begann um 06:38 und hörte nie auf. Aufmerksamkeit nahm um 06:52 das Telefon. Sicherheit schrieb um 07:25 die Bedeutung der E-Mail. Katrin kann keines von ihnen benennen. Das Einzige, was sie benennen kann, ist David, und David ist der kleinste Teil davon.",
   },
 
   // Die CASE-EVIDENCE-Seiten, aus dem Buch übernommen.
   cases: {
     eyebrow: "Beweismaterial",
-    title: "Sechzehn Fälle. Drei Messwerte.",
-    intro: "Jedes Kapitel beginnt mit einer dieser Seiten.",
+    title: "Sechzehn Fälle. Drei Befunde.",
+    intro: "Jedes Kapitel beginnt mit einer solchen Seite.",
     pageLabel: "Seite",
     items: [
       {
@@ -156,7 +154,7 @@ export const de: SiteContent = {
         quote: "„Seltsam tatkräftig.“",
         inputLabel: "Input",
         input: "Stilles Haus. Offener Bildschirm. Späte Stunde.",
-        verifiedLabel: "Nächster Messwert",
+        verifiedLabel: "Nächster Befund",
         verified: "06:38.",
       },
       {
@@ -204,18 +202,18 @@ export const de: SiteContent = {
     back: "Zurück zum Buch",
     readingModeLabel: "Lesemodus",
     paragraphs: [
-      "Am Abend des 16. Juli 1999 startete ein kleines einmotoriges Flugzeug in New Jersey. Es war auf dem Weg nach Martha’s Vineyard. Der Pilot war erfahren genug, um selbstsicher zu sein, und neu genug, um sich darüber zu täuschen, was diese Selbstsicherheit wert war. Er hatte etwa 300 Stunden in der Luft. Er hatte die Ausbildung nicht abgeschlossen, die ihn berechtigt hätte, nur nach seinen Instrumenten zu fliegen.",
-      "Der Himmel war klar, als er startete, also schloss er daraus, dass er keine Instrumente brauchte. Als er die Küste erreichte, war der Himmel es nicht mehr. Dunst hatte sich über das Wasser gelegt. Die Art von Dunst, die die Linie zwischen Meer und Himmel so allmählich auslöscht, dass Sie nicht bemerken, dass der Horizont fort ist, bis Sie ihn suchen und er nicht da ist. Über Land spielt das keine Rolle. Unten sind Lichter. Sie sehen Straßen, Gebäude, eine Geometrie, die Ihren Augen sagt, wo unten ist. Über offenem Wasser bei Nacht, mit Dunst, der wie eine zweite Dunkelheit auf der Oberfläche liegt, gibt es nichts. Die Welt außerhalb des Cockpits wird in jeder Richtung zu einem gleichmäßigen Grau. Oben sieht aus wie unten. Eine sanfte Kurve fühlt sich an wie Horizontalflug. Ein langsames Sinken fühlt sich an, als hielte man die Höhe.",
-      "Das Innenohr des Piloten – das Organ, das dem Gehirn sagt, wie der Körper im Raum ausgerichtet ist – arbeitet, indem es Bewegungsänderungen wahrnimmt. Wenn Sie in eine Kurve gehen, verschiebt sich die Flüssigkeit im Ohr, und das Gehirn registriert die Drehung. Wenn die Kurve aber fünfzehn oder zwanzig Sekunden lang gleichmäßig bleibt, kommt die Flüssigkeit im Innenohr zur Ruhe. Sie hört auf, sich zu bewegen. Das Gehirn, das Bewegung verfolgt, nicht Position, schließt daraus, dass die Kurve zu Ende ist. Sie haben das Gefühl, waagerecht zu fliegen, tun es aber nicht.",
-      "Irgendwo über dem dunklen Wasser ging das Flugzeug in eine sanfte Linkskurve. Die Instrumente des Piloten, die Anzeigen auf dem Instrumentenbrett vor ihm, zeigten die Kurve. Der künstliche Horizont, eine kleine Kreiselanzeige, die den Winkel des Flugzeugs zur Erde darstellt, sagte ihm, dass er in Schräglage war. Der Höhenmesser sagte ihm, dass er sank. Der Fahrtmesser sagte ihm, dass er schneller wurde. Sein Körper sagte ihm etwas anderes. Sein Körper sagte ihm, dass er geradeaus und waagerecht flog. Sein Körper fühlte sich richtig an. Seine Instrumente fühlten sich falsch an. Er vertraute seinem Körper.",
-      "Die Kurve wurde enger. Die Nase sank. Die Fahrt nahm zu. In den letzten Sekunden sank das Flugzeug mit mehr als 4.700 Fuß pro Minute, fast anderthalb Kilometer alle sechzig Sekunden, in einer sich immer enger ziehenden Spirale. Piloten haben ihr, mit der grimmigen Genauigkeit eines Berufsstandes, der die Arten benannt hat, auf die er Menschen verliert, einen Namen gegeben: Todesspirale. Er schlug mit voller Geschwindigkeit auf dem Wasser auf. Er und seine beiden Passagiere kamen beim Aufprall ums Leben.",
-      "Die Untersuchung ergab kein technisches Versagen. Der Motor lief. Die Instrumente funktionierten. Die Daten waren genau da, auf dem Instrumentenbrett, fünfzehn Zentimeter vor seinen Augen, die ganze Zeit, aber er las sie nicht ab. Er las stattdessen seinen Körper. Die Anweisung der amerikanischen Luftfahrtbehörde (Federal Aviation Administration) an Piloten, die sich in dieser Situation wiederfinden, ist einen Satz lang. Sie ist wörtlich gemeint und gilt für Ihr Leben so unmittelbar wie für ein Cockpit:",
-      "Der Pilot hieß John F. Kennedy Jr. Er war der Sohn eines amerikanischen Präsidenten. Man hatte ihm geraten, in dieser Nacht nicht ohne seinen Fluglehrer zu fliegen. Er sagte seinem Fluglehrer, er wolle es allein tun. Er war achtunddreißig Jahre alt.",
-      "Sie bedienen einen Körper, der Signale erzeugt, und Ihr Verstand behandelt diese Signale oft als Wahrheit. Die Signale sind manchmal so falsch wie das Gleichgewichtssystem des Innenohrs über dunklem Wasser. Die Müdigkeit, die sich als Frage nach Ihrer Karriere darstellt. Der Koffeinschub, der sich als Angst wegen einer E-Mail darstellt. Der niedrige Blutzucker, der sich als Beweis dafür darstellt, dass Ihre Beziehung scheitert. Ihr Körper spricht zuerst, Ihr Verstand erklärt danach. Weil die Erklärung mit dem vollen Gewicht körperlicher Überzeugung ankommt, dem festen Kiefer, dem schnellen Herzschlag, der Hitze hinter den Ohren, fühlt sie sich wie tiefes Wissen an. Es fühlt sich an, als würden Sie die Situation lesen. Aber Sie lesen nur das Instrument, das die Situation liest, und die Einstellungen des Instruments waren schon verstellt, bevor die Situation eintrat. Diese Instrumente gibt es. Sie haben sie. Herzfrequenz, Kieferspannung, Atemtiefe, Schulterhaltung, die Geschwindigkeit Ihrer Gedanken. Diese Instrumente erzeugen gerade jetzt Daten, während Sie diesen Satz lesen. Aber der selbstsichere Wetterbericht, den der Körper über die Welt abgibt, ist nur ein Entwurf.",
+      "Am Abend des 16. Juli 1999 startete ein kleines einmotoriges Flugzeug in New Jersey. Es war auf dem Weg nach Martha’s Vineyard. Der Pilot hatte genug Erfahrung, um sich sicher zu fühlen, und zu wenig, um zu wissen, was diese Sicherheit wert war. Er hatte rund 300 Stunden in der Luft. Die Ausbildung, die ihn berechtigt hätte, allein nach den Instrumenten zu fliegen, hatte er nicht abgeschlossen.",
+      "Beim Start war der Himmel klar, also schloss er daraus, dass er keine Instrumente brauchte. Als er die Küste erreichte, war der Himmel es nicht mehr. Dunst hatte sich über das Wasser gelegt. Die Art von Dunst, die den Strich zwischen Meer und Himmel so langsam auslöscht, dass Sie erst merken, dass der Horizont weg ist, wenn Sie ihn suchen und er nicht da ist. Über Land macht das nichts. Unten sind Lichter. Sie sehen Straßen, Gebäude, ein Muster, das Ihren Augen sagt, wo unten ist. Über offenem Wasser bei Nacht, mit Dunst, der wie eine zweite Dunkelheit auf dem Wasser liegt, gibt es nichts. Vor dem Cockpit wird die Welt in jede Richtung gleichmäßig grau. Oben sieht aus wie unten. Eine sanfte Kurve fühlt sich an wie ruhiger Geradeausflug. Ein langsames Sinken fühlt sich an, als bliebe die Höhe gleich.",
+      "Das Innenohr des Piloten, das Organ, das dem Gehirn meldet, wie der Körper im Raum liegt, misst Änderungen der Bewegung. Wenn Sie in eine Kurve gehen, verschiebt sich die Flüssigkeit im Ohr, und das Gehirn bemerkt die Drehung. Bleibt die Kurve aber fünfzehn oder zwanzig Sekunden lang gleich, kommt die Flüssigkeit im Innenohr zur Ruhe. Sie bewegt sich nicht mehr. Das Gehirn, das Bewegung verfolgt und nicht die Lage, schließt daraus, dass die Kurve vorbei ist. Sie haben das Gefühl, waagerecht zu fliegen, tun es aber nicht.",
+      "Irgendwo über dem dunklen Wasser ging das Flugzeug in eine sanfte Linkskurve. Die Instrumente des Piloten, die Anzeigen auf dem Brett vor ihm, zeigten die Kurve. Der künstliche Horizont, eine kleine Kreiselanzeige, die den Winkel des Flugzeugs zur Erde zeigt, sagte ihm, dass er in Schräglage war. Der Höhenmesser sagte ihm, dass er sank. Der Fahrtmesser sagte ihm, dass er schneller wurde. Sein Körper sagte ihm etwas anderes. Sein Körper sagte ihm, dass er geradeaus und waagerecht flog. Sein Körper fühlte sich richtig an. Seine Instrumente fühlten sich falsch an. Er vertraute seinem Körper.",
+      "Die Kurve wurde enger. Die Nase sank. Die Geschwindigkeit stieg. In den letzten Sekunden sank das Flugzeug mit mehr als 4.700 Fuß pro Minute, fast anderthalb Kilometer alle sechzig Sekunden, in einer immer engeren Spirale – Piloten haben dafür einen Namen, mit der düsteren Genauigkeit eines Berufs, der jede Art benannt hat, auf die er Menschen verliert: Todesspirale. Er schlug mit voller Geschwindigkeit auf dem Wasser auf. Er und seine beiden Passagiere kamen beim Aufprall ums Leben.",
+      "Die Untersuchung ergab kein technisches Versagen. Der Motor lief. Die Instrumente arbeiteten. Die Daten waren die ganze Zeit da, auf dem Brett, fünfzehn Zentimeter vor seinen Augen, aber er las sie nicht ab. Er las stattdessen seinen Körper. Die Anweisung der amerikanischen Luftfahrtbehörde Federal Aviation Administration an Piloten, die in diese Situation geraten, ist einen Satz lang. Sie ist wörtlich gemeint und gilt für Ihr Leben so direkt wie für ein Cockpit:",
+      "Der Pilot hieß John F. Kennedy Jr. Er war der Sohn eines amerikanischen Präsidenten. Man hatte ihm geraten, in dieser Nacht nicht ohne seinen Fluglehrer zu fliegen. Er sagte seinem Fluglehrer, er wolle allein fliegen. Er war achtunddreißig Jahre alt.",
+      "Sie steuern einen Körper, der Signale sendet, und Ihr Kopf hält diese Signale oft für die Wahrheit. Manchmal liegen die Signale so falsch wie das Gleichgewichtsorgan im Innenohr über dunklem Wasser. Die Müdigkeit, die sich als Frage nach Ihrer Karriere ausgibt. Der Koffeinschub, der sich als Angst wegen einer E-Mail ausgibt. Der niedrige Blutzucker, der sich als Beweis dafür ausgibt, dass Ihre Beziehung scheitert. Ihr Körper spricht zuerst, Ihr Kopf erklärt danach. Weil die Erklärung mit dem ganzen Gewicht körperlicher Gewissheit kommt, dem festen Kiefer, dem schnellen Herzschlag, der Hitze hinter den Ohren, fühlt sie sich an wie tiefes Wissen. Es fühlt sich an, als würden Sie die Situation lesen. Aber Sie lesen nur das Instrument ab, das die Situation liest, und dieses Instrument war schon falsch eingestellt, bevor die Situation überhaupt da war. Diese Instrumente gibt es wirklich. Sie haben sie. Puls, Kieferspannung, Atemtiefe, Schulterhaltung, das Tempo Ihrer Gedanken. Sie liefern gerade jetzt Daten, während Sie diesen Satz lesen. Aber der selbstsichere Wetterbericht, den der Körper über die Welt abgibt, ist nur ein Entwurf.",
     ],
     quoteAfter: 5,
     quote:
-      "„haben Sie Vertrauen in Ihre Instrumente und ignorieren Sie alle widersprüchlichen Signale, die Ihr Körper Ihnen gibt.“",
+      "„vertrauen Sie Ihren Instrumenten und ignorieren Sie alle Signale Ihres Körpers, die dem widersprechen.“",
     endNote: "Es folgt Kapitel Null: Ein Tag, der in Ordnung hätte sein sollen.",
     unavailable: "Der Auszug in dieser Sprache folgt.",
     folios: ["7", "8", "9"],
@@ -230,7 +228,7 @@ export const de: SiteContent = {
     progress: "Wiedergabeposition",
     elapsed: "Verstrichen",
     duration: "Dauer",
-    unavailable: "Die Aufnahme wird hier ergänzt.",
+    unavailable: "Die Aufnahme kommt hier hinein.",
   },
 
   about: {
@@ -239,23 +237,23 @@ export const de: SiteContent = {
     title: "Der Körper ist ein Sensor, bevor er ein Erzähler ist.",
     // Seite 12, wortgetreu, als Zitat gesetzt, damit „dieser Fehler“ seinen Kontext behält.
     quote:
-      "In diesem Buch geht es um diesen Fehler. Es geht um diesen Irrtum als tägliches, allgegenwärtiges, unsichtbares Merkmal des Lebens in einem Körper, der ständig Signale erzeugt, die Ihr Verstand ständig liest oder falsch liest.",
+      "In diesem Buch geht es um diesen Fehler. Es geht um diesen Irrtum als tägliches, allgegenwärtiges, unsichtbares Merkmal des Lebens in einem Körper, der ständig Signale sendet, die Ihr Kopf ständig liest oder falsch liest.",
     quoteSource: "Seite 12",
     // Ivanas eigene Worte, geliefert am 5. September 2026.
     paragraphs: [
-      "Über sechzehn Tage hinweg bewegt sich Katrin durch gewöhnliche Situationen, in denen ihr erster Messwert dessen, was geschieht, nicht immer der ist, der einem genaueren Blick standhält. Jedes Kapitel folgt einem dieser Momente in die darunterliegende Psychologie, von Aufmerksamkeit und Vorhersage über Gedächtnis, Bedrohung und Ungewissheit bis zur sozialen Inferenz. Das Buch verspricht keine besseren Instinkte. Es fragt, was möglich wird, wenn wir lernen, woher unser erster Messwert kam.",
-      "Es ist weniger daran interessiert, Ihnen beizubringen, Ihren Instinkten zu vertrauen, als daran, Ihnen zu zeigen, worauf genau Sie vertrauen.",
+      "Über sechzehn Tage hinweg geht Katrin durch gewöhnliche Situationen, in denen ihr erster Befund von dem, was gerade geschieht, nicht immer der ist, der einem zweiten Blick standhält. Jedes Kapitel folgt einem dieser Momente in die Psychologie dahinter: von Aufmerksamkeit und Vorhersage über Gedächtnis, Bedrohung und Ungewissheit bis dahin, wie wir andere Menschen einschätzen. Das Buch verspricht keine besseren Instinkte. Es fragt, was möglich wird, wenn wir wissen, woher unser erster Befund kommt.",
+      "Es will Ihnen weniger beibringen, Ihren Instinkten zu vertrauen, als Ihnen zeigen, worauf genau Sie da vertrauen.",
     ],
-    mapLine: "16 Fälle. Drei Messwerte. Eine Frage: Zustand oder Situation?",
+    mapLine: "16 Fälle. Drei Befunde. Eine Frage: Zustand oder Situation?",
 
     // „Bevor wir beginnen“, Seite 13, wortgetreu, und die gedruckte Legende der Marker.
     evidenceEyebrow: "Bevor wir beginnen",
     evidenceIntro:
-      "Dieses Buch stellt Behauptungen über das Gehirn und den Körper auf, und diese Behauptungen sind unterschiedlich gut belegt. Manche stützen sich auf Jahrzehnte replizierter Forschung. Manche stützen sich auf neuere Befunde, die vielversprechend, aber noch nicht gesichert sind. Manche Behauptungen sind plausible Erweiterungen gesicherter Erkenntnisse, die in der konkreten Form, die dieses Buch beschreibt, nicht direkt geprüft wurden. Sie sollten wissen, was worauf beruht.",
+      "Dieses Buch stellt Behauptungen über das Gehirn und den Körper auf, und diese Behauptungen sind unterschiedlich gut belegt. Manche stützen sich auf Jahrzehnte von Forschung, die immer wieder bestätigt wurde. Manche stützen sich auf neuere Ergebnisse, die vielversprechend, aber noch nicht gesichert sind. Manche führen gesichertes Wissen plausibel weiter, sind aber in der Form, die dieses Buch beschreibt, nie direkt geprüft worden. Sie sollten wissen, was davon was ist.",
     grades: [
-      { key: "high", label: "Hoch", shape: "Sauberer, kräftiger Herzschlag.", meaning: "Replizierte, robuste Evidenz." },
-      { key: "medium", label: "Mittel", shape: "Unregelmäßig, geringere Amplitude.", meaning: "Hinweise, aber unvollständig." },
-      { key: "low", label: "Niedrig", shape: "Nahezu Nulllinie, schwache Welle.", meaning: "Nur eine plausible Hypothese." },
+      { key: "high", label: "Hoch", shape: "Sauberer, kräftiger Herzschlag.", meaning: "Vielfach bestätigt, belastbar." },
+      { key: "medium", label: "Mittel", shape: "Unregelmäßig, geringere Amplitude.", meaning: "Deutet darauf hin, ist aber unvollständig." },
+      { key: "low", label: "Niedrig", shape: "Nahezu Nulllinie, schwache Welle.", meaning: "Nur eine plausible Vermutung." },
     ],
     overreachEyebrow: "Wo die Kapitel mehr sagen als ihre Quellen",
     overreach:
@@ -263,21 +261,21 @@ export const de: SiteContent = {
 
     readersEyebrow: "Für wen es ist",
     readers:
-      "Für alle, die je sicher waren, was eine Situation bedeutete, und dann feststellten, dass etwas anderes geschah. Und für Leserinnen und Leser, die sich für die Psychologie dessen interessieren, wie wir die Welt um uns herum wahrnehmen, deuten und revidieren.",
+      "Für alle, die je sicher waren, was eine Situation bedeutet, und dann gemerkt haben, dass etwas anderes vor sich ging. Und für Leserinnen und Leser, die sich für die Psychologie davon interessieren, wie wir die Welt um uns herum wahrnehmen, deuten und wieder korrigieren.",
 
     mapEyebrow: "Eine Karte des Buches",
     mapTitle: "Die Untersuchung",
-    mapSubtitle: "Dasselbe Leben. Andere Instrumenteneinstellungen.",
+    mapSubtitle: "Dasselbe Leben. Andere Einstellungen am Instrument.",
     pageColumn: "Seite",
     chapters: [
       { number: "00", title: "Ein Tag, der in Ordnung hätte sein sollen", page: 17 },
       { number: "01", title: "Das Radar hatte recht", page: 23 },
-      { number: "02", title: "Warum sich neutraler Input bei Schlafmangel feindselig anfühlt", page: 29 },
+      { number: "02", title: "Warum sich bei Schlafmangel neutraler Input feindselig anfühlt", page: 29 },
       { number: "03", title: "Die Erleichterung, die zum Juckreiz wird", page: 39 },
       { number: "04", title: "Der vorhersehbare Reiz", page: 51 },
-      { number: "05", title: "Warum Abende sich dehnen und Morgen schrumpfen", page: 67 },
-      { number: "06", title: "Warum Ruhe nicht immer erholsam ist", page: 79 },
-      { number: "07", title: "Warum Sie mit dem, was zählt, nicht anfangen können", page: 95 },
+      { number: "05", title: "Warum sich Abende dehnen und Morgen schrumpfen", page: 67 },
+      { number: "06", title: "Warum Ruhe nicht immer erholt", page: 79 },
+      { number: "07", title: "Warum Sie nicht anfangen können, was wirklich zählt", page: 95 },
       { number: "08", title: "Die offene Akte", page: 105 },
       { number: "09", title: "Kommen zwei Nervensysteme in eine Küche", page: 121 },
       { number: "10", title: "Der Streit, der der Dienstag war", page: 135 },
@@ -287,7 +285,7 @@ export const de: SiteContent = {
       { number: "14", title: "Es geht nicht um mich", page: 195 },
       { number: "15", title: "Die Vorhersage", page: 209 },
     ],
-    mapFooter: "Der wissenschaftliche Herzschlag folgt auf die Kapitel.",
+    mapFooter: "Nach den Kapiteln folgt der wissenschaftliche Herzschlag.",
   },
 
   author: {
@@ -310,7 +308,7 @@ export const de: SiteContent = {
     eyebrow: "Presse",
     title: "Pressematerial",
     intro:
-      "Rezensionsexemplare, gedruckt und digital, sind auf Anfrage erhältlich. Abdruckrechte für Auszüge sowie Interviews und Veranstaltungen nach Absprache.",
+      "Rezensionsexemplare, gedruckt und digital, gibt es auf Anfrage. Abdruckrechte für Auszüge sowie Interviews und Veranstaltungen nach Absprache.",
     contactHeading: "Kontakt",
     assetsHeading: "Downloads",
     assets: [
@@ -321,7 +319,7 @@ export const de: SiteContent = {
       { label: "Social-Media-Bild, quadratisch", file: "/press/post-1x1-1080.jpg", note: "JPEG, 1080 × 1080" },
       { label: "Social-Media-Bild, Hochformat", file: "/press/post-4x5-1080x1350.jpg", note: "JPEG, 1080 × 1350" },
       { label: "Social-Media-Bild, Querformat", file: "/press/post-16x9-1920x1080.jpg", note: "JPEG, 1920 × 1080" },
-      { label: "Der einleitende Auszug", file: "/press/excerpt-the-opening.pdf", note: "PDF, vier Seiten" },
+      { label: "Der Auszug vom Anfang", file: "/press/excerpt-the-opening.pdf", note: "PDF, vier Seiten" },
     ],
     photoUnavailable: "Foto der Autorin auf Anfrage.",
     bioHeading: "Biografie",
@@ -351,10 +349,10 @@ export const de: SiteContent = {
     ],
     descriptionHeading: "Über das Buch",
     description: [
-      "Über sechzehn Tage hinweg bewegt sich Katrin durch gewöhnliche Situationen, in denen ihr erster Messwert dessen, was geschieht, nicht immer der ist, der einem genaueren Blick standhält. Jedes Kapitel folgt einem dieser Momente in die darunterliegende Psychologie, von Aufmerksamkeit und Vorhersage über Gedächtnis, Bedrohung und Ungewissheit bis zur sozialen Inferenz. Das Buch verspricht keine besseren Instinkte. Es fragt, was möglich wird, wenn wir lernen, woher unser erster Messwert kam.",
-      "Es ist weniger daran interessiert, Ihnen beizubringen, Ihren Instinkten zu vertrauen, als daran, Ihnen zu zeigen, worauf genau Sie vertrauen.",
-      "Sechzehn Fälle. Drei Messwerte. Eine Frage: Zustand oder Situation?",
-      "Jedes Kapitel trägt einen Konfidenzmarker, der zeigt, auf wie viel Evidenz seine Behauptungen ruhen, und das Literaturverzeichnis nennt sowohl die Arbeiten, auf denen das jeweilige Kapitel aufbaut, als auch jene, die es begrenzen, zusammen mit den Stellen, an denen die Kapitel mehr sagen als ihre Quellen.",
+      "Über sechzehn Tage hinweg geht Katrin durch gewöhnliche Situationen, in denen ihr erster Befund von dem, was gerade geschieht, nicht immer der ist, der einem zweiten Blick standhält. Jedes Kapitel folgt einem dieser Momente in die Psychologie dahinter: von Aufmerksamkeit und Vorhersage über Gedächtnis, Bedrohung und Ungewissheit bis dahin, wie wir andere Menschen einschätzen. Das Buch verspricht keine besseren Instinkte. Es fragt, was möglich wird, wenn wir wissen, woher unser erster Befund kommt.",
+      "Es will Ihnen weniger beibringen, Ihren Instinkten zu vertrauen, als Ihnen zeigen, worauf genau Sie da vertrauen.",
+      "Sechzehn Fälle. Drei Befunde. Eine Frage: Zustand oder Situation?",
+      "Jedes Kapitel trägt ein Zeichen dafür, wie gut seine Aussagen belegt sind, und im Literaturverzeichnis stehen sowohl die Arbeiten, auf denen ein Kapitel aufbaut, als auch die, die ihm Grenzen setzen, dazu die Stellen, an denen die Kapitel mehr sagen als ihre Quellen.",
     ],
     creditsHeading: "Mitwirkende",
     credits: [
@@ -370,7 +368,7 @@ export const de: SiteContent = {
     rights: "© 2026 Budisin Publishing",
     pressLink: "Presse",
     contactLink: "Kontakt",
-    madeLine: "Dasselbe Leben. Andere Instrumenteneinstellungen.",
+    madeLine: "Dasselbe Leben. Andere Einstellungen am Instrument.",
   },
 
   a11y: {

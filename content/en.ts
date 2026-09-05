@@ -112,8 +112,6 @@ export const en: SiteContent = {
           "The system that monitors threat, and especially social threat. Things like social evaluation, exclusion, ambiguity, status. It is fast, it is old, and it is biased toward false alarms. It produces interpretations that feel like facts.",
       },
     ],
-    outro:
-      "Time started at 06:38 and never stopped. Attention took the phone at 06:52. Safety wrote the email’s meaning at 07:25. She can name none of them. The only thing she can name is David, and David is the smallest part of it.",
   },
 
   // The CASE EVIDENCE pages, reproduced from the book.

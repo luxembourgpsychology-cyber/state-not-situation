@@ -4,15 +4,16 @@ import type { SiteContent } from "./types";
  * FRENCH CONTENT. Same structure as content/en.ts.
  *
  * A literary translation of the English site copy, for review by a native
- * speaker. No French edition of the book exists: the title "State. Not
- * Situation." is therefore left untranslated everywhere, including inside
- * sentences, and the [COPY NEEDED: …] placeholders are left in English so
- * they stay visibly unfinished.
+ * speaker. The sense is translated, not the word order: sentences are recast
+ * where French rhythm asks for it. No French edition of the book exists, so
+ * the title "State. Not Situation." is left untranslated everywhere, including
+ * inside sentences, and the [COPY NEEDED: …] placeholders are left in English
+ * so they stay visibly unfinished.
  *
  * Terminology held constant: state = état, situation = situation,
  * reading = lecture (verb: lire), settings = réglages, input = entrée (as the
- * case-file label) or sollicitation (in prose),
- * cue = signal, draft = brouillon.
+ * case-file label) or sollicitation (in prose), cue = signal,
+ * draft = brouillon, level flight = vol en palier.
  *
  * Identifiers, page numbers, times, ISBN and file paths are unchanged.
  */
@@ -21,15 +22,15 @@ export const fr: SiteContent = {
     title: "State. Not Situation.",
     titleTemplate: "%s · State. Not Situation.",
     description:
-      "Un guide de terrain du moment qui précède celui où l’interprétation devient réalité. Seize cas. Trois lectures. Une question : état ou situation ? Par Ivana Budišin.",
+      "Un guide de terrain de l’instant où l’interprétation n’est pas encore devenue réalité. Seize cas. Trois lectures. Une question : état ou situation ? Par Ivana Budišin.",
     ogImageAlt:
       "La couverture de State. Not Situation. d’Ivana Budišin : le mot STATE en grand, en rouge, au-dessus de NOT SITUATION en noir, sur fond crème.",
     readTitle: "Lire un extrait",
     readDescription:
-      "Les premières pages de State. Not Situation. d’Ivana Budišin : un pilote, la brume sur la pleine mer et une phrase de la Federal Aviation Administration.",
+      "Les premières pages de State. Not Situation. d’Ivana Budišin : un pilote, la brume sur la pleine mer, et une phrase de la Federal Aviation Administration.",
     pressTitle: "Presse",
     pressDescription:
-      "Dossier de presse pour State. Not Situation. d’Ivana Budišin : couverture, photographie de l’autrice, biographie, informations de publication et contact.",
+      "Dossier de presse de State. Not Situation. d’Ivana Budišin : couverture, photographie de l’autrice, biographie, informations de publication et contact.",
   },
 
   nav: {
@@ -48,7 +49,7 @@ export const fr: SiteContent = {
     publicationDatePrefix: "Paru le",
     buy: "Acheter sur Amazon",
     notifyHeading: "Recevoir un message à la parution du livre.",
-    notifyCta: "Me prévenir",
+    notifyCta: "Être prévenu",
     emailLabel: "Adresse e-mail",
     emailPlaceholder: "votre@email.com",
     submit: "Me prévenir",
@@ -65,11 +66,11 @@ export const fr: SiteContent = {
     eyebrow: "Temps · Attention · Sécurité",
     titleA: "State.",
     titleB: "Not Situation",
-    subtitle: "Un guide de terrain du moment qui précède celui où l’interprétation devient réalité",
+    subtitle: "Un guide de terrain de l’instant où l’interprétation n’est pas encore devenue réalité",
     strap: "Votre première lecture n’est pas le fin mot de l’histoire.",
     authorPrefix: "par",
     coverAlt:
-      "Première de couverture de State. Not Situation. Le mot STATE en grand, en rouge, au-dessus de NOT SITUATION en noir, sur un fond crème imprimé de pâles phrases barrées et de petites lectures d’instruments.",
+      "Première de couverture de State. Not Situation. Le mot STATE en grand, en rouge, au-dessus de NOT SITUATION en noir, sur un fond crème imprimé de phrases barrées à peine visibles et de petites lectures d’instruments.",
     openAlt:
       "Le livre ouvert à sa page de faux-titre, où l’on lit State. Not Situation.",
     readCta: "Lire un extrait",
@@ -80,10 +81,10 @@ export const fr: SiteContent = {
   reading: {
     eyebrow: "Avant de commencer",
     lead: "Quoi que vous ressentiez en lisant cette phrase.",
-    steps: ["Vérifiez votre mâchoire.", "Vérifiez votre respiration.", "Vérifiez vos épaules."],
-    result: "Ce que vous avez trouvé est une lecture.",
+    steps: ["Vérifiez votre mâchoire.", "Vérifiez votre souffle.", "Vérifiez vos épaules."],
+    result: "Ce que vous avez trouvé, c’est une lecture.",
     afterResult:
-      "Une lecture de l’instrument qui interprète tout ce qui vous entoure, en ce moment, y compris ces mots. La lecture peut être exacte. Elle peut ne pas l’être. Vous ne pouvez pas le savoir tant que vous n’avez pas vu les réglages.",
+      "Une lecture de l’instrument qui interprète, en ce moment même, tout ce qui vous entoure, ces mots compris. Elle est peut-être exacte. Peut-être pas. Vous ne pouvez pas le savoir tant que vous n’avez pas vu les réglages.",
     question: "Est-ce la situation ? Ou est-ce l’état ?",
   },
 
@@ -92,32 +93,30 @@ export const fr: SiteContent = {
     eyebrow: "La ligne d’état",
     title: "Trois systèmes ont traversé la matinée de Katrin.",
     intro:
-      "Les chapitres qui suivent sont organisés autour de trois systèmes qui façonnent la manière dont les signaux de votre corps sont pondérés avant que votre esprit ne construise une histoire. Ce ne sont ni des régions du cerveau ni des voies neuronales. C’est un outil de tri, une manière de poser trois questions quand tout semble aller de travers en même temps.",
+      "Les chapitres qui suivent s’organisent autour de trois systèmes qui influent sur le poids donné aux signaux de votre corps avant que votre esprit ne construise une histoire. Ce ne sont ni des régions du cerveau ni des voies neuronales. C’est un outil de tri, une façon de poser trois questions quand tout semble aller de travers en même temps.",
     items: [
       {
         key: "time",
         name: "Temps",
         legend: "Phase circadienne, dette de sommeil, état métabolique",
         body:
-          "Sommeil, nourriture, caféine, phase circadienne, récupération. Quand le rythme est décalé, la sensibilité de base augmente. Le même monde paraît plus dur.",
+          "Sommeil, alimentation, caféine, phase circadienne, récupération. Quand le rythme est décalé, la sensibilité de base monte. Le même monde paraît plus dur.",
       },
       {
         key: "attention",
         name: "Attention",
         legend: "Boucles de récompense, vérification, passage d’une tâche à l’autre",
         body:
-          "Le système qui suit la récompense, la nouveauté et le prochain signal. Quand il est capturé, la concentration se resserre sur la sollicitation disponible la moins coûteuse, et le travail coûteux paraît difficile.",
+          "Le système qui suit la récompense, la nouveauté et le signal suivant. Quand il est accaparé, la concentration se resserre sur la sollicitation la moins coûteuse à disposition, et le travail qui coûte cher paraît difficile.",
       },
       {
         key: "safety",
         name: "Sécurité",
         legend: "Détection des menaces, premiers brouillons, erreurs de lecture",
         body:
-          "Le système qui surveille la menace, et surtout la menace sociale. L’évaluation sociale, l’exclusion, l’ambiguïté, le statut. Il est rapide, il est ancien, et il est biaisé vers les fausses alertes. Il produit des interprétations qui donnent l’impression d’être des faits.",
+          "Le système qui surveille la menace, et surtout la menace sociale. Ce genre de choses : l’évaluation sociale, l’exclusion, l’ambiguïté, le statut. Il est rapide, il est ancien, et il penche du côté des fausses alertes. Il produit des interprétations qui donnent l’impression d’être des faits.",
       },
     ],
-    outro:
-      "Le Temps a démarré à 06:38 et ne s’est jamais arrêté. L’Attention a pris le téléphone à 06:52. La Sécurité a écrit le sens de l’e-mail à 07:25. Elle ne peut en nommer aucun. La seule chose qu’elle peut nommer, c’est David, et David en est la plus petite partie.",
   },
 
   // The CASE EVIDENCE pages, reproduced from the book.
@@ -135,7 +134,7 @@ export const fr: SiteContent = {
         inputLabel: "Entrée",
         input: "Deux minutes avant le réveil.",
         verifiedLabel: "Événement vérifié",
-        verified: "Rien ne s’est produit.",
+        verified: "Il ne s’est rien passé.",
       },
       {
         chapter: "02",
@@ -202,18 +201,18 @@ export const fr: SiteContent = {
     back: "Retour au livre",
     readingModeLabel: "Mode lecture",
     paragraphs: [
-      "Le soir du 16 juillet 1999, un petit avion monomoteur décolla du New Jersey. Il se dirigeait vers Martha’s Vineyard. Le pilote avait assez d’expérience pour être sûr de lui et assez peu pour se tromper sur ce que valait cette assurance. Il avait environ 300 heures de vol. Il n’avait pas terminé la formation qui l’aurait qualifié pour voler aux seuls instruments.",
-      "Le ciel était dégagé au départ, et il en conclut qu’il n’avait pas besoin d’instruments. Quand il atteignit la côte, il ne l’était plus. Une brume s’était installée sur l’eau. Le genre de brume qui efface la ligne entre la mer et le ciel si progressivement que vous ne remarquez pas que l’horizon a disparu avant de le chercher et de ne pas le trouver. Au-dessus des terres, cela n’a pas d’importance. Il y a des lumières en dessous. Vous voyez des routes, des bâtiments, une géométrie qui dit à vos yeux où est le bas. Au-dessus de la pleine mer, la nuit, avec la brume posée sur la surface comme une seconde obscurité, il n’y a rien. Le monde en dehors du cockpit devient un gris uniforme dans toutes les directions. Le haut ressemble au bas. Un virage léger donne la sensation d’un vol en palier. Une descente lente donne la sensation de tenir son altitude.",
-      "L’oreille interne du pilote, l’organe qui indique au cerveau comment le corps est orienté dans l’espace, fonctionne en détectant les changements de mouvement. Quand vous entrez en virage, le liquide contenu dans l’oreille se déplace et le cerveau enregistre une rotation. Mais si le virage se maintient quinze ou vingt secondes, le liquide de l’oreille interne se stabilise. Il cesse de bouger. Le cerveau, qui suit le mouvement et non la position, en conclut que le virage est terminé. Vous vous sentez à l’horizontale, mais vous ne l’êtes pas.",
-      "Quelque part au-dessus de l’eau sombre, l’avion entra dans un léger virage à gauche. Les instruments du pilote, les cadrans du tableau de bord devant lui, indiquaient le virage. L’horizon artificiel, un petit indicateur gyroscopique qui donne l’angle de l’appareil par rapport à la terre, lui disait qu’il s’inclinait. L’altimètre lui disait qu’il descendait. L’indicateur de vitesse lui disait qu’il accélérait. Son corps lui disait autre chose. Son corps lui disait qu’il volait en ligne droite et à l’horizontale. Son corps lui semblait juste. Ses instruments lui semblaient faux. Il fit confiance à son corps.",
-      "Le virage se resserra. Le nez plongea. La vitesse augmenta. Dans les dernières secondes, l’avion descendait à plus de 4 700 pieds par minute, près d’un kilomètre et demi toutes les soixante secondes, dans une spirale de plus en plus serrée que les pilotes appellent, avec la précision sinistre d’un métier qui a nommé les façons dont il perd des gens, une « spirale du cimetière ». Il percuta l’eau à pleine vitesse. Lui et ses deux passagers furent tués sur le coup.",
-      "L’enquête ne trouva aucune défaillance mécanique. Le moteur tournait. Les instruments fonctionnaient. Les données étaient là, sur le tableau de bord, à quinze centimètres de ses yeux, pendant tout ce temps, mais il ne les lut pas. Il lut son corps à la place. L’instruction que la Federal Aviation Administration américaine donne aux pilotes qui se trouvent dans cette situation tient en une phrase. C’est une instruction littérale, qui s’applique à votre vie aussi directement qu’à un cockpit :",
-      "Le pilote s’appelait John F. Kennedy Jr. C’était le fils d’un président américain. On lui avait déconseillé de voler ce soir-là sans son instructeur. Il dit à son instructeur qu’il voulait le faire seul. Il avait trente-huit ans.",
-      "Vous pilotez un corps qui produit des signaux, et votre esprit traite souvent ces signaux comme des vérités. Ces signaux se trompent parfois autant que le système vestibulaire de l’oreille interne au-dessus de l’eau sombre. La fatigue qui se présente comme une question sur votre carrière. Le pic de caféine qui se présente comme de l’anxiété au sujet d’un e-mail. La baisse de sucre dans le sang qui se présente comme la preuve que votre relation est en train de se défaire. Votre corps parle d’abord, votre esprit explique ensuite. L’explication, parce qu’elle arrive avec tout le poids de la conviction physique, la mâchoire serrée, le cœur qui bat vite, la chaleur derrière les oreilles, donne l’impression d’un savoir profond. Elle donne l’impression que vous lisez la situation. Mais vous ne lisez que l’instrument qui lit la situation, et les réglages de l’instrument étaient décalés avant que la situation n’arrive. Ces instruments existent. Vous les avez. Le rythme cardiaque, la tension de la mâchoire, la profondeur du souffle, la position des épaules, la vitesse de vos pensées. Ils produisent des données en ce moment même, pendant que vous lisez cette phrase. Mais le bulletin météo que le corps annonce sur le monde, avec toute son assurance, n’est qu’un brouillon.",
+      "Le soir du 16 juillet 1999, un petit avion monomoteur décolla du New Jersey. Il faisait route vers Martha’s Vineyard. Le pilote avait assez d’expérience pour être sûr de lui et assez peu pour se tromper sur ce que valait cette assurance. Il totalisait environ 300 heures de vol. Il n’avait pas terminé la formation qui l’aurait qualifié pour le vol aux seuls instruments.",
+      "Le ciel était dégagé au départ ; il en conclut qu’il n’avait pas besoin d’instruments. Le temps d’atteindre la côte, il ne l’était plus. Une brume s’était installée sur l’eau. Le genre de brume qui efface la ligne entre la mer et le ciel si progressivement que vous ne remarquez la disparition de l’horizon qu’au moment où vous le cherchez et où il n’est plus là. Au-dessus des terres, cela n’a pas d’importance. Il y a des lumières en dessous. Vous voyez des routes, des bâtiments, une géométrie qui dit à vos yeux où est le bas. Au-dessus de la pleine mer, la nuit, avec la brume posée sur la surface comme une seconde obscurité, il n’y a rien. Hors du cockpit, le monde devient un gris uniforme dans toutes les directions. Le haut ressemble au bas. Un léger virage donne la sensation du vol en palier. Une descente lente donne la sensation de tenir l’altitude.",
+      "L’oreille interne du pilote, l’organe qui indique au cerveau l’orientation du corps dans l’espace, fonctionne en détectant les changements de mouvement. Quand vous entrez en virage, le liquide qu’elle contient se déplace, et le cerveau enregistre une rotation. Mais si le virage se maintient quinze ou vingt secondes, ce liquide se stabilise. Il cesse de bouger. Le cerveau, qui suit le mouvement et non la position, en conclut que le virage est terminé. Vous vous sentez en palier, mais vous ne l’êtes pas.",
+      "Quelque part au-dessus de l’eau sombre, l’avion s’engagea dans un léger virage à gauche. Les instruments du pilote, les cadrans du tableau de bord devant lui, indiquaient le virage. L’horizon artificiel, un petit cadran gyroscopique qui donne l’angle de l’appareil par rapport à la terre, lui disait qu’il s’inclinait. L’altimètre lui disait qu’il descendait. L’indicateur de vitesse lui disait qu’il accélérait. Son corps lui disait autre chose. Son corps lui disait qu’il volait droit et en palier. Son corps sonnait juste. Ses instruments sonnaient faux. Il fit confiance à son corps.",
+      "Le virage se resserra. Le nez plongea. La vitesse monta. Dans les dernières secondes, l’avion descendait à plus de 4 700 pieds par minute, près d’un kilomètre et demi toutes les soixante secondes, dans une spirale de plus en plus serrée que les pilotes appellent, avec la précision sinistre d’un métier qui a donné un nom à chacune des façons dont il perd des gens, une « spirale du cimetière ». Il percuta l’eau à pleine vitesse. Lui et ses deux passagers furent tués sur le coup.",
+      "L’enquête ne releva aucune défaillance mécanique. Le moteur tournait. Les instruments fonctionnaient. Les données étaient là, sur le tableau de bord, à quinze centimètres de ses yeux, pendant tout ce temps, mais il ne les lut pas. Il lut son corps à la place. La consigne que la Federal Aviation Administration américaine donne aux pilotes qui se retrouvent dans cette situation tient en une phrase. C’est une consigne littérale, qui s’applique à votre vie aussi directement qu’à un cockpit :",
+      "Le pilote s’appelait John F. Kennedy Jr. C’était le fils d’un président américain. On lui avait déconseillé de voler ce soir-là sans son instructeur. Il lui avait dit qu’il voulait le faire seul. Il avait trente-huit ans.",
+      "Vous pilotez un corps qui produit des signaux, et votre esprit prend souvent ces signaux pour la vérité. Ces signaux se trompent parfois autant que le système vestibulaire de l’oreille interne au-dessus de l’eau sombre. La fatigue qui se présente comme une question sur votre carrière. Le pic de caféine qui se présente comme de l’anxiété au sujet d’un e-mail. La baisse de sucre dans le sang qui se présente comme la preuve que votre relation est en train de se défaire. Votre corps parle le premier, votre esprit explique ensuite. L’explication arrive avec tout le poids de la conviction physique, la mâchoire serrée, le cœur qui bat vite, la chaleur derrière les oreilles, et c’est pour cela qu’elle donne l’impression d’un savoir profond. Vous avez l’impression de lire la situation. Mais vous ne lisez que l’instrument qui lit la situation, et les réglages de cet instrument étaient décalés avant que la situation n’arrive. Ces instruments existent. Vous les avez. Le rythme cardiaque, la tension de la mâchoire, la profondeur du souffle, la position des épaules, la vitesse de vos pensées. Ils produisent des données en ce moment même, pendant que vous lisez cette phrase. Mais ce bulletin météo plein d’assurance que le corps établit sur le monde n’est qu’un brouillon.",
     ],
     quoteAfter: 5,
     quote:
-      "« ayez confiance en vos instruments et ignorez tous les signaux contradictoires que votre corps vous envoie. »",
+      "« ayez confiance en vos instruments et ignorez tous les signaux contradictoires que vous envoie votre corps. »",
     endNote: "Vient ensuite le chapitre zéro : Une journée qui aurait dû bien se passer.",
     unavailable: "L’extrait dans cette langue suivra.",
     folios: ["7", "8", "9"],
@@ -237,11 +236,11 @@ export const fr: SiteContent = {
     title: "Le corps est un capteur avant d’être un narrateur.",
     // Page 12, verbatim, shown as a quotation so "that mistake" keeps its own context.
     quote:
-      "Ce livre parle de cette méprise. Il parle de cette erreur comme d’un trait quotidien, ambiant, invisible du fait d’être vivant dans un corps qui produit sans cesse des signaux, que votre esprit ne cesse de lire, ou de mal lire.",
+      "Ce livre parle de cette méprise. Il parle de cette erreur comme d’un trait quotidien, ambiant, invisible de la vie dans un corps qui produit sans cesse des signaux, que votre esprit ne cesse de lire, ou de mal lire.",
     quoteSource: "Page 12",
     // Ivana's own words, supplied 5 September 2026.
     paragraphs: [
-      "Au fil de seize jours, Katrin traverse des situations ordinaires où sa première lecture de ce qui se passe n’est pas toujours celle qui résiste à un examen plus attentif. Chaque chapitre suit l’un de ces moments jusqu’à la psychologie qui le sous-tend, de l’attention et de la prédiction à la mémoire, la menace, l’incertitude et l’inférence sociale. Le livre ne promet pas de meilleurs instincts. Il demande ce qui devient possible lorsque nous apprenons d’où vient notre première lecture.",
+      "En seize jours, Katrin traverse des situations ordinaires où sa première lecture de ce qui se passe ne résiste pas toujours à un regard plus attentif. Chaque chapitre suit l’un de ces moments jusqu’à la psychologie qui le sous-tend, de l’attention et de la prédiction à la mémoire, la menace, l’incertitude et l’inférence sociale. Le livre ne promet pas de meilleurs instincts. Il demande ce qui devient possible lorsque nous apprenons d’où vient notre première lecture.",
       "Il cherche moins à vous apprendre à faire confiance à vos instincts qu’à vous montrer à quoi, exactement, vous faites confiance.",
     ],
     mapLine: "16 cas. Trois lectures. Une question : état ou situation ?",
@@ -249,19 +248,19 @@ export const fr: SiteContent = {
     // "Before We Begin", page 13, verbatim, and the printed legend for the markers.
     evidenceEyebrow: "Avant de commencer",
     evidenceIntro:
-      "Ce livre avance des affirmations sur le cerveau et sur le corps, et ces affirmations ne reposent pas toutes sur la même quantité de preuves. Certaines s’appuient sur des décennies de recherches répliquées. Certaines s’appuient sur des résultats plus récents, prometteurs mais pas encore établis. Certaines sont des prolongements plausibles d’une science établie qui n’ont pas été testés directement sous la forme précise que décrit ce livre. Vous devez pouvoir les distinguer.",
+      "Ce livre avance des affirmations sur le cerveau et sur le corps, et toutes ne reposent pas sur la même quantité de preuves. Certaines s’appuient sur des décennies de recherches répliquées. D’autres sur des résultats plus récents, prometteurs mais pas encore établis. D’autres encore sont des prolongements plausibles d’une science établie, jamais testés directement sous la forme précise que décrit ce livre. Vous devez pouvoir les distinguer.",
     grades: [
       { key: "high", label: "Élevé", shape: "Battement net et fort.", meaning: "Preuves répliquées et robustes." },
-      { key: "medium", label: "Moyen", shape: "Irrégulier, amplitude plus faible.", meaning: "Preuves indicatives mais incomplètes." },
+      { key: "medium", label: "Moyen", shape: "Irrégulier, amplitude plus faible.", meaning: "Des indices, mais incomplets." },
       { key: "low", label: "Faible", shape: "Tracé presque plat, faible ondulation.", meaning: "Simple hypothèse plausible." },
     ],
     overreachEyebrow: "Là où les chapitres en disent plus que leurs sources",
     overreach:
-      "Les chapitres sont des récits et ont été laissés tels qu’ils ont été écrits. Voici les passages qu’un lecteur attentif relèvera, réunis ici en un seul endroit.",
+      "Les chapitres sont des récits ; ils ont été laissés tels quels. Voici, réunis ici en un seul endroit, les passages qu’un lecteur attentif relèvera.",
 
     readersEyebrow: "À qui il s’adresse",
     readers:
-      "Pour quiconque a déjà été certain du sens d’une situation, puis a découvert qu’autre chose était en train de se passer. Et pour les lecteurs intéressés par la psychologie de notre manière de remarquer, d’interpréter et de réviser le monde qui nous entoure.",
+      "Pour quiconque a déjà été certain du sens d’une situation, avant de découvrir qu’il se passait autre chose. Et pour les lecteurs qui s’intéressent à la psychologie de notre façon de remarquer, d’interpréter et de réviser le monde qui nous entoure.",
 
     mapEyebrow: "Une carte du livre",
     mapTitle: "L’enquête",
@@ -270,7 +269,7 @@ export const fr: SiteContent = {
     chapters: [
       { number: "00", title: "Une journée qui aurait dû bien se passer", page: 17 },
       { number: "01", title: "Le radar avait raison", page: 23 },
-      { number: "02", title: "Pourquoi le manque de sommeil fait paraître hostile ce qui est neutre", page: 29 },
+      { number: "02", title: "Pourquoi le manque de sommeil rend hostile ce qui est neutre", page: 29 },
       { number: "03", title: "Le soulagement qui tourne à la démangeaison", page: 39 },
       { number: "04", title: "Le signal prévisible", page: 51 },
       { number: "05", title: "Pourquoi les soirées s’étirent et les matins rétrécissent", page: 67 },
@@ -293,7 +292,7 @@ export const fr: SiteContent = {
     title: "Ivana Budišin",
     photoAlt: "Ivana Budišin, photographiée sur un fond gris foncé.",
     photoPlaceholder: "Photographie de l’autrice à venir",
-    bio: "Ivana Budišin est psychologue clinicienne ; elle vit et travaille au Luxembourg. State. Not Situation. est son premier livre.",
+    bio: "Ivana Budišin est psychologue clinicienne. Elle vit et travaille au Luxembourg. State. Not Situation. est son premier livre.",
     websiteLabel: "Site du cabinet",
     contactLabel: "Contact",
     pressLabel: "Dossier de presse",
@@ -308,7 +307,7 @@ export const fr: SiteContent = {
     eyebrow: "Presse",
     title: "Dossier de presse",
     intro:
-      "Des exemplaires de presse, papier et numériques, sont disponibles sur demande. Droits de reproduction d’extraits, entretiens et rencontres à convenir.",
+      "Des exemplaires de presse, papier et numériques, sont disponibles sur demande. Reproduction d’extraits, entretiens et rencontres à convenir.",
     contactHeading: "Contact",
     assetsHeading: "Téléchargements",
     assets: [
@@ -326,7 +325,7 @@ export const fr: SiteContent = {
     bios: [
       {
         label: "Courte",
-        text: "Ivana Budišin est psychologue clinicienne ; elle vit et travaille au Luxembourg. State. Not Situation. est son premier livre.",
+        text: "Ivana Budišin est psychologue clinicienne. Elle vit et travaille au Luxembourg. State. Not Situation. est son premier livre.",
       },
       {
         label: "Longue",
@@ -336,7 +335,7 @@ export const fr: SiteContent = {
     factsHeading: "Publication",
     facts: [
       { label: "Titre", value: "State. Not Situation." },
-      { label: "Sous-titre", value: "Un guide de terrain du moment qui précède celui où l’interprétation devient réalité" },
+      { label: "Sous-titre", value: "Un guide de terrain de l’instant où l’interprétation n’est pas encore devenue réalité" },
       { label: "Autrice", value: "Ivana Budišin" },
       { label: "Éditeur", value: "Budisin Publishing, Luxembourg" },
       { label: "Parution", value: "2026" },
@@ -349,15 +348,15 @@ export const fr: SiteContent = {
     ],
     descriptionHeading: "À propos du livre",
     description: [
-      "Au fil de seize jours, Katrin traverse des situations ordinaires où sa première lecture de ce qui se passe n’est pas toujours celle qui résiste à un examen plus attentif. Chaque chapitre suit l’un de ces moments jusqu’à la psychologie qui le sous-tend, de l’attention et de la prédiction à la mémoire, la menace, l’incertitude et l’inférence sociale. Le livre ne promet pas de meilleurs instincts. Il demande ce qui devient possible lorsque nous apprenons d’où vient notre première lecture.",
+      "En seize jours, Katrin traverse des situations ordinaires où sa première lecture de ce qui se passe ne résiste pas toujours à un regard plus attentif. Chaque chapitre suit l’un de ces moments jusqu’à la psychologie qui le sous-tend, de l’attention et de la prédiction à la mémoire, la menace, l’incertitude et l’inférence sociale. Le livre ne promet pas de meilleurs instincts. Il demande ce qui devient possible lorsque nous apprenons d’où vient notre première lecture.",
       "Il cherche moins à vous apprendre à faire confiance à vos instincts qu’à vous montrer à quoi, exactement, vous faites confiance.",
       "Seize cas. Trois lectures. Une question : état ou situation ?",
-      "Chaque chapitre porte un indice de confiance indiquant la quantité de preuves sur laquelle reposent ses affirmations, et la section des références recense à la fois les travaux sur lesquels chaque chapitre s’appuie et ceux qui en limitent la portée, ainsi que les endroits où les chapitres en disent plus que leurs sources.",
+      "Chaque chapitre porte un indicateur de confiance : il montre sur quelle quantité de preuves reposent ses affirmations. La section des références recense les travaux sur lesquels chaque chapitre s’appuie et ceux qui en limitent la portée, ainsi que les passages où les chapitres en disent plus que leurs sources.",
     ],
     creditsHeading: "Crédits",
     credits: [
       { label: "Conception de la couverture", value: "Zoe Larusson" },
-      { label: "Conception et composition du livre", value: "Ivana Budišin" },
+      { label: "Maquette et composition", value: "Ivana Budišin" },
       { label: "Publié par", value: "Budisin Publishing" },
     ],
     back: "Retour au livre",

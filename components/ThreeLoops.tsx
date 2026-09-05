@@ -54,11 +54,6 @@ export function ThreeLoops({ content }: { content: SiteContent["loops"] }) {
           ))}
         </div>
 
-        <Reveal delay={120}>
-          <p className="prose-book mt-14 md:mt-20 pt-10 border-t border-[var(--rule)] max-w-3xl">
-            {content.outro}
-          </p>
-        </Reveal>
       </div>
     </section>
   );
