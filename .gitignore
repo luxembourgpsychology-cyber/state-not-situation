@@ -9,3 +9,6 @@ next-env.d.ts
 
 # local review screenshots
 docs-screenshots
+
+# review workbooks are generated, not source
+review/*.json
