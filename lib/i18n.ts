@@ -22,6 +22,16 @@ export function draftPreview(): boolean {
   return process.env.NODE_ENV !== "production" && siteConfig.previewDraftLanguages;
 }
 
+/** Enabled but not yet signed off by a native speaker: keep it out of search. */
+export function isUnderReview(locale: Locale): boolean {
+  return siteConfig.languages[locale].underReview;
+}
+
+/** Languages search engines may index: enabled and reviewed. */
+export function indexableLocales(): Locale[] {
+  return locales.filter((l) => siteConfig.languages[l].enabled && !siteConfig.languages[l].underReview);
+}
+
 export function isEnabled(locale: Locale): boolean {
   return siteConfig.languages[locale].enabled || draftPreview();
 }
@@ -67,7 +77,7 @@ export function localeUrl(locale: Locale, path = "") {
 /** hreflang map for a path across enabled languages, plus x-default. */
 export function alternatesFor(path = "") {
   const languages: Record<string, string> = {};
-  for (const l of enabledLocales()) languages[siteConfig.languages[l].htmlLang] = localeUrl(l, path);
+  for (const l of indexableLocales()) languages[siteConfig.languages[l].htmlLang] = localeUrl(l, path);
   languages["x-default"] = localeUrl(siteConfig.defaultLocale, path);
   return languages;
 }

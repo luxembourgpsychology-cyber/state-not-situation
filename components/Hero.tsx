@@ -143,7 +143,7 @@ export function Hero({
                 {published && amazonUrl ? (
                   <AmazonButton href={amazonUrl} label={c.status.buy} locale={locale} />
                 ) : (
-                  <a href="#notify" className="btn">{c.status.notifyHeading.replace(/\.$/, "")}</a>
+                  <a href="#notify" className="btn">{c.status.notifyCta}</a>
                 )}
                 {excerptAvailable ? (
                   <ExcerptLink href={`/${locale}/read`} label={c.hero.readCta} locale={locale} className="btn btn-red" />

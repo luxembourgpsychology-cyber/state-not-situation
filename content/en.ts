@@ -44,6 +44,7 @@ export const en: SiteContent = {
     publicationDatePrefix: "Published",
     buy: "Buy on Amazon",
     notifyHeading: "Be notified when the book is released.",
+    notifyCta: "Be notified",
     emailLabel: "Email address",
     emailPlaceholder: "your@email.com",
     submit: "Notify me",
@@ -234,8 +235,10 @@ export const en: SiteContent = {
     quote:
       "This book is about that mistake. It is about that error as a daily, ambient, invisible feature of being alive in a body that is constantly producing signals, which your mind is constantly reading or misreading.",
     quoteSource: "Page 12",
+    // Ivana's own words, supplied 5 September 2026.
     paragraphs: [
-      "[COPY NEEDED: two or three sentences, in your own words, saying what the book contains. What Katrin’s sixteen days are, what a reader gets from following them, and what the book does not promise. Anything you write here should be sayable to a journalist without qualification.]",
+      "Over sixteen days, Katrin moves through ordinary situations in which her first reading of what is happening is not always the one that survives a closer look. Each chapter follows one of those moments into the psychology underneath it, from attention and prediction to memory, threat, uncertainty and social inference. The book does not promise better instincts. It asks what becomes possible when we learn where our first reading came from.",
+      "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
     ],
     mapLine: "16 cases. Three readings. One question: state or situation?",
 
@@ -254,7 +257,7 @@ export const en: SiteContent = {
 
     readersEyebrow: "Who it is for",
     readers:
-      "[COPY NEEDED: one or two sentences on the reader you wrote this for. Plain, no marketing.]",
+      "For anyone who has ever been certain about what a situation meant, then discovered that something else was happening. And for readers interested in the psychology of how we notice, interpret and revise the world around us.",
 
     mapEyebrow: "A map of the book",
     mapTitle: "The Investigation",
@@ -342,7 +345,8 @@ export const en: SiteContent = {
     ],
     descriptionHeading: "About the book",
     description: [
-      "This book is about that mistake. It is about that error as a daily, ambient, invisible feature of being alive in a body that is constantly producing signals, which your mind is constantly reading or misreading.",
+      "Over sixteen days, Katrin moves through ordinary situations in which her first reading of what is happening is not always the one that survives a closer look. Each chapter follows one of those moments into the psychology underneath it, from attention and prediction to memory, threat, uncertainty and social inference. The book does not promise better instincts. It asks what becomes possible when we learn where our first reading came from.",
+      "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
       "Sixteen cases. Three readings. One question: state or situation?",
       "Every chapter carries a confidence marker showing how much evidence its claims rest on, and the reference section lists both the work each chapter is built on and the work that limits it, together with the places where the chapters say more than their sources.",
     ],

@@ -72,6 +72,8 @@ export interface SiteContent {
     publicationDatePrefix: string;
     buy: string;
     notifyHeading: string;
+    /** The short button label. Never derive a button from the heading. */
+    notifyCta: string;
     emailLabel: string;
     emailPlaceholder: string;
     submit: string;

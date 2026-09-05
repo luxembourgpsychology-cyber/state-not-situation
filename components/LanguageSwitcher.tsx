@@ -35,7 +35,7 @@ export function LanguageSwitcher({ current, locales, browsable, label, comingLab
         }
         // Edition not yet available: shown, muted, not a link.
         return (
-          <span key={l} className="eyebrow inline-flex items-center min-h-11 px-0.5 text-ink/30 cursor-default" title={`${lang.name}: ${comingLabel}`} aria-label={`${lang.name}: ${comingLabel}`}>
+          <span key={l} className="eyebrow inline-flex items-center min-h-11 px-0.5 text-ink/30 cursor-default" title={`${lang.name} — ${comingLabel}`} aria-label={`${lang.name} — ${comingLabel}`}>
             {lang.label}
           </span>
         );

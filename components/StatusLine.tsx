@@ -21,7 +21,7 @@ export function StatusLine({ locale, align = "left" }: { locale: Locale; align?:
       {published && ed.amazonUrl ? (
         <AmazonButton href={ed.amazonUrl} label={c.status.buy} locale={locale} />
       ) : (
-        <a href="#notify" className="btn">{c.status.notifyHeading.replace(/\.$/, "")}</a>
+        <a href="#notify" className="btn">{c.status.notifyCta}</a>
       )}
     </div>
   );

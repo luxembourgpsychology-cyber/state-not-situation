@@ -36,7 +36,7 @@ export interface EditionSettings {
 export interface SiteConfig {
   siteUrl: string;
   defaultLocale: Locale;
-  languages: Record<Locale, { enabled: boolean; label: string; name: string; htmlLang: string }>;
+  languages: Record<Locale, { enabled: boolean; underReview: boolean; label: string; name: string; htmlLang: string }>;
   /** Development only: show disabled languages as real links, with missing strings marked ⟦like this⟧. Never affects production. */
   previewDraftLanguages: boolean;
   editions: Record<Locale, EditionSettings>;
@@ -66,9 +66,13 @@ export const siteConfig: SiteConfig = {
    * visible ⟦markers⟧, never as silent English.
    */
   languages: {
-    en: { enabled: true, label: "EN", name: "English", htmlLang: "en" },
-    fr: { enabled: false, label: "FR", name: "Français", htmlLang: "fr" },
-    de: { enabled: false, label: "DE", name: "Deutsch", htmlLang: "de" },
+    en: { enabled: true, underReview: false, label: "EN", name: "English", htmlLang: "en" },
+    // underReview: browsable, so reviewers can read it, but noindex and kept
+    // out of the sitemap and hreflang — a search engine must never present an
+    // unapproved translation as the book's published text. Set false once a
+    // native speaker has signed the language off.
+    fr: { enabled: true, underReview: true, label: "FR", name: "Français", htmlLang: "fr" },
+    de: { enabled: true, underReview: true, label: "DE", name: "Deutsch", htmlLang: "de" },
   },
 
   /**
@@ -96,7 +100,7 @@ export const siteConfig: SiteConfig = {
       amazonUrl: null,
       publicationDate: null,
       audioUrl: null,
-      excerptAvailable: false,
+      excerptAvailable: true,
       newsletterUrl: null,
       newsletterEmailField: "email",
       isbn: null,
@@ -106,7 +110,7 @@ export const siteConfig: SiteConfig = {
       amazonUrl: null,
       publicationDate: null,
       audioUrl: null,
-      excerptAvailable: false,
+      excerptAvailable: true,
       newsletterUrl: null,
       newsletterEmailField: "email",
       isbn: null,
@@ -148,7 +152,7 @@ export const siteConfig: SiteConfig = {
     /** Your psychology website. Null hides the link. */
     // Your psychology practice website. Null hides the link.
     website: null,
-    pressEmail: "luxembourgpsychology@gmail.com",
+    pressEmail: "ivana@luxembourgpsychology.com",
     social: {
       instagram: null,
       linkedin: null,

@@ -3,7 +3,7 @@ import { Bebas_Neue, Source_Sans_3, IBM_Plex_Mono, Instrument_Serif, Barlow_Semi
 import { notFound } from "next/navigation";
 import "../globals.css";
 import { siteConfig, type Locale } from "@/site.config";
-import { alternatesFor, enabledLocales, getContent, isLocale, isEnabled, localeUrl } from "@/lib/i18n";
+import { alternatesFor, enabledLocales, getContent, isLocale, isEnabled, isUnderReview, localeUrl } from "@/lib/i18n";
 import { Analytics } from "@/components/Analytics";
 
 const bebas = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas", display: "swap" });
@@ -36,7 +36,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       authors: [siteConfig.author.name],
     },
     twitter: { card: "summary_large_image", title: c.meta.title, description: c.meta.description, images: ["/images/og.jpg"] },
-    robots: { index: true, follow: true },
+    // A translation still awaiting sign-off must never be indexed.
+    robots: isUnderReview(lang)
+      ? { index: false, follow: false, nocache: true }
+      : { index: true, follow: true },
   };
 }
 

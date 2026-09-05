@@ -26,6 +26,7 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
   const ed = siteConfig.editions[locale];
   const facts = p.facts.map((f) => (f.label.startsWith("ISBN") && ed.isbn ? { ...f, value: ed.isbn } : f));
   const photo = siteConfig.press.authorPhoto;
+  const bios = p.bios.filter((b) => !b.text.startsWith("[COPY NEEDED"));
   const assets = p.assets.filter((a) => (a.file.includes("author-photo") ? Boolean(photo) : true));
 
   return (
@@ -93,10 +94,11 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
               <div className="prose-book">{p.description.map((t, i) => <p key={i}>{t}</p>)}</div>
             </section>
 
+            {bios.length ? (
             <section aria-labelledby="press-bio">
               <h2 id="press-bio" className="eyebrow eyebrow-red mb-4">{p.bioHeading}</h2>
               <dl className="space-y-8">
-                {p.bios.map((b) => (
+                {bios.map((b) => (
                   <div key={b.label}>
                     <dt className="mono-label mb-2">{b.label}</dt>
                     <dd className={`prose-book ${b.text.startsWith("[COPY NEEDED") ? "text-quiet" : ""}`}>{b.text}</dd>
@@ -104,6 +106,7 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
                 ))}
               </dl>
             </section>
+            ) : null}
 
             <section aria-labelledby="press-facts">
               <h2 id="press-facts" className="eyebrow eyebrow-red mb-4">{p.factsHeading}</h2>
