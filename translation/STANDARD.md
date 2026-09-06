@@ -286,3 +286,49 @@ A successful translation should create this reaction in a native reader: "This i
 It should not create: "This is a very good translation."
 
 If the reader notices the translation, the work is not finished.
+
+
+---
+
+## Addendum from the author, 6 September 2026: TRANSLATION QUERY FORMAT
+
+Never present the author with a compressed list of unresolved phrases.
+
+For every substantive translation query, provide:
+
+SOURCE
+The exact English sentence, plus one sentence before and after when context matters.
+
+CURRENT TRANSLATION
+The proposed French or German wording.
+
+ISSUE
+Explain in one or two sentences why the translation is uncertain. Identify whether the problem concerns:
+semantic fidelity,
+scientific terminology,
+idiom,
+metaphor,
+register,
+collocation,
+cultural localisation,
+or conceptual consistency.
+
+OPTION A
+The most semantically faithful native formulation.
+
+OPTION B
+The most stylistically natural formulation.
+
+Only provide Option C when there is a genuinely different conceptual choice.
+
+RECOMMENDATION
+Choose one option and explain the tradeoff in one sentence.
+
+CONFIDENCE
+High / Medium / Low.
+
+Do not ask the author to choose between unexplained words.
+
+If one option is clearly superior after analysis, make the editorial decision yourself and do not create a query merely to transfer responsibility to the author.
+
+Create a query only when the choice could materially change meaning, metaphor, scientific precision, characterisation, or the conceptual architecture of the book.
