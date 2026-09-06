@@ -111,6 +111,7 @@ export const fr: SiteContent = {
   // Pages 12 to 13. A section mark sits in the book between runs 3 and 4.
   knowTheDay: {
     eyebrow: "Vous connaissez cette journée",
+    moreLabel: "Un autre passage de la page 12",
     runs: [
       "La journée dont je parle, c’est l’autre. La journée où rien ne s’est mal passé et où tout clochait. Elle a commencé avant que vous ne remarquiez qu’elle commençait. Quelque part entre le réveil et la douche, entre la douche et la cuisine, entre la cuisine et la première gorgée de ce que vous buvez pour devenir la personne que le matin exige. Quelque chose était déjà là. On aurait plutôt dit une texture. Une pesanteur dans les membres, une réticence dans la poitrine, une légère lourdeur posée derrière vos pensées comme un jour de pluie derrière une vitre.",
       "Vous avez eu cette journée. Tout le monde a eu cette journée. Vous l’avez eue des dizaines de fois et vous l’aurez encore et chaque fois l’histoire aura l’air vraie et chaque fois le lendemain matin dissoudra l’histoire.",
@@ -155,7 +156,7 @@ export const fr: SiteContent = {
     title: "Avant les chapitres",
     sectionLabel: "Le pilote",
     runningHead: "State. Not Situation",
-    teaserCount: 3,
+    teaserCount: 2,
     cta: "Lire un extrait",
     continueCta: "Lire la suite",
     back: "Retour au livre",
@@ -413,5 +414,6 @@ export const fr: SiteContent = {
     bookOpening: "Le livre qui s’ouvre",
     misreadingRegion: "Page 10 du livre",
     mapRegion: "Une carte du livre",
+    evidenceRegion: "Marqueurs de confiance, page 13",
   },
 };

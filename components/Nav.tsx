@@ -20,7 +20,7 @@ export function Nav({ locale, variant = "home" }: { locale: Locale; variant?: "h
   const to = (hash: string) => (variant === "home" ? hash : `${base}${hash}`);
 
   const links = [
-    { href: to("#book"), label: c.nav.book, mobile: false },
+    { href: to("#book-about"), label: c.nav.book, mobile: false },
     ...(ed.excerptAvailable ? [{ href: `${base}/read`, label: c.nav.read, mobile: false }] : []),
     ...(ed.audioUrl ? [{ href: to("#listen"), label: c.nav.listen, mobile: false }] : []),
     { href: to("#author"), label: c.nav.author, mobile: false },

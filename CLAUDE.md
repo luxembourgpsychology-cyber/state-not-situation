@@ -35,7 +35,7 @@ This is not fussiness. An earlier draft of this site carried claims taken from a
 | Every word on the site | `content/en.ts`, `content/fr.ts`, `content/de.ts` |
 | The shape those files must follow | `content/types.ts` |
 | Provenance of each sentence | `CONTENT_SOURCES.md` |
-| Why the sections are in the order they are | `translation/EDITORIAL-POSITIONING.md` |
+| Why the sections are in the order they are | `translation/EDITORIAL-POSITIONING.md`, re-weighted by `translation/HOOK-DECISION.md` |
 | The standard every French and German sentence must meet | `translation/STANDARD.md` (Ivana's own document; it governs) |
 | The per-language method and glossary | `translation/METHOD-fr.md`, `translation/METHOD-de.md` |
 | Typography, colour, devices taken from the printed book | `DESIGN_SYSTEM.md` |
@@ -45,7 +45,7 @@ Copy and launch state change in those two top files. You should not need to touc
 
 ## Design constraints
 
-Taken from the printed book, documented in `DESIGN_SYSTEM.md`. Briefly: cream `#F7F3EC`, cover red `#B5291C`, ink `#111`; loop colours Time `#4B839A`, Attention `#988349`, Safety `#C75043`. Serif titles are never bold. Red is emphasis only. Mono is for anything measured. No gradients, no glass, no icon sets, and exactly one shadow — under the book.
+Taken from the printed book, documented in `DESIGN_SYSTEM.md`. Briefly: cream `#F7F3EC`, cover red `#B5291C`, ink `#111`; the three system inks Time `#2C6E8A`, Attention `#8C7432`, Safety `#BF372A`, read from the page 11 rectangles of the print file (corrected 6 September 2026; see `DESIGN_SYSTEM.md`). Serif titles are never bold. Red is emphasis only. Mono is for anything measured. No gradients, no glass, no icon sets, and exactly one shadow — under the book.
 
 The hero is a CSS 3D book built from the real cover, spine and page block, opening on scroll to the book's own title page. It reads one custom property, `--open`. No animation library is installed and none should be added.
 
@@ -60,17 +60,17 @@ The book states **no** count of references, no DOI verification, no "years of re
 
 ## The page, in order
 
-Decided by an editorial panel against the almost-final book and recorded in `translation/EDITORIAL-POSITIONING.md`. Do not reorder without reading it.
+Decided by an editorial panel against the almost-final book (`translation/EDITORIAL-POSITIONING.md`) and re-weighted for a skimming reader and a deep reader after the author saw it (`translation/HOOK-DECISION.md`). Do not reorder without reading both.
 
 1. `Hero` — the cover, the 3D book, Read an extract, Be notified
-2. `Misreading` — page 10, the display page, in its own layout
-3. `KnowTheDay` — pages 12 to 13
-4. `TheReading` — page 13, the three instructions
-5. `TheBook` — the page 20 heading, Ivana's two paragraphs, who it is for
-6. `ExcerptTeaser` — the opening pages, then the page 26 line
-7. `CaseEvidence` — four printed case pages, closed by the page 20 line
+2. `Misreading` — page 10, the display page, set large; a two-column spread from 1024 px
+3. `TheReading` — pages 12 to 13 as one passage: page 12 with one disclosure ("More from page 12"), then the three checks at display size, then the question
+4. `BeforeWeBegin` — page 13's evidence note, open, and the three markers as a full-width row
+5. `TheBook` — the page 20 heading, the page 20 Katrin paragraph, Ivana's two paragraphs, who it is for
+6. `CaseEvidence` — four printed case pages with their printed rule, closed by the page 20 line
+7. `ExcerptTeaser` — the opening pages, with a second Read an extract at its head, then the page 26 line
 8. `Listen` — only when `editions[lang].audioUrl` is set
-9. `MapOfBook` — the three systems, the evidence markers, the sixteen chapters, the Scientific Heartbeat
+9. `MapOfBook` — the three systems, the sixteen chapters with page 11's colour keys and rail, the Scientific Heartbeat
 10. `Author`, `Companion` (off), `Closing` (the book's last sentence), `Launch` (the notify form)
 
 ## Still outstanding from Ivana

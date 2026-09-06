@@ -94,6 +94,7 @@ export const en: SiteContent = {
   // Pages 12 to 13, verbatim. A section mark sits in the book between runs 3 and 4.
   knowTheDay: {
     eyebrow: "You know the day",
+    moreLabel: "More from page 12",
     runs: [
       "The day I mean is the other kind. The day where nothing went wrong and everything felt off. It started before you noticed it starting. Somewhere between the alarm and the shower, between the shower and the kitchen, between the kitchen and the first sip of whatever you drink to become the person the morning requires. Something was already there. It felt more like texture. A drag in the limbs, a reluctance in the chest, a faint heaviness that sat behind your thoughts like rainy weather behind glass.",
       "You have had this day. Everyone has had this day. You have had it dozens of times and you will have it again and each time the story will feel like the truth and each time the morning after will make the story dissolve.",
@@ -138,7 +139,7 @@ export const en: SiteContent = {
     title: "Before the chapters",
     sectionLabel: "The pilot",
     runningHead: "State. Not Situation",
-    teaserCount: 3,
+    teaserCount: 2,
     cta: "Read an extract",
     continueCta: "Continue reading",
     back: "Back to the book",
@@ -394,5 +395,6 @@ export const en: SiteContent = {
     bookOpening: "The book, opening",
     misreadingRegion: "Page 10 of the book",
     mapRegion: "A map of the book",
+    evidenceRegion: "Confidence markers, page 13",
   },
 };

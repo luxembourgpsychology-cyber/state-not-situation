@@ -1,6 +1,6 @@
 import type { Locale } from "@/site.config";
 import { siteConfig } from "@/site.config";
-import { getContent } from "@/lib/i18n";
+import { getContent, isPublished } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 import { ExcerptLink } from "./ExcerptLink";
 
@@ -15,13 +15,22 @@ export function ExcerptTeaser({ locale }: { locale: Locale }) {
   const available = siteConfig.editions[locale].excerptAvailable;
   return (
     <section id="read" className="bg-page border-y border-[var(--rule)]" aria-labelledby="read-title">
-      <div className="container-book py-[var(--section)]">
+      <div className="container-book pt-[calc(var(--section)*0.8)] pb-[var(--section)]">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
             <Reveal>
               <p className="eyebrow eyebrow-red mb-4">{x.eyebrow}</p>
               <h2 id="read-title" className="serif-title text-[clamp(2.2rem,5vw,3.6rem)]">{x.title}</h2>
               <p className="mono-label mt-4">{x.sectionLabel}</p>
+              {/* On a phone the bar carries no in-page links, so this is the
+                  only route to the extract, and to the notify form, below
+                  the hero. */}
+              {available ? (
+                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+                  <ExcerptLink href={`/${locale}/read`} label={x.cta} locale={locale} className="btn btn-solid" />
+                  {!isPublished(locale) ? <a href="#notify" className="btn">{c.status.notifyCta}</a> : null}
+                </div>
+              ) : null}
             </Reveal>
           </div>
           <div className="md:col-span-8 md:col-start-5">

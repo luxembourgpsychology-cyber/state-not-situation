@@ -1,40 +1,41 @@
 import type { SiteContent } from "@/content/types";
 import { Reveal } from "./Reveal";
-import { EvidencePulse } from "./EvidencePulse";
 
 const colour = { time: "var(--time)", attention: "var(--attention)", safety: "var(--safety)" } as const;
+const RAIL = ["var(--time)", "var(--attention)", "var(--safety)"];
 
 /**
- * One reference block, in the order the book presents these things: the three
- * systems introduced by the page 20 paragraph and the front-matter definitions,
- * the evidence note from page 13 with the printed HIGH / MEDIUM / LOW pulses,
- * and the map of sixteen chapters from page 11, closed by page 226 on the
- * Scientific Heartbeat. This is the section for the reader who wants the
- * structure: the psychologist, the academic, the editor.
+ * One reference block, for the reader who wants the structure: the page 13
+ * sentence on the three systems and their definitions from pages 13 to 14,
+ * then page 11, the map of sixteen chapters with the two devices that page
+ * prints, the three colour keys above the list and the rail in thirds down
+ * its left edge, closed by page 226 on the Scientific Heartbeat. The page 13
+ * markers have their own section higher up the page.
  */
-export function MapOfBook({ content, regionLabel }: { content: SiteContent["map"]; regionLabel: string }) {
+export function MapOfBook({ content }: { content: SiteContent["map"]; regionLabel?: string }) {
   return (
-    <section id="map" className="bg-paper border-t border-[var(--rule)]" aria-label={regionLabel}>
+    <section id="map" className="bg-paper border-t border-[var(--rule)]" aria-labelledby="map-title">
       <div className="container-book py-[var(--section)]">
-        {/* The three systems */}
+        {/* The three systems, pages 13 to 14 */}
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
             <Reveal>
-              <p className="eyebrow eyebrow-red mb-4">{content.eyebrow}</p>
-              <p className="prose-book text-ink">{content.systemsIntro}</p>
+              <h2 id="map-title" className="eyebrow eyebrow-red">{content.eyebrow}</h2>
+              <p className="mono-label mt-3">11</p>
             </Reveal>
           </div>
           <div className="md:col-span-8 md:col-start-5">
             <Reveal delay={80}>
-              <p className="prose-book text-ink-soft">{content.sortingTool}</p>
+              <p className="prose-book text-ink">{content.sortingTool}</p>
+              <p className="mono-label mt-3">13</p>
             </Reveal>
             <div className="mt-10 grid gap-8 sm:grid-cols-3">
               {content.loops.map((loop, i) => (
                 <Reveal key={loop.key} delay={100 + i * 70}>
                   <div className="flex gap-4 h-full">
-                    <span className="w-[5px] shrink-0 rounded-[1px]" style={{ background: colour[loop.key] }} aria-hidden="true" />
+                    <span className="w-[6px] shrink-0 rounded-[1px]" style={{ background: colour[loop.key] }} aria-hidden="true" />
                     <div>
-                      <h3 className="din-head text-[0.76rem] tracking-[0.2em]" style={{ color: colour[loop.key] }}>{loop.name}</h3>
+                      <p className="din-head text-[0.76rem] tracking-[0.2em]" style={{ color: colour[loop.key] }}>{loop.name}</p>
                       <p className="mt-3 text-[0.98rem] leading-[1.6]">{loop.body}</p>
                     </div>
                   </div>
@@ -44,53 +45,38 @@ export function MapOfBook({ content, regionLabel }: { content: SiteContent["map"
           </div>
         </div>
 
-        {/* Before we begin: the evidence note and the printed markers */}
-        <div className="grid md:grid-cols-12 gap-10 mt-[var(--section)] pt-[var(--section)] border-t border-[var(--rule)]">
-          <div className="md:col-span-4">
-            <Reveal>
-              <p className="eyebrow eyebrow-red mb-4">{content.evidenceEyebrow}</p>
-              <p className="mono-label">13</p>
-            </Reveal>
-          </div>
-          <div className="md:col-span-8 md:col-start-5">
-            <Reveal delay={80}>
-              <div className="prose-book">
-                <p>{content.evidenceIntro}</p>
-                <p>{content.evidenceMarkers}</p>
-              </div>
-            </Reveal>
-            <Reveal delay={120}>
-              <ul className="mt-10 grid grid-cols-3 gap-6 border-t border-b border-[var(--rule)] py-8" aria-label={content.evidenceEyebrow}>
-                {content.grades.map((g) => (
-                  <li key={g.key} className="flex flex-col items-start gap-3">
-                    <EvidencePulse grade={g.key} className="w-full max-w-[9rem] h-auto" />
-                    <p className="din-head text-[0.7rem] tracking-[0.28em]" style={{ color: `var(--grade-${g.key})` }}>{g.label}</p>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          </div>
-        </div>
-
-        {/* The Investigation: the sixteen chapters, page 11. The markers above
-            already close on a rule, so this block takes a shorter run-in than
-            the others; two full section gaps between two rules read as a hole
-            on a phone. */}
-        <div className="mt-[calc(var(--section)*0.55)] pt-[calc(var(--section)*0.55)] border-t border-[var(--rule)]">
+        {/* The Investigation: page 11 */}
+        <div className="mt-[calc(var(--section)*0.7)] pt-[calc(var(--section)*0.7)] border-t border-[var(--rule)]">
           <Reveal>
-            <h2 className="serif-title text-[clamp(2rem,4.5vw,3.2rem)]">{content.investigationTitle}</h2>
+            <h3 className="serif-title text-[clamp(2rem,4.5vw,3.2rem)]">{content.investigationTitle}</h3>
             <p className="din-head mt-4 text-[0.78rem] tracking-[0.12em] leading-[1.6] max-w-md text-ink">{content.mapLine}</p>
           </Reveal>
           <Reveal delay={80}>
-            <ol className="mt-10 grid sm:grid-cols-2 gap-x-12 border-t border-[var(--rule)]">
-              {content.chapters.map((ch) => (
-                <li key={ch.number} className="flex items-baseline gap-4 py-3.5 border-b border-[var(--rule)]">
-                  <span className="font-mono text-[0.78rem] text-red w-6 shrink-0">{ch.number}</span>
-                  <span className="din-head text-[0.74rem] tracking-[0.09em] leading-[1.5] flex-1">{ch.title}</span>
-                  <span className="font-mono text-[0.72rem] text-quiet shrink-0">{ch.page}</span>
+            {/* The three colour keys the page prints above its list */}
+            <ul className="map-keys mt-10" aria-hidden="true">
+              {content.loops.map((loop) => (
+                <li key={loop.key}>
+                  <span className="map-keys__rule" style={{ background: colour[loop.key] }} />
+                  <span className="din-head text-[0.68rem] tracking-[0.22em]" style={{ color: colour[loop.key] }}>{loop.name}</span>
                 </li>
               ))}
-            </ol>
+            </ul>
+            <div className="mt-6 flex gap-5 sm:gap-8">
+              {/* The rail down the page's left edge: three rectangles, Time, Attention, Safety */}
+              <div className="map-rail" aria-hidden="true">
+                {RAIL.map((c) => <span key={c} style={{ background: c }} />)}
+              </div>
+              {/* As printed: 00 to 07 down the left column, 08 to 15 down the right, no rules. */}
+              <ol className="flex-1 min-w-0 grid sm:grid-cols-2 sm:grid-flow-col sm:grid-rows-8 gap-x-16">
+                {content.chapters.map((ch) => (
+                  <li key={ch.number} className="flex items-baseline gap-4 py-3">
+                    <span className="font-mono text-[0.78rem] text-red w-6 shrink-0">{ch.number}</span>
+                    <span className="din-head text-[0.74rem] tracking-[0.09em] leading-[1.5] flex-1">{ch.title}</span>
+                    <span className="font-mono text-[0.72rem] text-quiet shrink-0">{ch.page}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </Reveal>
           <Reveal delay={120} className="mt-10 md:mt-12 grid md:grid-cols-12 gap-10">
             <div className="md:col-span-4">

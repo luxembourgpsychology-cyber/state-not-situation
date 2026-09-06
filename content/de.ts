@@ -110,6 +110,7 @@ export const de: SiteContent = {
   // Seiten 12 bis 13. Im Buch steht zwischen dem dritten und vierten Lauf ein Abschnittszeichen.
   knowTheDay: {
     eyebrow: "Sie kennen diesen Tag",
+    moreLabel: "Mehr von Seite 12",
     runs: [
       "Der Tag, den ich meine, ist von der anderen Art. Der Tag, an dem nichts schiefging und sich alles falsch anfühlte. Er fing an, bevor Sie merkten, dass er anfing. Irgendwo zwischen Wecker und Dusche, zwischen Dusche und Küche, zwischen Küche und dem ersten Schluck von dem, was auch immer Sie trinken, um der Mensch zu werden, den der Morgen verlangt. Etwas war schon da. Es fühlte sich eher an wie eine Textur. Eine Trägheit in den Gliedern, ein Widerstreben in der Brust, eine leise Schwere, die hinter Ihren Gedanken saß wie Regenwetter hinter Glas.",
       "Sie haben diesen Tag schon erlebt. Jeder hat diesen Tag schon erlebt. Sie haben ihn Dutzende Male erlebt und Sie werden ihn wieder erleben und jedes Mal wird sich die Geschichte anfühlen wie die Wahrheit und jedes Mal wird der Morgen danach die Geschichte auflösen.",
@@ -154,7 +155,7 @@ export const de: SiteContent = {
     title: "Vor den Kapiteln",
     sectionLabel: "Der Pilot",
     runningHead: "State. Not Situation",
-    teaserCount: 3,
+    teaserCount: 2,
     cta: "Leseprobe lesen",
     continueCta: "Weiterlesen",
     back: "Zurück zum Buch",
@@ -410,5 +411,6 @@ export const de: SiteContent = {
     bookOpening: "Das Buch beim Aufschlagen",
     misreadingRegion: "Seite 10 des Buches",
     mapRegion: "Eine Karte des Buches",
+    evidenceRegion: "Markierungen zu den Belegen, Seite 13",
   },
 };

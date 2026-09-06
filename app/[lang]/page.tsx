@@ -4,8 +4,8 @@ import { getContent, isPublished } from "@/lib/i18n";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Misreading } from "@/components/Misreading";
-import { KnowTheDay } from "@/components/KnowTheDay";
 import { TheReading } from "@/components/TheReading";
+import { BeforeWeBegin } from "@/components/BeforeWeBegin";
 import { TheBook } from "@/components/TheBook";
 import { ExcerptTeaser } from "@/components/ExcerptTeaser";
 import { CaseEvidence } from "@/components/CaseEvidence";
@@ -20,8 +20,10 @@ import { JsonLd } from "@/components/JsonLd";
 
 /**
  * The page follows the arc the book builds in its own first pages, decided in
- * translation/EDITORIAL-POSITIONING.md: the cover; page 10; pages 12 to 13;
- * the page 13 reading; the author's account; the extract; four case pages;
+ * translation/EDITORIAL-POSITIONING.md and re-weighted for the two kinds of
+ * reader in translation/HOOK-DECISION.md: the cover; page 10; pages 12 to 13
+ * as one passage ending on the three checks and the question; page 13's
+ * markers; page 20 with the author's account; four case pages; the extract;
  * the reference block; the author; the book's last sentence above the form.
  */
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
@@ -43,11 +45,11 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           excerptAvailable={ed.excerptAvailable}
         />
         <Misreading content={c.misreading} regionLabel={c.a11y.misreadingRegion} />
-        <KnowTheDay content={c.knowTheDay} />
-        <TheReading content={c.reading} />
-        <TheBook content={c.book} />
-        <ExcerptTeaser locale={locale} />
+        <TheReading day={c.knowTheDay} content={c.reading} />
+        <BeforeWeBegin content={c.map} regionLabel={c.a11y.evidenceRegion} />
+        <TheBook content={c.book} systemsIntro={c.map.systemsIntro} />
         <CaseEvidence content={c.cases} regionLabel={c.a11y.casesRegion} />
+        <ExcerptTeaser locale={locale} />
         {ed.audioUrl ? <Listen locale={locale} /> : null}
         <MapOfBook content={c.map} regionLabel={c.a11y.mapRegion} />
         <Author locale={locale} content={c.author} />

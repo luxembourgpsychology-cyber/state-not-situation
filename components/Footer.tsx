@@ -16,7 +16,7 @@ export function Footer({ locale }: { locale: Locale }) {
   const ed = siteConfig.editions[locale];
 
   const sections = [
-    { href: `${base}#book`, label: c.nav.book },
+    { href: `${base}#book-about`, label: c.nav.book },
     ...(ed.excerptAvailable ? [{ href: `${base}/read`, label: c.nav.read }] : []),
     ...(ed.audioUrl ? [{ href: `${base}#listen`, label: c.nav.listen }] : []),
     { href: `${base}#author`, label: c.nav.author },

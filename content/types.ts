@@ -111,6 +111,8 @@ export interface SiteContent {
   /** Pages 12 to 13, "You Know The Day", in three runs; the last hands to the reading. */
   knowTheDay: {
     eyebrow: string;
+    /** Interface label on the one disclosure, which holds runs[0]. Not a quotation. */
+    moreLabel: string;
     runs: string[];
   };
   /** Page 13: the reader is asked to take a reading. */
@@ -251,5 +253,7 @@ export interface SiteContent {
     bookOpening: string;
     misreadingRegion: string;
     mapRegion: string;
+    /** Accessible name of the page 13 markers section. Never rendered. */
+    evidenceRegion: string;
   };
 }

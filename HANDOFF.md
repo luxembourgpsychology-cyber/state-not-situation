@@ -50,7 +50,7 @@ You should almost never need to open `components/` or `app/` to change what the 
 | Every word, German | `content/de.ts` |
 | The interface all three must satisfy | `content/types.ts` |
 | Page of the book behind each line | `CONTENT_SOURCES.md` |
-| Why the sections sit in the order they do | `translation/EDITORIAL-POSITIONING.md` |
+| Why the sections sit in the order they do | `translation/EDITORIAL-POSITIONING.md`, re-weighted by `translation/HOOK-DECISION.md` (6 September) |
 | The standard every French and German sentence must meet | `translation/STANDARD.md` — Ivana's own document; it governs all translation work |
 | The per-language method, glossary and typography | `translation/METHOD-fr.md`, `translation/METHOD-de.md` |
 | Typography, colour, graphic devices | `DESIGN_SYSTEM.md` |
@@ -77,7 +77,7 @@ public/audio         recordings go here (none yet)
 
 **Working and live:** custom domain with SSL, `www` → apex 308 redirect, GitHub → Vercel auto-deploy, three languages, reading mode, press page, sitemap, robots, Book and Person structured data carrying the real ISBN, social preview card.
 
-**The page order was decided on 5 September 2026** by an editorial panel working from the almost-final book, and is recorded in `translation/EDITORIAL-POSITIONING.md`: the cover; page 10 (the display page) in its own layout; pages 12 to 13; the page 13 reading; the page 20 heading with Ivana's two paragraphs and "who it is for"; the extract with the page 26 line; four case pages; a reference block (the three systems, the evidence markers, the sixteen chapters, the Scientific Heartbeat); the author; the book's last sentence above the notify form. Do not reorder without reading that file.
+**The page order was decided on 5 September 2026** by an editorial panel working from the almost-final book (`translation/EDITORIAL-POSITIONING.md`) and **re-weighted on 6 September** after Ivana found the opening too text-heavy (`translation/HOOK-DECISION.md`): the cover; page 10 set large; pages 12 to 13 as one passage with one disclosure and the three checks at display size; page 13's evidence note with the three markers as a row; the page 20 heading with the Katrin paragraph, Ivana's two paragraphs and "who it is for"; four case pages; the extract with the page 26 line; a reference block (the three systems, the sixteen chapters with page 11's devices, the Scientific Heartbeat); the author; the book's last sentence above the notify form. Do not reorder without reading both files. The three system inks were corrected to the print file at the same time.
 
 **English is complete** apart from two placeholders (below). Every English line was re-verified against the almost-final 278-page PDF on 5 September 2026.
 
@@ -113,7 +113,7 @@ The book states **no** count of references, **no** DOI verification, **no** "yea
 
 Full detail in `DESIGN_SYSTEM.md`. In short:
 
-- **Colour:** cream `#F7F3EC`, cover red `#B5291C`, ink `#111111`. Loops: Time `#4B839A`, Attention `#988349`, Safety `#C75043`.
+- **Colour:** cream `#F7F3EC`, cover red `#B5291C`, ink `#111111`. The three system inks: Time `#2C6E8A`, Attention `#8C7432`, Safety `#BF372A`, read from the page 11 rectangles of the print file (corrected 6 September 2026).
 - **Type:** IvyPresto Display (serif titles, **never bold**), DIN Alternate Bold (tracked caps, navigation), Source Sans 3 (body), IBM Plex Mono (anything measured). Open-source substitutes ship; an Adobe Fonts kit id can be set in `site.config.ts`.
 - Red is emphasis only. No gradients, no glass, no icon sets, exactly one shadow — under the book.
 - The hero is a **CSS 3D book** built from the real cover, spine and page block, opening on scroll to the book's own title page. It reads one custom property, `--open`. **Do not add an animation library.**
