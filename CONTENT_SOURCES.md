@@ -112,7 +112,11 @@ From `brief/REDESIGN.md`. Everything else in the redesign was decided by the tea
 3. **Three moments, three "None."** The three she named all end "Verified event / tone / crisis: None." Read together they can be heard as a stronger claim than the book makes — the one Chapter Thirteen, "The Time the Body Was Right", exists to refute. Page 11's "16 cases" line above them is the hedge. Swapping 22:47 for 22:40 would end the set on the moment the body was right, at the cost of the most quotable panel on the page.
 4. **"Then turn tightened."** Your corrected text carries this twice, and it reads as a slip for "The turn tightened." The English page prints it exactly as you wrote it. French and German translate the sense and do not carry the slip, because in those languages it could only read as the translator's error. One word from you settles all three.
 5. ~~**Is the recording your own voice?**~~ **Closed 6 September 2026, by removal.** She listened and took the reading off the site: "take out the reading… it's bad." `editions.en.audioUrl` is `null`, so the Listen section, its footer link and its link from `/read` are all gone, and no claim about a voice is made anywhere. What was learned about generating a better one is in `audio/README.md`.
-6. Still open from before: a publication month or season in place of "Publishing soon"; whether she wants an audio recording; and, for her copy-editor, the typos noted in the almost-final text on or near the quoted pages (page 12 "is build"; page 15 "used in this book an analogy"; page 19 "safety,."; page 31 "is was fatigue"; page 181 "the he panel"; page 191 "mashine"; page 192 "somthing"; page 220 "itsel"). The site quotes none of those sentences.
+6. **Two translation queries are open**, both raised 6 September 2026 in the author's own query format and neither answerable from the book.
+   - **French, `QUERIES-fr.md` query 2 — which way the claim runs in NOT CLAIMED.** English leaves it open and French must close it: either the system claims the state, or nothing has claimed the system. The file carries « NON SOLLICITÉ », the one wording that does not choose. It governs four chapter openings and both halfway maps.
+   - **German, `QUERIES-de.md` query 2 — „Drei Lesarten" or „Drei Befunde" on page 11.** The new section calls the same three printed values *Befund* fifteen times, two screens below a line that calls them *Lesarten*. It reverses her §14 ruling that *Befund* was too clinical, which is why it is a question and not a decision.
+
+7. Still open from before: a publication month or season in place of "Publishing soon"; whether she wants an audio recording; and, for her copy-editor, the typos noted in the almost-final text on or near the quoted pages (page 12 "is build"; page 15 "used in this book an analogy"; page 19 "safety,."; page 31 "is was fatigue"; page 181 "the he panel"; page 191 "mashine"; page 192 "somthing"; page 220 "itsel"). The site quotes none of those sentences.
 
 ---
 
@@ -134,7 +138,13 @@ French original and must not be recorded as though it were. The reasoning behind
 | `moments.label` | Translated from the printed CASE EVIDENCE label: « Pièces du dossier ». |
 | `nav.menu`, `nav.closeMenu`, `a11y.menu` | Interface. « Menu », « Fermer », « Menu ». |
 | `press.kitLabel`, `press.mapHeading`, `press.sourcesHeading`, `press.sourcesLabel` | Interface. `sourcesLabel` uses the book’s own French for the page 226 section, « Le pouls scientifique ». |
-| `press.photoCredit` | `[COPY NEEDED: …]`, byte-identical and in English, as the rule requires. |
+| `press.photoCredit` | **Translated from the author's own attribution**, 6 September 2026: « Photographie : Zoe Larusson », with the no-break space French takes before a colon. The name does not change. Replaces the row that recorded the `[COPY NEEDED]` placeholder. |
+| `press.credits` Photography row | Translated label, author-supplied value: « Photographie » / « Zoe Larusson », after « Conception de la couverture », as in the English. |
+| `hero.credential` | **Translated from the author's own English line**, 6 September 2026: « Psychologue clinicienne, Luxembourg ». *Clinicienne* is the word of the approved French biography; the place stands bare after the comma, as a French byline sets it. |
+| `readings.title`, `.label`, `.pageLabel` | Translated from the English: « Les lectures », « Lecture », « Page ». The glossary term for *reading*; page 11 already prints « Trois lectures » in French. |
+| `readings.items[].time` / `.attention` / `.safety` | **Translated from the printed English chapter openings**, pages 23 to 209. Forty-five gauge labels, set in capitals as the book sets them, with the accents French capitals take. No French edition exists and none has a printed French original. Nine come straight from the `METHOD-fr.md` glossary. Adjectives agree with the system they stand under: TEMPS / DOMINANT against SÉCURITÉ / DOMINANTE. NOT CLAIMED is « NON SOLLICITÉ » and is **open**, `QUERIES-fr.md` query 2. |
+| `readings.items[].line` | **Translated from the fifteen printed lines.** Aphorisms, held to the English length: 36 to 61 characters against the English 33 to 54. |
+| `readings.items[].number` / `.page` | The book's own figures, byte-identical in all three languages. **`readings.items[].time` is not**, unlike `moments.items[].time`, which is a printed clock time — a mechanical parity check will flag all twelve translated Time cells, and that is correct. |
 | `variables.loops[2]` | Safety’s printed list of examples is removed in French as it is in English, so the three definitions share one shape. |
 
 ## Removed in the redesign, 6 September 2026
@@ -189,6 +199,20 @@ A journalist who checks this site against the book will find nothing that does n
 ---
 
 ## Provenance of the German edition, 6 September 2026
+
+*Added 6 September 2026 with the readings section. English is the source for every line on this
+site; there is no German edition of the book, so a German string is never quoted from a printed
+German original. The reasoning is in `translation/METHOD-de.md`, amendments 52 to 55.*
+
+| Key | Source of the German |
+|---|---|
+| `readings.title`, `.label` | Translated from the English: „Die Befunde", „Befund". **Not Lesart.** Amendment 35 splits the noun — *Lesart* where the reading is of the world, *Befund* where it is taken off the instrument — and fifteen panels of three system values are readings taken. This surfaced an inconsistency with page 11's „Drei Lesarten", which is **open**, `QUERIES-de.md` query 2; `moments.line` and `press.mapLine` are unchanged pending her answer. |
+| `readings.items[].time` / `.attention` / `.safety` | **Translated from the printed English chapter openings**, pages 23 to 209, in capitals as the book sets them. The debt trio is „DEFIZIT VOM MORGEN / VOM NACHMITTAG / VOM VORABEND": *Schuld* alone in capitals reads as guilt and *Schulden* reads as a bank, while *Defizit* is what German itself says in *Schlafdefizit*. Seven of the fifteen value rows wrap to two lines at 1440 px because *Aufmerksamkeit* costs five characters over *Attention*; nothing was shortened to force a line, per amendment 45. |
+| `readings.items[].line` | **Translated from the fifteen printed lines.** Line 11 says „zum Beweis" and not *Belege*, because the English says *proof* and amendment 12 bars *Beweis* for *evidence* precisely so the word stays free here; line 08, which does say *evidence*, is „Belege". Line 05 is the one place a shade of the image was traded for length: „stellt dem Morgen die Rechnung" is exact but runs 66 characters against 40 and stops being an aphorism, so the billing became paying, a shift the chapter itself contains. |
+| `hero.credential` | **Translated from the author's own English line**, 6 September 2026: „Klinische Psychologin, Luxemburg" — her own biography sentence with the verbs taken out, which is what the English does. |
+| `press.photoCredit` | **Translated from the author's own attribution**: „Foto: Zoe Larusson". Replaces the `[COPY NEEDED]` placeholder. The name does not change. |
+| `press.credits` Photography row | Translated label, author-supplied value: „Fotografie" / „Zoe Larusson". |
+
 
 `content/de.ts` is an authored German edition under `translation/STANDARD.md` and brief §14, not a word-for-word rendering. It carries no sentence that `content/en.ts` does not carry, and the one rule governs it identically. Three provenance facts have to stay on the record, because a later editor cannot recover them from the file.
 

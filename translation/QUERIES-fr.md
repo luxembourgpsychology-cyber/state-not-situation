@@ -47,7 +47,6 @@ SOURCE QUERY 2 of 2 — CLOSED, 6 September 2026
 
 Withdrawn. It asked whether to restore the four sentences of page 12 that supply the missing first term of « La journée dont je parle, c’est l’autre. » The redesign removes page 12 from the homepage entirely, so the comparison, the gap and the question have all gone with it. No answer is needed and no string is waiting. The analysis is kept in the git history of this file in case page 12 returns.
 
-
 ---
 
 **6 September 2026, the readings section.** `content/en.ts` gained the fifteen printed chapter openings as one dashboard, and `content/fr.ts` now carries them: sixty-three strings, forty-five of them gauge labels in capitals. The reasoning is in `translation/METHOD-fr.md` under **The fifteen readings, the credential and the photography credit**, and almost none of it needed a decision from you — the glossary already held nine of the values, and the fifteen lines are settled and in the file. One value does need your word, because English leaves something open that French has to close, and because it is printed at the head of four of your sixteen chapters.
@@ -77,7 +76,7 @@ OPTION A
 NON SOLLICITÉ / NON SOLLICITÉE. « Solliciter un système » is what French physiology and French engineering both say of a system that is or is not called upon, and it is the one wording that does not choose: a system that has not been sollicité has neither been drawn on nor asserted itself. It is thirteen characters, it reads as a gauge, and it works under Temps and under Sécurité alike.
 
 OPTION B
-PAS EN CAUSE. The investigation frame the case panels already carry, and the plainest French for a system that is not implicated in what happened. It is two words shorter and a reader takes it instantly. It states an exoneration the English does not state, and on the clean-panel dashboard of Chapter Twelve, where the whole point is that nothing upstream can be found, saying a system is « pas en cause » comes close to answering the chapter's question in its own margin.
+PAS EN CAUSE. The investigation frame the case panels already carry, and the plainest French for a system that is not implicated in what happened. It is two words shorter and a reader takes it instantly. It states an exoneration the English does not state, and on the clean-panel dashboard of Chapter Twelve, where the whole point is that nothing upstream can be found, saying a system is « pas en cause » comes close to answering the chapter’s question in its own margin.
 
 OPTION C
 NON REVENDIQUÉ. The conceptually different choice, and the only one that keeps the word *claim*: the system does not claim this state, and the reading goes unclaimed the way an act goes unclaimed. It makes the dashboard an attribution of responsibility from top to bottom, which is a defensible account of what these panels are. Against it: in French *revendiquer* is first heard in the news sense, an attack claimed by whoever carried it out, and that register sits badly at the head of a chapter about a woman waking two minutes before her alarm.
