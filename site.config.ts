@@ -23,6 +23,8 @@ export interface EditionSettings {
   publicationDate: string | null;
   /** Path under /public or an absolute URL to the author reading. Null = not yet recorded. */
   audioUrl: string | null;
+  /** A second source for the same recording, tried if the first cannot play. */
+  audioUrlFallback?: string | null;
   /** Show the excerpt section and the /read page for this language. */
   excerptAvailable: boolean;
   /** Form endpoint of your newsletter tool (Buttondown, Mailchimp, MailerLite, ...). Null = mailto fallback. */
@@ -40,7 +42,6 @@ export interface SiteConfig {
   /** Development only: show disabled languages as real links, with missing strings marked ⟦like this⟧. Never affects production. */
   previewDraftLanguages: boolean;
   editions: Record<Locale, EditionSettings>;
-  companion: { enabled: boolean };
   press: { enabled: boolean; authorPhoto: string | null; pressKitZipUrl: string | null };
   analytics: { provider: "none" | "vercel" | "plausible"; plausibleDomain: string };
   fonts: { adobeFontsKitId: string };
@@ -89,7 +90,8 @@ export const siteConfig: SiteConfig = {
       publicationStatus: "forthcoming",
       amazonUrl: null,
       publicationDate: null,
-      audioUrl: null,
+      audioUrl: "/audio/extract-en.m4a",
+      audioUrlFallback: "/audio/extract-en.mp3",
       excerptAvailable: true,
       newsletterUrl: null,
       newsletterEmailField: "email",
@@ -117,17 +119,12 @@ export const siteConfig: SiteConfig = {
     },
   },
 
-  /**
-   * The companion tool. Off until there is a sentence to put here: write
-   * companion.line in content/en.ts, then set this to true.
-   */
-  companion: { enabled: false },
 
   /** Press section. authorPhoto: path under /public once supplied, else null. */
   press: {
     enabled: true,
     authorPhoto: "/images/author.jpg",
-    pressKitZipUrl: null,
+    pressKitZipUrl: "/press/State-Not-Situation-press-kit.zip",
   },
 
   /**

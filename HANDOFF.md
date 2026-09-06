@@ -50,7 +50,9 @@ You should almost never need to open `components/` or `app/` to change what the 
 | Every word, German | `content/de.ts` |
 | The interface all three must satisfy | `content/types.ts` |
 | Page of the book behind each line | `CONTENT_SOURCES.md` |
-| Why the sections sit in the order they do | `translation/EDITORIAL-POSITIONING.md`, re-weighted by `translation/HOOK-DECISION.md` (6 September) |
+| **The author's brief for the site** | `brief/REDESIGN-BRIEF.md` — verbatim, and it governs everything |
+| **The canonical architecture and every string's treatment** | `brief/REDESIGN.md` |
+| How the page got here | `translation/EDITORIAL-POSITIONING.md`, `translation/HOOK-DECISION.md` (superseded, kept as record) |
 | The standard every French and German sentence must meet | `translation/STANDARD.md` — Ivana's own document; it governs all translation work |
 | The per-language method, glossary and typography | `translation/METHOD-fr.md`, `translation/METHOD-de.md` |
 | Typography, colour, graphic devices | `DESIGN_SYSTEM.md` |
@@ -77,7 +79,13 @@ public/audio         recordings go here (none yet)
 
 **Working and live:** custom domain with SSL, `www` → apex 308 redirect, GitHub → Vercel auto-deploy, three languages, reading mode, press page, sitemap, robots, Book and Person structured data carrying the real ISBN, social preview card.
 
-**The page order was decided on 5 September 2026** by an editorial panel working from the almost-final book (`translation/EDITORIAL-POSITIONING.md`), **re-weighted on 6 September** after Ivana found the opening too text-heavy (`translation/HOOK-DECISION.md`), and **cut back by Ivana the same day** from her phone: the cover; page 10 set large; page 11, the sixteen chapters with the page's colour keys and rail; page 13's three checks at display size and the question; page 13's evidence note with the three markers as a row; her own line and "who it is for"; the extract with the page 26 line; four case pages; the three systems and page 226; the author; the book's last sentence above the notify form. Page 12, the page 20 heading and paragraph, her "Over sixteen days" paragraph and page 14's "professional support" line are off the site at her request (recorded in `CONTENT_SOURCES.md`). Do not reorder without reading those files. The three system inks were corrected to the print file at the same time.
+**The site was redesigned on 6 September 2026** to the author's own brief (`brief/REDESIGN-BRIEF.md`), by a team working in the roles she named: editorial director, creative director, publishing marketing director, senior UX designer, English copy editor, French and German literary localisation editors. The decision they reached is `brief/REDESIGN.md`, and it is what the code implements.
+
+**Eight sections, in this order:** the cover · the premise (page 181's line, page 10's three lines, the back cover's four sentences) and the reading (page 13's three checks) · Time. Attention. Safety. · three printed case moments under page 11's "16 cases" line · the evidence markers with the author's own descriptions · two paragraphs of the extract · the reading, when audio exists · the author · page 225 and the form.
+
+**What that cost:** twelve sections to eight, about 1,210 visible words to about 690, and a phone page from 12,300 px to about 8,600 px — a third shorter, which is what her brief asked for. Nothing was cut for being wrong; it was cut because the page said it twice or said it where it did not land. The chapter map, the page 13 sorting passage, the fourth case panel and page 226 moved to `/press`; the page 26 block moved to `/read`. All of it is in the table in `brief/REDESIGN.md`.
+
+**Gone and not coming back:** the CSS 3D book and its scroll track (her brief forbids scroll choreography and unnecessary 3D), the case-evidence boxes, page 10's five readings, page 13's 169 words of evidence prose, the footer's three-line method, the second imprint line, the companion section.
 
 **English is complete** apart from two placeholders (below). Every English line was re-verified against the almost-final 278-page PDF on 5 September 2026.
 

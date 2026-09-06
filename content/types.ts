@@ -9,11 +9,31 @@
  *   (d) a marked [COPY NEEDED: …] placeholder.
  * Nothing else. See CONTENT_SOURCES.md for the page behind each line.
  *
- * The section order below follows the editorial decision of 5 September 2026
- * (translation/EDITORIAL-POSITIONING.md): the site follows the arc the book
- * itself builds in pages 10 to 14, then the extract, then the reference block.
+ * The structure below follows the canonical architecture decided in
+ * brief/REDESIGN.md (6 September 2026), which implements the author's brief
+ * at brief/REDESIGN-BRIEF.md. Eight homepage sections: hero, premise (the
+ * mechanism and the reading), variables, moments, evidence, excerpt, author,
+ * closing. Section ids are English in every language, by contract.
  */
 
+/** One of the book's three systems, printed on the cover and on pages 13 to 14. */
+export interface Loop {
+  key: "time" | "attention" | "safety";
+  name: string;
+  /** The definition from the book's front matter. */
+  body: string;
+}
+
+/** One confidence marker, printed on page 13; the description is the author's. */
+export interface EvidenceGrade {
+  key: "high" | "medium" | "low";
+  /** The label printed under the pulse on page 13. */
+  label: string;
+  /** The author's own description, from the redesign brief. */
+  description: string;
+}
+
+/** One CASE EVIDENCE page, reproduced. */
 export interface CaseEvidence {
   /** Chapter number as printed, e.g. "00". */
   chapter: string;
@@ -27,19 +47,6 @@ export interface CaseEvidence {
   /** VERIFIED EVENT / VERIFIED TONE / VERIFIED CRISIS … varies by chapter. */
   verifiedLabel: string;
   verified: string;
-}
-
-export interface Loop {
-  key: "time" | "attention" | "safety";
-  name: string;
-  /** The definition from the book's front matter, pages 13 to 14. */
-  body: string;
-}
-
-export interface EvidenceGrade {
-  key: "high" | "medium" | "low";
-  /** The label printed under the pulse on page 13. Nothing else is printed there. */
-  label: string;
 }
 
 export interface Chapter {
@@ -59,22 +66,26 @@ export interface SiteContent {
     pressTitle: string;
     pressDescription: string;
   };
+
   nav: {
+    home: string;
     book: string;
     read: string;
-    listen: string;
     author: string;
     press: string;
+    listen: string;
     skipToContent: string;
-    home: string;
+    /** The word on the phone bar. Never an unlabelled icon. */
+    menu: string;
+    closeMenu: string;
   };
+
   status: {
     forthcoming: string;
     published: string;
     publicationDatePrefix: string;
     buy: string;
-    notifyHeading: string;
-    /** The short button label. Never derive a button from the heading. */
+    /** The second hero action and the closing form's heading. */
     notifyCta: string;
     emailLabel: string;
     emailPlaceholder: string;
@@ -82,77 +93,95 @@ export interface SiteContent {
     success: string;
     error: string;
     privacyNote: string;
-    mailtoLabel: string;
+    /** Offline fallback only, used when no newsletter endpoint is set. */
     mailtoSubject: string;
     mailtoBody: string;
   };
+
   hero: {
-    eyebrow: string;
     titleA: string;
     titleB: string;
     subtitle: string;
     strap: string;
     authorPrefix: string;
     coverAlt: string;
-    openAlt: string;
     readCta: string;
-    scrollHint: string;
   };
-  /** Page 10, the book's own one-page account of itself, set as the display page it is. */
-  misreading: {
+
+  /** Section 2, movement one: page 10 and the printed back cover. */
+  premise: {
     eyebrow: string;
+    /** Page 181. The line the author calls crucial. */
+    sensorLine: string;
+    /** Page 10, three lines. */
     lines: string[];
-    investigationLabel: string;
-    investigation: string;
-    readingsLabel: string;
-    readings: { time: string; text: string }[];
-    closing: string[];
+    /** The back cover's own four sentences. */
+    mechanism: string[];
+    folio: string;
   };
-  /** Page 13: the reader is asked to take a reading. */
+
+  /** Section 2, movement two: page 13, where the reader takes a reading. */
   reading: {
     eyebrow: string;
     lead: string;
     steps: string[];
     result: string;
-    afterResult: string;
-    question: string;
+    folio: string;
   };
-  /** The author's account of the book, under a heading from page 20. */
-  book: {
-    eyebrow: string;
-    paragraphs: string[];
-    readersEyebrow: string;
-    /** Supplied by the author. */
-    readers: string;
+
+  /** Section 3. The three variables as an editorial spread. */
+  variables: {
+    /** Two printed sentences from page 13. */
+    sortingLines: string[];
+    loops: Loop[];
+    folio: string;
   };
-  excerpt: {
-    eyebrow: string;
-    title: string;
-    sectionLabel: string;
-    runningHead: string;
-    teaserCount: number;
-    cta: string;
-    continueCta: string;
-    back: string;
-    readingModeLabel: string;
-    paragraphs: string[];
-    quoteAfter: number;
-    quote: string;
-    /** Page 26, closing the extract on the site. */
-    closing: string;
-    closingSource: string;
-    endNote: string;
-    unavailable: string;
-    folios: string[];
-  };
-  cases: {
-    eyebrow: string;
+
+  /** Section 4. Three printed CASE EVIDENCE pages. */
+  moments: {
+    /** Page 11: "16 cases. Three readings. One question: state or situation?" */
+    line: string;
+    /** Printed at the head of every CASE EVIDENCE page. */
+    label: string;
     pageLabel: string;
     items: CaseEvidence[];
     /** Page 20. */
     closing: string;
     closingSource: string;
   };
+
+  /** Section 5. The book's confidence markers. */
+  evidence: {
+    title: string;
+    grades: EvidenceGrade[];
+    /** Page 13. */
+    closing: string;
+    folio: string;
+  };
+
+  /** Section 6 on the home page, and the whole of /read. */
+  excerpt: {
+    title: string;
+    sectionLabel: string;
+    /** The author's line, at the head of the extract. */
+    lead: string;
+    /** How many paragraphs the home page shows. */
+    teaserCount: number;
+    paragraphs: string[];
+    /** The pull quote sits after this paragraph index, on /read. */
+    quoteAfter: number;
+    quote: string;
+    continueCta: string;
+    back: string;
+    readingModeLabel: string;
+    /** Page 26, at the foot of the complete extract on /read. */
+    closing: string;
+    closingSource: string;
+    endNote: string;
+    unavailable: string;
+    folios: string[];
+  };
+
   listen: {
     eyebrow: string;
     title: string;
@@ -164,83 +193,69 @@ export interface SiteContent {
     duration: string;
     unavailable: string;
   };
-  /** One reference block: the three systems, the evidence markers, the chapters, the Heartbeat. */
-  map: {
-    eyebrow: string;
-    /** Front matter, page 13. */
-    sortingTool: string;
-    loops: Loop[];
-    evidenceEyebrow: string;
-    /** Page 13, "Before We Begin", first paragraph. */
-    evidenceIntro: string;
-    /** Page 13, second paragraph, which describes the markers in words. */
-    evidenceMarkers: string;
-    grades: EvidenceGrade[];
-    investigationTitle: string;
-    mapLine: string;
-    pageColumn: string;
-    chapters: Chapter[];
-    mapFooter: string;
-    /** Page 226, two sentences. */
-    heartbeat: string[];
-    heartbeatSource: string;
-  };
+
   author: {
-    eyebrow: string;
     title: string;
     photoAlt: string;
     photoPlaceholder: string;
     bio: string;
-    websiteLabel: string;
-    contactLabel: string;
+    /** The author's own line on who the book is for. */
+    readers: string;
     pressLabel: string;
   };
-  /** Page 225, the book's last sentence, above the form. */
+
+  /** Section 8. Page 225, then the cover line, then the form. */
   closing: {
     question: string;
     source: string;
-  };
-  companion: {
-    eyebrow: string;
+    /** Printed on the cover foot and the title page. */
     line: string;
   };
+
   press: {
     eyebrow: string;
     title: string;
     intro: string;
     contactHeading: string;
     assetsHeading: string;
+    /** The one download the brief asks for, at the head of the list. */
+    kitLabel: string;
     assets: { label: string; file: string; note: string }[];
     photoUnavailable: string;
+    photoCredit: string;
     bioHeading: string;
     bios: { label: string; text: string }[];
     factsHeading: string;
     facts: { label: string; value: string }[];
     descriptionHeading: string;
     description: string[];
+    /** The chapter map and the book's reference apparatus, relocated here. */
+    mapHeading: string;
+    mapLabel: string;
+    mapTitle: string;
+    mapLine: string;
+    pageColumn: string;
+    chapters: Chapter[];
+    sortingTool: string;
+    sourcesHeading: string;
+    sources: string[];
+    sourcesLabel: string;
     creditsHeading: string;
     credits: { label: string; value: string }[];
     back: string;
   };
+
   footer: {
     band: string;
-    /** Page 278, the back page's three lines. */
-    method: string[];
-    rights: string;
     pressLink: string;
     contactLink: string;
-    madeLine: string;
+    rights: string;
   };
+
   a11y: {
     mainLandmark: string;
     coverFigure: string;
     languageSwitcher: string;
-    languageComing: string;
-    casesRegion: string;
-    bookOpening: string;
-    misreadingRegion: string;
-    mapRegion: string;
-    /** Accessible name of the page 13 markers section. Never rendered. */
-    evidenceRegion: string;
+    menu: string;
   };
 }

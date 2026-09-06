@@ -15,7 +15,7 @@ function fmt(s: number) {
  * single red rule for progress, and the pulse mark tracing itself while the
  * author reads. Set editions.<lang>.audioUrl in site.config.ts to activate.
  */
-export function AudioPlayer({ src, content, locale }: { src: string | null; content: SiteContent["listen"]; locale: string }) {
+export function AudioPlayer({ src, fallback, content, locale }: { src: string | null; fallback?: string | null; content: SiteContent["listen"]; locale: string }) {
   const audio = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
   const [time, setTime] = useState(0);
@@ -66,7 +66,8 @@ export function AudioPlayer({ src, content, locale }: { src: string | null; cont
         </div>
       </div>
 
-      <div className="relative mt-6 h-6">
+      {/* 44px tall so the scrubber is a real target; the rule sits centred in it. */}
+      <div className="relative mt-6 h-11">
         <div className="absolute top-1/2 left-0 right-0 h-px bg-[var(--rule-strong)]" aria-hidden="true" />
         <div className="absolute top-1/2 left-0 h-[2px] -mt-px bg-red" style={{ width: `${pct}%` }} aria-hidden="true" />
         <input
@@ -78,8 +79,14 @@ export function AudioPlayer({ src, content, locale }: { src: string | null; cont
         />
       </div>
 
-      {src ? <audio ref={audio} src={src} preload="metadata" /> : (
-        <p className="mt-4 font-mono text-sm text-quiet">{content.unavailable}</p>
+      {src ? (
+        /* Nothing is fetched until the reader presses play. */
+        <audio ref={audio} preload="none">
+          <source src={src} type={src.endsWith(".m4a") ? "audio/mp4" : "audio/mpeg"} />
+          {fallback ? <source src={fallback} type="audio/mpeg" /> : null}
+        </audio>
+      ) : (
+        <p className="mt-4 t-mono">{content.unavailable}</p>
       )}
     </div>
   );

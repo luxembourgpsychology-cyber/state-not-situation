@@ -454,3 +454,165 @@ Measured in the running page at 360 by 780, not read off the clamps. The :lang(d
 "Spüren Sie Ihren Kiefer." and "Spüren Sie Ihren Atem." set on one line each. "Spüren Sie Ihre Schultern." sets on two, which is what the English "Check your shoulders." does at the same width, and the build spec allows two. Nothing is hyphenated anywhere: the widest German word in the checks measures 139 px against a 320 px column, and the same holds for every eyebrow, so no display line breaks a word. Every eyebrow sets on one line at 360, including "MEHR VON SEITE 12" and "PROBIEREN SIE JETZT GLEICH ETWAS AUS". "Was Sie gefunden haben, ist ein Befund." sets on two lines, "Ist das die Situation? Oder ist das der Zustand?" on two, "Es hieß: Ich versage. Die Daten waren: Ich bin müde." on two.
 
 One line count differs from the English. book.heading, "Derselbe Morgen. Derselbe Absatz. Dieselbe Katrin. Andere Einstellungen am Instrument.", sets on four lines at 360 and on four at 1440, where the English sets on three at both. The sentence is 86 characters against the English 73, so this is length, not a defect: nothing overflows and no word is broken. On the phone it cannot be repaired by type size, because the heading still takes four lines at 24 px, which is smaller than the line under it; the phone keeps four lines. On the desktop it is the measure, not the size: the heading carries max-w-[22ch], which at 57.6 px is 583 px inside a 733 px column, and a German measure of 24ch (636 px, still inside the column) sets it on three lines. If the design lead wants the German and English headings to match on the desktop, the repair is one rule in globals.css, `:lang(de) #book-title { max-width: 24ch; }`, and the German sentence stays as written. The rule of the standard holds either way: a sentence of the book is never shortened to fit a line.
+
+## The redesign edition, 2026-09-06 (amendments 35 to 45)
+
+The homepage was rebuilt from twelve sections to eight and from about 1,210 visible words to about 690, to `brief/REDESIGN.md` under the author's brief of the same date, `brief/REDESIGN-BRIEF.md`. Her brief governs this document: where §14 rules on a German wording, it wins over anything decided here on 5 or 6 September, and amendment 25 is withdrawn below. Six strings on the page had never been on this site in any language, and every carried string was re-read against §14 rather than inherited. This section is the localisation report her §30 D asks for.
+
+**Provenance of the German edition.** No German edition of the book exists. The title is never translated. The lines printed on the cover — the subtitle, the strap, the four sentences of the premise, the footer band, "Dasselbe Leben. Andere Einstellungen am Instrument." — are translated from the **English** cover artwork (`public/images/cover-front.jpg`, `cover-back.jpg`), not taken from a printed German original, and the German page carries no claim that a German edition exists. The three evidence descriptions are the author's own words from her brief §8 section 5, re-authored in German rather than lexically matched; without that line on the record the next editor will find three unsourced sentences and cut them the way the press-pack claims were cut. Recorded per language in `CONTENT_SOURCES.md`.
+
+### 35. *reading* is two German nouns, and the seam is stated once
+
+This is the book's central term and the author's ruling on the hero strap forces it. `Befund` is withdrawn from the strap, from the back cover's second sentence and from page 11's line. It is **kept** for the reading you take off the instrument.
+
+**The rule.** If the sentence is about what the world seems to be — the reading the instrument hands you as a fact — the German is **Lesart**. If the sentence is about what the body or the panel shows when you look at it — the reading you take — the German is **Befund**. The verbs are unchanged: `ablesen` for a panel or a dial, `lesen` for a text, a room, a face, a body. `Fehldeutung` for *misreading* is unchanged; a misreading is the mind's wrong story, not a reading at all.
+
+Applied on the site:
+
+| English | German | Where |
+|---|---|---|
+| "Your first reading is not the whole story." | „Ihre erste Lesart ist nicht die ganze Geschichte." | `hero.strap`, front cover |
+| "But the first reading is often not the whole story." | „Aber die erste Lesart ist oft nicht die ganze Geschichte." | `premise.mechanism[1]`, back cover |
+| "16 cases. Three readings." | „16 Fälle. Drei Lesarten." | `moments.line`, `press.mapLine`, page 11 |
+| "What you found is a reading." | „Was Sie gefunden haben, ist ein Befund." | `reading.result`, page 13 |
+
+**Why Lesart and not Befund.** The author's ruling is that Befund is unnecessarily clinical, and the book agrees with her: it places itself "in the gap between fine and clinical", so its cover noun cannot be the word from a doctor's letter. Lesart also keeps the whole reading family audible in German — lesen, ablesen, Lesart, Lesemodus — where Befund shares nothing with the verbs the book uses on every page. And Lesart carries "one reading among several", which is precisely what the strap claims.
+
+**Why not Eindruck**, her second candidate. Three reasons, and they are not stylistic. It is a different psychological concept (impression formation), and the memory already rejected it in the *first reading* row. It concedes subjectivity in advance, where the book's whole point is that the reading arrives feeling like a fact. And „Der erste Eindruck ist nicht die ganze Geschichte." runs straight into the German proverb about first impressions, which turns a proposition into a platitude — brief §27's headline test rejects it: it could appear on any psychology book's website.
+
+**Why Befund survives on page 13.** „Was Sie gefunden haben, ist ein Befund." is the sentence asking for that word: *gefunden* and *Befund* are the same verb, and a Befund is what an examination found, not what it means, which is exactly the distinction the moment draws. Here the clinical colour is not a cost. The reader has just examined themselves.
+
+**What German loses and what it gains.** English fuses the instrument's reading of the world and the reader's reading of the instrument in one word, and the book's therapy is the move from the first to the second. German cannot pun on it, so it names the two, and the book's instruction — read the panel before you believe the story — becomes, in German, the instruction to turn a Lesart into a Befund. That is a gain in clarity bought with the loss of the pun. Where the book's prose depends on the pun, amendment 6 still governs: „Ein Befund, abgelesen an dem Instrument, das …". One consequence is put to the author in `QUERIES-de.md`, because the cover word and the page 13 word are now different words on one page.
+
+### 36. *field guide* is „Leitfaden". Amendment 25 is withdrawn
+
+The subtitle is „Ein Leitfaden für den Moment, bevor aus Deutung Wirklichkeit wird", in all three places it appears: `meta.description`, `hero.subtitle`, `press.facts` Untertitel. Bestimmungsbuch is withdrawn on the author's ruling in §14. Her reason stands on its own: a Bestimmungsbuch is a book of keys and plates for identifying species, and a German reader meeting it above a psychology cover reads a category error before reading the sentence. Leitfaden takes „für" and a task, and „ein Leitfaden für den Moment, bevor …" keeps the same deliberate oddness the English has in "a field guide to the moment" — a guide to a moment rather than to a terrain. Feldführer stays withdrawn; it is a calque decoded through the English.
+
+### 37. The sensor line
+
+„Der Körper ist erst Sensor, dann Erzähler." `premise.sensorLine`, page 181, the largest type in the section and the line the author names crucial.
+
+Three candidates were written and one chosen. „Der Körper ist ein Sensor, bevor er ein Erzähler ist." is the English sentence in German clothes, and it fails on two counts: German puts a state-copula under *bevor* only awkwardly, because being a narrator is not an event that starts; and the subordinate clause must end on the verb, so the German lands on „ist" where the English lands on "narrator", which is the whole rhythm of the line. „Zuerst ist der Körper ein Sensor, dann ein Erzähler." lands correctly but is longer and its second half is a limp ellipsis. The chosen form drops the articles, which is what German does for roles — *er ist erst Arzt, dann Vater* — so the two nouns read as two functions of one body, which is the claim; it ends hard on Erzähler; and at 42 characters it sets on two lines at 360, where the alternatives take three. Nothing is added and nothing is dropped: *erst … dann* states the priority the English states with *before*, and it is the same priority the book states as "The body speaks first. The mind explains second." Sensor and Erzähler are the memory's words and are unchanged.
+
+### 38. "Publication updates" is „Nachricht zum Erscheinen"
+
+`status.notifyCta`, which is both the hero's and the menu's second action and the `h3` above the email field. „Benachrichtigen lassen" is withdrawn: it is the German for "Be notified", the passive imperative the English deliberately left behind, and the note to the French desk applies here word for word. The replacement is a noun phrase like the English, it names what the reader gets rather than instructing them, and it does not repeat the submit button's verb, which „Benachrichtigung zum Erscheinen" would have done one line above „Benachrichtigen". `status.submit` stays „Benachrichtigen" and `status.privacyNote` keeps the only Benachrichtigung on the page.
+
+`status.success` gains back a word the German had dropped: "You will hear **once**, when the book is out." is „Sie hören **einmal** von mir, wenn das Buch da ist." The promise of a single email is what makes the ask worth granting, and it was missing.
+
+### 39. Evidence: „Belege", and three definitions rather than three slogans
+
+`evidence.title` is „Belege" — the memory's word for evidence in the research sense, and the one that reads as a section heading in a serious German nonfiction book. Evidenz stays rejected as jargon outside *evidenzbasiert*, and Beweis stays rejected under amendment 12.
+
+The three descriptions are the author's own words re-authored to the same register. They are the tallest cell in the row and they must not compress to a label.
+
+| English | German |
+|---|---|
+| "Replicated or robust evidence." | „Wiederholt bestätigte oder belastbare Belege." |
+| "Suggestive evidence with meaningful uncertainty." | „Hinweise, deren Unsicherheit ins Gewicht fällt." |
+| "Plausible hypothesis or emerging evidence." | „Plausible Hypothese oder erste Belege." |
+
+*Suggestive evidence* is „Hinweise": German research prose says *es gibt Hinweise darauf, dass …* for exactly this grade, and it is the word a German reader already associates with evidence that points without settling. *Meaningful uncertainty* is „deren Unsicherheit ins Gewicht fällt", not „erhebliche Unsicherheit": *erheblich* is considerable, which is a stronger claim about the uncertainty than *meaningful*, and the epistemic rule forbids the drift in either direction. *Hypothesis* is „Hypothese" here and not the memory's „Vermutung", because this is the academic legend and not narrative prose, and the standard forbids downgrading a technical English word; the Vermutung row governed a sentence that has been cut from the site. The three run 44, 46 and 37 characters against the English 30, 47 and 41, so no cell dominates the row.
+
+`evidence.closing`, page 13: „Diese Markierungen gibt es, weil das Buch selbst dasselbe Risiko trägt, das es beschreibt." *Markierungen* is the noun amendment 34 fixed. The topic is fronted, which is where German puts it; *selbst* is the English "the book's **own** risk" and not an added intensifier; „ein Risiko tragen" is the plain German collocation, against „unterliegen", which is a word from a contract.
+
+### 40. Where "They" points at display type, German points with „Das", not with „Sie"
+
+`variables.sortingLines`, page 13: „Das sind keine Hirnregionen und keine Nervenbahnen." / „Das ist ein Werkzeug zum Sortieren, eine Art, drei Fragen zu stellen, wenn sich alles auf einmal falsch anfühlt."
+
+On the site these two sentences sit under the three display words, and "They" points at ZEIT, AUFMERKSAMKEIT, SICHERHEIT rather than at a noun in the sentence before — there is no sentence before. „Sie sind …" is unavailable under amendment 23: the capital is unrecoverable, the polite Sie takes the same plural verb, and the reader has been addressed as Sie four screens running. „Diese Systeme", the repair used in `press.sortingTool`, is unavailable too, because on the homepage nothing has called them systems. „Das sind … / Das ist …" is the ordinary German demonstrative for pointing at what was just named, it repeats where the English repeats "They are", and the shift from plural to singular reproduces the English shift from *They* to *a sorting tool* — three words, one instrument. The glossary phrase „ein Werkzeug zum Sortieren" is unchanged, and so is the `press.sortingTool` string, which keeps „Es sind keine Hirnregionen …" because there the antecedent is in the sentence above it.
+
+### 41. Attention, rewritten to the author's own German
+
+The standard's German section supplies the wording for this sentence and the file was not using it. „Ist es eingefangen, verengt sich der Fokus auf **den Reiz, der am wenigsten Aufwand verlangt**, und **anspruchsvollere Arbeit** fühlt sich schwer an." Replaces a 232-character sentence with a 205-character one that is her document's own preferred phrasing. The superlative *der … der am wenigsten* already presupposes the set of inputs on offer, so "available" is carried and not dropped. *Reiz* is correct here for *input* and does not touch the glossary's rejection of Reiz for *cue*, which is a trigger and a different thing. The standard's „plötzlich schwerer" is not taken: the English says "feels hard", not "suddenly harder".
+
+### 42. Safety loses its list of examples, as the English does
+
+„Auf Dinge wie Bewertung durch andere, Ausgrenzung, Mehrdeutigkeit, Status." is removed from `variables.loops[2].body`, following the English, which removes page 14's "Things like social evaluation, exclusion, ambiguity, status." The omission is recorded in `CONTENT_SOURCES.md`. The three definitions now share one shape in German as in English — the first sentence says what the system is, the rest says what it does to you — and Safety no longer runs to twice the length of Time. The triple „Es ist schnell, es ist alt, und es neigt zu Fehlalarmen." keeps the English repetition of the copula; *neigt zu* is the German for a bias toward, and does not upgrade the claim.
+
+### 43. The interface strings of the rebuilt page
+
+All are labels, all follow German publishing convention, and none is derived from a heading.
+
+`nav.menu` „Menü" and `a11y.menu` „Menü" — the word, not an icon, and the accessible name is built from the word the control uses, as amendment 34 requires. `nav.closeMenu` „Schließen", the German for closing an overlay; *Zu* and *X* were rejected, the first as a preposition and the second as an icon in text. At 360 the bar measures 36 px mark + „Menü" ending at 164 px + EN · FR · DE ending at 340 px, inside the budget.
+
+`moments.label` „Beweismaterial", the memory's word for CASE EVIDENCE, printed as BEWEISMATERIAL / 00. This is the investigation frame and not the epistemic pair, so amendment 12 does not touch it.
+
+`press.kitLabel` „Vollständige Pressemappe herunterladen". Pressemappe is the German word for a press kit; *Presseset* and *Pressekit* are English in German letters. `press.mapHeading` „Die Kapitel". `press.sourcesHeading` „Quellen und Belege" — the same Belege as the homepage section, so the two say the same thing in the same word. `press.sourcesLabel` „Der wissenschaftliche Herzschlag, Seite 226", the section's own name, with the folio after a comma as in amendment 34. `press.photoCredit` and `press.bios[1]` are still byte-identical English placeholders.
+
+### 44. Parity repairs found while re-reading the carried strings
+
+Five, each one a place where the German said more or less than the English rather than saying it differently.
+
+`meta.description` carried a page 11 line the English description no longer has and did not carry the biography sentence the English now leads on. It is now „Ein Leitfaden für den Moment, bevor aus Deutung Wirklichkeit wird. Ivana Budišin ist klinische Psychologin und lebt und arbeitet in Luxemburg. State. Not Situation. ist ihr erstes Buch." — the same three facts as the English, and the words are hers.
+
+`meta.readDescription` had invented a summary the English does not make ("ein Pilot, Dunst über offenem Wasser und ein Satz der Federal Aviation Administration"). It is now the English sentence and nothing more. `meta.ogImageAlt` described the artwork where the English names the book and its subtitle; it now does what the English does. `meta.pressDescription` listed Biografie and Kontakt where the English lists publication details and the extract.
+
+`press.description[1]` carried the page 11 map line, where the English carries the readership sentence the redesign moved here; it is now that sentence, in the wording already settled under amendment 31. `press.facts` lost the „Verlag" row, which `brief/REDESIGN.md` removes because `press.credits` already prints „Erschienen bei: Budisin Publishing" and §11 forbids the pairing, and gained the legal deposit row the English has: „Pflichtexemplar — Eine CIP-Aufnahme liegt bei der Bibliothèque nationale du Luxembourg vor." Pflichtexemplar is the German term and CIP-Aufnahme is what a German library calls the record. `status.mailtoBody` named the title where the English says "the book"; it now says „das Buch".
+
+### Translation memory, new and amended rows
+
+| English | German | Context | Rejected | Example |
+|---|---|---|---|---|
+| reading (of the world) | Lesart | the reading the instrument hands you as a fact: the cover strap, the back cover, page 11's three readings | Befund (withdrawn here on the author's ruling, §14), Eindruck (impression formation; concedes subjectivity; collides with the proverb), Deutung (the mind's story, not the reading) | Ihre erste Lesart ist nicht die ganze Geschichte. |
+| reading (off the instrument) | Befund | what a check of the body or of the panel returns; what was found, not what it means | Ablesung, Messung, Messwert, Anzeige (alt text for printed dials only) | Was Sie gefunden haben, ist ein Befund. |
+| field guide | Leitfaden | the subtitle, in all three places it appears | Bestimmungsbuch (withdrawn, §14), Feldführer, Handbuch | Ein Leitfaden für den Moment, bevor aus Deutung Wirklichkeit wird |
+| sensor | Sensor | the body as sensor, against the body as narrator | Messfühler, Fühler | Der Körper ist erst Sensor, dann Erzähler. |
+| Publication updates | Nachricht zum Erscheinen | the second action, and the heading above the email field | Benachrichtigen lassen (the passive imperative the English left behind), Benachrichtigung zum Erscheinen (repeats the submit verb), Newsletter | Nachricht zum Erscheinen |
+| evidence (the section, the grade) | Belege | the book's own grading of its claims | Evidenz, Beweis, Nachweis | Wiederholt bestätigte oder belastbare Belege. |
+| suggestive evidence | Hinweise | evidence that points without settling | Anhaltspunkte (a lead, not a finding), Indizien (a courtroom) | Hinweise, deren Unsicherheit ins Gewicht fällt. |
+| meaningful uncertainty | Unsicherheit, die ins Gewicht fällt | uncertainty that matters; never *erheblich*, which is a stronger claim | erhebliche Unsicherheit, bedeutsame Unsicherheit | Hinweise, deren Unsicherheit ins Gewicht fällt. |
+| plausible hypothesis | plausible Hypothese | the academic legend; Vermutung stays the word in narrative prose | Annahme, Mutmaßung | Plausible Hypothese oder erste Belege. |
+| emerging evidence | erste Belege | evidence that is only now appearing | neue Belege, sich abzeichnende Belege | Plausible Hypothese oder erste Belege. |
+| sleep pressure | Schlafdruck | the sleep-research term, printed on the back cover | Schlafbedürfnis, Müdigkeitsdruck | Schlafdruck, Hunger, Timing, Aufmerksamkeit … |
+| the body has voted | der Körper hat schon abgestimmt | the back cover's one voting image; kept, as the book's own oddness | hat schon entschieden, hat sein Urteil gefällt | Bevor der Kopf erklärt, hat der Körper schon abgestimmt. |
+| quietly shape | unbemerkt prägen | shaping that goes unnoticed, not shaping that is quiet | leise formen, still beeinflussen | … prägen unbemerkt, was sich wahr anfühlt. |
+| gives that feeling a reason | liefert dem Gefühl einen Grund | supplies the explanation; *einen Grund geben* would say "gives it cause to act" | gibt dem Gefühl einen Grund, findet einen Grund | Dann kommt der Kopf als Zweiter und liefert dem Gefühl einen Grund. |
+| Case evidence | Beweismaterial | the label printed at the head of every case page | Fallbeleg, Beweismittel | Beweismaterial / 00 |
+| Menu / Close | Menü / Schließen | the phone bar and the sheet | Zu, Abbrechen | Menü |
+| press kit | Pressemappe | the single download at the head of Downloads | Pressekit, Presseset | Vollständige Pressemappe herunterladen |
+| legal deposit | Pflichtexemplar | the press page's publication table | Pflichtabgabe, Belegexemplar | Eine CIP-Aufnahme liegt bei der Bibliothèque nationale du Luxembourg vor. |
+| Attention (the variable) | Aufmerksamkeit | the second of the three printed variables, and the system the definition beneath it describes | Fokus (the narrowing that variable produces, not the system that produces it, and it collides with „verengt sich der Fokus" in the same block), Achtsamkeit (a practice, and the wrong register), any abbreviation or soft hyphen | Aufmerksamkeit |
+
+### German display type in the rebuilt page, measured
+
+Measured in the running page, not read off the clamps. The `:lang(de)` override on the check token is gone with the six-step scale, so German now takes the same DISPLAY as English.
+
+At 360 × 780 the document width is 360 and nothing overflows. „Der Körper ist erst Sensor, dann Erzähler." sets on two lines at 36 px. All three checks set on **one** line each — „Spüren Sie Ihre Schultern." now fits, where it took two under the old override. „Ist das die Situation? Oder ist das ihr Zustand?" sets on two. Section titles at HEAD, 28 px: „16 Fälle. Drei Lesarten. Eine Frage: Zustand oder Situation?" two lines, „Belege", „Vor den Kapiteln", „Ivana Budišin" and „Nachricht zum Erscheinen" one line each. The two hero actions stack, at 129 px and 204 px inside a 320 px column, which is the designed state. In the variables, ZEIT, AUFMERKSAMKEIT and SICHERHEIT each set on one line at COVER, 44 px. `/de/press` and `/de/read` are clean at 360 with no overflow and no untranslated key.
+
+**One defect, and it was not a translation defect. Closed 2026-09-06 — see amendment 45.**
+
+### 45. AUFMERKSAMKEIT holds one line at every width, and the word is untouched
+
+The reader's one stop on this edition. The string stands: *Aufmerksamkeit* is the German for *Attention*, it is one of the three printed variable words, and this section is those three words. There is no shorter German equivalent that is also right — *Fokus* is the narrowing the definition beneath it describes, not the system that does the narrowing, and it would collide with „verengt sich der Fokus" in the same block. Nothing was shortened, abbreviated or soft-hyphenated.
+
+What was broken was the band, not the word, and `brief/REDESIGN.md` §3 had already decided half of the repair without it ever being built: `app/globals.css` carried no `:lang(de)` rule at all. Measured again in the running page before touching anything, and every figure the reader reported is exact. At COVER the word is 5.5 em: 294 px against a 204 px band at 768, 392 px against 281 px at 1024, 396 px against 347 px at 1280 and at 1440, where a single „t" sat alone on the second line. ZEIT and SICHERHEIT hold one line everywhere, and so does English ATTENTION.
+
+The specified DISPLAY substitution brings the word to 332 px, which the 347 px band holds from 1280 up and nowhere below it, because below 1280 the band is narrower still. So the substitution was built where its stated reason applies — the four-column band — and below that the band itself waits. From 768 to 1279 German takes the stacked state already designed for the phone: one column, hairline between, word at COVER. There the word sets on one line at every width by a wide margin — 294 px in 691 px at 768, 392 px in 922 px at 1024, 394 px in 1120 px at 1279, 241 px in 320 px at 360, which is unchanged.
+
+This is not a new decision. It is the move `brief/REDESIGN.md` already specifies for the two hero actions, which stack into separate rows in German where English and French sit on one line, on the explicit instruction not to shorten a label to force one line. The same principle, the same authority, the same section of the same document: the German string keeps its full form and a state that is already designed carries it. No seventh type step was added, no per-language size was invented outside the one the architecture names, and no hyphen was put inside the largest word on the spread — `hyphens: auto` was rejected, because the system's own note beside `.t-label` reads *wrap, never hyphenate display type*.
+
+Against the parity contract, §15. Same section, same position, same conceptual claim, same evidence level, same three words in their three inks, and the same reading at 360 and from 1280 up. Between 768 and 1279 German reaches the spread as a column where English reaches it as a row — a difference of one breakpoint in a state the design system already contains, set against a word broken mid-word without a hyphen under the largest type on the page, which is what actually made this edition read as the secondary translation. English and French render identically to before: verified at 1000 px, where their band is still the twelve-column grid at 242 px tall and German's is a single 900 px column at 689 px.
+
+Built in `app/globals.css` under a `:lang(de)` block that carries the measurements and the reasoning, plus one class hook, `variables-band`, on the grid in `components/Variables.tsx`. That class is inert in English and French.
+
+| Section | Sem | Sci | Nat | Coll | Voice | Rhythm | Concept | Free |
+|---|---|---|---|---|---|---|---|---|
+| meta | 10 | 10 | 10 | 10 | 9 | 9 | 10 | 10 |
+| nav, status | 10 | 10 | 10 | 10 | 9 | 9 | 10 | 10 |
+| hero | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+| premise.sensorLine | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+| premise.lines, mechanism | 10 | 10 | 10 | 9 | 10 | 10 | 10 | 9 |
+| reading | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+| variables.sortingLines | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+| variables.loops | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+| moments | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+| evidence | 10 | 10 | 10 | 10 | 9 | 9 | 10 | 10 |
+| excerpt | 10 | 10 | 10 | 9 | 10 | 10 | 10 | 9 |
+| author, closing | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+| press | 10 | 10 | 10 | 10 | 9 | 9 | 10 | 10 |
+| footer, a11y | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+
+Nothing sits below 9 on the four axes that gate publication. The 9 on `premise.mechanism` is the voting image, which is as odd in German as on the English jacket and is kept for that reason; the 9s on `excerpt` are amendment 16's FAA gloss, which an English reader does not need and a German one does.
+
+Tell recount, on the detection catalogue at "Verify against yourself", item 10. Connectives jedoch, zudem, allerdings, somit, dabei: 0, against an English that has none. Three raw hits for *daher*, all inside „daherkommt" on the extract page, which is the verb for "presents itself as" and not a connective; one raw hit for *Reise*, a substring of „Kreiselanzeige". Real count 0 on both. The pass's one previous false positive, „komplexe Erkrankungen", left the file with the page 14 sentence. No „nicht nur … sondern auch", no „dient als", no significance inflation, no didactic disclaimer, no summary ending, no dash, no title case, no added triad.

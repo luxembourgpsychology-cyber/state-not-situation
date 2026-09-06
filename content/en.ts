@@ -1,67 +1,65 @@
 import type { SiteContent } from "./types";
 
 /**
- * ENGLISH CONTENT.
+ * ENGLISH CONTENT — the canonical source language.
  *
- * Every sentence below is one of four things, and nothing else:
- *   1. printed in the almost-final book or on its cover, word for word;
- *   2. supplied by Ivana, word for word;
- *   3. a plain interface label (Play, Press, Email address);
+ * Every string below is one of exactly four things:
+ *   1. printed in the book or on its cover, word for word;
+ *   2. written by Ivana and given to the team, word for word;
+ *   3. a plain functional interface label;
  *   4. a [COPY NEEDED: …] placeholder only Ivana can fill.
  *
- * CONTENT_SOURCES.md lists the page behind each entry. If you add a sentence
- * here, add its source there. Nothing on this site should be sayable about the
- * book that the book does not say about itself.
+ * CONTENT_SOURCES.md records the page or the date behind every line. If you
+ * add a sentence, add its source there. If you cannot cite one, write a
+ * placeholder instead.
  *
- * Section order follows translation/EDITORIAL-POSITIONING.md (5 September 2026).
+ * The structure follows brief/REDESIGN.md (6 September 2026).
  */
 export const en: SiteContent = {
   meta: {
     title: "State. Not Situation.",
     titleTemplate: "%s · State. Not Situation.",
     description:
-      "A field guide to the moment before interpretation becomes reality. Sixteen cases. Three readings. One question: state or situation? By Ivana Budišin.",
+      "A field guide to the moment before interpretation becomes reality. Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book.",
     ogImageAlt:
-      "The cover of State. Not Situation. by Ivana Budišin: the word STATE set large in red above NOT SITUATION in black, on cream.",
+      "State. Not Situation. by Ivana Budišin. A field guide to the moment before interpretation becomes reality.",
     readTitle: "Read an extract",
-    readDescription:
-      "The opening pages of State. Not Situation. by Ivana Budišin: a pilot, haze over open water, and one sentence from the Federal Aviation Administration.",
+    readDescription: "The opening pages of State. Not Situation. by Ivana Budišin.",
     pressTitle: "Press",
     pressDescription:
-      "Press materials for State. Not Situation. by Ivana Budišin: cover art, author photograph, biography, publication details and contact.",
+      "Press materials for State. Not Situation. by Ivana Budišin: cover, author photograph, publication details, extract.",
   },
 
   nav: {
-    book: "The book",
-    read: "Read",
-    listen: "Listen",
+    home: "State. Not Situation., home",
+    book: "Book",
+    read: "Extract",
     author: "Author",
     press: "Press",
+    listen: "Listen",
     skipToContent: "Skip to content",
-    home: "State. Not Situation. Home",
+    menu: "Menu",
+    closeMenu: "Close",
   },
 
   status: {
     forthcoming: "Publishing soon",
-    published: "Out now",
+    published: "Published",
     publicationDatePrefix: "Published",
     buy: "Buy on Amazon",
-    notifyHeading: "Be notified when the book is released.",
-    notifyCta: "Be notified",
+    notifyCta: "Publication updates",
     emailLabel: "Email address",
     emailPlaceholder: "your@email.com",
     submit: "Notify me",
-    success: "Thank you. You will hear from me when the book is out.",
-    error: "That did not send. Please try again, or write to me directly.",
+    success: "Thank you. You will hear once, when the book is out.",
+    error: "That did not send. Please try again, or email me directly.",
     privacyNote: "Used for this notification only.",
-    mailtoLabel: "Email me to be notified",
-    mailtoSubject: "Tell me when State. Not Situation. is out",
-    mailtoBody: "Please let me know when State. Not Situation. is available.",
+    mailtoSubject: "State. Not Situation. — publication updates",
+    mailtoBody: "Please let me know when the book is published.",
   },
 
   hero: {
-    // Front cover, all of it.
-    eyebrow: "Time · Attention · Safety",
+    // Front cover and title page, page 3.
     titleA: "State.",
     titleB: "Not Situation",
     subtitle: "A field guide to the moment before interpretation becomes reality",
@@ -69,28 +67,29 @@ export const en: SiteContent = {
     authorPrefix: "by",
     coverAlt:
       "Front cover of State. Not Situation. The word STATE set large in red above NOT SITUATION in black, on a cream ground printed with faint struck-through sentences and small instrument readings.",
-    openAlt: "The book open at its title page, which reads State. Not Situation.",
     readCta: "Read an extract",
-    scrollHint: "Scroll",
   },
 
-  // Page 10, verbatim, in the order the page sets it.
-  misreading: {
+  premise: {
+    // Page 10, and the back cover, print the same eyebrow.
     eyebrow: "The first misreading",
-    lines: ["Nothing went wrong on this day.", "The instruments were working.", "The data was there the whole time."],
-    investigationLabel: "This book is the",
-    investigation: "Investigation.",
-    readingsLabel: "The same day, five readings",
-    readings: [
-      { time: "06:38", text: "A heaviness arrives before the day does." },
-      { time: "09:12", text: "A two-line email reads like a verdict." },
-      { time: "14:23", text: "Five neutral words tighten a jaw." },
-      { time: "17:45", text: "An unanswered message starts charging rent." },
-      { time: "22:47", text: "Two letters and a full stop feel hostile." },
+    // Page 181.
+    sensorLine: "The body is a sensor before it is a narrator.",
+    // Page 10.
+    lines: [
+      "Nothing went wrong on this day.",
+      "The instruments were working.",
+      "The data was there the whole time.",
     ],
-    closing: ["The body speaks first.", "The mind explains second."],
+    // The back cover, verbatim.
+    mechanism: [
+      "We usually treat these moments as information about life: the person, the task, the relationship, the day.",
+      "But the first reading is often not the whole story.",
+      "Before the mind explains, the body has already voted. Sleep pressure, hunger, timing, attention, threat detection, memory, and prediction quietly shape what feels true.",
+      "Then the mind arrives second and gives that feeling a reason.",
+    ],
+    folio: "10",
   },
-
 
   // Page 13, verbatim. The eyebrow is the page's own phrase.
   reading: {
@@ -98,58 +97,42 @@ export const en: SiteContent = {
     lead: "Whatever you are feeling as you read this sentence.",
     steps: ["Check your jaw.", "Check your breath.", "Check your shoulders."],
     result: "What you found is a reading.",
-    afterResult:
-      "A reading of the instrument that is interpreting everything around you, in this moment, including these words. The reading may be accurate. It may not. You cannot know until you have seen the settings.",
-    question: "Is this the situation? Or is this the state?",
+    folio: "13",
   },
 
-  book: {
-    eyebrow: "The book",
-    // Ivana's own words, supplied 5 September 2026.
-    paragraphs: [
-      "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
+  variables: {
+    // Page 13.
+    sortingLines: [
+      "They are not brain regions or neural pathways.",
+      "They are a sorting tool, a way to ask three questions when everything feels wrong at once.",
     ],
-    readersEyebrow: "Who it is for",
-    // Ivana's own words, supplied 5 September 2026.
-    readers:
-      "For anyone who has ever been certain about what a situation meant, then discovered that something else was happening. And for readers interested in the psychology of how we notice, interpret and revise the world around us.",
-  },
-
-  // Pages 7 to 9 of the book, verbatim; the closing line is page 26.
-  excerpt: {
-    eyebrow: "Read",
-    title: "Before the chapters",
-    sectionLabel: "The pilot",
-    runningHead: "State. Not Situation",
-    teaserCount: 2,
-    cta: "Read an extract",
-    continueCta: "Continue reading",
-    back: "Back to the book",
-    readingModeLabel: "Reading mode",
-    paragraphs: [
-      "On the evening of 16 July 1999, a small single engine plane took off from New Jersey. It was heading for Martha’s Vineyard. The pilot was experienced enough to be confident and new enough to be wrong about what that confidence was worth. He had about 300 hours in the air. He had not finished the training that would qualify him to fly using only his instruments.",
-      "The sky was clear when he departed so he concluded that he did not need instruments. By the time he reached the coast, it was not. Haze had settled over the water. The sort of haze that erases the line between sea and sky so gradually that you do not notice the horizon is gone until you look for it and it is not there. Over land, this does not matter. There are lights below. You see roads, buildings, a geometry that tells your eyes which way is down. Over open water at night, with haze sitting on the surface like a second darkness, there is nothing. The world outside the cockpit becomes a uniform grey in every direction. Up looks like down. A gentle turn feels like level flight. A slow descent feels like holding steady.",
-      "The pilot’s inner ear, the organ that tells the brain which way the body is oriented in space, works by detecting changes in motion. When you enter a turn, the fluid inside the ear shifts, and the brain registers rotation. But if the turn holds steady for fifteen or twenty seconds, the fluid in the inner ear settles. It stops moving. The brain, which tracks movement, not position, concludes that the turn has ended. You feel level, but you are not.",
-      "Somewhere over the dark water, the plane entered a gentle left turn. The pilot’s instruments, the dials on the panel in front of him, showed the turn. The artificial horizon, a small gyroscope display that shows the aircraft’s angle relative to the earth, was telling him he was banking. The altimeter was telling him he was descending. The airspeed indicator was telling him he was accelerating. His body was telling him something different. His body was telling him he was flying straight and level. His body felt right. His instruments felt wrong. He trusted his body.",
-      "The turn tightened. The nose dropped. The airspeed built. In the final seconds, the plane was descending at more than 4,700 feet per minute, nearly a mile every sixty seconds, in a tightening spiral that pilots call, with the grim precision of a profession that has named the ways it loses people, a graveyard spiral. He hit the water at full speed. He and his two passengers were killed on impact.",
-      "The investigation found no mechanical failure. The engine was running. The instruments were working. The data was right there, on the panel, six inches from his eyes, the whole time, but he did not read it. He read his body instead. The American Federal Aviation Administration’s instruction to pilots who find themselves in this situation is one sentence long. It is a literal instruction that applies to your life as directly as it applies to a cockpit:",
-      "The pilot’s name was John F. Kennedy Jr. He was the son of an American president. He had been advised not to fly that night without his instructor. He told his instructor he wanted to do it alone. He was thirty-eight years old.",
-      "You operate a body that produces signals and your mind often treats those signals as truth. The signals are sometimes as wrong as the inner ear’s vestibular system over dark water. The tiredness that presents itself as a question about your career. The caffeine spike that presents itself as anxiety about an email. The low blood sugar that presents itself as evidence that your relationship is failing. Your body speaks first and your mind explains second. The explanation, because it arrives with the full weight of physical conviction, the tight jaw, the fast heartbeat, the heat behind the ears, feels like deep knowledge. It feels like you are reading the situation. But you are only reading the instrument that is reading the situation, and the instrument’s settings were off before the situation arrived. These instruments exist. You have them. Heart rate, jaw tension, breathing depth, shoulder position, the speed of your thoughts. They are producing data right now, as you read this sentence. But the body’s confident weather report about the world is only a draft.",
+    // Pages 13 to 14. Safety's list of examples is not shown; see CONTENT_SOURCES.md.
+    loops: [
+      {
+        key: "time",
+        name: "Time",
+        body: "Sleep, food, caffeine, circadian phase, recovery. When the timing is off, baseline sensitivity rises. The same world feels harsher.",
+      },
+      {
+        key: "attention",
+        name: "Attention",
+        body: "The system that tracks reward, novelty, and the next cue. When it is captured, focus narrows to the cheapest available input, and the expensive work feels hard.",
+      },
+      {
+        key: "safety",
+        name: "Safety",
+        body: "The system that monitors threat, and especially social threat. It is fast, it is old, and it is biased toward false alarms. It produces interpretations that feel like facts.",
+      },
     ],
-    quoteAfter: 5,
-    quote: "“have confidence in your instruments and ignore all conflicting signals your body gives you.”",
-    closing:
-      "This book is about the same error at kitchen scale. The version that happens every Tuesday. The version where your body writes a story about a message, a silence, a look, and your mind edits that story under the supervision of whatever your body is feeling at the time. Nobody dies, but decisions get made. Relationships change. Self-assessments form. And none of it had to happen the way it did, because the data was right there the whole time.",
-    closingSource: "Page 26",
-    endNote: "Chapter Zero follows: A Day That Should Have Been Fine.",
-    unavailable: "The extract in this language will follow.",
-    folios: ["7", "8", "9"],
+    folio: "13",
   },
 
-  // Four CASE EVIDENCE pages, reproduced from the book; the closing line is page 20.
-  cases: {
-    eyebrow: "Case evidence",
+  moments: {
+    // Page 11.
+    line: "16 cases. Three readings. One question: state or situation?",
+    label: "Case evidence",
     pageLabel: "Page",
+    // Three CASE EVIDENCE pages, reproduced.
     items: [
       {
         chapter: "00",
@@ -181,19 +164,54 @@ export const en: SiteContent = {
         verifiedLabel: "Verified crisis",
         verified: "None.",
       },
-      {
-        chapter: "13",
-        page: 182,
-        time: "22:40",
-        quote: "“This is state, not situation.”",
-        inputLabel: "Input",
-        input: "Low fuel. Dead light. A sound on grit.",
-        verifiedLabel: "Verified threat",
-        verified: "Not yet visible.",
-      },
     ],
+    // Page 20.
     closing: "It said I am failing; the data was I am tired.",
     closingSource: "Page 20",
+  },
+
+  evidence: {
+    title: "Evidence",
+    // Labels printed on page 13; descriptions supplied by the author, 6 September 2026.
+    grades: [
+      { key: "high", label: "High", description: "Replicated or robust evidence." },
+      { key: "medium", label: "Medium", description: "Suggestive evidence with meaningful uncertainty." },
+      { key: "low", label: "Low", description: "Plausible hypothesis or emerging evidence." },
+    ],
+    // Page 13.
+    closing: "These markers exist because the book’s own risk is the same risk it describes.",
+    folio: "13",
+  },
+
+  // Pages 7 to 9 of the book, verbatim; the closing line is page 26.
+  excerpt: {
+    title: "Before the chapters",
+    sectionLabel: "The pilot",
+    // Ivana's own words, supplied 5 September 2026.
+    lead: "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
+    teaserCount: 2,
+    paragraphs: [
+      "On the evening of 16 July 1999, a small single engine plane took off from New Jersey. It was heading for Martha’s Vineyard. The pilot was experienced enough to be confident and new enough to be wrong about what that confidence was worth. He had about 300 hours in the air. He had not finished the training that would qualify him to fly using only his instruments.",
+      "The sky was clear when he departed so he concluded that he did not need instruments. By the time he reached the coast, it was not. Haze had settled over the water. The sort of haze that erases the line between sea and sky so gradually that you do not notice the horizon is gone until you look for it and it is not there. Over land, this does not matter. There are lights below. You see roads, buildings, a geometry that tells your eyes which way is down. Over open water at night, with haze sitting on the surface like a second darkness, there is nothing. The world outside the cockpit becomes a uniform grey in every direction. Up looks like down. A gentle turn feels like level flight. A slow descent feels like holding steady.",
+      "The pilot’s inner ear, the organ that tells the brain which way the body is oriented in space, works by detecting changes in motion. When you enter a turn, the fluid inside the ear shifts, and the brain registers rotation. But if the turn holds steady for fifteen or twenty seconds, the fluid in the inner ear settles. It stops moving. The brain, which tracks movement, not position, concludes that the turn has ended. You feel level, but you are not.",
+      "Somewhere over the dark water, the plane entered a gentle left turn. The pilot’s instruments, the dials on the panel in front of him, showed the turn. The artificial horizon, a small gyroscope display that shows the aircraft’s angle relative to the earth, was telling him he was banking. The altimeter was telling him he was descending. The airspeed indicator was telling him he was accelerating. His body was telling him something different. His body was telling him he was flying straight and level. His body felt right. His instruments felt wrong. He trusted his body.",
+      "The turn tightened. The nose dropped. The airspeed built. In the final seconds, the plane was descending at more than 4,700 feet per minute, nearly a mile every sixty seconds, in a tightening spiral that pilots call, with the grim precision of a profession that has named the ways it loses people, a graveyard spiral. He hit the water at full speed. He and his two passengers were killed on impact.",
+      "The investigation found no mechanical failure. The engine was running. The instruments were working. The data was right there, on the panel, six inches from his eyes, the whole time, but he did not read it. He read his body instead. The American Federal Aviation Administration’s instruction to pilots who find themselves in this situation is one sentence long. It is a literal instruction that applies to your life as directly as it applies to a cockpit:",
+      "The pilot’s name was John F. Kennedy Jr. He was the son of an American president. He had been advised not to fly that night without his instructor. He told his instructor he wanted to do it alone. He was thirty-eight years old.",
+      "You operate a body that produces signals and your mind often treats those signals as truth. The signals are sometimes as wrong as the inner ear’s vestibular system over dark water. The tiredness that presents itself as a question about your career. The caffeine spike that presents itself as anxiety about an email. The low blood sugar that presents itself as evidence that your relationship is failing. Your body speaks first and your mind explains second. The explanation, because it arrives with the full weight of physical conviction, the tight jaw, the fast heartbeat, the heat behind the ears, feels like deep knowledge. It feels like you are reading the situation. But you are only reading the instrument that is reading the situation, and the instrument’s settings were off before the situation arrived. These instruments exist. You have them. Heart rate, jaw tension, breathing depth, shoulder position, the speed of your thoughts. They are producing data right now, as you read this sentence. But the body’s confident weather report about the world is only a draft.",
+    ],
+    quoteAfter: 5,
+    quote: "“have confidence in your instruments and ignore all conflicting signals your body gives you.”",
+    continueCta: "Continue reading",
+    back: "Back to the book",
+    readingModeLabel: "Reading mode",
+    // Page 26.
+    closing:
+      "This book is about the same error at kitchen scale. The version that happens every Tuesday. The version where your body writes a story about a message, a silence, a look, and your mind edits that story under the supervision of whatever your body is feeling at the time. Nobody dies, but decisions get made. Relationships change. Self-assessments form. And none of it had to happen the way it did, because the data was right there the whole time.",
+    closingSource: "Page 26",
+    endNote: "Chapter Zero follows: A Day That Should Have Been Fine.",
+    unavailable: "The extract in this language will follow.",
+    folios: ["7", "8", "9"],
   },
 
   listen: {
@@ -208,42 +226,79 @@ export const en: SiteContent = {
     unavailable: "The recording will be added here.",
   },
 
-  map: {
-    eyebrow: "A map of the book",
-    // Page 13.
-    sortingTool:
-      "The chapters that follow are organised around three systems that shape how your body’s signals get weighted before your mind builds a story. They are not brain regions or neural pathways. They are a sorting tool, a way to ask three questions when everything feels wrong at once.",
-    // Pages 13 to 14.
-    loops: [
+  author: {
+    title: "Ivana Budišin",
+    photoAlt: "Ivana Budišin, photographed against a dark grey background.",
+    photoPlaceholder: "Author photograph to follow",
+    // Ivana's own words, supplied 4 September 2026.
+    bio: "Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book.",
+    // Ivana's own words, supplied 5 September 2026.
+    readers:
+      "For anyone who has ever been certain about what a situation meant, then discovered that something else was happening. And for readers interested in the psychology of how we notice, interpret and revise the world around us.",
+    pressLabel: "Press",
+  },
+
+  closing: {
+    // Page 225, the book's last sentence.
+    question: "Is this the situation? Or is this their state?",
+    source: "Page 225",
+    // Front cover foot and title page.
+    line: "Same life. Different instrument settings.",
+  },
+
+  press: {
+    eyebrow: "Press",
+    title: "Press materials",
+    intro:
+      "Review copies, print and digital, are available on request. Extract licensing, interviews and events by arrangement.",
+    contactHeading: "Contact",
+    assetsHeading: "Downloads",
+    kitLabel: "Download complete press kit",
+    assets: [
+      { label: "Front cover, high resolution", file: "/press/cover-front-2400.jpg", note: "JPEG, 2400 px wide" },
+      { label: "Author photograph", file: "/press/author-photo-1600.jpg", note: "JPEG, 1600 × 1600" },
+      { label: "Book render, transparent background", file: "/press/mockup-3d-transparent.png", note: "PNG" },
+      { label: "Web banner", file: "/press/banner-web-2400x1000.jpg", note: "JPEG, 2400 × 1000" },
+      { label: "Social image, square", file: "/press/post-1x1-1080.jpg", note: "JPEG, 1080 × 1080" },
+      { label: "Social image, portrait", file: "/press/post-4x5-1080x1350.jpg", note: "JPEG, 1080 × 1350" },
+      { label: "Social image, landscape", file: "/press/post-16x9-1920x1080.jpg", note: "JPEG, 1920 × 1080" },
+      { label: "The opening extract", file: "/press/excerpt-the-opening.pdf", note: "PDF, four pages" },
+    ],
+    photoUnavailable: "Author photograph available on request.",
+    photoCredit: "[COPY NEEDED: the photographer’s name, for the author photograph credit. A picture desk will ask before it publishes.]",
+    bioHeading: "Biography",
+    bios: [
       {
-        key: "time",
-        name: "Time",
-        body: "Sleep, food, caffeine, circadian phase, recovery. When the timing is off, baseline sensitivity rises. The same world feels harsher.",
+        label: "Short",
+        text: "Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book.",
       },
       {
-        key: "attention",
-        name: "Attention",
-        body: "The system that tracks reward, novelty, and the next cue. When it is captured, focus narrows to the cheapest available input, and the expensive work feels hard.",
-      },
-      {
-        key: "safety",
-        name: "Safety",
-        body: "The system that monitors threat, and especially social threat. Things like social evaluation, exclusion, ambiguity, status. It is fast, it is old, and it is biased toward false alarms. It produces interpretations that feel like facts.",
+        label: "Long",
+        text: "[COPY NEEDED: a longer biography, 100 to 150 words, in your own words. Qualifications, where you practise, and how the book came out of that work. Only what you would be happy to see checked.]",
       },
     ],
-    // Page 13, "Before We Begin", both paragraphs, verbatim.
-    evidenceEyebrow: "Before we begin",
-    evidenceIntro:
-      "This book makes claims about the brain and the body and those claims carry different amounts of evidence. Some rest on decades of replicated research. Some rest on newer findings that are promising but not yet settled. Some claims are plausible extensions of established science that have not been directly tested in the specific form this book describes. You should know which is which.",
-    evidenceMarkers:
-      "Throughout the book scientific claims carry a confidence marker. When a finding rests on solid, replicated evidence, you will see a graphic marked as high evidence and illustrated with a deep red heartbeat on the margin. When the evidence is suggestive but incomplete it is noted as medium evidence with an orange heartbeat. When a claim is a plausible hypothesis that needs stronger tests, it is marked as low in faded grey. These markers exist because the book’s own risk is the same risk it describes. It does not want to treat a plausible story as settled truth. These markers are a brake on that.",
-    grades: [
-      { key: "high", label: "High" },
-      { key: "medium", label: "Medium" },
-      { key: "low", label: "Low" },
+    factsHeading: "Publication",
+    facts: [
+      { label: "Title", value: "State. Not Situation." },
+      { label: "Subtitle", value: "A field guide to the moment before interpretation becomes reality" },
+      { label: "Author", value: "Ivana Budišin" },
+      { label: "Publication", value: "2026" },
+      { label: "Format", value: "Paperback, 6 × 9 in" },
+      { label: "Extent", value: "278 pages" },
+      { label: "ISBN-13", value: "978-2-87996-258-0" },
+      { label: "Category", value: "Psychology / Cognitive psychology" },
+      { label: "Language", value: "English. French and German editions to follow." },
+      { label: "Legal deposit", value: "A CIP record is available at Bibliothèque nationale du Luxembourg." },
     ],
-    // Page 11.
-    investigationTitle: "The Investigation",
+    descriptionHeading: "About the book",
+    description: [
+      "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
+      "For anyone who has ever been certain about what a situation meant, then discovered that something else was happening. And for readers interested in the psychology of how we notice, interpret and revise the world around us.",
+    ],
+    // Page 11, relocated here whole.
+    mapHeading: "The chapters",
+    mapLabel: "This book is the",
+    mapTitle: "Investigation.",
     mapLine: "16 cases. Three readings. One question: state or situation?",
     pageColumn: "Page",
     chapters: [
@@ -264,87 +319,16 @@ export const en: SiteContent = {
       { number: "14", title: "Not About Me", page: 195 },
       { number: "15", title: "The Forecast", page: 209 },
     ],
-    mapFooter: "The Scientific Heartbeat follows the chapters.",
-    // Page 226.
-    heartbeat: [
+    // Page 13.
+    sortingTool:
+      "The chapters that follow are organised around three systems that shape how your body’s signals get weighted before your mind builds a story. They are not brain regions or neural pathways. They are a sorting tool, a way to ask three questions when everything feels wrong at once.",
+    sourcesHeading: "Sources and evidence",
+    // Page 226, The Scientific Heartbeat.
+    sources: [
       "Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently.",
       "Leaving them out would make the argument look tidier than it is.",
     ],
-    heartbeatSource: "Page 226",
-  },
-
-  author: {
-    eyebrow: "The author",
-    title: "Ivana Budišin",
-    photoAlt: "Ivana Budišin, photographed against a dark grey background.",
-    photoPlaceholder: "Author photograph to follow",
-    bio: "Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book.",
-    websiteLabel: "Practice website",
-    contactLabel: "Contact",
-    pressLabel: "Press materials",
-  },
-
-  // Page 225, the book's last sentence.
-  closing: {
-    question: "Is this the situation? Or is this their state?",
-    source: "Page 225",
-  },
-
-  companion: {
-    eyebrow: "Alongside the book",
-    line: "[COPY NEEDED: one sentence about the companion tool, if you want it mentioned before it exists. Otherwise set companion.enabled to false in site.config.ts and this section disappears.]",
-  },
-
-  press: {
-    eyebrow: "Press",
-    title: "Press materials",
-    intro:
-      "Review copies, print and digital, are available on request. Extract licensing, interviews and events by arrangement.",
-    contactHeading: "Contact",
-    assetsHeading: "Downloads",
-    assets: [
-      { label: "Front cover, high resolution", file: "/press/cover-front-2400.jpg", note: "JPEG, 2400 px wide" },
-      { label: "Author photograph", file: "/press/author-photo-1600.jpg", note: "JPEG, 1600 × 1600" },
-      { label: "Book render, transparent background", file: "/press/mockup-3d-transparent.png", note: "PNG" },
-      { label: "Web banner", file: "/press/banner-web-2400x1000.jpg", note: "JPEG, 2400 × 1000" },
-      { label: "Social image, square", file: "/press/post-1x1-1080.jpg", note: "JPEG, 1080 × 1080" },
-      { label: "Social image, portrait", file: "/press/post-4x5-1080x1350.jpg", note: "JPEG, 1080 × 1350" },
-      { label: "Social image, landscape", file: "/press/post-16x9-1920x1080.jpg", note: "JPEG, 1920 × 1080" },
-      { label: "The opening extract", file: "/press/excerpt-the-opening.pdf", note: "PDF, four pages" },
-    ],
-    photoUnavailable: "Author photograph available on request.",
-    bioHeading: "Biography",
-    bios: [
-      {
-        label: "Short",
-        text: "Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book.",
-      },
-      {
-        label: "Long",
-        text: "[COPY NEEDED: a longer biography, 100 to 150 words, in your own words. Qualifications, where you practise, and how the book came out of that work. Only what you would be happy to see checked.]",
-      },
-    ],
-    factsHeading: "Publication",
-    facts: [
-      { label: "Title", value: "State. Not Situation." },
-      { label: "Subtitle", value: "A field guide to the moment before interpretation becomes reality" },
-      { label: "Author", value: "Ivana Budišin" },
-      { label: "Publisher", value: "Budisin Publishing, Luxembourg" },
-      { label: "Publication", value: "2026" },
-      { label: "Format", value: "Paperback, 6 × 9 in" },
-      { label: "Extent", value: "278 pages" },
-      { label: "ISBN-13", value: "978-2-87996-258-0" },
-      { label: "Category", value: "Psychology / Cognitive psychology" },
-      { label: "Language", value: "English. French and German editions to follow." },
-      { label: "Legal deposit", value: "A CIP record is available at Bibliothèque nationale du Luxembourg." },
-    ],
-    descriptionHeading: "About the book",
-    description: [
-      "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
-      "16 cases. Three readings. One question: state or situation?",
-      "Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently.",
-      "Leaving them out would make the argument look tidier than it is.",
-    ],
+    sourcesLabel: "The Scientific Heartbeat, page 226",
     creditsHeading: "Credits",
     credits: [
       { label: "Cover design", value: "Zoe Larusson" },
@@ -355,24 +339,18 @@ export const en: SiteContent = {
   },
 
   footer: {
+    // Back cover, the red band.
     band: "Before you believe the story.",
-    // Page 278.
-    method: ["Read the dashboard.", "Delay the story.", "Take the reading again."],
-    rights: "© 2026 Budisin Publishing",
     pressLink: "Press",
     contactLink: "Contact",
-    madeLine: "Same life. Different instrument settings.",
+    // Copyright page, page 4.
+    rights: "© 2026 Budisin Publishing",
   },
 
   a11y: {
     mainLandmark: "Main content",
     coverFigure: "The book",
     languageSwitcher: "Choose language",
-    languageComing: "edition to follow",
-    casesRegion: "Case evidence pages from the book",
-    bookOpening: "The book, opening",
-    misreadingRegion: "Page 10 of the book",
-    mapRegion: "A map of the book",
-    evidenceRegion: "Confidence markers, page 13",
+    menu: "Menu",
   },
 };

@@ -3,9 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Locale } from "@/site.config";
 import { siteConfig } from "@/site.config";
-import { alternatesFor, getContent, localeUrl } from "@/lib/i18n";
-import { StatusLine } from "@/components/StatusLine";
+import { alternatesFor, enabledLocales, getContent, isPublished, locales, localeUrl } from "@/lib/i18n";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { PulseMark } from "@/components/PulseMark";
+import { Notify } from "@/components/Notify";
+import { Footer } from "@/components/Footer";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const locale = (await params).lang as Locale;
@@ -19,31 +21,34 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 /**
- * READING MODE. No navigation, no colour, the interior page: running head,
- * the drop-cap opening, the FAA sentence set apart, folios in the margin.
+ * READING MODE. The interior page: the drop-cap opening, the FAA sentence set
+ * apart, folios in the margin. It ends where the book's own front matter ends,
+ * on page 26, and then offers the one form — a reader who has just finished
+ * nine pages of the pilot should not have to go back to the home page for it.
  */
 export default async function ReadPage({ params }: { params: Promise<{ lang: string }> }) {
   const locale = (await params).lang as Locale;
   if (!siteConfig.editions[locale].excerptAvailable) notFound();
   const c = getContent(locale);
   const x = c.excerpt;
+  const ed = siteConfig.editions[locale];
   const third = Math.ceil(x.paragraphs.length / 3);
 
   return (
-    <div className="reading-page">
-      <header className="sticky top-0 bg-page/95 backdrop-blur-[2px] z-10">
-        <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link href={`/${locale}#read`} className="eyebrow text-quiet hover:text-ink py-2">← {x.back}</Link>
-          <p className="running-head">{x.runningHead}</p>
-          <PulseMark className="w-8 h-auto" />
+    <div className="reading-page flex flex-col min-h-dvh">
+      <header className="sticky top-0 bg-page z-10 border-b border-[var(--rule)]">
+        <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
+          <Link href={`/${locale}#read`} className="t-label text-quiet hover:text-ink inline-flex items-center min-h-11">← {x.back}</Link>
+          <PulseMark className="w-8 h-auto shrink-0" />
+          <LanguageSwitcher current={locale} locales={locales} browsable={enabledLocales()} label={c.a11y.languageSwitcher} />
         </div>
       </header>
 
       <main id="main" aria-label={x.readingModeLabel} className="px-6 pt-16 pb-24 md:pt-24">
         <article className="max-w-3xl mx-auto">
           <div className="reading-body">
-            <p className="eyebrow eyebrow-quiet mb-4">{x.eyebrow} · {x.title}</p>
-            <h1 className="serif-title text-[clamp(2.4rem,6vw,3.8rem)] mb-14 md:mb-20">{x.sectionLabel}</h1>
+            <h1 className="t-head mb-3">{x.title}</h1>
+            <p className="t-mono mb-14 md:mb-20">{x.sectionLabel}</p>
             {x.paragraphs.map((t, i) => (
               <div key={i} className="reading-para">
                 <p className={i === 0 ? "dropcap" : undefined}>{t}</p>
@@ -57,15 +62,27 @@ export default async function ReadPage({ params }: { params: Promise<{ lang: str
             ))}
           </div>
 
+          {/* Page 26. Here, "the warships" has been read. */}
           <div className="reading-body mt-16 md:mt-24 pt-10 border-t border-[var(--rule)]">
-            <p className="font-mono text-sm text-quiet mb-10">{x.endNote}</p>
-            <StatusLine locale={locale} />
-            {siteConfig.editions[locale].audioUrl ? (
+            <p>{x.closing}</p>
+            <p className="t-mono mt-4">{x.closingSource}</p>
+            <p className="t-mono mt-10">{x.endNote}</p>
+          </div>
+
+          <div className="reading-body mt-16 md:mt-24 pt-10 border-t border-[var(--rule)]">
+            {isPublished(locale) && ed.amazonUrl ? (
+              <Link href={ed.amazonUrl} className="btn btn-solid">{c.status.buy}</Link>
+            ) : (
+              <Notify content={c.status} edition={ed} pressEmail={siteConfig.author.pressEmail} locale={locale} />
+            )}
+            {ed.audioUrl ? (
               <p className="mt-10"><Link href={`/${locale}#listen`} className="btn">{c.listen.title}</Link></p>
             ) : null}
           </div>
         </article>
       </main>
+
+      <Footer locale={locale} />
     </div>
   );
 }

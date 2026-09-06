@@ -5,9 +5,10 @@ import type { EditionSettings } from "@/site.config";
 import { track } from "@/lib/analytics";
 
 /**
- * Launch state. With newsletterUrl set, the form posts there (Buttondown,
- * Mailchimp, MailerLite and similar all accept a plain form post). Without
- * one, it offers a pre-filled email instead of pretending to collect anything.
+ * The one form on the site, and the one solid button. With newsletterUrl set
+ * it posts there (Buttondown, Mailchimp, MailerLite and similar all accept a
+ * plain form post). Without one it offers a pre-filled email instead of
+ * pretending to collect anything.
  */
 export function Notify({ content, edition, pressEmail, locale }: { content: SiteContent["status"]; edition: EditionSettings; pressEmail: string; locale: string }) {
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
@@ -33,13 +34,13 @@ export function Notify({ content, edition, pressEmail, locale }: { content: Site
 
   return (
     <div className="max-w-xl">
-      <h2 id="notify-title" className="serif-title text-[clamp(1.9rem,4vw,3rem)]">{content.notifyHeading}</h2>
+      <h3 id="notify-title" className="t-head">{content.notifyCta}</h3>
       {edition.newsletterUrl ? (
         state === "done" ? (
-          <p className="mt-8 font-mono text-sm text-red" role="status">{content.success}</p>
+          <p className="mt-[var(--space-block)] t-mono text-red normal-case" role="status">{content.success}</p>
         ) : (
-          <form onSubmit={onSubmit} className="mt-8">
-            <label htmlFor="notify-email" className="mono-label block mb-2">{content.emailLabel}</label>
+          <form onSubmit={onSubmit} className="mt-[var(--space-block)]">
+            <label htmlFor="notify-email" className="t-mono block mb-2">{content.emailLabel}</label>
             <div className="flex flex-col sm:flex-row gap-4 sm:items-end">
               <input
                 id="notify-email" type="email" name={edition.newsletterEmailField} required autoComplete="email" inputMode="email"
@@ -48,13 +49,13 @@ export function Notify({ content, edition, pressEmail, locale }: { content: Site
               />
               <button type="submit" className="btn btn-solid min-h-12" disabled={state === "sending"}>{content.submit}</button>
             </div>
-            {state === "error" ? <p className="mt-4 font-mono text-sm text-red" role="alert">{content.error}</p> : null}
+            {state === "error" ? <p className="mt-4 t-mono normal-case text-red" role="alert">{content.error}</p> : null}
             <p className="mt-4 text-sm text-quiet">{content.privacyNote}</p>
           </form>
         )
       ) : (
-        <div className="mt-8">
-          <a href={mailto} className="btn btn-solid">{content.mailtoLabel}</a>
+        <div className="mt-[var(--space-block)]">
+          <a href={mailto} className="btn btn-solid">{content.submit}</a>
           <p className="mt-4 text-sm text-quiet">{content.privacyNote}</p>
         </div>
       )}

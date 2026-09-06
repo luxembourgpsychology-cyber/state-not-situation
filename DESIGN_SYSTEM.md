@@ -1,59 +1,147 @@
-# The visual system, read from the book
+# The design system
 
-If something on the site looks wrong, check it against this before changing it.
+Small on purpose. Six type steps, three spacing values, four jobs for red, one shadow,
+one transition. Everything here is taken from the printed book or decided in
+`brief/REDESIGN.md` against the author's brief at `brief/REDESIGN-BRIEF.md`.
+
+If something on the site will not fit this system, the answer is to change the thing,
+not to add a step.
 
 ## Sources inspected
-Front and back cover (6 × 9 build), the 278-page interior PDF (half title p1, title page p3, copyright p4, the map p11, "Before We Begin" p13, the CASE EVIDENCE pages, chapter openers with the loop bar, body pages, the Five Readings dashboard, The Scientific Heartbeat), the state-line artwork and its legend, the confidence-marker legend, the pulse mark, the social set, the manuscript dump.
+
+Front and back cover (6 × 9 build) and the 278-page interior: half title p.1, title page
+p.3, copyright p.4, the map p.11, page 10, "Before We Begin" p.13, the three systems
+pp.13–14, the CASE EVIDENCE pages, chapter openers with the loop bar, page 181, page 225,
+The Scientific Heartbeat p.226, the back page p.278.
 
 ## Typography
-- **Cover word.** Bebas Neue Bold, red, enormous. It appears **once** on the site: on the cover of the 3D book, which is the printed artwork itself. The site does not re-set it as type, because that would compete with the object.
-- **Secondary cover type.** DIN Condensed / DIN Alternate Bold, tracked wide, uppercase. On the site: eyebrows, navigation, buttons, the loop names. Stack: DIN Alternate (built into Apple devices) → din-2014 (Adobe kit) → Barlow Semi Condensed.
-- **Interior titles.** IvyPresto Display Regular, tight, never bold. On the site: every section title, the case times, the reading instructions. Stack: ivypresto-display → Instrument Serif.
-- **Body.** Source Sans Pro Regular 10/13. On the site: Source Sans 3, 17–20 px, leading 1.55–1.62, measure 60–66 characters.
-- **Instrument text.** IBM Plex Mono, small, tracked. On the site: times, labels, page numbers, the five readings on page 10, the colophon.
+
+Four families, one job each. Never two of them at the same size, adjacent.
+
+| Family | Job |
+|---|---|
+| **IvyPresto Display**, 400, never bold | Everything display and every section title |
+| **Source Sans 3** | All prose. There is no second prose size. |
+| **DIN Alternate**, 700, tracked caps | Navigation, section labels, buttons |
+| **IBM Plex Mono** | Anything measured: times, folios, page references, ISBN, status |
+
+Open-source substitutes ship (Instrument Serif, Barlow Semi Condensed); an Adobe Fonts
+kit id in `site.config.ts` swaps in the real IvyPresto and DIN.
+
+### The six steps
+
+| Step | Class | Clamp | 390px | 1440px | Where |
+|---|---|---|---|---|---|
+| COVER | `.t-cover` | `clamp(2.75rem, 7vw, 4.5rem)` | 44px | 72px | The book title, and the three variable words. Twice on the site, nowhere else. |
+| DISPLAY | `.t-display` | `clamp(2.25rem, 6.2vw, 3.75rem)` | 36px | 60px | The sensor line, the three checks, each timestamp, the closing question. At most three kinds per page. |
+| HEAD | `.t-head` | `clamp(1.75rem, 3.4vw, 2.5rem)` | 28px | 40px | **Every** section title, without exception. |
+| LEAD | `.t-lead` | `clamp(1.3rem, 1.8vw, 1.6rem)` | 20.8px | 25.6px | The one pulled sentence inside a section. |
+| BODY | `.t-body` | `clamp(1.0625rem, 0.95rem + 0.4vw, 1.1875rem)` | 17px | 19px | All prose, 62ch. |
+| LABEL | `.t-label` / `.t-mono` | `0.75rem` | 12px | 12px | Every eyebrow, nav item, button, folio, status line, INPUT / VERIFIED label. One size replaces six. |
+
+Measures: DISPLAY 30ch, HEAD 24ch, LEAD 40ch, BODY 62ch, reading mode 34rem.
 
 ## Colour
+
 | Role | Value | Where it came from |
 |---|---|---|
-| Cover red | `#B5291C` | sampled from the cover artwork |
 | Cream | `#F7F3EC` | the cover ground |
-| Page | `#FFFDF9` | the interior page |
+| Page | `#FFFDF9` | the interior page — used only under the extract |
 | Ink | `#111111` | the interior text |
-| Safety | `#BF372A` | the page 11 rectangles of the print file, CMYK 0 .71 .78 .25 |
+| Quiet | `#6F6A62` | folios and measured values; raised from `#8A857E`, which failed contrast |
+| Cover red | `#B5291C` | sampled from the cover artwork |
 | Time | `#2C6E8A` | the page 11 rectangles, CMYK .68 .2 0 .46 |
 | Attention | `#8C7432` | the page 11 rectangles, CMYK 0 .17 .64 .45 |
-| Evidence high / medium / low | `#C0392B` / `#D4881F` / `#A8A29A` | the confidence-marker legend |
+| Safety | `#BF372A` | the page 11 rectangles, CMYK 0 .71 .78 .25 |
+| Evidence high / medium / low | `#C0392B` / `#D4881F` / `#A8A29A` | the printed confidence markers |
 
-Rules are ink at 14%. The only grey is the running-head grey `#8A857E`.
+**Red has four jobs and no fifth:** the section eyebrow, one display word per page at most,
+links, and the footer band. Rules are ink at 14%.
 
-The three system inks were corrected on 6 September 2026. The site had carried lighter values (`#C75043`, `#4B839A`, `#988349`) described as sampled from the state line; they were not. The values above are what the book prints. Safety and the high-evidence marker (`#C0392B`) are near-identical by the book's own choice; they never appear in the same eyeful.
+**The three system inks appear in exactly two places on the home page:** the three variable
+words, and the short printed rule on each case moment. On the press page they also draw
+page 11's own colour keys and rail.
 
-## Graphic devices carried over
-- The **pulse mark** from the cover foot and spine: navigation mark, hero rule, audio player, footer.
-- The **red band** with reversed tracked caps: the footer.
-- **Page 10, the display page**: reproduced in its own order and its own layout — the heading, the two lines, "This book is the / Investigation.", the five timestamped readings with their coloured dots, "The body speaks first."
-- The **vertical loop bar** beside chapter openers: the three systems in the map. The tall labelled state line itself is the chapter-opener device and is not used on the site.
-- **Page 11's colour keys and rail**: three short rules over TIME / ATTENTION / SAFETY above the chapter list, and one bar in exact thirds down its left edge, both drawn in CSS in the inks above. The per-chapter stubs the page also prints do not ship until the artwork export is corrected.
-- **The CASE EVIDENCE rule**: the short bar each such page prints under its label, on the four cards, in the page's own ink, read per page.
-- **The page 13 marker row**: the three pulses in three cells behind hairlines, labels beneath, full width, never stacked.
-- The **CASE EVIDENCE page**: reproduced as the cards, label for label. Four of the seven printed pages are shown; the site claims nothing about the others.
-- **The chapter map on page 11**: labels, numbers and page numbers only, as printed. Page 11 prints no legend text, so the site shows none.
-- **The printed HIGH / MEDIUM / LOW pulses from page 13**, with the page's own paragraph describing them. No captions were invented for them.
-- The **confidence markers**: redrawn as SVG so they stay crisp, matching the printed shapes.
-- **Eyebrow above a short red rule**, as on the back cover and the map page: section openers.
+## Spacing
 
-## The book, in CSS
-`components/Book3D.tsx` builds the object from the printed artwork: front board (`cover-front.jpg`), spine (`cover-spine.jpg`), back board, page block, and page 3 set inside it as live type. It reads one custom property, `--open` (0 shut, 1 open); it never animates on its own.
+Three values. Every ad-hoc margin collapses into them.
 
-**Spine depth.** The printed spine is 17.65 mm on a 152.4 mm board, a ratio of 0.116. At the rotation the hero uses, that reads flat on a screen, so `--bd` is set to `0.19 × board width` — the restrained version of what every trade mockup does. It is one line in `app/globals.css` if you want it thinner or thicker.
+```
+--space-section  clamp(4.5rem, 8vw, 7.5rem)   padding-block on every section
+--space-block    clamp(2rem, 3.5vw, 3rem)     between blocks inside a section
+--space-tight    1.1em                        paragraph to paragraph
+```
+
+`.section-tall` multiplies the section value by 1.5, used twice: the three variables and
+the closing. **Sections are separated by space, not by rules.** The only boundary mark on
+the home page is the ground changing to `--page` under the extract, which is the one thing
+on the site that says "this is the book's paper".
+
+## Grid
+
+12 columns, `column-gap: clamp(1rem, 2vw, 2rem)`, page gutter `clamp(1.25rem, 5vw, 4rem)`.
+Container 72rem; the hero and the three variables take `.container-wide` at 78rem, which is
+how a spread reads as a spread without a device. Two layouts only:
+
+- **TEXT** — label or folio in columns 1–3, content in 4–11.
+- **SPREAD** — hero 1–6 and 8–12; variables 1–4 / 5–8 / 9–12.
+
+Phone: one column, nothing full-bleed, no exceptions.
+
+## The three motifs
+
+Everything else is typography, spacing and the book's own imagery.
+
+1. **Instrument reading** — the three confidence markers, drawn as SVG from the printed
+   shapes (`EvidencePulse.tsx`).
+2. **Timestamp** — the case moments, in mono, at DISPLAY.
+3. **Heartbeat or signal** — the pulse mark from the cover foot and spine
+   (`PulseMark.tsx`): navigation, footer, audio player.
+
+Retired: the CSS 3D book, the coloured dots on page 10's readings, the case-evidence boxes,
+the full-bleed marker band, the seven full-width hairlines, the red rule under the
+navigation, the three-line method in the footer.
+
+## The cover
+
+The hero object is the printed front cover, flat, front-on and still, at 72vw on a phone
+and 380px at 1440. One shadow, and it is the only shadow on the site:
+
+```css
+box-shadow: 0 24px 48px -24px rgba(17,17,17,.35), 1px 0 0 rgba(17,17,17,.10);
+```
+
+No 3D, no perspective, no gloss, no float, no scroll-driven opening. The book should look
+like a book worth holding, and a photograph of it does that better than a render.
 
 ## Motion
-One idea, driven by scroll, with no library:
 
-- **The hero.** A sticky stage inside a taller track. Scroll position writes `--open` inside a `requestAnimationFrame`, and the front board swings on the spine to the title page. It reaches fully open at 80% of the track and holds. Scrolling never changes speed and the section can never trap you. With reduced motion the track collapses and the book is shown shut, which is the cover.
-- **The reading.** Three instructions brighten as they reach the middle of the screen. The dimming class is added by script, so with no JavaScript every line is at full contrast. They are set at `--check`, `clamp(2.5rem, 13vw, 6rem)`, with a `:lang(de)` override one step smaller; the book prints them at body size, and the site's size is a promotion, recorded as such in `CONTENT_SOURCES.md`.
-- **The one disclosure.** Page 12's first run sits behind a native `<details>`; it opens with scripts off and from the keyboard, and nothing about it moves.
-- **Everything else.** A single fade-and-rise on first sight, skipped for anything already on screen at load, and switched off entirely under reduced motion.
+1. One transition exists: opacity 0→1 with an 8px rise, 400ms, fired once when a block
+   first enters the viewport, skipped for anything on screen at load (`Reveal.tsx`).
+2. Nothing rests dimmed.
+3. Nothing is driven by scroll position.
+4. Hover is a colour change, 150ms. No transform, no shadow.
+5. `prefers-reduced-motion: reduce` removes rule 1 entirely.
+6. Nothing loops, except the audio player's pulse while audio is playing — a state
+   indicator, not decoration.
+
+If a visitor notices the motion before the writing, remove it.
+
+## Components
+
+`Hero` · `Premise` · `Variables` · `Moments` · `Evidence` · `ExcerptTeaser` · `Author` ·
+`Closing` — one per home-page section, in that order. Plus `Nav`, `Footer`,
+`LanguageSwitcher`, `Notify`, `Reveal`, `EvidencePulse`, `PulseMark`, `AmazonButton`,
+`ExcerptLink`, `Listen`, `AudioPlayer`, `JsonLd`.
+
+## Buttons
+
+One style: a word in DIN caps at LABEL over a 1.5px rule. Ink by default, `.btn-red` for
+primary. The solid red block, `.btn-solid`, appears **exactly once on the whole site** — the
+notify submit — because a form control must read as a control and not as a link.
 
 ## What must stay true
-Cream ground. Red for emphasis only. Serif titles never bold. Mono for anything measured. Tracked DIN caps for anything navigational. No gradients, no glass, no icon set, and one shadow: the one under the book.
+
+Cream ground. Red for emphasis only. Serif titles never bold. Mono for anything measured.
+Tracked DIN caps for anything navigational. No gradients, no glass, no icon set, no cards,
+and one shadow: the one under the cover.

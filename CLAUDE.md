@@ -35,7 +35,9 @@ This is not fussiness. An earlier draft of this site carried claims taken from a
 | Every word on the site | `content/en.ts`, `content/fr.ts`, `content/de.ts` |
 | The shape those files must follow | `content/types.ts` |
 | Provenance of each sentence | `CONTENT_SOURCES.md` |
-| Why the sections are in the order they are | `translation/EDITORIAL-POSITIONING.md`, re-weighted by `translation/HOOK-DECISION.md` |
+| The author's brief for the site | `brief/REDESIGN-BRIEF.md` — verbatim, and it governs |
+| The canonical architecture and every string's treatment | `brief/REDESIGN.md` |
+| How the page got here | `translation/EDITORIAL-POSITIONING.md`, `translation/HOOK-DECISION.md` (both superseded, kept as record) |
 | The standard every French and German sentence must meet | `translation/STANDARD.md` (Ivana's own document; it governs) |
 | The per-language method and glossary | `translation/METHOD-fr.md`, `translation/METHOD-de.md` |
 | Typography, colour, devices taken from the printed book | `DESIGN_SYSTEM.md` |
@@ -45,9 +47,11 @@ Copy and launch state change in those two top files. You should not need to touc
 
 ## Design constraints
 
-Taken from the printed book, documented in `DESIGN_SYSTEM.md`. Briefly: cream `#F7F3EC`, cover red `#B5291C`, ink `#111`; the three system inks Time `#2C6E8A`, Attention `#8C7432`, Safety `#BF372A`, read from the page 11 rectangles of the print file (corrected 6 September 2026; see `DESIGN_SYSTEM.md`). Serif titles are never bold. Red is emphasis only. Mono is for anything measured. No gradients, no glass, no icon sets, and exactly one shadow — under the book.
+Documented in `DESIGN_SYSTEM.md`, and it is deliberately small: **six type steps, three spacing values, four jobs for red, one shadow, one transition.** Cream `#F7F3EC`, cover red `#B5291C`, ink `#111`; the three system inks Time `#2C6E8A`, Attention `#8C7432`, Safety `#BF372A`, read from the page 11 rectangles of the print file. Serif titles never bold. Mono for anything measured. No gradients, no glass, no icon sets, no cards.
 
-The hero is a CSS 3D book built from the real cover, spine and page block, opening on scroll to the book's own title page. It reads one custom property, `--open`. No animation library is installed and none should be added.
+The hero is the printed front cover, flat and still, with the site's only shadow. There is no 3D book and nothing driven by scroll position: the author's brief forbids scroll choreography and unnecessary 3D effects. No animation library is installed and none should be added.
+
+**A section that will not fit the type scale is a section that needs rewriting, not a new size.**
 
 ## Verified facts (do not restate anything else as fact)
 
@@ -60,28 +64,27 @@ The book states **no** count of references, no DOI verification, no "years of re
 
 ## The page, in order
 
-Decided by an editorial panel against the almost-final book (`translation/EDITORIAL-POSITIONING.md`) and re-weighted for a skimming reader and a deep reader after the author saw it (`translation/HOOK-DECISION.md`). Do not reorder without reading both.
+Eight sections, decided in `brief/REDESIGN.md` against the author's brief. Section ids are English in every language, by contract: the language switcher keeps a reader in the section they are in. Do not reorder without reading that file.
 
-1. `Hero` — the cover, the 3D book, Read an extract, Be notified
-2. `Misreading` — page 10, the display page, set large; a two-column spread from 1024 px
-3. `Investigation` — page 11: the sixteen chapters with page 11's colour keys and rail
-4. `TheReading` — page 13: the three checks at display size, then the question
-5. `BeforeWeBegin` — page 13's evidence note, open, and the three markers as a full-width row
-6. `TheBook` — Ivana's line and who it is for (page 12, the page 20 heading and paragraph, and page 14 were cut by the author on 6 September)
-7. `ExcerptTeaser` — two opening paragraphs, with Read an extract and Be notified at its head, then the page 26 line
-8. `Listen` — only when `editions[lang].audioUrl` is set
-9. `CaseEvidence` — four printed case pages with their printed rule, closed by the page 20 line
-10. `ThreeSystems` — the three systems and page 226 on the Scientific Heartbeat
-11. `Author`, `Companion` (off), `Closing` (the book's last sentence), `Launch` (the notify form)
+1. `Hero` — the printed cover, the title, two actions and no more
+2. `Premise` — the mechanism (page 181's line, page 10's three lines, the back cover's four sentences), then the reading (page 13's three checks)
+3. `Variables` — Time. Attention. Safety., as a spread
+4. `Moments` — three printed CASE EVIDENCE pages, under page 11's "16 cases" line
+5. `Evidence` — the three markers with the author's own descriptions
+6. `ExcerptTeaser` — two opening paragraphs on the book's paper, then Continue reading
+7. `Listen` — only when `editions[lang].audioUrl` is set
+8. `Author`, then `Closing` — page 225, the cover line, and the one form
+
+The chapter map, the page 13 sorting passage, the fourth case panel and page 226 live on `/press`. The page 26 block lives on `/read`.
 
 ## Still outstanding from Ivana
 
 Search `content/en.ts` for `[COPY NEEDED`:
 
-- `press.bios[1]` — a long biography (the press page hides it until written)
-- `companion.line` — the companion tool sentence (that section is switched off in `site.config.ts` until it exists)
+- `press.bios[1]` — a long biography, 100 to 150 words (the press page hides the whole Biography block until it exists)
+- `press.photoCredit` — the photographer's name for the author photograph
 
-The editorial decision also left her seven open questions; they are listed at the end of `CONTENT_SOURCES.md`.
+Four open questions are listed at the end of `CONTENT_SOURCES.md`.
 
 ## Working here
 

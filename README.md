@@ -71,15 +71,14 @@ Open `content/en.ts` and search for `[COPY NEEDED`. Two things are waiting for y
 | Key | What is needed |
 |---|---|
 | `press.bios[1]` | A longer biography, 100 to 150 words |
-| `companion.line` | One sentence about the companion tool |
+| `press.photoCredit` | The photographer's name, for the author photograph credit |
 
-Everything else on the site is already printed in the book, written by you, or a plain interface label. The order of the sections was decided against the almost-final book and is explained in `translation/EDITORIAL-POSITIONING.md`. `CONTENT_SOURCES.md` lists the source of each line. **If you add a sentence, add its source there too.** That rule is why a journalist can check this site against the book and find nothing that fails.
+Everything else on the site is already printed in the book, written by you, or a plain interface label. The order of the sections and the treatment of every string are set out in `brief/REDESIGN.md`, which implements your brief at `brief/REDESIGN-BRIEF.md`. `CONTENT_SOURCES.md` lists the source of each line. **If you add a sentence, add its source there too.** That rule is why a journalist can check this site against the book and find nothing that fails.
 
 Other things you may want to set in `site.config.ts`:
 
 - `author.website` — your practice website. Null hides the link.
 - `author.social` — Instagram, LinkedIn, X. Empty ones are hidden.
-- `companion.enabled` — currently **false**. Turn it on once `companion.line` is written.
 - `press.pressKitZipUrl` — put a zip in `public/press/` and point at it.
 
 The author photograph is already in place at `public/images/author.jpg` (and `public/press/author-photo-1600.jpg` for download). To change it, replace those two files.

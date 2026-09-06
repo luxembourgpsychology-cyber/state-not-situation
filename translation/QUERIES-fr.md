@@ -4,11 +4,15 @@
 
 Decided and closed under that rule, with the reasons written into the translation memory of translation/METHOD-fr.md and dated 6 September 2026: the two poles of page 14 stay in guillemets, « ça va » and « clinique », rather than being named « le seuil clinique », which would import a term of the book the English does not use there; the inverted rent idiom of page 10 stays as « se met à réclamer un loyer », because the standard’s metaphor policy forbids the option that keeps only the mechanism; the pronoun of page 20 stays « Ça disait » rather than taking the noun « La conclusion », which the English withholds; and the four repetitions of have had on page 12 stay on « avoir » rather than moving to « vivre », which is a shade more emphatic than the English. content/fr.ts already carried all four wordings and was not changed by any of them.
 
-Two queries stand. Both are about a word that governs more than its own sentence.
+**6 September 2026, after the redesign.** The homepage was rebuilt from twelve sections to eight and `content/fr.ts` re-read against `brief/REDESIGN-BRIEF.md` §13 and §15. The pass authored twenty-one strings and repaired eighteen carried ones; the reasoning is in `translation/METHOD-fr.md` under **The redesign, 2026-09-06**, and none of it needed a decision from you. Two things changed in this file.
+
+**SOURCE QUERY 2 is closed, by the redesign rather than by an answer.** It asked what the site should do about the missing first term of page 12’s comparison. Page 12 is no longer on the site in any language: the `knowTheDay` section is one of the redesign’s deletions, and the sentence the query was about is not printed anywhere on the rebuilt page. Nothing is owed. If page 12 is ever restored, the query stands as written and Option C is still the recommendation.
+
+**One query stands, and its scope has grown.** It was about a single sentence in the reference section. It is now also about the homepage, because the new Evidence section makes the same word visible on the first screen of the site in three languages. Nothing in `content/fr.ts` is waiting on it: the file carries a finished sentence in every place, and your ruling would change wording, not meaning.
 
 ---
 
-TRANSLATION QUERY 1 of 2
+TRANSLATION QUERY 1 of 1  ·  which French word carries *evidence*
 
 SOURCE
 Page 226, The Scientific Heartbeat, with its neighbours: “This section says whose, and what each piece of work gave the chapter. Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently. Under each reference is a line on what the paper did for the chapter.” The site carries the middle sentence twice, in map.heartbeat[0] and press.description[3].
@@ -34,30 +38,11 @@ Option A. It is the sentence a French scientist writes about rival explanations 
 CONFIDENCE
 Medium. High on the French, medium on the ruling, because the choice sets a term for a section of the book that is not yet translated.
 
+ADDED 6 SEPTEMBER 2026, AFTER THE REDESIGN
+The same ruling now governs the homepage. Section 5 is your three descriptions of HIGH, MEDIUM and LOW, and in French *evidence* could not stay on one noun through all three: « preuves répliquées » is the collocation a native reader heard English under on the morning of 6 September, because French étaye une affirmation and réplique un résultat. So the row reads « Résultats répliqués ou robustes. », « Preuves qui vont dans le sens de l’affirmation, incertitude réelle. » and « Hypothèse plausible ou premiers résultats. », under the heading « Niveau de preuve », which holds the term for all three and is what makes three bare adjectives legible in French. That is the same split this query describes, moved from page 226 to the first screen: **preuve** where evidence is weighed against a claim, **résultat** where it is replicated, reported or explained. If you take Option A, the split is deliberate and consistent everywhere and nothing changes in the file. If you take Option B and want one French word throughout, the homepage row and the page 13 grades come back to you with the reference section, together, in one pass. I do not recommend Option B, but it is a real position and it is yours to take, because it is your apparatus and not a translation problem.
+
 ---
 
-SOURCE QUERY 2 of 2
+SOURCE QUERY 2 of 2 — CLOSED, 6 September 2026
 
-SOURCE
-Page 12, the opening of You Know The Day: “A day with a crisis has a shape. It has an exact problem that makes demands and it gives you something to push against. You would know what to do with a crisis. You have done it before. The day I mean is the other kind. The day where nothing went wrong and everything felt off.” The site begins the section at “The day I mean is the other kind.”; the four sentences that set up the comparison are not on it, in any language.
-
-CURRENT TRANSLATION
-La journée dont je parle, c’est l’autre. La journée où rien ne s’est mal passé et où tout clochait. (the run continues as printed, through « … comme un jour de pluie derrière une vitre. »)
-
-ISSUE
-Semantic fidelity, and behind it a decision about the site rather than about French. On the site the section opens with a comparison whose first term is missing: the other kind of day than which? The French keeps that gap exactly, as the standard requires, but it carries it less easily than the English, because « c’est l’autre » leans entirely on an antecedent while “the other kind” at least names a taxonomy of days. The next sentence defines the day, so no reader is lost for long; what is lost is the contrast the passage is built on, the crisis day against the day with no crisis in it.
-
-OPTION A
-Leave it as printed. English: “The day I mean is the other kind. The day where nothing went wrong and everything felt off.” French, unchanged: « La journée dont je parle, c’est l’autre. La journée où rien ne s’est mal passé et où tout clochait. »
-
-OPTION B
-Begin the section one sentence later. English: “The day where nothing went wrong and everything felt off. It started before you noticed it starting.” French: « La journée où rien ne s’est mal passé et où tout clochait. Elle a commencé avant que vous ne remarquiez qu’elle commençait. » One cut in content/en.ts, one in content/fr.ts, one in content/de.ts, and nothing else moves.
-
-OPTION C
-Restore the four sentences that supply the missing term, printed as they stand on page 12, as a new first run of the section. English: “A day with a crisis has a shape. It has an exact problem that makes demands and it gives you something to push against. You would know what to do with a crisis. You have done it before.” French: « Une journée de crise a une forme. Elle a un problème précis qui exige quelque chose de vous et elle vous donne quelque chose contre quoi pousser. Vous sauriez quoi faire d’une crise. Vous l’avez déjà fait. »
-
-RECOMMENDATION
-Option C. It costs about forty words at the top of a section that already runs long on a phone, and one added line in each of content/en.ts, content/fr.ts, content/de.ts and CONTENT_SOURCES.md; it buys the comparison the whole passage turns on, and it is the same repair the editorial panel made when it restored the antecedent of “that mistake”. If you take it, the French of the new run comes back to you with the next pass, since it would be the first sentences on the site that no one has yet approved in French.
-
-CONFIDENCE
-Medium. The site works without it, and the argument for leaving a book’s own opening exactly where the book puts it is a real one.
+Withdrawn. It asked whether to restore the four sentences of page 12 that supply the missing first term of « La journée dont je parle, c’est l’autre. » The redesign removes page 12 from the homepage entirely, so the comparison, the gap and the question have all gone with it. No answer is needed and no string is waiting. The analysis is kept in the git history of this file in case page 12 returns.
