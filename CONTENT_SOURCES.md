@@ -34,16 +34,11 @@ The section order follows `translation/EDITORIAL-POSITIONING.md` (5 September 20
 | `excerpt.paragraphs` + `excerpt.quote` | Pages 7 to 9, the opening, verbatim. The teaser on the home page shows the first two paragraphs, both page 7, ending "A slow descent feels like holding steady."; the rest is on the /read page. (Three paragraphs ran to a screen and a half of unbroken prose on a phone; all three are page 7, so no honest folio could break them.) |
 | `misreading.*` | Page 10, the display page, verbatim and in the page's own order: the heading, three lines, "This book is the / Investigation.", "The same day, five readings", the five timestamped lines, "The body speaks first." / "The mind explains second." The site sets the heading and "Investigation." larger than the printed page. |
 | `map.eyebrow`, `map.investigationTitle`, `map.mapLine`, `map.chapters[]` | Page 11: the printed eyebrow "A map of the book", then the map with its printed page numbers. Page 11 prints TIME, ATTENTION and SAFETY as labels with their colours only; it prints no legend descriptions, so none appear on the site. The site carries two of the page's three printed devices, drawn in CSS: the three colour keys above the list and the rail in thirds down its left edge. The third, a small state-line stub beside each chapter from 01 to 15, does not ship: the export set in `public/images` is misnamed from chapter 12 on and has no correct file for chapters 12 and 15. The three system inks are read from the page 11 rectangles: Time `#2C6E8A`, Attention `#8C7432`, Safety `#BF372A`. |
-| `knowTheDay.runs[0..2]` | Page 12, under the printed heading "You Know The Day", three runs quoted in order. Run 1 stops at "…like rainy weather behind glass."; run 2 at "…make the story dissolve."; run 3 is "The body spoke first. The mind explained second, and this explanation felt like the event." The sentence between runs 2 and 3 ("The story that is build on a day like this…") is not quoted because it carries a typo in the almost-final text. **The runs are a selection from page 12, not the page:** the printed page opens "A day with a crisis has a shape…", which the site does not quote. Run 1 sits behind the page's one disclosure, labelled "More from page 12"; no label may say "page 12 in full". |
-| `knowTheDay.runs[3]` | Pages 12 to 13, across the page break, after the book's section mark: "This book is about that mistake… try something right now." |
 | `reading.*` | Page 13, verbatim: "Whatever you are feeling as you read this sentence. Check your jaw…" to "Is this the situation? Or is this the state?" The eyebrow "Try something right now" is the page's own phrase. In the book the three checks are a run-on clause in a body paragraph; the site sets them as display type, a promotion the design records as such. |
 | `map.evidenceIntro`, `map.evidenceMarkers` | Page 13, "Before We Begin", both paragraphs, verbatim. The second describes each marker in words. Shown in the `BeforeWeBegin` section, directly after the page 13 checks, where the book prints them. |
 | `map.grades[]` | Page 13 prints the three pulses in a row with the labels HIGH, MEDIUM, LOW beneath them and nothing else. The site sets the row full width, three cells behind hairlines, as printed; the caption lines used earlier ("Clean, strong heartbeat." and the others) are not printed anywhere in the almost-final book and were removed. These are the page 13 markers; "The Scientific Heartbeat" is the name of the page 226 section and is not used for them. |
 | `map.sortingTool`, `map.loops[].body` | Pages 13 to 14, the front-matter passage on the three systems, verbatim. |
-| `book.readersAnchor` | Page 14: "This book does not replace professional support… the space where most people live on most days." |
-| `book.heading` | Page 20: "Same morning. Same paragraph. Same Katrin. Different instrument settings." |
 | `cases.closing` | Page 20: "It said I am failing; the data was I am tired." |
-| `map.systemsIntro` | Page 20: "Three systems ran through Katrin's morning… David is the smallest part of it." Shown in the book section, under the page 20 heading that names Katrin. |
 | `cases.items[]` | The CASE EVIDENCE pages, reproduced: 00 p16, 02 p28, 11 p150, 13 p182. Seven chapters open on such a page (00, 02, 05, 11, 12, 13, 15); nine do not, which is why the site carries no sentence claiming otherwise. Each card carries the short rule the page prints under its label (28 × 1.6 pt), in the page's own ink, read per page from the print file: Time (CMYK 0.68 0.2 0 0.46) on the pages for 00 and 02, Safety (CMYK 0 0.71 0.78 0.25) on the pages for 11 and 13. Chapter 12's page prints no rule, which is why the colours are read and not derived. |
 | `excerpt.closing` | Page 26: "This book is about the same error at kitchen scale…" quoted from that sentence; the preceding sentence, "The warships are the extreme case.", is omitted because a visitor who has not read Chapter One would meet an unexplained word. Flagged to the author as question 6 in the editorial decision. |
 | `closing.question` | Page 225, the book's last sentence: "Is this the situation? Or is this their state?" |
@@ -58,12 +53,12 @@ The section order follows `translation/EDITORIAL-POSITIONING.md` (5 September 20
 | Key | Note |
 |---|---|
 | `author.bio`, `press.bios[0]` | "Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book." Given 4 September 2026. |
-| `book.paragraphs[0..1]`, `press.description[0..1]` | "Over sixteen days, Katrin moves through ordinary situations…" and "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting." Given 5 September 2026. |
+| `book.paragraphs[0]`, `press.description[0]` | "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting." Given 5 September 2026. |
 | `book.readers` | "For anyone who has ever been certain about what a situation meant…" Given 5 September 2026, in the same message as the paragraphs above. The editorial decision asked for confirmation because this file had not recorded it; the chat record is the source. |
 
 ## Interface labels
 
-Everything in `nav`, `status`, `listen`, `a11y`, and the short labels in `press` (Downloads, Biography, Publication, Credits, Contact, Back to the book) are functional interface strings. Two were added on 6 September 2026: `knowTheDay.moreLabel` ("More from page 12"), the summary of the page's one disclosure, chosen because it claims nothing about completeness; and `a11y.evidenceRegion` ("Confidence markers, page 13"), the accessible name of the page 13 markers section, never rendered as visible text. `map.mapFooter` ("The Scientific Heartbeat follows the chapters.") is a functional signpost naming the printed section title; `book.eyebrow`, `cases.eyebrow`, `excerpt.eyebrow`, `author.eyebrow` are section labels; `map.eyebrow` ("A map of the book") is printed at the head of page 11 and is listed above.
+Everything in `nav`, `status`, `listen`, `a11y`, and the short labels in `press` (Downloads, Biography, Publication, Credits, Contact, Back to the book) are functional interface strings. `a11y.evidenceRegion` ("Confidence markers, page 13"), the accessible name of the page 13 markers section, was added on 6 September 2026 and is never rendered as visible text. `map.mapFooter` ("The Scientific Heartbeat follows the chapters.") is a functional signpost naming the printed section title; `book.eyebrow`, `cases.eyebrow`, `excerpt.eyebrow`, `author.eyebrow` are section labels; `map.eyebrow` ("A map of the book") is printed at the head of page 11 and is listed above.
 
 ## Still placeholders
 
@@ -85,6 +80,16 @@ The decision's first question, whether the "who it is for" line is hers, is answ
 8. For her copy-editor, typos noticed in the almost-final text on or near the quoted pages: page 12 "is build" (built); page 15 "used in this book an analogy" (is an analogy); page 19 "safety,."; page 31 "is was fatigue"; page 181 "the he panel"; page 191 "mashine"; page 192 "somthing"; page 220 "itsel". The site quotes none of these sentences.
 
 ---
+
+## Removed on 6 September 2026 at the author's request
+
+Seen on her phone and crossed out. Each was verbatim from the book or her own copy; she is revising the book's wording and did not want it on the launch page.
+
+- **Page 12, "You know the day", all four runs** and the "More from page 12" disclosure. The page 13 checks now follow page 11 directly.
+- **The page 20 heading** "Same morning. Same paragraph. Same Katrin. Different instrument settings." and **the page 20 paragraph** "Three systems ran through Katrin's morning…".
+- **Her paragraph "Over sixteen days, Katrin moves…"**, from the book section and from the press description. Her second line, "It is less interested in teaching you…", stays.
+- **Page 14, "This book does not replace professional support…"**: "this is a book launch". Her own "who it is for" line stays.
+- The case cards moved below the extract; the Investigation (page 11) moved up under page 10, where the book prints it.
 
 ## Removed on 5 September 2026 against the almost-final PDF and the editorial decision
 

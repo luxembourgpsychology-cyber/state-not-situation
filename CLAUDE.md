@@ -64,14 +64,15 @@ Decided by an editorial panel against the almost-final book (`translation/EDITOR
 
 1. `Hero` — the cover, the 3D book, Read an extract, Be notified
 2. `Misreading` — page 10, the display page, set large; a two-column spread from 1024 px
-3. `TheReading` — pages 12 to 13 as one passage: page 12 with one disclosure ("More from page 12"), then the three checks at display size, then the question
-4. `BeforeWeBegin` — page 13's evidence note, open, and the three markers as a full-width row
-5. `TheBook` — the page 20 heading, the page 20 Katrin paragraph, Ivana's two paragraphs, who it is for
-6. `CaseEvidence` — four printed case pages with their printed rule, closed by the page 20 line
-7. `ExcerptTeaser` — the opening pages, with a second Read an extract at its head, then the page 26 line
+3. `Investigation` — page 11: the sixteen chapters with page 11's colour keys and rail
+4. `TheReading` — page 13: the three checks at display size, then the question
+5. `BeforeWeBegin` — page 13's evidence note, open, and the three markers as a full-width row
+6. `TheBook` — Ivana's line and who it is for (page 12, the page 20 heading and paragraph, and page 14 were cut by the author on 6 September)
+7. `ExcerptTeaser` — two opening paragraphs, with Read an extract and Be notified at its head, then the page 26 line
 8. `Listen` — only when `editions[lang].audioUrl` is set
-9. `MapOfBook` — the three systems, the sixteen chapters with page 11's colour keys and rail, the Scientific Heartbeat
-10. `Author`, `Companion` (off), `Closing` (the book's last sentence), `Launch` (the notify form)
+9. `CaseEvidence` — four printed case pages with their printed rule, closed by the page 20 line
+10. `ThreeSystems` — the three systems and page 226 on the Scientific Heartbeat
+11. `Author`, `Companion` (off), `Closing` (the book's last sentence), `Launch` (the notify form)
 
 ## Still outstanding from Ivana
 

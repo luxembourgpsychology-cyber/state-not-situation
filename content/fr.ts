@@ -108,17 +108,6 @@ export const fr: SiteContent = {
     closing: ["Le corps parle d’abord.", "L’esprit explique ensuite."],
   },
 
-  // Pages 12 to 13. A section mark sits in the book between runs 3 and 4.
-  knowTheDay: {
-    eyebrow: "Vous connaissez cette journée",
-    moreLabel: "Un autre passage de la page 12",
-    runs: [
-      "La journée dont je parle, c’est l’autre. La journée où rien ne s’est mal passé et où tout clochait. Elle a commencé avant que vous ne remarquiez qu’elle commençait. Quelque part entre le réveil et la douche, entre la douche et la cuisine, entre la cuisine et la première gorgée de ce que vous buvez pour devenir la personne que le matin exige. Quelque chose était déjà là. On aurait plutôt dit une texture. Une pesanteur dans les membres, une réticence dans la poitrine, une légère lourdeur posée derrière vos pensées comme un jour de pluie derrière une vitre.",
-      "Vous avez eu cette journée. Tout le monde a eu cette journée. Vous l’avez eue des dizaines de fois et vous l’aurez encore et chaque fois l’histoire aura l’air vraie et chaque fois le lendemain matin dissoudra l’histoire.",
-      "Le corps a parlé d’abord. L’esprit a expliqué ensuite, et cette explication est passée pour l’événement.",
-      "Ce livre parle de cette méprise. Il parle de cette erreur comme d’un aspect quotidien, ambiant, invisible de la vie dans un corps qui produit sans cesse des signaux, que votre esprit, sans cesse, lit ou lit de travers. Avant tout cela, avant la science et le mécanisme et la raison pour laquelle l’instrument était mal calibré hier, essayez quelque chose tout de suite.",
-    ],
-  },
 
   // Page 13. The eyebrow is the page's own phrase.
   reading: {
@@ -133,18 +122,11 @@ export const fr: SiteContent = {
 
   book: {
     eyebrow: "Le livre",
-    // Page 20.
-    heading: "Même matin. Même paragraphe. Même Katrin. Instruments réglés autrement.",
-    headingSource: "Page 20",
     // Ivana's own words, supplied 5 September 2026.
     paragraphs: [
-      "Pendant seize jours, Katrin traverse des situations ordinaires où sa première lecture de ce qui se passe n’est pas toujours celle qui tient, à y regarder de plus près. Chaque chapitre suit l’un de ces moments jusque dans la psychologie qui le sous-tend, de l’attention et de la prédiction à la mémoire, à la menace, à l’incertitude et à l’inférence sociale. Le livre ne promet pas un meilleur instinct. Il demande ce qui devient possible quand nous apprenons d’où venait notre première lecture.",
       "Il cherche moins à vous apprendre à faire confiance à votre instinct qu’à vous montrer à quoi, au juste, vous faites confiance.",
     ],
     readersEyebrow: "À qui il s’adresse",
-    // Page 14.
-    readersAnchor:
-      "Ce livre ne remplace pas l’aide d’un professionnel et il ne traite pas les troubles complexes comme des problèmes d’hygiène de vie. Il travaille dans l’écart entre « ça va » et « clinique », l’espace où la plupart des gens vivent la plupart des jours.",
     // Ivana's own words, supplied 5 September 2026.
     readers:
       "Pour quiconque a déjà été certain du sens d’une situation, puis a découvert qu’il se passait autre chose. Et pour les lecteurs qui s’intéressent à la psychologie de notre façon de remarquer, d’interpréter et de revoir le monde qui nous entoure.",
@@ -247,9 +229,6 @@ export const fr: SiteContent = {
 
   map: {
     eyebrow: "Une carte du livre",
-    // Page 20.
-    systemsIntro:
-      "Trois systèmes ont tourné pendant toute la matinée de Katrin. Le Temps a démarré à 06:38 et ne s’est jamais arrêté. L’Attention a pris le téléphone à 06:52. La Sécurité a écrit le sens de l’e-mail à 07:25. Elle ne peut en nommer aucun. La seule chose qu’elle peut nommer, c’est David, et David en est la plus petite part.",
     // Page 13.
     sortingTool:
       "Les chapitres qui suivent sont organisés autour de trois systèmes qui règlent le poids que prennent les signaux de votre corps avant que votre esprit ne construise une histoire. Ce ne sont pas des régions du cerveau ni des voies neuronales. C’est un outil de tri, une façon de poser trois questions quand tout semble aller de travers en même temps.",
@@ -380,7 +359,6 @@ export const fr: SiteContent = {
     ],
     descriptionHeading: "À propos du livre",
     description: [
-      "Pendant seize jours, Katrin traverse des situations ordinaires où sa première lecture de ce qui se passe n’est pas toujours celle qui tient, à y regarder de plus près. Chaque chapitre suit l’un de ces moments jusque dans la psychologie qui le sous-tend, de l’attention et de la prédiction à la mémoire, à la menace, à l’incertitude et à l’inférence sociale. Le livre ne promet pas un meilleur instinct. Il demande ce qui devient possible quand nous apprenons d’où venait notre première lecture.",
       "Il cherche moins à vous apprendre à faire confiance à votre instinct qu’à vous montrer à quoi, au juste, vous faites confiance.",
       "16 cas. Trois lectures. Une question : état ou situation ?",
       "Chaque chapitre a ici trois parties : une courte note sur l’origine de la réflexion, une liste des travaux sur lesquels le chapitre est construit, et une liste des travaux qui le limitent, le compliquent, ou expliquent autrement les mêmes résultats.",

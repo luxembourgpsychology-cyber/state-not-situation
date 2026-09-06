@@ -108,13 +108,6 @@ export interface SiteContent {
     readings: { time: string; text: string }[];
     closing: string[];
   };
-  /** Pages 12 to 13, "You Know The Day", in three runs; the last hands to the reading. */
-  knowTheDay: {
-    eyebrow: string;
-    /** Interface label on the one disclosure, which holds runs[0]. Not a quotation. */
-    moreLabel: string;
-    runs: string[];
-  };
   /** Page 13: the reader is asked to take a reading. */
   reading: {
     eyebrow: string;
@@ -127,12 +120,8 @@ export interface SiteContent {
   /** The author's account of the book, under a heading from page 20. */
   book: {
     eyebrow: string;
-    heading: string;
-    headingSource: string;
     paragraphs: string[];
     readersEyebrow: string;
-    /** Page 14. */
-    readersAnchor: string;
     /** Supplied by the author. */
     readers: string;
   };
@@ -178,8 +167,6 @@ export interface SiteContent {
   /** One reference block: the three systems, the evidence markers, the chapters, the Heartbeat. */
   map: {
     eyebrow: string;
-    /** Page 20. */
-    systemsIntro: string;
     /** Front matter, page 13. */
     sortingTool: string;
     loops: Loop[];

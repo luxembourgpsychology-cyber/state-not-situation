@@ -107,17 +107,6 @@ export const de: SiteContent = {
     closing: ["Der Körper spricht zuerst.", "Der Kopf erklärt danach."],
   },
 
-  // Seiten 12 bis 13. Im Buch steht zwischen dem dritten und vierten Lauf ein Abschnittszeichen.
-  knowTheDay: {
-    eyebrow: "Sie kennen diesen Tag",
-    moreLabel: "Mehr von Seite 12",
-    runs: [
-      "Der Tag, den ich meine, ist von der anderen Art. Der Tag, an dem nichts schiefging und sich alles falsch anfühlte. Er fing an, bevor Sie merkten, dass er anfing. Irgendwo zwischen Wecker und Dusche, zwischen Dusche und Küche, zwischen Küche und dem ersten Schluck von dem, was auch immer Sie trinken, um der Mensch zu werden, den der Morgen verlangt. Etwas war schon da. Es fühlte sich eher an wie eine Textur. Eine Trägheit in den Gliedern, ein Widerstreben in der Brust, eine leise Schwere, die hinter Ihren Gedanken saß wie Regenwetter hinter Glas.",
-      "Sie haben diesen Tag schon erlebt. Jeder hat diesen Tag schon erlebt. Sie haben ihn Dutzende Male erlebt und Sie werden ihn wieder erleben und jedes Mal wird sich die Geschichte anfühlen wie die Wahrheit und jedes Mal wird der Morgen danach die Geschichte auflösen.",
-      "Der Körper sprach zuerst. Der Kopf erklärte danach, und diese Erklärung fühlte sich an wie das Ereignis.",
-      "In diesem Buch geht es um diesen Fehler. Es geht um diesen Irrtum als etwas Tägliches, Beiläufiges, Unsichtbares, das zum Leben in einem Körper dazugehört, der ständig Signale erzeugt, die Ihr Kopf ständig liest oder falsch liest. Vor all dem, vor der Wissenschaft und dem Mechanismus und dem Grund, warum das Instrument gestern falsch kalibriert war, probieren Sie jetzt gleich etwas aus.",
-    ],
-  },
 
   // Seite 13. Die Zeile über dem Abschnitt ist die Wendung der Seite selbst.
   reading: {
@@ -132,18 +121,11 @@ export const de: SiteContent = {
 
   book: {
     eyebrow: "Das Buch",
-    // Seite 20.
-    heading: "Derselbe Morgen. Derselbe Absatz. Dieselbe Katrin. Andere Einstellungen am Instrument.",
-    headingSource: "Seite 20",
     // Ivanas eigene Worte, geliefert am 5. September 2026.
     paragraphs: [
-      "Sechzehn Tage lang geht Katrin durch alltägliche Situationen, in denen ihr erster Befund nicht immer der ist, der einem genaueren Blick standhält. Jedes Kapitel verfolgt einen dieser Momente in die Psychologie dahinter, von Aufmerksamkeit und Vorhersage über Gedächtnis, Bedrohung und Ungewissheit bis hin zu den Schlüssen, die wir über andere Menschen ziehen. Das Buch verspricht keine besseren Instinkte. Es fragt, was möglich wird, wenn wir lernen, woher unser erster Befund kam.",
       "Es will Ihnen weniger beibringen, Ihren Instinkten zu vertrauen, als Ihnen zeigen, worauf genau Sie da vertrauen.",
     ],
     readersEyebrow: "Für wen es ist",
-    // Seite 14.
-    readersAnchor:
-      "Dieses Buch ersetzt keine professionelle Hilfe, und es behandelt komplexe Erkrankungen nicht als Fragen des Lebensstils. Es arbeitet in der Lücke zwischen gesund und klinisch, in dem Raum, in dem die meisten Menschen an den meisten Tagen leben.",
     // Ivanas eigene Worte, geliefert am 5. September 2026.
     readers:
       "Für alle, die sich schon einmal sicher waren, was eine Situation bedeutete, und dann entdeckt haben, dass etwas anderes im Gange war. Und für Leserinnen und Leser, die sich für die Psychologie interessieren: dafür, wie wir die Welt um uns herum wahrnehmen, deuten und unsere Deutung revidieren.",
@@ -244,9 +226,6 @@ export const de: SiteContent = {
 
   map: {
     eyebrow: "Eine Karte des Buches",
-    // Seite 20.
-    systemsIntro:
-      "An Katrins Morgen waren drei Systeme am Werk. Zeit fing um 06:38 an und hörte nicht mehr auf. Aufmerksamkeit griff um 06:52 nach dem Handy. Sicherheit schrieb um 07:25, was die E-Mail bedeutete. Sie kann keines davon benennen. Das Einzige, was sie benennen kann, ist David, und David ist der kleinste Teil davon.",
     // Seite 13.
     sortingTool:
       "Die folgenden Kapitel sind um drei Systeme herum aufgebaut, die prägen, wie die Signale Ihres Körpers gewichtet werden, bevor Ihr Kopf daraus eine Geschichte macht. Es sind keine Hirnregionen und keine Nervenbahnen. Diese Systeme sind ein Werkzeug zum Sortieren, eine Art, drei Fragen zu stellen, wenn sich alles auf einmal falsch anfühlt.",
@@ -377,7 +356,6 @@ export const de: SiteContent = {
     ],
     descriptionHeading: "Über das Buch",
     description: [
-      "Sechzehn Tage lang geht Katrin durch alltägliche Situationen, in denen ihr erster Befund nicht immer der ist, der einem genaueren Blick standhält. Jedes Kapitel verfolgt einen dieser Momente in die Psychologie dahinter, von Aufmerksamkeit und Vorhersage über Gedächtnis, Bedrohung und Ungewissheit bis hin zu den Schlüssen, die wir über andere Menschen ziehen. Das Buch verspricht keine besseren Instinkte. Es fragt, was möglich wird, wenn wir lernen, woher unser erster Befund kam.",
       "Es will Ihnen weniger beibringen, Ihren Instinkten zu vertrauen, als Ihnen zeigen, worauf genau Sie da vertrauen.",
       "16 Fälle. Drei Befunde. Eine Frage: Zustand oder Situation?",
       "Jedes Kapitel hat hier drei Teile: eine kurze Notiz dazu, woher die Überlegungen kamen, eine Liste der Arbeiten, auf denen das Kapitel aufbaut, und eine Liste der Arbeiten, die es einschränken, komplizierter machen oder dieselben Belege anders erklären.",

@@ -91,17 +91,6 @@ export const en: SiteContent = {
     closing: ["The body speaks first.", "The mind explains second."],
   },
 
-  // Pages 12 to 13, verbatim. A section mark sits in the book between runs 3 and 4.
-  knowTheDay: {
-    eyebrow: "You know the day",
-    moreLabel: "More from page 12",
-    runs: [
-      "The day I mean is the other kind. The day where nothing went wrong and everything felt off. It started before you noticed it starting. Somewhere between the alarm and the shower, between the shower and the kitchen, between the kitchen and the first sip of whatever you drink to become the person the morning requires. Something was already there. It felt more like texture. A drag in the limbs, a reluctance in the chest, a faint heaviness that sat behind your thoughts like rainy weather behind glass.",
-      "You have had this day. Everyone has had this day. You have had it dozens of times and you will have it again and each time the story will feel like the truth and each time the morning after will make the story dissolve.",
-      "The body spoke first. The mind explained second, and this explanation felt like the event.",
-      "This book is about that mistake. It is about that error as a daily, ambient, invisible feature of being alive in a body that is constantly producing signals, which your mind is constantly reading or misreading. Before any of that, before the science and the mechanism and the reason the instrument was miscalibrated yesterday, try something right now.",
-    ],
-  },
 
   // Page 13, verbatim. The eyebrow is the page's own phrase.
   reading: {
@@ -116,18 +105,11 @@ export const en: SiteContent = {
 
   book: {
     eyebrow: "The book",
-    // Page 20.
-    heading: "Same morning. Same paragraph. Same Katrin. Different instrument settings.",
-    headingSource: "Page 20",
     // Ivana's own words, supplied 5 September 2026.
     paragraphs: [
-      "Over sixteen days, Katrin moves through ordinary situations in which her first reading of what is happening is not always the one that survives a closer look. Each chapter follows one of those moments into the psychology underneath it, from attention and prediction to memory, threat, uncertainty and social inference. The book does not promise better instincts. It asks what becomes possible when we learn where our first reading came from.",
       "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
     ],
     readersEyebrow: "Who it is for",
-    // Page 14.
-    readersAnchor:
-      "This book does not replace professional support and it does not treat complex conditions as lifestyle problems. It works in the gap between fine and clinical, the space where most people live on most days.",
     // Ivana's own words, supplied 5 September 2026.
     readers:
       "For anyone who has ever been certain about what a situation meant, then discovered that something else was happening. And for readers interested in the psychology of how we notice, interpret and revise the world around us.",
@@ -228,9 +210,6 @@ export const en: SiteContent = {
 
   map: {
     eyebrow: "A map of the book",
-    // Page 20.
-    systemsIntro:
-      "Three systems ran through Katrin’s morning. Time started at 06:38 and never stopped. Attention took the phone at 06:52. Safety wrote the email’s meaning at 07:25. She can name none of them. The only thing she can name is David, and David is the smallest part of it.",
     // Page 13.
     sortingTool:
       "The chapters that follow are organised around three systems that shape how your body’s signals get weighted before your mind builds a story. They are not brain regions or neural pathways. They are a sorting tool, a way to ask three questions when everything feels wrong at once.",
@@ -361,7 +340,6 @@ export const en: SiteContent = {
     ],
     descriptionHeading: "About the book",
     description: [
-      "Over sixteen days, Katrin moves through ordinary situations in which her first reading of what is happening is not always the one that survives a closer look. Each chapter follows one of those moments into the psychology underneath it, from attention and prediction to memory, threat, uncertainty and social inference. The book does not promise better instincts. It asks what becomes possible when we learn where our first reading came from.",
       "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
       "16 cases. Three readings. One question: state or situation?",
       "Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently.",

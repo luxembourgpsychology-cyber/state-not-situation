@@ -17,7 +17,7 @@ const dot = ["var(--time)", "var(--safety)", "var(--safety)", "var(--attention)"
  */
 export function Misreading({ content, regionLabel }: { content: SiteContent["misreading"]; regionLabel: string }) {
   return (
-    <section id="misreading" className="bg-page border-y border-[var(--rule)]" aria-label={regionLabel}>
+    <section id="misreading" className="bg-paper border-y border-[var(--rule)]" aria-label={regionLabel}>
       <div className="container-book pt-[var(--section)] pb-[calc(var(--section)*0.7)]">
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-10">
           <div className="max-w-[46rem] lg:col-span-7 lg:max-w-none">

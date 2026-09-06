@@ -387,3 +387,10 @@ The build was verified on real screenshots by a shallow reader (8/10, from 4), a
 5. **The checks' resting state is legible** (opacity 0.45, not 0.2) and they brighten as soon as they are well inside the viewport, so a fast thumb or a screenshot never catches three ghosted lines; in German all three were pale at once.
 
 Also applied: the evidence note in two registers (the first paragraph a step up, the second body); `reading.afterResult` at body size and ink, as printed; the map's three system names as labels, not headings, and the map owning an `h2`; "Before we begin" as an `h2`; duplicate list labels removed; the disclosure's plus and minus hidden from screen readers; a `:lang(de)` measure on the book heading; shorter joins around the cards and the extract. The French lead measured the French checks at two lines each and asked for no override; the German lead confirmed the German override holds at 360.
+
+
+---
+
+## Cut back by the author, 6 September 2026, from her phone
+
+Seen live and crossed out: all of page 12 ("You know the day" and the disclosure); the page 20 heading ("Same morning. Same paragraph. Same Katrin…") and the page 20 Katrin paragraph; her own "Over sixteen days, Katrin moves…" paragraph; page 14's "This book does not replace professional support…" ("this is a book launch!"). She also asked for the Investigation to sit higher and the case cards lower, and for the cream ground back. The page now runs: cover; page 10; page 11 (the Investigation, with its keys and rail); page 13, the checks and the question; page 13's markers; her line and "who it is for"; the extract; the case cards; the three systems and page 226; the author; the closing question. The retired keys were removed from `content/types.ts` and all three content files; `MapOfBook.tsx` became `Investigation.tsx` and `ThreeSystems.tsx`.

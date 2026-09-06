@@ -381,14 +381,20 @@ body {
 }
 @media (min-width: 768px) {
   .hero-track { height: calc(100svh + 115vh); }
-  .hero-stage { min-height: 34rem; }
+  .hero-stage { height: calc(100svh - var(--nav-h)); min-height: 34rem; align-items: center; padding-top: 0; }
 }
 .hero-stage {
   position: sticky;
   top: var(--nav-h);
-  height: calc(100svh - var(--nav-h));
+  /* On a phone the words can be taller than the screen: start them at the
+     top with air under the red rule, and let the stage grow rather than
+     clip. On a small enough screen the track is shorter than the stage and
+     the book simply stays shut, which is the cover. */
+  height: auto;
+  min-height: calc(100svh - var(--nav-h));
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 2rem;
   padding-block: 1.5rem;
 }
 .hero-hint {
@@ -405,6 +411,10 @@ body {
 @media (max-height: 700px) {
   .hero-track { height: auto; }
   .hero-stage { position: static; height: auto; min-height: 0; padding-block: 3.5rem; }
+  .hero-hint { display: none; }
+}
+
+@media (max-width: 767px) {
   .hero-hint { display: none; }
 }
 
@@ -484,36 +494,6 @@ body {
   .reading-list.is-dimmed .reading-step { opacity: 1; }
   .reading-step { transition: none; }
 }
-
-/* The one disclosure on the page: a native <details>, so it works with
-   scripts off and opens from the keyboard. The summary is an eyebrow with a
-   thumb-sized target and a plus that turns to a minus. */
-.disclosure {
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-}
-.disclosure__summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 2.75rem;
-  padding: 0.5rem 0;
-  color: var(--ink-soft);
-}
-.disclosure__summary::-webkit-details-marker { display: none; }
-.disclosure__summary::after {
-  content: "+" / "";
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  color: var(--red);
-  flex: 0 0 auto;
-}
-.disclosure[open] .disclosure__summary::after { content: "\2212" / ""; }
-.disclosure__summary:hover { color: var(--red); }
-.disclosure__body { padding-bottom: 1.25rem; }
 
 /* ==================================================================
    BEFORE WE BEGIN — page 13's three confidence markers, set as the

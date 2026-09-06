@@ -8,7 +8,7 @@ import { Reveal } from "./Reveal";
  */
 export function Closing({ content }: { content: SiteContent["closing"] }) {
   return (
-    <section id="closing" className="bg-page border-t border-[var(--rule)]">
+    <section id="closing" className="bg-paper border-t border-[var(--rule)]">
       <div className="container-book pt-[var(--section)] pb-10 md:pb-14 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-4">
           <Reveal><p className="mono-label">{content.source}</p></Reveal>
