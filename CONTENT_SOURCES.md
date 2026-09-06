@@ -72,7 +72,7 @@ The INPUT / FIRST READING / POSSIBLE STATE table printed beside it on the back c
 | `excerpt.continueCta` | "Continue reading", her wording, same brief §8.6. |
 | `press.kitLabel` | "Download complete press kit", her wording, same brief §10. |
 | `nav.book` / `nav.read` / `nav.author` / `nav.press` | Book · Extract · Author · Press, her navigation, same brief §21. |
-| `public/audio/extract-en.m4a` and `.mp3` | The author's reading of the pilot, supplied 6 September 2026 as "The Pilot.mp3", 5 minutes 21 seconds. The site labels it `listen.subtitle`, "Read by the author" — **confirm that is true of this file before launch**; a second file, "The Pilot readout_2026.mp3", was in the working folder and was not used. |
+| `public/audio/extract-en.m4a` | The author's reading of the pilot, second take, supplied 6 September 2026 as "The Pilot NEW.mp3", 5 minutes 22 seconds. Restored before publishing: level drift 4.8 dB to 0.8 dB, noise floor -53 to -64 dBFS, and a gentle shelf above 3 kHz, because this take sits 4.5 dB darker than the first and reads as further from the microphone. No words were altered. The site labels it `listen.subtitle`, "Read by the author" — **confirm that is true of this file before launch**. |
 
 ## Interface labels
 
