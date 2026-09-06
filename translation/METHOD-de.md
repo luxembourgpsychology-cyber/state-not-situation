@@ -303,12 +303,12 @@ The project glossary in the standard's format. One row per recurring term: Engli
 | verified | bestätigt | | verifiziert, gesichert, geprüft | Bestätigte Bedrohung |
 | input | Input | German uses the loan word | Eingabe, Reiz | Zwei Buchstaben. Ein Punkt. |
 | investigation | Untersuchung | the accident-investigation frame | Ermittlung, Nachforschung | Dieses Buch ist die Untersuchung. |
-| field guide | Bestimmungsbuch | subtitle; decided 2026-09-06, amendment 25 | Feldführer, Leitfaden, Handbuch, Ratgeber | Ein Bestimmungsbuch für den Moment, bevor aus Deutung Wirklichkeit wird |
+| field guide | Bestimmungsbuch — **SUPERSEDED, see amendment 36 and the current row below; the subtitle is Leitfaden** | subtitle; amendment 25, withdrawn on the author's ruling | Feldführer, Leitfaden, Handbuch, Ratgeber | Ein Bestimmungsbuch für den Moment, bevor aus Deutung Wirklichkeit wird |
 | extract, audio extract | Leseprobe, Hörprobe | | Auszug, Textauszug | |
-| heaviness | Schwere | | Bedrücktheit, Last, Schwermut | Eine Schwere ist da, bevor der Tag da ist. |
+| heaviness | Schwere | | Bedrücktheit, Last, Schwermut | Noch bevor der Tag beginnt, ist die Schwere schon da. |
 | drag (in the limbs) | Trägheit | | Ziehen, Widerstand | eine Trägheit in den Gliedern |
 | texture | Textur | | Beschaffenheit, Struktur | Es fühlte sich eher an wie eine Textur. |
-| verdict | Urteil | | Verdikt, Spruch | liest sich wie ein Urteil |
+| verdict | Urteil | | Verdikt, Spruch | Aus einer zweizeiligen E-Mail wird ein Urteil. |
 | off (something is off, felt off) | stimmt nicht; falsch (fühlte sich falsch an) | | daneben, komisch | Irgendetwas stimmt nicht. |
 | hostile | feindselig | | feindlich | fühlen sich feindselig an |
 | kitchen scale | im Maßstab einer Küche | | Küchenmaßstab, im Kleinen | |
@@ -554,8 +554,9 @@ Five, each one a place where the German said more or less than the English rathe
 
 | English | German | Context | Rejected | Example |
 |---|---|---|---|---|
-| reading (of the world) | Lesart | the reading the instrument hands you as a fact: the cover strap, the back cover, page 11's three readings | Befund (withdrawn here on the author's ruling, §14), Eindruck (impression formation; concedes subjectivity; collides with the proverb), Deutung (the mind's story, not the reading) | Ihre erste Lesart ist nicht die ganze Geschichte. |
-| reading (off the instrument) | Befund | what a check of the body or of the panel returns; what was found, not what it means | Ablesung, Messung, Messwert, Anzeige (alt text for printed dials only) | Was Sie gefunden haben, ist ein Befund. |
+| reading (the construal) | Lesart | **Amendment 59.** What someone made of a signal, a message, a room, a face, a panel: one version among several, which can fail while the instrument is fine. Takes a genitive freely. The cover strap, the back cover, pages 28, 36, 37, 124, 126–129, 136, 141, 152, 208. **Page 11 is no longer here.** | Befund (withdrawn here on the author's ruling, §14), Eindruck (impression formation; concedes subjectivity; collides with the proverb), Deutung (the mind's story, not the reading) | Ihre erste Lesart ist nicht die ganze Geschichte. |
+| reading (the datum) | Befund | **Amendment 59.** What the body or the panel returns when it is read: the value, the printed cell, the counted entry. What was found, not what it means. **Never with a genitive and never with a person as its possessor** — „Auch die Person Ihnen gegenüber hat einen Befund“ is a doctor's sentence and must be recast. Page 13, the fifteen labels, all four counts in the investigation frame, page 11 included. | Ablesung, Messung, Messwert, Anzeige (alt text for printed dials only), Lesart (that is the construal) | Was Sie gefunden haben, ist ein Befund. |
+| reading (the act) | das Ablesen, or the verb | **Amendment 59.** Where English nominalises the ACT rather than the value, or hangs an object on it: page 83 „the reading must stay brief“ and „the window between reading and narrating“, pages 153, 198, 221. Not a third noun: *ablesen* and *lesen* were fixed on 5 September and the substantivised infinitive adds no term. | Ablesung (the Stadtwerke card), Messung, a new noun of any kind | Zwischen dem Ablesen und dem Erzählen liegt ein Fenster. |
 | field guide | Leitfaden | the subtitle, in all three places it appears | Bestimmungsbuch (withdrawn, §14), Feldführer, Handbuch | Ein Leitfaden für den Moment, bevor aus Deutung Wirklichkeit wird |
 | sensor | Sensor | the body as sensor, against the body as narrator | Messfühler, Fühler | Der Körper ist erst Sensor, dann Erzähler. |
 | Publication updates | Nachricht zum Erscheinen | the second action, and the heading above the email field | Benachrichtigen lassen (the passive imperative the English left behind), Benachrichtigung zum Erscheinen (repeats the submit verb), Newsletter | Nachricht zum Erscheinen |
@@ -822,3 +823,204 @@ Tell recount, on the detection catalogue at "Verify against yourself", item 10. 
 | press.photoCredit, credits | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
 
 Nothing sits below 9 on the four axes that gate publication. The 9 on concept consistency for the label is query 2, not the label: BEFUND is right in this slot and „Drei Lesarten" two sections above it is what is now in question. The 9 on collocation for the values is „REST" standing alone in a cell, which is as bare in German as RESIDUAL is in English and reads as a remainder before it reads as a level. The 9 on rhythm for the lines is line 05, where German carries *bills* with a verb rather than the noun and gains a comma the English does not have.
+
+
+## The author's rhythm ruling, 2026-09-06 (amendments 56 to 58)
+
+She read the German and gave the ruling in her own words:
+
+> "There are also some sentences that are grammatically fine but translated in
+> rhythm: *Eine Schwere ist da, bevor der Tag da ist.* That is conspicuously
+> literary in a way a German trade editor might smooth. Perhaps: *Noch bevor
+> der Tag beginnt, ist die Schwere schon da.* Also: *Eine zweizeilige E-Mail
+> liest sich wie ein Urteil.* Understandable, but English underneath. More
+> native: *Eine E-Mail aus zwei Zeilen klingt plötzlich wie ein Urteil.* Or,
+> depending on the mechanism: *Aus einer zweizeiligen E-Mail wird ein Urteil.*
+> I actually prefer the latter because it preserves your transformation theme."
+
+### 56. The rhythm test, and what her two corrections teach
+
+Both of her examples parse perfectly. Neither is wrong. What she hears is
+English information structure wearing German words, and her fixes name the
+remedy precisely. Three things to carry forward, in her order of preference:
+
+1. **Front the frame.** German fronts a time, a condition or a circumstance far
+   more readily than English does, and lets the main clause land the point.
+   „Noch bevor der Tag beginnt, ist die Schwere schon da." against a subject
+   that arrives first because it arrived first in English.
+2. **Give the event a verb.** Where the German has fallen back on *ist*, *sind*
+   or *es gibt* and a real verb exists, use the verb.
+3. **Prefer transformation to resemblance.** Where the book means that one
+   thing becomes another, „Aus X wird Y" beats „X liest sich wie Y". Her stated
+   reason is that it preserves the book's transformation theme, and that theme
+   is the argument, not a flourish.
+
+Both example sentences in the translation memory are corrected accordingly:
+the *heaviness* row now reads „Noch bevor der Tag beginnt, ist die Schwere
+schon da." and the *verdict* row „Aus einer zweizeiligen E-Mail wird ein
+Urteil." Her preferred transformation form was taken.
+
+### 57. Nine repairs to the live German, and nine findings refused
+
+Every string in `content/de.ts` was read against its English for this pattern.
+Eighteen candidates were raised and each was then tested adversarially against
+three questions: does the current German actually carry English rhythm, does
+the rewrite say exactly what the English says, and does it obey this glossary.
+**Nine passed and are applied. Nine were refused**, and the refusals matter as
+much as the changes: a sentence that is merely plain, or merely not to a
+reader's taste, is not a defect. Refused, among others: `reading.eyebrow`,
+`premise.mechanism[0]`, `readings.items[10].line`, `evidence.closing`,
+`press.intro`, `press.chapters[6].title` and `press.description[0]`. In two of
+those the proposed rewrite would have moved the German *toward* the English.
+
+| Key | Was | Is | Why |
+|---|---|---|---|
+| `hero.readCta` | Leseprobe lesen | **Zur Leseprobe** | *Read* and *extract* are unrelated words in English, so the pair carries no echo. German's noun already contains the verb, so Lese-probe + lesen stutters, and it stutters only because the label was built from the English. In the phone menu the nav item „Leseprobe" sits a block above it. Pairs with the site's own „Zurück zum Buch". **This withdraws „Leseprobe lesen" from amendment 8's list of interface labels**, in the same way amendment 38 withdrew „Benachrichtigen lassen" from that same sentence and on the same ground. |
+| `meta.readDescription` | Die ersten Seiten **von** … **von** … | Die ersten Seiten **aus** … von … | English carried two relations with two prepositions, *of* for provenance and *by* for authorship. German was handed both through one word, three words apart, with the title's own full stop between them. `meta.pressDescription` already does this correctly with *zu … von*. |
+| `status.success` | Sie hören einmal von mir | Sie hören **genau** einmal von mir | The English promise is that there will be one message and no more. Bare *einmal* in German reads as *at some point*. |
+| `readings.items[3].line` | einen Termin … nie **gemacht** hat | nie **ausgemacht** hat | *einen Termin ausmachen* is the German collocation. *machen* is the English verb wearing German. |
+| `excerpt.paragraphs[4]` | Piloten nennen sie, mit der düsteren Präzision …, Friedhofsspirale. | Mit der düsteren Präzision …, nennen Piloten sie Friedhofsspirale. | Her own rule 1. Thirty words of parenthesis sat between the verb and the word the whole paragraph exists to deliver. Fronted, the name lands last, where the English also lands it. |
+| `excerpt.paragraphs[1]` | dass man **nicht** merkt …, **bis** man ihn sucht | dass man **erst** merkt …, **wenn** man ihn sucht | *not … until* is English. German is *erst … wenn*. This is the clearest interference tell on the site. |
+| `excerpt.paragraphs[1]` | …, ist **da** nichts. | …, ist nichts. | The expletive *da* is an English *there is* construction. |
+| `excerpt.closing` | diese Geschichte redigiert, unter der Aufsicht dessen, was … | diese Geschichte **unter der Aufsicht dessen** redigiert, was … | The adverbial trailed after the verb in English order. German closes the bracket. |
+| `excerpt.lead` | **Es** will Ihnen weniger beibringen … | **Das Buch** will Ihnen weniger beibringen … | At the head of the extract the pronoun has no antecedent; the English *It* inherits one from a heading the German page does not repeat there. **The identical sentence at `press.description[0]` keeps *Es***, because on the press page it sits under „Über das Buch", which supplies one. Two contexts, two solutions, deliberately. |
+
+### 58. A stale row corrected
+
+The early glossary still carried *field guide* → *Bestimmungsbuch* under
+amendment 25, which amendment 36 had already withdrawn on the author's §14
+ruling. The live site was correct; the document was not. That row is now marked
+superseded and points at amendment 36. The current row stands: **Leitfaden**.
+
+
+## The reading noun, reopened on the author's instruction, 2026-09-06 (amendment 59)
+
+She reopened it herself:
+
+> "I would seriously reconsider this lexical decision. German has possibilities
+> around: Lesart / Eindruck / Messwert / Ablesung / Deutung. None maps
+> perfectly. But you may actually need two terms depending on context rather
+> than forcing 'reading' into a single German equivalent."
+
+Five complete schemes were built independently — one defending the file, one on
+Ablesung, one on a measurement word, one on Eindruck, one dropping the noun for
+the verb — and three judges ranked all five: a German trade commissioning
+editor, a cold German ear with no English, and the editor responsible for the
+book's architecture. All three put the same scheme first. The decision was taken
+against all 194 occurrences of *reading* in the almost-final PDF, not against
+this file.
+
+### 59. Amendment 35 is replaced. Two nouns, and the line is drawn elsewhere
+
+**She is right that the book needs two terms. What was wrong was the line
+between them.** Amendment 35 split „the reading of the world" from „the reading
+off the instrument". That category is not in the book. Page 13 prints *The
+reading may be accurate. It may not.* Page 213 prints *In every case the reading
+was fine.* The thing that arrives with the force of fact is the **story**, which
+the glossary already carries as Geschichte and Erzähler. Amendment 35 had
+conflated the reading with the story, and Lesart was then justified defensively,
+as the word left over once Befund was ruled off the cover. That is why the file
+felt wrong.
+
+**The line the book actually draws is between the datum and the construal.**
+
+> **Is the sentence about WHAT CAME BACK, or about WHAT SOMEONE MADE OF IT?**
+> What came back is a **Befund**.
+> What someone made of it is a **Lesart**.
+> Getting it is **ablesen** (a panel, a dial, a body) or **lesen** (a text, a
+> room, a face). Where English nominalises that act, German uses **das Ablesen**.
+
+No third noun enters the glossary. *das Ablesen* is the substantivised infinitive
+of a verb the memory already fixed on 5 September, so it adds no row.
+
+**Three sub-rules.**
+
+1. **In the investigation frame, a counted reading is always a Befund.** Page 10
+   „Derselbe Tag, fünf Befunde", page 11 „Drei Befunde", page 149 „Zehn Befunde",
+   page 207 „Fünf Befunde". Pages 149 and 207 print CHAPTERS 01 TO 10 / 11 TO 15.
+   THREE LOOPS. in the identical slot where page 11 prints 16 CASES. THREE
+   READINGS., all three under THE INVESTIGATION, so the three readings are the
+   three loops. Untersuchung returns Befunde in German and returns nothing else.
+2. **A Befund takes no genitive and no person as its possessor.** „Weinsteins
+   Lesart von Libbys Symptomen" is right where „Befund von etwas" is impossible.
+   „Auch die Person Ihnen gegenüber hat einen Befund" is a doctor's sentence in
+   German and admits no other reading, so page 219 goes verbal or names the body
+   as the source. **Print this carve-out with its example**, or a second
+   translator will apply the rule and produce that sentence.
+3. **Where a paragraph would set Lesart and Befund in successive sentences, go
+   verbal** rather than let the two nouns collide.
+
+**Why Lesart survives, now positively.** Its German home is the construal sense:
+die offizielle Lesart, nach Lesart der Regierung, eine andere Lesart des
+Koalitionsvertrags. A version held about an event, one among several, which can
+fail while the facts are intact. That is exactly page 152 — „Das Instrument hatte
+recht, aber ihre Lesart versagte" and, thirty words later, „Ihre Lesart war
+richtig, aber diesmal log das Instrumentenbrett." No other candidate passes both
+without a recast. The author's §14 ruling on the strap was correct, and it was
+correct for a better reason than the file gave: Befund on the strap would claim
+her first *datum* is not the whole story, which the book denies.
+
+**Why her other four candidates were refused, on the evidence and not on taste.**
+
+| Candidate | Refused because |
+|---|---|
+| Messwert | Names a number. Cannot carry „Katrins Befund ist echt, der Schluss daraus nicht." The book's reading is qualitative — jaw tight, breathing high. |
+| Ablesung | Names a procedure, and as a bare heading it is the Stadtwerke card in the letterbox. The cold German ear reached that association immediately and only that. The act already has a word, and it is a verb. |
+| Eindruck | Spent by the book itself. Page 141 prints *seized on their first impression* and *resistant to alternative readings* in one sentence, as two different things, in the single cited experiment about this mechanism. And chapter 13's payoff, a body that was right in a car park, cannot be reported as a first impression that happened to be correct. The cold ear also called it transparent and warm with zero friction, and zero information. |
+| Deutung | Spent by the subtitle, and it would collapse the observation-against-interpretation pair the cover prints four lines under the strap. It also cannot say that a reading is accurate while its conclusion is wrong, which pages 126 to 129 require. |
+
+### What changes on the website
+
+**Two strings, and only two.** `moments.line` and `press.mapLine` become
+„16 Fälle. **Drei Befunde.** Eine Frage: Zustand oder Situation?" Verso and recto
+of one printed opening currently disagree about what the book counts — page 10
+already says Befunde — which is unshippable and is a stronger argument than the
+two-screens-apart defect query 2 recorded.
+
+Unchanged and now better argued: `hero.strap`, `premise.mechanism[1]`,
+`reading.result`, `readings.title`, `readings.label`, `readings.items[14].line`.
+`hero.coverAlt` keeps Instrumentenanzeigen under amendment 6; it describes the
+artwork, not the term.
+
+### What this forces in the printed book
+
+Roughly ninety nominal occurrences, each sorted by the question above; there is
+no default. Staying as the file has them: all fifteen BEFUND / NN headings, the
+halfway and closing maps, page 10, „NÄCHSTER BEFUND: 06:38", page 13 entire, and
+Fehldeutung for *misreading*. Moving to Lesart: page 28 „die großzügige Lesart",
+page 36 „dieselbe Nachricht mit einer anderen Lesart" and „Weinsteins Lesart von
+Libbys Symptomen", page 37 „die Lücke zwischen den beiden Lesarten", page 124,
+pages 126–129 „Beide Lesarten treffen zu, und beide Schlüsse sind falsch", page
+136, page 141 „unzugänglich für andere Lesarten", page 208, and page 152's pair.
+Going verbal: page 83 „the reading must stay brief" and „the window between
+reading and narrating", page 153, page 198, page 221. Page 204's climax names two
+kinds itself — *Readings can be taken again. So can the other kind of reading* —
+which is the book stating the distinction, not German tidying an English fusion.
+
+**Amendment 6's blanket recast for genitives narrows: it applies to Befund only.**
+**Ablesefehler is freed** for its literal metrological sense at page 153, where it
+is the correct word. Amendment 26 is unaffected.
+
+### Two things recorded rather than queried
+
+1. **„die ganze Geschichte".** All three judges heard it as the loudest English
+   rhythm on the cover: ordinary German says „nicht die ganze Wahrheit", and „die
+   ganze Geschichte" often means *the whole affair*, so there is a half-beat
+   misparse. It stays. Geschichte is a glossary term paired with Erzähler and the
+   English says *story* for the same reason; „die ganze Wahrheit" would change the
+   claim from what-your-mind-writes to what-is-true, which is a different and
+   stronger assertion. Recorded as a known wobble, decided under the author's own
+   rule against queries that transfer responsibility.
+2. **The register of „Drei Befunde" on the home page**, where it renders as a
+   serif display heading with no Untersuchung above it to light the room. Held at
+   medium confidence. The word is defined two sections earlier by the reader's own
+   jaw, and *der empirische Befund* is ordinary investigative German rather than
+   only the Arztbrief — but this is a line where the author's ear is worth more
+   than the argument, and she should be told it is the one line held at medium.
+
+### For the designer, before German cover artwork exists
+
+„IHRE ERSTE LESART / IST NICHT DIE GANZE GESCHICHTE." measures 521/907 units, a
+balance of 0.57 against the English's 0.80: a stub over a long line, directly
+above a two-line red subtitle. The block wants roughly three-quarters of the
+English type size. Better known now than rediscovered after the artwork.

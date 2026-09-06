@@ -12,8 +12,8 @@ export const fr: SiteContent = {
   meta: {
     title: "State. Not Situation.",
     titleTemplate: "%s · State. Not Situation.",
-    description: "Un guide de terrain de l’instant où l’interprétation n’est pas encore devenue réalité. Psychologue clinicienne, Ivana Budišin vit et travaille au Luxembourg. State. Not Situation. est son premier livre.",
-    ogImageAlt: "State. Not Situation. par Ivana Budišin. Un guide de terrain de l’instant où l’interprétation n’est pas encore devenue réalité.",
+    description: "Un guide de terrain pour l’instant qui précède le moment où l’interprétation devient réalité. Psychologue clinicienne, Ivana Budišin vit et travaille au Luxembourg. State. Not Situation. est son premier livre.",
+    ogImageAlt: "State. Not Situation. par Ivana Budišin. Un guide de terrain pour l’instant qui précède le moment où l’interprétation devient réalité.",
     readTitle: "Lire un extrait",
     readDescription: "Les premières pages de State. Not Situation. d’Ivana Budišin.",
     pressTitle: "Presse",
@@ -48,7 +48,7 @@ export const fr: SiteContent = {
   hero: {
     titleA: "State.",
     titleB: "Not Situation",
-    subtitle: "Un guide de terrain de l’instant où l’interprétation n’est pas encore devenue réalité",
+    subtitle: "Un guide de terrain pour l’instant qui précède le moment où l’interprétation devient réalité",
     strap: "Votre première lecture n’est pas toute l’histoire.",
     authorPrefix: "par",
     credential: "Psychologue clinicienne, Luxembourg",
@@ -417,7 +417,7 @@ export const fr: SiteContent = {
       },
       {
         label: "Sous-titre",
-        value: "Un guide de terrain de l’instant où l’interprétation n’est pas encore devenue réalité"
+        value: "Un guide de terrain pour l’instant qui précède le moment où l’interprétation devient réalité"
       },
       {
         label: "Autrice",

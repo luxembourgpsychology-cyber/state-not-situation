@@ -731,3 +731,27 @@ Nothing below 9 on the first four, so the block may ship. Where a cell sits at 9
 1. **`readings.items[6].line`.** « Le lecteur perd en amplitude » for *the reader loses range*. Plain English, semi-technical French, and the alternatives each say something the chapter denies.
 2. **NOT CLAIMED, four cells.** « NON SOLLICITÉ ». The query in `QUERIES-fr.md` explains what English leaves open and French cannot.
 3. **The agreements.** SÉCURITÉ / DOMINANTE against TEMPS / DOMINANT, and NON SOLLICITÉE against NON SOLLICITÉ. Worth checking on the rendered page that the three inks and the three names still line up with the values, because the component takes the names from `variables.loops` and not from this section.
+
+
+## The author's own subtitle, 6 September 2026
+
+She wrote the French subtitle herself and gave it verbatim:
+
+> « Un guide de terrain pour l'instant qui précède le moment où l'interprétation devient réalité »
+
+It replaces the editor's « Un guide de terrain de l'instant où l'interprétation
+n'est pas encore devenue réalité » in all four places the sentence appears:
+`hero.subtitle`, `meta.description`, `meta.ogImageAlt` and the `press.facts`
+subtitle row.
+
+**This line is now category (b), the author's own words, and is not to be
+re-translated or smoothed.** Two things follow for anyone working here later.
+The editor's version had turned the English *before* into a negated perfect,
+« n'est pas encore devenue » — the moment described as one where interpretation
+has not yet become reality. Hers keeps the English's forward motion, « qui
+précède le moment où … devient », and « pour » rather than « de » makes it a
+guide *for* a moment rather than a guide *of* one, which is the same deliberate
+oddness the English carries in "a field guide to the moment". It runs seven
+characters longer and sets on two lines at 390 px and at 1440 px, checked.
+
+« guide de terrain » is unchanged and stays the French for *field guide*.

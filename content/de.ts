@@ -15,7 +15,7 @@ export const de: SiteContent = {
     description: "Ein Leitfaden für den Moment, bevor aus Deutung Wirklichkeit wird. Ivana Budišin ist klinische Psychologin und lebt und arbeitet in Luxemburg. State. Not Situation. ist ihr erstes Buch.",
     ogImageAlt: "State. Not Situation. von Ivana Budišin. Ein Leitfaden für den Moment, bevor aus Deutung Wirklichkeit wird.",
     readTitle: "Leseprobe",
-    readDescription: "Die ersten Seiten von State. Not Situation. von Ivana Budišin.",
+    readDescription: "Die ersten Seiten aus State. Not Situation. von Ivana Budišin.",
     pressTitle: "Presse",
     pressDescription: "Pressematerial zu State. Not Situation. von Ivana Budišin: Cover, Foto der Autorin, bibliografische Angaben, Leseprobe."
   },
@@ -39,7 +39,7 @@ export const de: SiteContent = {
     emailLabel: "E-Mail-Adresse",
     emailPlaceholder: "name@beispiel.de",
     submit: "Benachrichtigen",
-    success: "Danke. Sie hören einmal von mir, wenn das Buch da ist.",
+    success: "Danke. Sie hören genau einmal von mir, wenn das Buch da ist.",
     error: "Das hat nicht geklappt. Bitte versuchen Sie es noch einmal oder schreiben Sie mir direkt.",
     privacyNote: "Wird nur für diese Benachrichtigung verwendet.",
     mailtoSubject: "Benachrichtigung, wenn State. Not Situation. erscheint",
@@ -53,7 +53,7 @@ export const de: SiteContent = {
     authorPrefix: "von",
     credential: "Klinische Psychologin, Luxemburg",
     coverAlt: "Vorderseite des Covers von State. Not Situation. Das Wort STATE groß in Rot über NOT SITUATION in Schwarz, auf cremefarbenem Grund, bedruckt mit blassen, durchgestrichenen Sätzen und kleinen Instrumentenanzeigen.",
-    readCta: "Leseprobe lesen"
+    readCta: "Zur Leseprobe"
   },
   premise: {
     eyebrow: "Die erste Fehldeutung",
@@ -106,7 +106,7 @@ export const de: SiteContent = {
     folio: "13"
   },
   moments: {
-    line: "16 Fälle. Drei Lesarten. Eine Frage: Zustand oder Situation?",
+    line: "16 Fälle. Drei Befunde. Eine Frage: Zustand oder Situation?",
     label: "Beweismaterial",
     pageLabel: "Seite",
     items: [
@@ -169,14 +169,14 @@ export const de: SiteContent = {
   excerpt: {
     title: "Vor den Kapiteln",
     sectionLabel: "Der Pilot",
-    lead: "Es will Ihnen weniger beibringen, Ihren Instinkten zu vertrauen, als Ihnen zeigen, worauf genau Sie da vertrauen.",
+    lead: "Das Buch will Ihnen weniger beibringen, Ihren Instinkten zu vertrauen, als Ihnen zeigen, worauf genau Sie da vertrauen.",
     teaserCount: 2,
     paragraphs: [
       "Am Abend des 16. Juli 1999 startete in New Jersey ein kleines einmotoriges Flugzeug. Es war unterwegs nach Martha’s Vineyard. Der Pilot war erfahren genug, um sich seiner Sache sicher zu sein, und neu genug, um sich darin zu irren, was diese Sicherheit bedeutete. Er hatte rund 300 Flugstunden. Die Ausbildung, die ihn berechtigt hätte, nur nach seinen Instrumenten zu fliegen, hatte er nicht abgeschlossen.",
-      "Beim Start war der Himmel klar, also schloss er daraus, dass er keine Instrumente brauchte. Als er die Küste erreichte, hatte sich Dunst über das Wasser gelegt. Der Nebel kam, der die Linie zwischen Meer und Himmel so allmählich auslöscht, dass man nicht merkt, dass der Horizont weg ist, bis man ihn sucht und er nicht da ist. Über Land sind unten Lichter. Man sieht Straßen, Gebäude, eine Geometrie, die den Augen sagt, wo unten ist. Über offenem Wasser bei Nacht, mit Dunst, der auf der Oberfläche liegt wie eine zweite Dunkelheit, ist da nichts. Die Welt außerhalb des Cockpits wird in alle Richtungen zu einem einzigen Grau. Oben sieht aus wie unten. Eine sanfte Kurve fühlt sich an wie Geradeausflug. Ein langsames Sinken fühlt sich an, als hielte man die Höhe.",
+      "Beim Start war der Himmel klar, also schloss er daraus, dass er keine Instrumente brauchte. Als er die Küste erreichte, hatte sich Dunst über das Wasser gelegt. Der Nebel kam, der die Linie zwischen Meer und Himmel so allmählich auslöscht, dass man erst merkt, dass der Horizont weg ist, wenn man ihn sucht und er nicht da ist. Über Land sind unten Lichter. Man sieht Straßen, Gebäude, eine Geometrie, die den Augen sagt, wo unten ist. Über offenem Wasser bei Nacht, mit Dunst, der auf der Oberfläche liegt wie eine zweite Dunkelheit, ist nichts. Die Welt außerhalb des Cockpits wird in alle Richtungen zu einem einzigen Grau. Oben sieht aus wie unten. Eine sanfte Kurve fühlt sich an wie Geradeausflug. Ein langsames Sinken fühlt sich an, als hielte man die Höhe.",
       "Das Innenohr des Piloten, das Organ, das dem Gehirn meldet, wie der Körper im Raum liegt, funktioniert, indem es Veränderungen der Bewegung wahrnimmt. Geht man in eine Kurve, verschiebt sich die Flüssigkeit im Ohr, und das Gehirn registriert die Drehung. Hält die Kurve aber fünfzehn oder zwanzig Sekunden lang an, kommt die Flüssigkeit im Innenohr zur Ruhe. Sie bewegt sich nicht mehr. Das Gehirn, das Bewegung verfolgt, schließt daraus, dass die Kurve zu Ende ist. Man hat das Gefühl, waagerecht zu fliegen, tut es aber nicht.",
       "Irgendwo über dem dunklen Wasser ging das Flugzeug in eine sanfte Linkskurve. Die Instrumente des Piloten, die Anzeigen auf dem Instrumentenbrett vor ihm, zeigten die Kurve. Der künstliche Horizont, eine kleine Kreiselanzeige, die den Winkel des Flugzeugs zur Erde zeigt, sagte ihm deutlich, dass er in Schräglage war. Der Höhenmesser sagte ihm, dass er sank. Der Fahrtmesser sagte ihm, dass er schneller wurde. Sein Körper sagte ihm etwas anderes. Sein Körper sagte ihm, dass er geradeaus und waagerecht flog. Sein Körper fühlte sich richtig an. Seine Instrumente fühlten sich falsch an. Er vertraute seinem Körper.",
-      "Die Kurve wurde enger. Die Nase senkte sich. Die Fahrt nahm zu. In den letzten Sekunden sank das Flugzeug mit mehr als 4.700 Fuß pro Minute, fast anderthalb Kilometer alle sechzig Sekunden, in einer immer engeren Spirale. Piloten nennen sie, mit der düsteren Präzision eines Berufs, der die Arten benannt hat, auf die er Menschen verliert, Friedhofsspirale. Er schlug mit voller Geschwindigkeit auf dem Wasser auf. Er und seine beiden Passagiere starben beim Aufprall.",
+      "Die Kurve wurde enger. Die Nase senkte sich. Die Fahrt nahm zu. In den letzten Sekunden sank das Flugzeug mit mehr als 4.700 Fuß pro Minute, fast anderthalb Kilometer alle sechzig Sekunden, in einer immer engeren Spirale. Mit der düsteren Präzision eines Berufs, der die Arten benannt hat, auf die er Menschen verliert, nennen Piloten sie Friedhofsspirale. Er schlug mit voller Geschwindigkeit auf dem Wasser auf. Er und seine beiden Passagiere starben beim Aufprall.",
       "Die Untersuchung fand keinen mechanischen Defekt. Der Motor lief. Die Instrumente funktionierten. Die Daten waren die ganze Zeit da, auf dem Instrumentenbrett, fünfzehn Zentimeter vor seinen Augen, aber er las sie nicht ab. Er las stattdessen seinen Körper. Die amerikanische Luftfahrtbehörde, die Federal Aviation Administration, hat eine Anweisung für Piloten, die in diese Situation geraten. Sie ist einen Satz lang. Die Anweisung ist wörtlich gemeint, und sie gilt für Ihr Leben so unmittelbar wie für ein Cockpit:",
       "Der Pilot hieß John F. Kennedy Jr. Er war der Sohn eines amerikanischen Präsidenten. Man hatte ihm geraten, in dieser Nacht nicht ohne seinen Fluglehrer zu fliegen. Er sagte seinem Fluglehrer, er wolle es allein machen. Er war achtunddreißig Jahre alt.",
       "Sie steuern einen Körper, der Signale erzeugt, und Ihr Kopf hält diese Signale oft für die Wahrheit. Manchmal liegen die Signale so falsch wie das Gleichgewichtsorgan im Innenohr über dunklem Wasser. Die Müdigkeit, die als Frage nach Ihrer Karriere daherkommt. Der Koffeinschub, der als Angst wegen einer E-Mail daherkommt. Der niedrige Blutzucker, der als Beleg dafür daherkommt, dass Ihre Beziehung scheitert. Ihr Körper spricht zuerst, und Ihr Kopf erklärt danach. Weil die Erklärung mit dem ganzen Gewicht körperlicher Überzeugung kommt, dem angespannten Kiefer, dem schnellen Herzschlag, der Hitze hinter den Ohren, fühlt sie sich an wie tiefes Wissen. Es fühlt sich an, als würden Sie die Situation lesen. Aber Sie lesen nur das Instrument ab, das die Situation liest, und die Einstellungen des Instruments waren schon verstellt, bevor die Situation da war. Diese Instrumente gibt es. Sie haben sie. Puls, Kieferspannung, Atemtiefe, Schulterhaltung, das Tempo Ihrer Gedanken. In diesem Moment liefern sie Daten, während Sie diesen Satz lesen. Aber der selbstsichere Wetterbericht, den der Körper über die Welt abgibt, ist nur ein Entwurf.",
@@ -186,7 +186,7 @@ export const de: SiteContent = {
     continueCta: "Weiterlesen",
     back: "Zurück zum Buch",
     readingModeLabel: "Lesemodus",
-    closing: "In diesem Buch geht es um denselben Fehler, im Maßstab einer Küche. Die Version, die jeden Dienstag passiert. Die Version, in der Ihr Körper eine Geschichte über eine Nachricht, ein Schweigen, einen Blick schreibt und Ihr Kopf diese Geschichte redigiert, unter der Aufsicht dessen, was Ihr Körper gerade fühlt. Niemand stirbt, aber Entscheidungen fallen. Beziehungen verändern sich. Selbsteinschätzungen entstehen. Und nichts davon musste so kommen, wie es kam, denn die Daten waren die ganze Zeit da.",
+    closing: "In diesem Buch geht es um denselben Fehler, im Maßstab einer Küche. Die Version, die jeden Dienstag passiert. Die Version, in der Ihr Körper eine Geschichte über eine Nachricht, ein Schweigen, einen Blick schreibt und Ihr Kopf diese Geschichte unter der Aufsicht dessen redigiert, was Ihr Körper gerade fühlt. Niemand stirbt, aber Entscheidungen fallen. Beziehungen verändern sich. Selbsteinschätzungen entstehen. Und nichts davon musste so kommen, wie es kam, denn die Daten waren die ganze Zeit da.",
     closingSource: "Seite 26",
     endNote: "Es folgt Kapitel Null: Ein Tag, der in Ordnung hätte sein sollen.",
     unavailable: "Die Leseprobe in dieser Sprache folgt.",
@@ -231,7 +231,7 @@ export const de: SiteContent = {
         attention: "GEWOHNHEITS-SCHLEIFE",
         safety: "STEIGT SPÄTER",
         page: 51,
-        line: "Die Hand hält einen Termin ein, den der Kopf nie gemacht hat."
+        line: "Die Hand hält einen Termin ein, den der Kopf nie ausgemacht hat."
       },
       {
         number: "05",
@@ -460,7 +460,7 @@ export const de: SiteContent = {
     mapHeading: "Die Kapitel",
     mapLabel: "Dieses Buch ist die",
     mapTitle: "Untersuchung.",
-    mapLine: "16 Fälle. Drei Lesarten. Eine Frage: Zustand oder Situation?",
+    mapLine: "16 Fälle. Drei Befunde. Eine Frage: Zustand oder Situation?",
     pageColumn: "Seite",
     chapters: [
       {
