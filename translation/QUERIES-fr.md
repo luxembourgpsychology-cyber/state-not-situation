@@ -2,7 +2,7 @@
 
 Written by the lead French translator, 5 September 2026, while rebuilding content/fr.ts under translation/STANDARD.md. Each TRANSLATION QUERY is a place where scientific meaning and idiomatic French pulled apart; the recommendation is what the file now carries, and it changes on your word. A SOURCE QUERY is a place where the English itself left me unsure.
 
-Updated 6 September 2026, after two reviews of the finished file. The cases.closing query below is rewritten: the reviews found a second problem in that sentence, in the verb and not only in the pronoun, and the French has changed. One query is new, on knowTheDay. Everything else stands as it was.
+Updated 6 September 2026, after two reviews of the finished file. The cases.closing query below is rewritten: the reviews found a second problem in that sentence, in the verb and not only in the pronoun, and the French has changed. One query is new, on knowTheDay. Everything else stands as it was. Updated again the same day, after a native reader’s pass on the settled file: the evidence wording on page 13 was repaired without a query, because French simply says it differently, and one query is new, on the word evidence itself in the Scientific Heartbeat.
 
 ---
 
@@ -37,3 +37,10 @@ Issue: Your verb is the flattest one English has, and you repeat it four times. 
 Option A: Vous avez eu cette journée. Tout le monde a eu cette journée. Vous l’avez eue des dizaines de fois et vous l’aurez encore…
 Option B: Vous avez vécu cette journée. Tout le monde a vécu cette journée. Vous l’avez vécue des dizaines de fois et vous la vivrez encore…
 Recommendation: Option A, restored, and it is what the file now carries. It holds the plain verb you wrote and the four repetitions, and the anaphora lands the same way in both. Option B reads a little more easily aloud; if you prefer it, say so and I will amend the method rather than leave the book and the website saying it differently.
+
+TRANSLATION QUERY
+Source: "…a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently." (page 226, map.heartbeat[0] and press.description[3])
+Issue: The file holds evidence as preuve and finding as résultat, and here evidence is standing as résultat. French explains results, not proofs: "expliquer autrement les mêmes preuves" is not a sentence a French researcher writes, and "les mêmes données" would take the word the book keeps for the panel ("les données étaient là depuis le début"). The referent is the same either way and no reader is misled; what is at stake is the term, and it will recur on every page of the reference section.
+Option A: …ou expliquent autrement les mêmes résultats.
+Option B: …ou rendent autrement compte des mêmes preuves.
+Recommendation: Option A, which is what the file carries, and which I would apply to the whole book. It is the sentence a French scientist writes about rival explanations of the same material, and the term preuve is not lost: it holds the grades on page 13, where the French frame is "niveau de preuve élevé, moyen, faible". Option B keeps the term in this one sentence, but "rendre compte de preuves" is the same imported collocation the page 13 block was just repaired for, and it buys consistency at the price of the naturalness the standard ranks above it. If you would rather the term were held everywhere, say so and I will take Option B here and reopen page 13 with you.
