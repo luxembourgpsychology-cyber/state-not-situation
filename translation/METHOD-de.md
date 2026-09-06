@@ -679,3 +679,37 @@ Tell recount, on the detection catalogue at "Verify against yourself", item 10. 
 Scores for the two rows this pass touches. `premise.lines`, new source text: 10 on semantic fidelity, scientific precision, native naturalness and collocational naturalness, 10 on voice, rhythm and concept consistency, 10 on freedom from English interference. `excerpt` is unchanged at the row recorded under amendment 45, the two 9s still being amendment 16's FAA gloss, which is in a paragraph the author did not touch.
 
 One item for the author, and it is not a translation query: `excerpt.paragraphs[4]` begins „Then turn tightened." in the English she supplied, and the German reads „Die Kurve wurde enger." See amendment 47.
+
+## The rebuilt press pack, 2026-09-06 (amendments 49 to 51)
+
+The press pack was rebuilt from the author's own asset library and `press.assets` changed with it: two files are new, one lost the property its label named, three social formats were withdrawn, and every `file` and `note` is now carried from `content/en.ts` byte for byte, because they are identifiers and measurements and not language. Five German labels stood and were only checked against the new files. Three are recorded here. The register of the list is the rights-and-permissions register of §10, not prose: the noun first, one qualifier, and the eight rows scanning as one set.
+
+### 49. The two new cover files: „Cover, komplett, Druckauflösung" and „Cover, druckfertig"
+
+**The head noun is Cover.** The German page already calls this object das Cover, in `meta.pressDescription` („Cover, Foto der Autorin, bibliografische Angaben, Leseprobe") and in `hero.coverAlt` („Vorderseite des Covers von State. Not Situation."), and a download list may not introduce a second word for a thing the page has already named. *Umschlag* stays where German trade usage fixes it, in the credit line „Umschlaggestaltung: Zoe Larusson". So all three cover rows open on Cover and differ by one qualifier, which is what makes them scannable next to each other.
+
+**komplett, for the whole printed wrap.** The file is back, spine and front in one image, which is what a designer laying out a feature asks for. *Gesamtumschlag* is withdrawn twice over: it manufactures a compound the standard's three questions do not license, and *Umschlag* carries the logistics sense of goods handled, so *Gesamtumschlag* is read first as a total turnover before the page corrects it. *Cover, vollständig* and *Cover, gesamt* are administrative German; *komplett* is the word a German designer says about a cover file. Nothing is added about the parts: the English says "Full cover" and lets the trade and the pixel count say the rest, and the German does the same.
+
+**druckfertig, for the print-ready PDF.** One plain adjective for one plain adjective. *Druckreif* is the editorial word and is said of a text that may go to press, not of a file. *Druckdaten* names a file type the note already names. The label does not say which part of the cover the PDF holds, because the English does not.
+
+### 50. „Buchansicht": *freigestellt* is withdrawn, because the transparent file was
+
+The label read „Buchansicht, freigestellt". The transparent render belonged to the superseded 170 × 240 mm trim and has been withdrawn; the file now behind this row is not transparent, so the old label would state something false about a file a picture desk will open. Deleting the qualifier is the whole repair, and it follows the English, which deleted "transparent background" and left "Book render".
+
+*Rendering*, *3D-Ansicht des Buches* and *Buchabbildung* were considered and refused: the first two are more technical than the English, which says *render* in two words and lets the file speak, and the third loses that this is a made image rather than a photograph. „Buchansicht" sits under three rows that all open on Cover and reads, in that company, as the picture of the book rather than of the cover.
+
+### 51. „Cover, Vorderseite, Druckauflösung": *hohe Auflösung* follows the file
+
+The front board was a 2400 px JPEG and is now a 300 dpi PNG, and the English moved with it from high resolution to print resolution. **Druckauflösung** is the German for what a press page promises here, and it is the same word in the row above the wrap, so the two files that are offered at print resolution say so in the same word. *Hohe Auflösung* is now both vaguer than the English and less true of the file, and it is withdrawn.
+
+The five carried labels were checked against the new files and stand: „Foto der Autorin" (also `press.photoUnavailable`), „Leseprobe, die ersten Seiten" (the opening, three pages now instead of four, which the label never counted), „Webbanner", „Bild für Social Media, quadratisch". The 4 : 5 and 16 : 9 rows are gone because the English list no longer offers them.
+
+### Translation memory, new rows
+
+| English | German | Context | Rejected | Example |
+|---|---|---|---|---|
+| cover (the object, on the press page) | Cover | the head noun of the three cover downloads, and the word the German page already uses in the meta description and the cover alt text | Umschlag (kept for the credit line, Umschlaggestaltung), Buchdeckel, Einband (a binding) | Cover, Vorderseite, Druckauflösung |
+| full cover | Cover, komplett | back, spine and front in one file | Gesamtumschlag (a manufactured compound, and Umschlag also reads as goods handled), Cover vollständig, Cover gesamt | Cover, komplett, Druckauflösung |
+| print resolution | Druckauflösung | the two files offered at 300 dpi; never for the web files | hohe Auflösung (vaguer than the English and no longer true of the file), 300 dpi (a measurement, and the note carries it) | Cover, Vorderseite, Druckauflösung |
+| print ready | druckfertig | said of the cover PDF at the book's trim | druckreif (said of a text, not a file), Druckdaten (names a file type the note already names), reprofähig | Cover, druckfertig |
+| book render | Buchansicht | the three-dimensional image of the book; the transparent file was withdrawn with the 170 × 240 mm trim, so *freigestellt* is withdrawn with it | Buchansicht, freigestellt (false of the current file), Rendering, 3D-Ansicht des Buches, Buchabbildung | Buchansicht |

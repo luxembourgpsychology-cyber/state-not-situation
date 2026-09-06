@@ -12,7 +12,11 @@ export function Listen({ locale }: { locale: Locale }) {
         <div className="md:col-span-3">
           <Reveal>
             <h2 id="listen-title" className="t-head">{c.listen.title}</h2>
-            <p className="t-mono mt-3">{c.listen.subtitle}</p>
+            {/* listen.subtitle ("Read by the author") is not rendered. On
+                6 September 2026 the author said she is generating the reading
+                in ElevenLabs, and the site may not claim a performance it
+                cannot stand behind. One line puts it back once she confirms
+                whose voice this is and how she wants it described. */}
           </Reveal>
         </div>
         <div className="md:col-span-8">

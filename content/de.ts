@@ -228,44 +228,44 @@ export const de: SiteContent = {
     kitLabel: "Vollständige Pressemappe herunterladen",
     assets: [
       {
-        label: "Cover, Vorderseite, hohe Auflösung",
-        file: "/press/cover-front-2400.jpg",
-        note: "JPEG, 2400 px breit"
+        label: "Cover, Vorderseite, Druckauflösung",
+        file: "/press/cover-front-300dpi.png",
+        note: "PNG · 1801 × 2701"
+      },
+      {
+        label: "Cover, komplett, Druckauflösung",
+        file: "/press/cover-wrap-300dpi.png",
+        note: "PNG · 3807 × 2701"
+      },
+      {
+        label: "Cover, druckfertig",
+        file: "/press/cover-print-6x9.pdf",
+        note: "PDF · 6 × 9 in"
+      },
+      {
+        label: "Buchansicht",
+        file: "/press/book-render.png",
+        note: "PNG · 1874 × 2782"
       },
       {
         label: "Foto der Autorin",
         file: "/press/author-photo-1600.jpg",
-        note: "JPEG, 1600 × 1600"
+        note: "JPEG · 1600 × 1600"
       },
       {
-        label: "Buchansicht, freigestellt",
-        file: "/press/mockup-3d-transparent.png",
-        note: "PNG"
+        label: "Leseprobe, die ersten Seiten",
+        file: "/press/State-Not-Situation-extract-the-opening.pdf",
+        note: "PDF · 3 pp"
       },
       {
         label: "Webbanner",
         file: "/press/banner-web-2400x1000.jpg",
-        note: "JPEG, 2400 × 1000"
+        note: "JPEG · 2400 × 1000"
       },
       {
         label: "Bild für Social Media, quadratisch",
         file: "/press/post-1x1-1080.jpg",
-        note: "JPEG, 1080 × 1080"
-      },
-      {
-        label: "Bild für Social Media, Hochformat",
-        file: "/press/post-4x5-1080x1350.jpg",
-        note: "JPEG, 1080 × 1350"
-      },
-      {
-        label: "Bild für Social Media, Querformat",
-        file: "/press/post-16x9-1920x1080.jpg",
-        note: "JPEG, 1920 × 1080"
-      },
-      {
-        label: "Leseprobe, die ersten Seiten",
-        file: "/press/excerpt-the-opening.pdf",
-        note: "PDF, vier Seiten"
+        note: "JPEG · 1080 × 1080"
       }
     ],
     photoUnavailable: "Foto der Autorin auf Anfrage.",

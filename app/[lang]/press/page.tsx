@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import type { Locale } from "@/site.config";
 import { siteConfig } from "@/site.config";
 import { alternatesFor, getContent, localeUrl } from "@/lib/i18n";
@@ -16,6 +18,16 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: c.meta.pressDescription,
     alternates: { canonical: localeUrl(locale, "/press"), languages: alternatesFor("/press") },
   };
+}
+
+/** Written by lib/make-press-kit.mjs, so the size on the page cannot drift. */
+function pressKit() {
+  try {
+    const m = JSON.parse(readFileSync(join(process.cwd(), "public/press/State-Not-Situation-press-kit.json"), "utf8"));
+    return { files: m.files as number, megabytes: m.megabytes as number };
+  } catch {
+    return null;
+  }
 }
 
 const colour = { time: "var(--time)", attention: "var(--attention)", safety: "var(--safety)" } as const;
@@ -38,6 +50,7 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
   const photo = siteConfig.press.authorPhoto;
   const bios = p.bios.filter((b) => !b.text.startsWith("[COPY NEEDED"));
   const assets = p.assets.filter((a) => (a.file.includes("author-photo") ? Boolean(photo) : true));
+  const kit = pressKit();
 
   return (
     <>
@@ -76,7 +89,15 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
           </div>
 
           <div className="md:col-span-8 space-y-[var(--space-section)]">
-            <p className="t-body">{p.intro}</p>
+            <div>
+              <p className="t-body">{p.intro}</p>
+              {siteConfig.press.pressKitZipUrl && kit ? (
+                <p className="mt-[var(--space-block)] flex flex-wrap items-baseline gap-x-6 gap-y-2">
+                  <a href={siteConfig.press.pressKitZipUrl} download className="btn btn-solid">{p.kitLabel}</a>
+                  <span className="t-mono">ZIP · {kit.megabytes} MB</span>
+                </p>
+              ) : null}
+            </div>
 
             <section aria-labelledby="press-facts">
               <h2 id="press-facts" className="t-label t-label-red mb-4">{p.factsHeading}</h2>
@@ -111,11 +132,6 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
 
             <section aria-labelledby="press-downloads">
               <h2 id="press-downloads" className="t-label t-label-red mb-4">{p.assetsHeading}</h2>
-              {siteConfig.press.pressKitZipUrl ? (
-                <p className="mb-6">
-                  <a href={siteConfig.press.pressKitZipUrl} download className="btn btn-solid">{p.kitLabel}</a>
-                </p>
-              ) : null}
               <ul className="border-t border-[var(--rule)]">
                 {assets.map((a) => (
                   <li key={a.file} className="border-b border-[var(--rule)]">

@@ -129,6 +129,17 @@ If the English content structure changes, `node lib/make-stubs.mjs` adds any new
 
 French and German run longer than English. Headings, buttons, navigation and the three system columns all wrap rather than clip. `hyphens: auto` is deliberately off on display type: it broke words mid-line.
 
+## The press pack and the reading
+
+```bash
+node lib/make-press-kit.mjs     # rebuilds public/press/State-Not-Situation-press-kit.zip
+node lib/make-extract-pdf.mjs   # re-sets the extract PDF from content/en.ts
+```
+
+Run the first after any change to the press page's words, so the fact sheet inside the kit stays in step. The kit is offered as the first action on the press page; the individual files are listed below it.
+
+Narration has its own three commands and a working note in `audio/README.md`: a script generator that writes the breaths in, a mastering pass, and a QC report. Run the QC report on anything before it goes on the site.
+
 ## Newsletter
 
 The notify form needs an endpoint. With `newsletterUrl: null` it offers a pre-filled email instead, which is honest and works today. To connect a tool:

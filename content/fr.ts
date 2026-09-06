@@ -228,44 +228,44 @@ export const fr: SiteContent = {
     kitLabel: "Télécharger le dossier complet",
     assets: [
       {
-        label: "Première de couverture, haute résolution",
-        file: "/press/cover-front-2400.jpg",
-        note: "JPEG, 2400 px de large"
+        label: "Première de couverture, résolution d’impression",
+        file: "/press/cover-front-300dpi.png",
+        note: "PNG · 1801 × 2701"
+      },
+      {
+        label: "Couverture complète, résolution d’impression",
+        file: "/press/cover-wrap-300dpi.png",
+        note: "PNG · 3807 × 2701"
+      },
+      {
+        label: "Couverture, prête à imprimer",
+        file: "/press/cover-print-6x9.pdf",
+        note: "PDF · 6 × 9 in"
+      },
+      {
+        label: "Rendu du livre",
+        file: "/press/book-render.png",
+        note: "PNG · 1874 × 2782"
       },
       {
         label: "Photographie de l’autrice",
         file: "/press/author-photo-1600.jpg",
-        note: "JPEG, 1600 × 1600"
+        note: "JPEG · 1600 × 1600"
       },
       {
-        label: "Rendu du livre, fond transparent",
-        file: "/press/mockup-3d-transparent.png",
-        note: "PNG"
+        label: "L’extrait d’ouverture",
+        file: "/press/State-Not-Situation-extract-the-opening.pdf",
+        note: "PDF · 3 pp"
       },
       {
         label: "Bannière web",
         file: "/press/banner-web-2400x1000.jpg",
-        note: "JPEG, 2400 × 1000"
+        note: "JPEG · 2400 × 1000"
       },
       {
         label: "Image pour les réseaux, carrée",
         file: "/press/post-1x1-1080.jpg",
-        note: "JPEG, 1080 × 1080"
-      },
-      {
-        label: "Image pour les réseaux, portrait",
-        file: "/press/post-4x5-1080x1350.jpg",
-        note: "JPEG, 1080 × 1350"
-      },
-      {
-        label: "Image pour les réseaux, paysage",
-        file: "/press/post-16x9-1920x1080.jpg",
-        note: "JPEG, 1920 × 1080"
-      },
-      {
-        label: "L’extrait d’ouverture",
-        file: "/press/excerpt-the-opening.pdf",
-        note: "PDF, quatre pages"
+        note: "JPEG · 1080 × 1080"
       }
     ],
     photoUnavailable: "Photographie de l’autrice disponible sur demande.",

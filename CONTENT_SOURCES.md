@@ -72,7 +72,18 @@ The INPUT / FIRST READING / POSSIBLE STATE table printed beside it on the back c
 | `excerpt.continueCta` | "Continue reading", her wording, same brief §8.6. |
 | `press.kitLabel` | "Download complete press kit", her wording, same brief §10. |
 | `nav.book` / `nav.read` / `nav.author` / `nav.press` | Book · Extract · Author · Press, her navigation, same brief §21. |
-| `public/audio/extract-en.m4a` | The author's reading of the pilot, second take, supplied 6 September 2026 as "The Pilot NEW.mp3", 5 minutes 22 seconds. Restored before publishing: level drift 4.8 dB to 0.8 dB, noise floor -53 to -64 dBFS, and a gentle shelf above 3 kHz, because this take sits 4.5 dB darker than the first and reads as further from the microphone. No words were altered. The site labels it `listen.subtitle`, "Read by the author" — **confirm that is true of this file before launch**. |
+| `public/audio/extract-en.m4a` | The author's reading of the pilot, second take, supplied 6 September 2026 as "The Pilot NEW.mp3", 5 minutes 22 seconds. Restored before publishing: level drift 4.8 dB to 0.8 dB, noise floor -53 to -64 dBFS, and a gentle shelf above 3 kHz, because this take sits 4.5 dB darker than the first and reads as further from the microphone. No words were altered. **`listen.subtitle`, "Read by the author", is no longer rendered.** On 6 September the author said she is generating the reading in ElevenLabs; the two files she supplied are statistically almost identical (140 and 141 words per minute, 9.0 and 9.8 semitones of pitch range, pause variability 0.53 and 0.56), which two human performances would not be. The site may not claim a performance it cannot stand behind. The string stays in all three content files; the component renders it again as soon as she says whose voice it is and how she wants it described. |
+
+## The press pack
+
+`public/press/` holds the assets a journalist, bookseller or event organiser needs, and `lib/make-press-kit.mjs` builds `State-Not-Situation-press-kit.zip` from them plus a fact sheet in each language generated from the content files, so the sheet can never drift from the page. Rebuild it with `node lib/make-press-kit.mjs` after any change to the press content.
+
+Two things were **withdrawn** from the pack on 6 September 2026, and should not be put back without checking:
+
+- **The 170 × 240 mm cover files** (`cover_front_300dpi.png`, `cover_back_300dpi.png`, `cover_wrap_300dpi.png`, `STATE_NOT_SITUATION_cover_170x240_PRINT.pdf`, `mockup_3d.png`, `mockup_3d_transparent.png` in the author's `Press Pack/` folder). The book is 6 × 9 in. Those files are a superseded trim, and the transparent render was the one the site had been offering. A journalist laying out a feature from them would print the wrong shape.
+- **`Press Pack/01_Copy/`.** Machine-written, and the source of the claims this whole provenance regime exists to keep out. The fact sheet in the kit is generated from `content/*.ts` instead.
+
+`State-Not-Situation-extract-the-opening.pdf` is set by `lib/make-extract-pdf.mjs` from the verified text in `content/en.ts`, because the extract PDF in the author's folder was exported on 4 September from the older text. It is a plain setting, not a facsimile: **when the book is next exported, replace it with pages 7 to 9 of the interior PDF**, which is better.
 
 ## Interface labels
 
