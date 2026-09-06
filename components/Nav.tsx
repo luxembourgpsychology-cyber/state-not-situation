@@ -8,11 +8,10 @@ import { PulseMark } from "./PulseMark";
 /**
  * A quiet bar: the mark, the sections, the language.
  *
- * On a phone there is no room for five section links beside a language
- * switcher, and a cut-off row of links looks broken, so below the small
- * breakpoint only Press survives (the one link that leads somewhere a
- * journalist cannot reach by scrolling). The full set is repeated in the
- * footer, so nothing is lost.
+ * Listen appears only once a recording exists. On a phone there is no room
+ * for the section links beside a language switcher, and a cut-off row of
+ * links looks broken, so below the small breakpoint only Press survives; the
+ * full set is repeated in the footer.
  */
 export function Nav({ locale, variant = "home" }: { locale: Locale; variant?: "home" | "page" }) {
   const c = getContent(locale);
@@ -23,7 +22,7 @@ export function Nav({ locale, variant = "home" }: { locale: Locale; variant?: "h
   const links = [
     { href: to("#book"), label: c.nav.book, mobile: false },
     ...(ed.excerptAvailable ? [{ href: `${base}/read`, label: c.nav.read, mobile: false }] : []),
-    { href: to("#listen"), label: c.nav.listen, mobile: false },
+    ...(ed.audioUrl ? [{ href: to("#listen"), label: c.nav.listen, mobile: false }] : []),
     { href: to("#author"), label: c.nav.author, mobile: false },
     ...(siteConfig.press.enabled ? [{ href: `${base}/press`, label: c.nav.press, mobile: true }] : []),
   ];

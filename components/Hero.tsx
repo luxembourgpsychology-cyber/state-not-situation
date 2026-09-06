@@ -13,10 +13,15 @@ import { ExcerptLink } from "./ExcerptLink";
  * The opening. The book sits shut, everything a visitor needs is already on
  * screen, and the first scroll opens the cover to the title page.
  *
- * The scroll drives one custom property, --open, written inside a rAF frame.
- * No library, no pinning trickery beyond a single sticky stage, and nothing
- * that changes how fast the page scrolls. With reduced motion the sticky track
- * collapses and the book is simply shown ajar.
+ * On a phone the words, the status line and the buttons come first in reading
+ * order and the book follows, so that a visitor from WhatsApp reads the title
+ * and reaches "Read an extract" before anything else; the scroll track is also
+ * shorter there, so page 10 is one or two thumb swipes away. On wider screens
+ * the book sits to the right of the words. Read an extract is the primary
+ * button before publication; the notify form is repeated at the foot.
+ *
+ * The scroll drives one custom property, --open, inside a rAF frame. With
+ * reduced motion the sticky track collapses and the book is shown shut.
  */
 export function Hero({
   locale,
@@ -50,12 +55,11 @@ export function Hero({
       const rect = trackEl.getBoundingClientRect();
       const travel = rect.height - stageEl.offsetHeight;
       if (travel <= 0) {
-        // Short screen: nothing to scroll through, so leave the book shut.
         stageEl.style.setProperty("--open", "0");
         return;
       }
-      // Reach fully open at 80% of the track, then hold, so the spread is
-      // readable for a moment before the section scrolls away.
+      // Fully open at 80% of the track, then hold, so the spread is readable
+      // for a moment before the section scrolls away.
       const p = Math.min(1, Math.max(0, -rect.top / (travel * 0.8)));
       stageEl.style.setProperty("--open", p.toFixed(4));
     };
@@ -65,7 +69,6 @@ export function Hero({
 
     const apply = () => {
       if (reduce.matches) {
-        // No motion means no opening: the shut book, which is the cover.
         trackEl.style.height = "auto";
         stageEl.style.setProperty("--open", "0");
         window.removeEventListener("scroll", onScroll);
@@ -94,21 +97,8 @@ export function Hero({
       <div ref={stage} className="hero-stage" style={{ ["--open" as string]: "0" }}>
         <div className="container-book w-full">
           <div className="grid gap-8 md:grid-cols-12 md:gap-10 items-center">
-            {/* The book */}
-            <div className="md:col-span-6 lg:col-span-7 md:order-2 flex justify-center">
-              <Book3D
-                coverAlt={c.hero.coverAlt}
-                titleA={c.hero.titleA}
-                titleB={c.hero.titleB}
-                strapline={c.footer.madeLine}
-                author={siteConfig.author.name}
-                publisher={siteConfig.publisher.name}
-                priority
-              />
-            </div>
-
-            {/* The words. Present from the first frame, never faded out. */}
-            <div className="md:col-span-6 lg:col-span-5 md:order-1">
+            {/* The words come first in the DOM, so on a phone they come first. */}
+            <div className="md:col-span-6 lg:col-span-5">
               <div className="flex items-center gap-3 mb-5 md:mb-8">
                 <PulseMark className="w-10 h-auto shrink-0" />
                 <p className="eyebrow eyebrow-red">{c.hero.eyebrow}</p>
@@ -140,15 +130,28 @@ export function Hero({
                     <span className="text-quiet"> · {c.status.publicationDatePrefix} {publicationDate}</span>
                   ) : null}
                 </p>
+                {excerptAvailable ? (
+                  <ExcerptLink href={`/${locale}/read`} label={c.hero.readCta} locale={locale} className="btn btn-red" />
+                ) : null}
                 {published && amazonUrl ? (
                   <AmazonButton href={amazonUrl} label={c.status.buy} locale={locale} />
                 ) : (
                   <a href="#notify" className="btn">{c.status.notifyCta}</a>
                 )}
-                {excerptAvailable ? (
-                  <ExcerptLink href={`/${locale}/read`} label={c.hero.readCta} locale={locale} className="btn btn-red" />
-                ) : null}
               </div>
+            </div>
+
+            {/* The book */}
+            <div className="md:col-span-6 lg:col-span-7 flex justify-center">
+              <Book3D
+                coverAlt={c.hero.coverAlt}
+                titleA={c.hero.titleA}
+                titleB={c.hero.titleB}
+                strapline={c.footer.madeLine}
+                author={siteConfig.author.name}
+                publisher={siteConfig.publisher.name}
+                priority
+              />
             </div>
           </div>
         </div>

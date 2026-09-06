@@ -60,7 +60,9 @@ export default async function ReadPage({ params }: { params: Promise<{ lang: str
           <div className="reading-body mt-16 md:mt-24 pt-10 border-t border-[var(--rule)]">
             <p className="font-mono text-sm text-quiet mb-10">{x.endNote}</p>
             <StatusLine locale={locale} />
-            <p className="mt-10"><Link href={`/${locale}#listen`} className="btn">{c.listen.title}</Link></p>
+            {siteConfig.editions[locale].audioUrl ? (
+              <p className="mt-10"><Link href={`/${locale}#listen`} className="btn">{c.listen.title}</Link></p>
+            ) : null}
           </div>
         </article>
       </main>

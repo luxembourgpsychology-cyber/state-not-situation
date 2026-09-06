@@ -4,17 +4,21 @@ import { siteConfig } from "@/site.config";
 import { getContent } from "@/lib/i18n";
 import { PulseMark } from "./PulseMark";
 
+/**
+ * The foot of every page: the pulse mark, the cover line, then the red band
+ * with the back cover's line and the back page's three-line method, and the
+ * full section list, because the bar hides most of it on a phone.
+ */
 export function Footer({ locale }: { locale: Locale }) {
   const c = getContent(locale);
   const base = `/${locale}`;
   const s = siteConfig.author.social;
   const ed = siteConfig.editions[locale];
 
-  // The full section list lives here as well, because the bar hides most of it on a phone.
   const sections = [
     { href: `${base}#book`, label: c.nav.book },
     ...(ed.excerptAvailable ? [{ href: `${base}/read`, label: c.nav.read }] : []),
-    { href: `${base}#listen`, label: c.nav.listen },
+    ...(ed.audioUrl ? [{ href: `${base}#listen`, label: c.nav.listen }] : []),
     { href: `${base}#author`, label: c.nav.author },
   ];
 
@@ -32,8 +36,16 @@ export function Footer({ locale }: { locale: Locale }) {
       </div>
 
       <div className="bg-red text-paper">
-        <div className="container-book py-8 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
-          <p className="eyebrow tracking-[0.3em] text-[0.78rem]">{c.footer.band}</p>
+        <div className="container-book py-8 flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p className="eyebrow tracking-[0.3em] text-[0.78rem]">{c.footer.band}</p>
+            {/* Page 278 */}
+            <p className="mt-4 font-mono text-[0.72rem] tracking-[0.06em] leading-[1.9] text-paper/85">
+              {c.footer.method.map((line, i) => (
+                <span key={i} className="block">{line}</span>
+              ))}
+            </p>
+          </div>
 
           <nav aria-label="Footer" className="sm:text-right">
             <ul className="flex flex-wrap gap-x-6 sm:justify-end font-mono text-[0.72rem] tracking-[0.08em] uppercase">

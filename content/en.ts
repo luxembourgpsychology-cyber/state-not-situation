@@ -3,14 +3,17 @@ import type { SiteContent } from "./types";
 /**
  * ENGLISH CONTENT.
  *
- * Every sentence below is one of three things, and nothing else:
- *   1. printed in the book or on its cover, word for word;
- *   2. a plain interface label (Play, Press, Email address);
- *   3. a [COPY NEEDED: …] placeholder only Ivana can fill.
+ * Every sentence below is one of four things, and nothing else:
+ *   1. printed in the almost-final book or on its cover, word for word;
+ *   2. supplied by Ivana, word for word;
+ *   3. a plain interface label (Play, Press, Email address);
+ *   4. a [COPY NEEDED: …] placeholder only Ivana can fill.
  *
- * CONTENT_SOURCES.md lists the page or line behind each entry. If you add a
- * sentence here, add its source there. Nothing on this site should be sayable
- * about the book that the book does not say about itself.
+ * CONTENT_SOURCES.md lists the page behind each entry. If you add a sentence
+ * here, add its source there. Nothing on this site should be sayable about the
+ * book that the book does not say about itself.
+ *
+ * Section order follows translation/EDITORIAL-POSITIONING.md (5 September 2026).
  */
 export const en: SiteContent = {
   meta: {
@@ -66,15 +69,42 @@ export const en: SiteContent = {
     authorPrefix: "by",
     coverAlt:
       "Front cover of State. Not Situation. The word STATE set large in red above NOT SITUATION in black, on a cream ground printed with faint struck-through sentences and small instrument readings.",
-    openAlt:
-      "The book open at its half title page, which reads State. Not Situation.",
+    openAlt: "The book open at its title page, which reads State. Not Situation.",
     readCta: "Read an extract",
     scrollHint: "Scroll",
   },
 
-  // Page 13, verbatim. The book asks the reader to take a reading; the site asks the same.
+  // Page 10, verbatim, in the order the page sets it.
+  misreading: {
+    eyebrow: "The first misreading",
+    lines: ["Nothing went wrong on this day.", "The instruments were working.", "The data was there the whole time."],
+    investigationLabel: "This book is the",
+    investigation: "Investigation.",
+    readingsLabel: "The same day, five readings",
+    readings: [
+      { time: "06:38", text: "A heaviness arrives before the day does." },
+      { time: "09:12", text: "A two-line email reads like a verdict." },
+      { time: "14:23", text: "Five neutral words tighten a jaw." },
+      { time: "17:45", text: "An unanswered message starts charging rent." },
+      { time: "22:47", text: "Two letters and a full stop feel hostile." },
+    ],
+    closing: ["The body speaks first.", "The mind explains second."],
+  },
+
+  // Pages 12 to 13, verbatim. A section mark sits in the book between runs 3 and 4.
+  knowTheDay: {
+    eyebrow: "You know the day",
+    runs: [
+      "The day I mean is the other kind. The day where nothing went wrong and everything felt off. It started before you noticed it starting. Somewhere between the alarm and the shower, between the shower and the kitchen, between the kitchen and the first sip of whatever you drink to become the person the morning requires. Something was already there. It felt more like texture. A drag in the limbs, a reluctance in the chest, a faint heaviness that sat behind your thoughts like rainy weather behind glass.",
+      "You have had this day. Everyone has had this day. You have had it dozens of times and you will have it again and each time the story will feel like the truth and each time the morning after will make the story dissolve.",
+      "The body spoke first. The mind explained second, and this explanation felt like the event.",
+      "This book is about that mistake. It is about that error as a daily, ambient, invisible feature of being alive in a body that is constantly producing signals, which your mind is constantly reading or misreading. Before any of that, before the science and the mechanism and the reason the instrument was miscalibrated yesterday, try something right now.",
+    ],
+  },
+
+  // Page 13, verbatim. The eyebrow is the page's own phrase.
   reading: {
-    eyebrow: "Before we begin",
+    eyebrow: "Try something right now",
     lead: "Whatever you are feeling as you read this sentence.",
     steps: ["Check your jaw.", "Check your breath.", "Check your shoulders."],
     result: "What you found is a reading.",
@@ -83,42 +113,59 @@ export const en: SiteContent = {
     question: "Is this the situation? Or is this the state?",
   },
 
-  // Front matter, verbatim, plus the state-line legend printed with the chapter bars.
-  loops: {
-    eyebrow: "The state line",
-    title: "Three systems ran through Katrin’s morning.",
-    intro:
-      "The chapters that follow are organised around three systems that shape how your body’s signals get weighted before your mind builds a story. They are not brain regions or neural pathways. They are a sorting tool, a way to ask three questions when everything feels wrong at once.",
-    items: [
-      {
-        key: "time",
-        name: "Time",
-        legend: "Circadian phase, sleep debt, metabolic state",
-        body:
-          "Sleep, food, caffeine, circadian phase, recovery. When the timing is off, baseline sensitivity rises. The same world feels harsher.",
-      },
-      {
-        key: "attention",
-        name: "Attention",
-        legend: "Reward loops, checking, task switching",
-        body:
-          "The system that tracks reward, novelty, and the next cue. When it is captured, focus narrows to the cheapest available input, and the expensive work feels hard.",
-      },
-      {
-        key: "safety",
-        name: "Safety",
-        legend: "Threat detection, first drafts, misreads",
-        body:
-          "The system that monitors threat, and especially social threat. Things like social evaluation, exclusion, ambiguity, status. It is fast, it is old, and it is biased toward false alarms. It produces interpretations that feel like facts.",
-      },
+  book: {
+    eyebrow: "The book",
+    // Page 20.
+    heading: "Same morning. Same paragraph. Same Katrin. Different instrument settings.",
+    headingSource: "Page 20",
+    // Ivana's own words, supplied 5 September 2026.
+    paragraphs: [
+      "Over sixteen days, Katrin moves through ordinary situations in which her first reading of what is happening is not always the one that survives a closer look. Each chapter follows one of those moments into the psychology underneath it, from attention and prediction to memory, threat, uncertainty and social inference. The book does not promise better instincts. It asks what becomes possible when we learn where our first reading came from.",
+      "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
     ],
+    readersEyebrow: "Who it is for",
+    // Page 14.
+    readersAnchor:
+      "This book does not replace professional support and it does not treat complex conditions as lifestyle problems. It works in the gap between fine and clinical, the space where most people live on most days.",
+    // Ivana's own words, supplied 5 September 2026.
+    readers:
+      "For anyone who has ever been certain about what a situation meant, then discovered that something else was happening. And for readers interested in the psychology of how we notice, interpret and revise the world around us.",
   },
 
-  // The CASE EVIDENCE pages, reproduced from the book.
+  // Pages 7 to 9 of the book, verbatim; the closing line is page 26.
+  excerpt: {
+    eyebrow: "Read",
+    title: "Before the chapters",
+    sectionLabel: "The pilot",
+    runningHead: "State. Not Situation",
+    teaserCount: 3,
+    cta: "Read an extract",
+    continueCta: "Continue reading",
+    back: "Back to the book",
+    readingModeLabel: "Reading mode",
+    paragraphs: [
+      "On the evening of 16 July 1999, a small single engine plane took off from New Jersey. It was heading for Martha’s Vineyard. The pilot was experienced enough to be confident and new enough to be wrong about what that confidence was worth. He had about 300 hours in the air. He had not finished the training that would qualify him to fly using only his instruments.",
+      "The sky was clear when he departed so he concluded that he did not need instruments. By the time he reached the coast, it was not. Haze had settled over the water. The sort of haze that erases the line between sea and sky so gradually that you do not notice the horizon is gone until you look for it and it is not there. Over land, this does not matter. There are lights below. You see roads, buildings, a geometry that tells your eyes which way is down. Over open water at night, with haze sitting on the surface like a second darkness, there is nothing. The world outside the cockpit becomes a uniform grey in every direction. Up looks like down. A gentle turn feels like level flight. A slow descent feels like holding steady.",
+      "The pilot’s inner ear, the organ that tells the brain which way the body is oriented in space, works by detecting changes in motion. When you enter a turn, the fluid inside the ear shifts, and the brain registers rotation. But if the turn holds steady for fifteen or twenty seconds, the fluid in the inner ear settles. It stops moving. The brain, which tracks movement, not position, concludes that the turn has ended. You feel level, but you are not.",
+      "Somewhere over the dark water, the plane entered a gentle left turn. The pilot’s instruments, the dials on the panel in front of him, showed the turn. The artificial horizon, a small gyroscope display that shows the aircraft’s angle relative to the earth, was telling him he was banking. The altimeter was telling him he was descending. The airspeed indicator was telling him he was accelerating. His body was telling him something different. His body was telling him he was flying straight and level. His body felt right. His instruments felt wrong. He trusted his body.",
+      "The turn tightened. The nose dropped. The airspeed built. In the final seconds, the plane was descending at more than 4,700 feet per minute, nearly a mile every sixty seconds, in a tightening spiral that pilots call, with the grim precision of a profession that has named the ways it loses people, a graveyard spiral. He hit the water at full speed. He and his two passengers were killed on impact.",
+      "The investigation found no mechanical failure. The engine was running. The instruments were working. The data was right there, on the panel, six inches from his eyes, the whole time, but he did not read it. He read his body instead. The American Federal Aviation Administration’s instruction to pilots who find themselves in this situation is one sentence long. It is a literal instruction that applies to your life as directly as it applies to a cockpit:",
+      "The pilot’s name was John F. Kennedy Jr. He was the son of an American president. He had been advised not to fly that night without his instructor. He told his instructor he wanted to do it alone. He was thirty-eight years old.",
+      "You operate a body that produces signals and your mind often treats those signals as truth. The signals are sometimes as wrong as the inner ear’s vestibular system over dark water. The tiredness that presents itself as a question about your career. The caffeine spike that presents itself as anxiety about an email. The low blood sugar that presents itself as evidence that your relationship is failing. Your body speaks first and your mind explains second. The explanation, because it arrives with the full weight of physical conviction, the tight jaw, the fast heartbeat, the heat behind the ears, feels like deep knowledge. It feels like you are reading the situation. But you are only reading the instrument that is reading the situation, and the instrument’s settings were off before the situation arrived. These instruments exist. You have them. Heart rate, jaw tension, breathing depth, shoulder position, the speed of your thoughts. They are producing data right now, as you read this sentence. But the body’s confident weather report about the world is only a draft.",
+    ],
+    quoteAfter: 5,
+    quote: "“have confidence in your instruments and ignore all conflicting signals your body gives you.”",
+    closing:
+      "This book is about the same error at kitchen scale. The version that happens every Tuesday. The version where your body writes a story about a message, a silence, a look, and your mind edits that story under the supervision of whatever your body is feeling at the time. Nobody dies, but decisions get made. Relationships change. Self-assessments form. And none of it had to happen the way it did, because the data was right there the whole time.",
+    closingSource: "Page 26",
+    endNote: "Chapter Zero follows: A Day That Should Have Been Fine.",
+    unavailable: "The extract in this language will follow.",
+    folios: ["7", "8", "9"],
+  },
+
+  // Four CASE EVIDENCE pages, reproduced from the book; the closing line is page 20.
   cases: {
     eyebrow: "Case evidence",
-    title: "Sixteen cases. Three readings.",
-    intro: "Every chapter opens on one of these pages.",
     pageLabel: "Page",
     items: [
       {
@@ -142,16 +189,6 @@ export const en: SiteContent = {
         verified: "None.",
       },
       {
-        chapter: "05",
-        page: 66,
-        time: "22:30",
-        quote: "“Oddly capable.”",
-        inputLabel: "Input",
-        input: "Quiet house. Open screen. Late hour.",
-        verifiedLabel: "Next reading",
-        verified: "06:38.",
-      },
-      {
         chapter: "11",
         page: 150,
         time: "16:00",
@@ -171,46 +208,9 @@ export const en: SiteContent = {
         verifiedLabel: "Verified threat",
         verified: "Not yet visible.",
       },
-      {
-        chapter: "15",
-        page: 208,
-        time: "22:14",
-        quote: "“She reads tomorrow’s.”",
-        inputLabel: "Input",
-        input: "Rested. Fed. Calm.",
-        verifiedLabel: "Verified Monday",
-        verified: "Not yet happened.",
-      },
     ],
-  },
-
-  // Pages 7 to 9 of the book, verbatim.
-  excerpt: {
-    eyebrow: "Read",
-    title: "Before the chapters",
-    sectionLabel: "The pilot",
-    runningHead: "State. Not Situation",
-    teaserCount: 2,
-    cta: "Read an extract",
-    continueCta: "Continue reading",
-    back: "Back to the book",
-    readingModeLabel: "Reading mode",
-    paragraphs: [
-      "On the evening of 16 July 1999, a small single engine plane took off from New Jersey. It was heading for Martha’s Vineyard. The pilot was experienced enough to be confident and new enough to be wrong about what that confidence was worth. He had about 300 hours in the air. He had not finished the training that would qualify him to fly using only his instruments.",
-      "The sky was clear when he departed so he concluded that he did not need instruments. By the time he reached the coast, it was not. Haze had settled over the water. The sort of haze that erases the line between sea and sky so gradually that you do not notice the horizon is gone until you look for it and it is not there. Over land, this does not matter. There are lights below. You see roads, buildings, a geometry that tells your eyes which way is down. Over open water at night, with haze sitting on the surface like a second darkness, there is nothing. The world outside the cockpit becomes a uniform grey in every direction. Up looks like down. A gentle turn feels like level flight. A slow descent feels like holding steady.",
-      "The pilot’s inner ear, the organ that tells the brain which way the body is oriented in space, works by detecting changes in motion. When you enter a turn, the fluid inside the ear shifts, and the brain registers rotation. But if the turn holds steady for fifteen or twenty seconds, the fluid in the inner ear settles. It stops moving. The brain, which tracks movement, not position, concludes that the turn has ended. You feel level, but you are not.",
-      "Somewhere over the dark water, the plane entered a gentle left turn. The pilot’s instruments, the dials on the panel in front of him, showed the turn. The artificial horizon, a small gyroscope display that shows the aircraft’s angle relative to the earth, was telling him he was banking. The altimeter was telling him he was descending. The airspeed indicator was telling him he was accelerating. His body was telling him something different. His body was telling him he was flying straight and level. His body felt right. His instruments felt wrong. He trusted his body.",
-      "The turn tightened. The nose dropped. The airspeed built. In the final seconds, the plane was descending at more than 4,700 feet per minute, nearly a mile every sixty seconds, in a tightening spiral that pilots call, with the grim precision of a profession that has named the ways it loses people, a graveyard spiral. He hit the water at full speed. He and his two passengers were killed on impact.",
-      "The investigation found no mechanical failure. The engine was running. The instruments were working. The data was right there, on the panel, six inches from his eyes, the whole time, but he did not read it. He read his body instead. The American Federal Aviation Administration’s instruction to pilots who find themselves in this situation is one sentence long. It is a literal instruction that applies to your life as directly as it applies to a cockpit:",
-      "The pilot’s name was John F. Kennedy Jr. He was the son of an American president. He had been advised not to fly that night without his instructor. He told his instructor he wanted to do it alone. He was thirty-eight years old.",
-      "You operate a body that produces signals and your mind often treats those signals as truth. The signals are sometimes as wrong as the inner ear’s vestibular system over dark water. The tiredness that presents itself as a question about your career. The caffeine spike that presents itself as anxiety about an email. The low blood sugar that presents itself as evidence that your relationship is failing. Your body speaks first and your mind explains second. The explanation, because it arrives with the full weight of physical conviction, the tight jaw, the fast heartbeat, the heat behind the ears, feels like deep knowledge. It feels like you are reading the situation. But you are only reading the instrument that is reading the situation, and the instrument’s settings were off before the situation arrived. These instruments exist. You have them. Heart rate, jaw tension, breathing depth, shoulder position, the speed of your thoughts. They are producing data right now, as you read this sentence. But the body’s confident weather report about the world is only a draft.",
-    ],
-    quoteAfter: 5,
-    quote:
-      "“have confidence in your instruments and ignore all conflicting signals your body gives you.”",
-    endNote: "Chapter Zero follows: A Day That Should Have Been Fine.",
-    unavailable: "The extract in this language will follow.",
-    folios: ["7", "8", "9"],
+    closing: "It said I am failing; the data was I am tired.",
+    closingSource: "Page 20",
   },
 
   listen: {
@@ -225,41 +225,46 @@ export const en: SiteContent = {
     unavailable: "The recording will be added here.",
   },
 
-  about: {
-    eyebrow: "The book",
-    // Chapter Twelve, verbatim. It stands on its own, which a heading has to.
-    title: "The body is a sensor before it is a narrator.",
-    // Page 12, verbatim, shown as a quotation so "that mistake" keeps its own context.
-    quote:
-      "This book is about that mistake. It is about that error as a daily, ambient, invisible feature of being alive in a body that is constantly producing signals, which your mind is constantly reading or misreading.",
-    quoteSource: "Page 12",
-    // Ivana's own words, supplied 5 September 2026.
-    paragraphs: [
-      "Over sixteen days, Katrin moves through ordinary situations in which her first reading of what is happening is not always the one that survives a closer look. Each chapter follows one of those moments into the psychology underneath it, from attention and prediction to memory, threat, uncertainty and social inference. The book does not promise better instincts. It asks what becomes possible when we learn where our first reading came from.",
-      "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
+  map: {
+    eyebrow: "A map of the book",
+    // Page 20.
+    systemsIntro:
+      "Three systems ran through Katrin’s morning. Time started at 06:38 and never stopped. Attention took the phone at 06:52. Safety wrote the email’s meaning at 07:25. She can name none of them. The only thing she can name is David, and David is the smallest part of it.",
+    // Page 13.
+    sortingTool:
+      "The chapters that follow are organised around three systems that shape how your body’s signals get weighted before your mind builds a story. They are not brain regions or neural pathways. They are a sorting tool, a way to ask three questions when everything feels wrong at once.",
+    // Pages 13 to 14.
+    loops: [
+      {
+        key: "time",
+        name: "Time",
+        body: "Sleep, food, caffeine, circadian phase, recovery. When the timing is off, baseline sensitivity rises. The same world feels harsher.",
+      },
+      {
+        key: "attention",
+        name: "Attention",
+        body: "The system that tracks reward, novelty, and the next cue. When it is captured, focus narrows to the cheapest available input, and the expensive work feels hard.",
+      },
+      {
+        key: "safety",
+        name: "Safety",
+        body: "The system that monitors threat, and especially social threat. Things like social evaluation, exclusion, ambiguity, status. It is fast, it is old, and it is biased toward false alarms. It produces interpretations that feel like facts.",
+      },
     ],
-    mapLine: "16 cases. Three readings. One question: state or situation?",
-
-    // "Before We Begin", page 13, verbatim, and the printed legend for the markers.
+    // Page 13, "Before We Begin", both paragraphs, verbatim.
     evidenceEyebrow: "Before we begin",
     evidenceIntro:
       "This book makes claims about the brain and the body and those claims carry different amounts of evidence. Some rest on decades of replicated research. Some rest on newer findings that are promising but not yet settled. Some claims are plausible extensions of established science that have not been directly tested in the specific form this book describes. You should know which is which.",
+    evidenceMarkers:
+      "Throughout the book scientific claims carry a confidence marker. When a finding rests on solid, replicated evidence, you will see a graphic marked as high evidence and illustrated with a deep red heartbeat on the margin. When the evidence is suggestive but incomplete it is noted as medium evidence with an orange heartbeat. When a claim is a plausible hypothesis that needs stronger tests, it is marked as low in faded grey. These markers exist because the book’s own risk is the same risk it describes. It does not want to treat a plausible story as settled truth. These markers are a brake on that.",
     grades: [
-      { key: "high", label: "High", shape: "Clean, strong heartbeat.", meaning: "Replicated, robust evidence." },
-      { key: "medium", label: "Medium", shape: "Irregular, lower amplitude.", meaning: "Suggestive but incomplete." },
-      { key: "low", label: "Low", shape: "Near-flatline, faint ripple.", meaning: "Plausible hypothesis only." },
+      { key: "high", label: "High" },
+      { key: "medium", label: "Medium" },
+      { key: "low", label: "Low" },
     ],
-    overreachEyebrow: "Where the chapters say more than their sources",
-    overreach:
-      "The chapters are stories and have been left as written. These are the places a careful reader will catch, collected once here.",
-
-    readersEyebrow: "Who it is for",
-    readers:
-      "For anyone who has ever been certain about what a situation meant, then discovered that something else was happening. And for readers interested in the psychology of how we notice, interpret and revise the world around us.",
-
-    mapEyebrow: "A map of the book",
-    mapTitle: "The Investigation",
-    mapSubtitle: "Same life. Different instrument settings.",
+    // Page 11.
+    investigationTitle: "The Investigation",
+    mapLine: "16 cases. Three readings. One question: state or situation?",
     pageColumn: "Page",
     chapters: [
       { number: "00", title: "A Day That Should Have Been Fine", page: 17 },
@@ -280,6 +285,12 @@ export const en: SiteContent = {
       { number: "15", title: "The Forecast", page: 209 },
     ],
     mapFooter: "The Scientific Heartbeat follows the chapters.",
+    // Page 226.
+    heartbeat: [
+      "Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently.",
+      "Leaving them out would make the argument look tidier than it is.",
+    ],
+    heartbeatSource: "Page 226",
   },
 
   author: {
@@ -291,6 +302,12 @@ export const en: SiteContent = {
     websiteLabel: "Practice website",
     contactLabel: "Contact",
     pressLabel: "Press materials",
+  },
+
+  // Page 225, the book's last sentence.
+  closing: {
+    question: "Is this the situation? Or is this their state?",
+    source: "Page 225",
   },
 
   companion: {
@@ -345,8 +362,9 @@ export const en: SiteContent = {
     description: [
       "Over sixteen days, Katrin moves through ordinary situations in which her first reading of what is happening is not always the one that survives a closer look. Each chapter follows one of those moments into the psychology underneath it, from attention and prediction to memory, threat, uncertainty and social inference. The book does not promise better instincts. It asks what becomes possible when we learn where our first reading came from.",
       "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
-      "Sixteen cases. Three readings. One question: state or situation?",
-      "Every chapter carries a confidence marker showing how much evidence its claims rest on, and the reference section lists both the work each chapter is built on and the work that limits it, together with the places where the chapters say more than their sources.",
+      "16 cases. Three readings. One question: state or situation?",
+      "Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently.",
+      "Leaving them out would make the argument look tidier than it is.",
     ],
     creditsHeading: "Credits",
     credits: [
@@ -359,6 +377,8 @@ export const en: SiteContent = {
 
   footer: {
     band: "Before you believe the story.",
+    // Page 278.
+    method: ["Read the dashboard.", "Delay the story.", "Take the reading again."],
     rights: "© 2026 Budisin Publishing",
     pressLink: "Press",
     contactLink: "Contact",
@@ -372,5 +392,7 @@ export const en: SiteContent = {
     languageComing: "edition to follow",
     casesRegion: "Case evidence pages from the book",
     bookOpening: "The book, opening",
+    misreadingRegion: "Page 10 of the book",
+    mapRegion: "A map of the book",
   },
 };

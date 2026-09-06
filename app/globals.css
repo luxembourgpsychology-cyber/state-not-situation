@@ -365,7 +365,9 @@ body {
 /* ---------- The hero track ---------- */
 .hero-track {
   position: relative;
-  height: calc(100svh + 92vh);
+  /* Short on phones: the editorial decision wants page 10 reachable within
+     one or two thumb swipes of the cover. */
+  height: calc(100svh + 55vh);
   border-top: 6px solid var(--red);
 }
 @media (min-width: 768px) {

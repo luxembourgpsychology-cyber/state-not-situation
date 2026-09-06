@@ -4,9 +4,14 @@
  *
  * RULE OF THIS FILE: a string here is either
  *   (a) set in the printed book or on the printed cover, word for word,
- *   (b) a plain functional interface label, or
- *   (c) a marked [COPY NEEDED: …] placeholder.
- * Nothing else. See CONTENT_SOURCES.md for the page reference behind each line.
+ *   (b) supplied by the author, word for word,
+ *   (c) a plain functional interface label, or
+ *   (d) a marked [COPY NEEDED: …] placeholder.
+ * Nothing else. See CONTENT_SOURCES.md for the page behind each line.
+ *
+ * The section order below follows the editorial decision of 5 September 2026
+ * (translation/EDITORIAL-POSITIONING.md): the site follows the arc the book
+ * itself builds in pages 10 to 14, then the extract, then the reference block.
  */
 
 export interface CaseEvidence {
@@ -19,7 +24,7 @@ export interface CaseEvidence {
   quote: string;
   inputLabel: string;
   input: string;
-  /** VERIFIED EVENT / VERIFIED TONE / NEXT READING … varies by chapter. */
+  /** VERIFIED EVENT / VERIFIED TONE / VERIFIED CRISIS … varies by chapter. */
   verifiedLabel: string;
   verified: string;
 }
@@ -27,17 +32,14 @@ export interface CaseEvidence {
 export interface Loop {
   key: "time" | "attention" | "safety";
   name: string;
-  /** The one-line definition from the state-line legend. */
-  legend: string;
-  /** The fuller definition from the book's front matter. */
+  /** The definition from the book's front matter, pages 13 to 14. */
   body: string;
 }
 
 export interface EvidenceGrade {
   key: "high" | "medium" | "low";
+  /** The label printed under the pulse on page 13. Nothing else is printed there. */
   label: string;
-  shape: string;
-  meaning: string;
 }
 
 export interface Chapter {
@@ -86,7 +88,6 @@ export interface SiteContent {
   };
   hero: {
     eyebrow: string;
-    /** Title as set on the half title: "State." + "Not Situation" */
     titleA: string;
     titleB: string;
     subtitle: string;
@@ -97,7 +98,22 @@ export interface SiteContent {
     readCta: string;
     scrollHint: string;
   };
-  /** Page 13: the reader is asked to take a reading. Verbatim. */
+  /** Page 10, the book's own one-page account of itself, set as the display page it is. */
+  misreading: {
+    eyebrow: string;
+    lines: string[];
+    investigationLabel: string;
+    investigation: string;
+    readingsLabel: string;
+    readings: { time: string; text: string }[];
+    closing: string[];
+  };
+  /** Pages 12 to 13, "You Know The Day", in three runs; the last hands to the reading. */
+  knowTheDay: {
+    eyebrow: string;
+    runs: string[];
+  };
+  /** Page 13: the reader is asked to take a reading. */
   reading: {
     eyebrow: string;
     lead: string;
@@ -106,18 +122,17 @@ export interface SiteContent {
     afterResult: string;
     question: string;
   };
-  loops: {
+  /** The author's account of the book, under a heading from page 20. */
+  book: {
     eyebrow: string;
-    title: string;
-    intro: string;
-    items: Loop[];
-  };
-  cases: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    pageLabel: string;
-    items: CaseEvidence[];
+    heading: string;
+    headingSource: string;
+    paragraphs: string[];
+    readersEyebrow: string;
+    /** Page 14. */
+    readersAnchor: string;
+    /** Supplied by the author. */
+    readers: string;
   };
   excerpt: {
     eyebrow: string;
@@ -132,9 +147,20 @@ export interface SiteContent {
     paragraphs: string[];
     quoteAfter: number;
     quote: string;
+    /** Page 26, closing the extract on the site. */
+    closing: string;
+    closingSource: string;
     endNote: string;
     unavailable: string;
     folios: string[];
+  };
+  cases: {
+    eyebrow: string;
+    pageLabel: string;
+    items: CaseEvidence[];
+    /** Page 20. */
+    closing: string;
+    closingSource: string;
   };
   listen: {
     eyebrow: string;
@@ -147,27 +173,28 @@ export interface SiteContent {
     duration: string;
     unavailable: string;
   };
-  about: {
+  /** One reference block: the three systems, the evidence markers, the chapters, the Heartbeat. */
+  map: {
     eyebrow: string;
-    title: string;
-    /** A passage lifted from the book, shown as a quotation with its page. */
-    quote: string;
-    quoteSource: string;
-    paragraphs: string[];
-    mapLine: string;
+    /** Page 20. */
+    systemsIntro: string;
+    /** Front matter, page 13. */
+    sortingTool: string;
+    loops: Loop[];
     evidenceEyebrow: string;
+    /** Page 13, "Before We Begin", first paragraph. */
     evidenceIntro: string;
+    /** Page 13, second paragraph, which describes the markers in words. */
+    evidenceMarkers: string;
     grades: EvidenceGrade[];
-    overreachEyebrow: string;
-    overreach: string;
-    readersEyebrow: string;
-    readers: string;
-    mapEyebrow: string;
-    mapTitle: string;
-    mapSubtitle: string;
+    investigationTitle: string;
+    mapLine: string;
+    pageColumn: string;
     chapters: Chapter[];
     mapFooter: string;
-    pageColumn: string;
+    /** Page 226, two sentences. */
+    heartbeat: string[];
+    heartbeatSource: string;
   };
   author: {
     eyebrow: string;
@@ -178,6 +205,11 @@ export interface SiteContent {
     websiteLabel: string;
     contactLabel: string;
     pressLabel: string;
+  };
+  /** Page 225, the book's last sentence, above the form. */
+  closing: {
+    question: string;
+    source: string;
   };
   companion: {
     eyebrow: string;
@@ -203,6 +235,8 @@ export interface SiteContent {
   };
   footer: {
     band: string;
+    /** Page 278, the back page's three lines. */
+    method: string[];
     rights: string;
     pressLink: string;
     contactLink: string;
@@ -215,5 +249,7 @@ export interface SiteContent {
     languageComing: string;
     casesRegion: string;
     bookOpening: string;
+    misreadingRegion: string;
+    mapRegion: string;
   };
 }

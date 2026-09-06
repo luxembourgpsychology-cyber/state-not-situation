@@ -23,13 +23,14 @@ The site is an extension of the printed book, not a description of it. Everythin
 
 > **The site may not say anything about the book that the book does not say about itself.**
 
-Every user-visible string is one of exactly three things:
+Every user-visible string is one of exactly four things:
 
 1. **Printed** — in the book or on its cover, word for word.
-2. **Interface** — a plain functional label: Play, Press, Email address.
-3. **Placeholder** — marked `[COPY NEEDED: …]`, waiting for Ivana.
+2. **Author-supplied** — written by Ivana and given to the team, word for word, and recorded as such in `CONTENT_SOURCES.md`.
+3. **Interface** — a plain functional label: Play, Press, Email address.
+4. **Placeholder** — marked `[COPY NEEDED: …]`, waiting for Ivana.
 
-There is no fourth category. **Do not write marketing copy. Do not paraphrase the book into something smoother. Do not invent a statistic, a credential, a review or a publication date.**
+There is no fifth category. **Do not write marketing copy. Do not paraphrase the book into something smoother. Do not invent a statistic, a credential, a review or a publication date.**
 
 `CONTENT_SOURCES.md` in the repo records the page of the book behind every line. **If you add a sentence, add its source there.** If you cannot cite a source, write a placeholder and tell Ivana what you need.
 
@@ -49,6 +50,9 @@ You should almost never need to open `components/` or `app/` to change what the 
 | Every word, German | `content/de.ts` |
 | The interface all three must satisfy | `content/types.ts` |
 | Page of the book behind each line | `CONTENT_SOURCES.md` |
+| Why the sections sit in the order they do | `translation/EDITORIAL-POSITIONING.md` |
+| The standard every French and German sentence must meet | `translation/STANDARD.md` — Ivana's own document; it governs all translation work |
+| The per-language method, glossary and typography | `translation/METHOD-fr.md`, `translation/METHOD-de.md` |
 | Typography, colour, graphic devices | `DESIGN_SYSTEM.md` |
 | Run, deploy, translate, go on sale | `README.md` |
 | Agent rules (loaded automatically by Claude Code) | `CLAUDE.md` |
@@ -58,7 +62,9 @@ app/[lang]/          page.tsx (home), read/ (reading mode), press/
 components/          one file per section, plus Book3D
 lib/i18n.ts          language helpers, missing-translation markers
 lib/analytics.ts     track() helper
-lib/make-stubs.mjs   regenerates fr.ts / de.ts skeletons from en.ts
+lib/make-stubs.mjs   adds new keys to fr.ts / de.ts from en.ts
+lib/make-review-pack.mjs + lib/make_review_xlsx.py   builds the reviewer's workbook for one language
+translation/         the editorial decision, the translation standard, the two methods
 proxy.ts             sends / to the visitor's best enabled language
 public/images        cover, spine, author photograph, social preview
 public/press         downloadable press assets
@@ -71,7 +77,11 @@ public/audio         recordings go here (none yet)
 
 **Working and live:** custom domain with SSL, `www` → apex 308 redirect, GitHub → Vercel auto-deploy, three languages, reading mode, press page, sitemap, robots, Book and Person structured data carrying the real ISBN, social preview card.
 
-**English is complete** apart from two placeholders (below).
+**The page order was decided on 5 September 2026** by an editorial panel working from the almost-final book, and is recorded in `translation/EDITORIAL-POSITIONING.md`: the cover; page 10 (the display page) in its own layout; pages 12 to 13; the page 13 reading; the page 20 heading with Ivana's two paragraphs and "who it is for"; the extract with the page 26 line; four case pages; a reference block (the three systems, the evidence markers, the sixteen chapters, the Scientific Heartbeat); the author; the book's last sentence above the notify form. Do not reorder without reading that file.
+
+**English is complete** apart from two placeholders (below). Every English line was re-verified against the almost-final 278-page PDF on 5 September 2026.
+
+**Listen is hidden** — in the navigation, the footer, the reading page and the home page — until `editions[lang].audioUrl` is set. There is no recording yet.
 
 **French and German are translated but `underReview: true`.** They are browsable and appear in the language switcher so native speakers can check them, but they carry `noindex`, and are excluded from the sitemap and from hreflang. **This is deliberate and important:** there is no French or German edition of the book, so those pages contain a translation of Ivana's English, including the real opening pages. Fine for review; wrong for a search engine to present as the book's published text.
 
@@ -135,6 +145,8 @@ npm run build    # must pass before pushing — it type-checks too
 - French typography: narrow no-break space (U+202F) before `; ! ?`, U+00A0 before `:`, guillemets `« »`, curly apostrophes.
 - German: `„ "` quotation marks, `Sie` for the reader, **Luxemburg** (German exonym) in German prose.
 - Ivana's standing instruction on translation: **translate the context, not word by word.** Recast sentences so they read as native prose. But never add a claim and never drop a qualification — the book is careful about what it does and does not assert.
+- **`translation/STANDARD.md` is the full standard, in her words, and it governs.** Read it before touching `fr.ts` or `de.ts`. Its test: if the reader notices the translation, the work is not finished. It fixes specific choices, among them: FR "Observez votre mâchoire" not "Vérifiez", "augmente" not "monte"; DE "Spüren Sie Ihren Kiefer" not "Prüfen Sie", no "billig/teuer" for cognitive cost, no "Grundempfindlichkeit". Open questions to the author go in `translation/QUERIES-<lang>.md` in the TRANSLATION QUERY format the standard defines.
+- **Reviewer workbooks:** `node lib/make-review-pack.mjs fr && python3 lib/make_review_xlsx.py fr` writes `review/State-Not-Situation-French-review.xlsx` (same for `de`). The `review/` folder is gitignored.
 
 ---
 
@@ -168,4 +180,5 @@ Vercel is currently on the **Pro** plan, which is required once the book is comm
 1. The long press biography (§4).
 2. Whether the companion-tool section should exist at all, and if so what one sentence goes in it.
 3. Sign-off on the French and German from native speakers, then `underReview: false`.
-4. An audio recording of her reading an extract — the player is built and activates the moment `editions.en.audioUrl` points at a file in `public/audio/`.
+4. An audio recording of her reading an extract — the player is built and appears the moment `editions.en.audioUrl` points at a file in `public/audio/`.
+5. From the editorial decision (listed in full at the end of `CONTENT_SOURCES.md`): a hero byline in her words; one or two sentences on why she wrote the book; a publication month if one exists; permission to quote page 26 without its preceding sentence; the typos noted in the almost-final text.
