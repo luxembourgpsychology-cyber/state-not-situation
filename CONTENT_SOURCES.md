@@ -23,6 +23,7 @@ The architecture is `brief/REDESIGN.md` (6 September 2026), which implements the
 | `hero.subtitle` | Front cover: "A field guide to the moment before interpretation becomes reality" |
 | `hero.strap` | Front cover: "Your first reading is not the whole story." |
 | `premise.eyebrow` | Printed as the eyebrow on **both** page 10 and the back cover: "The first misreading" |
+| `premise.lines[0..1]` | **Back cover**, the headline printed under the same eyebrow: "You may not be reacting to the world. You may be reacting to your state." It replaced page 10's three lines ("Nothing went wrong on this day…") on 6 September 2026 at the author's request: printed, they are the setup for "This book is the Investigation."; lifted onto a screen and set at lead size they read as three qualifications rather than a claim. The section now carries the whole back cover in its printed order — eyebrow, headline, paragraph. |
 | `premise.mechanism[0..3]` | **Back cover**, the four sentences beneath the strap, verbatim: "We usually treat these moments as information about life…" to "…gives that feeling a reason." Sixty-three words. Used as the site's premise; see the note below. |
 | `closing.line` | Front cover foot and title page: "Same life. Different instrument settings." |
 | `footer.band` | Back cover, red band: "Before you believe the story." |
@@ -35,7 +36,6 @@ The INPUT / FIRST READING / POSSIBLE STATE table printed beside it on the back c
 
 | Key | Page / source |
 |---|---|
-| `premise.lines[0..2]` | Page 10: "Nothing went wrong on this day." / "The instruments were working." / "The data was there the whole time." |
 | `premise.folio` | Page 10, the printed folio |
 | `moments.line`, `press.mapLine` | Page 11: "16 cases. Three readings. One question: state or situation?" On the home page it heads the three moments, which is the only place a reader learns the book has sixteen cases. |
 | `press.mapLabel`, `press.mapTitle` | Page 10: "This book is the" / "Investigation." Heads the chapter map on the press page, where the Investigation actually is. |
@@ -78,6 +78,8 @@ The INPUT / FIRST READING / POSSIBLE STATE table printed beside it on the back c
 
 Everything in `nav` (including `menu` and `closeMenu`), `status`, `listen`, `a11y`, the folios, and the short labels in `press` (Downloads, Biography, Publication, Credits, Contact, Sources and evidence, Back to the book) are functional interface strings.
 
+| `press/excerpt-the-opening.pdf` | **Superseded.** The extract PDF in the press kit was exported on 4 September from the older text and does not match the book as it now reads. Re-export it from v40 before the kit goes to a journalist, or a review quotes a version that no longer exists. |
+
 ## Still placeholders
 
 | Key | What is needed |
@@ -92,8 +94,9 @@ From `brief/REDESIGN.md`. Everything else in the redesign was decided by the tea
 1. **The premise paragraph.** The site uses the back cover verbatim, because the interior does not supply 70 to 120 words at that position and no new prose may be written. It is jacket copy, and she may not want the site to speak in that register. The alternative is an assembly of whole printed sentences from pages 8 and 9.
 2. **A credential on the first screen.** Her brief §8.1 lists what the hero carries and a credential is not on the list, so the hero is clean and "clinical psychologist" first appears in the author section. Her sentence is in the metadata and the structured data either way. One line under the byline would put it on the first screen.
 3. **Three moments, three "None."** The three she named all end "Verified event / tone / crisis: None." Read together they can be heard as a stronger claim than the book makes — the one Chapter Thirteen, "The Time the Body Was Right", exists to refute. Page 11's "16 cases" line above them is the hedge. Swapping 22:47 for 22:40 would end the set on the moment the body was right, at the cost of the most quotable panel on the page.
-4. **Is the recording your own voice?** The Listen section says "Read by the author". If the file is a synthesised reading, that line has to change, and the site's whole rule is that it does not claim what is not true.
-5. Still open from before: a publication month or season in place of "Publishing soon"; whether she wants an audio recording; and, for her copy-editor, the typos noted in the almost-final text on or near the quoted pages (page 12 "is build"; page 15 "used in this book an analogy"; page 19 "safety,."; page 31 "is was fatigue"; page 181 "the he panel"; page 191 "mashine"; page 192 "somthing"; page 220 "itsel"). The site quotes none of those sentences.
+4. **"Then turn tightened."** Your corrected text carries this twice, and it reads as a slip for "The turn tightened." The English page prints it exactly as you wrote it. French and German translate the sense and do not carry the slip, because in those languages it could only read as the translator's error. One word from you settles all three.
+5. **Is the recording your own voice?** The Listen section says "Read by the author". If the file is a synthesised reading, that line has to change, and the site's whole rule is that it does not claim what is not true.
+6. Still open from before: a publication month or season in place of "Publishing soon"; whether she wants an audio recording; and, for her copy-editor, the typos noted in the almost-final text on or near the quoted pages (page 12 "is build"; page 15 "used in this book an analogy"; page 19 "safety,."; page 31 "is was fatigue"; page 181 "the he panel"; page 191 "mashine"; page 192 "somthing"; page 220 "itsel"). The site quotes none of those sentences.
 
 ---
 
@@ -107,6 +110,7 @@ French original and must not be recorded as though it were. The reasoning behind
 | Key | Source of the French |
 |---|---|
 | `premise.sensorLine` | Translated from page 181 of the English text. « Le corps est un capteur avant d’être un narrateur. » |
+| `premise.lines[0..1]` | **Translated from the English back cover**, `public/images/cover-back.jpg`, where the headline is printed in caps over three lines with the last, TO YOUR STATE., in red. « Vous ne réagissez peut-être pas au monde. » / « Vous réagissez peut-être à votre état. » No French cover exists and neither line has a printed French original. *May* is carried by « peut-être » in the same slot in both halves; the French cleft was refused because it breaks the parity of the two lines. See `translation/METHOD-fr.md`, **The author’s corrected text, 2026-09-06**. |
 | `premise.mechanism[0..3]` | **Translated from the English back cover**, `public/images/cover-back.jpg`, under the printed eyebrow THE FIRST MISREADING. No French cover exists and none of these sixty-three words has a printed French original. |
 | `variables.sortingLines[0..1]` | Translated from page 13. The French uses « Ce ne sont pas… » so that the pronoun points at the three display words above it, as the English *They* does on the page but not in the book. |
 | `evidence.title`, `evidence.grades[].description` | **Re-authored in French from the author’s own English**, `brief/REDESIGN-BRIEF.md` §8 section 5, 6 September 2026. Not lexically matched: `title` is « Niveau de preuve », because French cannot head three bare adjectives with a mass noun, and *evidence* is carried by « preuve » in the heading and « résultats » in two of the three cells. Open in `translation/QUERIES-fr.md`, query 1. |
@@ -124,6 +128,7 @@ Nothing here was cut for being wrong. It was cut because the page said it twice,
 **Deleted from the site.**
 
 - **Page 10's five timestamped readings** and their label. 06:38 and 22:47 returned as case panels five screens later; the timestamps are stronger once, with their verification.
+- **Page 10's three lines**, "Nothing went wrong on this day. / The instruments were working. / The data was there the whole time." Replaced by the back cover's headline at the author's request, 6 September 2026: on screen they read as hedging. Still printed on page 10, and the page 10 folio still stands beside the section.
 - **Page 10's closing couplet**, "The body speaks first." / "The mind explains second." The same proposition as the sensor line, and printed on the cover behind it.
 - **Page 13's evidence prose**, 169 words, both paragraphs. They describe in words the three markers shown directly beneath them. Replaced by the author's own three descriptions.
 - **Page 13's question**, "Is this the situation? Or is this the state?" Page 225's version closes the page; two near-identical questions on one page read as a loop.

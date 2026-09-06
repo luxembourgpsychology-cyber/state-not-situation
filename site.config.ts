@@ -91,7 +91,6 @@ export const siteConfig: SiteConfig = {
       amazonUrl: null,
       publicationDate: null,
       audioUrl: "/audio/extract-en.m4a",
-      audioUrlFallback: "/audio/extract-en.mp3",
       excerptAvailable: true,
       newsletterUrl: null,
       newsletterEmailField: "email",

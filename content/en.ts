@@ -75,11 +75,12 @@ export const en: SiteContent = {
     eyebrow: "The first misreading",
     // Page 181.
     sensorLine: "The body is a sensor before it is a narrator.",
-    // Page 10.
+    // Back cover, the headline set under the same eyebrow. The most direct
+    // statement of the book's claim, and printed. It replaced page 10's three
+    // lines, which read on screen as qualifications rather than as a claim.
     lines: [
-      "Nothing went wrong on this day.",
-      "The instruments were working.",
-      "The data was there the whole time.",
+      "You may not be reacting to the world.",
+      "You may be reacting to your state.",
     ],
     // The back cover, verbatim.
     mechanism: [
@@ -183,7 +184,9 @@ export const en: SiteContent = {
     folio: "13",
   },
 
-  // Pages 7 to 9 of the book, verbatim; the closing line is page 26.
+  // Pages 7 to 9 of the book, verbatim from the text the author supplied on
+  // 6 September 2026, which is v40 plus one further edit ("The mist came, the
+  // one that erases…"). The closing line is page 26.
   excerpt: {
     title: "Before the chapters",
     sectionLabel: "The pilot",
@@ -191,14 +194,14 @@ export const en: SiteContent = {
     lead: "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
     teaserCount: 2,
     paragraphs: [
-      "On the evening of 16 July 1999, a small single engine plane took off from New Jersey. It was heading for Martha’s Vineyard. The pilot was experienced enough to be confident and new enough to be wrong about what that confidence was worth. He had about 300 hours in the air. He had not finished the training that would qualify him to fly using only his instruments.",
-      "The sky was clear when he departed so he concluded that he did not need instruments. By the time he reached the coast, it was not. Haze had settled over the water. The sort of haze that erases the line between sea and sky so gradually that you do not notice the horizon is gone until you look for it and it is not there. Over land, this does not matter. There are lights below. You see roads, buildings, a geometry that tells your eyes which way is down. Over open water at night, with haze sitting on the surface like a second darkness, there is nothing. The world outside the cockpit becomes a uniform grey in every direction. Up looks like down. A gentle turn feels like level flight. A slow descent feels like holding steady.",
-      "The pilot’s inner ear, the organ that tells the brain which way the body is oriented in space, works by detecting changes in motion. When you enter a turn, the fluid inside the ear shifts, and the brain registers rotation. But if the turn holds steady for fifteen or twenty seconds, the fluid in the inner ear settles. It stops moving. The brain, which tracks movement, not position, concludes that the turn has ended. You feel level, but you are not.",
-      "Somewhere over the dark water, the plane entered a gentle left turn. The pilot’s instruments, the dials on the panel in front of him, showed the turn. The artificial horizon, a small gyroscope display that shows the aircraft’s angle relative to the earth, was telling him he was banking. The altimeter was telling him he was descending. The airspeed indicator was telling him he was accelerating. His body was telling him something different. His body was telling him he was flying straight and level. His body felt right. His instruments felt wrong. He trusted his body.",
-      "The turn tightened. The nose dropped. The airspeed built. In the final seconds, the plane was descending at more than 4,700 feet per minute, nearly a mile every sixty seconds, in a tightening spiral that pilots call, with the grim precision of a profession that has named the ways it loses people, a graveyard spiral. He hit the water at full speed. He and his two passengers were killed on impact.",
+      "On the evening of 16 July 1999, a small single engine plane took off from New Jersey. It was heading for Martha’s Vineyard. The pilot was experienced enough to be confident and new enough to be wrong about what that confidence meant. He had about 300 hours in the air. He had not finished the training that would qualify him to fly using only his instruments.",
+      "The sky was clear when he departed so he concluded that he did not need instruments. By the time he reached the coast, a haze had settled over the water. The mist came, the one that erases the line between sea and sky so gradually that you do not notice the horizon is gone until you look for it and it is not there. Over land there are lights below. You see roads, buildings, a geometry that tells your eyes which way is down. Over open water at night, with haze sitting on the surface like a second darkness, there is nothing. The world outside the cockpit becomes a uniform grey in every direction. Up looks like down. A gentle turn feels like level flight. A slow descent feels like holding steady.",
+      "The pilot’s inner ear, the organ that tells the brain which way the body is oriented in space, works by detecting changes in motion. When you enter a turn, the fluid inside the ear shifts, and the brain registers rotation. But if the turn holds steady for fifteen or twenty seconds, the fluid in the inner ear settles. It stops moving. The brain, which tracks movement, concludes that the turn has ended. You feel level, but you are not.",
+      "Somewhere over the dark water, the plane entered a gentle left turn. The pilot’s instruments, the dials on the panel in front of him, showed the turn. The artificial horizon, a small gyroscope display that shows the aircraft’s angle relative to the earth, was telling him clearly that he was banking. The altimeter was telling him he was descending. The airspeed indicator was telling him he was accelerating. His body was telling him something different. His body was telling him he was flying straight and level. His body felt right. His instruments felt wrong. He trusted his body.",
+      "Then turn tightened. The nose dropped. The airspeed built. In the final seconds, the plane was descending at more than 4,700 feet per minute, nearly a mile every sixty seconds, in a tightening spiral that pilots call, with the grim precision of a profession that has named the ways it loses people, a graveyard spiral. He hit the water at full speed. He and his two passengers were killed on impact.",
       "The investigation found no mechanical failure. The engine was running. The instruments were working. The data was right there, on the panel, six inches from his eyes, the whole time, but he did not read it. He read his body instead. The American Federal Aviation Administration’s instruction to pilots who find themselves in this situation is one sentence long. It is a literal instruction that applies to your life as directly as it applies to a cockpit:",
       "The pilot’s name was John F. Kennedy Jr. He was the son of an American president. He had been advised not to fly that night without his instructor. He told his instructor he wanted to do it alone. He was thirty-eight years old.",
-      "You operate a body that produces signals and your mind often treats those signals as truth. The signals are sometimes as wrong as the inner ear’s vestibular system over dark water. The tiredness that presents itself as a question about your career. The caffeine spike that presents itself as anxiety about an email. The low blood sugar that presents itself as evidence that your relationship is failing. Your body speaks first and your mind explains second. The explanation, because it arrives with the full weight of physical conviction, the tight jaw, the fast heartbeat, the heat behind the ears, feels like deep knowledge. It feels like you are reading the situation. But you are only reading the instrument that is reading the situation, and the instrument’s settings were off before the situation arrived. These instruments exist. You have them. Heart rate, jaw tension, breathing depth, shoulder position, the speed of your thoughts. They are producing data right now, as you read this sentence. But the body’s confident weather report about the world is only a draft.",
+      "You operate a body that produces signals and your mind often treats those signals as truth. The signals are sometimes as wrong as the inner ear’s vestibular system over dark water. The tiredness that presents itself as a question about your career. The caffeine spike that presents itself as anxiety about an email. The low blood sugar that presents itself as evidence that your relationship is failing. Your body speaks first and your mind explains second. The explanation, because it comes with the full weight of physical conviction, the tight jaw, the fast heartbeat, the heat behind the ears, feels like deep knowledge. It feels like you are reading the situation. But you are only reading the instrument that is reading the situation, and the instrument’s settings were off before the situation arrived. These instruments exist. You have them. Heart rate, jaw tension, breathing depth, shoulder position, the speed of your thoughts. They are producing data right now, as you read this sentence. But the body’s confident weather report about the world is only a draft.",
     ],
     quoteAfter: 5,
     quote: "“have confidence in your instruments and ignore all conflicting signals your body gives you.”",

@@ -17,12 +17,7 @@ export function Listen({ locale }: { locale: Locale }) {
         </div>
         <div className="md:col-span-8">
           <Reveal delay={100}>
-            <AudioPlayer
-              src={siteConfig.editions[locale].audioUrl}
-              fallback={siteConfig.editions[locale].audioUrlFallback}
-              content={c.listen}
-              locale={locale}
-            />
+            <AudioPlayer src={siteConfig.editions[locale].audioUrl} content={c.listen} locale={locale} />
           </Reveal>
         </div>
       </div>

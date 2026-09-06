@@ -204,6 +204,8 @@ One entry per recurring conceptual term: English term; approved French; context 
 | Sources and evidence | Sources et preuves | Added 2026-09-06. The press-page heading over the page 226 paragraphs. Keeps « preuve », which the homepage has already spent on the grades, so the two blocks read as one apparatus. | Sources et références (*references* is not *evidence*) ; Sources et bibliographie ; Les sources | SOURCES ET PREUVES |
 | Published (the status word) | Paru | Added 2026-09-06. The French pair is à paraître / paru. « Disponible » answers a different question, whether a shop has stock. | Disponible ; Publié | PARU |
 | This book is the / Investigation. | Ce livre mène / L’enquête. | Added 2026-09-06, on the author’s ruling in brief §13. The two press-page strings composed to « Ce livre est l’enquête. », the exact construction she rejects; the verb moves to the label so the line reads « Ce livre mène l’enquête. » across the two type sizes. | Ce livre est / L’enquête. | CE LIVRE MÈNE — L’enquête. |
+| You may not be reacting to the world. / You may be reacting to your state. | Vous ne réagissez peut-être pas au monde. / Vous réagissez peut-être à votre état. | Added 2026-09-06. The back-cover headline, printed in caps over three lines with the last in red, and from 6 September the two lead-size lines of the premise section. One figure in two halves: the same frame, the hedge in the same slot in both, the negative dissolving in the second, each line ending on the term that carries it. The English progressive becomes the plain French present; « êtes en train de réagir » marks an action under way at a named moment, which is not what a cover line does. | Ce n’est peut-être pas au monde que vous réagissez / C’est peut-être à votre état (the French cleft: more obviously native, but it breaks the parity of the two lines, 49 characters against 29, and turns a printed claim into an argument with an unnamed interlocutor) ; réagir à ce qui vous entoure ; réagir à la réalité ; réagir aux événements (three things the book does not say; the glossary term is monde) | Vous ne réagissez peut-être pas au monde. |
+| may (the epistemic hedge, in display copy) | peut-être | Added 2026-09-06. Rule 12 already forbids promoting *may*; this row fixes the form it takes when the hedge is the whole point of a line. « Peut-être » sits between the verb and « pas », which is where French puts it, and it scopes over the clause exactly as the English modal does. | vous pourriez (a capacity or a potential, and heavier) ; il se peut que vous réagissiez (subjunctive, formal, half again as long) ; sans doute (means *probably*: strengthens) ; peut-être bien (colloquial) ; dropping it (forbidden) | Vous réagissez peut-être à votre état. |
 
 ## Queries
 
@@ -577,3 +579,58 @@ Where a cell sits at 9: `premise` for the back-cover paragraph, which is transla
 `variables.loops[2].body`. See the amended memory row. The last line of Safety became **« Il produit des interprétations qui donnent l'impression d'être des faits. »** The old wording passed two earlier reviews, and it was not wrong when Safety was one paragraph inside a longer section; under a COVER-size word, as the closing line of one of three definitions, resemblance in place of felt conviction reads as a swapped concept.
 
 Nothing else moved. The three grades, their colours, every hedge and every printed line are untouched, and the four repairs are in `content/fr.ts` only.
+
+
+## The author’s corrected text, 2026-09-06 (later still)
+
+The author supplied a corrected English text the same evening: book version 40 plus one edit of her own. It moves eight strings. Six are opening-page paragraphs whose English changed by a phrase each; two are new, because the premise section now carries the back cover’s headline where it carried page 10’s three lines.
+
+The six paragraphs were re-authored from the French already in the repository (`git show HEAD:content/fr.ts`), one span at a time. Every other sentence in them had been read and signed off by a native reader that morning, and drift into a signed-off sentence is not a translation decision, it is a loss. The diff on those six is four spans, one word and one unchanged paragraph.
+
+### `premise.lines[0..1]` — the back cover headline
+
+*You may not be reacting to the world. You may be reacting to your state.* → **« Vous ne réagissez peut-être pas au monde. » / « Vous réagissez peut-être à votre état. »**
+
+Printed on the English back cover (`public/images/cover-back.jpg`) in caps over three lines, the last in red, under the same eyebrow as `premise.mechanism`. No French cover exists, so this is translated from the English cover and not rendered from a printed French original, exactly as the sixty-three words beneath it are. `CONTENT_SOURCES.md` carries the row.
+
+Three decisions, in the order they were taken.
+
+**The hedge.** *May* here is epistemic possibility about the reader’s own case, and « peut-être » is its exact French weight — the standard’s rule on certainty levels is absolute and this is the line where it is most exposed, because the whole claim of the book is in a modal. The adverb goes in the same slot in both lines, after the verb, inside the negation in the first. See the two memory rows.
+
+**The construction.** The two lines are one figure, and the second only works by turning on the first. So: same frame, same length, and each line ending on the term that carries it, « monde » then « état » — which is also what the printed cover does, since « TO YOUR STATE. » is the half set in red. Forty-one and thirty-eight characters against the English’s thirty-seven and thirty-four: the same proportion between the halves, and both shorter than `premise.sensorLine`, which is forty-nine characters and sets to two lines at DISPLAY in a 320 px column, so neither of these can exceed two lines at the smaller LEAD step in the same column.
+
+**What was refused.** « Ce n’est peut-être pas au monde que vous réagissez. C’est peut-être à votre état. » is the French cleft, the more obviously native corrective structure, and it is the wrong sentence here: it breaks the parity of the two halves, moves the hedge, and turns a printed claim into an argument with an unnamed interlocutor. The brief’s parity contract (§15) and the cover’s own typography both want two lines of the same length. « Réagir au monde » was then tested as a collocation on its own: French psychology prose writes it, the abstraction is the author’s and not the translator’s, and the three softer objects (« à ce qui vous entoure », « à la réalité », « aux événements ») each name something the book does not.
+
+### `excerpt.paragraphs[4]` — *Then turn tightened.*
+
+The supplied text opens the paragraph *Then turn tightened. The nose dropped. The airspeed built.* — twice, in both copies. It is ungrammatical: *then* stands where *the* belongs, or an article is missing after it. It has been flagged to the author.
+
+The French takes the sense the sentence plainly has, which is the sense it had yesterday: **« Le virage se resserra. »**, byte-identical to the signed-off line. A French rendering of the slip (« Puis virage se resserra. ») would be read as the translator’s error and not the author’s, and this file does not reproduce a source error as a target error. Nothing else in the paragraph moved.
+
+If she confirms she meant *Then the turn tightened.*, the French becomes « Puis le virage se resserra. » — one word, and nothing else changes.
+
+### The four other spans
+
+*wrong about what that confidence was worth* → *what that confidence meant*. « ce que valait cette assurance » → **« ce que signifiait cette assurance »**. *Valoir* is worth; *signifier* is the plain French verb for what a thing means and does not raise the register.
+
+*By the time he reached the coast, a haze had settled over the water. The mist came, the one that erases…* The English lost its anaphoric *it was not* and gained a verb where it had a fragment. French: **« Le temps qu’il atteigne la côte, une brume s’était posée sur l’eau. La brume vint, celle qui efface… »** The noun repeats because French has one word where the new English has two, and because this book repeats a word rather than rotating synonyms; « brouillard » was refused, it is fog and thicker than either, and it would change what the pilot could see. « Celle qui efface » holds the present-tense generalisation the English keeps in *the one that erases*. The seam — a haze that has already settled, then a mist that comes — is the author’s own and is left alone.
+
+*Over land, this does not matter. There are lights below.* → *Over land there are lights below.* → **« Au-dessus des terres, il y a des lumières en dessous. »** What she cut was the commentary; what is left is the fact, and it now sets up « Au large, la nuit, … il n’y a rien. » the way the English sets up *there is nothing*. The signed-off sentence survives inside the merged one.
+
+*The brain, which tracks movement, concludes…* → **« Le cerveau, qui suit le mouvement, en conclut… »** A deletion, taken as a deletion.
+
+*was telling him clearly that he was banking* → **« lui disait clairement qu’il s’inclinait »**. « Clairement » after the verb, the French position, and only on the first of the four instruments, as in the English.
+
+### The one English change that does not survive into French
+
+*because it arrives with the full weight* → *because it comes with the full weight*. The French keeps **« parce qu’elle arrive avec tout le poids de la conviction physique »**, unchanged, and this is a decision and not an oversight.
+
+English flattened *arrives* to *comes*. French has no flatter verb at this collocation. « Venir avec » on an abstract complement is the calque a native editor hears first; « s’accompagner de » raises the register and nominalises, which the standard forbids; « porter le poids de » imports blame. « Arriver avec » is already the plain, unmarked French, and it is what the sentence had.
+
+The cost is one repetition her edit removed in English and the French keeps: « arrive avec » stands some forty words before « avant que la situation n’arrive ». The standard ranks collocational naturalness above rhythm, and this is that trade, made in that direction. Recorded here so that a later editor does not reopen it as a missed change.
+
+### Checks
+
+`npx tsc --noEmit` prints nothing for `content/fr.ts`; no string in the file is empty and no untranslated marker remains in any value; the structure is still identical to `content/en.ts`, same keys, same order, same array lengths, and `teaserCount`, `quoteAfter`, both folios and every page number are byte-identical to the English. `premise.lines` is two entries in both files, and the two French lines are distinct strings, which `components/Premise.tsx` needs, since it keys the paragraphs on their own text.
+
+The `premise` row of the matrix stays at 10 on the first seven axes and 9 on freedom from English interference, for the reason it already sat there: the passage is translated from an English cover and has no printed French original to be checked against. `excerpt` is unmoved.
