@@ -90,7 +90,11 @@ export const siteConfig: SiteConfig = {
       publicationStatus: "forthcoming",
       amazonUrl: null,
       publicationDate: null,
-      audioUrl: "/audio/extract-en.m4a",
+      // Taken down 6 September 2026 at the author's request: the reading was
+      // synthesised and she judged it not good enough to carry the book. The
+      // section is gated on this one value — set a path here and Listen comes
+      // back on the home page, on /read and in the footer. See audio/README.md.
+      audioUrl: null,
       excerptAvailable: true,
       newsletterUrl: null,
       newsletterEmailField: "email",

@@ -129,10 +129,16 @@ If a visitor notices the motion before the writing, remove it.
 
 ## Components
 
-`Hero` · `Premise` · `Variables` · `Moments` · `Evidence` · `ExcerptTeaser` · `Author` ·
-`Closing` — one per home-page section, in that order. Plus `Nav`, `Footer`,
+`Hero` · `Premise` · `Variables` · `Moments` · `Evidence` · `ExcerptTeaser` · `Readings` ·
+`Author` · `Closing` — one per home-page section, in that order. Plus `Nav`, `Footer`,
 `LanguageSwitcher`, `Notify`, `Reveal`, `EvidencePulse`, `PulseMark`, `AmazonButton`,
-`ExcerptLink`, `Listen`, `AudioPlayer`, `JsonLd`.
+`ExcerptLink`, `JsonLd`. `Listen` and `AudioPlayer` are built and switched off.
+
+`Readings` adds no type step, no colour and no CSS class. It is fifteen rows of
+existing parts: LABEL in mono for the chapter number and the page, BODY for the
+line, and the three system inks on the three system names — the same three words
+in the same three inks the reader met four sections earlier, which is the whole
+reason the section needs no legend.
 
 ## Buttons
 

@@ -65,6 +65,8 @@ export const en: SiteContent = {
     subtitle: "A field guide to the moment before interpretation becomes reality",
     strap: "Your first reading is not the whole story.",
     authorPrefix: "by",
+    // The author's own, 6 September 2026, compressed from her printed biography.
+    credential: "Clinical psychologist, Luxembourg",
     coverAlt:
       "Front cover of State. Not Situation. The word STATE set large in red above NOT SITUATION in black, on a cream ground printed with faint struck-through sentences and small instrument readings.",
     readCta: "Read an extract",
@@ -217,6 +219,46 @@ export const en: SiteContent = {
     folios: ["7", "8", "9"],
   },
 
+  // Chapters 01 to 15, each opening page, word for word. Chapter 00 opens on
+  // a CASE EVIDENCE panel instead, so there are fifteen readings, not sixteen.
+  readings: {
+    title: "The readings",
+    label: "Reading",
+    pageLabel: "Page",
+    items: [
+      { number: "01", time: "NOT CLAIMED", attention: "DEGRADED", safety: "DOMINANT", page: 23,
+        line: "The body makes a verdict before attention tests it." },
+      { number: "02", time: "DOMINANT", attention: "CHECKING LOOP", safety: "AMPLIFIED", page: 29,
+        line: "Fatigue removes the brake from certainty." },
+      { number: "03", time: "IN THE GAPS", attention: "LOOPING", safety: "NOT CLAIMED", page: 39,
+        line: "The hand reaches before the mind decides." },
+      { number: "04", time: "CUE AT 15:28", attention: "HABIT LOOP", safety: "RISING LATER", page: 51,
+        line: "The hand keeps an appointment the mind never made." },
+      { number: "05", time: "DOMINANT", attention: "LATE CAPTURE", safety: "NOT CLAIMED", page: 67,
+        line: "An hour feels free and bills the morning." },
+      { number: "06", time: "MORNING DEBT", attention: "DEGRADED", safety: "RUMINATION", page: 79,
+        line: "The weekend does everything right and restores nobody." },
+      { number: "07", time: "AFTERNOON DEBT", attention: "FRAGMENTED", safety: "RISING", page: 95,
+        line: "The document stays the same; the reader loses range." },
+      { number: "08", time: "EVENING", attention: "NARROWED", safety: "DOMINANT", page: 105,
+        line: "One word becomes six days of evidence." },
+      { number: "09", time: "20 MINUTES UNTAKEN", attention: "HALF-SECOND WINDOW", safety: "DOMINANT", page: 121,
+        line: "The conversation ends before its first sentence." },
+      { number: "10", time: "07:40 RESET", attention: "SPENT", safety: "RESIDUAL", page: 135,
+        line: "The kitchen resets. The body does not." },
+      { number: "11", time: "NIGHT-BEFORE DEBT", attention: "SPENT BY 10:00", safety: "FILLING THE GAPS", page: 151,
+        line: "Six ordinary things become proof that nothing is fine." },
+      { number: "12", time: "NOT CLAIMED", attention: "NARROW, AVAILABLE", safety: "SIGNAL PRESENT", page: 167,
+        line: "Nothing is wrong. The jaw will not settle." },
+      { number: "13", time: "22:40", attention: "ACCURATE", safety: "CORRECT", page: 183,
+        line: "This alarm belongs to forty metres of concrete." },
+      { number: "14", time: "PROTECTED", attention: "PLACED", safety: "QUIET", page: 195,
+        line: "The day Chapter Zero was supposed to be." },
+      { number: "15", time: "FORECAST", attention: "OPEN FILE, NAMED", safety: "NAMED IN ADVANCE", page: 209,
+        line: "Tomorrow’s reading, taken tonight." },
+    ],
+  },
+
   listen: {
     eyebrow: "Listen",
     title: "Listen to an extract",
@@ -268,7 +310,8 @@ export const en: SiteContent = {
       { label: "Social image, square", file: "/press/post-1x1-1080.jpg", note: "JPEG · 1080 × 1080" },
     ],
     photoUnavailable: "Author photograph available on request.",
-    photoCredit: "[COPY NEEDED: the photographer’s name, for the author photograph credit. A picture desk will ask before it publishes.]",
+    // The author named the photographer, 6 September 2026.
+    photoCredit: "Photograph: Zoe Larusson",
     bioHeading: "Biography",
     bios: [
       {
@@ -335,6 +378,8 @@ export const en: SiteContent = {
     creditsHeading: "Credits",
     credits: [
       { label: "Cover design", value: "Zoe Larusson" },
+      // Author-supplied, 6 September 2026; the copyright page does not list it.
+      { label: "Photography", value: "Zoe Larusson" },
       { label: "Book design and typesetting", value: "Ivana Budišin" },
       { label: "Published by", value: "Budisin Publishing" },
     ],

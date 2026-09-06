@@ -1,7 +1,49 @@
 # The reading
 
+**Taken off the site on 6 September 2026.** The author listened and judged the
+reading not good enough to carry the book: *"take out the reading… it's bad."*
+`editions.en.audioUrl` in `site.config.ts` is now `null`, which removes the
+section from the home page, from `/read` and from the footer in one value. The
+pipeline below still works and nothing was deleted. Read the next section before
+spending anything on this again.
+
 Everything needed to produce narration for this site, and later for the book.
 Three commands, and a note on why the first two takes sounded like a machine.
+
+## What the tests actually showed, 6 September 2026
+
+Four generations from the author's own Professional Voice Clone, same paragraph
+— the Kennedy reveal, the one place a reader expects a held pause. Two on
+Eleven v3 with inline direction, two on Multilingual v2. Cost: 23 cents.
+
+| | v3, directed | Multilingual v2 |
+|---|---|---|
+| The pause where 2.0 s was written | 0.56 s / 0.91 s | **2.24 s / 2.19 s** |
+| Pitch range | 6.8 / 7.8 st | **10.1 / 9.5 st** |
+| Signal to noise | 25 dB | **58 dB** |
+| Noise floor between phrases | −49 dB | −91 dB |
+
+Three things follow, and they are worth more than the recording was.
+
+1. **Multilingual v2 honours `<break>` exactly; v3 compresses it to about half.**
+   Every earlier take was v3, which is why nothing in five minutes was ever held
+   longer than 1.40 s. That ceiling was the model's, not the reading's.
+2. **The direction tags flattened it.** `[slow, grave]` cost roughly 2.5
+   semitones of pitch range against plain text on v2. The tags did the opposite
+   of what they promise.
+3. **v3 emits a −49 dB noise floor; v2 emits −91 dB.** The between-phrase
+   "dips" the author heard were partly this and partly the old mastering chain,
+   which moved gain more than 3 dB inside 10 ms on 144 occasions. `master.py`
+   was rewritten to a single slew-limited envelope (0.35 dB per 10 ms, forward
+   and backward) and now moves a median 0.03 dB per frame inside speech.
+
+So: **generate on Multilingual v2, write the breaks in, and add no direction
+tags.** A full five-minute take of the site extract costs about a dollar at the
+rate these four were charged, and the whole book on the same basis is a
+two-figure sum, not a four-figure one. Money was never the problem here.
+
+The remaining problem is that a generated reading of *this* book is a claim the
+site cannot make. See "What the site may say" below.
 
 ## The three commands
 
@@ -53,6 +95,11 @@ performances of the same page do not land that close together.
 So: the fix is not a slider marked *stability*. Raising stability makes the
 delivery **more** uniform, which is the direction the problem is already in.
 
+**Resolved on 6 September 2026.** The 1.4 s ceiling was Eleven v3 compressing
+the written `<break>` tags, not the reading. Multilingual v2 honours them to
+within 0.25 s, which puts the two-second hold before the reveal within reach.
+The paragraph above stands as the diagnosis; the cause is now known.
+
 ## Settings to start from
 
 Written into the top of `narration-script.txt` each time it is generated, so
@@ -60,7 +107,8 @@ they travel with the script.
 
 | | | |
 |---|---|---|
-| Model | Eleven v3 if available, else Multilingual v2 | v3 handles pacing better |
+| Model | **Multilingual v2** | measured 6 September: v2 honours the written breaks, v3 halves them |
+| Direction tags | **none** | `[slow, grave]` cost 2.5 semitones of pitch range against plain text |
 | Stability | **0.40** | higher is steadier *and flatter*; this is the slider that causes the problem |
 | Similarity | 0.80 | how close to your own voice |
 | Style | 0.15 | above about 0.35 it starts to wobble |

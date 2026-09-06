@@ -51,6 +51,7 @@ export const fr: SiteContent = {
     subtitle: "Un guide de terrain de l’instant où l’interprétation n’est pas encore devenue réalité",
     strap: "Votre première lecture n’est pas toute l’histoire.",
     authorPrefix: "par",
+    credential: "Psychologue clinicienne, Luxembourg",
     coverAlt: "Première de couverture de State. Not Situation. Le mot STATE en grand, en rouge, au-dessus de NOT SITUATION en noir, sur un fond crème imprimé de phrases barrées, à peine visibles, et de petits relevés d’instruments.",
     readCta: "Lire un extrait"
   },
@@ -195,6 +196,133 @@ export const fr: SiteContent = {
       "9"
     ]
   },
+  readings: {
+    title: "Les lectures",
+    label: "Lecture",
+    pageLabel: "Page",
+    items: [
+      {
+        number: "01",
+        time: "NON SOLLICITÉ",
+        attention: "DÉGRADÉE",
+        safety: "DOMINANTE",
+        page: 23,
+        line: "Le corps rend son verdict avant que l’attention ne le teste."
+      },
+      {
+        number: "02",
+        time: "DOMINANT",
+        attention: "BOUCLE DE VÉRIFICATION",
+        safety: "AMPLIFIÉE",
+        page: 29,
+        line: "La fatigue retire son frein à la certitude."
+      },
+      {
+        number: "03",
+        time: "DANS LES ÉCARTS",
+        attention: "EN BOUCLE",
+        safety: "NON SOLLICITÉE",
+        page: 39,
+        line: "La main se tend avant que l’esprit ne décide."
+      },
+      {
+        number: "04",
+        time: "DÉCLENCHEUR À 15:28",
+        attention: "BOUCLE D’HABITUDE",
+        safety: "EN HAUSSE PLUS TARD",
+        page: 51,
+        line: "La main honore un rendez-vous que l’esprit n’a jamais pris."
+      },
+      {
+        number: "05",
+        time: "DOMINANT",
+        attention: "CAPTURE TARDIVE",
+        safety: "NON SOLLICITÉE",
+        page: 67,
+        line: "Une heure paraît gratuite et facture le matin."
+      },
+      {
+        number: "06",
+        time: "DETTE DU MATIN",
+        attention: "DÉGRADÉE",
+        safety: "RUMINATION",
+        page: 79,
+        line: "Le week-end fait tout comme il faut et ne ressource personne."
+      },
+      {
+        number: "07",
+        time: "DETTE DE L’APRÈS-MIDI",
+        attention: "FRAGMENTÉE",
+        safety: "EN HAUSSE",
+        page: 95,
+        line: "Le document ne change pas ; le lecteur perd en amplitude."
+      },
+      {
+        number: "08",
+        time: "SOIR",
+        attention: "RESSERRÉE",
+        safety: "DOMINANTE",
+        page: 105,
+        line: "Un mot devient six jours de preuves."
+      },
+      {
+        number: "09",
+        time: "20 MINUTES NON PRISES",
+        attention: "FENÊTRE D’UNE DEMI-SECONDE",
+        safety: "DOMINANTE",
+        page: 121,
+        line: "La conversation finit avant sa première phrase."
+      },
+      {
+        number: "10",
+        time: "07:40 REMISE À ZÉRO",
+        attention: "ÉPUISÉE",
+        safety: "RÉSIDUELLE",
+        page: 135,
+        line: "La cuisine repart à zéro. Le corps, non."
+      },
+      {
+        number: "11",
+        time: "DETTE DE LA VEILLE",
+        attention: "ÉPUISÉE DÈS 10:00",
+        safety: "COMBLE LES ÉCARTS",
+        page: 151,
+        line: "Six choses ordinaires deviennent la preuve que rien ne va."
+      },
+      {
+        number: "12",
+        time: "NON SOLLICITÉ",
+        attention: "ÉTROITE, DISPONIBLE",
+        safety: "SIGNAL PRÉSENT",
+        page: 167,
+        line: "Rien ne cloche. La mâchoire ne veut pas se détendre."
+      },
+      {
+        number: "13",
+        time: "22:40",
+        attention: "EXACTE",
+        safety: "CORRECTE",
+        page: 183,
+        line: "Cette alerte appartient à quarante mètres de béton."
+      },
+      {
+        number: "14",
+        time: "PROTÉGÉ",
+        attention: "PLACÉE",
+        safety: "CALME",
+        page: 195,
+        line: "La journée que le chapitre zéro aurait dû être."
+      },
+      {
+        number: "15",
+        time: "PRÉVISION",
+        attention: "DOSSIER OUVERT, NOMMÉ",
+        safety: "NOMMÉE À L’AVANCE",
+        page: 209,
+        line: "La lecture de demain, faite ce soir."
+      }
+    ]
+  },
   listen: {
     eyebrow: "Écouter",
     title: "Écouter un extrait",
@@ -269,7 +397,7 @@ export const fr: SiteContent = {
       }
     ],
     photoUnavailable: "Photographie de l’autrice disponible sur demande.",
-    photoCredit: "[COPY NEEDED: the photographer’s name, for the author photograph credit. A picture desk will ask before it publishes.]",
+    photoCredit: "Photographie : Zoe Larusson",
     bioHeading: "Biographie",
     bios: [
       {
@@ -427,6 +555,10 @@ export const fr: SiteContent = {
     credits: [
       {
         label: "Conception de la couverture",
+        value: "Zoe Larusson"
+      },
+      {
+        label: "Photographie",
         value: "Zoe Larusson"
       },
       {

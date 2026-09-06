@@ -65,7 +65,7 @@ def measure(x, sr, name):
     return drift
 
 
-def master(x, sr, presence_db=0.0, target_rms_db=-20.0):
+def master(x, sr, presence_db=0.0, target_rms_db=-20.0, comfort_db=-62.0):
     N, H = 2048, 512
     win = np.hanning(N).astype(np.float32)
     pad = (-(len(x) - N)) % H
@@ -83,7 +83,9 @@ def master(x, sr, presence_db=0.0, target_rms_db=-20.0):
     quiet = fr_db < np.percentile(fr_db, 12)
     noise = np.median(mag[quiet], axis=0) if quiet.sum() > 20 else np.percentile(mag, 5, axis=0)
 
-    g = np.maximum(mag - 2.0 * noise, 0.12 * mag) / (mag + 1e-9)
+    # Gentler than it was. Over-subtraction of 2.0 with a 0.12 floor gated the
+    # quiet tails of words and was heard as the level ducking under the voice.
+    g = np.maximum(mag - 1.3 * noise, 0.30 * mag) / (mag + 1e-9)
     g *= np.clip((freqs - 40.0) / 40.0, 0.0, 1.0).astype(np.float32)          # high-pass
     if presence_db:
         lift = 10 ** (presence_db / 20) - 1.0
@@ -100,17 +102,52 @@ def master(x, sr, presence_db=0.0, target_rms_db=-20.0):
     y = (out / np.maximum(nrm, 1e-8))[: len(x)]
     del out, nrm, rec
 
-    env = np.sqrt(moving_avg(y ** 2, sr * 3.0) + 1e-12)                       # level the drift
+    # One gain envelope, built slowly and then slew limited, instead of a slow
+    # leveller followed by a fast compressor. The compressor was the thing that
+    # moved 7.7 dB in 10 ms and made the voice appear to duck.
+    env = np.sqrt(moving_avg(y ** 2, sr * 3.0) + 1e-12)
     target = np.percentile(env[env > np.percentile(env, 55)], 50)
-    y = y * moving_avg(np.clip(target / np.maximum(env, target / 8), 0.35, 3.0), sr * 1.0)
+    gain_db = 20 * np.log10(np.clip(target / np.maximum(env, target / 8), 0.35, 3.0))
+    gain_db = 20 * np.log10(moving_avg(10 ** (gain_db / 20), sr * 1.0) + 1e-9)
 
-    thr = 10 ** (-24 / 20)                                                    # 2.5:1 compression
-    envc = np.sqrt(moving_avg(y ** 2, sr * 0.030) + 1e-12)
-    y = y * np.power(np.maximum(envc / thr, 1.0), 1 / 2.5 - 1).astype(np.float32)
+    # Nothing may move faster than this. 0.35 dB per 10 ms is well under the
+    # threshold at which a gain change is heard as a change rather than as level.
+    step = int(sr * 0.010)
+    max_step = 0.35
+    coarse = gain_db[::step].astype(np.float64)
+    for i in range(1, len(coarse)):
+        d = coarse[i] - coarse[i - 1]
+        if d > max_step: coarse[i] = coarse[i - 1] + max_step
+        elif d < -max_step: coarse[i] = coarse[i - 1] - max_step
+    for i in range(len(coarse) - 2, -1, -1):
+        d = coarse[i] - coarse[i + 1]
+        if d > max_step: coarse[i] = coarse[i + 1] + max_step
+        elif d < -max_step: coarse[i] = coarse[i + 1] - max_step
+    gain_db = np.interp(np.arange(len(y)), np.arange(len(coarse)) * step, coarse).astype(np.float32)
+    y = y * (10 ** (gain_db / 20)).astype(np.float32)
+
+    # Comfort noise. Generated speech drops to digital silence between phrases
+    # where a real recording always has room tone, so the floor audibly opens
+    # and closes. Denoising deepens that contrast. A constant bed shaped like
+    # the file's own room, well below the voice, removes the pumping entirely.
+    if comfort_db is not None:
+        rng = np.random.default_rng(7)
+        bed = rng.standard_normal(len(y)).astype(np.float32)
+        # shape it like the room tone we measured, so it sounds like this room
+        nb = len(noise)
+        spec = np.fft.rfft(bed[: (len(y) // (2 * (nb - 1))) * (2 * (nb - 1))].reshape(-1, 2 * (nb - 1)), axis=1)
+        spec *= (noise / (noise.mean() + 1e-12))
+        shaped = np.fft.irfft(spec, axis=1).reshape(-1).astype(np.float32)
+        if len(shaped) < len(y):
+            shaped = np.concatenate([shaped, np.zeros(len(y) - len(shaped), np.float32)])
+        shaped = shaped[: len(y)]
+        shaped *= 10 ** (comfort_db / 20) / (np.sqrt((shaped ** 2).mean()) + 1e-12)
+        y = y + shaped
 
     sp = np.abs(y) > np.percentile(np.abs(y), 60)
     y = y * (10 ** (target_rms_db / 20) / np.sqrt((y[sp] ** 2).mean()))
-    y = np.tanh(y / 0.89) * 0.89
+    # A gentle knee only on the few loudest peaks, not across the whole signal.
+    y = np.where(np.abs(y) > 0.5, np.sign(y) * (0.5 + np.tanh((np.abs(y) - 0.5) / 0.45) * 0.45), y)
     y = y * (0.97 / np.abs(y).max())
     f = int(sr * 0.05)
     y[:f] *= np.linspace(0, 1, f); y[-f:] *= np.linspace(1, 0, f)
@@ -124,6 +161,8 @@ def main():
     ap.add_argument("--presence", type=float, default=0.0,
                     help="dB of shelf above 3 kHz; use 3-4 if the take sounds distant")
     ap.add_argument("--bitrate", type=int, default=96000)
+    ap.add_argument("--comfort", type=float, default=-62.0,
+                    help="dBFS of room tone laid under the whole file; None to switch off")
     a = ap.parse_args()
 
     src = Path(a.source)
@@ -133,7 +172,7 @@ def main():
     x, sr = read(wav)
     print(f"{src.name} — {len(x)/sr/60:.2f} min")
     measure(x, sr, "before")
-    y = master(x, sr, presence_db=a.presence)
+    y = master(x, sr, presence_db=a.presence, comfort_db=a.comfort)
     measure(y, sr, "after")
 
     tmp = Path("/tmp") / (src.stem + ".mastered.wav")

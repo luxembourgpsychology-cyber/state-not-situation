@@ -72,19 +72,28 @@ Eight sections, decided in `brief/REDESIGN.md` against the author's brief. Secti
 4. `Moments` — three printed CASE EVIDENCE pages, under page 11's "16 cases" line
 5. `Evidence` — the three markers with the author's own descriptions
 6. `ExcerptTeaser` — two opening paragraphs on the book's paper, then Continue reading
-7. `Listen` — only when `editions[lang].audioUrl` is set
+7. `Readings` — the fifteen printed chapter openings, as one dashboard
 8. `Author`, then `Closing` — page 225, the cover line, and the one form
 
 The chapter map, the page 13 sorting passage, the fourth case panel and page 226 live on `/press`. The page 26 block lives on `/read`.
+
+`Listen` still exists and is switched off. It renders only when `editions[lang].audioUrl` is set, and on 6 September 2026 the author took the reading down: *"take out the reading… it's bad."* Setting a path there brings the section, its footer link and its link from `/read` back in one value. Read `audio/README.md` before generating anything: the model choice and the direction tags were both measured that day and both were wrong in the takes she heard.
 
 ## Still outstanding from Ivana
 
 Search `content/en.ts` for `[COPY NEEDED`:
 
 - `press.bios[1]` — a long biography, 100 to 150 words (the press page hides the whole Biography block until it exists)
-- `press.photoCredit` — the photographer's name for the author photograph
 
-Four open questions are listed at the end of `CONTENT_SOURCES.md`.
+Four open questions are listed at the end of `CONTENT_SOURCES.md`. Two more were
+closed on 6 September 2026: the credential on the first screen, and whose voice
+the recording was.
+
+One thing needs her word rather than a decision: she wrote that Zoe Larusson is
+"the photographer and book designer", but page 4 prints **Book design and
+typesetting: Ivana Budišin**. The photography credit is on the site; the book
+design credit is left as the book prints it, because the site may not contradict
+the printed page.
 
 ## Working here
 

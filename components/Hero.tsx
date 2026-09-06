@@ -67,6 +67,10 @@ export function Hero({
               <span className="text-quiet">{c.hero.authorPrefix} </span>
               {siteConfig.author.name}
             </p>
+            {/* The author asked for her name and her work on the first screen,
+                6 September 2026. One line, at LABEL, so it reads as a caption
+                to the byline and does not compete with the title. */}
+            <p className="t-mono mt-1">{c.hero.credential}</p>
 
             <div className="mt-[var(--space-block)] flex flex-wrap items-center gap-x-8 gap-y-3">
               <p className="t-mono text-ink w-full sm:w-auto">

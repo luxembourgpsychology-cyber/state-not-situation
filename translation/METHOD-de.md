@@ -713,3 +713,112 @@ The five carried labels were checked against the new files and stand: „Foto de
 | print resolution | Druckauflösung | the two files offered at 300 dpi; never for the web files | hohe Auflösung (vaguer than the English and no longer true of the file), 300 dpi (a measurement, and the note carries it) | Cover, Vorderseite, Druckauflösung |
 | print ready | druckfertig | said of the cover PDF at the book's trim | druckreif (said of a text, not a file), Druckdaten (names a file type the note already names), reprofähig | Cover, druckfertig |
 | book render | Buchansicht | the three-dimensional image of the book; the transparent file was withdrawn with the 170 × 240 mm trim, so *freigestellt* is withdrawn with it | Buchansicht, freigestellt (false of the current file), Rendering, 3D-Ansicht des Buches, Buchabbildung | Buchansicht |
+
+## The readings, the credential and the photography credit, 2026-09-06 (amendments 52 to 55)
+
+Section 7 of the rebuilt homepage is new: the printed opening of chapters 01 to 15, fifteen instrument readings set as one dashboard. Three smaller strings came with it, `hero.credential`, `press.photoCredit` and a fourth row in `press.credits`. Sixty-three German strings, none of them on this site before in any language.
+
+**Provenance.** No German edition of the book exists. The fifteen chapter openings are translated from the **English** printed openings carried in `content/en.ts`; there is no German printed original behind any of them, and the German page makes no claim that there is. `number` and `page` are the book's own figures and are byte-identical to the English, as are the two timestamps and the two clock figures inside the values (15:28, 10:00, 07:40, 22:40). The proper name Zoe Larusson is unchanged. Recorded per language in `CONTENT_SOURCES.md`.
+
+### 52. READING / 01 is BEFUND / 01, and the section is „Die Befunde"
+
+`readings.label` is „Befund", `readings.title` „Die Befunde", `readings.pageLabel` „Seite".
+
+Amendment 35 split the book's central noun in two: **Lesart** where the reading is of the world, the reading the instrument hands you as a fact; **Befund** where the reading is of the instrument, what a check of the body or a look at the panel returns. These fifteen are the second kind and nothing else. Each is a panel: three systems, each with the value it was holding, at the hour the chapter opens. The prose glossary of 5 September already fixed this exact slot — "the state-line headings (READING / 01 becomes BEFUND / 01)" — and amendment 35 withdrew Befund only from the strap, the back cover's second sentence and page 11's line. So the word is not reopened here; it is applied where it was kept.
+
+„Die Befunde" as the section title rather than „Befunde": the English is definite ("The readings") and the section is the whole set, not a sample. It sets on one line at HEAD at every width.
+
+**One consequence, and it goes to the author.** Page 11's line is „16 Fälle. Drei Lesarten.", assigned to Lesart by amendment 35 with Medium confidence and an open question in `QUERIES-de.md`. This section is evidence on that question: a chapter's reading is three system values taken off three instruments, which is what "three readings" on page 11 names, and under amendment 35's own rule a reading taken is a Befund. The German homepage therefore now prints „Drei Lesarten" in section 4 and „Die Befunde" with fifteen BEFUND labels in section 7, for the same printed thing, two screens apart. That is a conceptual-consistency defect, it cannot be repaired inside this section, and it is put to the author as query 2. Nothing in `moments.line` or `press.mapLine` was touched.
+
+### 53. The three values are gauge labels, and the rules for them
+
+They are printed in capitals as instrument readings, three to a line beside their system names, and they are not sentences. The German is terse, nominal where the English is nominal, and takes no article. Where the memory already fixed the word, the memory wins.
+
+**From the memory, unchanged:** Auslöser (cue), Schleife (loop), Nachseh-Schleife (the checking loop), eingefangen (captured), Lücke (gap), Grübeln (rumination), offene Akte (open file), Signal, Vorhersage (forecast), and „verengt" for the narrowing of the focus. Aussage is the memory's word for a claim, so **NOT CLAIMED is „KEINE AUSSAGE"**: the chapter's panel asserts nothing about that system, and „keine Aussage" is what a German report prints in that cell. *Nicht beansprucht* was rejected outright; it is the German for unclaimed property.
+
+**The debt trio.** MORNING DEBT, AFTERNOON DEBT and NIGHT-BEFORE DEBT are „DEFIZIT VOM MORGEN", „DEFIZIT VOM NACHMITTAG", „DEFIZIT VOM VORABEND". Amendment 2 removes the monetary pair from cognitive and metabolic cost, and *Schuld* would have brought it back at its worst: standing alone in capitals a German reader reads guilt, and *Schulden* reads a bank. Defizit is the word German itself uses for exactly this thing (Schlafdefizit), it is plain, it carries owed-from-earlier without the shop, and one word serves all three so the reader meets the same gauge three times, as in the English. *Vorabend* for "night before" follows the chapter title the file already carries, „Der Donnerstag, der Mittwochabend war", where the book's *night* is already a German *Abend*. Manufactured compounds (Morgendefizit, Nachmittagsdefizit) were refused under amendment 3: the phrase exists.
+
+**The loop family.** German keeps the three loops as three, and the English repetition of LOOP is kept as a repetition of Schleife: „NACHSEH-SCHLEIFE" (the memory's own heading form), „GEWOHNHEITS-SCHLEIFE" and, for the bare participle LOOPING, „IN DER SCHLEIFE". The hyphen follows Nachseh-Schleife rather than manufacturing a solid compound, and it gives the longest value on the page a break point. „SCHLEIFE" alone was considered for LOOPING and refused: it names the loop where the English names the state of being in one, and the row is a state line.
+
+**The rest, with the ones that were not obvious.** DEGRADED is „GESCHWÄCHT" — *beeinträchtigt* is the clinic and the form, *eingeschränkt* says restricted, and the book's word here is plain. FRAGMENTED is „ZERSPLITTERT", not *fragmentiert*, which is the Fachwort the author's brief on German asks to be spent sparingly. SPENT is „VERBRAUCHT" and SPENT BY 10:00 is „BIS 10:00 VERBRAUCHT" (*bis* is the German "by"). 20 MINUTES UNTAKEN is „20 MINUTEN UNGENUTZT": the twenty minutes existed and went unused, where *ausgelassen* would have added a decision to skip them. HALF-SECOND WINDOW is „FENSTER, HALBE SEKUNDE", the noun first and the measure after it, which is the register of the press page's own labels („Cover, komplett") and shorter than any genitive. RESIDUAL is „REST", the bare German noun for what is left, matching a bare English adjective. PLACED is „PLATZIERT" and not *gerichtet*: *die Aufmerksamkeit richten* wants a target, and the cell has none. 07:40 RESET keeps *Reset*, which is German. RISING LATER is „STEIGT SPÄTER", FILLING THE GAPS „FÜLLT DIE LÜCKEN", NAMED IN ADVANCE „VORAB BENANNT", OPEN FILE, NAMED „OFFENE AKTE, BENANNT". DOMINANT is DOMINANT in both languages.
+
+### 54. The fifteen lines
+
+Each is one compressed proposition under the three values, and in English each is shorter than the sentence a German translator's first draft produces. Seven of the fifteen are shorter in German than in English or within two characters of it; the rest were cut until they landed. The ones that took work:
+
+**05, „Eine Stunde fühlt sich frei an, und der Morgen zahlt."** The English is "An hour feels free and bills the morning." *Bills* is a live monetary image, not the dead one amendment 2 removed, and amendment 28 keeps live monetary images — the book's own „die Rechnung für den Abend, der sich frei anfühlte" is the same picture. But „stellt dem Morgen die Rechnung" runs to 66 characters against 40 and stops being an aphorism. The bill is therefore carried by the verb: the hour feels free, the morning pays. What shifts is billing to paying, and the chapter contains the shift — mornings shrink because the morning does pay. *Fühlt sich an* is kept because it is the book's verb for *feels* everywhere else.
+
+**06, „Das Wochenende macht alles richtig und bringt niemandem Erholung."** The joke is that the weekend is the agent of both halves, so German keeps it as the subject of both. *Erholen* is reflexive in German, so „erholt niemanden" is not available and „und niemand erholt sich" would hand the second half to the people. Erholung is the memory's word for restoration.
+
+**07, „Das Dokument bleibt dasselbe; der Leser verliert an Reichweite."** *Range* is an instrument word and the page is an instrument panel, so German keeps it as one: *an Reichweite verlieren* is what German says of a transmitter, and chapter 01 has already put a radar in the reader's ear. *Bandbreite* is a loan, *den Überblick verlieren* is a different claim (losing your place, not losing span), *nimmt weniger auf* states a quantity where the English states a span. The semicolon is the author's and stands.
+
+**10, „Die Küche wird zurückgesetzt. Der Körper nicht."** The Time value in the same row is „07:40 RESET", and rule 7 keeps a repetition the English makes, so the line keeps the reset root. German has no intransitive *zurücksetzen* for a room that is not a device, so the passive carries it, and the second sentence elides the passive exactly as the English elides the verb.
+
+**12, „Es ist nichts. Der Kiefer kommt nicht zur Ruhe."** „Es ist nichts" is what German says when a check has found nothing, which is the whole of chapter twelve, and it keeps the English negation where „Alles in Ordnung" would have flipped it into reassurance. *Zur Ruhe kommen* is the settling verb the extract already uses of the fluid in the inner ear.
+
+**14, „Der Tag, der Kapitel Null hätte sein sollen."** The English echoes chapter zero's title and the German echoes the German title the file already carries, „Ein Tag, der in Ordnung hätte sein sollen". A fragment in both languages; it stays a fragment.
+
+**15, „Der Befund von morgen, heute Abend abgelesen."** Befund by amendment 52, and *abgelesen* because the memory fixes „take the reading" as *ablesen*. The comma structure is the English's.
+
+Two glossary calls inside the lines are load-bearing and were checked twice. Line 11 says **proof**, not evidence, so it is „zum Beweis" — amendment 12 bars Beweis for *evidence* precisely so that the word is still free where the English says *proof*. Line 08 says **evidence** as the mind takes it, so it is „Belege". Line 11's *fine* is „in Ordnung", the word chapter zero's title already gave it. Line 01's *verdict* is „Urteil" and *attention* takes its article, because the English lowercases it and means the faculty, not the named system.
+
+### 55. The credential and the photography credit
+
+`hero.credential` is **„Klinische Psychologin, Luxemburg"**. It is the author's own line, and the German for it is already in the file: her biography reads „Ivana Budišin ist klinische Psychologin und lebt und arbeitet in Luxemburg." The credential is that sentence with the verbs taken out, which is what the English does, and Luxemburg is the German name of the country per the idiom section. Thirty-two characters against the English thirty-two; it sets in one mono line under the byline at 360 and at 1440.
+
+`press.photoCredit` is **„Foto: Zoe Larusson"**. A German picture desk prints *Foto:* before a photographer's name, and the file already calls the object „Foto der Autorin" in `press.assets` and `press.photoUnavailable`. *Fotografie:* was refused in this slot as the name of the craft rather than of the print; *Bild:* is what a newspaper prints over an illustration. The English placeholder is retired here and only here; `press.bios[1]` is still byte-identical English.
+
+`press.credits` gains **„Fotografie: Zoe Larusson"** after „Umschlaggestaltung", where the English puts Photography after Cover design. In a credits list the head noun names the craft, as *Umschlaggestaltung* and *Buchgestaltung und Satz* do, so it is Fotografie and not Foto; the two words in the two slots are the same pair the English makes with *Photograph* and *Photography*. The name is unchanged, and nothing was added about what the photograph shows.
+
+### Translation memory, new rows
+
+| English | German | Context | Rejected | Example |
+|---|---|---|---|---|
+| READING / NN (the state line) | BEFUND / NN | the label printed before a chapter number at every chapter opening; the reading taken off the instrument, amendment 35 | LESART (the reading of the world, and wrong for a panel), ABLESUNG, MESSWERT | Befund / 01 |
+| the readings (the section) | Die Befunde | the fifteen chapter openings as one dashboard | Die Lesarten, Die Anzeigen | Die Befunde |
+| not claimed | KEINE AUSSAGE | the panel asserts nothing about that system; Aussage is the memory's word for a claim | NICHT BEANSPRUCHT (unclaimed property), OHNE ANGABE, KEINE ANGABE (a form) | Zeit / KEINE AUSSAGE |
+| debt (morning, afternoon, night-before) | DEFIZIT VOM MORGEN, VOM NACHMITTAG, VOM VORABEND | what an earlier hour is still owed; one word for all three | SCHULD (guilt in isolation), SCHULDEN (a bank), Morgendefizit and every solid compound (amendment 3), RÜCKSTAND | Zeit / DEFIZIT VOM VORABEND |
+| degraded | GESCHWÄCHT | a system reading below its own level | beeinträchtigt (clinic and form), eingeschränkt (restricted), degradiert (demoted) | Aufmerksamkeit / GESCHWÄCHT |
+| fragmented | ZERSPLITTERT | attention broken into pieces | fragmentiert (Fachwort), zerstückelt | Aufmerksamkeit / ZERSPLITTERT |
+| looping | IN DER SCHLEIFE | the state of being in one, against the two named loops | SCHLEIFE (names the loop, not the state), DREHT SICH | Aufmerksamkeit / IN DER SCHLEIFE |
+| habit loop | GEWOHNHEITS-SCHLEIFE | hyphenated on the pattern of Nachseh-Schleife | Gewohnheitsschleife (solid), GEWOHNHEIT (drops the loop) | Aufmerksamkeit / GEWOHNHEITS-SCHLEIFE |
+| spent, spent by 10:00 | VERBRAUCHT, BIS 10:00 VERBRAUCHT | attention used up; *bis* is the English "by" | AUFGEBRAUCHT, ERSCHÖPFT (reserved for depleted) | Aufmerksamkeit / BIS 10:00 VERBRAUCHT |
+| untaken (of minutes) | UNGENUTZT | the time existed and was not used | ausgelassen (adds a decision), nicht genommen | Zeit / 20 MINUTEN UNGENUTZT |
+| half-second window | FENSTER, HALBE SEKUNDE | noun first, measure after, as in the press labels | Halbsekunden-Fenster, Zeitfenster von einer halben Sekunde | Aufmerksamkeit / FENSTER, HALBE SEKUNDE |
+| residual | REST | what is left of a system's level | RESTLICH, RESTLADUNG (adds the charge), NACHWIRKUNG | Sicherheit / REST |
+| placed (of attention) | PLATZIERT | put where it was chosen to be | gerichtet (wants a target the cell does not give), gesetzt | Aufmerksamkeit / PLATZIERT |
+| range (a reader's) | Reichweite | the instrument sense, on an instrument page | Bandbreite (a loan), Überblick (a different claim), Weite | Das Dokument bleibt dasselbe; der Leser verliert an Reichweite. |
+| bills (an hour bills the morning) | zahlt (der Morgen zahlt) | the live monetary image of amendment 28, carried by the verb for length | stellt die Rechnung (66 characters against 40), geht auf Kosten des Morgens | Eine Stunde fühlt sich frei an, und der Morgen zahlt. |
+| restore (of a weekend) | Erholung bringen | *erholen* is reflexive, so the weekend cannot restore anybody transitively | erholt niemanden (ungrammatical), niemand erholt sich (hands the clause to the people) | Das Wochenende macht alles richtig und bringt niemandem Erholung. |
+| settle (of a jaw) | zur Ruhe kommen | the extract's own verb for the fluid in the inner ear | sich beruhigen, locker lassen | Der Kiefer kommt nicht zur Ruhe. |
+| Clinical psychologist, Luxembourg | Klinische Psychologin, Luxemburg | the credential under the byline; the author's biography with the verbs taken out | Klinische Psychologin in Luxemburg (a sentence fragment, not a credential), Psychotherapeutin (a different qualification) | Klinische Psychologin, Luxemburg |
+| Photograph (the credit) | Foto | the credit line under the author photograph | Fotografie (the craft, kept for the credits row), Bild, Aufnahme | Foto: Zoe Larusson |
+| Photography (the credits row) | Fotografie | the craft, beside Umschlaggestaltung and Buchgestaltung und Satz | Foto (the print, kept for the credit line), Fotos, Bildrechte | Fotografie: Zoe Larusson |
+
+### German display in the new section, measured
+
+Measured in the running page at 360 × 780 and at 1440 × 900, not read off the clamps.
+
+At 360 the document width is 360 and nothing overflows. The widest value pair on the page, „Aufmerksamkeit / FENSTER, HALBE SEKUNDE", measures 318 px in a 328 px column. Every one of the forty-five pairs holds its own line; no word breaks. Nine of the fifteen lines set on two lines against eight of the fifteen in English, and line 01 sets on one where the English takes two.
+
+At 1440 every one of the fifteen lines sets on **one** line, as in English. Seven of the fifteen value rows wrap to two lines where all fifteen English rows hold one, and the section runs 2164 px against the English 2022 px, seven per cent taller. The cause is measured and it is not the values: the three German system names run 28 characters against the English 19, and *Aufmerksamkeit* alone costs five of the nine. Four of the seven rows would come back onto one line for the sake of two to four characters, and none of those four characters is available honestly — Lücke, Schleife, offene Akte, Signal and Aussage are all fixed by the memory, and the two clock figures cannot move.
+
+Nothing was shortened, abbreviated or hyphenated to force a line. This follows amendment 45 and `brief/REDESIGN.md` on the two hero actions: the German string keeps its full form and a state the design already contains carries it. Here that state is the component's own `flex-wrap`, which is what the list was built to do; a wrapped row is the designed behaviour, not an overflow, and no `:lang(de)` rule was needed or added. Against the parity contract, §15: same section, same position, same fifteen readings, same three inks, same three values in the same order, every line on one line from 1280 up in both languages.
+
+### Verification
+
+`npx tsc --noEmit` reports nothing for `content/de.ts`. The one error it prints is `content/fr.ts(48,3)`, the missing `credential` on the French hero, which a colleague is adding in parallel and which is not this file's.
+
+Structure and array lengths were compared against `content/en.ts` programmatically: `readings.items` is fifteen entries in both, and every value of `number` and `page` is identical. The two timestamps inside the values (15:28, 10:00) and the two clock figures (07:40, 22:40) are unchanged, as are the numerals 20 and the folio figures. The empty-string count for the file is 0. `press.credits` is four rows in both languages, in the same order. `press.bios[1]` is still byte-identical English; `press.photoCredit` is no longer a placeholder in any language file this pass touched, and none was touched but this one. The title is untranslated everywhere it appears. `/de` is clean at 360 with no horizontal overflow and no untranslated key.
+
+Tell recount, on the detection catalogue at "Verify against yourself", item 10. Connectives jedoch, daher, zudem, allerdings, somit, dabei: 0 across the sixty-three new strings, against an English that has none. No intensifier, no „nicht nur … sondern auch", no „dient als", no triad added for rhythm, no significance inflation, no summary sentence, no dash, no title case. Claim count and hedge count against the English: zero added, zero missing. The one repetition the English makes inside a row (resets / RESET) is kept as a repetition; the one it makes across rows (DOMINANT five times, NOT CLAIMED four times, DEGRADED twice) is kept with the same German word each time and no synonym rotation.
+
+| Section | Sem | Sci | Nat | Coll | Voice | Rhythm | Concept | Free |
+|---|---|---|---|---|---|---|---|---|
+| readings.title, label, pageLabel | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 10 |
+| readings.items, the values | 10 | 10 | 10 | 9 | 10 | 10 | 10 | 10 |
+| readings.items, the lines | 10 | 10 | 10 | 10 | 10 | 9 | 10 | 10 |
+| hero.credential | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+| press.photoCredit, credits | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+
+Nothing sits below 9 on the four axes that gate publication. The 9 on concept consistency for the label is query 2, not the label: BEFUND is right in this slot and „Drei Lesarten" two sections above it is what is now in question. The 9 on collocation for the values is „REST" standing alone in a cell, which is as bare in German as RESIDUAL is in English and reads as a remainder before it reads as a level. The 9 on rhythm for the lines is line 05, where German carries *bills* with a verb rather than the noun and gains a comma the English does not have.

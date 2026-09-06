@@ -55,6 +55,25 @@ export interface Chapter {
   page: number;
 }
 
+/**
+ * One chapter opening, reproduced. Chapters 01 to 15 each open on a printed
+ * instrument reading: the word READING and the chapter number, the three
+ * systems with the value each was holding, and one line under them. Chapter 00
+ * opens on a CASE EVIDENCE panel instead, which is why there are fifteen.
+ */
+export interface ChapterReading {
+  /** As printed, e.g. "01". */
+  number: string;
+  /** The three printed values, in the book's own order. */
+  time: string;
+  attention: string;
+  safety: string;
+  /** The single line printed beneath the three values. */
+  line: string;
+  /** The page the chapter opens on. */
+  page: number;
+}
+
 export interface SiteContent {
   meta: {
     title: string;
@@ -104,6 +123,8 @@ export interface SiteContent {
     subtitle: string;
     strap: string;
     authorPrefix: string;
+    /** One line under the byline. The author's own, approved 6 September 2026. */
+    credential: string;
     coverAlt: string;
     readCta: string;
   };
@@ -180,6 +201,21 @@ export interface SiteContent {
     endNote: string;
     unavailable: string;
     folios: string[];
+  };
+
+  /**
+   * Section 7. The fifteen printed chapter openings, as one dashboard. The
+   * three system names are not repeated here: the rows use
+   * `variables.loops[].name`, so a reader meets the same three words in the
+   * same three inks they were given four sections earlier.
+   */
+  readings: {
+    title: string;
+    /** The word printed before the chapter number: READING / 01. */
+    label: string;
+    /** For screen readers on the page number at the end of each row. */
+    pageLabel: string;
+    items: ChapterReading[];
   };
 
   listen: {

@@ -12,7 +12,7 @@ Decided and closed under that rule, with the reasons written into the translatio
 
 ---
 
-TRANSLATION QUERY 1 of 1  ·  which French word carries *evidence*
+TRANSLATION QUERY 1 of 2  ·  which French word carries *evidence*
 
 SOURCE
 Page 226, The Scientific Heartbeat, with its neighbours: “This section says whose, and what each piece of work gave the chapter. Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently. Under each reference is a line on what the paper did for the chapter.” The site carries the middle sentence twice, in map.heartbeat[0] and press.description[3].
@@ -46,3 +46,44 @@ The same ruling now governs the homepage. Section 5 is your three descriptions o
 SOURCE QUERY 2 of 2 — CLOSED, 6 September 2026
 
 Withdrawn. It asked whether to restore the four sentences of page 12 that supply the missing first term of « La journée dont je parle, c’est l’autre. » The redesign removes page 12 from the homepage entirely, so the comparison, the gap and the question have all gone with it. No answer is needed and no string is waiting. The analysis is kept in the git history of this file in case page 12 returns.
+
+
+---
+
+**6 September 2026, the readings section.** `content/en.ts` gained the fifteen printed chapter openings as one dashboard, and `content/fr.ts` now carries them: sixty-three strings, forty-five of them gauge labels in capitals. The reasoning is in `translation/METHOD-fr.md` under **The fifteen readings, the credential and the photography credit**, and almost none of it needed a decision from you — the glossary already held nine of the values, and the fifteen lines are settled and in the file. One value does need your word, because English leaves something open that French has to close, and because it is printed at the head of four of your sixteen chapters.
+
+Nothing is waiting on you: `content/fr.ts` carries the recommended wording and reads correctly as it stands. Your ruling would change one word in four cells.
+
+---
+
+TRANSLATION QUERY 2 of 2  ·  which way the claim runs in NOT CLAIMED
+
+SOURCE
+The instrument reading printed at the opening of Chapter One, and in the same form at Chapters Three, Five and Twelve:
+
+READING / 01
+TIME / NOT CLAIMED     ATTENTION / DEGRADED     SAFETY / DOMINANT
+The body makes a verdict before attention tests it.
+
+The other values in the same column across the fifteen openings are DOMINANT, IN THE GAPS, CUE AT 15:28, MORNING DEBT, AFTERNOON DEBT, EVENING, 20 MINUTES UNTAKEN, 07:40 RESET, NIGHT-BEFORE DEBT, 22:40, PROTECTED, FORECAST.
+
+CURRENT TRANSLATION
+TEMPS / NON SOLLICITÉ, and SÉCURITÉ / NON SOLLICITÉE at Chapters Three and Five.
+
+ISSUE
+Semantic fidelity, and under it the conceptual architecture of the dashboard. English *claimed* does not say which way the claim runs, and both readings are available on the page. Either the system claims the state — which is plainly what DOMINANT does at the other end of the same axis, so NOT CLAIMED would be its floor — or nothing has claimed the system, which is how the rest of the Time column reads, since DEBT, UNTAKEN and PROTECTED are all a ledger. French has no word that is ambiguous in the same way. It must either put the system in the position of the one claiming, or in the position of the thing claimed.
+
+OPTION A
+NON SOLLICITÉ / NON SOLLICITÉE. « Solliciter un système » is what French physiology and French engineering both say of a system that is or is not called upon, and it is the one wording that does not choose: a system that has not been sollicité has neither been drawn on nor asserted itself. It is thirteen characters, it reads as a gauge, and it works under Temps and under Sécurité alike.
+
+OPTION B
+PAS EN CAUSE. The investigation frame the case panels already carry, and the plainest French for a system that is not implicated in what happened. It is two words shorter and a reader takes it instantly. It states an exoneration the English does not state, and on the clean-panel dashboard of Chapter Twelve, where the whole point is that nothing upstream can be found, saying a system is « pas en cause » comes close to answering the chapter's question in its own margin.
+
+OPTION C
+NON REVENDIQUÉ. The conceptually different choice, and the only one that keeps the word *claim*: the system does not claim this state, and the reading goes unclaimed the way an act goes unclaimed. It makes the dashboard an attribution of responsibility from top to bottom, which is a defensible account of what these panels are. Against it: in French *revendiquer* is first heard in the news sense, an attack claimed by whoever carried it out, and that register sits badly at the head of a chapter about a woman waking two minutes before her alarm.
+
+RECOMMENDATION
+Option A. It is the only one of the three that does not decide, on your behalf, a thing your English left open, and it costs nothing in register; the tradeoff is that it moves the label out of the ledger vocabulary the rest of the Time column is written in, and a French reader will hear a system not called upon rather than an account with nothing charged to it. If you tell me the panel means *this system is not what claimed the state*, the French becomes Option C and the dashboard reads as attribution throughout, which would also settle how the two halfway maps are set when the book itself is translated.
+
+CONFIDENCE
+Medium. High on the French of each option, medium on the ruling, because the same label governs four chapter openings and both halfway maps, and only you know which way you meant the claim to run.

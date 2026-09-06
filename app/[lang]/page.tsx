@@ -8,7 +8,7 @@ import { Variables } from "@/components/Variables";
 import { Moments } from "@/components/Moments";
 import { Evidence } from "@/components/Evidence";
 import { ExcerptTeaser } from "@/components/ExcerptTeaser";
-import { Listen } from "@/components/Listen";
+import { Readings } from "@/components/Readings";
 import { Author } from "@/components/Author";
 import { Closing } from "@/components/Closing";
 import { Footer } from "@/components/Footer";
@@ -18,7 +18,8 @@ import { JsonLd } from "@/components/JsonLd";
  * Eight sections, the canonical architecture decided in brief/REDESIGN.md
  * against the author's brief: the book as an object; the premise and the
  * reading; the three variables; three moments; the evidence system; the
- * extract; the author; the book's last sentence and the one form.
+ * extract; the fifteen printed chapter readings; the author; the book's
+ * last sentence and the one form.
  *
  * Section ids are English in every language, by contract, so the language
  * switch can keep a reader in the section they are in.
@@ -46,7 +47,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Moments content={c.moments} />
         <Evidence content={c.evidence} />
         <ExcerptTeaser locale={locale} />
-        {ed.audioUrl ? <Listen locale={locale} /> : null}
+        <Readings content={c.readings} loops={c.variables.loops} />
         <Author locale={locale} content={c.author} />
         <Closing locale={locale} />
       </main>

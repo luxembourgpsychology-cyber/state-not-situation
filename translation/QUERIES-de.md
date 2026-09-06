@@ -6,7 +6,7 @@ Date: 6 September 2026, rewritten for the redesigned site. The rule applied is t
 
 Ten more decisions were taken today under §14 of your brief and are recorded, with their reasoning, as amendments 35 to 44 in `translation/METHOD-de.md`. None of them is here waiting for you.
 
-**One query stands.** It is not a choice between two words. It is the one structural consequence of resolving the glossary, and it is a decision about the German book, not only about the site, so you should see it.
+**One query stood when this file was rewritten.** It is not a choice between two words. It is the one structural consequence of resolving the glossary, and it is a decision about the German book, not only about the site, so you should see it. A second was added later the same day, with the new section of fifteen chapter readings; it is the standing tail of the first and it is query 2 at the end of this file.
 
 ---
 
@@ -44,3 +44,44 @@ A. Option B buys one repeated word on the website and pays for it with the wrong
 ### CONFIDENCE
 
 High on A for the book. Medium on one detail, which is the only thing I would like you to look at: on page 11, "Three readings" is now „Drei Lesarten" — three ways of reading the same case, which is what the three system words under it appear to mean. If you meant three readings *taken*, as an instrument takes them, the German is „Drei Befunde" and I will change that line and the two places it is repeated. One word, one answer, and I have implemented Lesarten in the meantime.
+
+---
+
+*Added 6 September 2026, with the new home-page section of fifteen chapter readings. One query, and it is the standing tail of query 1 above, now with evidence behind it rather than a hunch.*
+
+## 2. Page 11 says „Drei Lesarten" and the new section says „Die Befunde" for the same printed thing
+
+### SOURCE
+
+Page 11: "16 cases. Three readings. One question: state or situation?"
+The opening of chapter 01, and of every chapter to 15: "READING / 01 — Time: NOT CLAIMED · Attention: DEGRADED · Safety: DOMINANT — The body makes a verdict before attention tests it."
+The new home-page section that reproduces those fifteen openings is headed "The readings".
+
+### CURRENT TRANSLATION
+
+Section 4, page 11's line: „16 Fälle. **Drei Lesarten.** Eine Frage: Zustand oder Situation?" (`moments.line`, and the same sentence again on the press page as `press.mapLine`).
+Section 7, two screens below it: „**Die Befunde**", and fifteen rows each labelled „**Befund** / 01", „Befund / 02", and so on.
+
+### ISSUE
+
+Conceptual consistency. Your ruling in §14 took Befund off the strap as too clinical, and amendment 35 split the noun accordingly: **Lesart** where the reading is of the world, the reading that arrives feeling like a fact; **Befund** where the reading is of the instrument, what a check of the body or a look at the panel returns. Page 11's line went to Lesart with the strap. I recorded Medium confidence on it at the time and asked you one question about it: whether "three readings" meant three ways of reading a case, or three readings taken.
+
+The new section answers that question, and it answers it the other way. A chapter's reading is three instrument values printed in capitals — NOT CLAIMED, MORNING DEBT, HALF-SECOND WINDOW — one for each of the three systems, at the hour the chapter opens. Those are readings taken, not interpretations offered, and under amendment 35's own rule a reading taken is a Befund. So the German homepage now says Lesarten in section 4 and Befund fifteen times in section 7, for the same three printed values, two screens apart, and a German reader has no way to know they are the same thing. In English one repeated word carries the identity for free.
+
+The strap is not in question. „Ihre erste Lesart ist nicht die ganze Geschichte." stands, and so does the back cover's second sentence: those are readings of the world and Lesart is right for both. What is in question is the one line in the middle, which names what the fifteen panels contain.
+
+### OPTION A — page 11's line becomes „16 Fälle. Drei Befunde."
+
+The three values under each case are Befunde, the section that prints them is „Die Befunde", and page 11 names them with the same word. The reader meets one noun for one thing, and the book's move is legible in German: the cover hands you a **Lesart**, the panel gives you a **Befund**, and the whole instruction is to get from the first to the second. Cost: „Drei Befunde" is a shade more clinical than „Drei Lesarten" in a line that sits directly under the cover, which is the objection you raised in §14. It is one word, in body type, four sections below the strap, not on the cover.
+
+### OPTION B — the file as it stands: „Drei Lesarten" on page 11, „Die Befunde" in section 7
+
+Page 11's line keeps the softer noun and the cover's family, and the split is simply not visible to a reader who does not compare the two sections. Cost: the two sections describe the same fifteen panels and call them different things, and the German book will have to make the same choice at every one of the sixteen case pages and every state line, where „Lesart" for a printed value would be plainly wrong. If page 11 stays Lesarten, the book carries an inconsistency the site has just made visible.
+
+### RECOMMENDATION
+
+A. The evidence moved: when I assigned page 11 to Lesart the fifteen openings were not on the site and "three readings" could still have meant three interpretations. It cannot now. Against that, the clinical objection is real but small in this slot — it is one noun in running text, and the sentence it sits in is a caption for an evidence table, which is where a German reader expects Befund and does not flinch at it. If you take A, I change three strings and nothing else: `moments.line`, `press.mapLine`, and the memory row. If you prefer B, I will record it as a deliberate two-word split and add the rule to the method so a second translator does not "correct" it.
+
+### CONFIDENCE
+
+High that the two sections must not disagree. Medium on which word wins, because the objection that put Lesart there is yours and it is about how the German sounds under the cover, which is your call and not mine.

@@ -56,7 +56,10 @@ The INPUT / FIRST READING / POSSIBLE STATE table printed beside it on the back c
 | `closing.question`, `closing.source` | Page 225, the book's last sentence: "Is this the situation? Or is this their state?" |
 | `press.sources[0..1]` | Page 226, The Scientific Heartbeat: "Each chapter has three parts here…" and "Leaving them out would make the argument look tidier than it is." |
 | `press.facts` ISBN, publisher, extent | Copyright page, page 4: ISBN-13 978-2-87996-258-0, Budisin Publishing, 278 pages |
+| `readings.items[]` | The opening page of chapters 01 to 15, reproduced whole: the chapter number, the three systems with the value each was holding, and the one line printed beneath them. Read from the print file with `awk`, not retyped. Pages 23, 29, 39, 51, 67, 79, 95, 105, 121, 135, 151, 167, 183, 195 and 209, from the printed map on page 11. **There are fifteen, not sixteen:** chapter 00 opens on a CASE EVIDENCE panel instead, which is why the site never says "sixteen readings". The values are set in capitals on the page and are carried in capitals here. **The book prints no legend explaining what a value means, and neither does the site.** |
+| `readings.label` | "Reading", the word printed before each chapter number. |
 | `press.credits` | Copyright page: cover design Zoe Larusson; book design and typesetting Ivana Budišin |
+| `press.credits` Photography row | **Author-supplied, 6 September 2026**, not on the copyright page. She wrote: "Zoe LARUSSON is the photographer and book designer." The photography credit is recorded. **The book-design credit is not**: page 4 prints "Book design and typesetting: Ivana Budišin" and "Cover design: Zoe Larusson", and the site may not contradict the printed book. Flagged to the author on the same day; if page 4 is wrong, the book is the thing to correct. |
 | `footer.rights` | Copyright page: © 2026 Budisin Publishing |
 
 ## Supplied by the author
@@ -73,6 +76,9 @@ The INPUT / FIRST READING / POSSIBLE STATE table printed beside it on the back c
 | `press.kitLabel` | "Download complete press kit", her wording, same brief §10. |
 | `nav.book` / `nav.read` / `nav.author` / `nav.press` | Book · Extract · Author · Press, her navigation, same brief §21. |
 | `public/audio/extract-en.m4a` | The author's reading of the pilot, second take, supplied 6 September 2026 as "The Pilot NEW.mp3", 5 minutes 22 seconds. Restored before publishing: level drift 4.8 dB to 0.8 dB, noise floor -53 to -64 dBFS, and a gentle shelf above 3 kHz, because this take sits 4.5 dB darker than the first and reads as further from the microphone. No words were altered. **`listen.subtitle`, "Read by the author", is no longer rendered.** On 6 September the author said she is generating the reading in ElevenLabs; the two files she supplied are statistically almost identical (140 and 141 words per minute, 9.0 and 9.8 semitones of pitch range, pause variability 0.53 and 0.56), which two human performances would not be. The site may not claim a performance it cannot stand behind. The string stays in all three content files; the component renders it again as soon as she says whose voice it is and how she wants it described. |
+
+| `hero.credential` | **The author's own, 6 September 2026**: "Put my name and job as you suggested." Compressed from her printed biography, page 278 and the copyright page, to the words that fit one line under the byline. Answers open question 2, which is now closed. |
+| `press.photoCredit` | **The author named the photographer, 6 September 2026**: Zoe Larusson. Answers the placeholder, which is now closed. |
 
 ## The press pack
 
@@ -96,17 +102,16 @@ Everything in `nav` (including `menu` and `closeMenu`), `status`, `listen`, `a11
 | Key | What is needed |
 |---|---|
 | `press.bios[1]` | A longer biography, 100 to 150 words. The press page hides the whole Biography block while only the short form exists, so a journalist currently has nothing to quote or verify. |
-| `press.photoCredit` | The photographer's name for the author photograph. A picture desk will ask before it publishes. |
 
 ## Open questions for the author
 
 From `brief/REDESIGN.md`. Everything else in the redesign was decided by the team.
 
 1. **The premise paragraph.** The site uses the back cover verbatim, because the interior does not supply 70 to 120 words at that position and no new prose may be written. It is jacket copy, and she may not want the site to speak in that register. The alternative is an assembly of whole printed sentences from pages 8 and 9.
-2. **A credential on the first screen.** Her brief §8.1 lists what the hero carries and a credential is not on the list, so the hero is clean and "clinical psychologist" first appears in the author section. Her sentence is in the metadata and the structured data either way. One line under the byline would put it on the first screen.
+2. ~~**A credential on the first screen.**~~ **Closed 6 September 2026.** She asked for it: one line, "Clinical psychologist, Luxembourg", set in mono under the byline.
 3. **Three moments, three "None."** The three she named all end "Verified event / tone / crisis: None." Read together they can be heard as a stronger claim than the book makes — the one Chapter Thirteen, "The Time the Body Was Right", exists to refute. Page 11's "16 cases" line above them is the hedge. Swapping 22:47 for 22:40 would end the set on the moment the body was right, at the cost of the most quotable panel on the page.
 4. **"Then turn tightened."** Your corrected text carries this twice, and it reads as a slip for "The turn tightened." The English page prints it exactly as you wrote it. French and German translate the sense and do not carry the slip, because in those languages it could only read as the translator's error. One word from you settles all three.
-5. **Is the recording your own voice?** The Listen section says "Read by the author". If the file is a synthesised reading, that line has to change, and the site's whole rule is that it does not claim what is not true.
+5. ~~**Is the recording your own voice?**~~ **Closed 6 September 2026, by removal.** She listened and took the reading off the site: "take out the reading… it's bad." `editions.en.audioUrl` is `null`, so the Listen section, its footer link and its link from `/read` are all gone, and no claim about a voice is made anywhere. What was learned about generating a better one is in `audio/README.md`.
 6. Still open from before: a publication month or season in place of "Publishing soon"; whether she wants an audio recording; and, for her copy-editor, the typos noted in the almost-final text on or near the quoted pages (page 12 "is build"; page 15 "used in this book an analogy"; page 19 "safety,."; page 31 "is was fatigue"; page 181 "the he panel"; page 191 "mashine"; page 192 "somthing"; page 220 "itsel"). The site quotes none of those sentences.
 
 ---

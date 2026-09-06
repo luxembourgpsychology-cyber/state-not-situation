@@ -51,6 +51,7 @@ export const de: SiteContent = {
     subtitle: "Ein Leitfaden für den Moment, bevor aus Deutung Wirklichkeit wird",
     strap: "Ihre erste Lesart ist nicht die ganze Geschichte.",
     authorPrefix: "von",
+    credential: "Klinische Psychologin, Luxemburg",
     coverAlt: "Vorderseite des Covers von State. Not Situation. Das Wort STATE groß in Rot über NOT SITUATION in Schwarz, auf cremefarbenem Grund, bedruckt mit blassen, durchgestrichenen Sätzen und kleinen Instrumentenanzeigen.",
     readCta: "Leseprobe lesen"
   },
@@ -195,6 +196,133 @@ export const de: SiteContent = {
       "9"
     ]
   },
+  readings: {
+    title: "Die Befunde",
+    label: "Befund",
+    pageLabel: "Seite",
+    items: [
+      {
+        number: "01",
+        time: "KEINE AUSSAGE",
+        attention: "GESCHWÄCHT",
+        safety: "DOMINANT",
+        page: 23,
+        line: "Der Körper fällt ein Urteil, bevor die Aufmerksamkeit es prüft."
+      },
+      {
+        number: "02",
+        time: "DOMINANT",
+        attention: "NACHSEH-SCHLEIFE",
+        safety: "VERSTÄRKT",
+        page: 29,
+        line: "Müdigkeit nimmt der Gewissheit die Bremse."
+      },
+      {
+        number: "03",
+        time: "IN DEN LÜCKEN",
+        attention: "IN DER SCHLEIFE",
+        safety: "KEINE AUSSAGE",
+        page: 39,
+        line: "Die Hand greift, bevor der Kopf entscheidet."
+      },
+      {
+        number: "04",
+        time: "AUSLÖSER UM 15:28",
+        attention: "GEWOHNHEITS-SCHLEIFE",
+        safety: "STEIGT SPÄTER",
+        page: 51,
+        line: "Die Hand hält einen Termin ein, den der Kopf nie gemacht hat."
+      },
+      {
+        number: "05",
+        time: "DOMINANT",
+        attention: "SPÄT EINGEFANGEN",
+        safety: "KEINE AUSSAGE",
+        page: 67,
+        line: "Eine Stunde fühlt sich frei an, und der Morgen zahlt."
+      },
+      {
+        number: "06",
+        time: "DEFIZIT VOM MORGEN",
+        attention: "GESCHWÄCHT",
+        safety: "GRÜBELN",
+        page: 79,
+        line: "Das Wochenende macht alles richtig und bringt niemandem Erholung."
+      },
+      {
+        number: "07",
+        time: "DEFIZIT VOM NACHMITTAG",
+        attention: "ZERSPLITTERT",
+        safety: "STEIGT",
+        page: 95,
+        line: "Das Dokument bleibt dasselbe; der Leser verliert an Reichweite."
+      },
+      {
+        number: "08",
+        time: "ABEND",
+        attention: "VERENGT",
+        safety: "DOMINANT",
+        page: 105,
+        line: "Aus einem Wort werden sechs Tage Belege."
+      },
+      {
+        number: "09",
+        time: "20 MINUTEN UNGENUTZT",
+        attention: "FENSTER, HALBE SEKUNDE",
+        safety: "DOMINANT",
+        page: 121,
+        line: "Das Gespräch endet vor seinem ersten Satz."
+      },
+      {
+        number: "10",
+        time: "07:40 RESET",
+        attention: "VERBRAUCHT",
+        safety: "REST",
+        page: 135,
+        line: "Die Küche wird zurückgesetzt. Der Körper nicht."
+      },
+      {
+        number: "11",
+        time: "DEFIZIT VOM VORABEND",
+        attention: "BIS 10:00 VERBRAUCHT",
+        safety: "FÜLLT DIE LÜCKEN",
+        page: 151,
+        line: "Sechs gewöhnliche Dinge werden zum Beweis, dass nichts in Ordnung ist."
+      },
+      {
+        number: "12",
+        time: "KEINE AUSSAGE",
+        attention: "ENG, VERFÜGBAR",
+        safety: "SIGNAL VORHANDEN",
+        page: 167,
+        line: "Es ist nichts. Der Kiefer kommt nicht zur Ruhe."
+      },
+      {
+        number: "13",
+        time: "22:40",
+        attention: "GENAU",
+        safety: "RICHTIG",
+        page: 183,
+        line: "Dieser Alarm gehört zu vierzig Metern Beton."
+      },
+      {
+        number: "14",
+        time: "GESCHÜTZT",
+        attention: "PLATZIERT",
+        safety: "RUHIG",
+        page: 195,
+        line: "Der Tag, der Kapitel Null hätte sein sollen."
+      },
+      {
+        number: "15",
+        time: "VORHERSAGE",
+        attention: "OFFENE AKTE, BENANNT",
+        safety: "VORAB BENANNT",
+        page: 209,
+        line: "Der Befund von morgen, heute Abend abgelesen."
+      }
+    ]
+  },
   listen: {
     eyebrow: "Hören",
     title: "Hörprobe",
@@ -269,7 +397,7 @@ export const de: SiteContent = {
       }
     ],
     photoUnavailable: "Foto der Autorin auf Anfrage.",
-    photoCredit: "[COPY NEEDED: the photographer’s name, for the author photograph credit. A picture desk will ask before it publishes.]",
+    photoCredit: "Foto: Zoe Larusson",
     bioHeading: "Biografie",
     bios: [
       {
@@ -427,6 +555,10 @@ export const de: SiteContent = {
     credits: [
       {
         label: "Umschlaggestaltung",
+        value: "Zoe Larusson"
+      },
+      {
+        label: "Fotografie",
         value: "Zoe Larusson"
       },
       {
