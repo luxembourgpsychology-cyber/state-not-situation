@@ -159,13 +159,71 @@ icon sets, rounded card interfaces.
 
 ---
 
-## THE TWO TABS I HAVE NOT SEEN
+## PLAN PREFERENCES
 
-**Plan preferences** and **Agent tasks** are where cadence, channels and what
-the agent is allowed to do on its own are set. Send me those two screens and I
-will fill them in the same way. Until then, if Agent tasks offers autonomous
-publishing, keep it on approval rather than automatic: the book has no
-publication date and no reviews, and an unattended agent will invent both.
+### Suggestion frequency
+
+| Field | Now | Set to | Why |
+|---|---|---|---|
+| Social media | 5 per week | **5 per week** | Right for one author with no team. But check whether this is five in total or five *per connected platform*. Five platforms are connected, so the second reading is twenty-five a week, which you cannot review honestly. |
+| Blog | **3 per week** | **1 per week** | This is the setting to change. Three AI blog posts a week is twelve a month of psychology writing published under a practising clinician's name. Approval does not fix it: at that volume you either rubber-stamp or stop looking, and both are worse than posting less. |
+| Email marketing | 2 per month | **1 per month**, or 2 if one is the practice and one is the book | See the note on the list below, which is the real problem. |
+
+### The list the campaign is supposed to grow does not exist yet
+
+`newsletterUrl` on statenotsituation.com is still empty, so the publication-notice
+form falls back to a mailto: signups arrive as individual emails to
+ivana@luxembourgpsychology.com and land in no list at all. Two consequences.
+
+1. **Wix email marketing will send to your Wix contacts**, who are practice
+   contacts, not people who asked to hear about a book. Marketing a book to
+   people who came to you for psychological support is a different relationship
+   and deserves a deliberate decision rather than a default. If you do it, a
+   separate opt-in segment is the clean way.
+2. **Connect a real list before the campaign starts**, or the month's stated goal
+   has nowhere to land. One line in `site.config.ts` points the form at any
+   provider. Tell me which one and I will wire it.
+
+### Social platforms
+
+| Connected | Use it for the book? |
+|---|---|
+| **LinkedIn, Ivana Budišin** | **Yes, this is the book's best channel.** Clinicians and journalists are here, the instrument-reading format suits the feed, and it is your own name rather than the practice's. |
+| **YouTube, Mind Matters** | **Yes.** The strongest untapped asset: the Kennedy opening is a told story, and the fifteen readings are a natural short-form series. |
+| **Instagram** | Yes. The typographic cards belong here. |
+| **Facebook** | Yes, but expect little. Do not write for it separately. |
+| **Google Business Profile** | **No.** That profile exists so someone in Luxembourg can find a psychologist. Book teasers there are a category error and dilute the local listing. If the frequency setting cannot exclude it, post there manually. |
+| Pinterest, TikTok, not connected | **Leave them.** Pinterest would suit the cards and is the better of the two, but neither is worth opening a channel you then have to feed. |
+
+---
+
+## AGENT TASKS
+
+The reassurance at the top is real: nothing publishes without you. The risk is
+not publication, it is **volume of things to approve**, and content written about
+psychology in your name by something that has not read your book.
+
+**Do this before you touch the General tab.** Homepage optimization and Page
+optimization are both on, and they read the Business goal and Unique selling
+point you set. If you paste the book-forward General values while those are
+running, the agent will propose rewriting your *practice* homepage around the
+book. Either leave General alone, or turn those two off first.
+
+| Task | Now | Set to | Why |
+|---|---|---|---|
+| Keyword research | on | **on** | Research only, changes nothing, runs twice a year. |
+| Homepage optimization | on | **off** | Your practice positioning is careful and hard-won. An AI rewrite proposal every six months is churn you have to argue with. |
+| Page optimization | on | **off** | Same, across more pages. |
+| Weekly blog posts creation | on | **off**, or leave on only after you cut Blog to 1 per week | This is the one that fills your queue. |
+| Blog post optimization | on | **off** | It rewrites posts you already wrote. If the words are yours, they should stay yours. |
+| FAQ creation | on | **off** | AI-written questions and answers about mental health, published under a clinical psychologist's name, once a month. This is the highest-risk switch on the page. |
+| FAQ optimization | on | **off** | Same, on the ones that exist. |
+| Google Ads, below the fold | not seen | **off for now** | There is nothing to buy. Ads for a book with no retail link spend money to reach people you cannot convert, and pre-order language would promise a date you do not have. |
+
+**Note that none of these tasks touches statenotsituation.com.** The book site
+runs from the GitHub repository on Vercel, not from Wix, so Wix SEO tasks cannot
+reach it. The book's own pages are already indexed, structured and clean. Wix's
+job here is social, email and the practice site, and nothing else.
 
 ---
 
