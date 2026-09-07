@@ -394,7 +394,7 @@ export const en: SiteContent = {
     // Copyright page, page 4.
     rights: "© 2026 Budisin Publishing",
     translationNote:
-      "The book is published in English; these pages were translated from it by AI, not yet reviewed by a native speaker. The English text is authoritative.",
+      "The book is published in English; these pages were translated from it by AI.",
   },
 
   a11y: {

@@ -578,7 +578,7 @@ export const fr: SiteContent = {
     contactLink: "Contact",
     rights: "© 2026 Budisin Publishing",
     translationNote:
-      "Le livre est publié en anglais ; ces pages ont été traduites par intelligence artificielle, en attente de relecture par un francophone. Seul le texte anglais fait foi."
+      "Le livre est publié en anglais ; ces pages ont été traduites par intelligence artificielle."
   },
   a11y: {
     mainLandmark: "Contenu principal",

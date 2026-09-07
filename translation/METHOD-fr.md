@@ -765,8 +765,12 @@ written natively rather than translated from the English line, to the same four
 facts. `footer.translationNote`:
 
 > « Le livre est publié en anglais ; ces pages ont été traduites par
-> intelligence artificielle, en attente de relecture par un francophone. Seul le
-> texte anglais fait foi. »
+> intelligence artificielle. »
+
+**Shortened by the author, 7 September 2026.** She cut « en attente de relecture
+par un francophone. Seul le texte anglais fait foi. » and asked for one simple
+sentence. The rows below for *relecture*, *un francophone* and « fait foi » are
+kept as the record of decisions taken, but no string on the site uses them now.
 
 | English | French | Rejected, and why |
 |---|---|---|

@@ -288,11 +288,11 @@ export interface SiteContent {
     rights: string;
     /**
      * Printed in the imprint row, beside the copyright and the ISBN, and only
-     * on a language `isUnderReview()` returns true for. It says that these
-     * pages were translated from the English **by AI** and are not yet reviewed
-     * by a native speaker. Not "with AI assistance": that phrasing implies a
-     * human translator the site does not have, and both native editors struck
-     * it. Do not repair the strings toward a softer comment. It disappears by itself when the language is signed off and
+     * on a language `isUnderReview()` returns true for. One sentence: these
+     * pages were translated from the English **by AI**. Not "with AI
+     * assistance", which implies a human translator the site does not have.
+     * The author cut the review and authoritative-version clauses on
+     * 7 September 2026; do not put them back. It disappears by itself when the language is signed off and
      * `underReview` flips to false in site.config.ts — there is nothing to
      * remove by hand. English carries the reference wording and never shows it.
      */

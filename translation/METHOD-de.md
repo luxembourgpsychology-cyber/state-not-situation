@@ -1035,8 +1035,12 @@ amendments 56 to 58: **the object is fronted and the event gets a real active
 verb**, which is why it cannot be back-translated word for word.
 `footer.translationNote`:
 
-> „Diese Seiten hat eine KI aus dem Englischen übersetzt; das muttersprachliche
-> Lektorat steht noch aus. Maßgeblich ist das Original."
+> „Diese Seiten hat eine KI aus dem Englischen übersetzt."
+
+**Shortened by the author, 7 September 2026.** She cut „das muttersprachliche
+Lektorat steht noch aus. Maßgeblich ist das Original." and asked for one simple
+sentence. The rows below for *Lektorat* and *maßgeblich* are kept as the record
+of decisions taken, but no string on the site uses them now.
 
 | English | German | Rejected, and why |
 |---|---|---|

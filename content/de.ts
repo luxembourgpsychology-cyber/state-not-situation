@@ -578,7 +578,7 @@ export const de: SiteContent = {
     contactLink: "Kontakt",
     rights: "© 2026 Budisin Publishing",
     translationNote:
-      "Diese Seiten hat eine KI aus dem Englischen übersetzt; das muttersprachliche Lektorat steht noch aus. Maßgeblich ist das Original."
+      "Diese Seiten hat eine KI aus dem Englischen übersetzt."
   },
   a11y: {
     mainLandmark: "Hauptinhalt",
