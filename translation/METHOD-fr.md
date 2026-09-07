@@ -755,3 +755,28 @@ oddness the English carries in "a field guide to the moment". It runs seven
 characters longer and sets on two lines at 390 px and at 1440 px, checked.
 
 « guide de terrain » is unchanged and stays the French for *field guide*.
+
+
+## The translation note, 7 September 2026
+
+The author asked for a disclosure that the French and German pages are
+AI-translated, "somehow so it's not too bad… but professional". The French was
+written natively rather than translated from the English line, to the same four
+facts. `footer.translationNote`:
+
+> « Le livre est publié en anglais ; ces pages ont été traduites par
+> intelligence artificielle, en attente de relecture par un francophone. Seul le
+> texte anglais fait foi. »
+
+| English | French | Rejected, and why |
+|---|---|---|
+| AI | « intelligence artificielle » | « IA » — this is a formal notice and French press copy spells the term out in this slot. « traduction automatique » is the Google-Translate register. **« traduction assistée par IA » claims a human translator the site does not have**, and collides with TAO. |
+| the pending pass | « relecture » | the trade's word; « révision » is heavier and « correction » says something is wrong. |
+| who is awaited | « un francophone » | « locuteur natif » is translation-agency French. **Recorded nuance:** a francophone need not be a native speaker. « un relecteur francophone » is exact and lands the line at 29 words, over the band; the editor's ruling was « un francophone » and it stands. |
+| authoritative version | « Seul le texte anglais fait foi » | its own sentence, which is what a French imprint prints and what a Luxembourg reader has seen at the foot of every bilingual official text. |
+| published in English | « publié en anglais » | « écrit en anglais » is the schoolbook's verb; *publié* is the imprint's, and it states the fact the reader needs — the book is available in English. |
+
+**Typography.** The string carries a literal U+202F narrow no-break space before
+the semicolon, per § Typography and rule 10, verified at byte level
+(`E2 80 AF 3B`). It must be that character in `content/fr.ts` and never an
+entity. The sentence contains no apostrophe, so there is no U+2019 to get wrong.

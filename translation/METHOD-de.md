@@ -1024,3 +1024,22 @@ is the correct word. Amendment 26 is unaffected.
 balance of 0.57 against the English's 0.80: a stub over a long line, directly
 above a two-line red subtitle. The block wants roughly three-quarters of the
 English type size. Better known now than rediscovered after the artwork.
+
+
+## The translation note, 7 September 2026
+
+The author asked for a disclosure that the French and German pages are
+AI-translated, "somehow so it's not too bad… but professional". The German was
+written natively rather than translated from the English line, and it is built to
+amendments 56 to 58: **the object is fronted and the event gets a real active
+verb**, which is why it cannot be back-translated word for word.
+`footer.translationNote`:
+
+> „Diese Seiten hat eine KI aus dem Englischen übersetzt; das muttersprachliche
+> Lektorat steht noch aus. Maßgeblich ist das Original."
+
+| English | German | Rejected, and why |
+|---|---|---|
+| AI translated it | „eine KI hat … übersetzt", or „mit KI übersetzt" | **KI-gestützt and mit KI-Unterstützung both assert a human translator the site does not have**, which is exactly the overstatement the one rule exists to prevent, and the second nominalises into press-release German. *maschinell übersetzt* is the EU-portal and help-page voice and does not say KI. *automatisch übersetzt* is the browser banner. *KI-Übersetzung* is a manufactured compound, barred by amendment 3. |
+| native review pending | „das muttersprachliche Lektorat steht noch aus" | *Prüfung* is unavailable: amendment 1 reserves *prüfen* for inspecting for a fault. The person-noun *Muttersprachler* is avoided; *Lektorat* is the trade's word for the missing pass. |
+| authoritative version | „Maßgeblich ist das Original" | „Im Zweifel gilt …" invites the reader to look for doubt. „die englische Fassung" is wrong twice over: there is no German edition, so English is not one *Fassung* among several, and it borders the *Lesart* / *Fassung* family amendment 59 has just mapped. *das Original* also avoids saying *englisch* twice in nineteen words. |

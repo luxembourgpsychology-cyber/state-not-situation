@@ -286,6 +286,17 @@ export interface SiteContent {
     pressLink: string;
     contactLink: string;
     rights: string;
+    /**
+     * Printed in the imprint row, beside the copyright and the ISBN, and only
+     * on a language `isUnderReview()` returns true for. It says that these
+     * pages were translated from the English **by AI** and are not yet reviewed
+     * by a native speaker. Not "with AI assistance": that phrasing implies a
+     * human translator the site does not have, and both native editors struck
+     * it. Do not repair the strings toward a softer comment. It disappears by itself when the language is signed off and
+     * `underReview` flips to false in site.config.ts — there is nothing to
+     * remove by hand. English carries the reference wording and never shows it.
+     */
+    translationNote: string;
   };
 
   a11y: {

@@ -576,7 +576,9 @@ export const fr: SiteContent = {
     band: "Avant de croire l’histoire.",
     pressLink: "Presse",
     contactLink: "Contact",
-    rights: "© 2026 Budisin Publishing"
+    rights: "© 2026 Budisin Publishing",
+    translationNote:
+      "Le livre est publié en anglais ; ces pages ont été traduites par intelligence artificielle, en attente de relecture par un francophone. Seul le texte anglais fait foi."
   },
   a11y: {
     mainLandmark: "Contenu principal",

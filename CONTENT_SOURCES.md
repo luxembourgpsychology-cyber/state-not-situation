@@ -97,6 +97,18 @@ Everything in `nav` (including `menu` and `closeMenu`), `status`, `listen`, `a11
 
 | `press/excerpt-the-opening.pdf` | **Superseded.** The extract PDF in the press kit was exported on 4 September from the older text and does not match the book as it now reads. Re-export it from v40 before the kit goes to a journalist, or a review quotes a version that no longer exists. |
 
+## Site-operational strings, 7 September 2026
+
+Deliberately not under *Printed in the book* or *Supplied by the author*. This is
+the publisher speaking about the website, not about the book, so it has no page
+number behind it and needs none. The one rule is satisfied: it states the book's
+language and how these pages were made, and nothing about the book's content.
+
+| Key | Source |
+|---|---|
+| `footer.translationNote` | **The author asked for it**, 7 September 2026: *"Can you add that French and German are ai translated… somehow so it's not too bad… but professional"*. Her words are the source of the requirement, not of the wording. English reference: "The book is published in English; these pages were translated from it by AI, not yet reviewed by a native speaker. The English text is authoritative." **The French and German are authored natively to the same four facts, not translated from that English line** — reasoning in `METHOD-fr.md` and `METHOD-de.md`. The four facts, and no fifth: the book is English; AI did the translating; no native review yet; the English governs. |
+| Where it renders | The footer imprint row, beside the copyright, gated on `isUnderReview(locale)`. **English carries the reference wording and never displays it.** The note removes itself when a language is signed off and `underReview` flips in `site.config.ts`; there is nothing to delete by hand. Not repeated on `/read`: that page renders the same footer, and a second notice above the book's own prose would be a warning label on her writing, which is the thing she ruled out. |
+
 ## Still placeholders
 
 | Key | What is needed |
@@ -116,7 +128,9 @@ From `brief/REDESIGN.md`. Everything else in the redesign was decided by the tea
    - **French, `QUERIES-fr.md` query 2 — which way the claim runs in NOT CLAIMED.** English leaves it open and French must close it: either the system claims the state, or nothing has claimed the system. The file carries « NON SOLLICITÉ », the one wording that does not choose. It governs four chapter openings and both halfway maps.
    - ~~**German, `QUERIES-de.md` query 2.**~~ **Closed 6 September 2026** on her own instruction to reconsider the lexicon. Page 11 is now „Drei Befunde", amendment 35 is replaced, and nothing German is waiting on her. One line is recorded at medium confidence rather than queried: „Drei Befunde" as a serif display heading on the home page, where no *Untersuchung* stands above it. Her ear may overrule it.
 
-7. Still open from before: a publication month or season in place of "Publishing soon"; whether she wants an audio recording; and, for her copy-editor, the typos noted in the almost-final text on or near the quoted pages (page 12 "is build"; page 15 "used in this book an analogy"; page 19 "safety,."; page 31 "is was fatigue"; page 181 "the he panel"; page 191 "mashine"; page 192 "somthing"; page 220 "itsel"). The site quotes none of those sentences.
+7. **Should the translation note survive sign-off?** As built it disappears when a native speaker signs a language off and `underReview` flips, although those pages will still have been AI-translated. That is an architecture decision rather than a translation one, and it is hers. If she wants the AI fact to outlive the review, the note splits into two strings on two gates: one that says how the pages were made, which never goes away, and one that says the review is pending, which does. Nothing already written needs rewriting to allow it.
+
+8. Still open from before: a publication month or season in place of "Publishing soon"; whether she wants an audio recording; and, for her copy-editor, the typos noted in the almost-final text on or near the quoted pages (page 12 "is build"; page 15 "used in this book an analogy"; page 19 "safety,."; page 31 "is was fatigue"; page 181 "the he panel"; page 191 "mashine"; page 192 "somthing"; page 220 "itsel"). The site quotes none of those sentences.
 
 ---
 

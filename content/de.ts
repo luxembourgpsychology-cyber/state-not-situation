@@ -576,7 +576,9 @@ export const de: SiteContent = {
     band: "Bevor Sie der Geschichte glauben.",
     pressLink: "Presse",
     contactLink: "Kontakt",
-    rights: "© 2026 Budisin Publishing"
+    rights: "© 2026 Budisin Publishing",
+    translationNote:
+      "Diese Seiten hat eine KI aus dem Englischen übersetzt; das muttersprachliche Lektorat steht noch aus. Maßgeblich ist das Original."
   },
   a11y: {
     mainLandmark: "Hauptinhalt",

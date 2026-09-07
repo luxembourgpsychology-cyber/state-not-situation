@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/site.config";
 import { siteConfig } from "@/site.config";
-import { getContent } from "@/lib/i18n";
+import { getContent, isUnderReview } from "@/lib/i18n";
 import { PulseMark } from "./PulseMark";
 
 /**
@@ -55,9 +55,15 @@ export function Footer({ locale }: { locale: Locale }) {
           </nav>
         </div>
 
-        <div className="container-book pb-7 flex flex-col sm:flex-row gap-1 sm:gap-8 font-mono text-[0.68rem] text-paper/80">
+        {/* The imprint row. The translation note joins it only while the
+            language is under review; signing the language off in
+            site.config.ts removes it with no edit here. */}
+        <div className="container-book pb-7 flex flex-col sm:flex-row sm:flex-wrap gap-1 sm:gap-x-8 sm:gap-y-1 font-mono text-[0.68rem] text-paper/80">
           <p>{c.footer.rights}</p>
           {ed.isbn ? <p>ISBN {ed.isbn}</p> : null}
+          {isUnderReview(locale) ? (
+            <p className="sm:basis-full sm:max-w-[68ch] leading-[1.6]">{c.footer.translationNote}</p>
+          ) : null}
         </div>
       </div>
     </footer>

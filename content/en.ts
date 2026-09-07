@@ -393,6 +393,8 @@ export const en: SiteContent = {
     contactLink: "Contact",
     // Copyright page, page 4.
     rights: "© 2026 Budisin Publishing",
+    translationNote:
+      "The book is published in English; these pages were translated from it by AI, not yet reviewed by a native speaker. The English text is authoritative.",
   },
 
   a11y: {
