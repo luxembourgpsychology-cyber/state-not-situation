@@ -47,7 +47,7 @@ Copy and launch state change in those two top files. You should not need to touc
 
 ## Design constraints
 
-Documented in `DESIGN_SYSTEM.md`, and it is deliberately small: **six type steps, three spacing values, four jobs for red, one shadow, one transition.** Cream `#F7F3EC`, cover red `#B5291C`, ink `#111`; the three system inks Time `#2C6E8A`, Attention `#8C7432`, Safety `#BF372A`, read from the page 11 rectangles of the print file. Serif titles never bold. Mono for anything measured. No gradients, no glass, no icon sets, no cards.
+Documented in `DESIGN_SYSTEM.md`, and it is deliberately small: **six type steps, three spacing values, four jobs for red, one shadow, one transition.** Cream `#F7F3EC`, cover red `#B5291C`, ink `#111`; the three system inks Time `#2C6E8A`, Attention `#8C7432`, Safety `#BF372A`, read from the page 5 rectangles of the print file. Serif titles never bold. Mono for anything measured. No gradients, no glass, no icon sets, no cards.
 
 The hero is the printed front cover, flat and still, with the site's only shadow. There is no 3D book and nothing driven by scroll position: the author's brief forbids scroll choreography and unnecessary 3D effects. No animation library is installed and none should be added.
 
@@ -55,9 +55,11 @@ The hero is the printed front cover, flat and still, with the site's only shadow
 
 ## Verified facts (do not restate anything else as fact)
 
-- ISBN-13 **978-2-87996-258-0**, © 2026 Budisin Publishing, 278 pages, 6 × 9 in
+- ISBN-13 **978-2-87996-258-0**, © 2026 Budisin Publishing, 282 pages, 6 × 9 in
 - Cover design: Zoe Larusson. Book design and typesetting: Ivana Budišin
-- CIP record at Bibliothèque nationale du Luxembourg
+- Legal deposit: Bibliothèque nationale du Luxembourg, as page iv prints it. The book claims no CIP record; do not add one.
+- Page references follow the final interior, v44 (roman i–x, arabic 1–272). Records in `brief/` and `translation/` cite the older 278-page text: for body pages, v44 = old − 6.
+- The final cover is `~/Desktop/STATE NOT SITUATION - KDP UPLOAD/COVER - UPLOAD.pdf` (full wrap, 0.635 in spine). Every cover image in `public/images/` and `public/press/` was rendered from it on 14 September 2026; what changed on it is recorded in `CONTENT_SOURCES.md` under *The final cover*. The older cover PDF on the Desktop and everything in `../Press Pack/` are superseded.
 - Author biography, in full: *"Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book."*
 
 The book states **no** count of references, no DOI verification, no "years of reading". Anything of that kind found in `../Press Pack/` is machine-written and is not a source.
@@ -67,15 +69,15 @@ The book states **no** count of references, no DOI verification, no "years of re
 Eight sections, decided in `brief/REDESIGN.md` against the author's brief. Section ids are English in every language, by contract: the language switcher keeps a reader in the section they are in. Do not reorder without reading that file.
 
 1. `Hero` — the printed cover, the title, two actions and no more
-2. `Premise` — the mechanism (page 181's line, page 10's three lines, the back cover's four sentences), then the reading (page 13's three checks)
+2. `Premise` — the mechanism (page 175’s line, the back cover’s headline and its four sentences), then the reading (page 7’s three checks)
 3. `Variables` — Time. Attention. Safety., as a spread
-4. `Moments` — three printed CASE EVIDENCE pages, under page 11's "16 cases" line
+4. `Moments` — three printed CASE EVIDENCE pages, under page 5’s "16 cases" line
 5. `Evidence` — the three markers with the author's own descriptions
 6. `ExcerptTeaser` — two opening paragraphs on the book's paper, then Continue reading
 7. `Readings` — the fifteen printed chapter openings, as one dashboard
-8. `Author`, then `Closing` — page 225, the cover line, and the one form
+8. `Author`, then `Closing` — page 218, the cover line, and the one form
 
-The chapter map, the page 13 sorting passage, the fourth case panel and page 226 live on `/press`. The page 26 block lives on `/read`.
+The chapter map, the page 7 sorting passage and page 220 live on `/press`. The page 20 block lives on `/read`.
 
 `Listen` still exists and is switched off. It renders only when `editions[lang].audioUrl` is set, and on 6 September 2026 the author took the reading down: *"take out the reading… it's bad."* Setting a path there brings the section, its footer link and its link from `/read` back in one value. Read `audio/README.md` before generating anything: the model choice and the direction tags were both measured that day and both were wrong in the takes she heard.
 
@@ -90,7 +92,7 @@ closed on 6 September 2026: the credential on the first screen, and whose voice
 the recording was.
 
 One thing needs her word rather than a decision: she wrote that Zoe Larusson is
-"the photographer and book designer", but page 4 prints **Book design and
+"the photographer and book designer", but page iv prints **Book design and
 typesetting: Ivana Budišin**. The photography credit is on the site; the book
 design credit is left as the book prints it, because the site may not contradict
 the printed page.

@@ -36,9 +36,9 @@ const RAIL = ["var(--time)", "var(--attention)", "var(--safety)"];
 /**
  * The press page answers a journalist's first four questions — title, author,
  * date, ISBN — in the first screen, and then carries the reference material
- * the home page sheds: the sixteen-chapter map printed on page 11 with its own
- * colour keys and rail, the page 13 passage on the three systems, and page
- * 226 on how the book's sources are set out.
+ * the home page sheds: the sixteen-chapter map printed on page 5 with its own
+ * colour keys and rail, the page 7 passage on the three systems, and page
+ * 220 on how the book's sources are set out.
  */
 export default async function PressPage({ params }: { params: Promise<{ lang: string }> }) {
   const locale = (await params).lang as Locale;
@@ -147,7 +147,7 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
               </ul>
             </section>
 
-            {/* Page 11, whole: the map, its colour keys and its rail. */}
+            {/* Page 5, whole: the map, its colour keys and its rail. */}
             <section aria-labelledby="press-map">
               <h2 id="press-map" className="t-label t-label-red mb-4">{p.mapHeading}</h2>
               <p className="t-label text-ink">{p.mapLabel}</p>

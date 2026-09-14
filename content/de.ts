@@ -68,7 +68,7 @@ export const de: SiteContent = {
       "Bevor der Kopf erklärt, hat der Körper schon abgestimmt. Schlafdruck, Hunger, Timing, Aufmerksamkeit, Bedrohungserkennung, Gedächtnis und Vorhersage prägen unbemerkt, was sich wahr anfühlt.",
       "Dann kommt der Kopf als Zweiter und liefert dem Gefühl einen Grund."
     ],
-    folio: "10"
+    folio: "4"
   },
   reading: {
     eyebrow: "Probieren Sie jetzt gleich etwas aus",
@@ -79,7 +79,7 @@ export const de: SiteContent = {
       "Spüren Sie Ihre Schultern."
     ],
     result: "Was Sie gefunden haben, ist ein Befund.",
-    folio: "13"
+    folio: "7"
   },
   variables: {
     sortingLines: [
@@ -103,7 +103,7 @@ export const de: SiteContent = {
         body: "Das System, das auf Bedrohung achtet, vor allem auf soziale Bedrohung. Es ist schnell, es ist alt, und es neigt zu Fehlalarmen. Es erzeugt Deutungen, die sich wie Tatsachen anfühlen."
       }
     ],
-    folio: "13"
+    folio: "7"
   },
   moments: {
     line: "16 Fälle. Drei Befunde. Eine Frage: Zustand oder Situation?",
@@ -112,7 +112,7 @@ export const de: SiteContent = {
     items: [
       {
         chapter: "00",
-        page: 16,
+        page: 10,
         time: "06:38",
         quote: "„Irgendetwas stimmt nicht.“",
         inputLabel: "Input",
@@ -122,7 +122,7 @@ export const de: SiteContent = {
       },
       {
         chapter: "02",
-        page: 28,
+        page: 22,
         time: "22:47",
         quote: "„ok.“",
         inputLabel: "Input",
@@ -132,7 +132,7 @@ export const de: SiteContent = {
       },
       {
         chapter: "11",
-        page: 150,
+        page: 144,
         time: "16:00",
         quote: "„Mit meinem Leben stimmt etwas nicht.“",
         inputLabel: "Input",
@@ -142,7 +142,7 @@ export const de: SiteContent = {
       }
     ],
     closing: "Es hieß: Ich versage. Die Daten waren: Ich bin müde.",
-    closingSource: "Seite 20"
+    closingSource: "Seite 14"
   },
   evidence: {
     title: "Belege",
@@ -164,7 +164,7 @@ export const de: SiteContent = {
       }
     ],
     closing: "Diese Markierungen gibt es, weil das Buch selbst dasselbe Risiko trägt, das es beschreibt.",
-    folio: "13"
+    folio: "7"
   },
   excerpt: {
     title: "Vor den Kapiteln",
@@ -187,13 +187,13 @@ export const de: SiteContent = {
     back: "Zurück zum Buch",
     readingModeLabel: "Lesemodus",
     closing: "In diesem Buch geht es um denselben Fehler, im Maßstab einer Küche. Die Version, die jeden Dienstag passiert. Die Version, in der Ihr Körper eine Geschichte über eine Nachricht, ein Schweigen, einen Blick schreibt und Ihr Kopf diese Geschichte unter der Aufsicht dessen redigiert, was Ihr Körper gerade fühlt. Niemand stirbt, aber Entscheidungen fallen. Beziehungen verändern sich. Selbsteinschätzungen entstehen. Und nichts davon musste so kommen, wie es kam, denn die Daten waren die ganze Zeit da.",
-    closingSource: "Seite 26",
+    closingSource: "Seite 20",
     endNote: "Es folgt Kapitel Null: Ein Tag, der in Ordnung hätte sein sollen.",
     unavailable: "Die Leseprobe in dieser Sprache folgt.",
     folios: [
-      "7",
-      "8",
-      "9"
+      "1",
+      "2",
+      "3"
     ]
   },
   readings: {
@@ -206,7 +206,7 @@ export const de: SiteContent = {
         time: "KEINE AUSSAGE",
         attention: "GESCHWÄCHT",
         safety: "DOMINANT",
-        page: 23,
+        page: 17,
         line: "Der Körper fällt ein Urteil, bevor die Aufmerksamkeit es prüft."
       },
       {
@@ -214,7 +214,7 @@ export const de: SiteContent = {
         time: "DOMINANT",
         attention: "NACHSEH-SCHLEIFE",
         safety: "VERSTÄRKT",
-        page: 29,
+        page: 23,
         line: "Müdigkeit nimmt der Gewissheit die Bremse."
       },
       {
@@ -222,7 +222,7 @@ export const de: SiteContent = {
         time: "IN DEN LÜCKEN",
         attention: "IN DER SCHLEIFE",
         safety: "KEINE AUSSAGE",
-        page: 39,
+        page: 33,
         line: "Die Hand greift, bevor der Kopf entscheidet."
       },
       {
@@ -230,7 +230,7 @@ export const de: SiteContent = {
         time: "AUSLÖSER UM 15:28",
         attention: "GEWOHNHEITS-SCHLEIFE",
         safety: "STEIGT SPÄTER",
-        page: 51,
+        page: 45,
         line: "Die Hand hält einen Termin ein, den der Kopf nie ausgemacht hat."
       },
       {
@@ -238,7 +238,7 @@ export const de: SiteContent = {
         time: "DOMINANT",
         attention: "SPÄT EINGEFANGEN",
         safety: "KEINE AUSSAGE",
-        page: 67,
+        page: 61,
         line: "Eine Stunde fühlt sich frei an, und der Morgen zahlt."
       },
       {
@@ -246,7 +246,7 @@ export const de: SiteContent = {
         time: "DEFIZIT VOM MORGEN",
         attention: "GESCHWÄCHT",
         safety: "GRÜBELN",
-        page: 79,
+        page: 73,
         line: "Das Wochenende macht alles richtig und bringt niemandem Erholung."
       },
       {
@@ -254,7 +254,7 @@ export const de: SiteContent = {
         time: "DEFIZIT VOM NACHMITTAG",
         attention: "ZERSPLITTERT",
         safety: "STEIGT",
-        page: 95,
+        page: 89,
         line: "Das Dokument bleibt dasselbe; der Leser verliert an Reichweite."
       },
       {
@@ -262,7 +262,7 @@ export const de: SiteContent = {
         time: "ABEND",
         attention: "VERENGT",
         safety: "DOMINANT",
-        page: 105,
+        page: 99,
         line: "Aus einem Wort werden sechs Tage Belege."
       },
       {
@@ -270,7 +270,7 @@ export const de: SiteContent = {
         time: "20 MINUTEN UNGENUTZT",
         attention: "FENSTER, HALBE SEKUNDE",
         safety: "DOMINANT",
-        page: 121,
+        page: 115,
         line: "Das Gespräch endet vor seinem ersten Satz."
       },
       {
@@ -278,7 +278,7 @@ export const de: SiteContent = {
         time: "07:40 RESET",
         attention: "VERBRAUCHT",
         safety: "REST",
-        page: 135,
+        page: 129,
         line: "Die Küche wird zurückgesetzt. Der Körper nicht."
       },
       {
@@ -286,7 +286,7 @@ export const de: SiteContent = {
         time: "DEFIZIT VOM VORABEND",
         attention: "BIS 10:00 VERBRAUCHT",
         safety: "FÜLLT DIE LÜCKEN",
-        page: 151,
+        page: 145,
         line: "Sechs gewöhnliche Dinge werden zum Beweis, dass nichts in Ordnung ist."
       },
       {
@@ -294,15 +294,15 @@ export const de: SiteContent = {
         time: "KEINE AUSSAGE",
         attention: "ENG, VERFÜGBAR",
         safety: "SIGNAL VORHANDEN",
-        page: 167,
+        page: 161,
         line: "Es ist nichts. Der Kiefer kommt nicht zur Ruhe."
       },
       {
         number: "13",
         time: "22:40",
         attention: "GENAU",
-        safety: "RICHTIG",
-        page: 183,
+        safety: "VORKEHRUNG GETROFFEN",
+        page: 177,
         line: "Dieser Alarm gehört zu vierzig Metern Beton."
       },
       {
@@ -310,7 +310,7 @@ export const de: SiteContent = {
         time: "GESCHÜTZT",
         attention: "PLATZIERT",
         safety: "RUHIG",
-        page: 195,
+        page: 189,
         line: "Der Tag, der Kapitel Null hätte sein sollen."
       },
       {
@@ -318,7 +318,7 @@ export const de: SiteContent = {
         time: "VORHERSAGE",
         attention: "OFFENE AKTE, BENANNT",
         safety: "VORAB BENANNT",
-        page: 209,
+        page: 203,
         line: "Der Befund von morgen, heute Abend abgelesen."
       }
     ]
@@ -344,7 +344,7 @@ export const de: SiteContent = {
   },
   closing: {
     question: "Ist das die Situation? Oder ist das ihr Zustand?",
-    source: "Seite 225",
+    source: "Seite 218",
     line: "Dasselbe Leben. Andere Einstellungen am Instrument."
   },
   press: {
@@ -363,7 +363,7 @@ export const de: SiteContent = {
       {
         label: "Cover, komplett, Druckauflösung",
         file: "/press/cover-wrap-300dpi.png",
-        note: "PNG · 3807 × 2701"
+        note: "PNG · 3791 × 2701"
       },
       {
         label: "Cover, druckfertig",
@@ -433,7 +433,7 @@ export const de: SiteContent = {
       },
       {
         label: "Umfang",
-        value: "278 Seiten"
+        value: "282 Seiten"
       },
       {
         label: "ISBN-13",
@@ -449,7 +449,7 @@ export const de: SiteContent = {
       },
       {
         label: "Pflichtexemplar",
-        value: "Eine CIP-Aufnahme liegt bei der Bibliothèque nationale du Luxembourg vor."
+        value: "Bibliothèque nationale du Luxembourg"
       }
     ],
     descriptionHeading: "Über das Buch",
@@ -466,82 +466,82 @@ export const de: SiteContent = {
       {
         number: "00",
         title: "Ein Tag, der in Ordnung hätte sein sollen",
-        page: 17
+        page: 11
       },
       {
         number: "01",
         title: "Das Radar hatte recht",
-        page: 23
+        page: 17
       },
       {
         number: "02",
         title: "Warum sich neutraler Input bei Schlafmangel feindselig anfühlt",
-        page: 29
+        page: 23
       },
       {
         number: "03",
         title: "Die Erleichterung, die zum Juckreiz wird",
-        page: 39
+        page: 33
       },
       {
         number: "04",
         title: "Der vorhersehbare Auslöser",
-        page: 51
+        page: 45
       },
       {
         number: "05",
         title: "Warum sich der Abend dehnt und der Morgen schrumpft",
-        page: 67
+        page: 61
       },
       {
         number: "06",
         title: "Warum Ruhe nicht immer erholsam ist",
-        page: 79
+        page: 73
       },
       {
         number: "07",
         title: "Warum Sie mit dem, was zählt, nicht anfangen können",
-        page: 95
+        page: 89
       },
       {
         number: "08",
         title: "Die offene Akte",
-        page: 105
+        page: 99
       },
       {
         number: "09",
         title: "Kommen zwei Nervensysteme in eine Küche",
-        page: 121
+        page: 115
       },
       {
         number: "10",
         title: "Der Streit, der Dienstag war",
-        page: 135
+        page: 129
       },
       {
         number: "11",
         title: "Der Donnerstag, der Mittwochabend war",
-        page: 151
+        page: 145
       },
       {
         number: "12",
         title: "Das saubere Instrumentenbrett",
-        page: 167
+        page: 161
       },
       {
         number: "13",
         title: "Das eine Mal, als der Körper recht hatte",
-        page: 183
+        page: 177
       },
       {
         number: "14",
         title: "Es geht nicht um mich",
-        page: 195
+        page: 189
       },
       {
         number: "15",
         title: "Die Vorhersage",
-        page: 209
+        page: 203
       }
     ],
     sortingTool: "Die folgenden Kapitel sind um drei Systeme herum aufgebaut, die prägen, wie die Signale Ihres Körpers gewichtet werden, bevor Ihr Kopf daraus eine Geschichte macht. Es sind keine Hirnregionen und keine Nervenbahnen. Diese Systeme sind ein Werkzeug zum Sortieren, eine Art, drei Fragen zu stellen, wenn sich alles auf einmal falsch anfühlt.",
@@ -550,7 +550,7 @@ export const de: SiteContent = {
       "Jedes Kapitel hat hier drei Teile: eine kurze Notiz dazu, woher die Überlegungen kamen, eine Liste der Arbeiten, auf denen das Kapitel aufbaut, und eine Liste der Arbeiten, die es einschränken, komplizierter machen oder dieselben Belege anders erklären.",
       "Ließe man sie weg, sähe die Argumentation aufgeräumter aus, als sie ist."
     ],
-    sourcesLabel: "Der wissenschaftliche Herzschlag, Seite 226",
+    sourcesLabel: "Der wissenschaftliche Herzschlag, Seite 220",
     creditsHeading: "Mitwirkende",
     credits: [
       {

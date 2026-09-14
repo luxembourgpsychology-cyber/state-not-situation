@@ -68,7 +68,7 @@ export const fr: SiteContent = {
       "Avant que l’esprit n’explique, le corps a déjà voté. La pression de sommeil, la faim, le rythme, l’attention, la détection de la menace, la mémoire et la prédiction façonnent discrètement ce qui paraît vrai.",
       "Puis l’esprit arrive en second et donne une raison à cette sensation."
     ],
-    folio: "10"
+    folio: "4"
   },
   reading: {
     eyebrow: "Essayez quelque chose tout de suite",
@@ -79,7 +79,7 @@ export const fr: SiteContent = {
       "Observez vos épaules."
     ],
     result: "Ce que vous avez trouvé, c’est une lecture.",
-    folio: "13"
+    folio: "7"
   },
   variables: {
     sortingLines: [
@@ -103,7 +103,7 @@ export const fr: SiteContent = {
         body: "Le système qui surveille la menace, et surtout la menace sociale. Il est rapide, il est ancien, et il penche du côté des fausses alertes. Il produit des interprétations qui donnent l’impression d’être des faits."
       }
     ],
-    folio: "13"
+    folio: "7"
   },
   moments: {
     line: "16 cas. Trois lectures. Une question : état ou situation ?",
@@ -112,7 +112,7 @@ export const fr: SiteContent = {
     items: [
       {
         chapter: "00",
-        page: 16,
+        page: 10,
         time: "06:38",
         quote: "« Quelque chose cloche. »",
         inputLabel: "Entrée",
@@ -122,7 +122,7 @@ export const fr: SiteContent = {
       },
       {
         chapter: "02",
-        page: 28,
+        page: 22,
         time: "22:47",
         quote: "« ok. »",
         inputLabel: "Entrée",
@@ -132,7 +132,7 @@ export const fr: SiteContent = {
       },
       {
         chapter: "11",
-        page: 150,
+        page: 144,
         time: "16:00",
         quote: "« Quelque chose ne va pas dans ma vie. »",
         inputLabel: "Entrée",
@@ -142,7 +142,7 @@ export const fr: SiteContent = {
       }
     ],
     closing: "Ça disait je suis en train d’échouer ; les données, c’était je suis fatiguée.",
-    closingSource: "Page 20"
+    closingSource: "Page 14"
   },
   evidence: {
     title: "Niveau de preuve",
@@ -164,7 +164,7 @@ export const fr: SiteContent = {
       }
     ],
     closing: "Ces marqueurs existent parce que le risque que court ce livre est celui-là même qu’il décrit.",
-    folio: "13"
+    folio: "7"
   },
   excerpt: {
     title: "Avant les chapitres",
@@ -187,13 +187,13 @@ export const fr: SiteContent = {
     back: "Retour au livre",
     readingModeLabel: "Mode lecture",
     closing: "Ce livre parle de la même erreur à l’échelle de la cuisine. La version qui arrive tous les mardis. La version où votre corps écrit une histoire à propos d’un message, d’un silence, d’un regard, et où votre esprit retouche cette histoire sous la supervision de ce que votre corps ressent à ce moment-là. Personne ne meurt, mais des décisions se prennent. Des relations changent. Des jugements sur soi se forment. Et rien de tout cela n’avait à se passer ainsi, parce que les données étaient là depuis le début.",
-    closingSource: "Page 26",
+    closingSource: "Page 20",
     endNote: "Vient ensuite le chapitre zéro : Une journée qui aurait dû bien se passer.",
     unavailable: "L’extrait en français est à venir.",
     folios: [
-      "7",
-      "8",
-      "9"
+      "1",
+      "2",
+      "3"
     ]
   },
   readings: {
@@ -206,7 +206,7 @@ export const fr: SiteContent = {
         time: "NON SOLLICITÉ",
         attention: "DÉGRADÉE",
         safety: "DOMINANTE",
-        page: 23,
+        page: 17,
         line: "Le corps rend son verdict avant que l’attention ne le teste."
       },
       {
@@ -214,7 +214,7 @@ export const fr: SiteContent = {
         time: "DOMINANT",
         attention: "BOUCLE DE VÉRIFICATION",
         safety: "AMPLIFIÉE",
-        page: 29,
+        page: 23,
         line: "La fatigue retire son frein à la certitude."
       },
       {
@@ -222,7 +222,7 @@ export const fr: SiteContent = {
         time: "DANS LES ÉCARTS",
         attention: "EN BOUCLE",
         safety: "NON SOLLICITÉE",
-        page: 39,
+        page: 33,
         line: "La main se tend avant que l’esprit ne décide."
       },
       {
@@ -230,7 +230,7 @@ export const fr: SiteContent = {
         time: "DÉCLENCHEUR À 15:28",
         attention: "BOUCLE D’HABITUDE",
         safety: "EN HAUSSE PLUS TARD",
-        page: 51,
+        page: 45,
         line: "La main honore un rendez-vous que l’esprit n’a jamais pris."
       },
       {
@@ -238,7 +238,7 @@ export const fr: SiteContent = {
         time: "DOMINANT",
         attention: "CAPTURE TARDIVE",
         safety: "NON SOLLICITÉE",
-        page: 67,
+        page: 61,
         line: "Une heure paraît gratuite et facture le matin."
       },
       {
@@ -246,7 +246,7 @@ export const fr: SiteContent = {
         time: "DETTE DU MATIN",
         attention: "DÉGRADÉE",
         safety: "RUMINATION",
-        page: 79,
+        page: 73,
         line: "Le week-end fait tout comme il faut et ne ressource personne."
       },
       {
@@ -254,7 +254,7 @@ export const fr: SiteContent = {
         time: "DETTE DE L’APRÈS-MIDI",
         attention: "FRAGMENTÉE",
         safety: "EN HAUSSE",
-        page: 95,
+        page: 89,
         line: "Le document ne change pas ; le lecteur perd en amplitude."
       },
       {
@@ -262,7 +262,7 @@ export const fr: SiteContent = {
         time: "SOIR",
         attention: "RESSERRÉE",
         safety: "DOMINANTE",
-        page: 105,
+        page: 99,
         line: "Un mot devient six jours de preuves."
       },
       {
@@ -270,7 +270,7 @@ export const fr: SiteContent = {
         time: "20 MINUTES NON PRISES",
         attention: "FENÊTRE D’UNE DEMI-SECONDE",
         safety: "DOMINANTE",
-        page: 121,
+        page: 115,
         line: "La conversation finit avant sa première phrase."
       },
       {
@@ -278,7 +278,7 @@ export const fr: SiteContent = {
         time: "07:40 REMISE À ZÉRO",
         attention: "ÉPUISÉE",
         safety: "RÉSIDUELLE",
-        page: 135,
+        page: 129,
         line: "La cuisine repart à zéro. Le corps, non."
       },
       {
@@ -286,7 +286,7 @@ export const fr: SiteContent = {
         time: "DETTE DE LA VEILLE",
         attention: "ÉPUISÉE DÈS 10:00",
         safety: "COMBLE LES ÉCARTS",
-        page: 151,
+        page: 145,
         line: "Six choses ordinaires deviennent la preuve que rien ne va."
       },
       {
@@ -294,15 +294,15 @@ export const fr: SiteContent = {
         time: "NON SOLLICITÉ",
         attention: "ÉTROITE, DISPONIBLE",
         safety: "SIGNAL PRÉSENT",
-        page: 167,
+        page: 161,
         line: "Rien ne cloche. La mâchoire ne veut pas se détendre."
       },
       {
         number: "13",
         time: "22:40",
         attention: "EXACTE",
-        safety: "CORRECTE",
-        page: 183,
+        safety: "PRÉCAUTION PRISE",
+        page: 177,
         line: "Cette alerte appartient à quarante mètres de béton."
       },
       {
@@ -310,7 +310,7 @@ export const fr: SiteContent = {
         time: "PROTÉGÉ",
         attention: "PLACÉE",
         safety: "CALME",
-        page: 195,
+        page: 189,
         line: "La journée que le chapitre zéro aurait dû être."
       },
       {
@@ -318,7 +318,7 @@ export const fr: SiteContent = {
         time: "PRÉVISION",
         attention: "DOSSIER OUVERT, NOMMÉ",
         safety: "NOMMÉE À L’AVANCE",
-        page: 209,
+        page: 203,
         line: "La lecture de demain, faite ce soir."
       }
     ]
@@ -344,7 +344,7 @@ export const fr: SiteContent = {
   },
   closing: {
     question: "Est-ce la situation ? Ou est-ce leur état ?",
-    source: "Page 225",
+    source: "Page 218",
     line: "Même vie. Instruments réglés autrement."
   },
   press: {
@@ -363,7 +363,7 @@ export const fr: SiteContent = {
       {
         label: "Couverture complète, résolution d’impression",
         file: "/press/cover-wrap-300dpi.png",
-        note: "PNG · 3807 × 2701"
+        note: "PNG · 3791 × 2701"
       },
       {
         label: "Couverture, prête à imprimer",
@@ -433,7 +433,7 @@ export const fr: SiteContent = {
       },
       {
         label: "Pagination",
-        value: "278 pages"
+        value: "282 pages"
       },
       {
         label: "ISBN-13",
@@ -449,7 +449,7 @@ export const fr: SiteContent = {
       },
       {
         label: "Dépôt légal",
-        value: "Une notice CIP est disponible à la Bibliothèque nationale du Luxembourg."
+        value: "Bibliothèque nationale du Luxembourg"
       }
     ],
     descriptionHeading: "À propos du livre",
@@ -466,82 +466,82 @@ export const fr: SiteContent = {
       {
         number: "00",
         title: "Une journée qui aurait dû bien se passer",
-        page: 17
+        page: 11
       },
       {
         number: "01",
         title: "Le radar avait raison",
-        page: 23
+        page: 17
       },
       {
         number: "02",
         title: "Pourquoi le manque de sommeil fait paraître hostile ce qui est neutre",
-        page: 29
+        page: 23
       },
       {
         number: "03",
         title: "Le soulagement qui tourne à la démangeaison",
-        page: 39
+        page: 33
       },
       {
         number: "04",
         title: "Le déclencheur prévisible",
-        page: 51
+        page: 45
       },
       {
         number: "05",
         title: "Pourquoi les soirées s’étirent et les matins rétrécissent",
-        page: 67
+        page: 61
       },
       {
         number: "06",
         title: "Pourquoi le repos ne ressource pas toujours",
-        page: 79
+        page: 73
       },
       {
         number: "07",
         title: "Pourquoi vous n’arrivez pas à commencer ce qui compte",
-        page: 95
+        page: 89
       },
       {
         number: "08",
         title: "Le dossier ouvert",
-        page: 105
+        page: 99
       },
       {
         number: "09",
         title: "Deux systèmes nerveux entrent dans une cuisine",
-        page: 121
+        page: 115
       },
       {
         number: "10",
         title: "La dispute qui était mardi",
-        page: 135
+        page: 129
       },
       {
         number: "11",
         title: "Le jeudi qui était mercredi soir",
-        page: 151
+        page: 145
       },
       {
         number: "12",
         title: "Le tableau de bord au vert",
-        page: 167
+        page: 161
       },
       {
         number: "13",
         title: "La fois où le corps avait raison",
-        page: 183
+        page: 177
       },
       {
         number: "14",
         title: "Rien à voir avec moi",
-        page: 195
+        page: 189
       },
       {
         number: "15",
         title: "La prévision",
-        page: 209
+        page: 203
       }
     ],
     sortingTool: "Les chapitres qui suivent sont organisés autour de trois systèmes qui règlent le poids que prennent les signaux de votre corps avant que votre esprit ne construise une histoire. Ce ne sont pas des régions du cerveau ni des voies neuronales. C’est un outil de tri, une façon de poser trois questions quand tout semble aller de travers en même temps.",
@@ -550,7 +550,7 @@ export const fr: SiteContent = {
       "Chaque chapitre a ici trois parties : une courte note sur l’origine de la réflexion, une liste des travaux sur lesquels le chapitre est construit, et une liste des travaux qui le limitent, le compliquent, ou expliquent autrement les mêmes résultats.",
       "Les laisser de côté ferait paraître l’argumentation plus nette qu’elle ne l’est."
     ],
-    sourcesLabel: "Le pouls scientifique, page 226",
+    sourcesLabel: "Le pouls scientifique, page 220",
     creditsHeading: "Crédits",
     credits: [
       {

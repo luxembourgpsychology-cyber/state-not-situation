@@ -19,7 +19,7 @@
   --rule-strong: rgba(17, 17, 17, 0.45);
   --red: #b5291c;
 
-  /* The three system inks, read from the page 11 rectangles of the print
+  /* The three system inks, read from the page 5 rectangles of the print
      file (CMYK 0 .71 .78 .25 / .68 .2 0 .46 / 0 .17 .64 .45). */
   --safety: #bf372a;
   --safety-pale: #f0d3cf;
@@ -259,7 +259,7 @@ body {
 }
 
 /* ==================================================================
-   EVIDENCE — the three markers printed on page 13
+   EVIDENCE — the three markers printed on page 7
 ================================================================== */
 .pulse-row { display: grid; gap: 0; }
 .pulse-row__cell {
@@ -289,7 +289,7 @@ body {
 }
 
 /* ==================================================================
-   THE CHAPTER MAP — page 11's own devices, on the press page
+   THE CHAPTER MAP — page 5’s own devices, on the press page
 ================================================================== */
 .map-keys { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; }
 .map-keys__rule { display: block; width: 40px; height: 3px; margin-bottom: 0.5rem; }

@@ -68,8 +68,8 @@ lib/make-stubs.mjs   adds new keys to fr.ts / de.ts from en.ts
 lib/make-review-pack.mjs + lib/make_review_xlsx.py   builds the reviewer's workbook for one language
 translation/         the editorial decision, the translation standard, the two methods
 proxy.ts             sends / to the visitor's best enabled language
-public/images        cover, spine, author photograph, social preview
-public/press         downloadable press assets
+public/images        cover, spine, author photograph, social preview — cover images rendered from the KDP cover PDF, 14 September 2026
+public/press         downloadable press assets, rebuilt into the kit by lib/make-press-kit.mjs
 public/audio         recordings go here (none yet)
 ```
 
@@ -81,13 +81,15 @@ public/audio         recordings go here (none yet)
 
 **The site was redesigned on 6 September 2026** to the author's own brief (`brief/REDESIGN-BRIEF.md`), by a team working in the roles she named: editorial director, creative director, publishing marketing director, senior UX designer, English copy editor, French and German literary localisation editors. The decision they reached is `brief/REDESIGN.md`, and it is what the code implements.
 
-**Eight sections, in this order:** the cover · the premise (page 181's line, page 10's three lines, the back cover's four sentences) and the reading (page 13's three checks) · Time. Attention. Safety. · three printed case moments under page 11's "16 cases" line · the evidence markers with the author's own descriptions · two paragraphs of the extract · the reading, when audio exists · the author · page 225 and the form.
+**Eight sections, in this order:** the cover · the premise (page 175’s line, the back cover’s headline and its four sentences) and the reading (page 7’s three checks) · Time. Attention. Safety. · three printed case moments under page 5’s "16 cases" line · the evidence markers with the author's own descriptions · two paragraphs of the extract · the reading, when audio exists · the author · page 218 and the form.
 
-**What that cost:** twelve sections to eight, about 1,210 visible words to about 690, and a phone page from 12,300 px to about 8,600 px — a third shorter, which is what her brief asked for. Nothing was cut for being wrong; it was cut because the page said it twice or said it where it did not land. The chapter map, the page 13 sorting passage, the fourth case panel and page 226 moved to `/press`; the page 26 block moved to `/read`. All of it is in the table in `brief/REDESIGN.md`.
+**What that cost:** twelve sections to eight, about 1,210 visible words to about 690, and a phone page from 12,300 px to about 8,600 px — a third shorter, which is what her brief asked for. Nothing was cut for being wrong; it was cut because the page said it twice or said it where it did not land. The chapter map, the page 7 sorting passage, the fourth case panel and page 220 moved to `/press`; the page 20 block moved to `/read`. All of it is in the table in `brief/REDESIGN.md`.
 
-**Gone and not coming back:** the CSS 3D book and its scroll track (her brief forbids scroll choreography and unnecessary 3D), the case-evidence boxes, page 10's five readings, page 13's 169 words of evidence prose, the footer's three-line method, the second imprint line, the companion section.
+**Gone and not coming back:** the CSS 3D book and its scroll track (her brief forbids scroll choreography and unnecessary 3D), the case-evidence boxes, page 4’s five readings, page 7’s 169 words of evidence prose, the footer's three-line method, the second imprint line, the companion section.
 
-**English is complete** apart from two placeholders (below). Every English line was re-verified against the almost-final 278-page PDF on 5 September 2026.
+**English is complete** apart from two placeholders (below). Every English line was re-verified against the almost-final 278-page PDF on 5 September 2026, and again against the final 282-page interior (v44) on 14 September 2026, when every page reference moved to the v44 numbering (see `CONTENT_SOURCES.md`).
+
+**The cover graphics are the final cover.** On 14 September 2026 every cover image on the site and in the press kit — hero and press-page cover, social preview, back cover, spine, the two book renders, the 300 dpi PNGs, the print-ready PDF, the banners and social crops — was regenerated from the KDP upload file, `~/Desktop/STATE NOT SITUATION - KDP UPLOAD/COVER - UPLOAD.pdf`. That file is the source of truth for the cover; what changed on it, and which site strings it touches, is under *The final cover* in `CONTENT_SOURCES.md`.
 
 **Listen is hidden** — in the navigation, the footer, the reading page and the home page — until `editions[lang].audioUrl` is set. There is no recording yet.
 
@@ -107,9 +109,9 @@ When a native speaker signs a language off, set `underReview: false` for that la
 ## 5. Verified facts — do not state anything else as fact
 
 - **ISBN-13:** 978-2-87996-258-0
-- © 2026 Budisin Publishing · 278 pages · 6 × 9 in paperback
+- © 2026 Budisin Publishing · 282 pages · 6 × 9 in paperback
 - Cover design: **Zoe Larusson**. Book design and typesetting: **Ivana Budišin**
-- CIP record at the Bibliothèque nationale du Luxembourg
+- Legal deposit: Bibliothèque nationale du Luxembourg, as the copyright page (p. iv) prints it. The book claims no CIP record.
 - Author biography, in full and verbatim: *"Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book."*
 - Publication status: **forthcoming**. No date has been announced. Do not invent one.
 
@@ -121,7 +123,7 @@ The book states **no** count of references, **no** DOI verification, **no** "yea
 
 Full detail in `DESIGN_SYSTEM.md`. In short:
 
-- **Colour:** cream `#F7F3EC`, cover red `#B5291C`, ink `#111111`. The three system inks: Time `#2C6E8A`, Attention `#8C7432`, Safety `#BF372A`, read from the page 11 rectangles of the print file (corrected 6 September 2026).
+- **Colour:** cream `#F7F3EC`, cover red `#B5291C`, ink `#111111`. The three system inks: Time `#2C6E8A`, Attention `#8C7432`, Safety `#BF372A`, read from the page 5 rectangles of the print file (corrected 6 September 2026).
 - **Type:** IvyPresto Display (serif titles, **never bold**), DIN Alternate Bold (tracked caps, navigation), Source Sans 3 (body), IBM Plex Mono (anything measured). Open-source substitutes ship; an Adobe Fonts kit id can be set in `site.config.ts`.
 - Red is emphasis only. No gradients, no glass, no icon sets, exactly one shadow — under the book.
 - The hero is a **CSS 3D book** built from the real cover, spine and page block, opening on scroll to the book's own title page. It reads one custom property, `--open`. **Do not add an animation library.**
@@ -189,4 +191,4 @@ Vercel is currently on the **Pro** plan, which is required once the book is comm
 2. Whether the companion-tool section should exist at all, and if so what one sentence goes in it.
 3. Sign-off on the French and German from native speakers, then `underReview: false`.
 4. An audio recording of her reading an extract — the player is built and appears the moment `editions.en.audioUrl` points at a file in `public/audio/`.
-5. From the editorial decision (listed in full at the end of `CONTENT_SOURCES.md`): a hero byline in her words; one or two sentences on why she wrote the book; a publication month if one exists; permission to quote page 26 without its preceding sentence; the typos noted in the almost-final text.
+5. From the editorial decision (listed in full at the end of `CONTENT_SOURCES.md`): a hero byline in her words; one or two sentences on why she wrote the book; a publication month if one exists; permission to quote page 20 without its preceding sentence; the typos noted in the almost-final text (all eight are corrected in v44).

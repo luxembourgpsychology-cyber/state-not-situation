@@ -3,7 +3,7 @@ import { Reveal } from "./Reveal";
 import { EvidencePulse } from "./EvidencePulse";
 
 /**
- * The book grades its own claims. The three markers printed on page 13, with
+ * The book grades its own claims. The three markers printed on page 7, with
  * the author's own descriptions of what each one means, and the printed
  * sentence that says why they exist. Sober, and no count of anything.
  */

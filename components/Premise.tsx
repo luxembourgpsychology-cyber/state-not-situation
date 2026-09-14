@@ -5,11 +5,11 @@ import { Reveal } from "./Reveal";
  * Section 2, in two movements, and the only place the homepage explains the
  * book.
  *
- * One: the mechanism — page 181's line, page 10's three lines, and the four
+ * One: the mechanism — page 175’s line, and the headline and four
  * sentences the back cover prints, which is the one passage on the object
  * written to make a stranger pick it up.
  *
- * Two: the reading — page 13, where the book stops and asks the reader to
+ * Two: the reading — page 7, where the book stops and asks the reader to
  * check. Nothing here is dimmed and nothing waits for an observer: the three
  * checks are display type and they arrive on one screen.
  */

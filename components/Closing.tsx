@@ -6,7 +6,7 @@ import { Notify } from "./Notify";
 import { Reveal } from "./Reveal";
 
 /**
- * The page ends once. Page 225, the book's last sentence, then the line
+ * The page ends once. Page 218’s question, then the line
  * printed on the cover foot, then the only remaining action. The question
  * comes first and the cover line last, so the question is not read as a
  * marketing hook standing over an email field.

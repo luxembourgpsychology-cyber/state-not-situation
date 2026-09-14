@@ -9,10 +9,11 @@ not to add a step.
 
 ## Sources inspected
 
-Front and back cover (6 × 9 build) and the 278-page interior: half title p.1, title page
-p.3, copyright p.4, the map p.11, page 10, "Before We Begin" p.13, the three systems
-pp.13–14, the CASE EVIDENCE pages, chapter openers with the loop bar, page 181, page 225,
-The Scientific Heartbeat p.226, the back page p.278.
+Front and back cover (6 × 9 build) and the interior. Page references are to the final
+282-page interior, v44: half title p.i, title page p.iii, copyright p.iv, the map p.5,
+page 4, "Before We Begin" p.7, the three systems pp.7–8, the CASE EVIDENCE pages,
+chapter openers with the loop bar, page 175, page 218, The Scientific Heartbeat p.220,
+the back page p.272.
 
 ## Typography
 
@@ -50,9 +51,9 @@ Measures: DISPLAY 30ch, HEAD 24ch, LEAD 40ch, BODY 62ch, reading mode 34rem.
 | Ink | `#111111` | the interior text |
 | Quiet | `#6F6A62` | folios and measured values; raised from `#8A857E`, which failed contrast |
 | Cover red | `#B5291C` | sampled from the cover artwork |
-| Time | `#2C6E8A` | the page 11 rectangles, CMYK .68 .2 0 .46 |
-| Attention | `#8C7432` | the page 11 rectangles, CMYK 0 .17 .64 .45 |
-| Safety | `#BF372A` | the page 11 rectangles, CMYK 0 .71 .78 .25 |
+| Time | `#2C6E8A` | the page 5 rectangles, CMYK .68 .2 0 .46 |
+| Attention | `#8C7432` | the page 5 rectangles, CMYK 0 .17 .64 .45 |
+| Safety | `#BF372A` | the page 5 rectangles, CMYK 0 .71 .78 .25 |
 | Evidence high / medium / low | `#C0392B` / `#D4881F` / `#A8A29A` | the printed confidence markers |
 
 **Red has four jobs and no fifth:** the section eyebrow, one display word per page at most,
@@ -60,7 +61,7 @@ links, and the footer band. Rules are ink at 14%.
 
 **The three system inks appear in exactly two places on the home page:** the three variable
 words, and the short printed rule on each case moment. On the press page they also draw
-page 11's own colour keys and rail.
+page 5’s own colour keys and rail.
 
 ## Spacing
 
@@ -98,7 +99,7 @@ Everything else is typography, spacing and the book's own imagery.
 3. **Heartbeat or signal** — the pulse mark from the cover foot and spine
    (`PulseMark.tsx`): navigation, footer, audio player.
 
-Retired: the CSS 3D book, the coloured dots on page 10's readings, the case-evidence boxes,
+Retired: the CSS 3D book, the coloured dots on page 4’s readings, the case-evidence boxes,
 the full-bleed marker band, the seven full-width hairlines, the red rule under the
 navigation, the three-line method in the footer.
 

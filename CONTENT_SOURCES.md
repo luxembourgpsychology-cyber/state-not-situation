@@ -2,16 +2,38 @@
 
 The rule for this project: **the site may not say anything about the book that the book does not say about itself.** Every line of prose in `content/en.ts` is one of four things.
 
-1. **Printed.** Set in the almost-final book or on its printed cover, word for word.
+1. **Printed.** Set in the final book (v44) or on its printed cover, word for word.
 2. **Author-supplied.** Written by Ivana Budišin and given to the team, word for word. This includes anything she wrote in `brief/REDESIGN-BRIEF.md`.
 3. **Interface.** A plain functional label: Menu, Press, Email address.
 4. **Placeholder.** Marked `[COPY NEEDED: …]`, waiting for Ivana.
 
 If you add a sentence to `content/en.ts`, add its source here. If you cannot give it a source, it should be a placeholder instead.
 
-Page numbers refer to the almost-final 278-page 6 × 9 in text (`~/Desktop/State Not Situation by Ivana Budisin.pdf`, supplied 5 September 2026). Cover references are to `public/images/cover-front.jpg` and `cover-back.jpg`, which are the printed artwork.
+Page numbers are the printed page labels of the final interior, **v44**: 282 pages, 6 × 9 in, roman i–x then arabic 1–272 (`~/Desktop/State Not Situation 6x9 v44 KDP.pdf`, 14 September 2026). Every citation in this file was re-checked on 14 September 2026 by finding the passage in the v44 text; see *Re-verified against v44* below. The records in `brief/` and `translation/` cite the almost-final 278-page text: for body pages, v44 = old − 6, and old pages 1, 3 and 4 are now i, iii and iv. Cover references are to `public/images/cover-front.jpg` and `cover-back.jpg`, which are the printed artwork, rendered on 14 September 2026 from the final KDP cover file (`~/Desktop/STATE NOT SITUATION - KDP UPLOAD/COVER - UPLOAD.pdf`); see *The final cover, 14 September 2026* below.
 
 The architecture is `brief/REDESIGN.md` (6 September 2026), which implements the author's brief. It supersedes `translation/EDITORIAL-POSITIONING.md` and `translation/HOOK-DECISION.md`, which are kept as the record of how the page got here.
+
+---
+
+## Re-verified against v44, 14 September 2026
+
+The final interior added front matter (a dedication and a Foreword, pages v to ix), moved the half title, title page and copyright page to i, iii and iv, and starts arabic page 1 on the pilot. Every page reference on the site was moved by finding its passage in the v44 text, not by arithmetic; for body pages the result is always old page − 6. What else the check found:
+
+- **Two words of the pilot.** v44 page 1 prints "The mist, the one that erases…" and page 2 prints "The turn tightened." The text the author supplied on 6 September had "The mist came, the one…" and "Then turn tightened." The English page now follows the book. **"The mist, the one that erases…" has no verb**, and "came" was her deliberate edit of 6 September, so the book may have lost it; if so, the book is the thing to correct and the site follows. French and German are unchanged (« La brume vint… », „Der Nebel kam…“): they read correctly either way.
+- **Chapter 13's Safety value** is PRECAUTION TAKEN, not CORRECT. French « PRÉCAUTION PRISE », German „VORKEHRUNG GETROFFEN“, both for the native reviewer to confirm.
+- **Legal deposit.** The copyright page prints "Legal deposit: Bibliothèque nationale du Luxembourg" and no CIP record. The site no longer claims one.
+- **Extent.** 282 pages.
+- **The closing question** is on page 218 and is no longer the book's last sentence; see `closing.question`. Page 219 is blank.
+- **No author biography is printed inside the book.** The almost-final text had one on page 278; v44's last page, 272, prints only "Read the dashboard. Delay the story. Take the reading again." `author.bio` and `hero.credential` are the author's own words and stand on that; since the final cover of 14 September 2026 the back cover also prints the biography's first sentence and the front cover prints CLINICAL PSYCHOLOGIST under her name.
+- **The eight typos** listed under open question 8 are all gone.
+
+## The final cover, 14 September 2026
+
+The cover went to KDP the same evening as v44: `~/Desktop/STATE NOT SITUATION - KDP UPLOAD/COVER - UPLOAD.pdf`, a full wrap of 12.885 × 9.25 in with 0.125 in bleed and a 0.635 in spine. Every cover image on the site and in the press kit was re-rendered from it that night: `public/images/cover-front.jpg`, `cover-back.jpg`, `cover-spine.jpg`, `mockup-3d.png`, `og.jpg`, and in `public/press/` the four 300 dpi PNGs, the two front-cover JPEGs, `book-render.png`, the print-ready PDF (now the KDP file itself), and the banners, social crops and framed render, which carry the render. Anything in `../Press Pack/` or the older `STATE_NOT_SITUATION_cover_6x9.pdf` on the Desktop is superseded. What changed on the cover, and what it means for the strings above:
+
+- **Front.** READ THE DASHBOARD / BEFORE YOU BELIEVE THE STORY is gone. "Same life. Different instrument settings." now sits in red above the bottom band, which prints the author's name with CLINICAL PSYCHOLOGIST beneath it. The subtitle and "Your first reading is not the whole story." are unchanged. The spine reads "STATE. NOT SITUATION." with the full stop.
+- **Back.** Eyebrow and headline unchanged. The INPUT / FIRST READING / POSSIBLE STATE table became four sentences: "A short message feels cold." / "A meeting feels dangerous." / "A craving feels like a decision." / "A quiet room feels like judgement." The paragraph is now set in a serif. Beneath it: "Ivana Budišin is a clinical psychologist living and working in Luxembourg.", then the sign-off CHECK THE SIGNAL / BEFORE YOU BELIEVE THE STORY., then the red band with the QR code to statenotsituation.com, "STATE. / THE COMPANION APP TO THIS BOOK / statenotsituation.com" and the ISBN barcode. "Is this the situation? Or is this the state?" no longer appears on the back.
+- **Consequences.** `footer.band` is still printed, now as the sign-off rather than in the band. `hero.credential` and the first sentence of `author.bio` are now printed on the cover as well as author-supplied. The four new back-cover sentences are **not** on the site; whether they should be is the author's call, recorded as open question 9. Nothing else quoted from the cover changed.
 
 ---
 
@@ -19,47 +41,48 @@ The architecture is `brief/REDESIGN.md` (6 September 2026), which implements the
 
 | Key | Where |
 |---|---|
-| `hero.titleA` / `hero.titleB` | Front cover; half title, page 1; title page, page 3 |
+| `hero.titleA` / `hero.titleB` | Front cover; half title, page i; title page, page iii |
 | `hero.subtitle` | Front cover: "A field guide to the moment before interpretation becomes reality" |
 | `hero.strap` | Front cover: "Your first reading is not the whole story." |
-| `premise.eyebrow` | Printed as the eyebrow on **both** page 10 and the back cover: "The first misreading" |
-| `premise.lines[0..1]` | **Back cover**, the headline printed under the same eyebrow: "You may not be reacting to the world. You may be reacting to your state." It replaced page 10's three lines ("Nothing went wrong on this day…") on 6 September 2026 at the author's request: printed, they are the setup for "This book is the Investigation."; lifted onto a screen and set at lead size they read as three qualifications rather than a claim. The section now carries the whole back cover in its printed order — eyebrow, headline, paragraph. |
+| `premise.eyebrow` | Printed as the eyebrow on **both** page 4 and the back cover: "The first misreading" |
+| `premise.lines[0..1]` | **Back cover**, the headline printed under the same eyebrow: "You may not be reacting to the world. You may be reacting to your state." It replaced page 4’s three lines ("Nothing went wrong on this day…") on 6 September 2026 at the author's request: printed, they are the setup for "This book is the Investigation."; lifted onto a screen and set at lead size they read as three qualifications rather than a claim. The section now carries the back cover in its printed order — eyebrow, headline, paragraph; the four sentences the final cover sets between the headline and the paragraph are not on the site, see *The final cover*. |
 | `premise.mechanism[0..3]` | **Back cover**, the four sentences beneath the strap, verbatim: "We usually treat these moments as information about life…" to "…gives that feeling a reason." Sixty-three words. Used as the site's premise; see the note below. |
 | `closing.line` | Front cover foot and title page: "Same life. Different instrument settings." |
-| `footer.band` | Back cover, red band: "Before you believe the story." |
+| `footer.band` | Back cover, the sign-off under the paragraph: CHECK THE SIGNAL / "Before you believe the story." Until the final cover of 14 September 2026 it was set in the back cover's red band, which now carries the QR code and the ISBN. |
 
 **On the back-cover premise.** The author's brief asks for a premise of 70 to 120 words introducing the mechanism. The book's interior does not supply them at that position, and no new prose may be written, so the site uses the passage the object already owns. It is printed, continuous, and it is the one paragraph on the whole book written to make a stranger pick it up. Recorded as open question 1 in `brief/REDESIGN.md`.
 
-The INPUT / FIRST READING / POSSIBLE STATE table printed beside it on the back cover is **not** used: it read as a data table on screen.
+The INPUT / FIRST READING / POSSIBLE STATE table printed beside it on the earlier back cover was **not** used: it read as a data table on screen. The final cover replaced the table with four sentences ("A short message feels cold." and three more), which are not on the site either; see *The final cover, 14 September 2026*.
 
 ## Printed in the book, in page order
 
 | Key | Page / source |
 |---|---|
-| `premise.folio` | Page 10, the printed folio |
-| `moments.line`, `press.mapLine` | Page 11: "16 cases. Three readings. One question: state or situation?" On the home page it heads the three moments, which is the only place a reader learns the book has sixteen cases. |
-| `press.mapLabel`, `press.mapTitle` | Page 10: "This book is the" / "Investigation." Heads the chapter map on the press page, where the Investigation actually is. |
-| `press.chapters[]`, `press.pageColumn` | Page 11, the map, with its printed page numbers. Page 11 prints TIME, ATTENTION and SAFETY as labels with their colours only, and no legend descriptions, so none appear. |
-| `reading.*` | Page 13, verbatim: "Whatever you are feeling as you read this sentence. Check your jaw. Check your breath. Check your shoulders. What you found is a reading." The eyebrow "Try something right now" is the page's own phrase. In the book these are a run-on clause in a body paragraph; the site sets them as display type, which is a promotion and not a reproduction. |
-| `evidence.grades[].label` | Page 13 prints the three markers with the labels HIGH, MEDIUM, LOW beneath them and nothing else. |
-| `evidence.closing` | Page 13: "These markers exist because the book's own risk is the same risk it describes." |
-| `variables.sortingLines[0..1]` | Page 13: "They are not brain regions or neural pathways." / "They are a sorting tool, a way to ask three questions when everything feels wrong at once." |
-| `variables.loops[].name` / `.body` | Pages 13 to 14, the three definitions. **Safety's "Things like social evaluation, exclusion, ambiguity, status." is omitted** — seven words of examples before the reader has the mechanism, and the only reason Safety ran to twice the length of Time. The omission is deliberate and is recorded here so it is not read as a slip. |
-| `press.sortingTool` | Page 13, the whole passage, on the press page, where "the chapters that follow" points at the chapter map above it. |
-| `moments.items[]` | The CASE EVIDENCE pages, reproduced: 00 p.16, 02 p.28, 11 p.150. Seven chapters open on such a page (00, 02, 05, 11, 12, 13, 15); nine do not, which is why the site carries no sentence claiming otherwise. Each card carries the short rule the page prints under its label (28 × 1.6 pt), in the page's own ink, read per page from the print file: Time (CMYK .68 .2 0 .46) on 00 and 02, Safety (CMYK 0 .71 .78 .25) on 11. Chapter 12's page prints no rule, which is why the colours are read and not derived. |
+| `premise.folio` | Page 4, the printed folio |
+| `moments.line`, `press.mapLine` | Page 5: "16 cases. Three readings. One question: state or situation?" On the home page it heads the three moments, which is the only place a reader learns the book has sixteen cases. |
+| `press.mapLabel`, `press.mapTitle` | Page 4: "This book is the" / "Investigation." Heads the chapter map on the press page, where the Investigation actually is. |
+| `press.chapters[]`, `press.pageColumn` | Page 5, the map, with its printed page numbers, each checked against the chapter's opening page in v44. Page 5 prints TIME, ATTENTION and SAFETY as labels with their colours only, and no legend descriptions, so none appear. |
+| `reading.*` | Page 7, verbatim: "Whatever you are feeling as you read this sentence. Check your jaw. Check your breath. Check your shoulders. What you found is a reading." The eyebrow "Try something right now" is the page's own phrase. In the book these are a run-on clause in a body paragraph; the site sets them as display type, which is a promotion and not a reproduction. |
+| `evidence.grades[].label` | Page 7 prints the three markers with the labels HIGH, MEDIUM, LOW beneath them and nothing else. |
+| `evidence.closing` | Page 7: "These markers exist because the book's own risk is the same risk it describes." |
+| `variables.sortingLines[0..1]` | Page 7: "They are not brain regions or neural pathways." / "They are a sorting tool, a way to ask three questions when everything feels wrong at once." |
+| `variables.loops[].name` / `.body` | Pages 7 to 8, the three definitions. **Safety's "Things like social evaluation, exclusion, ambiguity, status." is omitted** — seven words of examples before the reader has the mechanism, and the only reason Safety ran to twice the length of Time. The omission is deliberate and is recorded here so it is not read as a slip. |
+| `press.sortingTool` | Page 7, the whole passage, on the press page, where "the chapters that follow" points at the chapter map above it. |
+| `moments.items[]` | The CASE EVIDENCE pages, reproduced: 00 p.10, 02 p.22, 11 p.144. Seven chapters open on such a page (00, 02, 05, 11, 12, 13, 15); nine do not, which is why the site carries no sentence claiming otherwise. Each card carries the short rule the page prints under its label (28 × 1.6 pt), in the page's own ink, read per page from the print file: Time (CMYK .68 .2 0 .46) on 00 and 02, Safety (CMYK 0 .71 .78 .25) on 11. Chapter 12's page prints no rule, which is why the colours are read and not derived. |
 | `moments.label` | "Case evidence", printed at the head of every such page. |
-| `moments.closing` | Page 20: "It said I am failing; the data was I am tired." |
-| `excerpt.paragraphs[]`, `excerpt.quote` | Pages 7 to 9, the opening, verbatim. The home page shows the first two paragraphs, both page 7, ending "A slow descent feels like holding steady."; the rest is on `/read`. |
-| `excerpt.title`, `excerpt.sectionLabel` | Page 226: "Before the chapters" / "The pilot" |
-| `excerpt.closing`, `excerpt.closingSource` | Page 26: "This book is about the same error at kitchen scale…" **On `/read` only**, at the foot of the complete extract, where the preceding sentence "The warships are the extreme case." has been read. This answers what was open question 6. |
-| `premise.sensorLine` | Page 181: "The body is a sensor before it is a narrator." Reinstated at the author's request, brief §4, where she names it a crucial line. |
-| `closing.question`, `closing.source` | Page 225, the book's last sentence: "Is this the situation? Or is this their state?" |
-| `press.sources[0..1]` | Page 226, The Scientific Heartbeat: "Each chapter has three parts here…" and "Leaving them out would make the argument look tidier than it is." |
-| `press.facts` ISBN, publisher, extent | Copyright page, page 4: ISBN-13 978-2-87996-258-0, Budisin Publishing, 278 pages |
-| `readings.items[]` | The opening page of chapters 01 to 15, reproduced whole: the chapter number, the three systems with the value each was holding, and the one line printed beneath them. Read from the print file with `awk`, not retyped. Pages 23, 29, 39, 51, 67, 79, 95, 105, 121, 135, 151, 167, 183, 195 and 209, from the printed map on page 11. **There are fifteen, not sixteen:** chapter 00 opens on a CASE EVIDENCE panel instead, which is why the site never says "sixteen readings". The values are set in capitals on the page and are carried in capitals here. **The book prints no legend explaining what a value means, and neither does the site.** |
+| `moments.closing` | Page 14: "It said I am failing; the data was I am tired." |
+| `excerpt.paragraphs[]`, `excerpt.quote` | Pages 1 to 3, the opening, verbatim. The home page shows the first two paragraphs, both page 1, ending "A slow descent feels like holding steady."; the rest is on `/read`. Two words follow v44 rather than the text the author supplied on 6 September; see *Re-verified against v44*. |
+| `excerpt.title`, `excerpt.sectionLabel` | Page 220, The Scientific Heartbeat: "Before the chapters. The pilot" |
+| `excerpt.closing`, `excerpt.closingSource` | Page 20: "This book is about the same error at kitchen scale…" **On `/read` only**, at the foot of the complete extract, where the preceding sentence "The warships are the extreme case." has been read. This answers what was open question 6. |
+| `premise.sensorLine` | Page 175: "The body is a sensor before it is a narrator." Reinstated at the author's request, brief §4, where she names it a crucial line. |
+| `closing.question`, `closing.source` | Page 218, near the end of the last chapter, "The World of Instruments": "Is this the situation? Or is this their state?" **In v44 it is no longer the book's last sentence:** the page follows it with "What belongs to the situation, and what might state be adding?" The site still sets the question alone; whether to add the second sentence is the author's call. |
+| `press.sources[0..1]` | Page 220, The Scientific Heartbeat: "Each chapter has three parts here…" and "Leaving them out would make the argument look tidier than it is." |
+| `press.facts` ISBN, publisher, extent | Copyright page, page iv: ISBN-13 978-2-87996-258-0, Budisin Publishing. Extent: 282 pages, the page count of the final interior PDF (x + 272); the copyright page prints no extent. |
+| `press.facts` legal deposit | Copyright page, page iv: "Legal deposit: Bibliothèque nationale du Luxembourg". **Until 14 September 2026 the site said "A CIP record is available at Bibliothèque nationale du Luxembourg."** v44 prints no CIP record, so the row now carries only the printed words, in all three languages. |
+| `readings.items[]` | The opening page of chapters 01 to 15, reproduced whole: the chapter number, the three systems with the value each was holding, and the one line printed beneath them. Read from the print file with `awk`, not retyped. Pages 17, 23, 33, 45, 61, 73, 89, 99, 115, 129, 145, 161, 177, 189 and 203, from the printed map on page 5, each checked against the opening page itself in v44. **Chapter 13's Safety value is PRECAUTION TAKEN in v44**; the almost-final text printed CORRECT, and the site carried it until 14 September 2026. **There are fifteen, not sixteen:** chapter 00 opens on a CASE EVIDENCE panel instead, which is why the site never says "sixteen readings". The values are set in capitals on the page and are carried in capitals here. **The book prints no legend explaining what a value means, and neither does the site.** |
 | `readings.label` | "Reading", the word printed before each chapter number. |
 | `press.credits` | Copyright page: cover design Zoe Larusson; book design and typesetting Ivana Budišin |
-| `press.credits` Photography row | **Author-supplied, 6 September 2026**, not on the copyright page. She wrote: "Zoe LARUSSON is the photographer and book designer." The photography credit is recorded. **The book-design credit is not**: page 4 prints "Book design and typesetting: Ivana Budišin" and "Cover design: Zoe Larusson", and the site may not contradict the printed book. Flagged to the author on the same day; if page 4 is wrong, the book is the thing to correct. |
+| `press.credits` Photography row | **Author-supplied, 6 September 2026**, not on the copyright page. She wrote: "Zoe LARUSSON is the photographer and book designer." The photography credit is recorded. **The book-design credit is not**: page iv prints "Book design and typesetting: Ivana Budišin" and "Cover design: Zoe Larusson", and the site may not contradict the printed book. Flagged to the author on the same day; if page 4 is wrong, the book is the thing to correct. |
 | `footer.rights` | Copyright page: © 2026 Budisin Publishing |
 
 ## Supplied by the author
@@ -77,7 +100,7 @@ The INPUT / FIRST READING / POSSIBLE STATE table printed beside it on the back c
 | `nav.book` / `nav.read` / `nav.author` / `nav.press` | Book · Extract · Author · Press, her navigation, same brief §21. |
 | `public/audio/extract-en.m4a` | The author's reading of the pilot, second take, supplied 6 September 2026 as "The Pilot NEW.mp3", 5 minutes 22 seconds. Restored before publishing: level drift 4.8 dB to 0.8 dB, noise floor -53 to -64 dBFS, and a gentle shelf above 3 kHz, because this take sits 4.5 dB darker than the first and reads as further from the microphone. No words were altered. **`listen.subtitle`, "Read by the author", is no longer rendered.** On 6 September the author said she is generating the reading in ElevenLabs; the two files she supplied are statistically almost identical (140 and 141 words per minute, 9.0 and 9.8 semitones of pitch range, pause variability 0.53 and 0.56), which two human performances would not be. The site may not claim a performance it cannot stand behind. The string stays in all three content files; the component renders it again as soon as she says whose voice it is and how she wants it described. |
 
-| `hero.credential` | **The author's own, 6 September 2026**: "Put my name and job as you suggested." Compressed from her printed biography, page 278 and the copyright page, to the words that fit one line under the byline. Answers open question 2, which is now closed. |
+| `hero.credential` | **The author's own, 6 September 2026**: "Put my name and job as you suggested." Compressed from her biography to the words that fit one line under the byline. The almost-final text printed that biography on page 278; **v44 prints no author biography**, so this line rested on her word alone until the final cover of 14 September 2026, which prints CLINICAL PSYCHOLOGIST under her name on the front and her biography's first sentence on the back. Answers open question 2, which is now closed. |
 | `press.photoCredit` | **The author named the photographer, 6 September 2026**: Zoe Larusson. Answers the placeholder, which is now closed. |
 
 ## The press pack
@@ -89,13 +112,13 @@ Two things were **withdrawn** from the pack on 6 September 2026, and should not 
 - **The 170 × 240 mm cover files** (`cover_front_300dpi.png`, `cover_back_300dpi.png`, `cover_wrap_300dpi.png`, `STATE_NOT_SITUATION_cover_170x240_PRINT.pdf`, `mockup_3d.png`, `mockup_3d_transparent.png` in the author's `Press Pack/` folder). The book is 6 × 9 in. Those files are a superseded trim, and the transparent render was the one the site had been offering. A journalist laying out a feature from them would print the wrong shape.
 - **`Press Pack/01_Copy/`.** Machine-written, and the source of the claims this whole provenance regime exists to keep out. The fact sheet in the kit is generated from `content/*.ts` instead.
 
-`State-Not-Situation-extract-the-opening.pdf` is set by `lib/make-extract-pdf.mjs` from the verified text in `content/en.ts`, because the extract PDF in the author's folder was exported on 4 September from the older text. It is a plain setting, not a facsimile: **when the book is next exported, replace it with pages 7 to 9 of the interior PDF**, which is better.
+`State-Not-Situation-extract-the-opening.pdf` is set by `lib/make-extract-pdf.mjs` from the verified text in `content/en.ts`, because the extract PDF in the author's folder was exported on 4 September from the older text. It is a plain setting, not a facsimile: **it could now be replaced with pages 1 to 3 of the v44 interior PDF**, which is better. Re-set on 14 September 2026 from the text as checked against v44, and the press kit rebuilt with it.
 
 ## Interface labels
 
 Everything in `nav` (including `menu` and `closeMenu`), `status`, `listen`, `a11y`, the folios, and the short labels in `press` (Downloads, Biography, Publication, Credits, Contact, Sources and evidence, Back to the book) are functional interface strings.
 
-| `press/excerpt-the-opening.pdf` | **Superseded.** The extract PDF in the press kit was exported on 4 September from the older text and does not match the book as it now reads. Re-export it from v40 before the kit goes to a journalist, or a review quotes a version that no longer exists. |
+| `press/excerpt-the-opening.pdf` | **Re-set 14 September 2026** by `lib/make-extract-pdf.mjs` from the English text as checked against v44 pages 1 to 3, and the press kit rebuilt with it. |
 
 ## Site-operational strings, 7 September 2026
 
@@ -119,10 +142,10 @@ language and how these pages were made, and nothing about the book's content.
 
 From `brief/REDESIGN.md`. Everything else in the redesign was decided by the team.
 
-1. **The premise paragraph.** The site uses the back cover verbatim, because the interior does not supply 70 to 120 words at that position and no new prose may be written. It is jacket copy, and she may not want the site to speak in that register. The alternative is an assembly of whole printed sentences from pages 8 and 9.
+1. **The premise paragraph.** The site uses the back cover verbatim, because the interior does not supply 70 to 120 words at that position and no new prose may be written. It is jacket copy, and she may not want the site to speak in that register. The alternative is an assembly of whole printed sentences from pages 2 and 3.
 2. ~~**A credential on the first screen.**~~ **Closed 6 September 2026.** She asked for it: one line, "Clinical psychologist, Luxembourg", set in mono under the byline.
-3. **Three moments, three "None."** The three she named all end "Verified event / tone / crisis: None." Read together they can be heard as a stronger claim than the book makes — the one Chapter Thirteen, "The Time the Body Was Right", exists to refute. Page 11's "16 cases" line above them is the hedge. Swapping 22:47 for 22:40 would end the set on the moment the body was right, at the cost of the most quotable panel on the page.
-4. **"Then turn tightened."** Your corrected text carries this twice, and it reads as a slip for "The turn tightened." The English page prints it exactly as you wrote it. French and German translate the sense and do not carry the slip, because in those languages it could only read as the translator's error. One word from you settles all three.
+3. **Three moments, three "None."** The three she named all end "Verified event / tone / crisis: None." Read together they can be heard as a stronger claim than the book makes — the one Chapter Thirteen, "The Time the Body Was Right", exists to refute. Page 5’s "16 cases" line above them is the hedge. Swapping 22:47 for 22:40 would end the set on the moment the body was right, at the cost of the most quotable panel on the page.
+4. ~~**"Then turn tightened."**~~ **Closed 14 September 2026 by the book itself:** v44 page 2 prints "The turn tightened.", and the English page now does too. French and German already translated the sense.
 5. ~~**Is the recording your own voice?**~~ **Closed 6 September 2026, by removal.** She listened and took the reading off the site: "take out the reading… it's bad." `editions.en.audioUrl` is `null`, so the Listen section, its footer link and its link from `/read` are all gone, and no claim about a voice is made anywhere. What was learned about generating a better one is in `audio/README.md`.
 6. **One translation query is open.** Two were raised on 6 September 2026 in the author's own query format; the German one closed the same evening.
    - **French, `QUERIES-fr.md` query 2 — which way the claim runs in NOT CLAIMED.** English leaves it open and French must close it: either the system claims the state, or nothing has claimed the system. The file carries « NON SOLLICITÉ », the one wording that does not choose. It governs four chapter openings and both halfway maps.
@@ -130,7 +153,9 @@ From `brief/REDESIGN.md`. Everything else in the redesign was decided by the tea
 
 7. **Should the translation note survive sign-off?** As built it disappears when a native speaker signs a language off and `underReview` flips, although those pages will still have been AI-translated. That is an architecture decision rather than a translation one, and it is hers. If she wants the AI fact to outlive the review, the note splits into two strings on two gates: one that says how the pages were made, which never goes away, and one that says the review is pending, which does. Nothing already written needs rewriting to allow it.
 
-8. Still open from before: a publication month or season in place of "Publishing soon"; whether she wants an audio recording; and, for her copy-editor, the typos noted in the almost-final text on or near the quoted pages (page 12 "is build"; page 15 "used in this book an analogy"; page 19 "safety,."; page 31 "is was fatigue"; page 181 "the he panel"; page 191 "mashine"; page 192 "somthing"; page 220 "itsel"). The site quotes none of those sentences.
+8. Still open from before: a publication month or season in place of "Publishing soon"; whether she wants an audio recording; and, for her copy-editor, the typos noted in the almost-final text on or near the quoted pages (page 12 "is build"; page 15 "used in this book an analogy"; page 19 "safety,."; page 31 "is was fatigue"; page 181 "the he panel"; page 191 "mashine"; page 192 "somthing"; page 220 "itsel"). The site quotes none of those sentences. **Checked 14 September 2026: none of the eight survives in v44.**
+
+9. **The four back-cover sentences.** The final cover of 14 September 2026 prints "A short message feels cold." / "A meeting feels dangerous." / "A craving feels like a decision." / "A quiet room feels like judgement." between the headline and the paragraph. They are printed and could stand in the premise between `premise.lines` and `premise.mechanism`, where the site otherwise carries the back cover in order; the earlier table in that position was left off because it read as data on screen. Adding them is her call. The 16 × 9 social crop in the press kit already carries them, because it had carried the table.
 
 ---
 
@@ -143,21 +168,21 @@ French original and must not be recorded as though it were. The reasoning behind
 
 | Key | Source of the French |
 |---|---|
-| `premise.sensorLine` | Translated from page 181 of the English text. « Le corps est un capteur avant d’être un narrateur. » |
+| `premise.sensorLine` | Translated from page 175 of the English text. « Le corps est un capteur avant d’être un narrateur. » |
 | `premise.lines[0..1]` | **Translated from the English back cover**, `public/images/cover-back.jpg`, where the headline is printed in caps over three lines with the last, TO YOUR STATE., in red. « Vous ne réagissez peut-être pas au monde. » / « Vous réagissez peut-être à votre état. » No French cover exists and neither line has a printed French original. *May* is carried by « peut-être » in the same slot in both halves; the French cleft was refused because it breaks the parity of the two lines. See `translation/METHOD-fr.md`, **The author’s corrected text, 2026-09-06**. |
 | `premise.mechanism[0..3]` | **Translated from the English back cover**, `public/images/cover-back.jpg`, under the printed eyebrow THE FIRST MISREADING. No French cover exists and none of these sixty-three words has a printed French original. |
-| `variables.sortingLines[0..1]` | Translated from page 13. The French uses « Ce ne sont pas… » so that the pronoun points at the three display words above it, as the English *They* does on the page but not in the book. |
+| `variables.sortingLines[0..1]` | Translated from page 7. The French uses « Ce ne sont pas… » so that the pronoun points at the three display words above it, as the English *They* does on the page but not in the book. |
 | `evidence.title`, `evidence.grades[].description` | **Re-authored in French from the author’s own English**, `brief/REDESIGN-BRIEF.md` §8 section 5, 6 September 2026. Not lexically matched: `title` is « Niveau de preuve », because French cannot head three bare adjectives with a mass noun, and *evidence* is carried by « preuve » in the heading and « résultats » in two of the three cells. Open in `translation/QUERIES-fr.md`, query 1. |
-| `evidence.closing` | Translated from page 13, carried over unchanged from the retired `map.evidenceMarkers`, where it had already passed two native reviews. |
+| `evidence.closing` | Translated from page 7, carried over unchanged from the retired `map.evidenceMarkers`, where it had already passed two native reviews. |
 | `moments.label` | Translated from the printed CASE EVIDENCE label: « Pièces du dossier ». |
 | `nav.menu`, `nav.closeMenu`, `a11y.menu` | Interface. « Menu », « Fermer », « Menu ». |
-| `press.kitLabel`, `press.mapHeading`, `press.sourcesHeading`, `press.sourcesLabel` | Interface. `sourcesLabel` uses the book’s own French for the page 226 section, « Le pouls scientifique ». |
+| `press.kitLabel`, `press.mapHeading`, `press.sourcesHeading`, `press.sourcesLabel` | Interface. `sourcesLabel` uses the book’s own French for the page 220 section, « Le pouls scientifique ». |
 | `press.photoCredit` | **Translated from the author's own attribution**, 6 September 2026: « Photographie : Zoe Larusson », with the no-break space French takes before a colon. The name does not change. Replaces the row that recorded the `[COPY NEEDED]` placeholder. |
 | `press.credits` Photography row | Translated label, author-supplied value: « Photographie » / « Zoe Larusson », after « Conception de la couverture », as in the English. |
 | `hero.credential` | **Translated from the author's own English line**, 6 September 2026: « Psychologue clinicienne, Luxembourg ». *Clinicienne* is the word of the approved French biography; the place stands bare after the comma, as a French byline sets it. |
 | `hero.subtitle`, and the same sentence in `meta.description`, `meta.ogImageAlt` and the `press.facts` subtitle row | **The author's own French, 6 September 2026**, given verbatim: « Un guide de terrain pour l'instant qui précède le moment où l'interprétation devient réalité ». It replaces the editor's translation, « … de l'instant où l'interprétation n'est pas encore devenue réalité », in all four places. This line is no longer a translation and must not be re-translated: it is category (b), her own words. |
 | `readings.title`, `.label`, `.pageLabel` | Translated from the English: « Les lectures », « Lecture », « Page ». The glossary term for *reading*; page 11 already prints « Trois lectures » in French. |
-| `readings.items[].time` / `.attention` / `.safety` | **Translated from the printed English chapter openings**, pages 23 to 209. Forty-five gauge labels, set in capitals as the book sets them, with the accents French capitals take. No French edition exists and none has a printed French original. Nine come straight from the `METHOD-fr.md` glossary. Adjectives agree with the system they stand under: TEMPS / DOMINANT against SÉCURITÉ / DOMINANTE. NOT CLAIMED is « NON SOLLICITÉ » and is **open**, `QUERIES-fr.md` query 2. |
+| `readings.items[].time` / `.attention` / `.safety` | **Translated from the printed English chapter openings**, pages 17 to 203. Forty-five gauge labels, set in capitals as the book sets them, with the accents French capitals take. No French edition exists and none has a printed French original. Nine come straight from the `METHOD-fr.md` glossary. Adjectives agree with the system they stand under: TEMPS / DOMINANT against SÉCURITÉ / DOMINANTE. NOT CLAIMED is « NON SOLLICITÉ » and is **open**, `QUERIES-fr.md` query 2. Chapter 13's Safety value became « PRÉCAUTION PRISE » on 14 September 2026, when v44 printed PRECAUTION TAKEN in place of CORRECT; it replaces « CORRECTE » and is for the native reviewer to confirm. |
 | `readings.items[].line` | **Translated from the fifteen printed lines.** Aphorisms, held to the English length: 36 to 61 characters against the English 33 to 54. |
 | `readings.items[].number` / `.page` | The book's own figures, byte-identical in all three languages. **`readings.items[].time` is not**, unlike `moments.items[].time`, which is a printed clock time — a mechanical parity check will flag all twelve translated Time cells, and that is correct. |
 | `variables.loops[2]` | Safety’s printed list of examples is removed in French as it is in English, so the three definitions share one shape. |
@@ -168,34 +193,34 @@ Nothing here was cut for being wrong. It was cut because the page said it twice,
 
 **Deleted from the site.**
 
-- **Page 10's five timestamped readings** and their label. 06:38 and 22:47 returned as case panels five screens later; the timestamps are stronger once, with their verification.
-- **Page 10's three lines**, "Nothing went wrong on this day. / The instruments were working. / The data was there the whole time." Replaced by the back cover's headline at the author's request, 6 September 2026: on screen they read as hedging. Still printed on page 10, and the page 10 folio still stands beside the section.
-- **Page 10's closing couplet**, "The body speaks first." / "The mind explains second." The same proposition as the sensor line, and printed on the cover behind it.
-- **Page 13's evidence prose**, 169 words, both paragraphs. They describe in words the three markers shown directly beneath them. Replaced by the author's own three descriptions.
-- **Page 13's question**, "Is this the situation? Or is this the state?" Page 225's version closes the page; two near-identical questions on one page read as a loop.
+- **Page 4’s five timestamped readings** and their label. 06:38 and 22:47 returned as case panels five screens later; the timestamps are stronger once, with their verification.
+- **Page 4’s three lines**, "Nothing went wrong on this day. / The instruments were working. / The data was there the whole time." Replaced by the back cover's headline at the author's request, 6 September 2026: on screen they read as hedging. Still printed on page 4, and the page 4 folio still stands beside the section.
+- **Page 4’s closing couplet**, "The body speaks first." / "The mind explains second." The same proposition as the sensor line, and printed on the cover behind it.
+- **Page 7’s evidence prose**, 169 words, both paragraphs. They describe in words the three markers shown directly beneath them. Replaced by the author's own three descriptions.
+- **Page 7’s question**, "Is this the situation? Or is this the state?" Page 218’s version closes the page; two near-identical questions on one page read as a loop.
 - **`reading.afterResult`**, 34 words explaining the reading the reader has just taken.
-- **`map.investigationTitle`**, "The Investigation". Page 10's setting is stronger and the word filled two consecutive screens.
+- **`map.investigationTitle`**, "The Investigation". Page 4’s setting is stronger and the word filled two consecutive screens.
 - **`hero.eyebrow`**, "Time · Attention · Safety" — printed on the cover beside it and the headline of section 3.
 - **`hero.scrollHint`**, "Scroll".
-- **`footer.method`**, page 278's "Read the dashboard. Delay the story. Take the reading again." The front cover prints READ THE DASHBOARD / BEFORE YOU BELIEVE THE STORY and is on screen at the top of the page.
+- **`footer.method`**, page 272’s "Read the dashboard. Delay the story. Take the reading again." The front cover then printed READ THE DASHBOARD / BEFORE YOU BELIEVE THE STORY and was on screen at the top of the page. (The final cover of 14 September 2026 dropped that pair from the front; the back now signs off CHECK THE SIGNAL / BEFORE YOU BELIEVE THE STORY. Page 272 still prints the line, and it stays off the site.)
 - **`footer.madeLine`** as a footer line — the cover line is now the closing.
 - **The second imprint line** in the footer, which printed beside "© 2026 Budisin Publishing" as two adjacent identical names, and the **Publisher row** in `press.facts`, which `press.credits` already carries.
 - **The companion-tool section**, which had been switched off since it was built and whose one sentence was never written.
 
 **Relocated, not deleted.**
 
-- The sixteen-chapter map with its colour keys and rail, "This book is the / Investigation.", the page 13 sorting-tool passage, the fourth case panel (13 / p.182 / 22:40) and the page 226 Scientific Heartbeat paragraphs → **the press page**.
-- The page 26 block → **the extract page**, at the foot of the complete extract.
+- The sixteen-chapter map with its colour keys and rail, "This book is the / Investigation.", the page 7 sorting-tool passage, the fourth case panel (13 / p.176 / 22:40) and the page 220 Scientific Heartbeat paragraphs → **the press page**.
+- The page 20 block → **the extract page**, at the foot of the complete extract.
 - `book.paragraphs[0]` → the head of the extract; `book.readers` → the author section.
 
 ## Removed on 6 September 2026 at the author's request
 
 Seen on her phone and crossed out, earlier the same day. Each was verbatim from the book or her own copy; she is revising the book's wording and did not want it on the launch page.
 
-- **Page 12, "You know the day", all four runs** and the disclosure that held the first.
-- **The page 20 heading** "Same morning. Same paragraph. Same Katrin. Different instrument settings." and **the page 20 paragraph** "Three systems ran through Katrin's morning…".
+- **Page 6, "You know the day", all four runs** and the disclosure that held the first.
+- **The page 14 heading** "Same morning. Same paragraph. Same Katrin. Different instrument settings." and **the page 14 paragraph** "Three systems ran through Katrin's morning…".
 - **Her paragraph "Over sixteen days, Katrin moves…"**, from the home page and the press description.
-- **Page 14, "This book does not replace professional support…"**: "this is a book launch".
+- **Page 8, "This book does not replace professional support…"**: "this is a book launch".
 
 ## What was removed earlier, and why
 
@@ -221,8 +246,8 @@ German original. The reasoning is in `translation/METHOD-de.md`, amendments 52 t
 
 | Key | Source of the German |
 |---|---|
-| `readings.title`, `.label` | Translated from the English: „Die Befunde", „Befund". **Not Lesart.** Amendment 35 splits the noun — *Lesart* where the reading is of the world, *Befund* where it is taken off the instrument — and fifteen panels of three system values are readings taken. **Closed the same day, `QUERIES-de.md` query 2, on the author's instruction to reconsider the whole lexical decision.** `moments.line` and `press.mapLine` are now „16 Fälle. **Drei Befunde.**" Amendment 35 is replaced by amendment 59: the split is not world-against-instrument but **datum against construal** — a *Befund* is what came back, a *Lesart* is what someone made of it. Page 10 already printed „Derselbe Tag, fünf Befunde", so verso and recto of one printed opening had been disagreeing about what the book counts. |
-| `readings.items[].time` / `.attention` / `.safety` | **Translated from the printed English chapter openings**, pages 23 to 209, in capitals as the book sets them. The debt trio is „DEFIZIT VOM MORGEN / VOM NACHMITTAG / VOM VORABEND": *Schuld* alone in capitals reads as guilt and *Schulden* reads as a bank, while *Defizit* is what German itself says in *Schlafdefizit*. Seven of the fifteen value rows wrap to two lines at 1440 px because *Aufmerksamkeit* costs five characters over *Attention*; nothing was shortened to force a line, per amendment 45. |
+| `readings.title`, `.label` | Translated from the English: „Die Befunde", „Befund". **Not Lesart.** Amendment 35 splits the noun — *Lesart* where the reading is of the world, *Befund* where it is taken off the instrument — and fifteen panels of three system values are readings taken. **Closed the same day, `QUERIES-de.md` query 2, on the author's instruction to reconsider the whole lexical decision.** `moments.line` and `press.mapLine` are now „16 Fälle. **Drei Befunde.**" Amendment 35 is replaced by amendment 59: the split is not world-against-instrument but **datum against construal** — a *Befund* is what came back, a *Lesart* is what someone made of it. Page 4 already printed „Derselbe Tag, fünf Befunde", so verso and recto of one printed opening had been disagreeing about what the book counts. |
+| `readings.items[].time` / `.attention` / `.safety` | **Translated from the printed English chapter openings**, pages 17 to 203, in capitals as the book sets them. The debt trio is „DEFIZIT VOM MORGEN / VOM NACHMITTAG / VOM VORABEND": *Schuld* alone in capitals reads as guilt and *Schulden* reads as a bank, while *Defizit* is what German itself says in *Schlafdefizit*. Seven of the fifteen value rows wrap to two lines at 1440 px because *Aufmerksamkeit* costs five characters over *Attention*; nothing was shortened to force a line, per amendment 45. Chapter 13's Safety value became „VORKEHRUNG GETROFFEN“ on 14 September 2026, when v44 printed PRECAUTION TAKEN in place of CORRECT; it replaces „RICHTIG“ and is for the native reviewer to confirm. |
 | `readings.items[].line` | **Translated from the fifteen printed lines.** Line 11 says „zum Beweis" and not *Belege*, because the English says *proof* and amendment 12 bars *Beweis* for *evidence* precisely so the word stays free here; line 08, which does say *evidence*, is „Belege". Line 05 is the one place a shade of the image was traded for length: „stellt dem Morgen die Rechnung" is exact but runs 66 characters against 40 and stops being an aphorism, so the billing became paying, a shift the chapter itself contains. |
 | `hero.credential` | **Translated from the author's own English line**, 6 September 2026: „Klinische Psychologin, Luxemburg" — her own biography sentence with the verbs taken out, which is what the English does. |
 | `press.photoCredit` | **Translated from the author's own attribution**: „Foto: Zoe Larusson". Replaces the `[COPY NEEDED]` placeholder. The name does not change. |
@@ -235,6 +260,6 @@ German original. The reasoning is in `translation/METHOD-de.md`, amendments 52 t
 - **The cover lines are translated from the English cover.** `hero.subtitle`, `hero.strap`, `premise.mechanism[0..3]`, `closing.line` and `footer.band` are printed on `public/images/cover-front.jpg` and `cover-back.jpg`, which are **English** artwork. The German is a translation of that printed English, not a quotation from a printed German original, and the cover artwork on the page stays English in all three languages.
 - **The three evidence descriptions are author-supplied, not printed.** `evidence.grades[].description` comes from `brief/REDESIGN-BRIEF.md` §8 section 5, written by Ivana on 6 September 2026. In German they are **re-authored to the same register**, not lexically matched — three short definitions in the words German research prose uses. They are not unsourced sentences and must not be cut as such.
 
-Two omissions in the German follow the English exactly and are recorded here as well: page 14's "Things like social evaluation, exclusion, ambiguity, status." is not in `variables.loops[2]`, and page 13's 169 words of evidence prose are not on the page.
+Two omissions in the German follow the English exactly and are recorded here as well: page 8’s "Things like social evaluation, exclusion, ambiguity, status." is not in `variables.loops[2]`, and page 7’s 169 words of evidence prose are not on the page.
 
 The German glossary decision that governs the site's central term — *reading* is **Lesart** where it is a reading of the world and **Befund** where it is a reading taken off the instrument — is recorded as amendment 35 in `translation/METHOD-de.md`, with the one consequence put to the author in `translation/QUERIES-de.md`.

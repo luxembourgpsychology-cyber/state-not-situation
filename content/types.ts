@@ -16,7 +16,7 @@
  * closing. Section ids are English in every language, by contract.
  */
 
-/** One of the book's three systems, printed on the cover and on pages 13 to 14. */
+/** One of the book's three systems, printed on the cover and on pages 7 to 8. */
 export interface Loop {
   key: "time" | "attention" | "safety";
   name: string;
@@ -24,10 +24,10 @@ export interface Loop {
   body: string;
 }
 
-/** One confidence marker, printed on page 13; the description is the author's. */
+/** One confidence marker, printed on page 7; the description is the author's. */
 export interface EvidenceGrade {
   key: "high" | "medium" | "low";
-  /** The label printed under the pulse on page 13. */
+  /** The label printed under the pulse on page 7. */
   label: string;
   /** The author's own description, from the redesign brief. */
   description: string;
@@ -129,19 +129,19 @@ export interface SiteContent {
     readCta: string;
   };
 
-  /** Section 2, movement one: page 10 and the printed back cover. */
+  /** Section 2, movement one: page 4 and the printed back cover. */
   premise: {
     eyebrow: string;
-    /** Page 181. The line the author calls crucial. */
+    /** Page 175. The line the author calls crucial. */
     sensorLine: string;
-    /** Page 10, three lines. */
+    /** The back cover’s headline, which replaced page 4’s three lines. */
     lines: string[];
     /** The back cover's own four sentences. */
     mechanism: string[];
     folio: string;
   };
 
-  /** Section 2, movement two: page 13, where the reader takes a reading. */
+  /** Section 2, movement two: page 7, where the reader takes a reading. */
   reading: {
     eyebrow: string;
     lead: string;
@@ -152,7 +152,7 @@ export interface SiteContent {
 
   /** Section 3. The three variables as an editorial spread. */
   variables: {
-    /** Two printed sentences from page 13. */
+    /** Two printed sentences from page 7. */
     sortingLines: string[];
     loops: Loop[];
     folio: string;
@@ -160,13 +160,13 @@ export interface SiteContent {
 
   /** Section 4. Three printed CASE EVIDENCE pages. */
   moments: {
-    /** Page 11: "16 cases. Three readings. One question: state or situation?" */
+    /** Page 5: "16 cases. Three readings. One question: state or situation?" */
     line: string;
     /** Printed at the head of every CASE EVIDENCE page. */
     label: string;
     pageLabel: string;
     items: CaseEvidence[];
-    /** Page 20. */
+    /** Page 14. */
     closing: string;
     closingSource: string;
   };
@@ -175,7 +175,7 @@ export interface SiteContent {
   evidence: {
     title: string;
     grades: EvidenceGrade[];
-    /** Page 13. */
+    /** Page 7. */
     closing: string;
     folio: string;
   };
@@ -195,7 +195,7 @@ export interface SiteContent {
     continueCta: string;
     back: string;
     readingModeLabel: string;
-    /** Page 26, at the foot of the complete extract on /read. */
+    /** Page 20, at the foot of the complete extract on /read. */
     closing: string;
     closingSource: string;
     endNote: string;
@@ -240,7 +240,7 @@ export interface SiteContent {
     pressLabel: string;
   };
 
-  /** Section 8. Page 225, then the cover line, then the form. */
+  /** Section 8. Page 218, then the cover line, then the form. */
   closing: {
     question: string;
     source: string;

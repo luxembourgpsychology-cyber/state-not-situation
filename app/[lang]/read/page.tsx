@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 /**
  * READING MODE. The interior page: the drop-cap opening, the FAA sentence set
  * apart, folios in the margin. It ends where the book's own front matter ends,
- * on page 26, and then offers the one form — a reader who has just finished
- * nine pages of the pilot should not have to go back to the home page for it.
+ * on page 20, and then offers the one form — a reader who has just finished
+ * the three pages of the pilot should not have to go back to the home page for it.
  */
 export default async function ReadPage({ params }: { params: Promise<{ lang: string }> }) {
   const locale = (await params).lang as Locale;
@@ -62,7 +62,7 @@ export default async function ReadPage({ params }: { params: Promise<{ lang: str
             ))}
           </div>
 
-          {/* Page 26. Here, "the warships" has been read. */}
+          {/* Page 20. Here, "the warships" has been read. */}
           <div className="reading-body mt-16 md:mt-24 pt-10 border-t border-[var(--rule)]">
             <p>{x.closing}</p>
             <p className="t-mono mt-4">{x.closingSource}</p>

@@ -59,13 +59,13 @@ export const en: SiteContent = {
   },
 
   hero: {
-    // Front cover and title page, page 3.
+    // Front cover and title page, page iii.
     titleA: "State.",
     titleB: "Not Situation",
     subtitle: "A field guide to the moment before interpretation becomes reality",
     strap: "Your first reading is not the whole story.",
     authorPrefix: "by",
-    // The author's own, 6 September 2026, compressed from her printed biography.
+    // The author's own, 6 September 2026, compressed from her biography sentence (v44 prints no biography).
     credential: "Clinical psychologist, Luxembourg",
     coverAlt:
       "Front cover of State. Not Situation. The word STATE set large in red above NOT SITUATION in black, on a cream ground printed with faint struck-through sentences and small instrument readings.",
@@ -73,12 +73,12 @@ export const en: SiteContent = {
   },
 
   premise: {
-    // Page 10, and the back cover, print the same eyebrow.
+    // Page 4, and the back cover, print the same eyebrow.
     eyebrow: "The first misreading",
-    // Page 181.
+    // Page 175.
     sensorLine: "The body is a sensor before it is a narrator.",
     // Back cover, the headline set under the same eyebrow. The most direct
-    // statement of the book's claim, and printed. It replaced page 10's three
+    // statement of the book's claim, and printed. It replaced page 4’s three
     // lines, which read on screen as qualifications rather than as a claim.
     lines: [
       "You may not be reacting to the world.",
@@ -91,25 +91,25 @@ export const en: SiteContent = {
       "Before the mind explains, the body has already voted. Sleep pressure, hunger, timing, attention, threat detection, memory, and prediction quietly shape what feels true.",
       "Then the mind arrives second and gives that feeling a reason.",
     ],
-    folio: "10",
+    folio: "4",
   },
 
-  // Page 13, verbatim. The eyebrow is the page's own phrase.
+  // Page 7, verbatim. The eyebrow is the page's own phrase.
   reading: {
     eyebrow: "Try something right now",
     lead: "Whatever you are feeling as you read this sentence.",
     steps: ["Check your jaw.", "Check your breath.", "Check your shoulders."],
     result: "What you found is a reading.",
-    folio: "13",
+    folio: "7",
   },
 
   variables: {
-    // Page 13.
+    // Page 7.
     sortingLines: [
       "They are not brain regions or neural pathways.",
       "They are a sorting tool, a way to ask three questions when everything feels wrong at once.",
     ],
-    // Pages 13 to 14. Safety's list of examples is not shown; see CONTENT_SOURCES.md.
+    // Pages 7 to 8. Safety's list of examples is not shown; see CONTENT_SOURCES.md.
     loops: [
       {
         key: "time",
@@ -127,11 +127,11 @@ export const en: SiteContent = {
         body: "The system that monitors threat, and especially social threat. It is fast, it is old, and it is biased toward false alarms. It produces interpretations that feel like facts.",
       },
     ],
-    folio: "13",
+    folio: "7",
   },
 
   moments: {
-    // Page 11.
+    // Page 5.
     line: "16 cases. Three readings. One question: state or situation?",
     label: "Case evidence",
     pageLabel: "Page",
@@ -139,7 +139,7 @@ export const en: SiteContent = {
     items: [
       {
         chapter: "00",
-        page: 16,
+        page: 10,
         time: "06:38",
         quote: "“Something is off.”",
         inputLabel: "Input",
@@ -149,7 +149,7 @@ export const en: SiteContent = {
       },
       {
         chapter: "02",
-        page: 28,
+        page: 22,
         time: "22:47",
         quote: "“ok.”",
         inputLabel: "Input",
@@ -159,7 +159,7 @@ export const en: SiteContent = {
       },
       {
         chapter: "11",
-        page: 150,
+        page: 144,
         time: "16:00",
         quote: "“Something is wrong with my life.”",
         inputLabel: "Input",
@@ -168,27 +168,29 @@ export const en: SiteContent = {
         verified: "None.",
       },
     ],
-    // Page 20.
+    // Page 14.
     closing: "It said I am failing; the data was I am tired.",
-    closingSource: "Page 20",
+    closingSource: "Page 14",
   },
 
   evidence: {
     title: "Evidence",
-    // Labels printed on page 13; descriptions supplied by the author, 6 September 2026.
+    // Labels printed on page 7; descriptions supplied by the author, 6 September 2026.
     grades: [
       { key: "high", label: "High", description: "Replicated or robust evidence." },
       { key: "medium", label: "Medium", description: "Suggestive evidence with meaningful uncertainty." },
       { key: "low", label: "Low", description: "Plausible hypothesis or emerging evidence." },
     ],
-    // Page 13.
+    // Page 7.
     closing: "These markers exist because the book’s own risk is the same risk it describes.",
-    folio: "13",
+    folio: "7",
   },
 
-  // Pages 7 to 9 of the book, verbatim from the text the author supplied on
-  // 6 September 2026, which is v40 plus one further edit ("The mist came, the
-  // one that erases…"). The closing line is page 26.
+  // Pages 1 to 3 of the book, verbatim, checked word for word against the
+  // final interior (v44) on 14 September 2026. v44 prints "The mist, the one
+  // that erases…" and "The turn tightened." where the text the author
+  // supplied on 6 September had "The mist came, …" and "Then turn tightened.";
+  // the site follows the printed page. The closing line is page 20.
   excerpt: {
     title: "Before the chapters",
     sectionLabel: "The pilot",
@@ -197,10 +199,10 @@ export const en: SiteContent = {
     teaserCount: 2,
     paragraphs: [
       "On the evening of 16 July 1999, a small single engine plane took off from New Jersey. It was heading for Martha’s Vineyard. The pilot was experienced enough to be confident and new enough to be wrong about what that confidence meant. He had about 300 hours in the air. He had not finished the training that would qualify him to fly using only his instruments.",
-      "The sky was clear when he departed so he concluded that he did not need instruments. By the time he reached the coast, a haze had settled over the water. The mist came, the one that erases the line between sea and sky so gradually that you do not notice the horizon is gone until you look for it and it is not there. Over land there are lights below. You see roads, buildings, a geometry that tells your eyes which way is down. Over open water at night, with haze sitting on the surface like a second darkness, there is nothing. The world outside the cockpit becomes a uniform grey in every direction. Up looks like down. A gentle turn feels like level flight. A slow descent feels like holding steady.",
+      "The sky was clear when he departed so he concluded that he did not need instruments. By the time he reached the coast, a haze had settled over the water. The mist, the one that erases the line between sea and sky so gradually that you do not notice the horizon is gone until you look for it and it is not there. Over land there are lights below. You see roads, buildings, a geometry that tells your eyes which way is down. Over open water at night, with haze sitting on the surface like a second darkness, there is nothing. The world outside the cockpit becomes a uniform grey in every direction. Up looks like down. A gentle turn feels like level flight. A slow descent feels like holding steady.",
       "The pilot’s inner ear, the organ that tells the brain which way the body is oriented in space, works by detecting changes in motion. When you enter a turn, the fluid inside the ear shifts, and the brain registers rotation. But if the turn holds steady for fifteen or twenty seconds, the fluid in the inner ear settles. It stops moving. The brain, which tracks movement, concludes that the turn has ended. You feel level, but you are not.",
       "Somewhere over the dark water, the plane entered a gentle left turn. The pilot’s instruments, the dials on the panel in front of him, showed the turn. The artificial horizon, a small gyroscope display that shows the aircraft’s angle relative to the earth, was telling him clearly that he was banking. The altimeter was telling him he was descending. The airspeed indicator was telling him he was accelerating. His body was telling him something different. His body was telling him he was flying straight and level. His body felt right. His instruments felt wrong. He trusted his body.",
-      "Then turn tightened. The nose dropped. The airspeed built. In the final seconds, the plane was descending at more than 4,700 feet per minute, nearly a mile every sixty seconds, in a tightening spiral that pilots call, with the grim precision of a profession that has named the ways it loses people, a graveyard spiral. He hit the water at full speed. He and his two passengers were killed on impact.",
+      "The turn tightened. The nose dropped. The airspeed built. In the final seconds, the plane was descending at more than 4,700 feet per minute, nearly a mile every sixty seconds, in a tightening spiral that pilots call, with the grim precision of a profession that has named the ways it loses people, a graveyard spiral. He hit the water at full speed. He and his two passengers were killed on impact.",
       "The investigation found no mechanical failure. The engine was running. The instruments were working. The data was right there, on the panel, six inches from his eyes, the whole time, but he did not read it. He read his body instead. The American Federal Aviation Administration’s instruction to pilots who find themselves in this situation is one sentence long. It is a literal instruction that applies to your life as directly as it applies to a cockpit:",
       "The pilot’s name was John F. Kennedy Jr. He was the son of an American president. He had been advised not to fly that night without his instructor. He told his instructor he wanted to do it alone. He was thirty-eight years old.",
       "You operate a body that produces signals and your mind often treats those signals as truth. The signals are sometimes as wrong as the inner ear’s vestibular system over dark water. The tiredness that presents itself as a question about your career. The caffeine spike that presents itself as anxiety about an email. The low blood sugar that presents itself as evidence that your relationship is failing. Your body speaks first and your mind explains second. The explanation, because it comes with the full weight of physical conviction, the tight jaw, the fast heartbeat, the heat behind the ears, feels like deep knowledge. It feels like you are reading the situation. But you are only reading the instrument that is reading the situation, and the instrument’s settings were off before the situation arrived. These instruments exist. You have them. Heart rate, jaw tension, breathing depth, shoulder position, the speed of your thoughts. They are producing data right now, as you read this sentence. But the body’s confident weather report about the world is only a draft.",
@@ -210,13 +212,13 @@ export const en: SiteContent = {
     continueCta: "Continue reading",
     back: "Back to the book",
     readingModeLabel: "Reading mode",
-    // Page 26.
+    // Page 20.
     closing:
       "This book is about the same error at kitchen scale. The version that happens every Tuesday. The version where your body writes a story about a message, a silence, a look, and your mind edits that story under the supervision of whatever your body is feeling at the time. Nobody dies, but decisions get made. Relationships change. Self-assessments form. And none of it had to happen the way it did, because the data was right there the whole time.",
-    closingSource: "Page 26",
+    closingSource: "Page 20",
     endNote: "Chapter Zero follows: A Day That Should Have Been Fine.",
     unavailable: "The extract in this language will follow.",
-    folios: ["7", "8", "9"],
+    folios: ["1", "2", "3"],
   },
 
   // Chapters 01 to 15, each opening page, word for word. Chapter 00 opens on
@@ -226,35 +228,35 @@ export const en: SiteContent = {
     label: "Reading",
     pageLabel: "Page",
     items: [
-      { number: "01", time: "NOT CLAIMED", attention: "DEGRADED", safety: "DOMINANT", page: 23,
+      { number: "01", time: "NOT CLAIMED", attention: "DEGRADED", safety: "DOMINANT", page: 17,
         line: "The body makes a verdict before attention tests it." },
-      { number: "02", time: "DOMINANT", attention: "CHECKING LOOP", safety: "AMPLIFIED", page: 29,
+      { number: "02", time: "DOMINANT", attention: "CHECKING LOOP", safety: "AMPLIFIED", page: 23,
         line: "Fatigue removes the brake from certainty." },
-      { number: "03", time: "IN THE GAPS", attention: "LOOPING", safety: "NOT CLAIMED", page: 39,
+      { number: "03", time: "IN THE GAPS", attention: "LOOPING", safety: "NOT CLAIMED", page: 33,
         line: "The hand reaches before the mind decides." },
-      { number: "04", time: "CUE AT 15:28", attention: "HABIT LOOP", safety: "RISING LATER", page: 51,
+      { number: "04", time: "CUE AT 15:28", attention: "HABIT LOOP", safety: "RISING LATER", page: 45,
         line: "The hand keeps an appointment the mind never made." },
-      { number: "05", time: "DOMINANT", attention: "LATE CAPTURE", safety: "NOT CLAIMED", page: 67,
+      { number: "05", time: "DOMINANT", attention: "LATE CAPTURE", safety: "NOT CLAIMED", page: 61,
         line: "An hour feels free and bills the morning." },
-      { number: "06", time: "MORNING DEBT", attention: "DEGRADED", safety: "RUMINATION", page: 79,
+      { number: "06", time: "MORNING DEBT", attention: "DEGRADED", safety: "RUMINATION", page: 73,
         line: "The weekend does everything right and restores nobody." },
-      { number: "07", time: "AFTERNOON DEBT", attention: "FRAGMENTED", safety: "RISING", page: 95,
+      { number: "07", time: "AFTERNOON DEBT", attention: "FRAGMENTED", safety: "RISING", page: 89,
         line: "The document stays the same; the reader loses range." },
-      { number: "08", time: "EVENING", attention: "NARROWED", safety: "DOMINANT", page: 105,
+      { number: "08", time: "EVENING", attention: "NARROWED", safety: "DOMINANT", page: 99,
         line: "One word becomes six days of evidence." },
-      { number: "09", time: "20 MINUTES UNTAKEN", attention: "HALF-SECOND WINDOW", safety: "DOMINANT", page: 121,
+      { number: "09", time: "20 MINUTES UNTAKEN", attention: "HALF-SECOND WINDOW", safety: "DOMINANT", page: 115,
         line: "The conversation ends before its first sentence." },
-      { number: "10", time: "07:40 RESET", attention: "SPENT", safety: "RESIDUAL", page: 135,
+      { number: "10", time: "07:40 RESET", attention: "SPENT", safety: "RESIDUAL", page: 129,
         line: "The kitchen resets. The body does not." },
-      { number: "11", time: "NIGHT-BEFORE DEBT", attention: "SPENT BY 10:00", safety: "FILLING THE GAPS", page: 151,
+      { number: "11", time: "NIGHT-BEFORE DEBT", attention: "SPENT BY 10:00", safety: "FILLING THE GAPS", page: 145,
         line: "Six ordinary things become proof that nothing is fine." },
-      { number: "12", time: "NOT CLAIMED", attention: "NARROW, AVAILABLE", safety: "SIGNAL PRESENT", page: 167,
+      { number: "12", time: "NOT CLAIMED", attention: "NARROW, AVAILABLE", safety: "SIGNAL PRESENT", page: 161,
         line: "Nothing is wrong. The jaw will not settle." },
-      { number: "13", time: "22:40", attention: "ACCURATE", safety: "CORRECT", page: 183,
+      { number: "13", time: "22:40", attention: "ACCURATE", safety: "PRECAUTION TAKEN", page: 177,
         line: "This alarm belongs to forty metres of concrete." },
-      { number: "14", time: "PROTECTED", attention: "PLACED", safety: "QUIET", page: 195,
+      { number: "14", time: "PROTECTED", attention: "PLACED", safety: "QUIET", page: 189,
         line: "The day Chapter Zero was supposed to be." },
-      { number: "15", time: "FORECAST", attention: "OPEN FILE, NAMED", safety: "NAMED IN ADVANCE", page: 209,
+      { number: "15", time: "FORECAST", attention: "OPEN FILE, NAMED", safety: "NAMED IN ADVANCE", page: 203,
         line: "Tomorrow’s reading, taken tonight." },
     ],
   },
@@ -284,9 +286,10 @@ export const en: SiteContent = {
   },
 
   closing: {
-    // Page 225, the book's last sentence.
+    // Page 218, near the end of the last chapter. v44 follows it with one
+    // more sentence, so it is no longer the book’s last.
     question: "Is this the situation? Or is this their state?",
-    source: "Page 225",
+    source: "Page 218",
     // Front cover foot and title page.
     line: "Same life. Different instrument settings.",
   },
@@ -301,7 +304,7 @@ export const en: SiteContent = {
     kitLabel: "Download complete press kit",
     assets: [
       { label: "Front cover, print resolution", file: "/press/cover-front-300dpi.png", note: "PNG · 1801 × 2701" },
-      { label: "Full cover, print resolution", file: "/press/cover-wrap-300dpi.png", note: "PNG · 3807 × 2701" },
+      { label: "Full cover, print resolution", file: "/press/cover-wrap-300dpi.png", note: "PNG · 3791 × 2701" },
       { label: "Cover, print ready", file: "/press/cover-print-6x9.pdf", note: "PDF · 6 × 9 in" },
       { label: "Book render", file: "/press/book-render.png", note: "PNG · 1874 × 2782" },
       { label: "Author photograph", file: "/press/author-photo-1600.jpg", note: "JPEG · 1600 × 1600" },
@@ -330,51 +333,51 @@ export const en: SiteContent = {
       { label: "Author", value: "Ivana Budišin" },
       { label: "Publication", value: "2026" },
       { label: "Format", value: "Paperback, 6 × 9 in" },
-      { label: "Extent", value: "278 pages" },
+      { label: "Extent", value: "282 pages" },
       { label: "ISBN-13", value: "978-2-87996-258-0" },
       { label: "Category", value: "Psychology / Cognitive psychology" },
       { label: "Language", value: "English. French and German editions to follow." },
-      { label: "Legal deposit", value: "A CIP record is available at Bibliothèque nationale du Luxembourg." },
+      { label: "Legal deposit", value: "Bibliothèque nationale du Luxembourg" },
     ],
     descriptionHeading: "About the book",
     description: [
       "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
       "For anyone who has ever been certain about what a situation meant, then discovered that something else was happening. And for readers interested in the psychology of how we notice, interpret and revise the world around us.",
     ],
-    // Page 11, relocated here whole.
+    // Page 5, relocated here whole.
     mapHeading: "The chapters",
     mapLabel: "This book is the",
     mapTitle: "Investigation.",
     mapLine: "16 cases. Three readings. One question: state or situation?",
     pageColumn: "Page",
     chapters: [
-      { number: "00", title: "A Day That Should Have Been Fine", page: 17 },
-      { number: "01", title: "The Radar Was Right", page: 23 },
-      { number: "02", title: "Why Sleep Loss Makes Neutral Input Feel Hostile", page: 29 },
-      { number: "03", title: "The Relief That Becomes Itch", page: 39 },
-      { number: "04", title: "The Predictable Cue", page: 51 },
-      { number: "05", title: "Why Evenings Stretch and Mornings Shrink", page: 67 },
-      { number: "06", title: "Why Rest Doesn’t Always Restore", page: 79 },
-      { number: "07", title: "Why You Cannot Start the Thing That Matters", page: 95 },
-      { number: "08", title: "The Open File", page: 105 },
-      { number: "09", title: "Two Nervous Systems Walk Into a Kitchen", page: 121 },
-      { number: "10", title: "The Argument That Was Tuesday", page: 135 },
-      { number: "11", title: "The Thursday That Was Wednesday Night", page: 151 },
-      { number: "12", title: "The Clean Panel", page: 167 },
-      { number: "13", title: "The Time the Body Was Right", page: 183 },
-      { number: "14", title: "Not About Me", page: 195 },
-      { number: "15", title: "The Forecast", page: 209 },
+      { number: "00", title: "A Day That Should Have Been Fine", page: 11 },
+      { number: "01", title: "The Radar Was Right", page: 17 },
+      { number: "02", title: "Why Sleep Loss Makes Neutral Input Feel Hostile", page: 23 },
+      { number: "03", title: "The Relief That Becomes Itch", page: 33 },
+      { number: "04", title: "The Predictable Cue", page: 45 },
+      { number: "05", title: "Why Evenings Stretch and Mornings Shrink", page: 61 },
+      { number: "06", title: "Why Rest Doesn’t Always Restore", page: 73 },
+      { number: "07", title: "Why You Cannot Start the Thing That Matters", page: 89 },
+      { number: "08", title: "The Open File", page: 99 },
+      { number: "09", title: "Two Nervous Systems Walk Into a Kitchen", page: 115 },
+      { number: "10", title: "The Argument That Was Tuesday", page: 129 },
+      { number: "11", title: "The Thursday That Was Wednesday Night", page: 145 },
+      { number: "12", title: "The Clean Panel", page: 161 },
+      { number: "13", title: "The Time the Body Was Right", page: 177 },
+      { number: "14", title: "Not About Me", page: 189 },
+      { number: "15", title: "The Forecast", page: 203 },
     ],
-    // Page 13.
+    // Page 7.
     sortingTool:
       "The chapters that follow are organised around three systems that shape how your body’s signals get weighted before your mind builds a story. They are not brain regions or neural pathways. They are a sorting tool, a way to ask three questions when everything feels wrong at once.",
     sourcesHeading: "Sources and evidence",
-    // Page 226, The Scientific Heartbeat.
+    // Page 220, The Scientific Heartbeat.
     sources: [
       "Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently.",
       "Leaving them out would make the argument look tidier than it is.",
     ],
-    sourcesLabel: "The Scientific Heartbeat, page 226",
+    sourcesLabel: "The Scientific Heartbeat, page 220",
     creditsHeading: "Credits",
     credits: [
       { label: "Cover design", value: "Zoe Larusson" },
@@ -387,11 +390,13 @@ export const en: SiteContent = {
   },
 
   footer: {
-    // Back cover, the red band.
+    // Back cover, the sign-off under the paragraph: CHECK THE SIGNAL /
+    // BEFORE YOU BELIEVE THE STORY. (The final cover of 14 September 2026
+    // moved it out of the red band, which now carries the QR and the ISBN.)
     band: "Before you believe the story.",
     pressLink: "Press",
     contactLink: "Contact",
-    // Copyright page, page 4.
+    // Copyright page, page iv.
     rights: "© 2026 Budisin Publishing",
     translationNote:
       "The book is published in English; these pages were translated from it by AI.",

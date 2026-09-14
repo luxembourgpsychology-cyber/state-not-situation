@@ -14,7 +14,7 @@ myself.
 ## The book
 
 **State. Not Situation.** by Ivana Budišin. Subtitle: *A field guide to the
-moment before interpretation becomes reality.* 278 pages, ISBN 978-2-87996-258-0,
+moment before interpretation becomes reality.* 282 pages, ISBN 978-2-87996-258-0,
 Budisin Publishing. The author is a clinical psychologist in Luxembourg and this
 is her first book. Site: statenotsituation.com
 
@@ -29,8 +29,8 @@ visual signature before the cover is on sale anywhere.
 Your body produces signals. Your mind treats those signals as information about
 the world. The tiredness that presents itself as a question about your career.
 The low blood sugar that presents itself as evidence that your relationship is
-failing. **Your body speaks first and your mind explains second.** The cover
-says: *Read the dashboard before you believe the story.*
+failing. **Your body speaks first and your mind explains second.** The back
+cover says: *Check the signal before you believe the story.*
 
 The book opens on John F. Kennedy Jr.'s last flight in July 1999. Flying over
 dark water in haze, his inner ear told him he was level while his instruments
@@ -86,7 +86,7 @@ like this:
 - `22:47 — "ok." — Input: two letters, one full stop. — Verified tone: none.`
 - `16:00 — "Something is wrong with my life." — Input: six ordinary events, one depleted day. — Verified crisis: none.`
 
-**The reader's own reading.** Page 13 asks the reader to do it in three seconds:
+**The reader's own reading.** Page 7 asks the reader to do it in three seconds:
 check your jaw, check your breath, check your shoulders. What you found is a
 reading. This is the single most shareable interactive idea in the book.
 

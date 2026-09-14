@@ -5,7 +5,7 @@ import { getContent, isUnderReview } from "@/lib/i18n";
 import { PulseMark } from "./PulseMark";
 
 /**
- * The red band from the back cover, four links, and the imprint — which lives
+ * A red band carrying the back cover's sign-off line, four links, and the imprint — which lives
  * here and nowhere else on the site.
  */
 export function Footer({ locale }: { locale: Locale }) {
