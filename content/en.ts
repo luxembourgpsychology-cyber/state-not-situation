@@ -20,9 +20,9 @@ export const en: SiteContent = {
     title: "State. Not Situation.",
     titleTemplate: "%s · State. Not Situation.",
     description:
-      "A field guide to the moment before interpretation becomes reality. Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book.",
+      "Why your body decides what a moment means before you do. Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book.",
     ogImageAlt:
-      "State. Not Situation. by Ivana Budišin. A field guide to the moment before interpretation becomes reality.",
+      "State. Not Situation. by Ivana Budišin. Why your body decides what a moment means before you do.",
     readTitle: "Read an extract",
     readDescription: "The opening pages of State. Not Situation. by Ivana Budišin.",
     pressTitle: "Press",
@@ -62,7 +62,7 @@ export const en: SiteContent = {
     // Front cover and title page, page iii.
     titleA: "State.",
     titleB: "Not Situation",
-    subtitle: "A field guide to the moment before interpretation becomes reality",
+    subtitle: "Why your body decides what a moment means before you do",
     strap: "Your first reading is not the whole story.",
     authorPrefix: "by",
     // The author's own, 6 September 2026, compressed from her biography sentence (v44 prints no biography).
@@ -329,7 +329,7 @@ export const en: SiteContent = {
     factsHeading: "Publication",
     facts: [
       { label: "Title", value: "State. Not Situation." },
-      { label: "Subtitle", value: "A field guide to the moment before interpretation becomes reality" },
+      { label: "Subtitle", value: "Why your body decides what a moment means before you do" },
       { label: "Author", value: "Ivana Budišin" },
       { label: "Publication", value: "2026" },
       { label: "Format", value: "Paperback, 6 × 9 in" },

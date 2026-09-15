@@ -42,7 +42,7 @@ The cover went to KDP the same evening as v44: `~/Desktop/STATE NOT SITUATION - 
 | Key | Where |
 |---|---|
 | `hero.titleA` / `hero.titleB` | Front cover; half title, page i; title page, page iii |
-| `hero.subtitle` | Front cover: "A field guide to the moment before interpretation becomes reality" |
+| `hero.subtitle` | Front cover and title page (since 14 Sep 2026): "Why your body decides what a moment means before you do". The earlier "A field guide to the moment before interpretation becomes reality" is retired; FR/DE still carry the old sentence pending translation |
 | `hero.strap` | Front cover: "Your first reading is not the whole story." |
 | `premise.eyebrow` | Printed as the eyebrow on **both** page 4 and the back cover: "The first misreading" |
 | `premise.lines[0..1]` | **Back cover**, the headline printed under the same eyebrow: "You may not be reacting to the world. You may be reacting to your state." It replaced page 4’s three lines ("Nothing went wrong on this day…") on 6 September 2026 at the author's request: printed, they are the setup for "This book is the Investigation."; lifted onto a screen and set at lead size they read as three qualifications rather than a claim. The section now carries the back cover in its printed order — eyebrow, headline, paragraph; the four sentences the final cover sets between the headline and the paragraph are not on the site, see *The final cover*. |
