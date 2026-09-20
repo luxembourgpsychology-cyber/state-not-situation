@@ -21,6 +21,7 @@ export function Notify({ content, edition, pressEmail, locale }: { content: Site
     try {
       const body = new FormData();
       body.set(edition.newsletterEmailField, email);
+      for (const [k, v] of Object.entries(edition.newsletterExtraFields ?? {})) body.set(k, v);
       const res = await fetch(edition.newsletterUrl, { method: "POST", body, mode: "no-cors" });
       // no-cors responses are opaque; treat a completed request as success.
       if (res.type === "opaque" || res.ok) { setState("done"); track("notify_submit", { locale }); }

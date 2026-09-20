@@ -31,6 +31,8 @@ export interface EditionSettings {
   newsletterUrl: string | null;
   /** Field name the newsletter tool expects for the email address. */
   newsletterEmailField: string;
+  /** Fixed fields the tool expects beside the email (MailerLite: ml-submit, anticsrf). */
+  newsletterExtraFields?: Record<string, string>;
   /** ISBN-13 once issued. Used in structured data and on the press page. */
   isbn: string | null;
 }
@@ -96,8 +98,10 @@ export const siteConfig: SiteConfig = {
       // back on the home page, on /read and in the footer. See audio/README.md.
       audioUrl: null,
       excerptAvailable: true,
-      newsletterUrl: null,
-      newsletterEmailField: "email",
+      // MailerLite form "Book updates" (account 2647879), set 20 September 2026.
+      newsletterUrl: "https://assets.mailerlite.com/jsonp/2647879/forms/199133787043399191/subscribe",
+      newsletterEmailField: "fields[email]",
+      newsletterExtraFields: { "ml-submit": "1", anticsrf: "true" },
       isbn: "978-2-87996-258-0",
     },
     fr: {
@@ -106,8 +110,10 @@ export const siteConfig: SiteConfig = {
       publicationDate: null,
       audioUrl: null,
       excerptAvailable: true,
-      newsletterUrl: null,
-      newsletterEmailField: "email",
+      // MailerLite form "Book updates" (account 2647879), set 20 September 2026.
+      newsletterUrl: "https://assets.mailerlite.com/jsonp/2647879/forms/199133787043399191/subscribe",
+      newsletterEmailField: "fields[email]",
+      newsletterExtraFields: { "ml-submit": "1", anticsrf: "true" },
       isbn: null,
     },
     de: {
@@ -116,8 +122,10 @@ export const siteConfig: SiteConfig = {
       publicationDate: null,
       audioUrl: null,
       excerptAvailable: true,
-      newsletterUrl: null,
-      newsletterEmailField: "email",
+      // MailerLite form "Book updates" (account 2647879), set 20 September 2026.
+      newsletterUrl: "https://assets.mailerlite.com/jsonp/2647879/forms/199133787043399191/subscribe",
+      newsletterEmailField: "fields[email]",
+      newsletterExtraFields: { "ml-submit": "1", anticsrf: "true" },
       isbn: null,
     },
   },
