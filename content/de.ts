@@ -371,11 +371,6 @@ export const de: SiteContent = {
         note: "PDF · 6 × 9 in"
       },
       {
-        label: "Buchansicht",
-        file: "/press/book-render.png",
-        note: "PNG · 1874 × 2782"
-      },
-      {
         label: "Foto der Autorin",
         file: "/press/author-photo-1600.jpg",
         note: "JPEG · 1600 × 1600"

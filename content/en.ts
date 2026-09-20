@@ -306,7 +306,6 @@ export const en: SiteContent = {
       { label: "Front cover, print resolution", file: "/press/cover-front-300dpi.png", note: "PNG · 1801 × 2701" },
       { label: "Full cover, print resolution", file: "/press/cover-wrap-300dpi.png", note: "PNG · 3791 × 2701" },
       { label: "Cover, print ready", file: "/press/cover-print-6x9.pdf", note: "PDF · 6 × 9 in" },
-      { label: "Book render", file: "/press/book-render.png", note: "PNG · 1874 × 2782" },
       { label: "Author photograph", file: "/press/author-photo-1600.jpg", note: "JPEG · 1600 × 1600" },
       { label: "The opening extract", file: "/press/State-Not-Situation-extract-the-opening.pdf", note: "PDF · 3 pp" },
       { label: "Web banner", file: "/press/banner-web-2400x1000.jpg", note: "JPEG · 2400 × 1000" },
