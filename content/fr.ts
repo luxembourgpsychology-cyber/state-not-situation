@@ -6,18 +6,24 @@ import type { SiteContent } from "./types";
  * translation/METHOD-fr.md as an authored French edition, not a word-for-word
  * rendering. The book title stays untranslated; no French edition exists yet.
  *
+ * Re-authored 22 September 2026 after a French author's marked-up review of
+ * the live page (Laurent Rouach, 20 September 2026): his corrections to the
+ * strap, the sensor line and the opening extract are carried word for word,
+ * and the rest of the file was re-read to the standard they set. Record in
+ * translation/METHOD-fr.md, "The French author's review, 2026-09-22".
+ *
  * An empty string renders as ⟦fr: some.key⟧ and never as silent English.
  */
 export const fr: SiteContent = {
   meta: {
     title: "State. Not Situation.",
     titleTemplate: "%s · State. Not Situation.",
-    description: "Un guide de terrain pour l’instant qui précède le moment où l’interprétation devient réalité. Psychologue clinicienne, Ivana Budišin vit et travaille au Luxembourg. State. Not Situation. est son premier livre.",
-    ogImageAlt: "State. Not Situation. par Ivana Budišin. Un guide de terrain pour l’instant qui précède le moment où l’interprétation devient réalité.",
+    description: "Pourquoi votre corps décide avant vous du sens d’un moment. Psychologue clinicienne, Ivana Budišin vit et travaille au Luxembourg. State. Not Situation. est son premier livre.",
+    ogImageAlt: "State. Not Situation., d’Ivana Budišin. Pourquoi votre corps décide avant vous du sens d’un moment.",
     readTitle: "Lire un extrait",
-    readDescription: "Les premières pages de State. Not Situation. d’Ivana Budišin.",
+    readDescription: "Les premières pages de State. Not Situation., d’Ivana Budišin.",
     pressTitle: "Presse",
-    pressDescription: "Dossier de presse de State. Not Situation. d’Ivana Budišin : couverture, photographie de l’autrice, informations de publication, extrait."
+    pressDescription: "Dossier de presse de State. Not Situation., d’Ivana Budišin : couverture, photographie de l’autrice, informations de publication, extrait."
   },
   nav: {
     home: "State. Not Situation., accueil",
@@ -38,18 +44,19 @@ export const fr: SiteContent = {
     notifyCta: "Avis de parution",
     emailLabel: "Adresse e-mail",
     emailPlaceholder: "votre@email.com",
-    submit: "Prévenez-moi",
+    submit: "Me prévenir",
     success: "Merci. Vous recevrez un seul message, à la sortie du livre.",
     error: "L’envoi n’a pas abouti. Réessayez, ou écrivez-moi directement.",
-    privacyNote: "Adresse utilisée uniquement pour cette notification.",
+    privacyNote: "Adresse utilisée pour cet avis de parution, et pour rien d’autre.",
     mailtoSubject: "State. Not Situation., avis de parution",
     mailtoBody: "Merci de me prévenir quand le livre paraîtra."
   },
   hero: {
     titleA: "State.",
     titleB: "Not Situation",
-    subtitle: "Un guide de terrain pour l’instant qui précède le moment où l’interprétation devient réalité",
-    strap: "Votre première lecture n’est pas toute l’histoire.",
+    subtitle: "Pourquoi votre corps décide avant vous du sens d’un moment",
+    // Laurent Rouach's correction, 20 September 2026, word for word.
+    strap: "Votre première interprétation n’est pas l’histoire.",
     authorPrefix: "par",
     credential: "Psychologue clinicienne, Luxembourg",
     coverAlt: "Première de couverture de State. Not Situation. Le mot STATE en grand, en rouge, au-dessus de NOT SITUATION en noir, sur un fond crème imprimé de phrases barrées, à peine visibles, et de petits relevés d’instruments.",
@@ -57,21 +64,22 @@ export const fr: SiteContent = {
   },
   premise: {
     eyebrow: "La première erreur de lecture",
-    sensorLine: "Le corps est un capteur avant d’être un narrateur.",
+    // Laurent Rouach's correction, 20 September 2026: « témoin », not « narrateur ».
+    sensorLine: "Le corps est un capteur avant d’être un témoin.",
     lines: [
       "Vous ne réagissez peut-être pas au monde.",
       "Vous réagissez peut-être à votre état."
     ],
     mechanism: [
-      "D’habitude, nous traitons ces moments comme des informations sur la vie : la personne, la tâche, la relation, la journée.",
-      "Mais souvent, la première lecture n’est pas toute l’histoire.",
-      "Avant que l’esprit n’explique, le corps a déjà voté. La pression de sommeil, la faim, le rythme, l’attention, la détection de la menace, la mémoire et la prédiction façonnent discrètement ce qui paraît vrai.",
-      "Puis l’esprit arrive en second et donne une raison à cette sensation."
+      "D’ordinaire, nous prenons ces moments pour des informations sur la vie : la personne, la tâche, la relation, la journée.",
+      "Mais souvent, la première interprétation ne dit pas tout.",
+      "Avant que l’esprit n’explique, le corps a déjà voté. La pression de sommeil, la faim, l’heure qu’il est, l’attention, la détection de la menace, la mémoire et la prédiction façonnent en silence ce qui paraît vrai.",
+      "L’esprit, lui, n’arrive qu’ensuite, et il trouve une raison à cette sensation."
     ],
     folio: "4"
   },
   reading: {
-    eyebrow: "Essayez quelque chose tout de suite",
+    eyebrow: "Faites un essai, tout de suite",
     lead: "Quoi que vous ressentiez en lisant cette phrase.",
     steps: [
       "Observez votre mâchoire.",
@@ -90,23 +98,23 @@ export const fr: SiteContent = {
       {
         key: "time",
         name: "Temps",
-        body: "Sommeil, alimentation, caféine, phase circadienne, récupération. Quand le rythme est décalé, la sensibilité de base augmente. Le même monde paraît plus dur."
+        body: "Sommeil, alimentation, caféine, phase circadienne, récupération. Quand le rythme se dérègle, la sensibilité de base augmente. Le même monde paraît plus rude."
       },
       {
         key: "attention",
         name: "Attention",
-        body: "Le système qui suit la récompense, la nouveauté et le prochain déclencheur. Quand il est accaparé, l’attention se resserre sur ce qu’il y a de moins exigeant à portée de main, et le travail exigeant paraît difficile."
+        body: "Le système qui suit la récompense, la nouveauté et le prochain déclencheur. Quand il est accaparé, l’attention se rabat sur ce qui, à portée de main, demande le moins d’effort, et le travail qui en demande paraît difficile."
       },
       {
         key: "safety",
         name: "Sécurité",
-        body: "Le système qui surveille la menace, et surtout la menace sociale. Il est rapide, il est ancien, et il penche du côté des fausses alertes. Il produit des interprétations qui donnent l’impression d’être des faits."
+        body: "Le système qui surveille la menace, et surtout la menace sociale. Il est rapide, il est ancien, et il penche du côté des fausses alertes. Il produit des interprétations qui ont tout l’air de faits."
       }
     ],
     folio: "7"
   },
   moments: {
-    line: "16 cas. Trois lectures. Une question : état ou situation ?",
+    line: "16 cas. Trois lectures. Une question : état ou situation ?",
     label: "Pièces du dossier",
     pageLabel: "Page",
     items: [
@@ -114,7 +122,7 @@ export const fr: SiteContent = {
         chapter: "00",
         page: 10,
         time: "06:38",
-        quote: "« Quelque chose cloche. »",
+        quote: "« Quelque chose cloche. »",
         inputLabel: "Entrée",
         input: "Deux minutes avant le réveil.",
         verifiedLabel: "Événement vérifié",
@@ -124,7 +132,7 @@ export const fr: SiteContent = {
         chapter: "02",
         page: 22,
         time: "22:47",
-        quote: "« ok. »",
+        quote: "« ok. »",
         inputLabel: "Entrée",
         input: "Deux lettres. Un point.",
         verifiedLabel: "Ton vérifié",
@@ -134,14 +142,14 @@ export const fr: SiteContent = {
         chapter: "11",
         page: 144,
         time: "16:00",
-        quote: "« Quelque chose ne va pas dans ma vie. »",
+        quote: "« Quelque chose ne va pas dans ma vie. »",
         inputLabel: "Entrée",
-        input: "Six événements ordinaires. Une journée à plat.",
+        input: "Six événements ordinaires. Une journée sans réserves.",
         verifiedLabel: "Crise vérifiée",
         verified: "Aucune."
       }
     ],
-    closing: "Ça disait je suis en train d’échouer ; les données, c’était je suis fatiguée.",
+    closing: "Ça disait : je suis en train d’échouer. Les données, elles, disaient : je suis fatiguée.",
     closingSource: "Page 14"
   },
   evidence: {
@@ -155,7 +163,7 @@ export const fr: SiteContent = {
       {
         key: "medium",
         label: "Moyen",
-        description: "Preuves partielles, incertitude réelle."
+        description: "Résultats évocateurs, incertitude réelle."
       },
       {
         key: "low",
@@ -163,7 +171,7 @@ export const fr: SiteContent = {
         description: "Hypothèse plausible ou premiers résultats."
       }
     ],
-    closing: "Ces marqueurs existent parce que le risque que court ce livre est celui-là même qu’il décrit.",
+    closing: "Ces marqueurs existent parce que ce livre court lui-même le risque qu’il décrit.",
     folio: "7"
   },
   excerpt: {
@@ -171,24 +179,25 @@ export const fr: SiteContent = {
     sectionLabel: "Le pilote",
     lead: "Ce livre cherche moins à vous apprendre à faire confiance à votre instinct qu’à vous montrer à quoi, au juste, vous faites confiance.",
     teaserCount: 2,
+    // Paragraphs 1 and 2 carry Laurent Rouach's corrections of 20 September 2026.
     paragraphs: [
-      "Le soir du 16 juillet 1999, un petit avion monomoteur décolla du New Jersey. Il faisait route vers Martha’s Vineyard. Le pilote avait assez d’expérience pour être sûr de lui, et assez peu pour se tromper sur ce que signifiait cette assurance. Il avait environ 300 heures de vol. Il n’avait pas terminé la formation qui l’aurait qualifié pour voler aux seuls instruments.",
-      "Le ciel était dégagé au départ, alors il en conclut qu’il n’avait pas besoin d’instruments. Le temps qu’il atteigne la côte, une brume s’était posée sur l’eau. La brume vint, celle qui efface la limite entre la mer et le ciel si progressivement que vous ne remarquez pas que l’horizon a disparu, jusqu’au moment où vous le cherchez et où il n’est plus là. Au-dessus des terres, il y a des lumières en dessous. Vous voyez des routes, des bâtiments, une géométrie qui dit à vos yeux où est le bas. Au large, la nuit, avec la brume posée sur la surface comme une seconde obscurité, il n’y a rien. Hors du cockpit, le monde devient un gris uniforme dans toutes les directions. Le haut ressemble au bas. Un léger virage donne la sensation d’un vol en palier. Une descente lente donne la sensation de tenir l’altitude.",
-      "L’oreille interne du pilote, l’organe qui dit au cerveau dans quel sens le corps est orienté dans l’espace, fonctionne en détectant les changements de mouvement. Quand vous entrez en virage, le liquide à l’intérieur de l’oreille se déplace, et le cerveau enregistre une rotation. Mais si le virage se maintient pendant quinze ou vingt secondes, le liquide de l’oreille interne se stabilise. Il ne bouge plus. Le cerveau, qui suit le mouvement, en conclut que le virage est terminé. Vous vous sentez en palier, mais vous ne l’êtes pas.",
-      "Quelque part au-dessus de l’eau sombre, l’avion s’engagea dans un léger virage à gauche. Les instruments du pilote, les cadrans du tableau de bord devant lui, indiquaient le virage. L’horizon artificiel, un petit cadran gyroscopique qui montre l’angle de l’appareil par rapport au sol, lui disait clairement qu’il s’inclinait. L’altimètre lui disait qu’il descendait. L’indicateur de vitesse lui disait qu’il accélérait. Son corps lui disait autre chose. Son corps lui disait qu’il volait droit et en palier. Son corps sonnait juste. Ses instruments sonnaient faux. Il fit confiance à son corps.",
-      "Le virage se resserra. Le nez tomba. La vitesse augmenta. Dans les dernières secondes, l’avion descendait à plus de 4 700 pieds par minute, près d’un kilomètre et demi toutes les soixante secondes, dans une spirale de plus en plus serrée que les pilotes appellent, avec la précision sinistre d’un métier qui a donné un nom aux façons dont il perd les siens, une spirale de la mort. Il percuta l’eau à pleine vitesse. Lui et ses deux passagers furent tués sur le coup.",
-      "L’enquête ne releva aucune défaillance mécanique. Le moteur tournait. Les instruments fonctionnaient. Les données étaient là, sur le tableau de bord, à quinze centimètres de ses yeux, depuis le début, mais il ne les lut pas. Il lut son corps à la place. La consigne que la Federal Aviation Administration américaine donne aux pilotes qui se retrouvent dans cette situation tient en une phrase. C’est une consigne à prendre au pied de la lettre, et elle s’applique à votre vie aussi directement qu’à un cockpit :",
-      "Le pilote s’appelait John F. Kennedy Jr. C’était le fils d’un président américain. On lui avait déconseillé de voler ce soir-là sans son instructeur. Il avait dit à son instructeur qu’il voulait le faire seul. Il avait trente-huit ans.",
-      "Vous pilotez un corps qui produit des signaux, et votre esprit prend souvent ces signaux pour la vérité. Les signaux se trompent parfois autant que le système vestibulaire de l’oreille interne au-dessus de l’eau sombre. La fatigue qui se présente comme une question sur votre carrière. Le pic de caféine qui se présente comme de l’anxiété à propos d’un e-mail. Le manque de sucre dans le sang qui se présente comme la preuve que votre relation est en train de se défaire. Votre corps parle d’abord et votre esprit explique ensuite. L’explication, parce qu’elle arrive avec tout le poids de la conviction physique, la mâchoire serrée, le cœur qui bat vite, la chaleur derrière les oreilles, donne l’impression d’un savoir profond. Vous avez l’impression de lire la situation. Mais vous ne lisez que l’instrument qui lit la situation, et les réglages de l’instrument étaient faussés avant que la situation n’arrive. Ces instruments existent. Vous les avez. Le rythme cardiaque, la tension de la mâchoire, la profondeur de la respiration, la position des épaules, la vitesse de vos pensées. Ils produisent des données en ce moment même, pendant que vous lisez cette phrase. Mais le bulletin météo plein d’assurance que le corps établit sur le monde n’est qu’un brouillon.",
+      "Le soir du 16 juillet 1999, un petit monomoteur décolla du New Jersey. Il faisait route vers Martha’s Vineyard. Le pilote avait assez d’expérience pour être sûr de lui, et assez peu pour se tromper sur ce que signifiait cette confiance. Il avait environ 300 heures de vol. Il n’avait pas terminé la formation qui l’aurait qualifié pour voler aux instruments.",
+      "Le ciel était dégagé au départ, alors il en conclut qu’il n’avait pas besoin d’instruments. Le temps qu’il atteigne la côte, une brume s’était posée sur l’eau. La brume qui efface la limite entre la mer et le ciel si progressivement que vous ne remarquez que l’horizon a disparu qu’au moment où vous le cherchez et qu’il n’est plus là. Au-dessus de la terre, il y a des lumières en dessous. Vous voyez des routes, des bâtiments, une géométrie qui indique à vos yeux où se trouve le bas. Au large, la nuit, avec la brume posée sur la surface comme une seconde obscurité, il n’y a rien. Le monde à l’extérieur du cockpit prend un gris uniforme. Le haut ressemble au bas. Un léger virage donne la sensation d’un vol en palier. Une descente lente passe inaperçue.",
+      "L’oreille interne du pilote, l’organe qui indique au cerveau comment le corps est orienté dans l’espace, fonctionne en détectant les changements de mouvement. Quand vous entrez en virage, le liquide qu’elle contient se déplace, et le cerveau enregistre une rotation. Mais si le virage se maintient quinze ou vingt secondes, le liquide de l’oreille interne se stabilise. Il ne bouge plus. Le cerveau, qui suit le mouvement, en conclut que le virage est terminé. Vous vous sentez en palier, mais vous ne l’êtes pas.",
+      "Quelque part au-dessus de l’eau sombre, l’avion s’engagea dans un léger virage à gauche. Les instruments du pilote, les cadrans du tableau de bord devant lui, indiquaient le virage. L’horizon artificiel, un petit cadran gyroscopique qui montre l’inclinaison de l’appareil par rapport au sol, lui disait clairement qu’il s’inclinait. L’altimètre lui disait qu’il descendait. L’indicateur de vitesse lui disait qu’il accélérait. Son corps lui disait autre chose. Son corps lui disait qu’il volait droit, en palier. Son corps sonnait juste. Ses instruments sonnaient faux. Il fit confiance à son corps.",
+      "Le virage se resserra. Le nez tomba. La vitesse augmenta. Dans les dernières secondes, l’avion descendait à plus de 4 700 pieds par minute, près d’un kilomètre et demi toutes les soixante secondes, dans une spirale de plus en plus serrée que les pilotes appellent, avec la précision sinistre d’un métier qui a donné un nom à chacune des façons dont il perd les siens, une spirale de la mort. Il percuta l’eau à pleine vitesse. Lui et ses deux passagers furent tués sur le coup.",
+      "L’enquête ne releva aucune défaillance mécanique. Le moteur tournait. Les instruments fonctionnaient. Les données étaient là, sur le tableau de bord, à quinze centimètres de ses yeux, depuis le début, mais il ne les lut pas. C’est son corps qu’il lut. La consigne que la Federal Aviation Administration américaine donne aux pilotes qui se retrouvent dans cette situation tient en une phrase. Elle est à prendre au pied de la lettre, et elle s’applique à votre vie aussi directement qu’à un cockpit :",
+      "Le pilote s’appelait John F. Kennedy Jr. C’était le fils d’un président américain. On lui avait déconseillé de voler ce soir-là sans son instructeur. Il avait répondu à son instructeur qu’il voulait le faire seul. Il avait trente-huit ans.",
+      "Vous pilotez un corps qui produit des signaux, et votre esprit prend souvent ces signaux pour la vérité. Ils se trompent parfois autant que le système vestibulaire de l’oreille interne au-dessus d’une eau sombre. La fatigue qui se présente comme une question sur votre carrière. Le pic de caféine qui se présente comme de l’anxiété à propos d’un e-mail. L’hypoglycémie qui se présente comme la preuve que votre relation se défait. Votre corps parle d’abord et votre esprit explique ensuite. L’explication, parce qu’elle arrive avec tout le poids de la conviction physique, la mâchoire serrée, le cœur qui s’emballe, la chaleur derrière les oreilles, a tout d’un savoir profond. Vous avez l’impression de lire la situation. Mais vous ne lisez que l’instrument qui lit la situation, et ses réglages étaient faussés avant même que la situation n’arrive. Ces instruments existent. Vous les avez. Le rythme cardiaque, la tension de la mâchoire, la profondeur de la respiration, la position des épaules, la vitesse de vos pensées. Ils produisent des données en ce moment même, pendant que vous lisez cette phrase. Mais le bulletin météo que le corps établit sur le monde, si sûr de lui soit-il, n’est qu’un brouillon.",
     ],
     quoteAfter: 5,
-    quote: "« ayez confiance en vos instruments et ne tenez aucun compte des signaux contradictoires que vous envoie votre corps. »",
+    quote: "« faites confiance à vos instruments et ignorez tous les signaux contraires que vous envoie votre corps. »",
     continueCta: "Lire la suite",
     back: "Retour au livre",
     readingModeLabel: "Mode lecture",
-    closing: "Ce livre parle de la même erreur à l’échelle de la cuisine. La version qui arrive tous les mardis. La version où votre corps écrit une histoire à propos d’un message, d’un silence, d’un regard, et où votre esprit retouche cette histoire sous la supervision de ce que votre corps ressent à ce moment-là. Personne ne meurt, mais des décisions se prennent. Des relations changent. Des jugements sur soi se forment. Et rien de tout cela n’avait à se passer ainsi, parce que les données étaient là depuis le début.",
+    closing: "Ce livre parle de la même erreur, à l’échelle de la cuisine. La version qui arrive tous les mardis. La version où votre corps écrit une histoire à partir d’un message, d’un silence, d’un regard, et où votre esprit retouche cette histoire sous la supervision de ce que votre corps ressent à ce moment-là. Personne ne meurt, mais des décisions se prennent. Des relations changent. Des jugements sur soi se forment. Et rien de tout cela n’avait à se passer ainsi, parce que les données étaient là depuis le début.",
     closingSource: "Page 20",
-    endNote: "Vient ensuite le chapitre zéro : Une journée qui aurait dû bien se passer.",
+    endNote: "Vient ensuite le chapitre zéro : Une journée qui aurait dû bien se passer.",
     unavailable: "L’extrait en français est à venir.",
     folios: [
       "1",
@@ -207,7 +216,7 @@ export const fr: SiteContent = {
         attention: "DÉGRADÉE",
         safety: "DOMINANTE",
         page: 17,
-        line: "Le corps rend son verdict avant que l’attention ne le teste."
+        line: "Le corps rend son verdict avant que l’attention ne le mette à l’épreuve."
       },
       {
         number: "02",
@@ -215,7 +224,7 @@ export const fr: SiteContent = {
         attention: "BOUCLE DE VÉRIFICATION",
         safety: "AMPLIFIÉE",
         page: 23,
-        line: "La fatigue retire son frein à la certitude."
+        line: "La fatigue ôte son frein à la certitude."
       },
       {
         number: "03",
@@ -239,7 +248,7 @@ export const fr: SiteContent = {
         attention: "CAPTURE TARDIVE",
         safety: "NON SOLLICITÉE",
         page: 61,
-        line: "Une heure paraît gratuite et facture le matin."
+        line: "Une heure paraît gratuite et envoie la facture au matin."
       },
       {
         number: "06",
@@ -255,7 +264,7 @@ export const fr: SiteContent = {
         attention: "FRAGMENTÉE",
         safety: "EN HAUSSE",
         page: 89,
-        line: "Le document ne change pas ; le lecteur perd en amplitude."
+        line: "Le document ne change pas ; le lecteur, lui, perd en amplitude."
       },
       {
         number: "08",
@@ -271,7 +280,7 @@ export const fr: SiteContent = {
         attention: "FENÊTRE D’UNE DEMI-SECONDE",
         safety: "DOMINANTE",
         page: 115,
-        line: "La conversation finit avant sa première phrase."
+        line: "La conversation se termine avant sa première phrase."
       },
       {
         number: "10",
@@ -279,7 +288,7 @@ export const fr: SiteContent = {
         attention: "ÉPUISÉE",
         safety: "RÉSIDUELLE",
         page: 129,
-        line: "La cuisine repart à zéro. Le corps, non."
+        line: "La cuisine repart de zéro. Le corps, non."
       },
       {
         number: "11",
@@ -295,7 +304,7 @@ export const fr: SiteContent = {
         attention: "ÉTROITE, DISPONIBLE",
         safety: "SIGNAL PRÉSENT",
         page: 161,
-        line: "Rien ne cloche. La mâchoire ne veut pas se détendre."
+        line: "Rien ne cloche. La mâchoire ne se desserre pas."
       },
       {
         number: "13",
@@ -319,7 +328,7 @@ export const fr: SiteContent = {
         attention: "DOSSIER OUVERT, NOMMÉ",
         safety: "NOMMÉE À L’AVANCE",
         page: 203,
-        line: "La lecture de demain, faite ce soir."
+        line: "La lecture de demain, relevée ce soir."
       }
     ]
   },
@@ -339,18 +348,18 @@ export const fr: SiteContent = {
     photoAlt: "Ivana Budišin, photographiée sur fond gris foncé.",
     photoPlaceholder: "Photographie de l’autrice à venir",
     bio: "Psychologue clinicienne, Ivana Budišin vit et travaille au Luxembourg. State. Not Situation. est son premier livre.",
-    readers: "Pour quiconque a déjà été certain du sens d’une situation, puis a découvert qu’il se passait autre chose. Et pour les lecteurs qui s’intéressent à la psychologie de notre façon de remarquer, d’interpréter et de revoir le monde qui nous entoure.",
+    readers: "Pour quiconque a déjà été certain du sens d’une situation, puis a découvert qu’il se passait autre chose. Et pour les lecteurs qui s’intéressent à la psychologie de la façon dont nous remarquons, interprétons et révisons le monde qui nous entoure.",
     pressLabel: "Dossier de presse"
   },
   closing: {
-    question: "Est-ce la situation ? Ou est-ce leur état ?",
+    question: "Est-ce la situation ? Ou est-ce leur état ?",
     source: "Page 218",
     line: "Même vie. Instruments réglés autrement."
   },
   press: {
     eyebrow: "Presse",
     title: "Dossier de presse",
-    intro: "Des exemplaires de presse, papier et numérique, sont disponibles sur demande. Reproduction d’extraits, entretiens et rencontres à convenir.",
+    intro: "Des exemplaires de presse, imprimés ou numériques, sont disponibles sur demande. Reproduction d’extraits, entretiens et rencontres : sur accord.",
     contactHeading: "Contact",
     assetsHeading: "Téléchargements",
     kitLabel: "Télécharger le dossier complet",
@@ -392,7 +401,7 @@ export const fr: SiteContent = {
       }
     ],
     photoUnavailable: "Photographie de l’autrice disponible sur demande.",
-    photoCredit: "Photographie : Zoe Larusson",
+    photoCredit: "Photographie : Zoe Larusson",
     bioHeading: "Biographie",
     bios: [
       {
@@ -412,7 +421,7 @@ export const fr: SiteContent = {
       },
       {
         label: "Sous-titre",
-        value: "Un guide de terrain pour l’instant qui précède le moment où l’interprétation devient réalité"
+        value: "Pourquoi votre corps décide avant vous du sens d’un moment"
       },
       {
         label: "Autrice",
@@ -450,12 +459,12 @@ export const fr: SiteContent = {
     descriptionHeading: "À propos du livre",
     description: [
       "Ce livre cherche moins à vous apprendre à faire confiance à votre instinct qu’à vous montrer à quoi, au juste, vous faites confiance.",
-      "Pour quiconque a déjà été certain du sens d’une situation, puis a découvert qu’il se passait autre chose. Et pour les lecteurs qui s’intéressent à la psychologie de notre façon de remarquer, d’interpréter et de revoir le monde qui nous entoure."
+      "Pour quiconque a déjà été certain du sens d’une situation, puis a découvert qu’il se passait autre chose. Et pour les lecteurs qui s’intéressent à la psychologie de la façon dont nous remarquons, interprétons et révisons le monde qui nous entoure."
     ],
     mapHeading: "Les chapitres",
     mapLabel: "Ce livre mène",
     mapTitle: "L’enquête.",
-    mapLine: "16 cas. Trois lectures. Une question : état ou situation ?",
+    mapLine: "16 cas. Trois lectures. Une question : état ou situation ?",
     pageColumn: "Page",
     chapters: [
       {
@@ -539,10 +548,10 @@ export const fr: SiteContent = {
         page: 203
       }
     ],
-    sortingTool: "Les chapitres qui suivent sont organisés autour de trois systèmes qui règlent le poids que prennent les signaux de votre corps avant que votre esprit ne construise une histoire. Ce ne sont pas des régions du cerveau ni des voies neuronales. C’est un outil de tri, une façon de poser trois questions quand tout semble aller de travers en même temps.",
+    sortingTool: "Les chapitres qui suivent s’organisent autour de trois systèmes qui règlent le poids que prennent les signaux de votre corps avant que votre esprit n’en fasse une histoire. Ce ne sont pas des régions du cerveau ni des voies neuronales. C’est un outil de tri, une façon de poser trois questions quand tout semble aller de travers en même temps.",
     sourcesHeading: "Sources et preuves",
     sources: [
-      "Chaque chapitre a ici trois parties : une courte note sur l’origine de la réflexion, une liste des travaux sur lesquels le chapitre est construit, et une liste des travaux qui le limitent, le compliquent, ou expliquent autrement les mêmes résultats.",
+      "Chaque chapitre a ici trois parties : une courte note sur l’origine de la réflexion, une liste des travaux sur lesquels le chapitre est construit, et une liste des travaux qui le limitent, le compliquent, ou expliquent autrement les mêmes résultats.",
       "Les laisser de côté ferait paraître l’argumentation plus nette qu’elle ne l’est."
     ],
     sourcesLabel: "Le pouls scientifique, page 220",
@@ -573,7 +582,7 @@ export const fr: SiteContent = {
     contactLink: "Contact",
     rights: "© 2026 Budisin Publishing",
     translationNote:
-      "Le livre est publié en anglais ; ces pages ont été traduites par intelligence artificielle."
+      "Le livre est publié en anglais ; ces pages en ont été traduites par une intelligence artificielle."
   },
   a11y: {
     mainLandmark: "Contenu principal",

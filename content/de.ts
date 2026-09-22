@@ -6,14 +6,21 @@ import type { SiteContent } from "./types";
  * translation/METHOD-de.md as an authored German edition, not a word-for-word
  * rendering. The book title stays untranslated; no German edition exists yet.
  *
+ * Re-read as a whole on 22 September 2026, after a French author's review of
+ * the French page showed English structure under sentences that were
+ * grammatically fine. The same test was run on every German string against
+ * the author's rhythm ruling (METHOD-de.md, amendments 56 to 59); the new
+ * subtitle of 14 September 2026 is translated here for the first time.
+ * Record in translation/METHOD-de.md, amendment 60.
+ *
  * An empty string renders as ⟦de: some.key⟧ and never as silent English.
  */
 export const de: SiteContent = {
   meta: {
     title: "State. Not Situation.",
     titleTemplate: "%s · State. Not Situation.",
-    description: "Ein Leitfaden für den Moment, bevor aus Deutung Wirklichkeit wird. Ivana Budišin ist klinische Psychologin und lebt und arbeitet in Luxemburg. State. Not Situation. ist ihr erstes Buch.",
-    ogImageAlt: "State. Not Situation. von Ivana Budišin. Ein Leitfaden für den Moment, bevor aus Deutung Wirklichkeit wird.",
+    description: "Warum Ihr Körper entscheidet, was ein Moment bedeutet, bevor Sie dazu kommen. Ivana Budišin ist klinische Psychologin und lebt und arbeitet in Luxemburg. State. Not Situation. ist ihr erstes Buch.",
+    ogImageAlt: "State. Not Situation. von Ivana Budišin. Warum Ihr Körper entscheidet, was ein Moment bedeutet, bevor Sie dazu kommen.",
     readTitle: "Leseprobe",
     readDescription: "Die ersten Seiten aus State. Not Situation. von Ivana Budišin.",
     pressTitle: "Presse",
@@ -48,7 +55,7 @@ export const de: SiteContent = {
   hero: {
     titleA: "State.",
     titleB: "Not Situation",
-    subtitle: "Ein Leitfaden für den Moment, bevor aus Deutung Wirklichkeit wird",
+    subtitle: "Warum Ihr Körper entscheidet, was ein Moment bedeutet, bevor Sie dazu kommen",
     strap: "Ihre erste Lesart ist nicht die ganze Geschichte.",
     authorPrefix: "von",
     credential: "Klinische Psychologin, Luxemburg",
@@ -66,7 +73,7 @@ export const de: SiteContent = {
       "Normalerweise nehmen wir diese Momente als Auskunft über das Leben: die Person, die Aufgabe, die Beziehung, den Tag.",
       "Aber die erste Lesart ist oft nicht die ganze Geschichte.",
       "Bevor der Kopf erklärt, hat der Körper schon abgestimmt. Schlafdruck, Hunger, Timing, Aufmerksamkeit, Bedrohungserkennung, Gedächtnis und Vorhersage prägen unbemerkt, was sich wahr anfühlt.",
-      "Dann kommt der Kopf als Zweiter und liefert dem Gefühl einen Grund."
+      "Erst danach kommt der Kopf, und er liefert dem Gefühl einen Grund."
     ],
     folio: "4"
   },
@@ -141,7 +148,7 @@ export const de: SiteContent = {
         verified: "Keine."
       }
     ],
-    closing: "Es hieß: Ich versage. Die Daten waren: Ich bin müde.",
+    closing: "Es hieß: Ich versage. Die Daten sagten: Ich bin müde.",
     closingSource: "Seite 14"
   },
   evidence: {
@@ -172,14 +179,14 @@ export const de: SiteContent = {
     lead: "Das Buch will Ihnen weniger beibringen, Ihren Instinkten zu vertrauen, als Ihnen zeigen, worauf genau Sie da vertrauen.",
     teaserCount: 2,
     paragraphs: [
-      "Am Abend des 16. Juli 1999 startete in New Jersey ein kleines einmotoriges Flugzeug. Es war unterwegs nach Martha’s Vineyard. Der Pilot war erfahren genug, um sich seiner Sache sicher zu sein, und neu genug, um sich darin zu irren, was diese Sicherheit bedeutete. Er hatte rund 300 Flugstunden. Die Ausbildung, die ihn berechtigt hätte, nur nach seinen Instrumenten zu fliegen, hatte er nicht abgeschlossen.",
-      "Beim Start war der Himmel klar, also schloss er daraus, dass er keine Instrumente brauchte. Als er die Küste erreichte, hatte sich Dunst über das Wasser gelegt. Der Nebel kam, der die Linie zwischen Meer und Himmel so allmählich auslöscht, dass man erst merkt, dass der Horizont weg ist, wenn man ihn sucht und er nicht da ist. Über Land sind unten Lichter. Man sieht Straßen, Gebäude, eine Geometrie, die den Augen sagt, wo unten ist. Über offenem Wasser bei Nacht, mit Dunst, der auf der Oberfläche liegt wie eine zweite Dunkelheit, ist nichts. Die Welt außerhalb des Cockpits wird in alle Richtungen zu einem einzigen Grau. Oben sieht aus wie unten. Eine sanfte Kurve fühlt sich an wie Geradeausflug. Ein langsames Sinken fühlt sich an, als hielte man die Höhe.",
-      "Das Innenohr des Piloten, das Organ, das dem Gehirn meldet, wie der Körper im Raum liegt, funktioniert, indem es Veränderungen der Bewegung wahrnimmt. Geht man in eine Kurve, verschiebt sich die Flüssigkeit im Ohr, und das Gehirn registriert die Drehung. Hält die Kurve aber fünfzehn oder zwanzig Sekunden lang an, kommt die Flüssigkeit im Innenohr zur Ruhe. Sie bewegt sich nicht mehr. Das Gehirn, das Bewegung verfolgt, schließt daraus, dass die Kurve zu Ende ist. Man hat das Gefühl, waagerecht zu fliegen, tut es aber nicht.",
+      "Am Abend des 16. Juli 1999 startete in New Jersey ein kleines einmotoriges Flugzeug. Sein Ziel war Martha’s Vineyard. Der Pilot war erfahren genug, um sich sicher zu fühlen, und unerfahren genug, um sich darüber zu täuschen, was diese Sicherheit bedeutete. Er hatte rund 300 Flugstunden. Die Ausbildung, die ihn zum Fliegen allein nach Instrumenten berechtigt hätte, hatte er nicht abgeschlossen.",
+      "Beim Start war der Himmel klar, also schloss er daraus, dass er keine Instrumente brauchte. Als er die Küste erreichte, hatte sich Dunst über das Wasser gelegt. Jener Nebel, der die Linie zwischen Meer und Himmel so allmählich auslöscht, dass man den Horizont erst vermisst, wenn man ihn sucht und er nicht da ist. Über Land liegen unten Lichter. Man sieht Straßen, Gebäude, eine Geometrie, die den Augen sagt, wo unten ist. Über offenem Wasser bei Nacht, mit Dunst, der auf der Oberfläche liegt wie eine zweite Dunkelheit, ist nichts. Die Welt außerhalb des Cockpits wird in alle Richtungen zu einem einzigen Grau. Oben sieht aus wie unten. Eine sanfte Kurve fühlt sich an wie Geradeausflug. Ein langsames Sinken fühlt sich an, als hielte man die Höhe.",
+      "Das Innenohr des Piloten, das Organ, das dem Gehirn meldet, wie der Körper im Raum ausgerichtet ist, funktioniert, indem es Veränderungen der Bewegung wahrnimmt. Geht man in eine Kurve, verschiebt sich die Flüssigkeit im Ohr, und das Gehirn registriert die Drehung. Hält die Kurve aber fünfzehn oder zwanzig Sekunden lang an, kommt die Flüssigkeit im Innenohr zur Ruhe. Sie bewegt sich nicht mehr. Das Gehirn, das Bewegung verfolgt, schließt daraus, dass die Kurve zu Ende ist. Man hat das Gefühl, waagerecht zu fliegen, tut es aber nicht.",
       "Irgendwo über dem dunklen Wasser ging das Flugzeug in eine sanfte Linkskurve. Die Instrumente des Piloten, die Anzeigen auf dem Instrumentenbrett vor ihm, zeigten die Kurve. Der künstliche Horizont, eine kleine Kreiselanzeige, die den Winkel des Flugzeugs zur Erde zeigt, sagte ihm deutlich, dass er in Schräglage war. Der Höhenmesser sagte ihm, dass er sank. Der Fahrtmesser sagte ihm, dass er schneller wurde. Sein Körper sagte ihm etwas anderes. Sein Körper sagte ihm, dass er geradeaus und waagerecht flog. Sein Körper fühlte sich richtig an. Seine Instrumente fühlten sich falsch an. Er vertraute seinem Körper.",
       "Die Kurve wurde enger. Die Nase senkte sich. Die Fahrt nahm zu. In den letzten Sekunden sank das Flugzeug mit mehr als 4.700 Fuß pro Minute, fast anderthalb Kilometer alle sechzig Sekunden, in einer immer engeren Spirale. Mit der düsteren Präzision eines Berufs, der die Arten benannt hat, auf die er Menschen verliert, nennen Piloten sie Friedhofsspirale. Er schlug mit voller Geschwindigkeit auf dem Wasser auf. Er und seine beiden Passagiere starben beim Aufprall.",
       "Die Untersuchung fand keinen mechanischen Defekt. Der Motor lief. Die Instrumente funktionierten. Die Daten waren die ganze Zeit da, auf dem Instrumentenbrett, fünfzehn Zentimeter vor seinen Augen, aber er las sie nicht ab. Er las stattdessen seinen Körper. Die amerikanische Luftfahrtbehörde, die Federal Aviation Administration, hat eine Anweisung für Piloten, die in diese Situation geraten. Sie ist einen Satz lang. Die Anweisung ist wörtlich gemeint, und sie gilt für Ihr Leben so unmittelbar wie für ein Cockpit:",
       "Der Pilot hieß John F. Kennedy Jr. Er war der Sohn eines amerikanischen Präsidenten. Man hatte ihm geraten, in dieser Nacht nicht ohne seinen Fluglehrer zu fliegen. Er sagte seinem Fluglehrer, er wolle es allein machen. Er war achtunddreißig Jahre alt.",
-      "Sie steuern einen Körper, der Signale erzeugt, und Ihr Kopf hält diese Signale oft für die Wahrheit. Manchmal liegen die Signale so falsch wie das Gleichgewichtsorgan im Innenohr über dunklem Wasser. Die Müdigkeit, die als Frage nach Ihrer Karriere daherkommt. Der Koffeinschub, der als Angst wegen einer E-Mail daherkommt. Der niedrige Blutzucker, der als Beleg dafür daherkommt, dass Ihre Beziehung scheitert. Ihr Körper spricht zuerst, und Ihr Kopf erklärt danach. Weil die Erklärung mit dem ganzen Gewicht körperlicher Überzeugung kommt, dem angespannten Kiefer, dem schnellen Herzschlag, der Hitze hinter den Ohren, fühlt sie sich an wie tiefes Wissen. Es fühlt sich an, als würden Sie die Situation lesen. Aber Sie lesen nur das Instrument ab, das die Situation liest, und die Einstellungen des Instruments waren schon verstellt, bevor die Situation da war. Diese Instrumente gibt es. Sie haben sie. Puls, Kieferspannung, Atemtiefe, Schulterhaltung, das Tempo Ihrer Gedanken. In diesem Moment liefern sie Daten, während Sie diesen Satz lesen. Aber der selbstsichere Wetterbericht, den der Körper über die Welt abgibt, ist nur ein Entwurf.",
+      "Sie steuern einen Körper, der Signale erzeugt, und Ihr Kopf hält diese Signale oft für die Wahrheit. Manchmal liegen die Signale so falsch wie das Gleichgewichtsorgan im Innenohr über dunklem Wasser. Die Müdigkeit, die als Frage nach Ihrer Karriere daherkommt. Der Koffeinschub, der als Angst wegen einer E-Mail daherkommt. Der niedrige Blutzucker, der als Beleg dafür daherkommt, dass Ihre Beziehung scheitert. Ihr Körper spricht zuerst, und Ihr Kopf erklärt danach. Weil die Erklärung mit dem ganzen Gewicht körperlicher Überzeugung kommt, dem angespannten Kiefer, dem schnellen Herzschlag, der Hitze hinter den Ohren, fühlt sie sich an wie tiefes Wissen. Es fühlt sich an, als würden Sie die Situation lesen. Aber Sie lesen nur das Instrument ab, das die Situation liest, und die Einstellungen des Instruments waren schon verstellt, bevor die Situation da war. Diese Instrumente gibt es. Sie haben sie. Puls, Kieferspannung, Atemtiefe, Schulterhaltung, das Tempo Ihrer Gedanken. Sie liefern gerade jetzt Daten, während Sie diesen Satz lesen. Aber der selbstsichere Wetterbericht, den der Körper über die Welt abgibt, ist nur ein Entwurf.",
     ],
     quoteAfter: 5,
     quote: "„vertrauen Sie Ihren Instrumenten und ignorieren Sie alle Signale Ihres Körpers, die dem widersprechen.“",
@@ -215,7 +222,7 @@ export const de: SiteContent = {
         attention: "NACHSEH-SCHLEIFE",
         safety: "VERSTÄRKT",
         page: 23,
-        line: "Müdigkeit nimmt der Gewissheit die Bremse."
+        line: "Müdigkeit löst die Bremse der Gewissheit."
       },
       {
         number: "03",
@@ -239,7 +246,7 @@ export const de: SiteContent = {
         attention: "SPÄT EINGEFANGEN",
         safety: "KEINE AUSSAGE",
         page: 61,
-        line: "Eine Stunde fühlt sich frei an, und der Morgen zahlt."
+        line: "Eine Stunde fühlt sich gratis an und geht auf Rechnung des Morgens."
       },
       {
         number: "06",
@@ -255,7 +262,7 @@ export const de: SiteContent = {
         attention: "ZERSPLITTERT",
         safety: "STEIGT",
         page: 89,
-        line: "Das Dokument bleibt dasselbe; der Leser verliert an Reichweite."
+        line: "Das Dokument bleibt dasselbe; der Leser verliert an Bandbreite."
       },
       {
         number: "08",
@@ -279,7 +286,7 @@ export const de: SiteContent = {
         attention: "VERBRAUCHT",
         safety: "REST",
         page: 129,
-        line: "Die Küche wird zurückgesetzt. Der Körper nicht."
+        line: "Die Küche fängt von vorn an. Der Körper nicht."
       },
       {
         number: "11",
@@ -412,7 +419,7 @@ export const de: SiteContent = {
       },
       {
         label: "Untertitel",
-        value: "Ein Leitfaden für den Moment, bevor aus Deutung Wirklichkeit wird"
+        value: "Warum Ihr Körper entscheidet, was ein Moment bedeutet, bevor Sie dazu kommen"
       },
       {
         label: "Autorin",

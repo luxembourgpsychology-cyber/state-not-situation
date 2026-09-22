@@ -86,3 +86,33 @@ Option A. It is the only one of the three that does not decide, on your behalf, 
 
 CONFIDENCE
 Medium. High on the French of each option, medium on the ruling, because the same label governs four chapter openings and both halfway maps, and only you know which way you meant the claim to run.
+
+---
+
+**22 September 2026, after the French author's review.** Laurent Rouach's corrections to the first screen and the opening extract are all carried, word for word, and the file was re-read to the standard they set (`translation/METHOD-fr.md`, **The French author's review, 2026-09-22**). One of his corrections replaces a term the book uses as a term, so it is carried and queried rather than carried silently.
+
+TRANSLATION QUERY 3  ·  *narrator* on the sensor line
+
+SOURCE
+Page 175, printed on the first screen of the site as the premise’s first line: “The body is a sensor before it is a narrator.” The book’s *narrator* recurs: the narrating mode against the reading mode, the default mode network as narrator, “the story” the narrator writes.
+
+CURRENT TRANSLATION
+« Le corps est un capteur avant d’être un témoin. » — Laurent Rouach’s correction, carried. The glossary’s term, which the page carried until 22 September 2026, was « narrateur ».
+
+ISSUE
+Conceptual consistency. « Témoin » is the better French sentence and he is right that « narrateur » reads as a word from a literature class. But a witness reports what happened and a narrator makes a story of it, and the line’s mechanism is the second: sensor first, story-maker second. « Témoin » moves the line toward the sensor side of the book’s own distinction, and the printed French book will need one word for *narrator* across sixteen chapters.
+
+OPTION A
+« Le corps est un capteur avant d’être un narrateur. » The book’s term, consistent with « mode récit » and the chapters that name the narrator.
+
+OPTION B
+« Le corps est un capteur avant d’être un témoin. » The French author’s sentence, as it now stands on the site.
+
+OPTION C
+« Le corps capte avant de raconter. » Both terms go verbal; the mechanism is exact and the sentence is plainly French, but it drops « capteur », which is the instrument image the whole first screen is built on.
+
+RECOMMENDATION
+Option B on the website, as it stands, because a native author heard « narrateur » as foreign on the first screen and the site can afford one line that is a little less precise than the book. Option A when the book itself is translated, unless you want « témoin » to be the book’s word for *narrator*, in which case say so once and the glossary follows.
+
+CONFIDENCE
+Medium. High that « témoin » is the better sentence; medium that it is the right term, because the choice is about the book’s vocabulary and not about this line.

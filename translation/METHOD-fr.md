@@ -784,3 +784,66 @@ kept as the record of decisions taken, but no string on the site uses them now.
 the semicolon, per § Typography and rule 10, verified at byte level
 (`E2 80 AF 3B`). It must be that character in `content/fr.ts` and never an
 entity. The sentence contains no apostrophe, so there is no U+2019 to get wrong.
+
+## The French author's review, 2026-09-22
+
+On 20 September 2026 a French author, Laurent Rouach, read the live French page on his phone and sent the author a marked-up copy of the first screen and the two opening paragraphs of the extract, with the verdict that the French was not good. His corrections are the standard this pass works to, and every one of them names the same fault: French that is grammatical and English underneath. Where he corrected a sentence, his wording is carried word for word. Where he did not, the rest of the file was re-read for the fault he found.
+
+### What he corrected, and what each correction teaches
+
+| Key | Was | His | The lesson |
+|---|---|---|---|
+| `hero.subtitle` | Un guide de terrain pour l’instant qui précède le moment où l’interprétation devient réalité | Un guide pratique pour l’instant avant que l’interprétation ne devienne réalité | Moot: the English subtitle changed on 14 September 2026 and the new one is translated below. But the correction stands as a lesson: two relative clauses where French wants one, and the subjunctive after « avant que ». |
+| `hero.strap` | Votre première lecture n’est pas toute l’histoire. | **Votre première interprétation n’est pas l’histoire.** | The strap’s *reading* is the construal, not the datum, which is exactly the line German drew in amendment 59 of METHOD-de.md. « Lecture » on a book cover reads as reading a book. And « toute l’histoire » is *the whole story* in French clothes. |
+| `premise.sensorLine` | Le corps est un capteur avant d’être un narrateur. | **Le corps est un capteur avant d’être un témoin.** | « Narrateur » is a word from narratology; a French reader meets it in a literature class. Carried as he wrote it, and queried, because *narrator* is a book term — see QUERIES-fr.md, query 3. |
+| `excerpt.paragraphs[0]` | un petit avion monomoteur | un petit monomoteur | A monomoteur is a plane; « avion » doubles it. |
+| | cette assurance | cette confiance | « Assurance » is the insurance first. |
+| | voler aux seuls instruments | voler aux instruments | « Voler aux instruments » is the term; « seuls » was carrying *only*. |
+| `excerpt.paragraphs[1]` | La brume vint, celle qui efface… | La brume qui efface… | The fragment stands on its own, as v44 prints it. |
+| | vous ne remarquez pas que l’horizon a disparu, jusqu’au moment où vous le cherchez et où il n’est plus là | vous ne remarquez que l’horizon a disparu qu’au moment où vous le cherchez et qu’il n’est plus là | *not … until* is « ne … que », the same finding amendment 57 made for German. |
+| | Au-dessus des terres | Au-dessus de la terre | |
+| | une géométrie qui dit à vos yeux où est le bas | une géométrie qui indique à vos yeux où se trouve le bas | |
+| | Hors du cockpit, le monde devient un gris uniforme dans toutes les directions | Le monde à l’extérieur du cockpit prend un gris uniforme | « Prend un gris » is the painter’s verb; « dans toutes les directions » was *in every direction* word for word and French does not need it. |
+| | Une descente lente donne la sensation de tenir l’altitude. | Une descente lente passe inaperçue. | He replaced the calque with the consequence. « Passe inaperçue » is his sense in the collocation French uses; « n’est pas remarquée », as he wrote it on the phone, is the same sentence in the passive. |
+
+### The two-noun rule, taken into French
+
+Until this pass the glossary held *reading* on « lecture » everywhere and rejected « interprétation » because the book opposes a reading to an interpretation. That opposition is real, and it is the reason the rule is now the German one: **what came back is a « lecture »; what someone made of it is an « interprétation ».** The strap and the back cover’s second sentence are about what someone made of it (« Votre première interprétation n’est pas l’histoire. », « Mais souvent, la première interprétation ne dit pas tout. »). Page 7’s result, the fifteen chapter openings, the case count and chapter 15’s line are about what came back and stay on « lecture » (« Ce que vous avez trouvé, c’est une lecture. », « Trois lectures », « La lecture de demain, relevée ce soir. »). The verb for taking a reading is « relever », as the glossary already had it. « Erreur de lecture » for *misreading* stands. The glossary entry for *reading* is amended by this section.
+
+In the back cover’s prose the hedge of *not the whole story* is kept: « ne dit pas tout » says that the first interpretation is incomplete, which is the claim, without « toute l’histoire ». The strap is display copy and carries his sentence unchanged.
+
+### The rest of the file, re-read for the same fault
+
+Changed, with the reason in one line each:
+
+- `meta.description`, `hero.subtitle`, `meta.ogImageAlt`, `press.facts` subtitle: the new English subtitle, « Pourquoi votre corps décide avant vous du sens d’un moment ». « Décider du sens de » is the French collocation; « avant vous » sits where French puts it, next to the verb, and the sentence ends on « moment » as the English does.
+- `status.submit`: « Me prévenir », the infinitive a French publisher’s button carries; « Prévenez-moi » addresses the site.
+- `status.privacyNote`: « Adresse utilisée pour cet avis de parution, et pour rien d’autre. » The English *only* becomes a French afterthought rather than an adverb.
+- `premise.mechanism[0]`: « nous prenons ces moments pour des informations sur la vie ». *Treat as* is « prendre pour », which also carries the error the sentence is about; « traiter comme » was the dictionary.
+- `premise.mechanism[2]`: « l’heure qu’il est » for *timing*, which is what the word means here (the clock, not a schedule); « façonnent en silence » for *quietly shape*, because « discrètement » is a manner of behaving, not of acting unseen.
+- `premise.mechanism[3]`: « L’esprit, lui, n’arrive qu’ensuite, et il trouve une raison à cette sensation. » The English *second* is a rank; French says it with « ne … que » and the fronted subject. « Trouver une raison à » is what a mind does in French; « donner une raison » is what a person does to a child.
+- `reading.eyebrow`: « Faites un essai, tout de suite ». « Essayez quelque chose » was *try something*.
+- `variables.loops[0]`: « Quand le rythme se dérègle » for *when the timing is off* (the mechanism is a rhythm out of step); « plus rude » for *harsher*.
+- `variables.loops[1]`: « l’attention se rabat sur ce qui, à portée de main, demande le moins d’effort, et le travail qui en demande paraît difficile ». The cost metaphor is translated as effort, as the standard asks, and « se rabattre sur » is the verb for settling for the easier thing.
+- `variables.loops[2]`: « des interprétations qui ont tout l’air de faits ».
+- `moments.items[2].input`: « Une journée sans réserves. » *Depleted* is a store used up; « à plat » was the energy word from the glossary’s *flat*, a different reading.
+- `moments.closing`: « Ça disait : je suis en train d’échouer. Les données, elles, disaient : je suis fatiguée. » « Ça disait » stands from the 6 September ruling; the second half had been *the data was* in French words.
+- `evidence.grades[1]`: « Résultats évocateurs, incertitude réelle. » *Suggestive evidence* is « résultats évocateurs » in French clinical writing; « preuves partielles » had changed the claim to *partial*.
+- `evidence.closing`: « parce que ce livre court lui-même le risque qu’il décrit ».
+- `excerpt.paragraphs[2]`: « le liquide qu’elle contient », « quinze ou vingt secondes » without « pendant ».
+- `excerpt.paragraphs[3]`: « l’inclinaison de l’appareil par rapport au sol » for *the aircraft’s angle relative to the earth*; « droit, en palier ».
+- `excerpt.paragraphs[4]`: « à chacune des façons dont il perd les siens ».
+- `excerpt.paragraphs[5]`: « C’est son corps qu’il lut. » The cleft is how French stresses *instead*.
+- `excerpt.quote`: « faites confiance à vos instruments et ignorez tous les signaux contraires que vous envoie votre corps. » One clause shorter and it is what a French checklist would print.
+- `excerpt.paragraphs[7]`: « Ils se trompent parfois autant que… » (the signals, just named, need no second noun); « L’hypoglycémie » is the word, not a paraphrase; « que votre relation se défait »; « le cœur qui s’emballe »; « a tout d’un savoir profond »; « et ses réglages étaient faussés avant même que la situation n’arrive »; « le bulletin météo que le corps établit sur le monde, si sûr de lui soit-il, n’est qu’un brouillon », because « plein d’assurance » on the report put the confidence on the paper rather than on the body.
+- `excerpt.closing`: « à partir d’un message » for *about a message*; a comma before « à l’échelle de la cuisine ».
+- `readings.items[0]`: « avant que l’attention ne le mette à l’épreuve »; `[1]` « ôte son frein à la certitude »; `[4]` « et envoie la facture au matin »; `[6]` « le lecteur, lui, perd en amplitude »; `[8]` « se termine »; `[9]` « repart de zéro » (the idiom is « repartir de zéro »); `[11]` « La mâchoire ne se desserre pas. »
+- `press.intro`: « imprimés ou numériques », « Reproduction d’extraits, entretiens et rencontres : sur accord. »
+- `press.sortingTool`: « s’organisent », « avant que votre esprit n’en fasse une histoire ».
+- `footer.translationNote`: « ces pages en ont été traduites par une intelligence artificielle ».
+
+Not changed, and read: the case panels, the gauge labels, the chapter titles, the biography, the readers line, the sources paragraph (governed by query 1), the closing question and the cover line.
+
+### LILT
+
+At the author’s request the pass was run with the LILT connector first, as an instant translation of every prose string into French and German. The output was read and then set aside: it mixed « tu » and « vous », rendered *banking* as « faisait des opérations bancaires », kept « Vérifiez votre mâchoire », and offered nothing the file did not already do better. Nothing on the page comes from it. It is recorded here so that nobody runs it again expecting otherwise.

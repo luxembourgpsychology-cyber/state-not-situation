@@ -1047,3 +1047,34 @@ of decisions taken, but no string on the site uses them now.
 | AI translated it | „eine KI hat … übersetzt", or „mit KI übersetzt" | **KI-gestützt and mit KI-Unterstützung both assert a human translator the site does not have**, which is exactly the overstatement the one rule exists to prevent, and the second nominalises into press-release German. *maschinell übersetzt* is the EU-portal and help-page voice and does not say KI. *automatisch übersetzt* is the browser banner. *KI-Übersetzung* is a manufactured compound, barred by amendment 3. |
 | native review pending | „das muttersprachliche Lektorat steht noch aus" | *Prüfung* is unavailable: amendment 1 reserves *prüfen* for inspecting for a fault. The person-noun *Muttersprachler* is avoided; *Lektorat* is the trade's word for the missing pass. |
 | authoritative version | „Maßgeblich ist das Original" | „Im Zweifel gilt …" invites the reader to look for doubt. „die englische Fassung" is wrong twice over: there is no German edition, so English is not one *Fassung* among several, and it borders the *Lesart* / *Fassung* family amendment 59 has just mapped. *das Original* also avoids saying *englisch* twice in nineteen words. |
+
+## The French author's review, read across into German, 2026-09-22 (amendment 60)
+
+On 20 September 2026 a French author sent the author a marked-up French page with the verdict that it was not good. None of his corrections concern German, but every one of them found the same fault this file's amendments 56 and 57 name: sentences that parse and carry English underneath. The whole German file was re-read for that fault once more, against her three rules (front the frame; give the event a verb; prefer transformation to resemblance). Eighteen strings changed; the rest were read and stand.
+
+### 60. The new subtitle, and seventeen repairs
+
+**The subtitle.** The cover changed on 14 September 2026 to *Why your body decides what a moment means before you do*, and the German still carried the retired sentence. It is now „Warum Ihr Körper entscheidet, was ein Moment bedeutet, bevor Sie dazu kommen", in all four places. „Bevor Sie es tun" was refused as *before you do* in German letters; „bevor Sie dazu kommen" is what German says when someone else gets there first, and it ends the sentence on the timing, where the English also ends it. „Vor Ihnen entscheidet" was refused because it reads spatially first. *Leitfaden* leaves the site with the old subtitle; *Deutung*, which the old subtitle had spent, is free again but not used, because amendment 59 holds the construal on *Lesart*.
+
+| Key | Was | Is | Why |
+|---|---|---|---|
+| `premise.mechanism[3]` | Dann kommt der Kopf als Zweiter und liefert … | **Erst danach kommt der Kopf, und er liefert …** | Rule 1. *Second* is a rank in English; German fronts the timing. |
+| `moments.closing` | Die Daten waren: Ich bin müde. | Die Daten **sagten**: Ich bin müde. | Rule 2. *The data was* in German words. |
+| `excerpt.paragraphs[0]` | Es war unterwegs nach … | **Sein Ziel war** Martha’s Vineyard. | Rule 2. |
+| | erfahren genug, um sich seiner Sache sicher zu sein, und neu genug, um sich darin zu irren | erfahren genug, um sich sicher zu fühlen, und **unerfahren genug, um sich darüber zu täuschen** | *New enough* is English; the German pair is erfahren/unerfahren, and the verb for being wrong about a feeling is *sich täuschen*. |
+| | nur nach seinen Instrumenten zu fliegen | **zum Fliegen allein nach Instrumenten** | The pilot's phrase. |
+| `excerpt.paragraphs[1]` | Der Nebel kam, der … | **Jener Nebel, der …** | v44 prints *The mist, the one that erases…*; the fragment is carried as a fragment. |
+| | dass man erst merkt, dass der Horizont weg ist, wenn … | dass man **den Horizont erst vermisst**, wenn … | Rule 2, and one *dass* fewer. *Vermissen* is noticing an absence, which is the whole sentence. |
+| | Über Land sind unten Lichter. | Über Land **liegen** unten Lichter. | Rule 2. |
+| `excerpt.paragraphs[2]` | wie der Körper im Raum liegt | wie der Körper im Raum **ausgerichtet ist** | *Liegt* said the body was lying down. |
+| `excerpt.paragraphs[7]` | In diesem Moment liefern sie Daten, während … | Sie liefern **gerade jetzt** Daten, während … | The fronted adverbial was English emphasis; German puts *jetzt* next to the verb. |
+| `readings.items[1].line` | nimmt der Gewissheit die Bremse | **löst die Bremse der Gewissheit** | *Eine Bremse lösen* is the collocation. |
+| `readings.items[4].line` | fühlt sich frei an, und der Morgen zahlt | fühlt sich **gratis** an und **geht auf Rechnung des Morgens** | *Free* here is cost, not liberty, and *bills the morning* has a German idiom. |
+| `readings.items[6].line` | verliert an Reichweite | verliert an **Bandbreite** | *Range* of a reader is the breadth of what they can take in; *Reichweite* is a transmitter's. |
+| `readings.items[9].line` | Die Küche wird zurückgesetzt. | **Die Küche fängt von vorn an.** | *Zurücksetzen* is a device. The kitchen starts over; the body does not. |
+
+Refused, on the same tests as amendment 57: `reading.eyebrow`, `premise.mechanism[0]`, `variables.loops[0..2]` (the Attention definition is the author's own German), `evidence.closing`, `excerpt.paragraphs[7]`'s three „daherkommt", which repeat as the English repeats, `readings.items[10].line`, and `status.submit`, which amendment 38 settled.
+
+### LILT
+
+The pass was run with the LILT connector first, at the author's request, as an instant translation of every prose string. The German it returned switched between *du* and *Sie* inside one paragraph, gave *state* as „Staat", *reading* as „Lesung", *banking* as „Bankgeschäfte tätigt", and printed 1.700 feet per minute where the book prints 4,700. It was set aside and nothing on the page comes from it.
