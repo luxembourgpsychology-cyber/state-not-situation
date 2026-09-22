@@ -75,7 +75,11 @@ export const siteConfig: SiteConfig = {
     // unapproved translation as the book's published text. Set false once a
     // native speaker has signed the language off.
     fr: { enabled: true, underReview: true, label: "FR", name: "Français", htmlLang: "fr" },
-    de: { enabled: true, underReview: true, label: "DE", name: "Deutsch", htmlLang: "de" },
+    // Taken down completely by the author on 22 September 2026 ("it's not good
+    // for German… take it down… completely"). /de returns 404 and DE leaves the
+    // switcher. content/de.ts is kept as the draft to rework; set enabled: true
+    // to bring it back for review.
+    de: { enabled: false, underReview: true, label: "DE", name: "Deutsch", htmlLang: "de" },
   },
 
   /**
