@@ -55,7 +55,7 @@ The hero is the printed front cover, flat and still, with the site's only shadow
 
 ## Verified facts (do not restate anything else as fact)
 
-- ISBN-13 **978-2-87996-258-0**, © 2026 Budisin Publishing, 282 pages, 6 × 9 in
+- ISBN-13 **978-2-87996-258-0**, © 2026 Budisin Publishing, **302 pages** (v47, the author's figure of 28 September 2026), 6 × 9 in
 - Cover design: Zoe Larusson. Book design and typesetting: Ivana Budišin
 - Legal deposit: Bibliothèque nationale du Luxembourg, as page iv prints it. The book claims no CIP record; do not add one.
 - Page references follow the final interior, v44 (roman i–x, arabic 1–272). Records in `brief/` and `translation/` cite the older 278-page text: for body pages, v44 = old − 6.
@@ -93,8 +93,9 @@ filled that day from her own About the author page.
 
 Two things are waiting on the interior rather than on her:
 
-- **Extent.** `press.facts` says 282 pages, which is v44. v47 will be 302, and the
-  pagination is still moving. Change it when the interior is final.
+- **The page references.** `press.facts` says 302 pages, which is v47, but every folio
+  and page citation on the site is still v44's (4, 7, 10, 14, 218, 220 …). They move
+  when v47 is final and can be checked against it.
 - **The foreword's folio.** The `Foreword` section prints no page number, because
   every other folio on the site is a verified printed page and this one is not yet.
 

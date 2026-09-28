@@ -367,5 +367,10 @@ The page it comes from also names LuxembourgPsychology.com, so
 `siteConfig.author.website` is set. It reaches the author's structured data only —
 nothing on the page links to it yet.
 
-**Still open.** `press.facts` says 282 pages, which is v44. v47 will be 302. Change it
-when the interior is final.
+**The extent.** Changed to **302 pages** on 28 September 2026, on the author's word
+("will be 302"), which is v47. Everything else on the site still cites **v44** — every
+folio and every page reference in this file. That is deliberate: the extent is one
+bibliographic fact a journalist needs now, and the page citations are twenty-odd
+claims that can only be re-checked against the finished interior. Re-check them all
+against v47 when it is final, the way they were re-checked against v44 on
+14 September 2026, and update this file's opening paragraph at the same time.

@@ -361,7 +361,9 @@ export const en: SiteContent = {
       { label: "Author", value: "Ivana Budišin" },
       { label: "Publication", value: "2026" },
       { label: "Format", value: "Paperback, 6 × 9 in" },
-      { label: "Extent", value: "282 pages" },
+      // v47, the author's figure, 28 September 2026. The page references
+      // elsewhere on the site are still v44's and move when v47 is final.
+      { label: "Extent", value: "302 pages" },
       { label: "ISBN-13", value: "978-2-87996-258-0" },
       { label: "Category", value: "Psychology / Cognitive psychology" },
       { label: "Language", value: "English. French and German editions to follow." },

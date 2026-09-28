@@ -452,7 +452,7 @@ export const de: SiteContent = {
       },
       {
         label: "Umfang",
-        value: "282 Seiten"
+        value: "302 Seiten"
       },
       {
         label: "ISBN-13",

@@ -458,7 +458,7 @@ export const fr: SiteContent = {
       },
       {
         label: "Pagination",
-        value: "282 pages"
+        value: "302 pages"
       },
       {
         label: "ISBN-13",
