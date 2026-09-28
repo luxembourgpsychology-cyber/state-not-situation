@@ -1,6 +1,7 @@
 import type { Locale } from "@/site.config";
 import { siteConfig } from "@/site.config";
 import { getContent, isPublished } from "@/lib/i18n";
+import { publicationDate } from "@/lib/publication";
 import { AmazonButton } from "./AmazonButton";
 import { Notify } from "./Notify";
 import { Reveal } from "./Reveal";
@@ -15,6 +16,7 @@ export function Closing({ locale }: { locale: Locale }) {
   const c = getContent(locale);
   const ed = siteConfig.editions[locale];
   const published = isPublished(locale);
+  const date = publicationDate(locale);
 
   return (
     <section id="closing" className="section-tall" aria-labelledby="closing-title">
@@ -35,6 +37,13 @@ export function Closing({ locale }: { locale: Locale }) {
 
         <div id="notify" className="mt-[var(--space-section)] grid md:grid-cols-12 gap-x-10">
           <div className="md:col-span-8 md:col-start-4">
+            {/* The date stands above the form, so the one thing the site asks
+                for has a reason a reader can see. */}
+            {!published && date ? (
+              <Reveal delay={90}>
+                <p className="t-mono mb-[var(--space-block)]">{c.status.forthcomingDatePrefix} {date}</p>
+              </Reveal>
+            ) : null}
             <Reveal delay={100}>
               {published && ed.amazonUrl ? (
                 <AmazonButton href={ed.amazonUrl} label={c.status.buy} locale={locale} />

@@ -7,6 +7,7 @@ import { join } from "node:path";
 import type { Locale } from "@/site.config";
 import { siteConfig } from "@/site.config";
 import { alternatesFor, getContent, localeUrl } from "@/lib/i18n";
+import { publicationDate } from "@/lib/publication";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
@@ -46,7 +47,25 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
   const c = getContent(locale);
   const p = c.press;
   const ed = siteConfig.editions[locale];
-  const facts = p.facts.map((f) => (f.label.startsWith("ISBN") && ed.isbn ? { ...f, value: ed.isbn } : f));
+  // The ISBN and the date are each written once, in site.config.ts. The press
+  // sheet reads them from there so it cannot fall behind the rest of the site.
+  const date = publicationDate(locale);
+  const rows = p.facts.map((f) =>
+    f.label.startsWith("ISBN") && ed.isbn
+      ? { ...f, value: ed.isbn }
+      : f.label === p.publicationFactLabel && date
+        ? { ...f, value: date }
+        : f,
+  );
+  // The foreword is credited where a bibliographic record credits a
+  // contributor: in the same list, immediately under the author.
+  const fw = c.foreword;
+  const authorRow = rows.findIndex((f) => f.value === siteConfig.author.name);
+  const forewordRow = { label: p.forewordLabel, value: `${fw.name}, ${fw.role}, ${fw.organisation}` };
+  const facts =
+    authorRow < 0
+      ? [...rows, forewordRow]
+      : [...rows.slice(0, authorRow + 1), forewordRow, ...rows.slice(authorRow + 1)];
   const photo = siteConfig.press.authorPhoto;
   const bios = p.bios.filter((b) => !b.text.startsWith("[COPY NEEDED"));
   const assets = p.assets.filter((a) => (a.file.includes("author-photo") ? Boolean(photo) : true));

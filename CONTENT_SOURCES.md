@@ -263,3 +263,109 @@ German original. The reasoning is in `translation/METHOD-de.md`, amendments 52 t
 Two omissions in the German follow the English exactly and are recorded here as well: page 8’s "Things like social evaluation, exclusion, ambiguity, status." is not in `variables.loops[2]`, and page 7’s 169 words of evidence prose are not on the page.
 
 The German glossary decision that governs the site's central term — *reading* is **Lesart** where it is a reading of the world and **Befund** where it is a reading taken off the instrument — is recorded as amendment 35 in `translation/METHOD-de.md`, with the one consequence put to the author in `translation/QUERIES-de.md`.
+
+---
+
+## The foreword and the date, 28 September 2026
+
+Two things the site did not carry: the book's foreword, and when the book comes out.
+
+**The foreword.** The final interior prints a Foreword in its front matter, pages v to
+ix (recorded above, under *Re-verified against v44*). Its author, and the credit as
+Ivana gave it on 28 September 2026, word for word:
+
+> Dr Kristina Herber, Managing Director, AIHE Academic Institute for Higher Education
+
+That credit is author-supplied, category 2, and it is carried in three places, all
+reading the same three strings in `content/*.ts`:
+
+| Key | Where it appears |
+|---|---|
+| `foreword.credit` | Under the byline on the first screen, at LABEL |
+| `foreword.name` / `.role` / `.organisation` | The contributor row on `/press`, under the author; the `contributor` object in the book's structured data; the attribution under the quoted passage |
+| `foreword.eyebrow` | The section label, the footer link, and the `/press` row label |
+
+`name`, `role` and `organisation` are identical in English, French and German: a
+person's name and her official title at a named institute are not translated. Whether
+"Managing Director" should stand in the French page or read *directrice générale* is
+Dr Herber's to say; it is left as given and noted as an open question.
+
+**No passage is quoted yet.** `foreword.quote` is an empty array in all three content
+files, and `components/Foreword.tsx` returns nothing while it is empty, the way
+`Listen` returns nothing without an `audioUrl`. So the home page shows the credit and
+not a placeholder. Filling the array with one or two sentences from pages v to ix —
+verbatim, and cleared with Dr Herber, since the words are hers and not the book's —
+brings the section, its footer link and its attribution in one edit. The first
+sentence sets at DISPLAY, anything after it at BODY.
+
+**The date.** Ivana gave 15 October 2026 on 28 September 2026. It is written once, as
+`editions[lang].publicationDate` in `site.config.ts`, and `lib/publication.ts` sets it
+in the reader's own language: *15 October 2026*, *15 octobre 2026*, *15. Oktober 2026*.
+English uses the en-GB form because the site's prose is British.
+
+From that one value:
+
+- the first screen replaces "Publishing soon" with "Publishing 15 October 2026";
+- the closing section prints the date above the email form, so the one thing the site
+  asks for has a reason a reader can see;
+- the Publication row on `/press` carries the date instead of the bare year — matched
+  by `press.publicationFactLabel`, so the value is never written twice;
+- `datePublished` appears in the book's structured data.
+
+Setting `publicationStatus: "published"` and an `amazonUrl` still switches every one of
+these to the published wording with no further edit. `status.forthcomingDatePrefix`
+("Publishing" / "Parution le" / "Erscheint am") is a plain interface label, category 3.
+
+**Open question 10.** Should the French and German pages print "Managing Director,
+AIHE Academic Institute for Higher Education" as it stands, or Dr Herber's own French
+and German titles if she has them? The site does not invent either one.
+
+## The foreword's words, and the biography, 28 September 2026
+
+**The passage.** `~/Desktop/SNS 38 Working/Foreword.pdf` embeds a subset font, so its
+text extracts as a substitution cipher — glyphs numbered in the order they first
+appear. It was decoded letter by letter and the whole of it written to
+`Foreword.txt` beside the PDF, so it can be read against the original. Two passages
+are quoted on the home page, word for word:
+
+> Our first interpretation is not necessarily wrong. But it does not have to be our last.
+
+> A book that cautions us against confusing a persuasive interpretation with certainty
+> also applies scrutiny to its own interpretations.
+
+They are chosen to follow the Evidence section without repeating it. The book says its
+own risk is the risk it describes; the foreword says the same thing from outside the
+book, which is the one thing the site could not say for itself. **The words are Dr
+Herber's, not the book's** — they should be read back against the PDF, and cleared
+with her, before the site goes to press. French and German are translations under
+`translation/STANDARD.md`, and the French reviewer should be told they are a third
+party's words.
+
+**No folio.** The `Foreword` section prints no page number. The author's note of
+28 September 2026: the front matter is still moving and the interior will be 302 pages.
+Every other folio on the site is a verified printed page, so this one waits rather than
+guess.
+
+**The long biography.** `press.bios[1]`, the site's last `[COPY NEEDED]`, is filled
+from Ivana's own *About the author* page, supplied 28 September 2026, word for word:
+
+> Before psychology, Ivana Budišin worked in design and product design. She later moved
+> into applied psychology and is now a clinical psychologist, with a continuing interest
+> in research and cognitive science. Born in the United States, she has lived in Serbia
+> and Luxembourg and is now a Luxembourger. She runs Luxembourg Psychology.
+> State. Not Situation. brings those interests together: how we experience the world,
+> and how we might make that experience easier to understand.
+
+Author-supplied, category 2. **No page is cited**: she has said the page is not at the
+end of the book and the pagination is not settled. When v47 is final, this can be
+recorded as printed and given its page. It is 78 words rather than the 100 to 150 the
+placeholder asked for; it is hers and it is complete, so it stands. Filling it brings
+the whole Biography block on `/press` back, which has been hidden since the site was
+built.
+
+The page it comes from also names LuxembourgPsychology.com, so
+`siteConfig.author.website` is set. It reaches the author's structured data only —
+nothing on the page links to it yet.
+
+**Still open.** `press.facts` says 282 pages, which is v44. v47 will be 302. Change it
+when the interior is final.

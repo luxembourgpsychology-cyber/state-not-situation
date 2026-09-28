@@ -74,6 +74,28 @@ export interface ChapterReading {
   page: number;
 }
 
+/**
+ * The book's foreword, printed in the front matter of the final interior,
+ * pages v to ix.
+ *
+ * `name`, `role` and `organisation` are the author-supplied credit, word for
+ * word, and they are the same in every language: a person's name and her
+ * official title at a named institute are not translated. `quote` is the
+ * passage the site may show, and the home-page section does not render until
+ * there is one — the credit appears with or without it.
+ */
+export interface Foreword {
+  /** The section label, and the word this language credits a foreword with. */
+  eyebrow: string;
+  /** The jacket line, under the byline on the first screen. */
+  credit: string;
+  name: string;
+  role: string;
+  organisation: string;
+  /** Verbatim from the foreword. Empty until a passage is cleared. */
+  quote: string[];
+}
+
 export interface SiteContent {
   meta: {
     title: string;
@@ -103,6 +125,8 @@ export interface SiteContent {
     forthcoming: string;
     published: string;
     publicationDatePrefix: string;
+    /** Before publication, in front of the date: "Publishing 15 October 2026". */
+    forthcomingDatePrefix: string;
     buy: string;
     /** The second hero action and the closing form's heading. */
     notifyCta: string;
@@ -179,6 +203,9 @@ export interface SiteContent {
     closing: string;
     folio: string;
   };
+
+  /** Section 6. The foreword, credited as the front matter credits it. */
+  foreword: Foreword;
 
   /** Section 6 on the home page, and the whole of /read. */
   excerpt: {
@@ -262,6 +289,13 @@ export interface SiteContent {
     bioHeading: string;
     bios: { label: string; text: string }[];
     factsHeading: string;
+    /**
+     * The label of the Publication row, so its value can be set from the one
+     * date in site.config.ts instead of being written twice.
+     */
+    publicationFactLabel: string;
+    /** The label of the contributor row that credits the foreword. */
+    forewordLabel: string;
     facts: { label: string; value: string }[];
     descriptionHeading: string;
     description: string[];

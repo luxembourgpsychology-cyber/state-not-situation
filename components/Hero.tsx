@@ -26,6 +26,7 @@ export function Hero({
   content: SiteContent;
   published: boolean;
   amazonUrl: string | null;
+  /** Already set in the reader's language by lib/publication.ts. */
   publicationDate: string | null;
   excerptAvailable: boolean;
 }) {
@@ -71,13 +72,29 @@ export function Hero({
                 6 September 2026. One line, at LABEL, so it reads as a caption
                 to the byline and does not compete with the title. */}
             <p className="t-mono mt-1">{c.hero.credential}</p>
+            {/* The foreword, credited where a jacket carries it: under the
+                byline, at LABEL, so it lends the book its authority without
+                competing with the title. */}
+            <p className="t-mono mt-1">{c.foreword.credit}</p>
 
             <div className="mt-[var(--space-block)] flex flex-wrap items-center gap-x-8 gap-y-3">
+              {/* Before publication the date replaces "Publishing soon": a
+                  visitor who cannot see a date cannot decide anything, and the
+                  two words were the least useful line on the first screen.
+                  After publication the status leads and the date follows it. */}
               <p className="t-mono text-ink w-full sm:w-auto">
-                {status}
-                {published && publicationDate ? (
-                  <span className="text-quiet"> · {c.status.publicationDatePrefix} {publicationDate}</span>
-                ) : null}
+                {published ? (
+                  <>
+                    {status}
+                    {publicationDate ? (
+                      <span className="text-quiet"> · {c.status.publicationDatePrefix} {publicationDate}</span>
+                    ) : null}
+                  </>
+                ) : publicationDate ? (
+                  <>{c.status.forthcomingDatePrefix} {publicationDate}</>
+                ) : (
+                  status
+                )}
               </p>
               {excerptAvailable ? (
                 <ExcerptLink href={`/${locale}/read`} label={c.hero.readCta} locale={locale} className="btn btn-red" />

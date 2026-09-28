@@ -46,6 +46,7 @@ export const en: SiteContent = {
     forthcoming: "Publishing soon",
     published: "Published",
     publicationDatePrefix: "Published",
+    forthcomingDatePrefix: "Publishing",
     buy: "Buy on Amazon",
     notifyCta: "Publication updates",
     emailLabel: "Email address",
@@ -186,6 +187,29 @@ export const en: SiteContent = {
     folio: "7",
   },
 
+  // The foreword, printed in the front matter of the final interior, pages v
+  // to ix. The credit is the author's own, supplied 28 September 2026, word
+  // for word: Dr Kristina Herber, Managing Director, AIHE Academic Institute
+  // for Higher Education. `quote` stays empty until she clears a passage of
+  // the foreword for the site; the section does not render without one, and
+  // the credit shows on the first screen and the press sheet either way.
+  foreword: {
+    eyebrow: "Foreword",
+    credit: "With a foreword by Dr Kristina Herber",
+    name: "Dr Kristina Herber",
+    role: "Managing Director",
+    organisation: "AIHE Academic Institute for Higher Education",
+    // Dr Herber's own words, from Foreword.pdf, verbatim. Two beats: the
+    // sentence pair sets at DISPLAY, the paragraph under it at BODY. They are
+    // chosen to stand under the Evidence section without repeating it — the
+    // book says its own risk is the risk it describes, and the foreword
+    // confirms that from outside the book.
+    quote: [
+      "Our first interpretation is not necessarily wrong. But it does not have to be our last.",
+      "A book that cautions us against confusing a persuasive interpretation with certainty also applies scrutiny to its own interpretations.",
+    ],
+  },
+
   // Pages 1 to 3 of the book, verbatim, checked word for word against the
   // final interior (v44) on 14 September 2026. v44 prints "The mist, the one
   // that erases…" and "The turn tightened." where the text the author
@@ -322,10 +346,15 @@ export const en: SiteContent = {
       },
       {
         label: "Long",
-        text: "[COPY NEEDED: a longer biography, 100 to 150 words, in your own words. Qualifications, where you practise, and how the book came out of that work. Only what you would be happy to see checked.]",
+        // Ivana's own words, from her About the author page, supplied
+        // 28 September 2026. No page is cited: v47's pagination is still
+        // moving and she has said the page is not at the end of the book.
+        text: "Before psychology, Ivana Budišin worked in design and product design. She later moved into applied psychology and is now a clinical psychologist, with a continuing interest in research and cognitive science. Born in the United States, she has lived in Serbia and Luxembourg and is now a Luxembourger. She runs Luxembourg Psychology. State. Not Situation. brings those interests together: how we experience the world, and how we might make that experience easier to understand.",
       },
     ],
     factsHeading: "Publication",
+    publicationFactLabel: "Publication",
+    forewordLabel: "Foreword",
     facts: [
       { label: "Title", value: "State. Not Situation." },
       { label: "Subtitle", value: "Why your body decides what a moment means before you do" },

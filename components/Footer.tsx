@@ -16,6 +16,8 @@ export function Footer({ locale }: { locale: Locale }) {
 
   const sections = [
     { href: `${base}#premise`, label: c.nav.book },
+    // Only while there is a passage to read: the section is gated the same way.
+    ...(c.foreword.quote.length ? [{ href: `${base}#foreword`, label: c.foreword.eyebrow }] : []),
     ...(ed.excerptAvailable ? [{ href: `${base}/read`, label: c.nav.read }] : []),
     ...(ed.audioUrl ? [{ href: `${base}#listen`, label: c.nav.listen }] : []),
     { href: `${base}#author`, label: c.nav.author },

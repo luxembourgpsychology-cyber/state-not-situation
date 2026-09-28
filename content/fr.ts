@@ -40,6 +40,7 @@ export const fr: SiteContent = {
     forthcoming: "À paraître",
     published: "Paru",
     publicationDatePrefix: "Parution",
+    forthcomingDatePrefix: "Parution le",
     buy: "Acheter sur Amazon",
     notifyCta: "Avis de parution",
     emailLabel: "Adresse e-mail",
@@ -173,6 +174,24 @@ export const fr: SiteContent = {
     ],
     closing: "Ces marqueurs existent parce que ce livre court lui-même le risque qu’il décrit.",
     folio: "7"
+  },
+  // The credit is kept as the author supplied it, word for word. The title and
+  // the institute are not translated: they are what she is called there. For
+  // the French reviewer: whether « Managing Director » should stand in French,
+  // or read « directrice générale », is Dr Herber's to say, not ours.
+  foreword: {
+    eyebrow: "Préface",
+    credit: "Préface : Dr Kristina Herber",
+    name: "Dr Kristina Herber",
+    role: "Managing Director",
+    organisation: "AIHE Academic Institute for Higher Education",
+    // Dr Herber's foreword, translated under translation/STANDARD.md like the
+    // rest of this page. For the French reviewer: these are a third party's
+    // words, not the book's, and worth a second look.
+    quote: [
+      "Notre première interprétation n’est pas nécessairement fausse. Mais elle n’a pas à être la dernière.",
+      "Un livre qui nous met en garde contre la confusion entre une interprétation convaincante et une certitude soumet aussi ses propres interprétations à cet examen."
+    ]
   },
   excerpt: {
     title: "Avant les chapitres",
@@ -410,10 +429,12 @@ export const fr: SiteContent = {
       },
       {
         label: "Longue",
-        text: "[COPY NEEDED: a longer biography, 100 to 150 words, in your own words. Qualifications, where you practise, and how the book came out of that work. Only what you would be happy to see checked.]"
+        text: "Avant la psychologie, Ivana Budišin a travaillé dans le design et le design produit. Elle s’est ensuite tournée vers la psychologie appliquée et elle est aujourd’hui psychologue clinicienne, avec un intérêt constant pour la recherche et les sciences cognitives. Née aux États-Unis, elle a vécu en Serbie et au Luxembourg, et elle est aujourd’hui luxembourgeoise. Elle dirige Luxembourg Psychology. State. Not Situation. réunit ces intérêts : comment nous faisons l’expérience du monde, et comment rendre cette expérience plus facile à comprendre."
       }
     ],
     factsHeading: "Publication",
+    publicationFactLabel: "Parution",
+    forewordLabel: "Préface",
     facts: [
       {
         label: "Titre",

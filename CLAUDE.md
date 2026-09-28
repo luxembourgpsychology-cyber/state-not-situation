@@ -66,16 +66,19 @@ The book states **no** count of references, no DOI verification, no "years of re
 
 ## The page, in order
 
-Eight sections, decided in `brief/REDESIGN.md` against the author's brief. Section ids are English in every language, by contract: the language switcher keeps a reader in the section they are in. Do not reorder without reading that file.
+Nine sections. Eight were decided in `brief/REDESIGN.md` against the author's brief;
+the foreword joined them on 28 September 2026 without moving any of them. Section ids are English in every language, by contract: the language switcher keeps a reader in the section they are in. Do not reorder without reading that file.
 
 1. `Hero` — the printed cover, the title, two actions and no more
 2. `Premise` — the mechanism (page 175’s line, the back cover’s headline and its four sentences), then the reading (page 7’s three checks)
 3. `Variables` — Time. Attention. Safety., as a spread
 4. `Moments` — three printed CASE EVIDENCE pages, under page 5’s "16 cases" line
 5. `Evidence` — the three markers with the author's own descriptions
-6. `ExcerptTeaser` — two opening paragraphs on the book's paper, then Continue reading
-7. `Readings` — the fifteen printed chapter openings, as one dashboard
-8. `Author`, then `Closing` — page 218, the cover line, and the one form
+6. `Foreword` — the credit, and a passage from pages v to ix once one is cleared. It
+   sits here because the book has it here: front matter, before arabic page 1
+7. `ExcerptTeaser` — two opening paragraphs on the book's paper, then Continue reading
+8. `Readings` — the fifteen printed chapter openings, as one dashboard
+9. `Author`, then `Closing` — page 218, the cover line, and the one form
 
 The chapter map, the page 7 sorting passage and page 220 live on `/press`. The page 20 block lives on `/read`.
 
@@ -85,7 +88,15 @@ The chapter map, the page 7 sorting passage and page 220 live on `/press`. The p
 
 Search `content/en.ts` for `[COPY NEEDED`:
 
-- `press.bios[1]` — a long biography, 100 to 150 words (the press page hides the whole Biography block until it exists)
+Nothing, as of 28 September 2026. The last `[COPY NEEDED]`, the long biography, was
+filled that day from her own About the author page.
+
+Two things are waiting on the interior rather than on her:
+
+- **Extent.** `press.facts` says 282 pages, which is v44. v47 will be 302, and the
+  pagination is still moving. Change it when the interior is final.
+- **The foreword's folio.** The `Foreword` section prints no page number, because
+  every other folio on the site is a verified printed page and this one is not yet.
 
 Four open questions are listed at the end of `CONTENT_SOURCES.md`. Two more were
 closed on 6 September 2026: the credential on the first screen, and whose voice

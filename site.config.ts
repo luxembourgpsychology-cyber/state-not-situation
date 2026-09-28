@@ -19,7 +19,13 @@ export interface EditionSettings {
   publicationStatus: PublicationStatus;
   /** The retail link for this language edition. Null until it exists. */
   amazonUrl: string | null;
-  /** ISO date (YYYY-MM-DD) or a human phrase. Null = not announced. */
+  /**
+   * ISO date (YYYY-MM-DD) or a human phrase. Null = not announced.
+   *
+   * The one place the date is written. lib/publication.ts sets an ISO date in
+   * the reader's own language and it reaches the first screen, the form, the
+   * press sheet and the structured data from here.
+   */
   publicationDate: string | null;
   /** Path under /public or an absolute URL to the author reading. Null = not yet recorded. */
   audioUrl: string | null;
@@ -95,7 +101,8 @@ export const siteConfig: SiteConfig = {
     en: {
       publicationStatus: "forthcoming",
       amazonUrl: null,
-      publicationDate: null,
+      // The author's date, 28 September 2026. It is the only date on the site.
+      publicationDate: "2026-10-15",
       // Taken down 6 September 2026 at the author's request: the reading was
       // synthesised and she judged it not good enough to carry the book. The
       // section is gated on this one value — set a path here and Listen comes
@@ -111,7 +118,8 @@ export const siteConfig: SiteConfig = {
     fr: {
       publicationStatus: "forthcoming",
       amazonUrl: null,
-      publicationDate: null,
+      // The same book, the same date; the edition is English.
+      publicationDate: "2026-10-15",
       audioUrl: null,
       excerptAvailable: true,
       // MailerLite form "Book updates" (account 2647879), set 20 September 2026.
@@ -123,7 +131,8 @@ export const siteConfig: SiteConfig = {
     de: {
       publicationStatus: "forthcoming",
       amazonUrl: null,
-      publicationDate: null,
+      // The same book, the same date; the edition is English.
+      publicationDate: "2026-10-15",
       audioUrl: null,
       excerptAvailable: true,
       // MailerLite form "Book updates" (account 2647879), set 20 September 2026.
@@ -161,9 +170,9 @@ export const siteConfig: SiteConfig = {
 
   author: {
     name: "Ivana Budišin",
-    /** Your psychology website. Null hides the link. */
-    // Your psychology practice website. Null hides the link.
-    website: null,
+    // The practice named in her biography, 28 September 2026. It is used in
+    // the author's structured data. Nothing on the page links to it yet.
+    website: "https://luxembourgpsychology.com",
     pressEmail: "ivana@luxembourgpsychology.com",
     social: {
       instagram: null,

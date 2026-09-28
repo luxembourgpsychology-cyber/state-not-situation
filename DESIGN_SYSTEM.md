@@ -130,10 +130,17 @@ If a visitor notices the motion before the writing, remove it.
 
 ## Components
 
-`Hero` · `Premise` · `Variables` · `Moments` · `Evidence` · `ExcerptTeaser` · `Readings` ·
-`Author` · `Closing` — one per home-page section, in that order. Plus `Nav`, `Footer`,
+`Hero` · `Premise` · `Variables` · `Moments` · `Evidence` · `Foreword` · `ExcerptTeaser` ·
+`Readings` · `Author` · `Closing` — one per home-page section, in that order. Plus `Nav`, `Footer`,
 `LanguageSwitcher`, `Notify`, `Reveal`, `EvidencePulse`, `PulseMark`, `AmazonButton`,
 `ExcerptLink`, `JsonLd`. `Listen` and `AudioPlayer` are built and switched off.
+
+`Foreword` adds no font, type step, colour, device or CSS class: the eyebrow in the
+label column, the passage at DISPLAY in the display serif, the rest at BODY, her name
+at LEAD in the same serif, and her title in the mono that already carries the
+photographer's credit and the hero's credential. It prints no folio, because v47's
+front matter is still moving and every other folio on the site is verified. Like
+`Listen`, it renders only when it has something to carry — `content.foreword.quote`.
 
 `Readings` adds no type step, no colour and no CSS class. It is fifteen rows of
 existing parts: LABEL in mono for the chapter number and the page, BODY for the

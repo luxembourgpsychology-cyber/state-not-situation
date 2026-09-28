@@ -41,6 +41,7 @@ export const de: SiteContent = {
     forthcoming: "Erscheint demnächst",
     published: "Jetzt erhältlich",
     publicationDatePrefix: "Erschienen",
+    forthcomingDatePrefix: "Erscheint am",
     buy: "Bei Amazon kaufen",
     notifyCta: "Nachricht zum Erscheinen",
     emailLabel: "E-Mail-Adresse",
@@ -172,6 +173,20 @@ export const de: SiteContent = {
     ],
     closing: "Diese Markierungen gibt es, weil das Buch selbst dasselbe Risiko trägt, das es beschreibt.",
     folio: "7"
+  },
+  // German is switched off in site.config.ts and this draft is here to be
+  // reworked. The credit is kept word for word as the author supplied it,
+  // including "Dr" without the German full stop, because it is her name.
+  foreword: {
+    eyebrow: "Vorwort",
+    credit: "Vorwort: Dr Kristina Herber",
+    name: "Dr Kristina Herber",
+    role: "Managing Director",
+    organisation: "AIHE Academic Institute for Higher Education",
+    quote: [
+      "Unsere erste Deutung ist nicht zwangsläufig falsch. Aber sie muss nicht unsere letzte sein.",
+      "Ein Buch, das uns davor warnt, eine überzeugende Deutung mit Gewissheit zu verwechseln, prüft auch die eigenen Deutungen."
+    ]
   },
   excerpt: {
     title: "Vor den Kapiteln",
@@ -408,10 +423,12 @@ export const de: SiteContent = {
       },
       {
         label: "Lang",
-        text: "[COPY NEEDED: a longer biography, 100 to 150 words, in your own words. Qualifications, where you practise, and how the book came out of that work. Only what you would be happy to see checked.]"
+        text: "Vor der Psychologie arbeitete Ivana Budišin im Design und im Produktdesign. Später wandte sie sich der angewandten Psychologie zu und ist heute klinische Psychologin, mit anhaltendem Interesse an Forschung und Kognitionswissenschaft. Geboren in den Vereinigten Staaten, hat sie in Serbien und Luxemburg gelebt und ist heute Luxemburgerin. Sie leitet Luxembourg Psychology. State. Not Situation. führt diese Interessen zusammen: wie wir die Welt erleben, und wie sich dieses Erleben leichter verstehen lässt."
       }
     ],
     factsHeading: "Bibliografische Angaben",
+    publicationFactLabel: "Erscheinungstermin",
+    forewordLabel: "Vorwort",
     facts: [
       {
         label: "Titel",
@@ -426,7 +443,7 @@ export const de: SiteContent = {
         value: "Ivana Budišin"
       },
       {
-        label: "Erscheinungsjahr",
+        label: "Erscheinungstermin",
         value: "2026"
       },
       {
