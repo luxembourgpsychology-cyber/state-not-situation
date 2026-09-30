@@ -33,20 +33,16 @@ export interface EvidenceGrade {
   description: string;
 }
 
-/** One CASE EVIDENCE page, reproduced. */
-export interface CaseEvidence {
-  /** Chapter number as printed, e.g. "00". */
-  chapter: string;
-  /** Printed page the panel appears on. */
-  page: number;
+/**
+ * One of the five readings printed on page 4: a time, and what the moment
+ * felt like. The CASE EVIDENCE panel this replaced is not in the book any
+ * more — v50 prints the words "CASE EVIDENCE" and "VERIFIED" nowhere at all.
+ */
+export interface DayReading {
+  /** As printed, e.g. "06:38". */
   time: string;
-  /** The line in quotation marks, as printed. */
-  quote: string;
-  inputLabel: string;
-  input: string;
-  /** VERIFIED EVENT / VERIFIED TONE / VERIFIED CRISIS … varies by chapter. */
-  verifiedLabel: string;
-  verified: string;
+  /** The single line printed beside it. */
+  line: string;
 }
 
 export interface Chapter {
@@ -56,21 +52,16 @@ export interface Chapter {
 }
 
 /**
- * One chapter opening, reproduced. Chapters 01 to 15 each open on a printed
- * instrument reading: the word READING and the chapter number, the three
- * systems with the value each was holding, and one line under them. Chapter 00
- * opens on a CASE EVIDENCE panel instead, which is why there are fifteen.
+ * One of the sixteen names, as page 292 lists them. Every chapter now closes
+ * on a name for the mechanism it described: the word, a plain explanation
+ * outside Katrin's story, three examples, the pages that explain it, and one
+ * thing to try.
  */
-export interface ChapterReading {
-  /** As printed, e.g. "01". */
+export interface BookName {
+  /** As printed, e.g. "00". */
   number: string;
-  /** The three printed values, in the book's own order. */
-  time: string;
-  attention: string;
-  safety: string;
-  /** The single line printed beneath the three values. */
-  line: string;
-  /** The page the chapter opens on. */
+  name: string;
+  /** The page the entry sits on, as page 292 gives it. */
   page: number;
 }
 
@@ -182,17 +173,24 @@ export interface SiteContent {
     folio: string;
   };
 
-  /** Section 4. Three printed CASE EVIDENCE pages. */
+  /**
+   * Section 4. Page 4, whole: one ordinary day, read five times.
+   *
+   * It replaced three CASE EVIDENCE panels on 30 September 2026. Those panels
+   * are gone from the book, and on screen all three ended on a negation —
+   * Nothing has happened. / None. / None. — which told a reader skimming that
+   * the book was about nothing. Five readings of one day say the opposite with
+   * the same devices.
+   */
   moments: {
     /** Page 5: "16 cases. Three readings. One question: state or situation?" */
     line: string;
-    /** Printed at the head of every CASE EVIDENCE page. */
-    label: string;
-    pageLabel: string;
-    items: CaseEvidence[];
-    /** Page 14. */
+    /** Page 4's own heading over the five. */
+    title: string;
+    items: DayReading[];
+    /** Page 4, printed under them, and the line the foreword singles out. */
     closing: string;
-    closingSource: string;
+    folio: string;
   };
 
   /** Section 5. The book's confidence markers. */
@@ -231,18 +229,40 @@ export interface SiteContent {
   };
 
   /**
-   * Section 7. The fifteen printed chapter openings, as one dashboard. The
-   * three system names are not repeated here: the rows use
-   * `variables.loops[].name`, so a reader meets the same three words in the
-   * same three inks they were given four sections earlier.
+   * Section 7. The sixteen names, as page 292 lists them, and one entry opened
+   * in full so a reader can see what an entry is.
+   *
+   * It replaced the fifteen chapter-opening instrument readings on
+   * 30 September 2026. The book stopped printing those values (NOT CLAIMED,
+   * DEGRADED, DOMINANT) in v50; the openers now carry a question and three
+   * plain phrases. The names are what a reader takes away, and sixteen nouns
+   * answer "what is in this book" in a way fifteen telegrams could not.
    */
-  readings: {
+  names: {
+    /** Page 292: "Sixteen names." */
     title: string;
-    /** The word printed before the chapter number: READING / 01. */
+    /** The printed label above every entry: A NAME FOR IT. */
     label: string;
     /** For screen readers on the page number at the end of each row. */
     pageLabel: string;
-    items: ChapterReading[];
+    /** Page 292's line under the list. */
+    note: string;
+    items: BookName[];
+    /**
+     * One entry, whole. Chapter 01, because its three examples are already on
+     * this page: the reader met them as prose in the extract, and meets them
+     * again here with a name on them.
+     */
+    example: {
+      number: string;
+      name: string;
+      body: string;
+      showsUpLabel: string;
+      showsUp: string[];
+      tryLabel: string;
+      tryIt: string;
+      page: number;
+    };
   };
 
   listen: {

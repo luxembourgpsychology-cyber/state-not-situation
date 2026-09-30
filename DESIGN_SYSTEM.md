@@ -131,7 +131,7 @@ If a visitor notices the motion before the writing, remove it.
 ## Components
 
 `Hero` · `Premise` · `Variables` · `Moments` · `Evidence` · `Foreword` · `ExcerptTeaser` ·
-`Readings` · `Author` · `Closing` — one per home-page section, in that order. Plus `Nav`, `Footer`,
+`Names` · `Author` · `Closing` — one per home-page section, in that order. Plus `Nav`, `Footer`,
 `LanguageSwitcher`, `Notify`, `Reveal`, `EvidencePulse`, `PulseMark`, `AmazonButton`,
 `ExcerptLink`, `JsonLd`. `Listen` and `AudioPlayer` are built and switched off.
 
@@ -142,11 +142,15 @@ photographer's credit and the hero's credential. It prints no folio, because v47
 front matter is still moving and every other folio on the site is verified. Like
 `Listen`, it renders only when it has something to carry — `content.foreword.quote`.
 
-`Readings` adds no type step, no colour and no CSS class. It is fifteen rows of
-existing parts: LABEL in mono for the chapter number and the page, BODY for the
-line, and the three system inks on the three system names — the same three words
-in the same three inks the reader met four sections earlier, which is the whole
-reason the section needs no legend.
+`Names` adds no type step, no colour and no CSS class. It is sixteen rows of existing
+parts — a number in red mono, the name at BODY, the page in quiet mono — and then one
+entry opened at HEAD, so the list above is not sixteen words a reader has to take on
+trust. It replaced `Readings` on 30 September 2026, because v50 stopped printing the
+values those rows quoted.
+
+`Moments` is page 4: a time in mono beside a line at LEAD, five times, closing on one
+DISPLAY sentence. It keeps the timestamp the CASE EVIDENCE panels used and drops their
+INPUT / VERIFIED apparatus, which was the part that read as bureaucratic.
 
 ## Buttons
 

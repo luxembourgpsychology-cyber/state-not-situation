@@ -55,10 +55,10 @@ The hero is the printed front cover, flat and still, with the site's only shadow
 
 ## Verified facts (do not restate anything else as fact)
 
-- ISBN-13 **978-2-87996-258-0**, © 2026 Budisin Publishing, **302 pages** (v47, the author's figure of 28 September 2026), 6 × 9 in
+- ISBN-13 **978-2-87996-258-0**, © 2026 Budisin Publishing, **304 pages** (v50, 30 September 2026), 6 × 9 in
 - Cover design: Zoe Larusson. Book design and typesetting: Ivana Budišin
 - Legal deposit: Bibliothèque nationale du Luxembourg, as page iv prints it. The book claims no CIP record; do not add one.
-- Page references follow the final interior, v44 (roman i–x, arabic 1–272). Records in `brief/` and `translation/` cite the older 278-page text: for body pages, v44 = old − 6.
+- Page references follow **v50** (304 pages), re-checked against it on 30 September 2026 and recorded in `CONTENT_SOURCES.md` under *Rebuilt against v50*. Records in `brief/` and `translation/` cite older texts and their page numbers are stale.
 - The final cover is `~/Desktop/STATE NOT SITUATION - KDP UPLOAD/COVER - UPLOAD.pdf` (full wrap, 0.635 in spine). Every cover image in `public/images/` and `public/press/` was rendered from it on 14 September 2026; what changed on it is recorded in `CONTENT_SOURCES.md` under *The final cover*. The older cover PDF on the Desktop and everything in `../Press Pack/` are superseded.
 - Author biography, in full: *"Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book."*
 
@@ -72,12 +72,15 @@ the foreword joined them on 28 September 2026 without moving any of them. Sectio
 1. `Hero` — the printed cover, the title, two actions and no more
 2. `Premise` — the mechanism (page 175’s line, the back cover’s headline and its four sentences), then the reading (page 7’s three checks)
 3. `Variables` — Time. Attention. Safety., as a spread
-4. `Moments` — three printed CASE EVIDENCE pages, under page 5’s "16 cases" line
+4. `Moments` — page 4 of v50, whole: one day, read five times, and "The body speaks
+   first. The mind explains second." The CASE EVIDENCE panels it replaced are not in
+   the book any more
 5. `Evidence` — the three markers with the author's own descriptions
 6. `Foreword` — the credit, and a passage from pages v to ix once one is cleared. It
    sits here because the book has it here: front matter, before arabic page 1
 7. `ExcerptTeaser` — two opening paragraphs on the book's paper, then Continue reading
-8. `Readings` — the fifteen printed chapter openings, as one dashboard
+8. `Names` — the sixteen names from page 292, with chapter 01 opened in full. It
+   replaced the fifteen chapter-opening readings, which v50 no longer prints
 9. `Author`, then `Closing` — page 218, the cover line, and the one form
 
 The chapter map, the page 7 sorting passage and page 220 live on `/press`. The page 20 block lives on `/read`.
@@ -93,11 +96,14 @@ filled that day from her own About the author page.
 
 Two things are waiting on the interior rather than on her:
 
-- **The page references.** `press.facts` says 302 pages, which is v47, but every folio
-  and page citation on the site is still v44's (4, 7, 10, 14, 218, 220 …). They move
-  when v47 is final and can be checked against it.
-- **The foreword's folio.** The `Foreword` section prints no page number, because
-  every other folio on the site is a verified printed page and this one is not yet.
+- **The foreword's folio.** The `Foreword` section prints no page number. Every other
+  folio on the site is a verified printed page; this one waits until the front matter
+  is final.
+- **Page 293.** The biography on the site matches the book word for word, including
+  "she has lived in US, Serbia and Luxembourg" after "Born in the United States". The
+  author chose to match rather than diverge. If page 293 is corrected, correct the
+  site too, in all three languages.
+- **The spine.** About 0.685 in at 304 pages; the KDP cover is built for 0.635.
 
 Four open questions are listed at the end of `CONTENT_SOURCES.md`. Two more were
 closed on 6 September 2026: the credential on the first screen, and whose voice

@@ -99,59 +99,35 @@ export const fr: SiteContent = {
       {
         key: "time",
         name: "Temps",
-        body: "Sommeil, alimentation, caféine, phase circadienne, récupération. Quand le rythme se dérègle, la sensibilité de base augmente. Le même monde paraît plus rude."
+        body: "Qu’y a-t-il eu avant ce moment ? Le sommeil, les repas, la caféine, la récupération, l’heure."
       },
       {
         key: "attention",
         name: "Attention",
-        body: "Le système qui suit la récompense, la nouveauté et le prochain déclencheur. Quand il est accaparé, l’attention se rabat sur ce qui, à portée de main, demande le moins d’effort, et le travail qui en demande paraît difficile."
+        body: "Qu’est-ce qui me ramène sans cesse ? Un message, une pensée, un déclencheur, une tâche en suspens."
       },
       {
         key: "safety",
         name: "Sécurité",
-        body: "Le système qui surveille la menace, et surtout la menace sociale. Il est rapide, il est ancien, et il penche du côté des fausses alertes. Il produit des interprétations qui ont tout l’air de faits."
+        body: "Qu’est-ce qui est en jeu ? Qu’ai-je observé, qu’est-ce que je suppose, et y a-t-il quelque chose à faire ?"
       }
     ],
     folio: "7"
   },
+  // Page 4 de la v50. Les trois lignes d’ouverture de la page ne sont pas
+  // reprises : l’autrice les a retirées du site le 6 septembre 2026.
   moments: {
     line: "16 cas. Trois lectures. Une question : état ou situation ?",
-    label: "Pièces du dossier",
-    pageLabel: "Page",
+    title: "La même journée, cinq lectures",
     items: [
-      {
-        chapter: "00",
-        page: 10,
-        time: "06:38",
-        quote: "« Quelque chose cloche. »",
-        inputLabel: "Entrée",
-        input: "Deux minutes avant le réveil.",
-        verifiedLabel: "Événement vérifié",
-        verified: "Il ne s’est rien passé."
-      },
-      {
-        chapter: "02",
-        page: 22,
-        time: "22:47",
-        quote: "« ok. »",
-        inputLabel: "Entrée",
-        input: "Deux lettres. Un point.",
-        verifiedLabel: "Ton vérifié",
-        verified: "Aucun."
-      },
-      {
-        chapter: "11",
-        page: 144,
-        time: "16:00",
-        quote: "« Quelque chose ne va pas dans ma vie. »",
-        inputLabel: "Entrée",
-        input: "Six événements ordinaires. Une journée sans réserves.",
-        verifiedLabel: "Crise vérifiée",
-        verified: "Aucune."
-      }
+      { time: "06:38", line: "Une lourdeur arrive avant la journée." },
+      { time: "09:12", line: "Un e-mail de deux lignes se lit comme un jugement." },
+      { time: "14:23", line: "Cinq mots neutres serrent une mâchoire." },
+      { time: "17:45", line: "Un message sans réponse commence à prélever un loyer mental." },
+      { time: "22:47", line: "Deux lettres et un point paraissent hostiles." }
     ],
-    closing: "Ça disait : je suis en train d’échouer. Les données, elles, disaient : je suis fatiguée.",
-    closingSource: "Page 14"
+    closing: "Le corps parle d’abord. L’esprit explique ensuite.",
+    folio: "4"
   },
   evidence: {
     title: "Niveau de preuve",
@@ -224,132 +200,47 @@ export const fr: SiteContent = {
       "3"
     ]
   },
-  readings: {
-    title: "Les lectures",
-    label: "Lecture",
+  // Les seize noms, page 292. Les noms restent en regard du livre : ils sont
+  // la terminologie de l’ouvrage, en anglais dans l’édition anglaise. Pour le
+  // relecteur : faut-il les traduire, ou les garder tels que le livre les
+  // imprime, avec la traduction entre parenthèses ?
+  names: {
+    title: "Seize noms.",
+    label: "Un nom pour cela",
     pageLabel: "Page",
+    note: "Chaque nom clôt son chapitre. Le numéro de page est celui de l’entrée.",
     items: [
-      {
-        number: "01",
-        time: "NON SOLLICITÉ",
-        attention: "DÉGRADÉE",
-        safety: "DOMINANTE",
-        page: 17,
-        line: "Le corps rend son verdict avant que l’attention ne le mette à l’épreuve."
-      },
-      {
-        number: "02",
-        time: "DOMINANT",
-        attention: "BOUCLE DE VÉRIFICATION",
-        safety: "AMPLIFIÉE",
-        page: 23,
-        line: "La fatigue ôte son frein à la certitude."
-      },
-      {
-        number: "03",
-        time: "DANS LES ÉCARTS",
-        attention: "EN BOUCLE",
-        safety: "NON SOLLICITÉE",
-        page: 33,
-        line: "La main se tend avant que l’esprit ne décide."
-      },
-      {
-        number: "04",
-        time: "DÉCLENCHEUR À 15:28",
-        attention: "BOUCLE D’HABITUDE",
-        safety: "EN HAUSSE PLUS TARD",
-        page: 45,
-        line: "La main honore un rendez-vous que l’esprit n’a jamais pris."
-      },
-      {
-        number: "05",
-        time: "DOMINANT",
-        attention: "CAPTURE TARDIVE",
-        safety: "NON SOLLICITÉE",
-        page: 61,
-        line: "Une heure paraît gratuite et envoie la facture au matin."
-      },
-      {
-        number: "06",
-        time: "DETTE DU MATIN",
-        attention: "DÉGRADÉE",
-        safety: "RUMINATION",
-        page: 73,
-        line: "Le week-end fait tout comme il faut et ne ressource personne."
-      },
-      {
-        number: "07",
-        time: "DETTE DE L’APRÈS-MIDI",
-        attention: "FRAGMENTÉE",
-        safety: "EN HAUSSE",
-        page: 89,
-        line: "Le document ne change pas ; le lecteur, lui, perd en amplitude."
-      },
-      {
-        number: "08",
-        time: "SOIR",
-        attention: "RESSERRÉE",
-        safety: "DOMINANTE",
-        page: 99,
-        line: "Un mot devient six jours de preuves."
-      },
-      {
-        number: "09",
-        time: "20 MINUTES NON PRISES",
-        attention: "FENÊTRE D’UNE DEMI-SECONDE",
-        safety: "DOMINANTE",
-        page: 115,
-        line: "La conversation se termine avant sa première phrase."
-      },
-      {
-        number: "10",
-        time: "07:40 REMISE À ZÉRO",
-        attention: "ÉPUISÉE",
-        safety: "RÉSIDUELLE",
-        page: 129,
-        line: "La cuisine repart de zéro. Le corps, non."
-      },
-      {
-        number: "11",
-        time: "DETTE DE LA VEILLE",
-        attention: "ÉPUISÉE DÈS 10:00",
-        safety: "COMBLE LES ÉCARTS",
-        page: 145,
-        line: "Six choses ordinaires deviennent la preuve que rien ne va."
-      },
-      {
-        number: "12",
-        time: "NON SOLLICITÉ",
-        attention: "ÉTROITE, DISPONIBLE",
-        safety: "SIGNAL PRÉSENT",
-        page: 161,
-        line: "Rien ne cloche. La mâchoire ne se desserre pas."
-      },
-      {
-        number: "13",
-        time: "22:40",
-        attention: "EXACTE",
-        safety: "PRÉCAUTION PRISE",
-        page: 177,
-        line: "Cette alerte appartient à quarante mètres de béton."
-      },
-      {
-        number: "14",
-        time: "PROTÉGÉ",
-        attention: "PLACÉE",
-        safety: "CALME",
-        page: 189,
-        line: "La journée que le chapitre zéro aurait dû être."
-      },
-      {
-        number: "15",
-        time: "PRÉVISION",
-        attention: "DOSSIER OUVERT, NOMMÉ",
-        safety: "NOMMÉE À L’AVANCE",
-        page: 203,
-        line: "La lecture de demain, relevée ce soir."
-      }
-    ]
+      { number: "00", name: "Mode récit", page: 16 },
+      { number: "01", name: "Attribution erronée", page: 24 },
+      { number: "02", name: "Le principe du détecteur de fumée", page: 36 },
+      { number: "03", name: "Récompense variable", page: 50 },
+      { number: "04", name: "Vouloir et aimer", page: 66 },
+      { number: "05", name: "Zone de maintien de l’éveil", page: 80 },
+      { number: "06", name: "Réseau du mode par défaut", page: 96 },
+      { number: "07", name: "Menace d’évaluation", page: 107 },
+      { number: "08", name: "Rumination", page: 126 },
+      { number: "09", name: "Exigence–retrait", page: 141 },
+      { number: "10", name: "Métacognition", page: 158 },
+      { number: "11", name: "Empilement", page: 176 },
+      { number: "12", name: "Erreur de prédiction", page: 196 },
+      { number: "13", name: "Calibrage", page: 210 },
+      { number: "14", name: "Tableau clément", page: 222 },
+      { number: "15", name: "Prévision", page: 239 },
+    ],
+    example: {
+      number: "01",
+      name: "Attribution erronée",
+      body: "Donner à une sensation la mauvaise cause. Le corps produit la sensation. L’esprit cherche une raison et prend la plus proche. La sensation est réelle. La raison est une supposition.",
+      showsUpLabel: "Comment cela se manifeste",
+      showsUp: [
+        "Une fatigue qui arrive comme une question sur votre carrière.",
+        "Un café à jeun qui arrive comme de l’inquiétude à propos d’un e-mail.",
+        "Une hypoglycémie qui arrive comme un doute sur une relation."
+      ],
+      tryLabel: "À essayer",
+      tryIt: "Avant d’agir sur un jugement assuré, nommez un fait qui pourrait vous faire changer d’avis.",
+      page: 24
+    }
   },
   listen: {
     eyebrow: "Écouter",
@@ -372,7 +263,7 @@ export const fr: SiteContent = {
   },
   closing: {
     question: "Est-ce la situation ? Ou est-ce leur état ?",
-    source: "Page 218",
+    source: "Page 238",
     line: "Même vie. Instruments réglés autrement."
   },
   press: {
@@ -429,7 +320,7 @@ export const fr: SiteContent = {
       },
       {
         label: "Longue",
-        text: "Avant la psychologie, Ivana Budišin a travaillé dans le design et le design produit. Elle s’est ensuite tournée vers la psychologie appliquée et elle est aujourd’hui psychologue clinicienne, avec un intérêt constant pour la recherche et les sciences cognitives. Née aux États-Unis, elle a vécu en Serbie et au Luxembourg, et elle est aujourd’hui luxembourgeoise. Elle dirige Luxembourg Psychology. State. Not Situation. réunit ces intérêts : comment nous faisons l’expérience du monde, et comment rendre cette expérience plus facile à comprendre."
+        text: "Avant la psychologie, Ivana Budišin a travaillé dans le design et le design produit. Elle s’est ensuite tournée vers la psychologie appliquée et elle est aujourd’hui psychologue clinicienne, avec un intérêt constant pour la recherche et les sciences cognitives. Née aux États-Unis, elle a vécu aux États-Unis, en Serbie et au Luxembourg, et elle est aujourd’hui luxembourgeoise. Elle dirige Luxembourg Psychology. State. Not Situation. réunit ces intérêts : comment nous faisons l’expérience du monde, et comment rendre cette expérience plus facile à comprendre."
       }
     ],
     factsHeading: "Publication",
@@ -458,7 +349,7 @@ export const fr: SiteContent = {
       },
       {
         label: "Pagination",
-        value: "302 pages"
+        value: "304 pages"
       },
       {
         label: "ISBN-13",
@@ -501,72 +392,72 @@ export const fr: SiteContent = {
       {
         number: "02",
         title: "Pourquoi le manque de sommeil fait paraître hostile ce qui est neutre",
-        page: 23
+        page: 25
       },
       {
         number: "03",
         title: "Le soulagement qui tourne à la démangeaison",
-        page: 33
+        page: 37
       },
       {
         number: "04",
         title: "Le déclencheur prévisible",
-        page: 45
+        page: 51
       },
       {
         number: "05",
         title: "Pourquoi les soirées s’étirent et les matins rétrécissent",
-        page: 61
+        page: 69
       },
       {
         number: "06",
         title: "Pourquoi le repos ne ressource pas toujours",
-        page: 73
+        page: 81
       },
       {
         number: "07",
         title: "Pourquoi vous n’arrivez pas à commencer ce qui compte",
-        page: 89
+        page: 97
       },
       {
         number: "08",
         title: "Le dossier ouvert",
-        page: 99
+        page: 109
       },
       {
         number: "09",
         title: "Deux systèmes nerveux entrent dans une cuisine",
-        page: 115
+        page: 127
       },
       {
         number: "10",
         title: "La dispute qui était mardi",
-        page: 129
+        page: 143
       },
       {
         number: "11",
         title: "Le jeudi qui était mercredi soir",
-        page: 145
+        page: 161
       },
       {
         number: "12",
         title: "Le tableau de bord au vert",
-        page: 161
+        page: 179
       },
       {
         number: "13",
         title: "La fois où le corps avait raison",
-        page: 177
+        page: 197
       },
       {
         number: "14",
         title: "Rien à voir avec moi",
-        page: 189
+        page: 211
       },
       {
         number: "15",
         title: "La prévision",
-        page: 203
+        page: 223
       }
     ],
     sortingTool: "Les chapitres qui suivent s’organisent autour de trois systèmes qui règlent le poids que prennent les signaux de votre corps avant que votre esprit n’en fasse une histoire. Ce ne sont pas des régions du cerveau ni des voies neuronales. C’est un outil de tri, une façon de poser trois questions quand tout semble aller de travers en même temps.",
@@ -575,7 +466,7 @@ export const fr: SiteContent = {
       "Chaque chapitre a ici trois parties : une courte note sur l’origine de la réflexion, une liste des travaux sur lesquels le chapitre est construit, et une liste des travaux qui le limitent, le compliquent, ou expliquent autrement les mêmes résultats.",
       "Les laisser de côté ferait paraître l’argumentation plus nette qu’elle ne l’est."
     ],
-    sourcesLabel: "Le pouls scientifique, page 220",
+    sourcesLabel: "Le pouls scientifique, page 242",
     creditsHeading: "Crédits",
     credits: [
       {

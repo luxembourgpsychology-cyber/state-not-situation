@@ -374,3 +374,57 @@ bibliographic fact a journalist needs now, and the page citations are twenty-odd
 claims that can only be re-checked against the finished interior. Re-check them all
 against v47 when it is final, the way they were re-checked against v44 on
 14 September 2026, and update this file's opening paragraph at the same time.
+
+## Rebuilt against v50, 30 September 2026
+
+Read from `~/Desktop/STATE NOT SITUATION - v46 PROOF CORRECTIONS/v48 - towards final/State Not Situation 6x9 v50.pdf`, **304 pages**, with the v48, v49 and v50 change logs. The proposal the author approved is `brief/WEBSITE-UPDATE-v50.md`.
+
+**Two sections were quoting devices the book had dropped.** In v50 the string "CASE EVIDENCE" appears zero times and "VERIFIED" appears zero times; the chapter openers no longer print `NOT CLAIMED / DEGRADED / DOMINANT`. Both sections were rebuilt in place. No section moved.
+
+### `moments` — page 4, whole
+
+Page 4 was redrawn for v50 and now prints **THE SAME DAY, FIVE READINGS**: five times, five lines. All five are verbatim, and so is `moments.closing`, "The body speaks first. The mind explains second." — which had never been on the site and which Dr Herber's foreword singles out as the line that captures the book. `moments.line` is still page 5.
+
+Page 4's own three opening lines ("Nothing went wrong on this day. The instruments were working. The data was there the whole time.") are **deliberately not on the site**. The author cut them on 6 September 2026: printed, they set up "This book is the Investigation."; at lead size on a screen they read as three qualifications rather than a claim. That ruling still stands and this section does not reverse it.
+
+Retired: `CaseEvidence`, the three panels, their INPUT / VERIFIED labels, and page 14's "It said I am failing; the data was I am tired." The page-14 line is still printed and could return elsewhere; it was dropped so the section closes once, on page 4.
+
+### `names` — the sixteen names
+
+Every chapter of v50 now closes on *A name for it*: the word, a plain explanation outside Katrin's story, three examples, the pages that explain it, and a TRY IT. Page 292 lists all sixteen with the page each entry sits on; the list and its note are verbatim from that page, and so are the sixteen names and their pages.
+
+One entry is opened in full: **chapter 01, Misattribution, page 24**, verbatim including its three examples and its TRY IT. Chapter 01 was chosen because those three examples are already on the page — the pilot extract gives them as prose two sections above ("The tiredness that presents itself as a question about your career…"). A reader meets them twice, the second time with a name on them.
+
+Retired: `ChapterReading` and the fifteen chapter-opening instrument readings. The openers now carry a question and three plain phrases instead; they are in the PDF if the section is ever wanted back, and they are tabulated in `brief/WEBSITE-UPDATE-v50.md`.
+
+### `variables` — three questions
+
+`variables.loops[].body` now carries page 9's **THREE WAYS TO READ A MOMENT**, verbatim: one question and a short list each. The pages 7 to 8 definitions the site used before are retired — three paragraphs of fifty-odd words read as lectures on a screen, and v50 leads with the questions. Page 7's own passage on the three systems is still on `/press` as `press.sortingTool`, so the long form is not lost.
+
+### Pages moved
+
+| Key | Was | v50 |
+|---|---|---|
+| `press.facts` extent | 302 pages | **304 pages** |
+| `closing.source` | Page 218 | **Page 238** |
+| `press.sourcesLabel` | The Scientific Heartbeat, page 220 | **page 242** |
+| `press.chapters` | 11, 17, 23, 33, 45, 61, 73, 89, 99, 115, 129, 145, 161, 177, 189, 203 | **11, 17, 25, 37, 51, 69, 81, 97, 109, 127, 143, 161, 179, 197, 211, 223** |
+
+Unchanged: pages 4, 5, 7, 14 and 20. `premise.sensorLine` ("The body is a sensor before it is a narrator.") is now on **page 193**, was 175; the section's folio still reads 4, which is where its eyebrow is printed. The closing question on page 238 still reads "Is this the situation? Or is this their state?", and v50 follows it with "What belongs to the situation, and what might state be adding?"
+
+### The foreword credit is now printed
+
+It moves from category 2 to **category 1**. v50 prints it twice:
+
+- **Title page, iii:** *With a foreword by Dr Kristina Herber*
+- **Imprint, iv:** *Foreword: Dr Kristina Herber, AIHE Academic Institute for Higher Education*
+
+So `foreword.credit`, `foreword.name`, `foreword.role` and `foreword.organisation` are printed, not author-supplied. The two sentences quoted in the `Foreword` section are still Dr Herber's words rather than the book's; the author confirmed on 30 September 2026 that she has seen them.
+
+### The biography follows the book
+
+`press.bios[1]` now matches page 293 word for word, including "she has lived in **US**, Serbia and Luxembourg" after "Born in the United States". That reads as a slip and was raised with the author on 30 September 2026; she asked the site to match the book. **If page 293 is corrected, correct this too** — in all three languages.
+
+### Not the site
+
+The v48 log puts the spine at about **0.685 in** at 304 pages. The KDP cover is built for 0.635.

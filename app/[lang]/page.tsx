@@ -10,7 +10,7 @@ import { Moments } from "@/components/Moments";
 import { Evidence } from "@/components/Evidence";
 import { Foreword } from "@/components/Foreword";
 import { ExcerptTeaser } from "@/components/ExcerptTeaser";
-import { Readings } from "@/components/Readings";
+import { Names } from "@/components/Names";
 import { Author } from "@/components/Author";
 import { Closing } from "@/components/Closing";
 import { Footer } from "@/components/Footer";
@@ -19,9 +19,13 @@ import { JsonLd } from "@/components/JsonLd";
 /**
  * The canonical architecture decided in brief/REDESIGN.md against the
  * author's brief: the book as an object; the premise and the reading; the
- * three variables; three moments; the evidence system; the foreword; the
- * extract; the fifteen printed chapter readings; the author; the book's last
+ * three variables; page 4's five readings of one day; the evidence system;
+ * the foreword; the extract; the sixteen names; the author; the book's last
  * sentence and the one form.
+ *
+ * On 30 September 2026 two sections were rebuilt against v50 without moving
+ * any of them: the CASE EVIDENCE panels and the chapter-opening instrument
+ * readings are not in the book any more.
  *
  * The foreword joined the eight on 28 September 2026 without moving any of
  * them. It sits between the evidence markers and the extract because that is
@@ -55,7 +59,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Evidence content={c.evidence} />
         <Foreword content={c.foreword} />
         <ExcerptTeaser locale={locale} />
-        <Readings content={c.readings} loops={c.variables.loops} />
+        <Names content={c.names} />
         <Author locale={locale} content={c.author} />
         <Closing locale={locale} />
       </main>

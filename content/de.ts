@@ -98,59 +98,33 @@ export const de: SiteContent = {
       {
         key: "time",
         name: "Zeit",
-        body: "Schlaf, Essen, Koffein, zirkadiane Phase, Erholung. Stimmt das Timing nicht, steigt das Grundniveau der Empfindlichkeit. Dieselbe Welt fühlt sich härter an."
+        body: "Was war vor diesem Moment? Schlaf, Mahlzeiten, Koffein, Erholung, die Uhrzeit."
       },
       {
         key: "attention",
         name: "Aufmerksamkeit",
-        body: "Das System, das Belohnung, Neues und den nächsten Auslöser verfolgt. Ist es eingefangen, verengt sich der Fokus auf den Reiz, der am wenigsten Aufwand verlangt, und anspruchsvollere Arbeit fühlt sich schwer an."
+        body: "Was zieht mich immer wieder zurück? Eine Nachricht, ein Gedanke, ein Auslöser, eine offene Aufgabe."
       },
       {
         key: "safety",
         name: "Sicherheit",
-        body: "Das System, das auf Bedrohung achtet, vor allem auf soziale Bedrohung. Es ist schnell, es ist alt, und es neigt zu Fehlalarmen. Es erzeugt Deutungen, die sich wie Tatsachen anfühlen."
+        body: "Was steht auf dem Spiel? Was habe ich beobachtet, was nehme ich an, und muss etwas getan werden?"
       }
     ],
     folio: "7"
   },
   moments: {
     line: "16 Fälle. Drei Befunde. Eine Frage: Zustand oder Situation?",
-    label: "Beweismaterial",
-    pageLabel: "Seite",
+    title: "Derselbe Tag, fünf Befunde",
     items: [
-      {
-        chapter: "00",
-        page: 10,
-        time: "06:38",
-        quote: "„Irgendetwas stimmt nicht.“",
-        inputLabel: "Input",
-        input: "Zwei Minuten vor dem Wecker.",
-        verifiedLabel: "Bestätigtes Ereignis",
-        verified: "Nichts ist passiert."
-      },
-      {
-        chapter: "02",
-        page: 22,
-        time: "22:47",
-        quote: "„ok.“",
-        inputLabel: "Input",
-        input: "Zwei Buchstaben. Ein Punkt.",
-        verifiedLabel: "Bestätigter Tonfall",
-        verified: "Keiner."
-      },
-      {
-        chapter: "11",
-        page: 144,
-        time: "16:00",
-        quote: "„Mit meinem Leben stimmt etwas nicht.“",
-        inputLabel: "Input",
-        input: "Sechs gewöhnliche Ereignisse. Ein erschöpfter Tag.",
-        verifiedLabel: "Bestätigte Krise",
-        verified: "Keine."
-      }
+      { time: "06:38", line: "Eine Schwere ist da, bevor der Tag es ist." },
+      { time: "09:12", line: "Eine zweizeilige E-Mail liest sich wie ein Urteil." },
+      { time: "14:23", line: "Fünf neutrale Wörter lassen einen Kiefer fest werden." },
+      { time: "17:45", line: "Eine unbeantwortete Nachricht fängt an, Miete zu kosten." },
+      { time: "22:47", line: "Zwei Buchstaben und ein Punkt wirken feindselig." }
     ],
-    closing: "Es hieß: Ich versage. Die Daten sagten: Ich bin müde.",
-    closingSource: "Seite 14"
+    closing: "Der Körper spricht zuerst. Der Kopf erklärt danach.",
+    folio: "4"
   },
   evidence: {
     title: "Belege",
@@ -218,132 +192,43 @@ export const de: SiteContent = {
       "3"
     ]
   },
-  readings: {
-    title: "Die Befunde",
-    label: "Befund",
+  names: {
+    title: "Sechzehn Namen.",
+    label: "Ein Name dafür",
     pageLabel: "Seite",
+    note: "Jeder Name schließt sein Kapitel ab. Die Seitenzahl ist die des Eintrags.",
     items: [
-      {
-        number: "01",
-        time: "KEINE AUSSAGE",
-        attention: "GESCHWÄCHT",
-        safety: "DOMINANT",
-        page: 17,
-        line: "Der Körper fällt ein Urteil, bevor die Aufmerksamkeit es prüft."
-      },
-      {
-        number: "02",
-        time: "DOMINANT",
-        attention: "NACHSEH-SCHLEIFE",
-        safety: "VERSTÄRKT",
-        page: 23,
-        line: "Müdigkeit löst die Bremse der Gewissheit."
-      },
-      {
-        number: "03",
-        time: "IN DEN LÜCKEN",
-        attention: "IN DER SCHLEIFE",
-        safety: "KEINE AUSSAGE",
-        page: 33,
-        line: "Die Hand greift, bevor der Kopf entscheidet."
-      },
-      {
-        number: "04",
-        time: "AUSLÖSER UM 15:28",
-        attention: "GEWOHNHEITS-SCHLEIFE",
-        safety: "STEIGT SPÄTER",
-        page: 45,
-        line: "Die Hand hält einen Termin ein, den der Kopf nie ausgemacht hat."
-      },
-      {
-        number: "05",
-        time: "DOMINANT",
-        attention: "SPÄT EINGEFANGEN",
-        safety: "KEINE AUSSAGE",
-        page: 61,
-        line: "Eine Stunde fühlt sich gratis an und geht auf Rechnung des Morgens."
-      },
-      {
-        number: "06",
-        time: "DEFIZIT VOM MORGEN",
-        attention: "GESCHWÄCHT",
-        safety: "GRÜBELN",
-        page: 73,
-        line: "Das Wochenende macht alles richtig und bringt niemandem Erholung."
-      },
-      {
-        number: "07",
-        time: "DEFIZIT VOM NACHMITTAG",
-        attention: "ZERSPLITTERT",
-        safety: "STEIGT",
-        page: 89,
-        line: "Das Dokument bleibt dasselbe; der Leser verliert an Bandbreite."
-      },
-      {
-        number: "08",
-        time: "ABEND",
-        attention: "VERENGT",
-        safety: "DOMINANT",
-        page: 99,
-        line: "Aus einem Wort werden sechs Tage Belege."
-      },
-      {
-        number: "09",
-        time: "20 MINUTEN UNGENUTZT",
-        attention: "FENSTER, HALBE SEKUNDE",
-        safety: "DOMINANT",
-        page: 115,
-        line: "Das Gespräch endet vor seinem ersten Satz."
-      },
-      {
-        number: "10",
-        time: "07:40 RESET",
-        attention: "VERBRAUCHT",
-        safety: "REST",
-        page: 129,
-        line: "Die Küche fängt von vorn an. Der Körper nicht."
-      },
-      {
-        number: "11",
-        time: "DEFIZIT VOM VORABEND",
-        attention: "BIS 10:00 VERBRAUCHT",
-        safety: "FÜLLT DIE LÜCKEN",
-        page: 145,
-        line: "Sechs gewöhnliche Dinge werden zum Beweis, dass nichts in Ordnung ist."
-      },
-      {
-        number: "12",
-        time: "KEINE AUSSAGE",
-        attention: "ENG, VERFÜGBAR",
-        safety: "SIGNAL VORHANDEN",
-        page: 161,
-        line: "Es ist nichts. Der Kiefer kommt nicht zur Ruhe."
-      },
-      {
-        number: "13",
-        time: "22:40",
-        attention: "GENAU",
-        safety: "VORKEHRUNG GETROFFEN",
-        page: 177,
-        line: "Dieser Alarm gehört zu vierzig Metern Beton."
-      },
-      {
-        number: "14",
-        time: "GESCHÜTZT",
-        attention: "PLATZIERT",
-        safety: "RUHIG",
-        page: 189,
-        line: "Der Tag, der Kapitel Null hätte sein sollen."
-      },
-      {
-        number: "15",
-        time: "VORHERSAGE",
-        attention: "OFFENE AKTE, BENANNT",
-        safety: "VORAB BENANNT",
-        page: 203,
-        line: "Der Befund von morgen, heute Abend abgelesen."
-      }
-    ]
+      { number: "00", name: "Erzählmodus", page: 16 },
+      { number: "01", name: "Fehlzuschreibung", page: 24 },
+      { number: "02", name: "Das Rauchmelder-Prinzip", page: 36 },
+      { number: "03", name: "Variable Belohnung", page: 50 },
+      { number: "04", name: "Wollen und Mögen", page: 66 },
+      { number: "05", name: "Wake Maintenance Zone", page: 80 },
+      { number: "06", name: "Ruhezustandsnetzwerk", page: 96 },
+      { number: "07", name: "Bewertungsbedrohung", page: 107 },
+      { number: "08", name: "Grübeln", page: 126 },
+      { number: "09", name: "Fordern–Rückzug", page: 141 },
+      { number: "10", name: "Metakognition", page: 158 },
+      { number: "11", name: "Stapeln", page: 176 },
+      { number: "12", name: "Vorhersagefehler", page: 196 },
+      { number: "13", name: "Kalibrierung", page: 210 },
+      { number: "14", name: "Mildes Panel", page: 222 },
+      { number: "15", name: "Vorhersage", page: 239 },
+    ],
+    example: {
+      number: "01",
+      name: "Fehlzuschreibung",
+      body: "Einem Gefühl die falsche Ursache geben. Der Körper erzeugt das Gefühl. Der Kopf sucht einen Grund und nimmt den nächstbesten. Das Gefühl ist echt. Der Grund ist geraten.",
+      showsUpLabel: "Wie es sich zeigt",
+      showsUp: [
+        "Müdigkeit, die als Frage nach der eigenen Laufbahn ankommt.",
+        "Kaffee auf leeren Magen, der als Sorge wegen einer E-Mail ankommt.",
+        "Niedriger Blutzucker, der als Zweifel an einer Beziehung ankommt."
+      ],
+      tryLabel: "Ausprobieren",
+      tryIt: "Bevor Sie einem sicheren Urteil folgen, nennen Sie eine Tatsache, die Sie umstimmen könnte.",
+      page: 24
+    }
   },
   listen: {
     eyebrow: "Hören",
@@ -366,7 +251,7 @@ export const de: SiteContent = {
   },
   closing: {
     question: "Ist das die Situation? Oder ist das ihr Zustand?",
-    source: "Seite 218",
+    source: "Seite 238",
     line: "Dasselbe Leben. Andere Einstellungen am Instrument."
   },
   press: {
@@ -423,7 +308,7 @@ export const de: SiteContent = {
       },
       {
         label: "Lang",
-        text: "Vor der Psychologie arbeitete Ivana Budišin im Design und im Produktdesign. Später wandte sie sich der angewandten Psychologie zu und ist heute klinische Psychologin, mit anhaltendem Interesse an Forschung und Kognitionswissenschaft. Geboren in den Vereinigten Staaten, hat sie in Serbien und Luxemburg gelebt und ist heute Luxemburgerin. Sie leitet Luxembourg Psychology. State. Not Situation. führt diese Interessen zusammen: wie wir die Welt erleben, und wie sich dieses Erleben leichter verstehen lässt."
+        text: "Vor der Psychologie arbeitete Ivana Budišin im Design und im Produktdesign. Später wandte sie sich der angewandten Psychologie zu und ist heute klinische Psychologin, mit anhaltendem Interesse an Forschung und Kognitionswissenschaft. Geboren in den Vereinigten Staaten, hat sie in den USA, in Serbien und Luxemburg gelebt und ist heute Luxemburgerin. Sie leitet Luxembourg Psychology. State. Not Situation. führt diese Interessen zusammen: wie wir die Welt erleben, und wie sich dieses Erleben leichter verstehen lässt."
       }
     ],
     factsHeading: "Bibliografische Angaben",
@@ -452,7 +337,7 @@ export const de: SiteContent = {
       },
       {
         label: "Umfang",
-        value: "302 Seiten"
+        value: "304 Seiten"
       },
       {
         label: "ISBN-13",
@@ -495,72 +380,72 @@ export const de: SiteContent = {
       {
         number: "02",
         title: "Warum sich neutraler Input bei Schlafmangel feindselig anfühlt",
-        page: 23
+        page: 25
       },
       {
         number: "03",
         title: "Die Erleichterung, die zum Juckreiz wird",
-        page: 33
+        page: 37
       },
       {
         number: "04",
         title: "Der vorhersehbare Auslöser",
-        page: 45
+        page: 51
       },
       {
         number: "05",
         title: "Warum sich der Abend dehnt und der Morgen schrumpft",
-        page: 61
+        page: 69
       },
       {
         number: "06",
         title: "Warum Ruhe nicht immer erholsam ist",
-        page: 73
+        page: 81
       },
       {
         number: "07",
         title: "Warum Sie mit dem, was zählt, nicht anfangen können",
-        page: 89
+        page: 97
       },
       {
         number: "08",
         title: "Die offene Akte",
-        page: 99
+        page: 109
       },
       {
         number: "09",
         title: "Kommen zwei Nervensysteme in eine Küche",
-        page: 115
+        page: 127
       },
       {
         number: "10",
         title: "Der Streit, der Dienstag war",
-        page: 129
+        page: 143
       },
       {
         number: "11",
         title: "Der Donnerstag, der Mittwochabend war",
-        page: 145
+        page: 161
       },
       {
         number: "12",
         title: "Das saubere Instrumentenbrett",
-        page: 161
+        page: 179
       },
       {
         number: "13",
         title: "Das eine Mal, als der Körper recht hatte",
-        page: 177
+        page: 197
       },
       {
         number: "14",
         title: "Es geht nicht um mich",
-        page: 189
+        page: 211
       },
       {
         number: "15",
         title: "Die Vorhersage",
-        page: 203
+        page: 223
       }
     ],
     sortingTool: "Die folgenden Kapitel sind um drei Systeme herum aufgebaut, die prägen, wie die Signale Ihres Körpers gewichtet werden, bevor Ihr Kopf daraus eine Geschichte macht. Es sind keine Hirnregionen und keine Nervenbahnen. Diese Systeme sind ein Werkzeug zum Sortieren, eine Art, drei Fragen zu stellen, wenn sich alles auf einmal falsch anfühlt.",

@@ -2,64 +2,56 @@ import type { SiteContent } from "@/content/types";
 import { Reveal } from "./Reveal";
 
 /**
- * Three of the book's printed CASE EVIDENCE pages, reproduced label for label
- * and given room. No box: the printed page prints none, and gives each of
- * these a whole leaf. The short coloured rule under each label is printed,
- * read per page from the print file.
+ * Page 4, whole: one ordinary day, read five times.
+ *
+ * This replaced three CASE EVIDENCE panels on 30 September 2026. The panels
+ * are not in the book any more — v50 prints neither "CASE EVIDENCE" nor
+ * "VERIFIED" anywhere — and on screen all three ended on a negation: Nothing
+ * has happened. / None. / None. Three refusals in a row told a reader skimming
+ * that the book was about nothing. The five readings are five positives, and
+ * they are one day, so they hold together instead of standing as specimens.
+ *
+ * No new type step and no new device: the timestamp is the mono DISPLAY the
+ * panels already used, and the INPUT / VERIFIED apparatus, which is the part
+ * that read as bureaucratic, is simply gone. The rows are a description list
+ * because that is what they are — a time, and what it felt like.
  */
-const RULE: Record<string, string> = {
-  "00": "var(--time)",
-  "02": "var(--time)",
-  "11": "var(--safety)",
-  "13": "var(--safety)",
-};
-
 export function Moments({ content }: { content: SiteContent["moments"] }) {
   return (
     <section id="moments" className="section" aria-labelledby="moments-title">
       <div className="container-book">
-        <Reveal>
-          <h2 id="moments-title" className="t-head">{content.line}</h2>
-        </Reveal>
-
-        <ul className="mt-[var(--space-section)] space-y-[var(--space-section)]">
-          {content.items.map((c, i) => (
-            <li key={c.chapter}>
-              <Reveal delay={i * 60} className="grid md:grid-cols-12 gap-x-10 gap-y-[var(--space-tight)]">
-                <div className="md:col-span-3">
-                  <p className="t-mono">{content.label} / {c.chapter}</p>
-                  <p className="t-mono">{content.pageLabel} {c.page}</p>
-                  {RULE[c.chapter] ? (
-                    <span className="moment__rule" style={{ background: RULE[c.chapter] }} aria-hidden="true" />
-                  ) : null}
-                </div>
-                <div className="md:col-span-8">
-                  <p className="t-display">{c.time}</p>
-                  <p className="t-lead mt-[var(--space-tight)]">{c.quote}</p>
-                  <dl className="mt-[var(--space-block)] grid gap-[var(--space-tight)] sm:grid-cols-2 sm:gap-x-10">
-                    <div>
-                      <dt className="t-mono" style={{ color: "var(--time)" }}>{c.inputLabel}</dt>
-                      <dd className="t-body mt-1">{c.input}</dd>
-                    </div>
-                    <div>
-                      <dt className="t-mono" style={{ color: "var(--red)" }}>{c.verifiedLabel}</dt>
-                      <dd className="t-body mt-1">{c.verified}</dd>
-                    </div>
-                  </dl>
-                </div>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
-
-        <Reveal delay={120} className="mt-[var(--space-section)] grid md:grid-cols-12 gap-x-10">
+        <div className="grid md:grid-cols-12 gap-x-10 gap-y-[var(--space-block)]">
           <div className="md:col-span-3">
-            <p className="t-mono">{content.closingSource}</p>
+            <Reveal>
+              <p className="t-label t-label-red">{content.line}</p>
+              <p className="t-mono mt-3">{content.folio}</p>
+            </Reveal>
           </div>
+
           <div className="md:col-span-8">
-            <p className="t-head">{content.closing}</p>
+            <Reveal>
+              <h2 id="moments-title" className="t-head">{content.title}</h2>
+            </Reveal>
+
+            <Reveal delay={80}>
+              <dl className="mt-[var(--space-block)] border-t border-[var(--rule)]">
+                {content.items.map((item) => (
+                  <div
+                    key={item.time}
+                    className="py-5 border-b border-[var(--rule)] sm:grid sm:grid-cols-[6rem_1fr] sm:gap-x-8 sm:items-baseline"
+                  >
+                    <dt className="t-mono text-ink">{item.time}</dt>
+                    <dd className="t-lead mt-2 sm:mt-0">{item.line}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+
+            <Reveal delay={140}>
+              <p className="t-display mt-[var(--space-block)]">{content.closing}</p>
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

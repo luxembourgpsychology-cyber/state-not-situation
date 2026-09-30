@@ -110,68 +110,52 @@ export const en: SiteContent = {
       "They are not brain regions or neural pathways.",
       "They are a sorting tool, a way to ask three questions when everything feels wrong at once.",
     ],
-    // Pages 7 to 8. Safety's list of examples is not shown; see CONTENT_SOURCES.md.
+    // Page 9, "Three ways to read a moment", verbatim. v50 sets the three
+    // systems as three questions; the pages 7 to 8 definitions the site used
+    // before are three paragraphs, and on a screen they read as lectures. A
+    // question invites an answer. The long definitions are retired from the
+    // site; page 7's own passage on the three systems is still on /press.
     loops: [
       {
         key: "time",
         name: "Time",
-        body: "Sleep, food, caffeine, circadian phase, recovery. When the timing is off, baseline sensitivity rises. The same world feels harsher.",
+        body: "What came before this moment? Sleep, meals, caffeine, recovery, the hour.",
       },
       {
         key: "attention",
         name: "Attention",
-        body: "The system that tracks reward, novelty, and the next cue. When it is captured, focus narrows to the cheapest available input, and the expensive work feels hard.",
+        body: "What keeps pulling me back? A message, a thought, a cue, an unfinished task.",
       },
       {
         key: "safety",
         name: "Safety",
-        body: "The system that monitors threat, and especially social threat. It is fast, it is old, and it is biased toward false alarms. It produces interpretations that feel like facts.",
+        body: "What seems at stake? What have I observed, what am I assuming, and does anything need action?",
       },
     ],
     folio: "7",
   },
 
+  // Page 4 of v50, whole. The five readings and the line under them are
+  // printed; the page's own three opening lines ("Nothing went wrong on this
+  // day…") are deliberately not here — the author cut them from the site on
+  // 6 September 2026 because at lead size they read as qualifications rather
+  // than a claim. See CONTENT_SOURCES.md, "Page 4 rebuilt".
   moments: {
     // Page 5.
     line: "16 cases. Three readings. One question: state or situation?",
-    label: "Case evidence",
-    pageLabel: "Page",
-    // Three CASE EVIDENCE pages, reproduced.
+    // Page 4.
+    title: "The same day, five readings",
     items: [
-      {
-        chapter: "00",
-        page: 10,
-        time: "06:38",
-        quote: "“Something is off.”",
-        inputLabel: "Input",
-        input: "Two minutes before the alarm.",
-        verifiedLabel: "Verified event",
-        verified: "Nothing has happened.",
-      },
-      {
-        chapter: "02",
-        page: 22,
-        time: "22:47",
-        quote: "“ok.”",
-        inputLabel: "Input",
-        input: "Two letters. One full stop.",
-        verifiedLabel: "Verified tone",
-        verified: "None.",
-      },
-      {
-        chapter: "11",
-        page: 144,
-        time: "16:00",
-        quote: "“Something is wrong with my life.”",
-        inputLabel: "Input",
-        input: "Six ordinary events. One depleted day.",
-        verifiedLabel: "Verified crisis",
-        verified: "None.",
-      },
+      { time: "06:38", line: "A heaviness arrives before the day does." },
+      { time: "09:12", line: "A two-line email reads like a judgement." },
+      { time: "14:23", line: "Five neutral words tighten a jaw." },
+      { time: "17:45", line: "An unanswered message starts charging cognitive rent." },
+      { time: "22:47", line: "Two letters and a full stop feel hostile." },
     ],
-    // Page 14.
-    closing: "It said I am failing; the data was I am tired.",
-    closingSource: "Page 14",
+    // Page 4, and the sentence Dr Herber's foreword calls the book's most
+    // memorable. It had never been on the site.
+    closing: "The body speaks first. The mind explains second.",
+    folio: "4",
   },
 
   evidence: {
@@ -245,44 +229,55 @@ export const en: SiteContent = {
     folios: ["1", "2", "3"],
   },
 
-  // Chapters 01 to 15, each opening page, word for word. Chapter 00 opens on
-  // a CASE EVIDENCE panel instead, so there are fifteen readings, not sixteen.
-  readings: {
-    title: "The readings",
-    label: "Reading",
+  // The sixteen names, as page 292 lists them, word for word, with the pages
+  // that page gives. Every chapter of v50 now closes on one. This replaced the
+  // fifteen chapter-opening instrument readings on 30 September 2026: the book
+  // stopped printing those values, and the openers now carry a question and
+  // three plain phrases instead.
+  names: {
+    // Page 292.
+    title: "Sixteen names.",
+    label: "A name for it",
     pageLabel: "Page",
+    // Page 292, under the list.
+    note: "Each name closes its chapter. The page number is where the entry sits.",
     items: [
-      { number: "01", time: "NOT CLAIMED", attention: "DEGRADED", safety: "DOMINANT", page: 17,
-        line: "The body makes a verdict before attention tests it." },
-      { number: "02", time: "DOMINANT", attention: "CHECKING LOOP", safety: "AMPLIFIED", page: 23,
-        line: "Fatigue removes the brake from certainty." },
-      { number: "03", time: "IN THE GAPS", attention: "LOOPING", safety: "NOT CLAIMED", page: 33,
-        line: "The hand reaches before the mind decides." },
-      { number: "04", time: "CUE AT 15:28", attention: "HABIT LOOP", safety: "RISING LATER", page: 45,
-        line: "The hand keeps an appointment the mind never made." },
-      { number: "05", time: "DOMINANT", attention: "LATE CAPTURE", safety: "NOT CLAIMED", page: 61,
-        line: "An hour feels free and bills the morning." },
-      { number: "06", time: "MORNING DEBT", attention: "DEGRADED", safety: "RUMINATION", page: 73,
-        line: "The weekend does everything right and restores nobody." },
-      { number: "07", time: "AFTERNOON DEBT", attention: "FRAGMENTED", safety: "RISING", page: 89,
-        line: "The document stays the same; the reader loses range." },
-      { number: "08", time: "EVENING", attention: "NARROWED", safety: "DOMINANT", page: 99,
-        line: "One word becomes six days of evidence." },
-      { number: "09", time: "20 MINUTES UNTAKEN", attention: "HALF-SECOND WINDOW", safety: "DOMINANT", page: 115,
-        line: "The conversation ends before its first sentence." },
-      { number: "10", time: "07:40 RESET", attention: "SPENT", safety: "RESIDUAL", page: 129,
-        line: "The kitchen resets. The body does not." },
-      { number: "11", time: "NIGHT-BEFORE DEBT", attention: "SPENT BY 10:00", safety: "FILLING THE GAPS", page: 145,
-        line: "Six ordinary things become proof that nothing is fine." },
-      { number: "12", time: "NOT CLAIMED", attention: "NARROW, AVAILABLE", safety: "SIGNAL PRESENT", page: 161,
-        line: "Nothing is wrong. The jaw will not settle." },
-      { number: "13", time: "22:40", attention: "ACCURATE", safety: "PRECAUTION TAKEN", page: 177,
-        line: "This alarm belongs to forty metres of concrete." },
-      { number: "14", time: "PROTECTED", attention: "PLACED", safety: "QUIET", page: 189,
-        line: "The day Chapter Zero was supposed to be." },
-      { number: "15", time: "FORECAST", attention: "OPEN FILE, NAMED", safety: "NAMED IN ADVANCE", page: 203,
-        line: "Tomorrow’s reading, taken tonight." },
+      { number: "00", name: "Narrating mode", page: 16 },
+      { number: "01", name: "Misattribution", page: 24 },
+      { number: "02", name: "The smoke detector principle", page: 36 },
+      { number: "03", name: "Variable reward", page: 50 },
+      { number: "04", name: "Wanting and liking", page: 66 },
+      { number: "05", name: "Wake Maintenance Zone", page: 80 },
+      { number: "06", name: "Default mode network", page: 96 },
+      { number: "07", name: "Evaluation threat", page: 107 },
+      { number: "08", name: "Rumination", page: 126 },
+      { number: "09", name: "Demand–withdraw", page: 141 },
+      { number: "10", name: "Metacognition", page: 158 },
+      { number: "11", name: "Stacking", page: 176 },
+      { number: "12", name: "Prediction error", page: 196 },
+      { number: "13", name: "Calibration", page: 210 },
+      { number: "14", name: "Warm panel", page: 222 },
+      { number: "15", name: "Forecast", page: 239 },
     ],
+    // Page 24, whole. Chapter 01's three examples are the three the extract
+    // already gives as prose, six sections above: tiredness as a question
+    // about a career, caffeine as worry about an email, low blood sugar as
+    // doubt about a relationship. The reader meets them twice, the second
+    // time with a name on them.
+    example: {
+      number: "01",
+      name: "Misattribution",
+      body: "Giving a feeling the wrong cause. The body produces the feeling. The mind looks for a reason and takes the nearest one. The feeling is real. The reason is a guess.",
+      showsUpLabel: "How it shows up",
+      showsUp: [
+        "Tiredness that arrives as a question about your career.",
+        "Coffee on an empty stomach that arrives as worry about an email.",
+        "Low blood sugar that arrives as doubt about a relationship.",
+      ],
+      tryLabel: "Try it",
+      tryIt: "Before acting on a confident judgement, name one fact that could change your mind.",
+      page: 24,
+    },
   },
 
   listen: {
@@ -310,10 +305,11 @@ export const en: SiteContent = {
   },
 
   closing: {
-    // Page 218, near the end of the last chapter. v44 follows it with one
-    // more sentence, so it is no longer the book’s last.
+    // Page 238 of v50. The book follows it with one more sentence —
+    // "What belongs to the situation, and what might state be adding?" —
+    // so it is no longer the last.
     question: "Is this the situation? Or is this their state?",
-    source: "Page 218",
+    source: "Page 238",
     // Front cover foot and title page.
     line: "Same life. Different instrument settings.",
   },
@@ -349,7 +345,7 @@ export const en: SiteContent = {
         // Ivana's own words, from her About the author page, supplied
         // 28 September 2026. No page is cited: v47's pagination is still
         // moving and she has said the page is not at the end of the book.
-        text: "Before psychology, Ivana Budišin worked in design and product design. She later moved into applied psychology and is now a clinical psychologist, with a continuing interest in research and cognitive science. Born in the United States, she has lived in Serbia and Luxembourg and is now a Luxembourger. She runs Luxembourg Psychology. State. Not Situation. brings those interests together: how we experience the world, and how we might make that experience easier to understand.",
+        text: "Before psychology, Ivana Budišin worked in design and product design. She later moved into applied psychology and is now a clinical psychologist, with a continuing interest in research and cognitive science. Born in the United States, she has lived in US, Serbia and Luxembourg and is now a Luxembourger. She runs Luxembourg Psychology. State. Not Situation. brings those interests together: how we experience the world, and how we might make that experience easier to understand.",
       },
     ],
     factsHeading: "Publication",
@@ -363,7 +359,7 @@ export const en: SiteContent = {
       { label: "Format", value: "Paperback, 6 × 9 in" },
       // v47, the author's figure, 28 September 2026. The page references
       // elsewhere on the site are still v44's and move when v47 is final.
-      { label: "Extent", value: "302 pages" },
+      { label: "Extent", value: "304 pages" },
       { label: "ISBN-13", value: "978-2-87996-258-0" },
       { label: "Category", value: "Psychology / Cognitive psychology" },
       { label: "Language", value: "English. French and German editions to follow." },
@@ -374,7 +370,7 @@ export const en: SiteContent = {
       "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.",
       "For anyone who has ever been certain about what a situation meant, then discovered that something else was happening. And for readers interested in the psychology of how we notice, interpret and revise the world around us.",
     ],
-    // Page 5, relocated here whole.
+    // Page 5, relocated here whole. Pages are v50.
     mapHeading: "The chapters",
     mapLabel: "This book is the",
     mapTitle: "Investigation.",
@@ -383,20 +379,20 @@ export const en: SiteContent = {
     chapters: [
       { number: "00", title: "A Day That Should Have Been Fine", page: 11 },
       { number: "01", title: "The Radar Was Right", page: 17 },
-      { number: "02", title: "Why Sleep Loss Makes Neutral Input Feel Hostile", page: 23 },
-      { number: "03", title: "The Relief That Becomes Itch", page: 33 },
-      { number: "04", title: "The Predictable Cue", page: 45 },
-      { number: "05", title: "Why Evenings Stretch and Mornings Shrink", page: 61 },
-      { number: "06", title: "Why Rest Doesn’t Always Restore", page: 73 },
-      { number: "07", title: "Why You Cannot Start the Thing That Matters", page: 89 },
-      { number: "08", title: "The Open File", page: 99 },
-      { number: "09", title: "Two Nervous Systems Walk Into a Kitchen", page: 115 },
-      { number: "10", title: "The Argument That Was Tuesday", page: 129 },
-      { number: "11", title: "The Thursday That Was Wednesday Night", page: 145 },
-      { number: "12", title: "The Clean Panel", page: 161 },
-      { number: "13", title: "The Time the Body Was Right", page: 177 },
-      { number: "14", title: "Not About Me", page: 189 },
-      { number: "15", title: "The Forecast", page: 203 },
+      { number: "02", title: "Why Sleep Loss Makes Neutral Input Feel Hostile", page: 25 },
+      { number: "03", title: "The Relief That Becomes Itch", page: 37 },
+      { number: "04", title: "The Predictable Cue", page: 51 },
+      { number: "05", title: "Why Evenings Stretch and Mornings Shrink", page: 69 },
+      { number: "06", title: "Why Rest Doesn’t Always Restore", page: 81 },
+      { number: "07", title: "Why You Cannot Start the Thing That Matters", page: 97 },
+      { number: "08", title: "The Open File", page: 109 },
+      { number: "09", title: "Two Nervous Systems Walk Into a Kitchen", page: 127 },
+      { number: "10", title: "The Argument That Was Tuesday", page: 143 },
+      { number: "11", title: "The Thursday That Was Wednesday Night", page: 161 },
+      { number: "12", title: "The Clean Panel", page: 179 },
+      { number: "13", title: "The Time the Body Was Right", page: 197 },
+      { number: "14", title: "Not About Me", page: 211 },
+      { number: "15", title: "The Forecast", page: 223 },
     ],
     // Page 7.
     sortingTool:
@@ -407,7 +403,7 @@ export const en: SiteContent = {
       "Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently.",
       "Leaving them out would make the argument look tidier than it is.",
     ],
-    sourcesLabel: "The Scientific Heartbeat, page 220",
+    sourcesLabel: "The Scientific Heartbeat, page 242",
     creditsHeading: "Credits",
     credits: [
       { label: "Cover design", value: "Zoe Larusson" },
