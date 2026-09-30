@@ -69,7 +69,7 @@ export const en: SiteContent = {
     // The author's own, 6 September 2026, compressed from her biography sentence (v44 prints no biography).
     credential: "Clinical psychologist, Luxembourg",
     coverAlt:
-      "Front cover of State. Not Situation. The word STATE set large in red above NOT SITUATION in black, on a cream ground printed with faint struck-through sentences and small instrument readings.",
+      "Front cover of State. Not Situation. On a deep red ground, a cream panel carries the strapline, the subtitle in red italic, and the word STATE set very large in red above NOT SITUATION in black. Under them, in a bracketed box, Your body speaks first, your mind explains second. The author’s name stands at the foot, on the red.",
     readCta: "Read an extract",
   },
 
@@ -323,8 +323,8 @@ export const en: SiteContent = {
     assetsHeading: "Downloads",
     kitLabel: "Download complete press kit",
     assets: [
-      { label: "Front cover, print resolution", file: "/press/cover-front-300dpi.png", note: "PNG · 1801 × 2701" },
-      { label: "Full cover, print resolution", file: "/press/cover-wrap-300dpi.png", note: "PNG · 3791 × 2701" },
+      { label: "Front cover, print resolution", file: "/press/cover-front-300dpi.png", note: "PNG · 1800 × 2700" },
+      { label: "Full cover, print resolution", file: "/press/cover-wrap-300dpi.png", note: "PNG · 3805 × 2700" },
       { label: "Cover, print ready", file: "/press/cover-print-6x9.pdf", note: "PDF · 6 × 9 in" },
       { label: "Author photograph", file: "/press/author-photo-1600.jpg", note: "JPEG · 1600 × 1600" },
       { label: "The opening extract", file: "/press/State-Not-Situation-extract-the-opening.pdf", note: "PDF · 3 pp" },

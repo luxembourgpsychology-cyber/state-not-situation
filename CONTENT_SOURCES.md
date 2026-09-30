@@ -428,3 +428,40 @@ So `foreword.credit`, `foreword.name`, `foreword.role` and `foreword.organisatio
 ### Not the site
 
 The v48 log puts the spine at about **0.685 in** at 304 pages. The KDP cover is built for 0.635.
+
+## The cover was replaced, 30 September 2026
+
+The v50 cover is a **different design**, not a re-cut of the old one:
+`~/Desktop/STATE NOT SITUATION - v46 PROOF CORRECTIONS/v48 - towards final/COVER for v50/State Not Situation - COVER v50 (304 pages).pdf`, 12.9346 × 9.25 in with bleed, trim 12.6846 × 9.0000, **spine 0.6846 in for 304 pages**. Its notes are in `COVER v50 - notes.md` beside it; the InDesign file is the master. Everything in `COVER - EDITABLE v48.ai` and the old `STATE NOT SITUATION - KDP UPLOAD/` folder is superseded — those are built for 282 pages.
+
+What changed on the object: the ground is now **red**, with a flat cream panel on each face; the texture is gone from both panels; the front carries the page iii lockup (eyebrow, hairline with the heartbeat, STATE, NOT SITUATION) with the subtitle in IvyPresto italic in red; the spine reads **bottom to top**; the back has a new blurb, a new four-line table and a much longer biography with the author's portrait; the barcode zone is built to KDP's own template.
+
+### Every cover asset is regenerated, by one script
+
+`lib/make_cover_assets.py` cuts the flat assets from the PDF at the trim at 300 dpi and composes the rest. Run it, then `node lib/make-press-kit.mjs`. The geometry is read from the PDF's own page size, so **when the page count changes again, point `SOURCE` at the new cover and re-run** — nothing in the script needs editing.
+
+- **Site:** `cover-front.jpg`, `cover-back.jpg`, `cover-spine.jpg`, `og.jpg`, `mockup-3d.png`.
+- **Press, flat:** the four 300 dpi PNGs, the two front JPEGs, and `cover-print-6x9.pdf`, which is the KDP file itself.
+- **Press, composed:** `book-render.png`, `render-1x1-1080.jpg`, three banners, four social sizes.
+
+The composed images add **no type but DIN Alternate Bold**, which is the site's navigational face and the only one of the book's five that exists as a font file on this machine. The title lockup in every banner and post is **lifted from the cover artwork itself**, so it is set in the book's real typefaces and cannot drift from the printed object. IvyPresto and Bebas are Adobe Fonts and are not available as files; re-typesetting them in substitutes would have been the wrong trade.
+
+**The book render is back in the press kit.** It was withdrawn on 20 September 2026 because it still showed the retired subtitle. It is re-rendered from the v50 cover as a projected box — 6 × 9 × 0.6846 in, turned 30° about its vertical axis, camera 26 in away and level with the middle of the cover. The camera is level on purpose: no top face, nothing tipped. A spine drawn any wider than that projection gives reads as a box rather than a book.
+
+The kit is now **2.7 MB against 9.6 MB**. The artwork is flat where the old cover was textured, so the PNGs compress an order of magnitude better at the same resolution.
+
+### Two strings followed the artwork
+
+- `hero.coverAlt`, in all three languages, described a cream ground with struck-through sentences. It now describes the red ground, the cream panel and the bracketed box. Alt text is a description of the asset, so it had to move with it.
+- The two dimension notes on `/press`: the front is **1800 × 2700** and the wrap **3805 × 2700**, the wrap being wider than before because the spine is.
+
+### What the new back cover means for the site, still open
+
+The back cover's text changed, and two things on the site now quote a version of it that is no longer printed:
+
+1. **`premise.mechanism`** — the four sentences beginning "We usually treat these moments as information about life…". The back now reads: *"We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost."* / *"But what feels true is not produced by the situation alone. Sleep, hunger, stress, timing, attention, memory and threat detection affect what we notice and how we interpret it. Together, they shape the explanation that feels most convincing."* / *"State. Not Situation. examines the gap between what happened and what it felt like it meant."*
+2. **A new short biography is printed on the back**, different again from page 293's: *"Ivana Budišin trained first to look, then to measure. With a background in design and later in clinical psychology, she is interested in what happens between an event and the certainty we build around it."* and two sentences more.
+
+Also now printed on the back, as a four-line table: *A short message feels cold. / A meeting feels dangerous. / A craving feels like a decision. / A quiet room feels like judgement.* — the four sentences recorded under *The final cover* as open question 9, which the site has never carried.
+
+`premise.lines`, `premise.eyebrow`, `closing.line`, `hero.strap` and `footer.band` are all still printed and are unaffected. **Raised with the author on 30 September 2026; no copy was changed without her.**

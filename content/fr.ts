@@ -60,7 +60,7 @@ export const fr: SiteContent = {
     strap: "Votre première interprétation n’est pas l’histoire.",
     authorPrefix: "par",
     credential: "Psychologue clinicienne, Luxembourg",
-    coverAlt: "Première de couverture de State. Not Situation. Le mot STATE en grand, en rouge, au-dessus de NOT SITUATION en noir, sur un fond crème imprimé de phrases barrées, à peine visibles, et de petits relevés d’instruments.",
+    coverAlt: "Première de couverture de State. Not Situation. Sur un fond rouge profond, un panneau crème porte l’accroche, le sous-titre en italique rouge, et le mot STATE en très grand, en rouge, au-dessus de NOT SITUATION en noir. En dessous, dans un encadré à coins, Your body speaks first, your mind explains second. Le nom de l’autrice est au pied, sur le rouge.",
     readCta: "Lire un extrait"
   },
   premise: {
@@ -277,12 +277,12 @@ export const fr: SiteContent = {
       {
         label: "Première de couverture, résolution d’impression",
         file: "/press/cover-front-300dpi.png",
-        note: "PNG · 1801 × 2701"
+        note: "PNG · 1800 × 2700"
       },
       {
         label: "Couverture complète, résolution d’impression",
         file: "/press/cover-wrap-300dpi.png",
-        note: "PNG · 3791 × 2701"
+        note: "PNG · 3805 × 2700"
       },
       {
         label: "Couverture, prête à imprimer",

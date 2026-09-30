@@ -59,7 +59,7 @@ The hero is the printed front cover, flat and still, with the site's only shadow
 - Cover design: Zoe Larusson. Book design and typesetting: Ivana Budišin
 - Legal deposit: Bibliothèque nationale du Luxembourg, as page iv prints it. The book claims no CIP record; do not add one.
 - Page references follow **v50** (304 pages), re-checked against it on 30 September 2026 and recorded in `CONTENT_SOURCES.md` under *Rebuilt against v50*. Records in `brief/` and `translation/` cite older texts and their page numbers are stale.
-- The final cover is `~/Desktop/STATE NOT SITUATION - KDP UPLOAD/COVER - UPLOAD.pdf` (full wrap, 0.635 in spine). Every cover image in `public/images/` and `public/press/` was rendered from it on 14 September 2026; what changed on it is recorded in `CONTENT_SOURCES.md` under *The final cover*. The older cover PDF on the Desktop and everything in `../Press Pack/` are superseded.
+- The cover is `~/Desktop/STATE NOT SITUATION - v46 PROOF CORRECTIONS/v48 - towards final/COVER for v50/State Not Situation - COVER v50 (304 pages).pdf` — a **new design**, red ground with flat cream panels, full wrap, **0.6846 in spine for 304 pages**. Every cover asset on the site and in the press kit is cut and composed from it by `lib/make_cover_assets.py` (then `node lib/make-press-kit.mjs`); point its `SOURCE` at a new cover and re-run when the page count moves. Recorded in `CONTENT_SOURCES.md` under *The cover was replaced*. The `STATE NOT SITUATION - KDP UPLOAD/` folder, `COVER - EDITABLE v48.ai` and everything in `../Press Pack/` are superseded.
 - Author biography, in full: *"Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book."*
 
 The book states **no** count of references, no DOI verification, no "years of reading". Anything of that kind found in `../Press Pack/` is machine-written and is not a source.
@@ -103,7 +103,7 @@ Two things are waiting on the interior rather than on her:
   "she has lived in US, Serbia and Luxembourg" after "Born in the United States". The
   author chose to match rather than diverge. If page 293 is corrected, correct the
   site too, in all three languages.
-- **The spine.** About 0.685 in at 304 pages; the KDP cover is built for 0.635.
+- **The back cover's text changed with the v50 cover.** `premise.mechanism` still quotes the four sentences the old back printed, and the new back has a different blurb, a new four-line table and a third biography. Nothing was changed without the author; see *The cover was replaced* in `CONTENT_SOURCES.md` for the printed wording.
 
 Four open questions are listed at the end of `CONTENT_SOURCES.md`. Two more were
 closed on 6 September 2026: the credential on the first screen, and whose voice

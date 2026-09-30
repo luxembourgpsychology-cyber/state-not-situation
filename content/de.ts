@@ -60,7 +60,7 @@ export const de: SiteContent = {
     strap: "Ihre erste Lesart ist nicht die ganze Geschichte.",
     authorPrefix: "von",
     credential: "Klinische Psychologin, Luxemburg",
-    coverAlt: "Vorderseite des Covers von State. Not Situation. Das Wort STATE groß in Rot über NOT SITUATION in Schwarz, auf cremefarbenem Grund, bedruckt mit blassen, durchgestrichenen Sätzen und kleinen Instrumentenanzeigen.",
+    coverAlt: "Vorderseite des Covers von State. Not Situation. Auf tiefrotem Grund trägt ein cremefarbenes Feld die Schlagzeile, den Untertitel in roter Kursive und das Wort STATE sehr groß in Rot über NOT SITUATION in Schwarz. Darunter, in einem Eckenrahmen, Your body speaks first, your mind explains second. Der Name der Autorin steht am Fuß, auf dem Rot.",
     readCta: "Zur Leseprobe"
   },
   premise: {
@@ -265,12 +265,12 @@ export const de: SiteContent = {
       {
         label: "Cover, Vorderseite, Druckauflösung",
         file: "/press/cover-front-300dpi.png",
-        note: "PNG · 1801 × 2701"
+        note: "PNG · 1800 × 2700"
       },
       {
         label: "Cover, komplett, Druckauflösung",
         file: "/press/cover-wrap-300dpi.png",
-        note: "PNG · 3791 × 2701"
+        note: "PNG · 3805 × 2700"
       },
       {
         label: "Cover, druckfertig",
