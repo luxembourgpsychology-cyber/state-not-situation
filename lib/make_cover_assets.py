@@ -35,10 +35,14 @@ except ImportError:  # pragma: no cover
     sys.exit("numpy is required: python3 -m pip install numpy")
 
 ROOT = Path(__file__).resolve().parent.parent
-SOURCE = Path(
+
+# The cover to cut from. Pass a path as the first argument to use a different
+# one — that is what lib/new-cover.sh does — otherwise this is the cover.
+DEFAULT_SOURCE = Path(
     "/Users/ivanalarussonbudisin/Desktop/STATE NOT SITUATION - v46 PROOF CORRECTIONS"
     "/v48 - towards final/COVER for v50/State Not Situation - COVER v50 (304 pages).pdf"
 )
+SOURCE = Path(sys.argv[1]).expanduser() if len(sys.argv) > 1 else DEFAULT_SOURCE
 IMAGES = ROOT / "public/images"
 PRESS = ROOT / "public/press"
 
