@@ -371,6 +371,90 @@ def post(w: int, h: int, render: Image.Image, lock: Image.Image, author: str, gr
     return img
 
 
+def knockout(img: Image.Image, bg, colour) -> Image.Image:
+    """
+    Type lifted off its panel as a one-colour silhouette, antialiasing intact.
+
+    The cover sets STATE in red and NOT SITUATION in black on cream. Neither
+    survives on a red ground, so for the reversed assets the lockup becomes a
+    single cream shape: the alpha is how far each pixel sits from the panel
+    colour, which keeps every edge as smooth as the original. The letterforms
+    are still the book's own — nothing is re-typeset.
+    """
+    a = np.asarray(img.convert("RGB")).astype(int)
+    d = np.abs(a - np.array(bg)).sum(axis=2)
+    out = Image.new("RGBA", img.size, tuple(colour) + (0,))
+    out.putalpha(Image.fromarray((np.clip(d / 90.0, 0, 1) * 255).astype("uint8")))
+    return out
+
+
+def linkedin_banner(
+    w: int,
+    h: int,
+    render: Image.Image,
+    lock: Image.Image,
+    cream,
+    red,
+    lines: list[tuple[str, str, bool]],
+    avatar_clear: float = 0.27,
+) -> Image.Image:
+    """
+    A LinkedIn cover, built to the platform rather than cropped to it.
+
+    LinkedIn lays the profile photograph over the bottom left of the banner, so
+    the left `avatar_clear` of the width carries nothing — on a red ground that
+    reads as deliberate, and the photograph lands on the book's own colour. The
+    book and the lockup sit right of it, and the credit runs down the right
+    edge.
+
+    Reversed out of the red rather than set in a cream panel: a cream rectangle
+    floating on a 4:1 strip reads as a box stuck on top, and the wrap of the
+    printed cover is red with the type reversed out of it anyway.
+    """
+    img = Image.new("RGB", (w, h), tuple(red))
+    d = ImageDraw.Draw(img)
+    pale = tuple(round(c + (250 - c) * 0.72) for c in red)  # the red, lightened
+
+    clear = round(w * avatar_clear)
+    # Off the width, not the height: a 4:1 strip can lose a little at each end
+    # on a narrow viewport, and 50 px of a 1584 px banner is not enough rope.
+    margin = round(w * 0.045)
+
+    bk = scale_to_height(render, round(h * 0.80))
+    bx = clear + round(w * 0.015) + bk.width // 2
+    img.paste(bk, (bx - bk.width // 2, round(h / 2 - bk.height / 2)), bk)
+
+    fs = max(11, round(h * 0.048))
+    f_name, f_small = din(fs), din(max(10, round(fs * 0.85)))
+    tr = fs * 0.20
+
+    col_w = max(twidth(d, t, f_name if size == "lg" else f_small, tr) for t, size, _ in lines)
+    col_x = w - margin - round(col_w)
+
+    lk_left = bx + bk.width // 2 + round(w * 0.022)
+    lk_max_w = col_x - round(w * 0.028) - lk_left
+    ko = knockout(lock, cream, cream)
+    lk = scale_to_height(ko, round(h * 0.73))
+    if lk.width > lk_max_w:
+        lk = scale_to_width(ko, max(40, lk_max_w))
+    img.paste(lk, (lk_left, round(h / 2 - lk.height / 2)), lk)
+
+    gap, lead = round(h * 0.055), round(fs * 1.55)
+    block = sum(lead for _ in lines) + gap
+    y = round(h / 2 - block / 2)
+    for i, (text, size, bright) in enumerate(lines):
+        if i and size != "lg" and lines[i - 1][1] == "lg":
+            y += gap
+        tracked(d, (col_x, y), text, f_name if size == "lg" else f_small,
+                CREAM if bright else pale, tr)
+        y += lead
+    return img
+
+
+def twidth(d: ImageDraw.ImageDraw, text: str, font, tracking: float) -> float:
+    return tracked_width(d, text, font, tracking)
+
+
 def render_card(w: int, h: int, render: Image.Image, ground=CREAM) -> Image.Image:
     """The book alone, framed. The press kit's book-render shots."""
     img, _ = frame(w, h, ground)
@@ -397,6 +481,8 @@ def main():
     save_jpg(scale_to_height(spine, 1800), IMAGES / "cover-spine.jpg")
 
     ground = panel_colour(front)
+    red = tuple(int(v) for v in np.median(
+        np.asarray(wrap.convert("RGB"))[8:40, 8:40].reshape(-1, 3), axis=0))
     print(f"\nPanel cream read off the cover: #{ground[0]:02X}{ground[1]:02X}{ground[2]:02X}")
     lock = lockup_from(front, ground)
     book = mockup(front, spine, spine_in=cut["spine_in"])
@@ -419,7 +505,17 @@ def main():
     save_png(book, PRESS / "book-render.png")
     save_jpg(render_card(1080, 1080, book, ground), PRESS / "render-1x1-1080.jpg")
     save_jpg(banner(2400, 1000, book, lock, author, ground), PRESS / "banner-web-2400x1000.jpg")
-    save_jpg(banner(1584, 396, book, lock, author, ground), PRESS / "banner-linkedin-1584x396.jpg")
+    # LinkedIn lays the profile photograph over the bottom left, so its cover
+    # is built rather than cropped. The company-page strip is the same design
+    # at 5.9:1, with the avatar allowance it does not need taken back.
+    li = [("IVANA BUDIŠIN", "lg", True),
+          ("CLINICAL PSYCHOLOGIST", "sm", False),
+          ("PUBLISHING 15 OCTOBER 2026", "sm", False),
+          ("STATENOTSITUATION.COM", "sm", True)]
+    save_jpg(linkedin_banner(1584, 396, book, lock, ground, red, li),
+             PRESS / "banner-linkedin-1584x396.jpg", quality=94)
+    save_jpg(linkedin_banner(1128, 191, book, lock, ground, red, li, avatar_clear=0.06),
+             PRESS / "banner-linkedin-company-1128x191.jpg", quality=94)
     save_jpg(banner(1500, 500, book, lock, author, ground), PRESS / "banner-x-1500x500.jpg")
     save_jpg(post(1080, 1080, book, lock, author, ground), PRESS / "post-1x1-1080.jpg")
     save_jpg(post(1080, 1350, book, lock, author, ground), PRESS / "post-4x5-1080x1350.jpg")
