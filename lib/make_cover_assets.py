@@ -79,6 +79,25 @@ def tracked_width(draw: ImageDraw.ImageDraw, text: str, font, tracking: float) -
     return sum(draw.textlength(c, font=font) for c in text) + tracking * (len(text) - 1)
 
 
+def panel_colour(front: Image.Image) -> tuple[int, int, int]:
+    """
+    The cream of the cover's own panels, read off the artwork.
+
+    It is not hard-coded, because it moves: the v50 cover of 30 September 2026
+    lightened it from #F8F5EC to #FAF8F4 between two exports of the same
+    design. The composed assets put cover artwork directly on their own ground,
+    so the two have to be the same colour or the panel shows as a rectangle.
+    The panel is far and away the most common colour on the front, so the mode
+    finds it without needing to know where to look.
+    """
+    a = np.asarray(front.convert("RGB")).reshape(-1, 3)
+    a = a[:: max(1, len(a) // 400_000)]
+    packed = (a[:, 0].astype(np.int32) << 16) | (a[:, 1].astype(np.int32) << 8) | a[:, 2]
+    values, counts = np.unique(packed, return_counts=True)
+    v = int(values[counts.argmax()])
+    return ((v >> 16) & 255, (v >> 8) & 255, v & 255)
+
+
 def trim_to_content(img: Image.Image, bg, tol: int = 18) -> Image.Image:
     """Crop to the pixels that differ from the panel colour."""
     a = np.asarray(img.convert("RGB")).astype(int)
@@ -145,7 +164,7 @@ def render_source():
     }
 
 
-def lockup_from(front: Image.Image) -> Image.Image:
+def lockup_from(front: Image.Image, ground=CREAM) -> Image.Image:
     """
     The title lockup off the front panel: eyebrow, hairline with the heartbeat,
     STATE, NOT SITUATION. Cropped generously, then trimmed to its own ink, so a
@@ -156,7 +175,7 @@ def lockup_from(front: Image.Image) -> Image.Image:
     # short of the bracket box under it. Generous on every side, because the
     # trim does the real work.
     band = front.crop((round(w * 0.05), round(h * 0.25), round(w * 0.95), round(h * 0.655)))
-    return trim_to_content(band, CREAM)
+    return trim_to_content(band, ground)
 
 
 # -------------------------------------------------------------- the mockup --
@@ -273,9 +292,9 @@ def mockup(
 
 # --------------------------------------------------------- the compositions --
 
-def frame(w: int, h: int) -> tuple[Image.Image, ImageDraw.ImageDraw]:
-    """Cream ground with the one hairline the press assets have always had."""
-    img = Image.new("RGB", (w, h), CREAM)
+def frame(w: int, h: int, ground=CREAM) -> tuple[Image.Image, ImageDraw.ImageDraw]:
+    """The cover's own cream, with the one hairline the press assets have always had."""
+    img = Image.new("RGB", (w, h), ground)
     d = ImageDraw.Draw(img)
     inset = round(min(w, h) * 0.030)
     d.rectangle(
@@ -290,9 +309,9 @@ def place(canvas: Image.Image, art: Image.Image, cx: int, cy: int):
     canvas.paste(art, (round(cx - art.width / 2), round(cy - art.height / 2)), art)
 
 
-def banner(w: int, h: int, render: Image.Image, lock: Image.Image, author: str) -> Image.Image:
+def banner(w: int, h: int, render: Image.Image, lock: Image.Image, author: str, ground=CREAM) -> Image.Image:
     """The book on the left, the cover's own lockup on the right."""
-    img, d = frame(w, h)
+    img, d = frame(w, h, ground)
     pad = round(min(w, h) * 0.105)
 
     bk = scale_to_height(render, round(h - 2 * pad))
@@ -315,14 +334,14 @@ def banner(w: int, h: int, render: Image.Image, lock: Image.Image, author: str) 
     return img
 
 
-def post(w: int, h: int, render: Image.Image, lock: Image.Image, author: str) -> Image.Image:
+def post(w: int, h: int, render: Image.Image, lock: Image.Image, author: str, ground=CREAM) -> Image.Image:
     """
     Stacked: the book above, the lockup below. The book is the subject and
     takes rather more than half the column — a thumbnail of it under a huge
     title reads as a title with a decoration, which is the wrong way round for
     a book announcement.
     """
-    img, d = frame(w, h)
+    img, d = frame(w, h, ground)
     pad = round(min(w, h) * 0.085)
     avail_h = h - 2 * pad
 
@@ -352,9 +371,9 @@ def post(w: int, h: int, render: Image.Image, lock: Image.Image, author: str) ->
     return img
 
 
-def render_card(w: int, h: int, render: Image.Image) -> Image.Image:
+def render_card(w: int, h: int, render: Image.Image, ground=CREAM) -> Image.Image:
     """The book alone, framed. The press kit's book-render shots."""
-    img, _ = frame(w, h)
+    img, _ = frame(w, h, ground)
     pad = round(min(w, h) * 0.115)
     bk = scale_to_height(render, h - 2 * pad)
     if bk.width > w - 2 * pad:
@@ -377,12 +396,14 @@ def main():
     save_jpg(scale_to_height(back, 1800), IMAGES / "cover-back.jpg")
     save_jpg(scale_to_height(spine, 1800), IMAGES / "cover-spine.jpg")
 
-    lock = lockup_from(front)
+    ground = panel_colour(front)
+    print(f"\nPanel cream read off the cover: #{ground[0]:02X}{ground[1]:02X}{ground[2]:02X}")
+    lock = lockup_from(front, ground)
     book = mockup(front, spine, spine_in=cut["spine_in"])
     save_png(scale_to_width(book, 1600), IMAGES / "mockup-3d.png")
 
     author = "IVANA BUDIŠIN"
-    save_jpg(banner(1200, 630, book, lock, author), IMAGES / "og.jpg")
+    save_jpg(banner(1200, 630, book, lock, author, ground), IMAGES / "og.jpg")
 
     print("\nPress, flat")
     save_png(front, PRESS / "cover-front-300dpi.png")
@@ -396,14 +417,14 @@ def main():
 
     print("\nPress, composed")
     save_png(book, PRESS / "book-render.png")
-    save_jpg(render_card(1080, 1080, book), PRESS / "render-1x1-1080.jpg")
-    save_jpg(banner(2400, 1000, book, lock, author), PRESS / "banner-web-2400x1000.jpg")
-    save_jpg(banner(1584, 396, book, lock, author), PRESS / "banner-linkedin-1584x396.jpg")
-    save_jpg(banner(1500, 500, book, lock, author), PRESS / "banner-x-1500x500.jpg")
-    save_jpg(post(1080, 1080, book, lock, author), PRESS / "post-1x1-1080.jpg")
-    save_jpg(post(1080, 1350, book, lock, author), PRESS / "post-4x5-1080x1350.jpg")
-    save_jpg(banner(1920, 1080, book, lock, author), PRESS / "post-16x9-1920x1080.jpg")
-    save_jpg(post(1080, 1920, book, lock, author), PRESS / "post-9x16-1080x1920.jpg")
+    save_jpg(render_card(1080, 1080, book, ground), PRESS / "render-1x1-1080.jpg")
+    save_jpg(banner(2400, 1000, book, lock, author, ground), PRESS / "banner-web-2400x1000.jpg")
+    save_jpg(banner(1584, 396, book, lock, author, ground), PRESS / "banner-linkedin-1584x396.jpg")
+    save_jpg(banner(1500, 500, book, lock, author, ground), PRESS / "banner-x-1500x500.jpg")
+    save_jpg(post(1080, 1080, book, lock, author, ground), PRESS / "post-1x1-1080.jpg")
+    save_jpg(post(1080, 1350, book, lock, author, ground), PRESS / "post-4x5-1080x1350.jpg")
+    save_jpg(banner(1920, 1080, book, lock, author, ground), PRESS / "post-16x9-1920x1080.jpg")
+    save_jpg(post(1080, 1920, book, lock, author, ground), PRESS / "post-9x16-1080x1920.jpg")
 
     print("\nDone. Next:  node lib/make-press-kit.mjs")
 
