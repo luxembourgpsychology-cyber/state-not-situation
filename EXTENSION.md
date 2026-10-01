@@ -119,7 +119,7 @@ Where this departs from the handoff, and why.
 
 - `npm run build`, `npx tsc --noEmit`, `npm run lint` (0 errors; the two warnings
   pre-date this work), `npm test` (13 tests).
-- 85 browser checks of the journeys at 390 and 1440 (scenes, Back/Forward, direct and
+- 84 browser checks of the journeys at 390 and 1440 (scenes, Back/Forward, direct and
   invalid `?scene=`, keyboard only, no-script reading, the header disclosure and phone
   menu, French untouched, all four offer → enquiry preselections, unknown query values,
   validation and error focus, the email draft's encoding and its honest wording, events'
