@@ -224,8 +224,8 @@ export interface ExtensionContent {
     eyebrow: string;
     title: string;
     intro: string;
-    questions: { title: string; body: string };
-    evidence: { title: string; body: string; markersLabel: string; related: string };
+    questions: { title: string; source: string };
+    evidence: { title: string; source: string; related: string };
     situation: { title: string; body: string; chapterLabel: string };
     homeEvidence: LinkCopy;
   };

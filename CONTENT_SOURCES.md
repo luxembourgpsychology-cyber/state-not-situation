@@ -550,11 +550,12 @@ Two consequences for the rule about quotations:
 
 - **Explore's ending** no longer quotes the v50 back cover under a "Back cover" label. It
   carries the author's new sentence, unquoted, under "The book".
-- **Research** no longer quotes page 7's systems passage, page 7's evidence line or The
-  Scientific Heartbeat's two sentences beside page labels. Its three sections are the
-  author's prose. The High / Medium / Low labels (printed, page 7) and their descriptions
-  (author-supplied, 6 September 2026) are shown as "The book's evidence markers";
-  Chapter 13 is cited by its printed title and page.
+- **Research is unchanged**, at the author's request after reviewing the preview ("for
+  RESEARCH I dont want to change.. keep it the same as before"): its printed passages
+  keep their exact wording and page labels, as recorded above.
+
+Also at her request: **no em dashes** in the new pages' wording; commas or full stops
+replace them, and the app's menu label reads "App (in development)".
 
 The original pages — the landing body, the extract, the press page, the French pages — are
 untouched by this pass.

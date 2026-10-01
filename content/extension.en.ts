@@ -24,8 +24,8 @@ export const extensionEn: ExtensionContent = {
   nav: { explore: "Explore", events: "Events", invite: "Invite Ivana", research: "Research & limits" },
   ways: { explore: "Three short scenes", events: "Talks, readings, workshops", research: "Evidence and limits", app: "App" },
   homeOnlyLanguage: {
-    fr: { label: "FR · livre", title: "Français — accueil du livre (cette page n’existe qu’en anglais)" },
-    de: { label: "DE · Buch", title: "Deutsch — Startseite des Buches (diese Seite gibt es nur auf Englisch)" },
+    fr: { label: "FR · livre", title: "Français : accueil du livre (cette page n’existe qu’en anglais)" },
+    de: { label: "DE · Buch", title: "Deutsch: Startseite des Buches (diese Seite gibt es nur auf Englisch)" },
   },
   book: { details: "About the book", detailsHref: "/en#top", preorder: "Pre-order the book", buy: "Buy the book" },
 
@@ -51,8 +51,8 @@ export const extensionEn: ExtensionContent = {
       description: "Find the latest confirmed information about the STATE companion app, currently in development.",
     },
     research: {
-      title: "Research and the limits of the book’s ideas",
-      description: "Learn how State. Not Situation. uses research, evidence markers and questions about the limits of its framework.",
+      title: "Research and limits",
+      description: "How State. Not Situation. grades its evidence, and where its framework stops.",
     },
   },
 
@@ -86,7 +86,7 @@ export const extensionEn: ExtensionContent = {
     teamsLink: "Explore sessions for teams",
     endEyebrow: "The book",
     endTitle: "There is more to the moment.",
-    endText: "State. Not Situation. explores why an ordinary moment can feel so certain—and what we might notice when we look again.",
+    endText: "State. Not Situation. explores why an ordinary moment can feel so certain, and what we might notice when we look again.",
     // One fictional day, written to "you" (the author's choice): the message
     // at 16:10 is still in the air at 16:12, and the late night reaches the
     // morning. Each scene still stands on its own.
@@ -100,7 +100,7 @@ export const extensionEn: ExtensionContent = {
         options: ["Something has gone wrong.", "They have a quick question."],
         revealLabel: "Consider another possibility",
         reveal: "Either could be true. So could something you haven’t thought of. The message tells you they want to talk. It doesn’t tell you why.",
-        question: "What did the message actually say—and what did you add?",
+        question: "What did the message actually say, and what did you add?",
         relatedOffer: null,
       },
       {
@@ -134,10 +134,10 @@ export const extensionEn: ExtensionContent = {
   invite: {
     eyebrow: "Invite Ivana",
     title: "Talks, workshops and readings with Ivana.",
-    intro: "Why does a short email feel personal? Why can an ordinary task suddenly feel difficult? Ivana Budišin, clinical psychologist and author of State. Not Situation., explores these questions through everyday examples and conversation.",
+    intro: "Why does a short email feel personal? Why can an ordinary task suddenly feel difficult? Ivana explores these questions through everyday examples and conversation.",
     support: "For teams, organisations, venues and groups. No one needs to have read the book.",
     primaryAction: "Check availability",
-    practicalLine: "Tell Ivana about your audience. The format, date and fee are agreed before you book.",
+    practicalLine: "The format, date and fee are agreed before you book.",
     listTitle: "Find a session for your audience",
     takeawayLabel: "What you take away",
     exploreLabel: "What we explore",
@@ -151,7 +151,7 @@ export const extensionEn: ExtensionContent = {
         audience: "For teams and organisations",
         title: "Why ordinary messages become workplace misunderstandings",
         series: "Warm Panels at Work",
-        description: "A short email can feel personal. An unfinished task can follow someone home. This session explores how pressure shapes the way teams read everyday situations—and how to ask better questions before settling on an explanation.",
+        description: "A short email can feel personal. An unfinished task can follow someone home. This session explores how pressure shapes the way teams read everyday situations, and how to ask better questions before settling on an explanation.",
         durations: ["60-minute introduction or 90-minute session with discussion"],
         takeaway: "Practise separating what happened from what you assumed, using examples from working life.",
         action: "Ask about a team session",
@@ -213,7 +213,7 @@ export const extensionEn: ExtensionContent = {
         takeaway: "A clearer basis for judging where the framework may be useful and where its limits matter.",
         action: "Ask about a seminar",
         explore: [
-          "What the book’s analogies help explain—and what they do not.",
+          "What the book’s analogies help explain, and what they do not.",
           "The supporting research, uncertainty and alternative explanations.",
           "Hypothetical cases and the questions they leave open.",
         ],
@@ -302,7 +302,7 @@ export const extensionEn: ExtensionContent = {
   events: {
     eyebrow: "Public events",
     title: "Come to a talk, reading or workshop.",
-    intro: "Join Ivana for a public event exploring the ideas in State. Not Situation. Come curious—no prior reading is needed.",
+    intro: "Join Ivana for a public event exploring the ideas in State. Not Situation. Come curious. No prior reading is needed.",
     upcomingLabel: "Upcoming",
     pastLabel: "Past events",
     emptyTitle: "New dates will be listed here.",
@@ -365,7 +365,7 @@ export const extensionEn: ExtensionContent = {
         body: "A companion app is being developed alongside State. Not Situation. The plan is to explore ideas from the chapters through interactive experiences. More details will be shared here when they are ready.",
         support: "A release date and access details have not yet been announced.",
         stripText: "The STATE companion app is in development.",
-        menuLabel: "App — in development",
+        menuLabel: "App (in development)",
       },
       live: {
         statusLabel: "Available",
@@ -381,24 +381,22 @@ export const extensionEn: ExtensionContent = {
 
   research: {
     eyebrow: "Research and limits",
-    title: "What the book draws on—and where its ideas have limits.",
-    intro: "State. Not Situation. uses stories and research to explore how we interpret everyday experiences. The research matters, and so does being clear about what it can and cannot explain.",
-    questions: {
-      title: "Three ways to ask a better question",
-      body: "Time, Attention and Safety are the book’s organising ideas. They help readers ask what came before a moment, what keeps drawing their attention and what seems to be at stake. They are not three measured scores, brain regions or a diagnosis.",
-    },
+    title: "A good question leaves room for uncertainty.",
+    intro: "State. Not Situation. brings together stories, research and practical questions. It also asks where its own explanation stops being enough.",
+    // The bodies of the first two are printed (page 7, and The Scientific
+    // Heartbeat), taken from content/en.ts so they cannot drift from it.
+    questions: { title: "A way to ask better questions", source: "Page 7" },
     evidence: {
-      title: "Not all evidence carries the same weight",
-      body: "The book uses evidence markers to distinguish stronger findings from less settled research and emerging ideas. It also includes sources that challenge or complicate its argument.",
-      markersLabel: "The book’s evidence markers",
-      related: "Evidence for a related process does not, on its own, show that a particular exercise works. A useful question and a proven intervention are different things.",
+      title: "Evidence has different strengths",
+      source: "Page 7",
+      related: "Evidence for a related mechanism does not automatically prove that a particular exercise works.",
     },
     situation: {
       title: "The situation still matters",
-      body: "Your state can influence an interpretation while a real problem remains. The book offers questions to consider; it does not diagnose a person, dismiss their concerns or replace professional support.",
+      body: "A person’s state can influence an interpretation while a real concern remains. This framework offers questions, not a diagnosis or a substitute for professional support.",
       chapterLabel: "In the book",
     },
-    homeEvidence: { label: "See the book’s evidence markers", href: "/en#evidence" },
+    homeEvidence: { label: "The evidence markers", href: "/en#evidence" },
   },
 
   footer: { label: "More ways in" },

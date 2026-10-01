@@ -22,9 +22,9 @@ All words live in `content/extension.en.ts`. Stable ids (scene ids, offer ids, a
 | Explore — 22:36 | Next morning / You got to bed after one in the morning… / Is it really the kettle? | **See the next morning** / The photos are sorted. You went to bed after one… / The kettle hasn’t changed. What else might be part of this morning? |
 | Explore — morning row | Open 22:36 to see the morning. | **See what happens the next morning** (opens the evening scene with its 07:08 reveal) |
 | Explore — boundary | How you feel can change what a moment seems to mean. If something is really wrong, it still deserves attention. | How you feel can shape what a moment seems to mean. A real problem still deserves attention. |
-| Explore — ending | BACK COVER · “…examines the gap between what happened and what it felt like it meant.” | **The book** · State. Not Situation. explores why an ordinary moment can feel so certain—and what we might notice when we look again. (website copy, unquoted) |
+| Explore — ending | BACK COVER · “…examines the gap between what happened and what it felt like it meant.” | **The book** · State. Not Situation. explores why an ordinary moment can feel so certain, and what we might notice when we look again. (website copy, unquoted) |
 | Explore — teams link | Sessions for teams → | **Explore sessions for teams** |
-| Invite — head | Bring a different reading to the room. / Request availability and a quote | **Talks, workshops and readings with Ivana.** / the brief’s intro and support line / **Check availability** / Tell Ivana about your audience… |
+| Invite — head | Bring a different reading to the room. / Request availability and a quote | **Talks, workshops and readings with Ivana.** / Why does a short email feel personal? Why can an ordinary task suddenly feel difficult? Ivana explores these questions through everyday examples and conversation. / For teams, organisations, venues and groups. No one needs to have read the book. / **Check availability** / The format, date and fee are agreed before you book. (shortened at the author’s request: her name and title are already under the portrait) |
 | Invite — offers | Book title as heading, one short line, duration · who; “See the format” | **Find a session for your audience**: audience, plain-language title, book name (secondary), description, duration(s), what you take away, an offer-specific action (**Ask about a team session / a talk or reading / a group workshop / a seminar**); **What happens in the session / Hide session details** holds what we explore, practical details and scope |
 | Invite — FAQ | Practical questions (4) | **Before you enquire** (6, the brief’s answers) |
 | Invite — author | Ivana Budišin / short bio / More about Ivana / Press materials | **Meet Ivana** / the brief’s bio / More about Ivana / **Biography and press materials** |
@@ -36,16 +36,21 @@ All words live in `content/extension.en.ts`. Stable ids (scene ids, offer ids, a
 | Events | Events · Meet the book in a room. · Public dates will be announced here. · Ask about a future workshop · Invite Ivana to your venue | **Public events · Come to a talk, reading or workshop. · New dates will be listed here.** · **Ask about future workshops** (subject: Question about future public workshops) · **Have a group or venue in mind? Invite Ivana to your event** |
 | Event detail | Status words; Book with [provider] | **What to expect · Who it is for · Date and location · What your ticket includes · Access and practical information · Booking and cancellation terms**; **Book tickets with / Register with [provider]**; full status sentences (sold out → View other events; past → View upcoming events) |
 | App | Another way into the book. / …being built as a separate product. / In the meantime | **Another way to explore the book.** / the brief’s body and “A release date and access details have not yet been announced.” / **While you wait: Try a short scene · Read an extract** |
-| Research | A good question leaves room for uncertainty. / page 7 and Scientific Heartbeat passages quoted, with their page labels | **What the book draws on—and where its ideas have limits.** / three sections in the brief’s words; the quoted passages and their page labels removed; markers captioned **The book’s evidence markers**; links **About the book · Read an extract · See the book’s evidence markers** |
-| Page titles | Explore · Invite Ivana · Enquiry · Events · The companion app · Research and limits | Explore the book · Talks, workshops and readings with Ivana · Enquire about a talk or workshop · Public talks, readings and workshops · The STATE companion app · Research and the limits of the book’s ideas (descriptions as the brief) |
+| Research | A good question leaves room for uncertainty. (with its printed passages and page labels) | **Unchanged**, at the author’s request after review: the page, its wording, title and description are as before. Only the shared header, footer and book button differ. |
+| Page titles | Explore · Invite Ivana · Enquiry · Events · The companion app | Explore the book · Talks, workshops and readings with Ivana · Enquire about a talk or workshop · Public talks, readings and workshops · The STATE companion app (descriptions as the brief). Research keeps its title. |
 
 ## Adaptations, and why
+
+- **No em dashes** in the new pages’ wording (the author, after review). Where the brief had
+  one, a comma or a full stop takes its place; the menu label reads “App (in development)”.
+  The short dashes used as list bullets are the site’s existing device and are not read aloud.
+- **Research is unchanged** (the author, after review), so the brief’s section 10 is not
+  applied.
 
 - **Tablet header.** Six items do not fit one row at 768–1023 px without crowding, so they sit behind Menu there (the brief: use the menu, don’t shrink type). From 1024 px they are inline.
 - **“Pre-order the book”** needed a state the site did not have: `publicationStatus: "preorder"`. It changes only the new pages’ book action; the original hero still changes only at `"published"`.
 - **Card status words** on the events list stay short (Booking details to follow, Booking open, Sold out, Cancelled, Taken place); the brief’s full sentences are on each event’s page.
 - **The email-draft explanation** sits beside the button rather than above the form, so the first step is four fields.
-- **Research, Chapter 13** is still cited by its printed title and page (13, The Time the Body Was Right, 197): a reference, not a quotation.
 - The brief’s direct-sending states (Send enquiry, Sending…, received) are **not shown**: no sending service exists, and the button says what it does.
 
 ## Still needed from the author

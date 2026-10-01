@@ -71,10 +71,9 @@ Where this departs from the handoff, and why.
    `approved`. Merging early changes nothing on the live site (verified: a production-mode
    build is pixel-identical to `137367e` on all six protected pages at four widths).
 2. **Book quotations stay exact, or go.** Printed lines appear only verbatim, with their
-   source. The author's brief of 1 October 2026 replaced the two places that quoted the
-   book out of context (Explore's back-cover line, Research's page 7 and Scientific
-   Heartbeat passages) with her own unquoted prose; Research keeps the printed evidence
-   labels as "the book's" and cites Chapter 13 by title and page.
+   source. Explore's ending is now the author's own unquoted sentence. Research keeps its
+   printed passages (page 7, The Scientific Heartbeat) with their page labels: the author
+   chose to leave that page as it was. No em dashes in the new pages' wording.
 3. **No cards.** The three doors are set like the evidence markers; offers and events
    like the press page's fact sheet; scenes like page 4's moments. No new type step,
    colour, spacing value or shadow. Status words (Sold out, Cancelled) stay ink: red has
