@@ -505,6 +505,11 @@ change here.**
   and the boundary line ("How you feel can change what a moment seems to mean. If
   something is really wrong, it still deserves attention.") are still kind 5: drafted
   for her, awaiting her approval of the exact words.
+- **Then the page was redrawn** (her choice of "idea 1", 1 October 2026): each moment's
+  title became the one big line a skimmer reads ("“Can we talk before you go?”", "The
+  title looked fine at lunch.", "Just one more folder."), and the scenes no longer repeat
+  them. The 07:08 turn now says the cause she could not see ("dont get the photos?"):
+  "The photos are sorted, every last one. You got to bed after one in the morning…".
 - **Talk durations name their audience**: "20-minute talk, for conferences and
   associations", "40-minute talk, for conferences and associations", "75-minute reading
   and conversation, for bookshops, libraries and book clubs" (the spec asks for it).

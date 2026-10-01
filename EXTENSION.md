@@ -93,6 +93,12 @@ Where this departs from the handoff, and why.
    page 4 reads one day five times. Each scene still works alone; read together, the
    16:12 reveal shows the message from two minutes earlier still at work. Times sit in
    the mono column; the "inspired by the book" label is said once above the list.
+   **Drawn as one day** (her pick of two mockups, kept on branch
+   `mockup/explore-ideas`): the cover's pulse line runs across the day above the list —
+   a jolt at 16:10, a jitter at 16:12, a hum at 22:36, a snap at 07:08 — and each time
+   under it opens its moment. Each moment is a big mono time and one big sentence, so
+   the page can be skimmed in seconds; the morning shows only "07:08 ?". A motif, not
+   data: no axis, no values.
 8. **Talk durations say who they are for** (conferences vs bookshops and libraries), as
    the spec asks.
 9. **`.btn-solid` on two more controls**: the enquiry's submit and an event's booking
@@ -108,7 +114,7 @@ Where this departs from the handoff, and why.
 
 - `npm run build`, `npx tsc --noEmit`, `npm run lint` (0 errors; the two warnings
   pre-date this work), `npm test` (13 tests).
-- 74 browser checks of the journeys at 390 and 1440 (scenes, Back/Forward, direct and
+- 80 browser checks of the journeys at 390 and 1440 (scenes, Back/Forward, direct and
   invalid `?scene=`, keyboard only, no-script reading, the header disclosure and phone
   menu, French untouched, all four offer → enquiry preselections, unknown query values,
   validation and error focus, the email draft's encoding and its honest wording, events'

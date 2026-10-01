@@ -161,6 +161,11 @@ Offers, events and the enquiry's fields use the press page's ruled fact sheet an
 notify field's underline. The scoped CSS block at the end of `globals.css` names only
 classes these pages use; no global selector changed.
 
+On `/explore` the third motif carries the page: the pulse mark's stroke drawn across
+one day (`DayLine.tsx`), and each moment's time in mono at DISPLAY (`.ext-stamp`), as the
+timestamp motif was specified. The line draws itself once on arrival — the brief's
+"subtle signal movement" — and is still under reduced motion.
+
 In the header, "More ways in" is a disclosure that opens a second bar of the same type
 under the first. Between 768 and 1023 the wordmark yields to the mark, as below 420.
 
