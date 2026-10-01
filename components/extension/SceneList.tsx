@@ -116,6 +116,9 @@ export function SceneList({
   };
 
   return (
+    <>
+    {/* Said once, above all three: every scene below is invented. */}
+    <p className="t-mono mb-4">{labels.sceneLabel}</p>
     <ol aria-label={labels.listLabel} className="border-t border-[var(--rule)]">
       {scenes.map((s) => (
         <li key={s.id} id={`scene-${s.id}`} className="py-[var(--space-block)] border-b border-[var(--rule)]">
@@ -123,7 +126,6 @@ export function SceneList({
             <p className="t-mono text-ink sm:pt-[0.55rem]">{s.time}</p>
             <div className="min-w-0">
               <h2 id={`scene-${s.id}-title`} className="t-lead mt-2 sm:mt-0">{s.title}</h2>
-              <p className="t-body mt-2 text-ink-soft">{s.hook}</p>
 
               <details
                 ref={(el) => { panels.current[s.id] = el; }}
@@ -140,9 +142,8 @@ export function SceneList({
                 </summary>
 
                 <div className="mt-[var(--space-block)]">
-                  <p className="t-mono">{labels.sceneLabel} · {s.category}</p>
-                  <p className="t-body mt-[var(--space-tight)]">{s.scene}</p>
-                  <p className="t-lead mt-[var(--space-block)]">{s.prompt}</p>
+                  <p className="t-body">{s.scene}</p>
+                  {s.prompt ? <p className="t-lead mt-[var(--space-block)]">{s.prompt}</p> : null}
 
                   {s.options.length ? (
                     mounted ? (
@@ -202,5 +203,6 @@ export function SceneList({
         </li>
       ))}
     </ol>
+    </>
   );
 }

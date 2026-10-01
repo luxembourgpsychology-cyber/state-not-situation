@@ -489,16 +489,22 @@ change here.**
 | `research`: page 7's systems passage, the three markers and their descriptions, page 7's closing line, The Scientific Heartbeat's two sentences | 1 / 2 | Read from `content/en.ts` (`press.sortingTool`, `evidence.*`, `press.sources`, `press.sourcesLabel`) — already sourced above, not copied. |
 | `research`: Chapter 13's number, title and page | 1, printed | `press.chapters` (page 5's map). |
 | Author lines on the new pages | 2 | `author.bio`, `hero.credential`, `press.bios` "Long" — read from `content/en.ts`. |
-| `discovery.*`, `explore.eyebrow/title/intro/sceneLabel/boundary/endTitle`, the three scenes (title, hook, category, scene, prompt, options, reveal, question), `invite.title/intro/availabilityNote`, the four offers, `enquiry.title/intro/purposeHint/boundary/emailFallbackIntro`, `events.*` titles, empty state and attendee email, `app.copyByStatus`, `research.title/intro/evidence.related/situation.body` | 5 | `02_CONTENT_AND_CONFIG.json`, word for word, with the edits below. |
+| `discovery.*`, `explore.eyebrow/title/endTitle`, `invite.title/intro/availabilityNote`, the four offers, `enquiry.title/intro/purposeHint/boundary/emailFallbackIntro`, `events.*` titles, empty state and attendee email, `app.copyByStatus`, `research.title/intro/evidence.related/situation.body` | 5 | `02_CONTENT_AND_CONFIG.json`, word for word, with the edits below. |
+| `explore.intro/sceneLabel/boundary`, the three scenes | 5, rewritten | See *Edits made to the handoff draft*, below. |
 | `invite.faq` | 5, assembled | Each answer is made of handoff lines: booking from `enquiry.boundary`; books from `invite.booksNote`; language from the offers' `practical` lines ("language … agreed in advance"); "what these sessions are not" from the talks' and workshops' `scope` lines. |
 | Every label, field name, error, status word, "More ways in", "FR · livre", the draft note, "Nothing is sent from this website…", "Now send it from your email app…" | 3, interface | Functional text: what a control does, or what has (not) happened. The French tooltip is for the author to check. |
 
 ### Edits made to the handoff draft
 
-- **Scene times moved into the timestamp column**, 24-hour, as page 4 sets them: "At 4:10,
-  a colleague sends" → `16:10` + "A colleague sends"; "At 16:12, Ada opens" → `16:12` +
-  "Ada opens"; "22:36. The flat is quiet." → `22:36` + "The flat is quiet."; the evening
-  reveal's "07:08." becomes its own timestamp.
+- **The three scenes were rewritten** the same day, at the author's request ("the wording
+  needs to be more natural… who is Emil?"). She chose: written to "you" instead of the
+  handoff's invented Ada and Emil, and one connected day — 16:10 the message, 16:12 the
+  slide (whose reveal names the message two minutes earlier), 22:36 one more folder,
+  07:08 the kettle. The hook lines and per-scene categories were dropped; the
+  "inspired by the book" label is said once, above the list. The new wording, the intro
+  and the boundary line ("How you feel can change what a moment seems to mean. If
+  something is really wrong, it still deserves attention.") are still kind 5: drafted
+  for her, awaiting her approval of the exact words.
 - **Talk durations name their audience**: "20-minute talk, for conferences and
   associations", "40-minute talk, for conferences and associations", "75-minute reading
   and conversation, for bookshops, libraries and book clubs" (the spec asks for it).

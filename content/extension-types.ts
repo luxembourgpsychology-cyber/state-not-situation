@@ -15,10 +15,10 @@ export interface SceneCopy {
   id: "message" | "starting" | "evening";
   /** The hour the scene happens at, set in mono like page 4's timestamps. */
   time: string;
+  /** One line, like page 4's: what the moment is. */
   title: string;
-  hook: string;
-  category: string;
   scene: string;
+  /** The question before a choice; empty when the scene has none. */
   prompt: string;
   /** Two possible readings (the message scene only). Either leads to the same reveal. */
   options: string[];

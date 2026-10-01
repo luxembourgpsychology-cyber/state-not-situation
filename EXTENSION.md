@@ -88,8 +88,11 @@ Where this departs from the handoff, and why.
    `amazonUrl`) rather than adding the handoff's four-state status: one switch cannot
    drift from another. "Forthcoming" with an old link still set never shows Buy. The
    site's own label "Read an extract" replaces the handoff's "Read the opening".
-7. **Timestamps moved out of the scenes' sentences** into the mono column, in 24-hour
-   form ("At 4:10" → `16:10`); the evening reveal carries its own `07:08`.
+7. **The scenes are one day, written to "you"** (the author's choice, 1 October 2026):
+   16:10 a message, 16:12 the slide, 22:36 one more folder, 07:08 the kettle — the way
+   page 4 reads one day five times. Each scene still works alone; read together, the
+   16:12 reveal shows the message from two minutes earlier still at work. Times sit in
+   the mono column; the "inspired by the book" label is said once above the list.
 8. **Talk durations say who they are for** (conferences vs bookshops and libraries), as
    the spec asks.
 9. **`.btn-solid` on two more controls**: the enquiry's submit and an event's booking
