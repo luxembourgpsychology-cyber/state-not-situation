@@ -465,3 +465,76 @@ The back cover's text changed, and two things on the site now quote a version of
 Also now printed on the back, as a four-line table: *A short message feels cold. / A meeting feels dangerous. / A craving feels like a decision. / A quiet room feels like judgement.* — the four sentences recorded under *The final cover* as open question 9, which the site has never carried.
 
 `premise.lines`, `premise.eyebrow`, `closing.line`, `hero.strap` and `footer.band` are all still printed and are unaffected. **Raised with the author on 30 September 2026; no copy was changed without her.**
+
+## The commercial extension, 1 October 2026
+
+Six English-only pages and one home-page section (`EXTENSION.md`). Their words are in
+`content/extension.en.ts`, apart from `content/en.ts`, and they introduce **a fifth kind
+of string** this file has not had before:
+
+5. **Handoff draft.** Copy the author supplied on 1 October 2026 in
+   `02_CONTENT_AND_CONFIG.json`, which marks itself `"copyStatus": "draft-for-Ivana-review"`.
+   Written for her, not by her, and not yet approved.
+
+**Approved on 1 October 2026.** The author reviewed the preview — Explore, Invite with its
+four offers, Enquiry, Events, the app's doorway and Research — and wrote "good. lets go
+live". From that date every string in `content/extension.en.ts` stands as
+**author-approved (2)**, and `extension.approved` and all four offers'
+`approvedForPublication` are `true`. Three practical points were left open by her
+choice and can be changed in the content file at any time: the offers' durations, the
+languages sessions run in, and that enquiries go to the public address.
+
+Because of that, all of it is fenced: `site.config.ts → extension.approved` is `false`,
+so production renders none of it, and every preview page says it is a draft. **When the
+author approves a line, it becomes author-supplied (2); when she changes one, record the
+change here.**
+
+### What each part rests on
+
+| Strings | Kind | Source |
+|---|---|---|
+| `explore.endText` — "State. Not Situation. examines the gap between what happened and what it felt like it meant." | 1, printed | Back cover of v50 (see *What the new back cover means for the site*, above). Chosen over the handoff's own summary of the book. |
+| `research`: page 7's systems passage, the three markers and their descriptions, page 7's closing line, The Scientific Heartbeat's two sentences | 1 / 2 | Read from `content/en.ts` (`press.sortingTool`, `evidence.*`, `press.sources`, `press.sourcesLabel`) — already sourced above, not copied. |
+| `research`: Chapter 13's number, title and page | 1, printed | `press.chapters` (page 5's map). |
+| Author lines on the new pages | 2 | `author.bio`, `hero.credential`, `press.bios` "Long" — read from `content/en.ts`. |
+| `discovery.*`, `explore.eyebrow/title/endTitle`, `invite.title/intro/availabilityNote`, the four offers, `enquiry.title/intro/purposeHint/boundary/emailFallbackIntro`, `events.*` titles, empty state and attendee email, `app.copyByStatus`, `research.title/intro/evidence.related/situation.body` | 5 | `02_CONTENT_AND_CONFIG.json`, word for word, with the edits below. |
+| `explore.intro/sceneLabel/boundary`, the three scenes | 5, rewritten | See *Edits made to the handoff draft*, below. |
+| `invite.faq` | 5, assembled | Each answer is made of handoff lines: booking from `enquiry.boundary`; books from `invite.booksNote`; language from the offers' `practical` lines ("language … agreed in advance"); "what these sessions are not" from the talks' and workshops' `scope` lines. |
+| Every label, field name, error, status word, "More ways in", "FR · livre", the draft note, "Nothing is sent from this website…", "Now send it from your email app…" | 3, interface | Functional text: what a control does, or what has (not) happened. The French tooltip is for the author to check. |
+
+### Edits made to the handoff draft
+
+- **The three scenes were rewritten** the same day, at the author's request ("the wording
+  needs to be more natural… who is Emil?"). She chose: written to "you" instead of the
+  handoff's invented Ada and Emil, and one connected day — 16:10 the message, 16:12 the
+  slide (whose reveal names the message two minutes earlier), 22:36 one more folder,
+  07:08 the kettle. The hook lines and per-scene categories were dropped; the
+  "inspired by the book" label is said once, above the list. The new wording, the intro
+  and the boundary line ("How you feel can change what a moment seems to mean. If
+  something is really wrong, it still deserves attention.") are still kind 5: drafted
+  for her, awaiting her approval of the exact words.
+- **Then the page was redrawn** (her choice of "idea 1", 1 October 2026): each moment's
+  title became the one big line a skimmer reads ("“Can we talk before you go?”", "The
+  title looked fine at lunch.", "Just one more folder."), and the scenes no longer repeat
+  them. The 07:08 turn now says the cause she could not see ("dont get the photos?"):
+  "The photos are sorted, every last one. You got to bed after one in the morning…".
+- **Invite, for someone who scans** (same day, at her request): each offer gained three
+  short strings — `short`, `duration`, `who` — and the rest opens on a tap. They are
+  derived, not new claims: `short` is the first sentence of the teams hook, and a
+  shortening of the other three hooks; `duration` restates the offer's own `formats`
+  ("60 or 90 minutes", "20, 40 or 75 minutes", "Three hours, or two × 90 minutes");
+  `who` shortens its `audience`. Kind 5, awaiting her approval.
+- **Talk durations name their audience**: "20-minute talk, for conferences and
+  associations", "40-minute talk, for conferences and associations", "75-minute reading
+  and conversation, for bookshops, libraries and book clubs" (the spec asks for it).
+- **Not used**: the handoff's Explore `endText` (replaced by the printed back cover, above);
+  its three research `body` paragraphs where the book's own words exist; and
+  "The instrument panel is an analogy", which could not be checked against v50.
+- "Read the opening" is the site's existing "Read an extract".
+
+### What the new pages must never say
+
+No fee, date, venue, capacity, testimonial, accreditation, outcome, app feature, app
+date or app price. The scenes are original and labelled "An example inspired by the
+book."; none is a passage of the book. The February Readings, worksheets, chapter
+endings and app material are not on the site in any form, visible or hidden.

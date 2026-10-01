@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Locale } from "@/site.config";
 import { siteConfig } from "@/site.config";
 import { getContent, isUnderReview } from "@/lib/i18n";
+import { extensionLinks, extensionOn, ext } from "@/lib/extension";
 import { PulseMark } from "./PulseMark";
 
 /**
@@ -23,6 +24,9 @@ export function Footer({ locale }: { locale: Locale }) {
     { href: `${base}#author`, label: c.nav.author },
     ...(siteConfig.press.enabled ? [{ href: `${base}/press`, label: c.footer.pressLink }] : []),
   ];
+  // The commercial extension: a second row under the first, in English only
+  // and only where it is switched on. The first row does not change.
+  const more = extensionOn(locale) ? extensionLinks(locale) : [];
 
   return (
     <footer className="mt-auto">
@@ -56,6 +60,20 @@ export function Footer({ locale }: { locale: Locale }) {
             </ul>
           </nav>
         </div>
+
+        {more.length ? (
+          <div className="container-book pb-6 -mt-2 flex sm:justify-end">
+            <nav aria-label={ext().footer.label}>
+              <ul className="flex flex-wrap gap-x-6 sm:justify-end t-label font-mono tracking-[0.08em]">
+                {more.map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="inline-flex items-center min-h-11 hover:underline underline-offset-4">{l.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        ) : null}
 
         {/* The imprint row. The translation note joins it only while the
             language is under review; signing the language off in

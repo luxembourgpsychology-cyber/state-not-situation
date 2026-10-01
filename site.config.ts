@@ -43,6 +43,20 @@ export interface EditionSettings {
   isbn: string | null;
 }
 
+/** The separate STATE companion app, as far as this site is concerned: its status and its address. */
+export type AppStatus = "in_development" | "live";
+
+export interface ExtensionSettings {
+  /** The author's sign-off on the new pages' copy. False = preview deployments and `npm run dev` only. */
+  approved: boolean;
+  /** Languages the new pages exist in. Never list one without its own approved copy. */
+  locales: Locale[];
+  /** "email_draft" is the only mode built: the site has no enquiry backend. */
+  enquiry: { mode: "email_draft" };
+  /** "live" needs an approved https publicUrl as well; without one the site keeps showing "in development". */
+  app: { status: AppStatus; publicUrl: string | null };
+}
+
 export interface SiteConfig {
   siteUrl: string;
   defaultLocale: Locale;
@@ -60,6 +74,7 @@ export interface SiteConfig {
     social: { instagram: string | null; linkedin: string | null; x: string | null };
   };
   publisher: { name: string; place: string };
+  extension: ExtensionSettings;
 }
 
 export const siteConfig: SiteConfig = {
@@ -182,5 +197,31 @@ export const siteConfig: SiteConfig = {
   },
 
   publisher: { name: "Budisin Publishing", place: "Luxembourg" },
+
+  /**
+   * THE COMMERCIAL EXTENSION, 1 October 2026: Explore, Invite Ivana, the
+   * enquiry page, Events, the app's doorway and Research & limits. English
+   * only. Words in content/extension.en.ts, events in content/events.ts.
+   *
+   * approved: false keeps every part of it off the production site — the
+   * pages return 404, and the header, menu, footer and home-page links are
+   * not rendered. Preview deployments and `npm run dev` show it all, under a
+   * "draft for review" line. Set true once the author has approved the copy.
+   * Each offer on /invite also has its own approvedForPublication.
+   *
+   * Approved by the author on 1 October 2026 after reviewing the preview
+   * ("good. lets go live"). Setting it back to false takes every new page and
+   * link off the site together.
+   */
+  extension: {
+    approved: true,
+    locales: ["en"],
+    // The draft goes to author.pressEmail from the visitor's own email app.
+    // Nothing is collected by the site; a backend would be a separate change.
+    enquiry: { mode: "email_draft" },
+    // Built separately. Set status "live" and publicUrl together, and only
+    // with the address the app's own team has approved.
+    app: { status: "in_development", publicUrl: null },
+  },
 };
 

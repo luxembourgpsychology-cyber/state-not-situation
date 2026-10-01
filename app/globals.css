@@ -364,3 +364,69 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .pulse-playing .pulse-path { animation: none; stroke-dasharray: none; }
 }
+
+/* ==================================================================
+   THE COMMERCIAL EXTENSION, 1 October 2026
+   Scoped: every rule names a class only the new parts use (.ext is the
+   new pages' main). No new type step, colour, spacing value or shadow.
+================================================================== */
+/* Three doors on the home page, set exactly like the evidence markers. */
+.doors { display: grid; gap: 0; }
+.doors__cell { padding-block: 1.25rem; border-top: 1px solid var(--rule); }
+.doors__cell:last-child { border-bottom: 1px solid var(--rule); }
+@media (min-width: 640px) {
+  .doors { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .doors__cell { padding: 0 1.25rem; border-top: 0; border-bottom: 0; }
+  .doors__cell:first-child { padding-left: 0; }
+  .doors__cell:last-child { padding-right: 0; border-bottom: 0; }
+  .doors__cell + .doors__cell { border-left: 1px solid var(--rule); }
+}
+
+/* Disclosures: a word over a rule, like every other action. No triangle. */
+.ext summary { cursor: pointer; list-style: none; }
+.ext summary::-webkit-details-marker { display: none; }
+.ext details[open] > summary .ext-closed,
+.ext details:not([open]) > summary .ext-open { display: none; }
+
+/* Form fields: the notify field's underline, at body size for prose. */
+.ext-input {
+  width: 100%;
+  min-height: 3rem;
+  background: transparent;
+  border-bottom: 1.5px solid var(--ink);
+  padding: 0.5rem 0;
+  font-size: 1rem;
+}
+.ext-input:focus { outline: none; border-color: var(--red); }
+.ext-input[aria-invalid="true"] { border-color: var(--red); }
+/* A long answer needs a visible edge on every side: a rule, not a box. */
+.ext-textarea {
+  width: 100%;
+  min-height: 10rem;
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  padding: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.58;
+  resize: vertical;
+}
+.ext-textarea:focus { outline: none; border-color: var(--red); }
+.ext-textarea[aria-invalid="true"] { border-color: var(--red); }
+.ext-choice { accent-color: var(--red); width: 1.1rem; height: 1.1rem; flex: 0 0 auto; margin-top: 0.3rem; }
+
+/* Explore: the timestamp at DISPLAY, in mono — the design system's own
+   "Timestamp" motif — and the day drawn as one pulse line (DayLine.tsx). */
+.ext-stamp {
+  font-family: var(--font-mono);
+  font-size: var(--step-display);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.ext-dayline { position: relative; padding-bottom: 2.25rem; }
+.ext-dayline svg { display: block; width: 100%; height: clamp(4.5rem, 10vw, 7rem); overflow: visible; }
+.ext-dayline__labels { position: absolute; left: 0; right: 0; bottom: 0; height: 1.5rem; }
+.ext-dayline__label { position: absolute; top: 0; transform: translateX(-50%); }
+.ext-dayline__path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ext-trace 1.6s ease-out 0.2s forwards; }
+@keyframes ext-trace { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .ext-dayline__path { animation: none; stroke-dashoffset: 0; } }

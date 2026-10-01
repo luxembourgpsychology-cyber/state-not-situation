@@ -10,6 +10,7 @@ import { alternatesFor, getContent, localeUrl } from "@/lib/i18n";
 import { publicationDate } from "@/lib/publication";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { navExtension } from "@/lib/extension";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const locale = (await params).lang as Locale;
@@ -73,7 +74,7 @@ export default async function PressPage({ params }: { params: Promise<{ lang: st
 
   return (
     <>
-      <Nav locale={locale} content={c} variant="page" excerptAvailable={ed.excerptAvailable} />
+      <Nav locale={locale} content={c} variant="page" excerptAvailable={ed.excerptAvailable} more={navExtension(locale)} />
       <main id="main" className="bg-page">
         <div className="container-book section grid md:grid-cols-12 gap-x-10 gap-y-[var(--space-block)]">
           <div className="md:col-span-4">
