@@ -21,6 +21,28 @@ type Labels = {
   boundary: string;
 };
 
+/**
+ * Each moment's own stretch of the pulse line, drawn when its scene opens:
+ * a jolt at 16:10, a jitter at 16:12, a low hum at 22:36, a snap at 07:08.
+ * The same shapes as the day line above, so the opened scene answers it.
+ */
+const TRACES = {
+  message: "M2 21 H30 L36 17 L42 21 H50 L56 4 L62 32 L68 21 H118",
+  starting: "M2 21 H22 L27 12 L32 30 L37 6 L42 33 L47 14 L52 28 L57 3 L62 33 L67 18 L72 21 H118",
+  evening: "M2 21 H20 Q30 15 40 21 T60 21 T80 21 T100 21 H118",
+  morning: "M2 21 H50 L56 19 L62 21 L70 1 L78 34 L84 21 H118",
+} as const;
+
+function SceneTrace({ kind }: { kind: keyof typeof TRACES }) {
+  return (
+    <svg viewBox="0 0 120 36" className="scene-trace" aria-hidden="true" focusable="false">
+      <path d={TRACES[kind]} pathLength={1} className="pulse-path" vectorEffect="non-scaling-stroke" />
+    </svg>
+  );
+}
+
+const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 /** Where each time sits under the day line, as a share of its width. */
 const STATION_LEFT: Record<string, string> = { message: "11.5%", starting: "34%", evening: "63.5%", morning: "88%" };
 
@@ -37,7 +59,10 @@ const STATION_LEFT: Record<string, string> = { message: "11.5%", starting: "34%"
  * moments" closes the scene and returns focus to the button that opened it.
  *
  * Opening a scene leaves focus on its own button, which the scene follows
- * directly: the native disclosure pattern, so nothing jumps.
+ * directly: the native disclosure pattern. On a phone the page does not jump:
+ * the tapped moment holds its place while any other scene folds away, then
+ * glides up until its time sits under the header. As it opens, its stretch
+ * of the pulse line draws and the words rise in (still, under reduced motion).
  *
  * The two readings in the message scene lead to the same reveal. Which one a
  * visitor chose is held in this component only — never stored, never sent.
@@ -119,14 +144,42 @@ export function SceneList({
     if (reveals.current[id]) reveals.current[id]!.open = true;
   };
 
+  // Open one moment without the page jumping. Closing another scene above
+  // would pull everything up, so the tapped moment is held where it was;
+  // then it glides to the top of the screen, time and title first.
+  const showScene = (id: string, reveal = false) => {
+    const el = panels.current[id];
+    const li = document.getElementById(`scene-${id}`);
+    if (!el || !li) return;
+    const before = li.getBoundingClientRect().top;
+    // Open this one before closing the others: the toggle events then arrive
+    // in that order, so history gains one step (this scene), not an empty one.
+    el.open = true;
+    if (reveal && reveals.current[id]) reveals.current[id]!.open = true;
+    for (const k of ids) if (k !== id && panels.current[k]?.open) panels.current[k]!.open = false;
+    const shift = li.getBoundingClientRect().top - before;
+    if (shift) window.scrollBy({ top: shift, behavior: "instant" });
+    requestAnimationFrame(() => {
+      const margin = Number.parseFloat(getComputedStyle(li).scrollMarginTop) || 0;
+      if (Math.abs(li.getBoundingClientRect().top - margin) > 24) {
+        li.scrollIntoView({ block: "start", behavior: reducedMotion() ? "instant" : "smooth" });
+      }
+    });
+  };
+
+  // "Read the scene": the same, by hand, so the browser's own toggle cannot
+  // jump first. "Close the scene" just closes.
+  const onSummaryClick = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    const el = panels.current[id];
+    if (el?.open) el.open = false;
+    else showScene(id);
+  };
+
   // From the day line or the morning row: open the moment and go to it.
   // The morning opens the evening scene with its turn already shown.
   const openScene = (id: string, reveal = false) => {
-    const el = panels.current[id];
-    if (!el) return;
-    el.open = true;
-    if (reveal && reveals.current[id]) reveals.current[id]!.open = true;
-    document.getElementById(`scene-${id}`)?.scrollIntoView({ block: "start" });
+    showScene(id, reveal);
     triggers.current[id]?.focus({ preventScroll: true });
   };
 
@@ -163,6 +216,7 @@ export function SceneList({
                 <summary
                   ref={(el) => { triggers.current[s.id] = el; }}
                   className="btn btn-red"
+                  onClick={onSummaryClick(s.id)}
                 >
                   <span className="ext-closed">{labels.stepIn}</span>
                   <span className="ext-open">{labels.close}</span>
@@ -170,8 +224,9 @@ export function SceneList({
                   <span className="sr-only">: {s.title}</span>
                 </summary>
 
-                <div className="mt-[var(--space-block)]">
-                  <p className="t-body">{s.scene}</p>
+                <div className="scene-panel mt-[var(--space-block)]">
+                  <SceneTrace kind={s.id} />
+                  <p className="t-body mt-4">{s.scene}</p>
                   {s.prompt ? <p className="t-lead mt-[var(--space-block)]">{s.prompt}</p> : null}
 
                   {s.options.length ? (
@@ -205,11 +260,16 @@ export function SceneList({
                     className="mt-[var(--space-block)]"
                   >
                     <summary className="btn">{s.revealLabel}</summary>
-                    <div className="mt-[var(--space-block)]" aria-live="polite">
+                    <div className="scene-panel mt-[var(--space-block)]" aria-live="polite">
                       {s.options.length && chosen[s.id] !== undefined ? (
                         <p className="t-mono mb-3">{labels.chosen}: {s.options[chosen[s.id]]}</p>
                       ) : null}
-                      {s.revealTime ? <p className="ext-stamp mb-4">{s.revealTime}</p> : null}
+                      {s.revealTime ? (
+                        <>
+                          <SceneTrace kind="morning" />
+                          <p className="ext-stamp mt-4 mb-4">{s.revealTime}</p>
+                        </>
+                      ) : null}
                       <p className="t-lead">{s.reveal}</p>
                       <p className="t-body mt-[var(--space-tight)]">{s.question}</p>
                       <ScopeNote className="mt-[var(--space-block)]">{labels.boundary}</ScopeNote>

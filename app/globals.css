@@ -456,3 +456,17 @@ body {
 }
 .ways__link:hover .ways__word { color: var(--red); }
 .ways__pulse { display: block; width: 100%; height: 1.5rem; margin-top: 0.5rem; }
+
+/* A scene opens: its stretch of the pulse line draws once, and the words
+   rise in with the site's one transition (opacity and 8px, 400ms). Both
+   restart each time the scene opens, and neither runs under reduced motion. */
+/* Both end at the element's own resting style (no lingering fill), so once
+   played nothing on the page is still animating. */
+.scene-panel { animation: ext-rise 400ms ease-out backwards; }
+@keyframes ext-rise { from { opacity: 0; transform: translateY(8px); } }
+.scene-trace { display: block; width: 8.5rem; height: 2.5rem; overflow: visible; }
+.scene-trace path { stroke-dasharray: 1; stroke-dashoffset: 0; animation: ext-draw 900ms ease-out 120ms backwards; }
+@keyframes ext-draw { from { stroke-dashoffset: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .scene-panel, .scene-trace path { animation: none; }
+}

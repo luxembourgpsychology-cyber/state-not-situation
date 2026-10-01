@@ -164,7 +164,10 @@ classes these pages use; no global selector changed.
 On `/explore` the third motif carries the page: the pulse mark's stroke drawn across
 one day (`DayLine.tsx`), and each moment's time in mono at DISPLAY (`.ext-stamp`), as the
 timestamp motif was specified. The line draws itself once on arrival — the brief's
-"subtle signal movement" — and is still under reduced motion.
+"subtle signal movement" — and is still under reduced motion. When a scene opens, its own
+stretch of that line draws once above the words (`.scene-trace`), and the words rise in
+with the site's one transition (opacity and 8 px, 400 ms); the scene glides to the top of
+the screen rather than jumping. All three are still under reduced motion.
 
 In the header, Invite Ivana follows Press, and "More ways in" is a disclosure that opens
 a second bar of the same type under the first. With those six items the bar is inline
