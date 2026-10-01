@@ -171,8 +171,11 @@ export const siteConfig: SiteConfig = {
    * "vercel"   → Vercel Web Analytics (cookieless, no consent banner needed under GDPR guidance).
    * "plausible" → Plausible (cookieless, EU-hosted). Set plausibleDomain to your domain.
    */
+  // Vercel Web Analytics, switched on by the author in the Vercel project on
+  // 1 October 2026 (Pro plan, standard option — not "Plus"). Cookieless; it
+  // counts page views and the events listed in lib/analytics.ts.
   analytics: {
-    provider: "none",
+    provider: "vercel",
     plausibleDomain: "",
   },
 

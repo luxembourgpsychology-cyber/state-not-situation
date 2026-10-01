@@ -8,11 +8,11 @@ import { siteConfig } from "@/site.config";
  *
  * The commercial extension adds six. Their properties are ids and the
  * language only — never a name, an address, a field's text or which reading
- * of a scene someone chose:
+ * of a scene someone chose. At most two each: the Pro plan keeps two.
  *   sample_opened, sample_completed     { scene, locale }
  *   offer_viewed                        { offer, locale }
- *   enquiry_email_draft_opened          { offer, source, locale }   (a draft, not a delivery)
- *   event_booking_clicked               { event, provider, locale } (an outbound click, not a purchase)
+ *   enquiry_email_draft_opened          { offer, source }    (a draft, not a delivery)
+ *   event_booking_clicked               { event, provider }  (an outbound click, not a purchase)
  *   app_outbound_clicked                { source, locale }
  */
 export type SiteEvent =

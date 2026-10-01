@@ -77,7 +77,7 @@ export function EnquiryForm({ copy, recipient, formats, locale }: { copy: Copy; 
       requestAnimationFrame(() => summary.current?.focus());
       return;
     }
-    track("enquiry_email_draft_opened", { offer: f.format, source, locale });
+    track("enquiry_email_draft_opened", { offer: f.format, source });
     setDrafted(true);
     window.location.href = href;
     requestAnimationFrame(() => sentHeading.current?.focus());
