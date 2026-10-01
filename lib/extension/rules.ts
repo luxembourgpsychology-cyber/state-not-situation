@@ -36,6 +36,7 @@ export function extensionVisible(
 
 export type BookAction =
   | { kind: "buy"; href: string; label: string }
+  | { kind: "preorder"; href: string; label: string }
   | { kind: "details"; href: string; label: string };
 
 /**
@@ -43,20 +44,25 @@ export type BookAction =
  * site already has (site.config.ts: publicationStatus + amazonUrl) rather than
  * a second one, so the two can never disagree.
  *
- * - published with a verified https link → the existing "Buy on Amazon"
- * - anything else → "Book & publication details", to the first screen
+ * - "published" with a verified https link → "Buy the book"
+ * - "preorder" with a verified https link → "Pre-order the book"
+ * - anything else → "About the book", to the first screen
  *
  * A date passing changes nothing: "forthcoming" stays forthcoming until the
  * config says otherwise, and setting it back to "forthcoming" while an old
- * link is still pasted in suppresses the purchase label (a temporary pause).
+ * link is still pasted in suppresses every purchase label (a temporary pause).
  */
 export function resolveBookAction(
   edition: { publicationStatus: string; amazonUrl: string | null },
-  labels: { buy: string; details: string },
+  labels: { buy: string; preorder: string; details: string },
   detailsHref: string,
 ): BookAction {
-  if (edition.publicationStatus === "published" && isHttpsUrl(edition.amazonUrl)) {
+  const linked = isHttpsUrl(edition.amazonUrl);
+  if (edition.publicationStatus === "published" && linked) {
     return { kind: "buy", href: edition.amazonUrl as string, label: labels.buy };
+  }
+  if (edition.publicationStatus === "preorder" && linked) {
+    return { kind: "preorder", href: edition.amazonUrl as string, label: labels.preorder };
   }
   return { kind: "details", href: detailsHref, label: labels.details };
 }

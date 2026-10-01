@@ -55,12 +55,20 @@ export default async function EventsPage({ params }: { params: Promise<{ lang: s
               </div>
             )}
 
-            <div className="mt-[var(--space-block)] flex flex-wrap items-center gap-x-8 gap-y-3">
+            {/* Attending: a question by email, nothing reserved, no list. */}
+            <p className="mt-[var(--space-block)]">
               <a href={ask} className="btn btn-red">{x.attendee.label}</a>
-              {invite ? <Link href={`/${locale}/invite`} className="btn">{x.hostLabel}</Link> : null}
-            </div>
+            </p>
             <p className="mt-3 text-sm text-quiet">{x.attendee.hint}</p>
             <p className="mt-1 text-sm text-quiet font-mono break-words select-all">{siteConfig.author.pressEmail}</p>
+
+            {/* Hosting: a different journey, said apart. */}
+            {invite ? (
+              <div className="mt-[var(--space-section)] pt-[var(--space-block)] border-t border-[var(--rule)]">
+                <p className="t-lead">{x.hostQuestion}</p>
+                <p className="mt-3"><Link href={`/${locale}/invite`} className="btn">{x.hostLabel}</Link></p>
+              </div>
+            ) : null}
           </div>
         </div>
       </section>

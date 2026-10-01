@@ -57,21 +57,21 @@ export default async function ExplorePage({ params }: { params: Promise<{ lang: 
                 boundary: x.boundary,
               }}
               ending={<BookActions locale={locale} />}
-              teamsLink={teams ? <Link href={`/${locale}/invite#teams`} className="t-label inline-flex items-center min-h-11 text-quiet hover:text-red">{x.teamsLink} →</Link> : null}
+              teamsLink={teams ? <Link href={`/${locale}/invite#teams`} className="t-label inline-flex items-center min-h-11 text-quiet hover:text-red">{x.teamsLink}</Link> : null}
             />
           </div>
         </div>
       </section>
 
-      {/* The way out: the book's own sentence about itself, the author, the book. */}
+      {/* The way out: a sentence about the book (website copy, not a quotation), the author, the book. */}
       <section className="section" aria-labelledby="explore-end">
         <div className="container-book grid md:grid-cols-12 gap-x-10 gap-y-[var(--space-block)]">
           <div className="md:col-span-3">
-            <p className="t-mono">{x.endSource}</p>
+            <p className="t-label t-label-red">{x.endEyebrow}</p>
           </div>
           <div className="md:col-span-8">
             <h2 id="explore-end" className="t-head">{x.endTitle}</h2>
-            <p className="t-lead mt-[var(--space-tight)]">{x.endText}</p>
+            <p className="t-body mt-[var(--space-tight)]">{x.endText}</p>
 
             <div className="mt-[var(--space-section)] grid sm:grid-cols-[auto_1fr] gap-x-8 gap-y-[var(--space-block)] items-start">
               {photo ? (

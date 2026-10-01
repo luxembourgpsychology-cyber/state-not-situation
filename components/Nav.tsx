@@ -18,7 +18,9 @@ import { PulseMark } from "./PulseMark";
  * icon. The sheet is a real dialog: focus moves into it, Escape closes it, the
  * page behind it is inert, and every item is an anchor.
  *
- * `more` (the commercial extension, English only) adds one item after Press:
+ * `more` (the commercial extension, English only) adds Invite Ivana after
+ * Press as a destination of its own (the author's brief, 1 October 2026), and
+ * one more item:
  * "More ways in", a disclosure that opens a second quiet bar under this one
  * with the new pages. The four sections keep their place and their size. To
  * make room between 768 and 1023 the wordmark beside the pulse mark yields,
@@ -44,7 +46,12 @@ export function Nav({
   content: SiteContent;
   variant?: "home" | "page";
   excerptAvailable?: boolean;
-  more?: { label: string; links: { href: string; label: string; word?: string; hint?: string }[] } | null;
+  more?: {
+    label: string;
+    /** Invite Ivana: a primary destination beside Book, Extract, Author and Press. */
+    primary?: { href: string; label: string } | null;
+    links: { href: string; label: string; word?: string; hint?: string }[];
+  } | null;
   /** On a page that exists in one language only: where the other marks go, and what they say. */
   homeOnlyLanguage?: Partial<Record<Locale, { label: string; title: string }>>;
 }) {
@@ -63,7 +70,12 @@ export function Nav({
     ...(excerptAvailable ? [{ href: `${base}/read`, label: c.nav.read }] : []),
     { href: to("#author"), label: c.nav.author },
     ...(siteConfig.press.enabled ? [{ href: `${base}/press`, label: c.nav.press }] : []),
+    ...(more?.primary ? [more.primary] : []),
   ];
+  // With the extension the bar carries six items: below 1024 they move into
+  // the sheet behind Menu rather than shrink. Without it, 768 as before.
+  const hideWide = more ? "lg:hidden" : "md:hidden";
+  const flexWide = more ? "lg:flex" : "md:flex";
 
   useEffect(() => {
     if (!open) return;
@@ -110,7 +122,7 @@ export function Nav({
           <button
             ref={button}
             type="button"
-            className="md:hidden t-label inline-flex items-center min-h-11 text-ink hover:text-red"
+            className={`${hideWide} t-label inline-flex items-center min-h-11 text-ink hover:text-red`}
             aria-expanded={open}
             aria-controls="menu-sheet"
             onClick={() => setOpen((v) => !v)}
@@ -119,11 +131,11 @@ export function Nav({
           </button>
           <Link href={base} aria-label={c.nav.home} className="flex items-center gap-3 shrink-0 min-h-11">
             <PulseMark className="w-9 h-auto" />
-            <span className={`t-label hidden min-[420px]:inline ${more ? "md:hidden lg:inline" : ""}`}>State. Not Situation.</span>
+            <span className={`t-label hidden min-[420px]:inline ${more ? "lg:hidden xl:inline" : ""}`}>State. Not Situation.</span>
           </Link>
         </div>
 
-        <nav aria-label="Primary" className="hidden md:flex items-center gap-7 min-w-0">
+        <nav aria-label="Primary" className={`hidden ${flexWide} items-center gap-7 min-w-0`}>
           {links.map((l) => (
             <Link key={l.label} href={l.href} className="t-label inline-flex items-center min-h-11 text-ink-soft hover:text-red whitespace-nowrap">
               {l.label}
@@ -156,7 +168,7 @@ export function Nav({
 
       {/* The second bar: the same type, the same rule, no shadow and no box. */}
       {more ? (
-        <div id="more-ways-in" ref={moreBar} hidden={!moreOpen} className="hidden md:block border-t border-[var(--rule)] bg-paper">
+        <div id="more-ways-in" ref={moreBar} hidden={!moreOpen} className="hidden lg:block border-t border-[var(--rule)] bg-paper">
           <nav aria-label={more.label} className="container-book container-wide">
             <ul className="flex flex-wrap justify-center gap-x-7 py-1">
               {more.links.map((l) => (
@@ -178,7 +190,7 @@ export function Nav({
           role="dialog"
           aria-modal="true"
           aria-label={c.a11y.menu}
-          className="menu-sheet md:hidden"
+          className={`menu-sheet ${hideWide}`}
         >
           <div className="container-book container-wide flex items-center justify-start h-14 shrink-0">
             <button type="button" className="t-label inline-flex items-center min-h-11 text-ink hover:text-red" onClick={() => setOpen(false)}>

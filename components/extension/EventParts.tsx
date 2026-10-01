@@ -4,14 +4,15 @@ import { ext } from "@/lib/extension";
 
 /**
  * What every event shows, in the same order everywhere: the date with its
- * year, the time with its zone, the place, the language, the price only when
- * it is verified, and the state in words — never in colour alone.
+ * year, the time with its zone, the place, the language, and the price only
+ * when it is verified. The state is said in words, never in colour alone.
  */
 export function eventFacts(e: EventRecord, now: Date) {
   const x = ext().events;
   const when = formatEventWhen(e);
   const state = effectiveStatus(e, now);
-  const showPrice = state === "bookable" || ((state === "sold_out" || state === "past" || state === "cancelled") && (e.isFree || e.priceDisplay));
+  const priced = e.isFree || Boolean(e.priceDisplay);
+  const showPrice = state === "bookable" || ((state === "sold_out" || state === "past" || state === "cancelled") && priced);
   const price = e.isFree ? x.free : e.priceDisplay ?? null;
   return {
     state,
@@ -20,9 +21,9 @@ export function eventFacts(e: EventRecord, now: Date) {
       [x.rows.time, when.time],
       [x.rows.place, e.venueOrOnline],
       [x.rows.language, e.language],
-      [x.rows.price, showPrice && price ? price : x.bookingToFollow],
-      [x.rows.book, e.bookIncluded === true ? x.bookIncluded.yes : e.bookIncluded === false ? x.bookIncluded.no : x.bookIncluded.unknown],
+      [x.rows.price, showPrice && price ? price : x.statusLine.announced],
     ] as [string, string][],
+    bookLine: e.bookIncluded === true ? x.bookIncluded.yes : e.bookIncluded === false ? x.bookIncluded.no : x.bookIncluded.unknown,
   };
 }
 

@@ -12,10 +12,15 @@
  */
 
 export type Locale = "en" | "fr" | "de";
-export type PublicationStatus = "forthcoming" | "published";
+/**
+ * "preorder" (added 1 October 2026) lets the new pages say "Pre-order the
+ * book" when amazonUrl is a verified pre-order link. The original pages treat
+ * it exactly like "forthcoming": their actions change only at "published".
+ */
+export type PublicationStatus = "forthcoming" | "preorder" | "published";
 
 export interface EditionSettings {
-  /** "forthcoming" shows the launch state, "published" shows Buy on Amazon. */
+  /** "forthcoming" shows the launch state, "published" shows Buy on Amazon; "preorder" changes only the new pages' book action. */
   publicationStatus: PublicationStatus;
   /** The retail link for this language edition. Null until it exists. */
   amazonUrl: string | null;

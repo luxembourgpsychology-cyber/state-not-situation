@@ -538,3 +538,23 @@ No fee, date, venue, capacity, testimonial, accreditation, outcome, app feature,
 date or app price. The scenes are original and labelled "An example inspired by the
 book."; none is a passage of the book. The February Readings, worksheets, chapter
 endings and app material are not on the site in any form, visible or hidden.
+
+### The editorial and booking-clarity pass, 1 October 2026
+
+The author's own brief, `CLAUDE_FULL_WEBSITE_LANGUAGE_AND_BOOKINGS_BRIEF.md` (written by
+her, saved beside the handoff), replaced the new pages' wording with hers. Its replacement
+copy is **author-supplied (2)**; `COPY_CHANGES.md` lists every surface, the old and new
+wording, and the small adaptations.
+
+Two consequences for the rule about quotations:
+
+- **Explore's ending** no longer quotes the v50 back cover under a "Back cover" label. It
+  carries the author's new sentence, unquoted, under "The book".
+- **Research** no longer quotes page 7's systems passage, page 7's evidence line or The
+  Scientific Heartbeat's two sentences beside page labels. Its three sections are the
+  author's prose. The High / Medium / Low labels (printed, page 7) and their descriptions
+  (author-supplied, 6 September 2026) are shown as "The book's evidence markers";
+  Chapter 13 is cited by its printed title and page.
+
+The original pages — the landing body, the extract, the press page, the French pages — are
+untouched by this pass.

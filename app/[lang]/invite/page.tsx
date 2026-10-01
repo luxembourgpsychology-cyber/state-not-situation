@@ -17,14 +17,15 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 /**
- * INVITE IVANA — the paid-sessions page, for someone who scans.
+ * INVITE IVANA — the paid-sessions page, understandable before it is poetic.
  *
- * A face and one sentence first: organisers book a person. Then the four
- * offers as four big lines — who it is for, the title, one short line, the
- * length in mono — each opening in place to the whole format: who it is for,
- * what it explores, a glimpse, what people take away, practicalities, scope,
- * and the action with its format already chosen. Everything is in the page;
- * nothing is asked of anyone before the format is described. No fee appears.
+ * A face and the questions the sessions explore first: organisers book a
+ * person. Then each offer as an organiser reads it — who it is for, what it
+ * is in plain words, the book's own name for it, what happens, how long, what
+ * people take away — with its own enquiry link, before anything is opened.
+ * "What happens in the session" holds the rest: what we explore, practical
+ * details, scope. Everything is in the page; nothing is asked of anyone
+ * before the format is described. No fee appears.
  */
 export default async function InvitePage({ params }: { params: Promise<{ lang: string }> }) {
   const locale = (await params).lang as Locale;
@@ -33,7 +34,6 @@ export default async function InvitePage({ params }: { params: Promise<{ lang: s
   const c = getContent(locale);
   const x = ext().invite;
   const photo = siteConfig.press.authorPhoto;
-  const longBio = c.press.bios.find((b) => b.label === "Long")?.text ?? c.author.bio;
   const enquire = (format: string) => `/${locale}/enquire?format=${format}&source=invite`;
 
   return (
@@ -58,18 +58,20 @@ export default async function InvitePage({ params }: { params: Promise<{ lang: s
           <div className="md:col-span-8">
             <h1 className="t-display">{x.title}</h1>
             <p className="t-body mt-[var(--space-tight)]">{x.intro}</p>
-            <p className="mt-3 text-sm text-quiet">{x.availabilityNote}</p>
+            <p className="t-body mt-[var(--space-tight)]">{x.support}</p>
             <p className="mt-[var(--space-block)]">
-              <Link href={enquire("not_sure")} className="btn btn-red">{x.quoteLabel}</Link>
+              <Link href={enquire("not_sure")} className="btn btn-red">{x.primaryAction}</Link>
             </p>
+            <p className="mt-3 text-sm text-quiet">{x.practicalLine}</p>
           </div>
         </div>
       </header>
 
-      <section aria-label={x.indexLabel} className="pb-[var(--space-section)]">
+      <section aria-labelledby="invite-sessions" className="pb-[var(--space-section)]">
         <div className="container-book grid md:grid-cols-12 gap-x-10">
           <div className="md:col-span-8 md:col-start-4">
-            <ol className="border-t border-[var(--rule)]">
+            <h2 id="invite-sessions" className="t-head">{x.listTitle}</h2>
+            <ol className="mt-[var(--space-block)] border-t border-[var(--rule)]">
               {offers.map((o) => (
                 <Offer key={o.id} offer={o} href={enquire(o.id)} labels={x} />
               ))}
@@ -87,28 +89,28 @@ export default async function InvitePage({ params }: { params: Promise<{ lang: s
           <div className="md:col-span-8">
             <dl className="border-t border-[var(--rule)]">
               {x.faq.map((f) => (
-                <div key={f.q} className="grid sm:grid-cols-[11rem_1fr] gap-x-4 gap-y-1 py-4 border-b border-[var(--rule)]">
-                  <dt className="t-mono pt-1">{f.q}</dt>
-                  <dd className="t-body">{f.a}</dd>
+                <div key={f.q} className="py-4 border-b border-[var(--rule)]">
+                  <dt className="t-lead">{f.q}</dt>
+                  <dd className="t-body mt-2">{f.a}</dd>
                 </div>
               ))}
             </dl>
             <p className="mt-[var(--space-block)]">
-              <Link href={enquire("not_sure")} className="btn btn-red">{x.quoteLabel}</Link>
+              <Link href={enquire("not_sure")} className="btn btn-red">{x.primaryAction}</Link>
             </p>
           </div>
         </div>
       </section>
 
-      {/* The author, for an organiser's programme notes, and the press kit. */}
+      {/* Meet Ivana: the short introduction; the full biographies stay on /press. */}
       <section className="pb-[var(--space-section)]" aria-labelledby="invite-author">
         <div className="container-book grid md:grid-cols-12 gap-x-10 gap-y-[var(--space-block)]">
           <div className="md:col-span-8 md:col-start-4">
-            <h2 id="invite-author" className="t-head">{siteConfig.author.name}</h2>
-            <p className="t-body mt-[var(--space-tight)]">{c.author.bio}</p>
+            <h2 id="invite-author" className="t-head">{x.authorTitle}</h2>
+            <p className="t-body mt-[var(--space-tight)]">{x.authorBio}</p>
             <details className="mt-4">
-              <summary className="btn">{x.moreAbout}</summary>
-              <p className="t-body mt-[var(--space-tight)]">{longBio}</p>
+              <summary className="btn">{x.authorMoreLabel}</summary>
+              <p className="t-body mt-[var(--space-tight)]">{x.authorMore}</p>
             </details>
             {siteConfig.press.enabled ? (
               <div className="mt-[var(--space-block)]">
@@ -125,53 +127,63 @@ export default async function InvitePage({ params }: { params: Promise<{ lang: s
   );
 }
 
-/** One offer: four lines to scan, the whole format one tap away. All four share it. */
+/**
+ * One offer. What an organiser needs to decide is visible: audience, plain
+ * title, the book's name, description, duration, takeaway, the enquiry link.
+ * All four share it, so no audience gets a thinner page.
+ */
 function Offer({ offer: o, href, labels: x }: { offer: OfferCopy; href: string; labels: ReturnType<typeof ext>["invite"] }) {
-  const rows: [string, React.ReactNode][] = [
-    [x.rows.audience, o.audience],
-    [x.rows.formats, <ul key="f">{o.formats.map((f) => <li key={f}>{f}</li>)}</ul>],
-    [x.rows.explore, (
-      <ul key="e">
-        {o.explore.map((t) => (
-          <li key={t} className="flex gap-3"><span aria-hidden="true" className="text-quiet">—</span><span>{t}</span></li>
-        ))}
-      </ul>
-    )],
-    [x.rows.glimpse, o.glimpse],
-    [x.rows.takeaway, o.takeaway],
-    [x.rows.practical, o.practical],
-  ];
   return (
     <li id={o.id} className="py-[var(--space-block)] border-b border-[var(--rule)]">
-      <p className="t-label t-label-red">{o.label}</p>
-      <h2 id={`${o.id}-title`} className="t-display mt-3">{o.title}</h2>
-      <p className="t-lead mt-[var(--space-tight)]">{o.short}</p>
-      <p className="t-mono text-ink mt-3">{o.duration} · {o.who}</p>
+      <p className="t-label t-label-red">{o.audience}</p>
+      <h3 id={`${o.id}-title`} className="t-head mt-3">{o.title}</h3>
+      <p className="t-mono mt-2">{o.series}</p>
       {!o.approvedForPublication ? <p className="t-mono mt-2">{x.draftOffer}</p> : null}
 
-      <details data-offer={o.id} className="mt-4">
-        <summary className="btn btn-red" aria-describedby={`${o.id}-title`}>
-          <span className="ext-closed">{x.seeFormat}</span>
-          <span className="ext-open">{x.closeFormat}</span>
+      <p className="t-body mt-[var(--space-tight)]">{o.description}</p>
+      <ul className="mt-3">
+        {o.durations.map((d) => <li key={d} className="t-mono text-ink">{d}</li>)}
+      </ul>
+      <div className="mt-[var(--space-tight)]">
+        <p className="t-mono">{x.takeawayLabel}</p>
+        <p className="t-body mt-1">{o.takeaway}</p>
+      </div>
+
+      <p className="mt-[var(--space-block)] flex flex-wrap items-center gap-x-8 gap-y-2">
+        <Link href={href} className="btn btn-red">{o.action}</Link>
+        {o.alternative ? (
+          <Link href={o.alternative.href} className="t-label inline-flex items-center min-h-11 text-quiet hover:text-red">{o.alternative.label}</Link>
+        ) : null}
+      </p>
+
+      <details data-offer={o.id} className="mt-2">
+        <summary className="btn">
+          <span className="ext-closed">{x.openDetails}</span>
+          <span className="ext-open">{x.closeDetails}</span>
+          {/* Four buttons say the same words; this says which session. */}
+          <span className="sr-only">: {o.series}</span>
         </summary>
         <div className="mt-[var(--space-block)]">
-          <p className="t-body">{o.hook}</p>
-          <p className="t-body mt-[var(--space-tight)]">{o.description}</p>
+          {o.details ? <p className="t-body">{o.details}</p> : null}
 
-          <dl className="mt-[var(--space-block)] border-t border-[var(--rule)]">
-            {rows.map(([label, value]) => (
-              <div key={label} className="grid sm:grid-cols-[11rem_1fr] gap-x-4 gap-y-1 py-4 border-b border-[var(--rule)]">
-                <dt className="t-mono pt-1">{label}</dt>
-                <dd className="t-body">{value}</dd>
-              </div>
+          <h4 className="t-mono mt-[var(--space-block)]">{x.exploreLabel}</h4>
+          <ul className="t-body mt-2">
+            {o.explore.map((t) => (
+              <li key={t} className="flex gap-3"><span aria-hidden="true" className="text-quiet">—</span><span>{t}</span></li>
             ))}
-          </dl>
+          </ul>
 
-          <ScopeNote className="mt-[var(--space-block)]">{o.scope}</ScopeNote>
+          {o.takeawayDetail ? (
+            <>
+              <h4 className="t-mono mt-[var(--space-block)]">{o.takeawayDetail.label}</h4>
+              <p className="t-body mt-2">{o.takeawayDetail.text}</p>
+            </>
+          ) : null}
 
-          <p className="mt-[var(--space-block)]">
-            <Link href={href} className="btn btn-red">{x.quoteLabel}</Link>
-          </p>
+          <h4 className="t-mono mt-[var(--space-block)]">{x.practicalLabel}</h4>
+          <p className="t-body mt-2">{o.practical}</p>
+
+          {o.scope ? <ScopeNote className="mt-[var(--space-block)]">{o.scope}</ScopeNote> : null}
         </div>
       </details>
     </li>

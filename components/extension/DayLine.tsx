@@ -11,9 +11,9 @@ const PATH =
   "M0 70 H85 L95 62 L105 70 L115 22 L125 108 L135 70 H300 L310 58 L318 74 L326 28 L334 104 L342 48 L350 96 L358 16 L366 112 L374 60 L382 70 " +
   "H560 Q575 58 590 70 T620 70 T650 70 T680 70 T710 70 H850 L860 66 L868 72 L880 8 L892 116 L902 70 H1000";
 
-export type Station = { time: string; target: string; title: string; left: string; quiet?: boolean };
+export type Station = { time: string; target: string; title: string; left: string; quiet?: boolean; reveal?: boolean };
 
-export function DayLine({ stations, label, onSelect }: { stations: Station[]; label: string; onSelect?: (target: string) => void }) {
+export function DayLine({ stations, label, onSelect }: { stations: Station[]; label: string; onSelect?: (target: string, reveal?: boolean) => void }) {
   return (
     <figure className="ext-dayline" aria-label={label}>
       <svg viewBox="0 0 1000 124" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -25,7 +25,7 @@ export function DayLine({ stations, label, onSelect }: { stations: Station[]; la
             <a
               href={`#scene-${s.target}`}
               className={`t-mono inline-flex min-h-11 hover:text-red ${s.quiet ? "" : "text-ink"}`}
-              onClick={onSelect ? (e) => { e.preventDefault(); onSelect(s.target); } : undefined}
+              onClick={onSelect ? (e) => { e.preventDefault(); onSelect(s.target, s.reveal); } : undefined}
             >
               {s.time}<span className="sr-only">: {s.title}</span>
             </a>
