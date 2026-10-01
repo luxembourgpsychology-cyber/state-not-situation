@@ -21,6 +21,7 @@ export const extensionEn: ExtensionContent = {
   draftNote: "Preview · draft copy for the author’s review · not on the public site",
   moreWaysIn: "More ways in",
   nav: { explore: "Explore", events: "Events", invite: "Invite Ivana", research: "Research & limits" },
+  ways: { explore: "Three moments", events: "Readings and talks", invite: "Talks and workshops", research: "The evidence", app: "App" },
   homeOnlyLanguage: {
     fr: { label: "FR · livre", title: "Français — accueil du livre (cette page n’existe qu’en anglais)" },
     de: { label: "DE · Buch", title: "Deutsch — Startseite des Buches (diese Seite gibt es nur auf Englisch)" },

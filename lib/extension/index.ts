@@ -76,16 +76,25 @@ export function eventBySlug(slug: string) {
   return [...upcoming, ...past].find((e) => e.slug === slug) ?? null;
 }
 
+export type ExtensionLink = {
+  href: string;
+  /** The full label: header bar and footer. */
+  label: string;
+  /** The word on the phone menu's strip, and the line under it. */
+  word: string;
+  hint: string;
+};
+
 /** The links the header disclosure, the phone menu and the footer share. */
-export function extensionLinks(locale: Locale): { href: string; label: string }[] {
+export function extensionLinks(locale: Locale): ExtensionLink[] {
   const x = ext();
   const base = `/${locale}`;
   return [
-    { href: `${base}/explore`, label: x.nav.explore },
-    { href: `${base}/events`, label: x.nav.events },
-    ...(visibleOffers().length ? [{ href: `${base}/invite`, label: x.nav.invite }] : []),
-    { href: `${base}/research`, label: x.nav.research },
-    { href: `${base}/app`, label: appCopy().menuLabel },
+    { href: `${base}/explore`, label: x.nav.explore, word: x.nav.explore, hint: x.ways.explore },
+    { href: `${base}/events`, label: x.nav.events, word: x.nav.events, hint: x.ways.events },
+    ...(visibleOffers().length ? [{ href: `${base}/invite`, label: x.nav.invite, word: x.nav.invite, hint: x.ways.invite }] : []),
+    { href: `${base}/research`, label: x.nav.research, word: x.nav.research, hint: x.ways.research },
+    { href: `${base}/app`, label: appCopy().menuLabel, word: x.ways.app, hint: appCopy().statusLabel },
   ];
 }
 

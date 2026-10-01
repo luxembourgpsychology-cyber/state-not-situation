@@ -430,3 +430,29 @@ body {
 .ext-dayline__path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ext-trace 1.6s ease-out 0.2s forwards; }
 @keyframes ext-trace { to { stroke-dashoffset: 0; } }
 @media (prefers-reduced-motion: reduce) { .ext-dayline__path { animation: none; stroke-dashoffset: 0; } }
+
+/* The phone menu's "More ways in": a swipe strip along the cover's pulse line.
+   Each item is a word, a short line in mono and a stretch of the line; side by
+   side the stretches make one line with a beat under every way in. It stays
+   inside the page margins (nothing full-bleed on a phone); the next word is
+   cut by the edge, which is the sign that there is more to swipe. */
+.ways {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  padding: 0.4rem;
+  margin-inline: -0.4rem;
+  scroll-padding-inline: 0.4rem;
+}
+.ways::-webkit-scrollbar { display: none; }
+.ways__item { flex: 0 0 auto; scroll-snap-align: start; min-width: 9rem; }
+.ways__link { display: block; padding: 0.6rem 1.75rem 0 0; }
+.ways__word {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 7vw, 2rem);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.ways__link:hover .ways__word { color: var(--red); }
+.ways__pulse { display: block; width: 100%; height: 1.5rem; margin-top: 0.5rem; }

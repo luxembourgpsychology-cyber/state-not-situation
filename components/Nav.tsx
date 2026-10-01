@@ -25,6 +25,12 @@ import { PulseMark } from "./PulseMark";
  * as it already does below 420; the mark is still the home link. On a phone
  * the same links follow the existing sheet's own items. Without `more` the
  * header renders exactly as it did before the extension.
+ *
+ * On a phone (1 October 2026, the author's request) the word Menu sits at the
+ * top left, beside the mark, where a reader looks for it; Close takes the same
+ * place in the sheet. When the sheet has "More ways in", they come first, as
+ * a swipe strip along the cover's pulse line: a word, a short line under it,
+ * one tap. The sheet's own items follow unchanged.
  */
 export function Nav({
   locale,
@@ -38,7 +44,7 @@ export function Nav({
   content: SiteContent;
   variant?: "home" | "page";
   excerptAvailable?: boolean;
-  more?: { label: string; links: { href: string; label: string }[] } | null;
+  more?: { label: string; links: { href: string; label: string; word?: string; hint?: string }[] } | null;
   /** On a page that exists in one language only: where the other marks go, and what they say. */
   homeOnlyLanguage?: Partial<Record<Locale, { label: string; title: string }>>;
 }) {
@@ -100,10 +106,22 @@ export function Nav({
         {c.nav.skipToContent}
       </a>
       <div className="container-book container-wide flex items-center justify-between gap-4 h-14">
-        <Link href={base} aria-label={c.nav.home} className="flex items-center gap-3 shrink-0 min-h-11">
-          <PulseMark className="w-9 h-auto" />
-          <span className={`t-label hidden min-[420px]:inline ${more ? "md:hidden lg:inline" : ""}`}>State. Not Situation.</span>
-        </Link>
+        <div className="flex items-center gap-5 shrink-0">
+          <button
+            ref={button}
+            type="button"
+            className="md:hidden t-label inline-flex items-center min-h-11 text-ink hover:text-red"
+            aria-expanded={open}
+            aria-controls="menu-sheet"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? c.nav.closeMenu : c.nav.menu}
+          </button>
+          <Link href={base} aria-label={c.nav.home} className="flex items-center gap-3 shrink-0 min-h-11">
+            <PulseMark className="w-9 h-auto" />
+            <span className={`t-label hidden min-[420px]:inline ${more ? "md:hidden lg:inline" : ""}`}>State. Not Situation.</span>
+          </Link>
+        </div>
 
         <nav aria-label="Primary" className="hidden md:flex items-center gap-7 min-w-0">
           {links.map((l) => (
@@ -126,16 +144,6 @@ export function Nav({
         </nav>
 
         <div className="flex items-center gap-5 md:gap-3">
-          <button
-            ref={button}
-            type="button"
-            className="md:hidden t-label inline-flex items-center min-h-11 text-ink hover:text-red"
-            aria-expanded={open}
-            aria-controls="menu-sheet"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? c.nav.closeMenu : c.nav.menu}
-          </button>
           <LanguageSwitcher
             current={locale}
             locales={locales}
@@ -172,12 +180,33 @@ export function Nav({
           aria-label={c.a11y.menu}
           className="menu-sheet md:hidden"
         >
-          <div className="container-book container-wide flex items-center justify-end h-14 shrink-0">
+          <div className="container-book container-wide flex items-center justify-start h-14 shrink-0">
             <button type="button" className="t-label inline-flex items-center min-h-11 text-ink hover:text-red" onClick={() => setOpen(false)}>
               {c.nav.closeMenu}
             </button>
           </div>
           <div className="container-book container-wide pb-[var(--space-block)]">
+            {more ? (
+              <nav aria-label={more.label} className="mb-[var(--space-block)]">
+                <p className="t-label t-label-red flex justify-between">
+                  <span>{more.label}</span>
+                  <span aria-hidden="true" className="text-quiet">→</span>
+                </p>
+                <ul className="ways mt-2">
+                  {more.links.map((l) => (
+                    <li key={l.href} className="ways__item">
+                      <Link href={l.href} className="ways__link" onClick={() => setOpen(false)}>
+                        <span className="ways__word">{l.word ?? l.label}</span>
+                        {l.hint ? <span className="t-mono block mt-1">{l.hint}</span> : null}
+                      </Link>
+                      <svg viewBox="0 0 160 36" preserveAspectRatio="none" className="ways__pulse" aria-hidden="true" focusable="false">
+                        <path d="M0 21 H6 L12 17 L18 21 H24 L30 5 L36 33 L42 21 H160" className="pulse-path" vectorEffect="non-scaling-stroke" />
+                      </svg>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ) : null}
             <ul className="border-t border-[var(--rule)]">
               {links.map((l) => (
                 <li key={l.label}>
@@ -191,19 +220,6 @@ export function Nav({
               ) : null}
               <Link href={`${base}#notify`} className="btn" onClick={() => setOpen(false)}>{c.status.notifyCta}</Link>
             </div>
-            {/* After the sheet's own items, never before them. */}
-            {more ? (
-              <nav aria-label={more.label} className="mt-[var(--space-section)]">
-                <p className="t-label t-label-red">{more.label}</p>
-                <ul className="mt-3 border-t border-[var(--rule)]">
-                  {more.links.map((l) => (
-                    <li key={l.href}>
-                      <Link href={l.href} className="menu-sheet__link" onClick={() => setOpen(false)}>{l.label}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            ) : null}
           </div>
         </div>
       ) : null}
