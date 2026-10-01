@@ -294,7 +294,6 @@ export const extensionEn: ExtensionContent = {
     copied: "Copied",
     copyFailed: "Select the text and copy it",
     againLabel: "Open the draft again",
-    editLabel: "Change the details",
     draft: {
       subjectPrefix: "Enquiry: ",
       greeting: "Hello Ivana,",

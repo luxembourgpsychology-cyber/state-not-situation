@@ -42,6 +42,10 @@ This is not fussiness. An earlier draft of this site carried claims taken from a
 | The per-language method and glossary | `translation/METHOD-fr.md`, `translation/METHOD-de.md` |
 | Typography, colour, devices taken from the printed book | `DESIGN_SYSTEM.md` |
 | How to run, deploy, translate, go on sale | `README.md` |
+| The commercial extension (Explore, Invite, Enquiry, Events, App, Research): what it is, how to switch it on, its decisions | `EXTENSION.md` |
+| Its words (English only, a draft until approved) and its events | `content/extension.en.ts`, `content/events.ts` |
+| The rules that keep its claims true (book action, app, events, enquiries) and their tests | `lib/extension/rules.ts`, `tests/extension.test.mjs` |
+| The site's observed visual rules, recorded before the extension | `BRAND_BASELINE.md` |
 
 Copy and launch state change in those two top files. You should not need to touch `components/` or `app/` to change a word.
 
@@ -66,7 +70,9 @@ The book states **no** count of references, no DOI verification, no "years of re
 
 ## The page, in order
 
-Nine sections. Eight were decided in `brief/REDESIGN.md` against the author's brief;
+Nine sections, and since 1 October 2026 a tenth after them: `Discovery`
+(`#explore-more`), the commercial extension's doors, English only and off on production
+until `extension.approved` (see `EXTENSION.md`). Eight were decided in `brief/REDESIGN.md` against the author's brief;
 the foreword joined them on 28 September 2026 without moving any of them. Section ids are English in every language, by contract: the language switcher keeps a reader in the section they are in. Do not reorder without reading that file.
 
 1. `Hero` — the printed cover, the title, two actions and no more
@@ -121,6 +127,7 @@ the printed page.
 npm install
 npm run dev      # http://localhost:3000
 npm run build    # must pass before pushing; it type-checks too
+npm test         # the extension's rules (Node's own runner, no dependency)
 ```
 
 Pushing to `main` deploys to production automatically. There is no manual deploy step and no Vercel CLI login on this machine.

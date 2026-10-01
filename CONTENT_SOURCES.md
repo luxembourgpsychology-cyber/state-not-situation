@@ -465,3 +465,51 @@ The back cover's text changed, and two things on the site now quote a version of
 Also now printed on the back, as a four-line table: *A short message feels cold. / A meeting feels dangerous. / A craving feels like a decision. / A quiet room feels like judgement.* — the four sentences recorded under *The final cover* as open question 9, which the site has never carried.
 
 `premise.lines`, `premise.eyebrow`, `closing.line`, `hero.strap` and `footer.band` are all still printed and are unaffected. **Raised with the author on 30 September 2026; no copy was changed without her.**
+
+## The commercial extension, 1 October 2026
+
+Six English-only pages and one home-page section (`EXTENSION.md`). Their words are in
+`content/extension.en.ts`, apart from `content/en.ts`, and they introduce **a fifth kind
+of string** this file has not had before:
+
+5. **Handoff draft.** Copy the author supplied on 1 October 2026 in
+   `02_CONTENT_AND_CONFIG.json`, which marks itself `"copyStatus": "draft-for-Ivana-review"`.
+   Written for her, not by her, and not yet approved.
+
+Because of that, all of it is fenced: `site.config.ts → extension.approved` is `false`,
+so production renders none of it, and every preview page says it is a draft. **When the
+author approves a line, it becomes author-supplied (2); when she changes one, record the
+change here.**
+
+### What each part rests on
+
+| Strings | Kind | Source |
+|---|---|---|
+| `explore.endText` — "State. Not Situation. examines the gap between what happened and what it felt like it meant." | 1, printed | Back cover of v50 (see *What the new back cover means for the site*, above). Chosen over the handoff's own summary of the book. |
+| `research`: page 7's systems passage, the three markers and their descriptions, page 7's closing line, The Scientific Heartbeat's two sentences | 1 / 2 | Read from `content/en.ts` (`press.sortingTool`, `evidence.*`, `press.sources`, `press.sourcesLabel`) — already sourced above, not copied. |
+| `research`: Chapter 13's number, title and page | 1, printed | `press.chapters` (page 5's map). |
+| Author lines on the new pages | 2 | `author.bio`, `hero.credential`, `press.bios` "Long" — read from `content/en.ts`. |
+| `discovery.*`, `explore.eyebrow/title/intro/sceneLabel/boundary/endTitle`, the three scenes (title, hook, category, scene, prompt, options, reveal, question), `invite.title/intro/availabilityNote`, the four offers, `enquiry.title/intro/purposeHint/boundary/emailFallbackIntro`, `events.*` titles, empty state and attendee email, `app.copyByStatus`, `research.title/intro/evidence.related/situation.body` | 5 | `02_CONTENT_AND_CONFIG.json`, word for word, with the edits below. |
+| `invite.faq` | 5, assembled | Each answer is made of handoff lines: booking from `enquiry.boundary`; books from `invite.booksNote`; language from the offers' `practical` lines ("language … agreed in advance"); "what these sessions are not" from the talks' and workshops' `scope` lines. |
+| Every label, field name, error, status word, "More ways in", "FR · livre", the draft note, "Nothing is sent from this website…", "Now send it from your email app…" | 3, interface | Functional text: what a control does, or what has (not) happened. The French tooltip is for the author to check. |
+
+### Edits made to the handoff draft
+
+- **Scene times moved into the timestamp column**, 24-hour, as page 4 sets them: "At 4:10,
+  a colleague sends" → `16:10` + "A colleague sends"; "At 16:12, Ada opens" → `16:12` +
+  "Ada opens"; "22:36. The flat is quiet." → `22:36` + "The flat is quiet."; the evening
+  reveal's "07:08." becomes its own timestamp.
+- **Talk durations name their audience**: "20-minute talk, for conferences and
+  associations", "40-minute talk, for conferences and associations", "75-minute reading
+  and conversation, for bookshops, libraries and book clubs" (the spec asks for it).
+- **Not used**: the handoff's Explore `endText` (replaced by the printed back cover, above);
+  its three research `body` paragraphs where the book's own words exist; and
+  "The instrument panel is an analogy", which could not be checked against v50.
+- "Read the opening" is the site's existing "Read an extract".
+
+### What the new pages must never say
+
+No fee, date, venue, capacity, testimonial, accreditation, outcome, app feature, app
+date or app price. The scenes are original and labelled "An example inspired by the
+book."; none is a passage of the book. The February Readings, worksheets, chapter
+endings and app material are not on the site in any form, visible or hidden.

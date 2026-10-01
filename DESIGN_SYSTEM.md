@@ -152,11 +152,24 @@ values those rows quoted.
 DISPLAY sentence. It keeps the timestamp the CASE EVIDENCE panels used and drops their
 INPUT / VERIFIED apparatus, which was the part that read as bureaucratic.
 
+## The commercial extension (1 October 2026)
+
+Six English pages and one home section, built from the parts above and nothing else
+(`EXTENSION.md`). `Discovery` — three doors set exactly like the evidence markers
+(`.doors`, a copy of `.pulse-row`'s geometry). Scenes are page 4's rows that open in place.
+Offers, events and the enquiry's fields use the press page's ruled fact sheet and the
+notify field's underline. The scoped CSS block at the end of `globals.css` names only
+classes these pages use; no global selector changed.
+
+In the header, "More ways in" is a disclosure that opens a second bar of the same type
+under the first. Between 768 and 1023 the wordmark yields to the mark, as below 420.
+
 ## Buttons
 
 One style: a word in DIN caps at LABEL over a 1.5px rule. Ink by default, `.btn-red` for
-primary. The solid red block, `.btn-solid`, appears **exactly once on the whole site** — the
-notify submit — because a form control must read as a control and not as a link.
+primary. The solid red block, `.btn-solid`, is for a control that must read as a control and not
+as a link: the notify submit, and since 1 October 2026 the enquiry's submit and an
+event's booking link — never two on one screen.
 
 ## What must stay true
 

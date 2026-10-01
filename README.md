@@ -105,6 +105,15 @@ The player, and the Listen links in the navigation and footer, appear by themsel
 
 ---
 
+## The commercial extension
+
+Explore, Invite Ivana, an enquiry page, Events, the app's doorway and Research & limits,
+in English, added on 1 October 2026. **Off on the live site** until
+`site.config.ts → extension.approved` is `true`; preview deployments show it as a draft.
+Words in `content/extension.en.ts`, events in `content/events.ts`. Everything about
+switching parts on — offers, events, the app link — is in `EXTENSION.md`. `npm test`
+checks the rules that keep it honest.
+
 ## Languages
 
 `site.config.ts` → `languages`. English is on and indexed. French and German are translated, on, and **under review** (`underReview: true`): a visitor can open `/fr` and `/de` from the switcher, but the pages carry `noindex` and are left out of the sitemap and the hreflang tags, because no French or German edition of the book exists yet and a search engine should not present a translation as the published text.

@@ -141,7 +141,6 @@ export interface ExtensionContent {
     copied: string;
     copyFailed: string;
     againLabel: string;
-    editLabel: string;
     draft: {
       subjectPrefix: string;
       greeting: string;
