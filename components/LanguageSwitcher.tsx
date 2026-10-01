@@ -12,7 +12,25 @@ import { siteConfig, type Locale } from "@/site.config";
  * pixel offset: it tracks the id crossing the top of the viewport and appends
  * it. All three languages are browsable, so there is no greyed state.
  */
-export function LanguageSwitcher({ current, locales, browsable, label }: { current: Locale; locales: Locale[]; browsable: Locale[]; label: string }) {
+export function LanguageSwitcher({
+  current,
+  locales,
+  browsable,
+  label,
+  homeOnly,
+}: {
+  current: Locale;
+  locales: Locale[];
+  browsable: Locale[];
+  label: string;
+  /**
+   * On a page that exists in the current language only (the commercial
+   * extension is English only): the other marks go to that language's home
+   * page and say so, instead of to a page that is not there. Unset, nothing
+   * changes.
+   */
+  homeOnly?: Partial<Record<Locale, { label: string; title: string }>>;
+}) {
   const pathname = usePathname();
   const [hash, setHash] = useState("");
 
@@ -40,6 +58,22 @@ export function LanguageSwitcher({ current, locales, browsable, label }: { curre
     <nav aria-label={label} className="flex items-center gap-3">
       {visible.map((l) => {
         const lang = siteConfig.languages[l];
+        const elsewhere = l !== current ? homeOnly?.[l] : undefined;
+        if (elsewhere) {
+          return (
+            <Link
+              key={l}
+              href={`/${l}`}
+              hrefLang={lang.htmlLang}
+              lang={lang.htmlLang}
+              title={elsewhere.title}
+              aria-label={elsewhere.title}
+              className="t-label inline-flex items-center justify-center min-h-11 min-w-11 text-quiet hover:text-ink whitespace-nowrap"
+            >
+              {elsewhere.label}
+            </Link>
+          );
+        }
         return (
           <Link
             key={l}

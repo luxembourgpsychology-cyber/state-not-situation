@@ -17,23 +17,39 @@ import { PulseMark } from "./PulseMark";
  * into a full-screen sheet behind the word Menu — the word, not an unlabelled
  * icon. The sheet is a real dialog: focus moves into it, Escape closes it, the
  * page behind it is inert, and every item is an anchor.
+ *
+ * `more` (the commercial extension, English only) adds one item after Press:
+ * "More ways in", a disclosure that opens a second quiet bar under this one
+ * with the new pages. The four sections keep their place and their size. To
+ * make room between 768 and 1023 the wordmark beside the pulse mark yields,
+ * as it already does below 420; the mark is still the home link. On a phone
+ * the same links follow the existing sheet's own items. Without `more` the
+ * header renders exactly as it did before the extension.
  */
 export function Nav({
   locale,
   content,
   variant = "home",
   excerptAvailable = true,
+  more = null,
+  homeOnlyLanguage,
 }: {
   locale: Locale;
   content: SiteContent;
   variant?: "home" | "page";
   excerptAvailable?: boolean;
+  more?: { label: string; links: { href: string; label: string }[] } | null;
+  /** On a page that exists in one language only: where the other marks go, and what they say. */
+  homeOnlyLanguage?: Partial<Record<Locale, { label: string; title: string }>>;
 }) {
   const c = content;
   const base = `/${locale}`;
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
   const sheet = useRef<HTMLDivElement>(null);
+  const moreButton = useRef<HTMLButtonElement>(null);
+  const moreBar = useRef<HTMLDivElement>(null);
   const to = (hash: string) => (variant === "home" ? hash : `${base}${hash}`);
 
   const links = [
@@ -57,6 +73,27 @@ export function Nav({
     };
   }, [open]);
 
+  // The disclosure closes on Escape (focus back to its button) and on a click
+  // or a focus move anywhere outside it. It is not a modal: nothing is trapped.
+  useEffect(() => {
+    if (!moreOpen) return;
+    const inside = (t: EventTarget | null) =>
+      t instanceof Node && (moreBar.current?.contains(t) || moreButton.current?.contains(t));
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { setMoreOpen(false); moreButton.current?.focus(); }
+    };
+    const onPointer = (e: PointerEvent) => { if (!inside(e.target)) setMoreOpen(false); };
+    const onFocus = (e: FocusEvent) => { if (!inside(e.target)) setMoreOpen(false); };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointer);
+    document.addEventListener("focusin", onFocus);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointer);
+      document.removeEventListener("focusin", onFocus);
+    };
+  }, [moreOpen]);
+
   return (
     <header className="sticky top-0 z-40 bg-paper border-b border-[var(--rule)]">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-paper focus:px-3 focus:py-2 t-label">
@@ -65,7 +102,7 @@ export function Nav({
       <div className="container-book container-wide flex items-center justify-between gap-4 h-14">
         <Link href={base} aria-label={c.nav.home} className="flex items-center gap-3 shrink-0 min-h-11">
           <PulseMark className="w-9 h-auto" />
-          <span className="t-label hidden min-[420px]:inline">State. Not Situation.</span>
+          <span className={`t-label hidden min-[420px]:inline ${more ? "md:hidden lg:inline" : ""}`}>State. Not Situation.</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden md:flex items-center gap-7 min-w-0">
@@ -74,6 +111,18 @@ export function Nav({
               {l.label}
             </Link>
           ))}
+          {more ? (
+            <button
+              ref={moreButton}
+              type="button"
+              className={`t-label inline-flex items-center min-h-11 whitespace-nowrap hover:text-red ${moreOpen ? "text-red" : "text-ink-soft"}`}
+              aria-expanded={moreOpen}
+              aria-controls="more-ways-in"
+              onClick={() => setMoreOpen((v) => !v)}
+            >
+              {more.label}
+            </button>
+          ) : null}
         </nav>
 
         <div className="flex items-center gap-5 md:gap-3">
@@ -92,9 +141,27 @@ export function Nav({
             locales={locales}
             browsable={enabledLocales()}
             label={c.a11y.languageSwitcher}
+            homeOnly={homeOnlyLanguage}
           />
         </div>
       </div>
+
+      {/* The second bar: the same type, the same rule, no shadow and no box. */}
+      {more ? (
+        <div id="more-ways-in" ref={moreBar} hidden={!moreOpen} className="hidden md:block border-t border-[var(--rule)] bg-paper">
+          <nav aria-label={more.label} className="container-book container-wide">
+            <ul className="flex flex-wrap justify-center gap-x-7 py-1">
+              {more.links.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="t-label inline-flex items-center min-h-11 text-ink-soft hover:text-red whitespace-nowrap" onClick={() => setMoreOpen(false)}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      ) : null}
 
       {open ? (
         <div
@@ -124,6 +191,19 @@ export function Nav({
               ) : null}
               <Link href={`${base}#notify`} className="btn" onClick={() => setOpen(false)}>{c.status.notifyCta}</Link>
             </div>
+            {/* After the sheet's own items, never before them. */}
+            {more ? (
+              <nav aria-label={more.label} className="mt-[var(--space-section)]">
+                <p className="t-label t-label-red">{more.label}</p>
+                <ul className="mt-3 border-t border-[var(--rule)]">
+                  {more.links.map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} className="menu-sheet__link" onClick={() => setOpen(false)}>{l.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ) : null}
           </div>
         </div>
       ) : null}
