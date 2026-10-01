@@ -47,9 +47,8 @@ export function allowedFormats(): string[] {
 }
 
 export function bookAction(locale: Locale): BookAction {
-  const c = getContent(locale);
   const x = ext();
-  return resolveBookAction(siteConfig.editions[locale], { buy: c.status.buy, details: x.book.details }, x.book.detailsHref);
+  return resolveBookAction(siteConfig.editions[locale], { buy: x.book.buy, preorder: x.book.preorder, details: x.book.details }, x.book.detailsHref);
 }
 
 let warned = false;
@@ -92,16 +91,30 @@ export function extensionLinks(locale: Locale): ExtensionLink[] {
   return [
     { href: `${base}/explore`, label: x.nav.explore, word: x.nav.explore, hint: x.ways.explore },
     { href: `${base}/events`, label: x.nav.events, word: x.nav.events, hint: x.ways.events },
-    ...(visibleOffers().length ? [{ href: `${base}/invite`, label: x.nav.invite, word: x.nav.invite, hint: x.ways.invite }] : []),
+    ...(inviteLink(locale) ? [{ ...inviteLink(locale)!, word: x.nav.invite, hint: "" }] : []),
     { href: `${base}/research`, label: x.nav.research, word: x.nav.research, hint: x.ways.research },
     { href: `${base}/app`, label: appCopy().menuLabel, word: x.ways.app, hint: appCopy().statusLabel },
   ];
 }
 
-/** What Nav needs to draw "More ways in". Null keeps the header exactly as it was. */
+/** Invite Ivana, when there is an offer to show: a primary destination of its own. */
+export function inviteLink(locale: Locale): { href: string; label: string } | null {
+  return visibleOffers().length ? { href: `/${locale}/invite`, label: ext().nav.invite } : null;
+}
+
+/**
+ * What Nav needs. `primary` (Invite Ivana) joins Book, Extract, Author and
+ * Press; `links` are the other ways in, behind "More ways in". Null keeps the
+ * header exactly as it was.
+ */
 export function navExtension(locale: Locale) {
   if (!extensionOn(locale)) return null;
-  return { label: ext().moreWaysIn, links: extensionLinks(locale) };
+  const invite = inviteLink(locale);
+  return {
+    label: ext().moreWaysIn,
+    primary: invite,
+    links: extensionLinks(locale).filter((l) => l.href !== invite?.href),
+  };
 }
 
 const OFFERS: OfferCopy[] = extensionEn.invite.offers;

@@ -16,20 +16,26 @@ const EMPTY: EnquiryFields = {
 };
 
 /** Field order: the order the error summary lists them in. */
-const ORDER: EnquiryField[] = ["name", "email", "organisation", "format", "groupSize", "location", "dateRange", "language", "purpose", "budget"];
+const ORDER: EnquiryField[] = ["name", "email", "format", "purpose", "organisation", "groupSize", "dateRange", "location", "language", "budget"];
+/** Behind "Add practical details (optional)". */
+const OPTIONAL: EnquiryField[] = ["organisation", "groupSize", "dateRange", "location", "language", "budget"];
 
 /**
- * THE ENQUIRY, as an email draft. The site has no backend, so it does not
- * pretend to have one: the button opens a draft in the visitor's own email
- * app, addressed to the one fixed public address, and says plainly that it
- * still has to be sent. If no email app opens, the same text is here to copy.
- * Nothing is stored, logged or sent to analytics except which format and
- * which page the visitor came from.
+ * THE ENQUIRY, as an email draft. The site has no sending service, so it
+ * does not pretend to have one: the button opens a draft in the visitor's
+ * own email app, addressed to the one fixed public address, and says plainly
+ * that it still has to be sent there. If no email app opens, the same text
+ * is here to copy. Nothing is stored, logged or sent to analytics except
+ * which format and which page the visitor came from.
+ *
+ * Four things first — name, email, which session, a short message — and the
+ * practical details behind one optional disclosure, which opens by itself if
+ * one of its fields needs correcting.
  *
  * It never says "received". Fields are kept as they are, because nothing has
  * been accepted by anyone yet.
  */
-export function EnquiryForm({ copy, recipient, formats, locale }: { copy: Copy; recipient: string; formats: string[]; locale: string }) {
+export function EnquiryForm({ copy, recipient, formats }: { copy: Copy; recipient: string; formats: string[] }) {
   const [f, setF] = useState<EnquiryFields>(EMPTY);
   const [source, setSource] = useState<EnquirySource>("direct");
   const [errors, setErrors] = useState<Partial<Record<EnquiryField, EnquiryError>>>({});
@@ -37,6 +43,7 @@ export function EnquiryForm({ copy, recipient, formats, locale }: { copy: Copy; 
   const [copyState, setCopyState] = useState<"idle" | "done" | "failed">("idle");
   const summary = useRef<HTMLDivElement>(null);
   const sentHeading = useRef<HTMLHeadingElement>(null);
+  const more = useRef<HTMLDetailsElement>(null);
 
   // The page is static; the format and source in the address are read here,
   // allow-listed, and anything unknown becomes "Not sure yet" / "direct".
@@ -62,11 +69,15 @@ export function EnquiryForm({ copy, recipient, formats, locale }: { copy: Copy; 
     setCopyState("idle");
   };
 
-  const message = (k: EnquiryField, e: EnquiryError) =>
-    e === "required" ? copy.errors.required[k] ?? copy.errors.required.name
-      : e === "email" ? copy.errors.email
-      : e === "tooLong" ? copy.errors.tooLong.replace("{max}", ENQUIRY_LIMITS[k].toLocaleString("en-GB"))
-      : copy.errors.invalidChoice;
+  const max = (k: EnquiryField) => ENQUIRY_LIMITS[k].toLocaleString("en-GB");
+  const message = (k: EnquiryField, e: EnquiryError) => {
+    if (e === "tooLong") return (k === "purpose" ? copy.errors.purposeTooLong : copy.errors.tooLong).replace("{max}", max(k));
+    if (e === "invalidChoice") return k === "format" ? copy.errors.format : copy.errors.invalidChoice;
+    if (k === "name") return copy.errors.name;
+    if (k === "email") return copy.errors.email;
+    if (k === "format") return copy.errors.format;
+    return copy.errors.purpose;
+  };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -74,6 +85,8 @@ export function EnquiryForm({ copy, recipient, formats, locale }: { copy: Copy; 
     setErrors(found);
     if (Object.keys(found).length) {
       setDrafted(false);
+      // An error behind the optional disclosure must not be hidden.
+      if (OPTIONAL.some((k) => found[k]) && more.current) more.current.open = true;
       requestAnimationFrame(() => summary.current?.focus());
       return;
     }
@@ -95,12 +108,12 @@ export function EnquiryForm({ copy, recipient, formats, locale }: { copy: Copy; 
   const errorList = ORDER.filter((k) => errors[k]);
   const describedBy = (k: EnquiryField, hint?: boolean) =>
     [hint ? `enq-${k}-hint` : "", errors[k] ? `enq-${k}-error` : ""].filter(Boolean).join(" ") || undefined;
+  const errorLine = (k: EnquiryField) =>
+    errors[k] ? <p id={`enq-${k}-error`} className="mt-2 t-mono normal-case tracking-normal text-red">{message(k, errors[k]!)}</p> : null;
 
   const text = (k: EnquiryField, opts: { required?: boolean; type?: string; autoComplete?: string; inputMode?: "email" | "text" } = {}) => (
     <div className="mt-[var(--space-block)]">
-      <label htmlFor={`enq-${k}`} className="t-mono block mb-1">
-        {copy.fields[k]}{opts.required ? null : <span className="normal-case tracking-normal"> ({copy.optional})</span>}
-      </label>
+      <label htmlFor={`enq-${k}`} className="t-mono block mb-1">{copy.fields[k]}</label>
       <input
         id={`enq-${k}`}
         name={k}
@@ -115,7 +128,7 @@ export function EnquiryForm({ copy, recipient, formats, locale }: { copy: Copy; 
         onChange={set(k)}
         className="ext-input"
       />
-      {errors[k] ? <p id={`enq-${k}-error`} className="mt-2 t-mono normal-case tracking-normal text-red">{message(k, errors[k]!)}</p> : null}
+      {errorLine(k)}
     </div>
   );
 
@@ -123,7 +136,7 @@ export function EnquiryForm({ copy, recipient, formats, locale }: { copy: Copy; 
     <form onSubmit={onSubmit} noValidate className="max-w-xl">
       {errorList.length ? (
         <div ref={summary} tabIndex={-1} aria-labelledby="enq-errors-title" className="mb-[var(--space-block)] pl-5 border-l-[1.5px] border-red">
-          <h2 id="enq-errors-title" className="t-label t-label-red">{copy.errorsTitle}</h2>
+          <h2 id="enq-errors-title" className="t-body text-red">{copy.errorsTitle}</h2>
           <ul className="mt-3 t-body">
             {errorList.map((k) => (
               <li key={k}><a href={`#enq-${k === "format" || k === "language" ? `${k}-0` : k}`} className="underline underline-offset-4 hover:text-red">{copy.fields[k]}: {message(k, errors[k]!)}</a></li>
@@ -134,7 +147,6 @@ export function EnquiryForm({ copy, recipient, formats, locale }: { copy: Copy; 
 
       {text("name", { required: true, autoComplete: "name" })}
       {text("email", { required: true, type: "email", autoComplete: "email", inputMode: "email" })}
-      {text("organisation", { autoComplete: "organization" })}
 
       <fieldset className="mt-[var(--space-block)]" aria-describedby={errors.format ? "enq-format-error" : undefined}>
         <legend className="t-mono mb-2">{copy.fields.format}</legend>
@@ -144,21 +156,7 @@ export function EnquiryForm({ copy, recipient, formats, locale }: { copy: Copy; 
             <span className="t-body">{copy.formatNames[id]}</span>
           </label>
         ))}
-        {errors.format ? <p id="enq-format-error" className="mt-2 t-mono normal-case tracking-normal text-red">{message("format", errors.format)}</p> : null}
-      </fieldset>
-
-      {text("groupSize")}
-      {text("location")}
-      {text("dateRange")}
-
-      <fieldset className="mt-[var(--space-block)]">
-        <legend className="t-mono mb-2">{copy.fields.language} <span className="normal-case tracking-normal">({copy.optional})</span></legend>
-        {(["en", "fr", "discuss"] as const).map((id, i) => (
-          <label key={id} className="flex items-start gap-3 py-2 min-h-11 cursor-pointer">
-            <input id={`enq-language-${i}`} type="radio" name="language" value={id} checked={f.language === id} onChange={set("language")} className="ext-choice" />
-            <span className="t-body">{copy.languageNames[id]}</span>
-          </label>
-        ))}
+        {errorLine("format")}
       </fieldset>
 
       <div className="mt-[var(--space-block)]">
@@ -173,25 +171,44 @@ export function EnquiryForm({ copy, recipient, formats, locale }: { copy: Copy; 
           aria-describedby={describedBy("purpose", true)}
           value={f.purpose}
           onChange={set("purpose")}
-          rows={7}
+          rows={6}
           className="ext-textarea"
         />
-        <p className="t-mono mt-1 text-right" aria-hidden="true">{f.purpose.length.toLocaleString("en-GB")} / {ENQUIRY_LIMITS.purpose.toLocaleString("en-GB")}</p>
-        {errors.purpose ? <p id="enq-purpose-error" className="mt-2 t-mono normal-case tracking-normal text-red">{message("purpose", errors.purpose)}</p> : null}
+        <p className="t-mono mt-1 text-right" aria-hidden="true">{f.purpose.length.toLocaleString("en-GB")} / {max("purpose")}</p>
+        {errorLine("purpose")}
       </div>
 
-      {text("budget")}
+      <details ref={more} className="mt-[var(--space-block)]">
+        <summary className="btn">{copy.moreDetails}</summary>
+        <div>
+          {text("organisation", { autoComplete: "organization" })}
+          {text("groupSize")}
+          {text("dateRange")}
+          {text("location")}
+          <fieldset className="mt-[var(--space-block)]" aria-describedby="enq-language-hint">
+            <legend className="t-mono mb-1">{copy.fields.language}</legend>
+            <p id="enq-language-hint" className="text-sm text-quiet mb-2">{copy.languageHint}</p>
+            {(["en", "fr", "discuss"] as const).map((id, i) => (
+              <label key={id} className="flex items-start gap-3 py-2 min-h-11 cursor-pointer">
+                <input id={`enq-language-${i}`} type="radio" name="language" value={id} checked={f.language === id} onChange={set("language")} className="ext-choice" />
+                <span className="t-body">{copy.languageNames[id]}</span>
+              </label>
+            ))}
+            {errorLine("language")}
+          </fieldset>
+          {text("budget")}
+        </div>
+      </details>
 
       <div className="mt-[var(--space-section)]">
         <p className="t-body">{copy.boundary}</p>
-        <p className="mt-2 text-sm text-quiet">{copy.privacy}</p>
+        <p className="mt-2 text-sm text-quiet">{copy.draftNote}</p>
         <button type="submit" className="btn btn-solid mt-[var(--space-block)]">{copy.action}</button>
       </div>
 
       {drafted ? (
         <div className="mt-[var(--space-block)] pt-[var(--space-block)] border-t border-[var(--rule)]" role="status">
           <h2 ref={sentHeading} tabIndex={-1} className="t-head">{copy.sentTitle}</h2>
-          <p className="t-body mt-[var(--space-tight)]">{copy.sentBody}</p>
           <p className="t-body mt-[var(--space-block)]">
             {copy.fallbackIntro} <span className="font-mono text-[0.95em] break-all select-all">{recipient}</span>.
           </p>

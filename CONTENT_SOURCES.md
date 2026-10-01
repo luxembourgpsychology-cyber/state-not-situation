@@ -538,3 +538,24 @@ No fee, date, venue, capacity, testimonial, accreditation, outcome, app feature,
 date or app price. The scenes are original and labelled "An example inspired by the
 book."; none is a passage of the book. The February Readings, worksheets, chapter
 endings and app material are not on the site in any form, visible or hidden.
+
+### The editorial and booking-clarity pass, 1 October 2026
+
+The author's own brief, `CLAUDE_FULL_WEBSITE_LANGUAGE_AND_BOOKINGS_BRIEF.md` (written by
+her, saved beside the handoff), replaced the new pages' wording with hers. Its replacement
+copy is **author-supplied (2)**; `COPY_CHANGES.md` lists every surface, the old and new
+wording, and the small adaptations.
+
+Two consequences for the rule about quotations:
+
+- **Explore's ending** no longer quotes the v50 back cover under a "Back cover" label. It
+  carries the author's new sentence, unquoted, under "The book".
+- **Research is unchanged**, at the author's request after reviewing the preview ("for
+  RESEARCH I dont want to change.. keep it the same as before"): its printed passages
+  keep their exact wording and page labels, as recorded above.
+
+Also at her request: **no em dashes** in the new pages' wording; commas or full stops
+replace them, and the app's menu label reads "App (in development)".
+
+The original pages — the landing body, the extract, the press page, the French pages — are
+untouched by this pass.

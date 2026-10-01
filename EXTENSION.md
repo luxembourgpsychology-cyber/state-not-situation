@@ -70,64 +70,61 @@ Where this departs from the handoff, and why.
    fifth kind — a draft for her review — so it is gated: on previews only until
    `approved`. Merging early changes nothing on the live site (verified: a production-mode
    build is pixel-identical to `137367e` on all six protected pages at four widths).
-2. **The book's own lines over paraphrase.** Explore ends on the v50 back cover's
-   "…examines the gap between what happened and what it felt like it meant." Research
-   quotes page 7 and The Scientific Heartbeat instead of summarising them. The handoff's
-   "The instrument panel is an analogy" was left out: it could not be checked against v50.
+2. **Book quotations stay exact, or go.** Printed lines appear only verbatim, with their
+   source. Explore's ending is now the author's own unquoted sentence. Research keeps its
+   printed passages (page 7, The Scientific Heartbeat) with their page labels: the author
+   chose to leave that page as it was. No em dashes in the new pages' wording.
 3. **No cards.** The three doors are set like the evidence markers; offers and events
    like the press page's fact sheet; scenes like page 4's moments. No new type step,
    colour, spacing value or shadow. Status words (Sold out, Cancelled) stay ink: red has
    four jobs.
-4. **On a phone, Menu at the top left, and "More ways in" first** (the author's request,
+4. **Invite Ivana is a primary destination** (the author's brief, 1 October 2026): in the
+   desktop bar after Press, and in the phone menu's main list. With six items, the bar
+   moves behind Menu below 1024 px rather than shrink, and the wordmark shows from 1280.
+   "More ways in" keeps Explore, Events, Research & limits and the app.
+5. **The wording is the author's** (her editorial and booking-clarity brief, 1 October
+   2026; `COPY_CHANGES.md`). Each offer shows audience, plain title, duration, takeaway
+   and its own action before anything opens; the enquiry starts with four fields; every
+   button says what the site actually does (an email draft). "Pre-order the book" uses a
+   new `publicationStatus: "preorder"` that the original pages treat as forthcoming.
+6. **On a phone, Menu at the top left, and "More ways in" first** (the author's request,
    1 October 2026). Close takes Menu's place. The sheet opens on a swipe strip of the
-   five ways in, each a word, a short line in mono and a stretch of the cover's pulse
-   line; the next word is cut by the margin as the sign there is more. The book's own
-   items and actions follow, unchanged; the footer row stays. A scroll-progress line
+   ways in, each a word, a short line in mono and a stretch of the cover's pulse line;
+   the next word is cut by the margin as the sign there is more. Invite Ivana and the
+   book's own items and actions follow; the footer row stays. A scroll-progress line
    was considered and rejected: nothing on this site is driven by scroll position.
-4. **One header item, not three.** At 768 the bar has 52 px either side of its links;
-   three more would crowd it. "More ways in" opens a second quiet bar. Between 768 and
-   1023 the wordmark yields to the pulse mark (as it already does below 420) so the bar
-   keeps one row with ≥ 74 px either side. The phone sheet lists the links after its own.
-5. **Scenes open in place** (native `<details>`), not in a panel below the list: readable
+7. **Scenes open in place** (native `<details>`), not in a panel below the list: readable
    with no script, no jump on a phone. Focus therefore stays on the scene's own button,
    which the scene directly follows (the native disclosure pattern); "Back to the three
-   moments" returns focus to it.
-6. **The book action reads the existing release switch** (`publicationStatus` +
-   `amazonUrl`) rather than adding the handoff's four-state status: one switch cannot
-   drift from another. "Forthcoming" with an old link still set never shows Buy. The
-   site's own label "Read an extract" replaces the handoff's "Read the opening".
-7. **The scenes are one day, written to "you"** (the author's choice, 1 October 2026):
-   16:10 a message, 16:12 the slide, 22:36 one more folder, 07:08 the kettle — the way
-   page 4 reads one day five times. Each scene still works alone; read together, the
-   16:12 reveal shows the message from two minutes earlier still at work. Times sit in
-   the mono column; the "inspired by the book" label is said once above the list.
-   **Drawn as one day** (her pick of two mockups, kept on branch
-   `mockup/explore-ideas`): the cover's pulse line runs across the day above the list —
-   a jolt at 16:10, a jitter at 16:12, a hum at 22:36, a snap at 07:08 — and each time
-   under it opens its moment. Each moment is a big mono time and one big sentence, so
-   the page can be skimmed in seconds; the morning shows only "07:08 ?". A motif, not
-   data: no axis, no values.
-8. **Invite is built to be scanned** (the author: "HR and readers are now on TikTok"):
-   her portrait and one sentence first; each offer as its audience, a big title, one
-   short line and its length in mono; the whole format — and the action with its format
-   chosen — one tap away, in the page. A shared `#teams` link arrives open. Research
-   sets Time. Attention. Safety. in their own inks, as the home page does.
-9. **Talk durations say who they are for** (conferences vs bookshops and libraries), as
-   the spec asks.
-10. **`.btn-solid` on two more controls**: the enquiry's submit and an event's booking
-   link. The system reserves the solid block for "a form control [that] must read as a
-   control"; both are that.
-11. **Event structured data without an offer**: schema.org wants a numeric price and the
+   moments" returns focus to it. Each "Read the scene" names its scene to screen readers.
+8. **The book action reads the existing release switch** (`publicationStatus` +
+   `amazonUrl`) rather than a second one: one switch cannot drift from another.
+   "Forthcoming" with an old link still set never shows a purchase label.
+9. **The scenes are one fictional day, written to "you"** (the author's choice): 16:10 a
+   message, 16:12 the slide, 22:36 one more folder, 07:08 the kettle — the way page 4
+   reads one day five times. Each scene still works alone; read together, the 16:12
+   reveal names the message from two minutes earlier. **Drawn as one day** (her pick of
+   two mockups): the cover's pulse line runs across the day above the list, and each
+   time under it opens its moment; "See what happens the next morning" opens the evening
+   scene with its 07:08 reveal. A motif, not data: no axis, no values.
+10. **Invite is built to be scanned** (the author: "HR and readers are now on TikTok"):
+    her portrait and the questions first; the offers as above; the rest one tap away, in
+    the page. A shared `#teams` link arrives open. Research sets Time. Attention. Safety.
+    in their own inks, as the home page does.
+11. **`.btn-solid` on two more controls**: the enquiry's submit and an event's booking
+    link. The system reserves the solid block for "a form control [that] must read as a
+    control"; both are that.
+12. **Event structured data without an offer**: schema.org wants a numeric price and the
     site holds the verified price as a sentence. None is emitted on previews or for past
     events.
-12. **Email still required** in the email-draft form, as specified: the copyable fallback
+13. **Email still required** in the email-draft form, as specified: the copyable fallback
     text then carries a reply address, and the form needs no change when a backend comes.
 
 ## Verified (1 October 2026)
 
 - `npm run build`, `npx tsc --noEmit`, `npm run lint` (0 errors; the two warnings
   pre-date this work), `npm test` (13 tests).
-- 84 browser checks of the journeys at 390 and 1440 (scenes, Back/Forward, direct and
+- 100 browser checks of the journeys at 390 and 1440 (scenes, Back/Forward, direct and
   invalid `?scene=`, keyboard only, no-script reading, the header disclosure and phone
   menu, French untouched, all four offer → enquiry preselections, unknown query values,
   validation and error focus, the email draft's encoding and its honest wording, events'
@@ -164,8 +161,8 @@ reader pass, and the preview deployment's own headers.
 
 1. **An enquiry backend** (a form provider or a mail API through a Vercel function), with
    a privacy notice — needs a service choice and a policy page.
-2. **Analytics on** (`analytics.provider: "vercel"`, cookieless) to see which doors are
-   used; the six events are already named.
+2. ~~**Analytics on**~~ — done 1 October 2026: Vercel Web Analytics (cookieless, standard
+   option), with the six custom events named in `lib/analytics.ts`.
 3. **French copy** for the new pages, through `translation/STANDARD.md`.
 4. **An event-updates list**, separate from the publication list, with its own consent.
 5. From the brainstorm: a presenter view and print pack of one scene ("One Sentence, Many

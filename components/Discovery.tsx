@@ -12,7 +12,7 @@ import { Reveal } from "./Reveal";
  * No new type step, colour or device. The label column and the HEAD title of
  * every section; three doors set like the evidence markers, side by side with
  * a rule between them from 640 and stacked under a rule on a phone; the app
- * as one line of mono, because its only fact is a status.
+ * as one quiet sentence and a link, because its only fact is a status.
  *
  * Renders nothing in a language the extension does not exist in, or on
  * production before the author has approved it.
@@ -50,9 +50,10 @@ export function Discovery({ locale }: { locale: Locale }) {
             </ul>
           </Reveal>
           <Reveal delay={120}>
-            <p className="mt-[var(--space-block)]">
-              <Link href={`/${locale}/app`} className="t-mono inline-flex items-center min-h-11 hover:text-red">
-                {app.stripLabel}
+            <p className="mt-[var(--space-block)] text-sm text-quiet flex flex-wrap items-center gap-x-4">
+              <span>{app.stripText}</span>
+              <Link href={`/${locale}/app`} className="inline-flex items-center min-h-11 underline underline-offset-4 hover:text-red">
+                {d.appLink}
               </Link>
             </p>
           </Reveal>

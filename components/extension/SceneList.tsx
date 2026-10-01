@@ -120,10 +120,12 @@ export function SceneList({
   };
 
   // From the day line or the morning row: open the moment and go to it.
-  const openScene = (id: string) => {
+  // The morning opens the evening scene with its turn already shown.
+  const openScene = (id: string, reveal = false) => {
     const el = panels.current[id];
     if (!el) return;
     el.open = true;
+    if (reveal && reveals.current[id]) reveals.current[id]!.open = true;
     document.getElementById(`scene-${id}`)?.scrollIntoView({ block: "start" });
     triggers.current[id]?.focus({ preventScroll: true });
   };
@@ -142,7 +144,7 @@ export function SceneList({
       onSelect={mounted ? openScene : undefined}
       stations={[
         ...scenes.map((s) => ({ time: s.time, target: s.id, title: s.title, left: STATION_LEFT[s.id] })),
-        { time: labels.morningTime, target: "evening", title: labels.morningHint, left: STATION_LEFT.morning, quiet: true },
+        { time: labels.morningTime, target: "evening", title: labels.morningHint, left: STATION_LEFT.morning, quiet: true, reveal: true },
       ]}
     />
     <ol aria-label={labels.listLabel} className="mt-[var(--space-block)] border-t border-[var(--rule)]">
@@ -161,10 +163,11 @@ export function SceneList({
                 <summary
                   ref={(el) => { triggers.current[s.id] = el; }}
                   className="btn btn-red"
-                  aria-describedby={`scene-${s.id}-title`}
                 >
                   <span className="ext-closed">{labels.stepIn}</span>
                   <span className="ext-open">{labels.close}</span>
+                  {/* Three buttons say the same word; this says which scene. */}
+                  <span className="sr-only">: {s.title}</span>
                 </summary>
 
                 <div className="mt-[var(--space-block)]">
@@ -236,7 +239,7 @@ export function SceneList({
           <a
             href="#scene-evening"
             className="t-label inline-flex items-center min-h-11 text-quiet hover:text-red"
-            onClick={mounted ? (e) => { e.preventDefault(); openScene("evening"); } : undefined}
+            onClick={mounted ? (e) => { e.preventDefault(); openScene("evening", true); } : undefined}
           >
             {labels.morningHint}
           </a>

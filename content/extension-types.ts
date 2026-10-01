@@ -4,6 +4,9 @@
  * Kept apart from SiteContent on purpose: the new pages are English only, so
  * the French and German files, their stubs and their review packs do not
  * grow keys that nobody has translated.
+ *
+ * Labels are stored in sentence case. Capitals, where the design has them,
+ * come from CSS (.btn, .t-label, .t-mono), so a screen reader hears words.
  */
 
 export interface LinkCopy {
@@ -15,7 +18,7 @@ export interface SceneCopy {
   id: "message" | "starting" | "evening";
   /** The hour the scene happens at, set in mono like page 4's timestamps. */
   time: string;
-  /** One line, like page 4's: what the moment is. */
+  /** One line: what the moment is. */
   title: string;
   scene: string;
   /** The question before a choice; empty when the scene has none. */
@@ -32,22 +35,28 @@ export interface SceneCopy {
 }
 
 export interface OfferCopy {
+  /** Stable: the anchor, the enquiry's format value and the analytics id. */
   id: "teams" | "talks" | "workshops" | "professionals";
-  label: string;
-  title: string;
-  /** What a skimmer reads: one line, the length, who it is for. The rest opens on a tap. */
-  short: string;
-  duration: string;
-  who: string;
-  hook: string;
-  description: string;
+  /** Who it is for, in the eyebrow. */
   audience: string;
-  formats: string[];
-  explore: string[];
+  /** What it is, in words a nonreader understands. */
+  title: string;
+  /** The book's name for it, secondary. */
+  series: string;
+  description: string;
+  /** One line each; a talk and a reading are listed apart. */
+  durations: string[];
   takeaway: string;
-  glimpse: string;
+  /** The enquiry link's label, specific to the offer. */
+  action: string;
+  /** A quiet second link, where one helps (workshops → public events). */
+  alternative?: LinkCopy;
+  /** Behind "What happens in the session". */
+  details?: string;
+  explore: string[];
+  takeawayDetail?: { label: string; text: string };
   practical: string;
-  scope: string;
+  scope?: string;
   /** The author's sign-off for this offer. Production shows only approved offers. */
   approvedForPublication: boolean;
 }
@@ -57,10 +66,11 @@ export interface ExtensionContent {
   moreWaysIn: string;
   nav: { explore: string; events: string; invite: string; research: string };
   /** One line under each word in the phone menu's swipe strip. */
-  ways: { explore: string; events: string; invite: string; research: string; app: string };
+  ways: { explore: string; events: string; research: string; app: string };
   /** On an English-only page, the other languages link to their own home page and say so. */
   homeOnlyLanguage: Partial<Record<"fr" | "de", { label: string; title: string }>>;
-  book: { details: string; detailsHref: string };
+  /** The book action on the new pages, by the state site.config.ts gives. */
+  book: { details: string; detailsHref: string; preorder: string; buy: string };
 
   meta: Record<"explore" | "invite" | "enquire" | "events" | "app" | "research", { title: string; description: string }>;
 
@@ -69,6 +79,7 @@ export interface ExtensionContent {
     title: string;
     intro: string;
     items: (LinkCopy & { title: string; text: string })[];
+    appLink: string;
   };
 
   explore: {
@@ -87,9 +98,9 @@ export interface ExtensionContent {
     morningHint: string;
     boundary: string;
     teamsLink: string;
+    endEyebrow: string;
     endTitle: string;
     endText: string;
-    endSource: string;
     scenes: SceneCopy[];
   };
 
@@ -97,25 +108,23 @@ export interface ExtensionContent {
     eyebrow: string;
     title: string;
     intro: string;
-    indexLabel: string;
-    quoteLabel: string;
-    availabilityNote: string;
-    rows: {
-      audience: string;
-      formats: string;
-      explore: string;
-      glimpse: string;
-      takeaway: string;
-      practical: string;
-      scope: string;
-    };
+    support: string;
+    primaryAction: string;
+    practicalLine: string;
+    listTitle: string;
+    takeawayLabel: string;
+    exploreLabel: string;
+    practicalLabel: string;
+    openDetails: string;
+    closeDetails: string;
     draftOffer: string;
-    seeFormat: string;
-    closeFormat: string;
-    moreAbout: string;
     offers: OfferCopy[];
     faqTitle: string;
     faq: { q: string; a: string }[];
+    authorTitle: string;
+    authorBio: string;
+    authorMore: string;
+    authorMoreLabel: string;
     pressLabel: string;
     pressNote: string;
   };
@@ -124,8 +133,6 @@ export interface ExtensionContent {
     eyebrow: string;
     title: string;
     intro: string;
-    howLabel: string;
-    emailFallbackIntro: string;
     optional: string;
     fields: {
       name: string;
@@ -140,15 +147,16 @@ export interface ExtensionContent {
       budget: string;
     };
     purposeHint: string;
+    languageHint: string;
+    moreDetails: string;
     formatNames: Record<string, string>;
     languageNames: Record<string, string>;
     boundary: string;
-    privacy: string;
+    draftNote: string;
     action: string;
     errorsTitle: string;
-    errors: { required: Record<string, string>; email: string; tooLong: string; invalidChoice: string };
+    errors: { name: string; email: string; format: string; purpose: string; purposeTooLong: string; tooLong: string; invalidChoice: string };
     sentTitle: string;
-    sentBody: string;
     fallbackIntro: string;
     copyLabel: string;
     copied: string;
@@ -173,21 +181,23 @@ export interface ExtensionContent {
     emptyTitle: string;
     emptyText: string;
     attendee: { label: string; subject: string; body: string; hint: string };
+    hostQuestion: string;
     hostLabel: string;
     detailLink: string;
     back: string;
+    otherEvents: string;
     seeUpcoming: string;
-    rows: { date: string; time: string; place: string; language: string; price: string; book: string; access: string; contact: string };
+    rows: { date: string; time: string; place: string; language: string; price: string; contact: string };
+    /** One or two words on a card. */
     status: { announced: string; bookable: string; sold_out: string; cancelled: string; past: string };
-    bookingToFollow: string;
+    /** The full sentence on the event's own page. */
+    statusLine: { announced: string; sold_out: string; cancelled: string; past: string };
     bookIncluded: { yes: string; no: string; unknown: string };
-    bookWith: string;
+    bookTickets: string;
+    register: string;
     providerNotice: string;
     termsLabel: string;
-    whoFor: string;
-    whatHappens: string;
-    included: string;
-    cancellationLabel: string;
+    sections: { expect: string; whoFor: string; when: string; included: string; access: string; terms: string };
     free: string;
   };
 
@@ -199,12 +209,15 @@ export interface ExtensionContent {
     destinationPrefix: string;
     copyByStatus: Record<"in_development" | "live", {
       statusLabel: string;
-      intro: string;
       body: string;
-      stripLabel: string;
+      /** Only while it is true. Empty when there is nothing to say. */
+      support: string;
+      /** The home page's line about the app. */
+      stripText: string;
       menuLabel: string;
     }>;
     meanwhile: string;
+    tryScene: string;
   };
 
   research: {

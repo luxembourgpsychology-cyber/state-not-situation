@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Locale } from "@/site.config";
+import { siteConfig } from "@/site.config";
+import { getContent } from "@/lib/i18n";
 import { appCopy, appState, ext, extensionMetadata, extensionOn } from "@/lib/extension";
-import { BookActions, PageHead, Shell } from "@/components/extension/Shell";
+import { PageHead, Shell } from "@/components/extension/Shell";
+import { ExcerptLink } from "@/components/ExcerptLink";
 import { OutboundLink } from "@/components/extension/OutboundLink";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -13,9 +16,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 /**
- * THE APP'S DOORWAY. The STATE companion is a separate product built
- * elsewhere; this page owns only its status and, once there is one, its
- * approved address. No feature list, no date, no price, no guessed link.
+ * THE APP'S DOORWAY. The STATE companion app is built elsewhere; this page
+ * owns only its status and, once there is one, its approved address — and
+ * says neither more nor less than that. No feature list, no date, no price,
+ * no guessed link, and no build architecture in the visitor's words.
  *
  * Its copy comes from one status (lib/extension appState), the same one the
  * home page's line, the header bar, the menu and the footer read, so a
@@ -24,6 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function AppPage({ params }: { params: Promise<{ lang: string }> }) {
   const locale = (await params).lang as Locale;
   if (!extensionOn(locale)) notFound();
+  const c = getContent(locale);
   const x = ext().app;
   const state = appState();
   const copy = appCopy();
@@ -35,8 +40,8 @@ export default async function AppPage({ params }: { params: Promise<{ lang: stri
         title={x.title}
         aside={<p className="t-mono text-ink">{x.statusPrefix}: {copy.statusLabel}</p>}
       >
-        <p className="t-lead">{copy.intro}</p>
-        <p className="t-body mt-[var(--space-tight)]">{copy.body}</p>
+        <p className="t-body">{copy.body}</p>
+        {copy.support ? <p className="mt-3 text-sm text-quiet">{copy.support}</p> : null}
         {state.status === "live" ? (
           <div className="mt-[var(--space-block)]">
             <OutboundLink href={state.url} event="app_outbound_clicked" props={{ source: "app_page", locale }} className="btn btn-red">
@@ -52,10 +57,11 @@ export default async function AppPage({ params }: { params: Promise<{ lang: stri
           <div className="md:col-span-3">
             <h2 id="app-meanwhile" className="t-mono">{x.meanwhile}</h2>
           </div>
-          <div className="md:col-span-8">
-            <BookActions locale={locale}>
-              <Link href={`/${locale}/explore`} className="btn">{ext().discovery.items[0].label}</Link>
-            </BookActions>
+          <div className="md:col-span-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+            <Link href={`/${locale}/explore`} className="btn btn-red">{x.tryScene}</Link>
+            {siteConfig.editions[locale].excerptAvailable ? (
+              <ExcerptLink href={`/${locale}/read`} label={c.hero.readCta} locale={locale} />
+            ) : null}
           </div>
         </div>
       </section>

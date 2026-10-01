@@ -95,10 +95,10 @@ export function BookActions({ locale, children, withExtract = true }: { locale: 
       {!published && date ? (
         <p className="t-mono text-ink w-full">{c.status.forthcomingDatePrefix} {date}</p>
       ) : null}
-      {action.kind === "buy" ? (
-        <AmazonButton href={action.href} label={action.label} locale={locale} className="btn btn-red" />
-      ) : (
+      {action.kind === "details" ? (
         <Link href={action.href} className="btn btn-red">{action.label}</Link>
+      ) : (
+        <AmazonButton href={action.href} label={action.label} locale={locale} className="btn btn-red" />
       )}
       {withExtract && siteConfig.editions[locale].excerptAvailable ? (
         <ExcerptLink href={`/${locale}/read`} label={c.hero.readCta} locale={locale} />

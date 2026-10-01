@@ -12,7 +12,7 @@ import {
   parseFormat, parseSource, validateEnquiry, composeEnquiry, mailtoHref, cleanField, ENQUIRY_LIMITS,
 } from "../lib/extension/rules.ts";
 
-const labels = { buy: "Buy on Amazon", details: "Book & publication details" };
+const labels = { buy: "Buy the book", preorder: "Pre-order the book", details: "About the book" };
 const AMAZON = "https://www.amazon.com/dp/EXAMPLE";
 
 test("visibility: production shows the extension only once approved", () => {
@@ -37,6 +37,10 @@ test("book action: never a purchase label without a published edition and a veri
   assert.equal(d("published", "#").kind, "details");
   assert.equal(d("published", "http://insecure.example/book").kind, "details");
   assert.deepEqual(d("published", AMAZON), { kind: "buy", href: AMAZON, label: labels.buy });
+  // Pre-order only with a verified link; without one, book information.
+  assert.deepEqual(d("preorder", AMAZON), { kind: "preorder", href: AMAZON, label: labels.preorder });
+  assert.equal(d("preorder", null).kind, "details");
+  assert.equal(d("preorder", "http://insecure.example/book").kind, "details");
 });
 
 test("app: live needs an https address, otherwise development copy and a warning", () => {

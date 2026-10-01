@@ -166,8 +166,9 @@ one day (`DayLine.tsx`), and each moment's time in mono at DISPLAY (`.ext-stamp`
 timestamp motif was specified. The line draws itself once on arrival — the brief's
 "subtle signal movement" — and is still under reduced motion.
 
-In the header, "More ways in" is a disclosure that opens a second bar of the same type
-under the first. Between 768 and 1023 the wordmark yields to the mark, as below 420. On a
+In the header, Invite Ivana follows Press, and "More ways in" is a disclosure that opens
+a second bar of the same type under the first. With those six items the bar is inline
+from 1024 (the wordmark from 1280) and behind Menu below it — never smaller type. On a
 phone the word Menu sits at the top left, beside the mark, and the sheet opens on "More
 ways in" as a swipe strip (`.ways`) along the pulse line, before the book's own items.
 
