@@ -56,6 +56,8 @@ export interface ExtensionContent {
   draftNote: string;
   moreWaysIn: string;
   nav: { explore: string; events: string; invite: string; research: string };
+  /** One line under each word in the phone menu's swipe strip. */
+  ways: { explore: string; events: string; invite: string; research: string; app: string };
   /** On an English-only page, the other languages link to their own home page and say so. */
   homeOnlyLanguage: Partial<Record<"fr" | "de", { label: string; title: string }>>;
   book: { details: string; detailsHref: string };

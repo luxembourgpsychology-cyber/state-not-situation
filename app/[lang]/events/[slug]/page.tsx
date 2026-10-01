@@ -51,7 +51,7 @@ export default async function EventPage({ params }: { params: Promise<{ lang: st
 
   const action = booking ? (
     <div>
-      <OutboundLink href={booking.url} event="event_booking_clicked" props={{ event: e.slug, provider: booking.provider, locale }} className="btn btn-solid">
+      <OutboundLink href={booking.url} event="event_booking_clicked" props={{ event: e.slug, provider: booking.provider }} className="btn btn-solid">
         {x.bookWith} {booking.provider}
       </OutboundLink>
       <p className="mt-3 text-sm text-quiet">

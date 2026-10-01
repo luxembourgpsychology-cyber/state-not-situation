@@ -78,6 +78,12 @@ Where this departs from the handoff, and why.
    like the press page's fact sheet; scenes like page 4's moments. No new type step,
    colour, spacing value or shadow. Status words (Sold out, Cancelled) stay ink: red has
    four jobs.
+4. **On a phone, Menu at the top left, and "More ways in" first** (the author's request,
+   1 October 2026). Close takes Menu's place. The sheet opens on a swipe strip of the
+   five ways in, each a word, a short line in mono and a stretch of the cover's pulse
+   line; the next word is cut by the margin as the sign there is more. The book's own
+   items and actions follow, unchanged; the footer row stays. A scroll-progress line
+   was considered and rejected: nothing on this site is driven by scroll position.
 4. **One header item, not three.** At 768 the bar has 52 px either side of its links;
    three more would crowd it. "More ways in" opens a second quiet bar. Between 768 and
    1023 the wordmark yields to the pulse mark (as it already does below 420) so the bar
