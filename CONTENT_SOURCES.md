@@ -476,6 +476,14 @@ of string** this file has not had before:
    `02_CONTENT_AND_CONFIG.json`, which marks itself `"copyStatus": "draft-for-Ivana-review"`.
    Written for her, not by her, and not yet approved.
 
+**Approved on 1 October 2026.** The author reviewed the preview — Explore, Invite with its
+four offers, Enquiry, Events, the app's doorway and Research — and wrote "good. lets go
+live". From that date every string in `content/extension.en.ts` stands as
+**author-approved (2)**, and `extension.approved` and all four offers'
+`approvedForPublication` are `true`. Three practical points were left open by her
+choice and can be changed in the content file at any time: the offers' durations, the
+languages sessions run in, and that enquiries go to the public address.
+
 Because of that, all of it is fenced: `site.config.ts → extension.approved` is `false`,
 so production renders none of it, and every preview page says it is a draft. **When the
 author approves a line, it becomes author-supplied (2); when she changes one, record the

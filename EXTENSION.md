@@ -7,9 +7,11 @@ footer. Built from the author's handoff of 1 October 2026 (`01_PRODUCT_AND_PAGE_
 and her master prompt), inside this site's own architecture and design system
 (`BRAND_BASELINE.md`).
 
-**It is off on production.** `site.config.ts → extension.approved` is `false`: the pages
-return 404 and no link to them renders on the live site. Preview deployments and
-`npm run dev` show everything under a "draft for review" line.
+**Live since 1 October 2026**, approved by the author after reviewing the preview
+(`site.config.ts → extension.approved: true`, all four offers approved). Setting it back
+to `false` takes every new page and link off the site together; with it `false`, the
+pages return 404, nothing links to them, and previews show them under a "draft for
+review" line.
 
 ## Turning things on
 
@@ -143,7 +145,8 @@ reader pass, and the preview deployment's own headers.
 
 ## Waiting on the author
 
-1. Review the copy on the preview, then `extension.approved` and each offer's flag.
+1. ~~Review the copy on the preview, then `extension.approved` and each offer's flag.~~
+   Done 1 October 2026.
 2. Confirm the four offers' formats and durations, and which languages sessions run in.
 3. Confirm enquiries go to `ivana@luxembourgpsychology.com` (the existing public address).
 4. Check "FR · livre" and its French tooltip.

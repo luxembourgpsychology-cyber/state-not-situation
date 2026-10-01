@@ -173,7 +173,7 @@ export const extensionEn: ExtensionContent = {
         glimpse: "One ordinary email. Several plausible readings. A conversation about what information is still missing.",
         practical: "Audience size, location or online delivery, language, materials and any follow-up are agreed in the proposal.",
         scope: "This session does not replace addressing workload, harmful conduct or organisational problems. Individual reflections are not reported to management.",
-        approvedForPublication: false,
+        approvedForPublication: true,
       },
       {
         id: "talks",
@@ -200,7 +200,7 @@ export const extensionEn: ExtensionContent = {
         glimpse: "A room hears the same few words—and discovers how many meanings can fit inside them.",
         practical: "Host questions, screen or audio needs, audience language, book sales, signing and recording rights are agreed in advance.",
         scope: "A public educational talk or literary event. It is not therapy or an assessment of audience members.",
-        approvedForPublication: false,
+        approvedForPublication: true,
       },
       {
         id: "workshops",
@@ -222,7 +222,7 @@ export const extensionEn: ExtensionContent = {
         glimpse: "A shared scene becomes a conversation. No one has to make their own life the example.",
         practical: "Group size, venue, language, access requirements, materials and books are confirmed with the organiser. Announced public sessions appear on Events.",
         scope: "An educational workshop, not group therapy. Participation in any activity is optional.",
-        approvedForPublication: false,
+        approvedForPublication: true,
       },
       {
         id: "professionals",
@@ -244,7 +244,7 @@ export const extensionEn: ExtensionContent = {
         glimpse: "One case, two plausible accounts. What would distinguish them, and what remains unknown?",
         practical: "Audience, learning objectives, reading material, language and duration are agreed in advance.",
         scope: "No CPD accreditation is claimed. The book’s framework and derived exercises are not presented as a validated treatment.",
-        approvedForPublication: false,
+        approvedForPublication: true,
       },
     ],
     faqTitle: "Practical questions",

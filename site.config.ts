@@ -208,9 +208,13 @@ export const siteConfig: SiteConfig = {
    * not rendered. Preview deployments and `npm run dev` show it all, under a
    * "draft for review" line. Set true once the author has approved the copy.
    * Each offer on /invite also has its own approvedForPublication.
+   *
+   * Approved by the author on 1 October 2026 after reviewing the preview
+   * ("good. lets go live"). Setting it back to false takes every new page and
+   * link off the site together.
    */
   extension: {
-    approved: false,
+    approved: true,
     locales: ["en"],
     // The draft goes to author.pressEmail from the visitor's own email app.
     // Nothing is collected by the site; a backend would be a separate change.
