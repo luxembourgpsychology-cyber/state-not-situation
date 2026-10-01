@@ -97,6 +97,9 @@ Where this departs from the handoff, and why.
    with no script, no jump on a phone. Focus therefore stays on the scene's own button,
    which the scene directly follows (the native disclosure pattern); "Back to the three
    moments" returns focus to it. Each "Read the scene" names its scene to screen readers.
+   On a phone (the author's report, 1 October 2026: "it jumps to a weird spot") the tapped
+   moment now holds its place while another scene folds away, then glides up until its
+   time sits under the header; its stretch of the pulse line draws and the words rise in.
 8. **The book action reads the existing release switch** (`publicationStatus` +
    `amazonUrl`) rather than a second one: one switch cannot drift from another.
    "Forthcoming" with an old link still set never shows a purchase label.
