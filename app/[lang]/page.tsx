@@ -13,7 +13,9 @@ import { ExcerptTeaser } from "@/components/ExcerptTeaser";
 import { Names } from "@/components/Names";
 import { Author } from "@/components/Author";
 import { Closing } from "@/components/Closing";
+import { Discovery } from "@/components/Discovery";
 import { Footer } from "@/components/Footer";
+import { navExtension } from "@/lib/extension";
 import { JsonLd } from "@/components/JsonLd";
 
 /**
@@ -34,6 +36,11 @@ import { JsonLd } from "@/components/JsonLd";
  *
  * Section ids are English in every language, by contract, so the language
  * switch can keep a reader in the section they are in.
+ *
+ * On 1 October 2026 the commercial extension added one section after the
+ * nine, `Discovery` (#explore-more), between the form and the footer, and
+ * one item in the header. Neither moves anything above it, and both render
+ * only in English and only where the extension is switched on.
  */
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const locale = (await params).lang as Locale;
@@ -43,7 +50,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
   return (
     <>
-      <Nav locale={locale} content={c} excerptAvailable={ed.excerptAvailable} />
+      <Nav locale={locale} content={c} excerptAvailable={ed.excerptAvailable} more={navExtension(locale)} />
       <main id="main" aria-label={c.a11y.mainLandmark}>
         <Hero
           locale={locale}
@@ -62,6 +69,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Names content={c.names} />
         <Author locale={locale} content={c.author} />
         <Closing locale={locale} />
+        <Discovery locale={locale} />
       </main>
       <Footer locale={locale} />
       <JsonLd locale={locale} />
