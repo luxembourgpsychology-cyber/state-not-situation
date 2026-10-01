@@ -45,11 +45,13 @@ export default async function ResearchPage({ params }: { params: Promise<{ lang:
           </div>
           <div className="md:col-span-8">
             <h2 id="research-questions" className="t-head">{x.questions.title}</h2>
-            <ul className="mt-[var(--space-block)] flex flex-wrap gap-x-8 gap-y-2" aria-hidden="true">
+            {/* The three words as the home page sets them, one size down: the
+                one thing on this page to see before reading. */}
+            <p className="mt-[var(--space-block)] flex flex-wrap gap-x-6" aria-hidden="true">
               {c.variables.loops.map((l) => (
-                <li key={l.key} className="t-label" style={{ color: `var(--${l.key})` }}>{l.name}</li>
+                <span key={l.key} className="t-display" style={{ color: `var(--${l.key})` }}>{l.name}.</span>
               ))}
-            </ul>
+            </p>
             <p className="t-body mt-[var(--space-tight)]">{c.press.sortingTool}</p>
           </div>
         </div>

@@ -99,22 +99,27 @@ Where this departs from the handoff, and why.
    under it opens its moment. Each moment is a big mono time and one big sentence, so
    the page can be skimmed in seconds; the morning shows only "07:08 ?". A motif, not
    data: no axis, no values.
-8. **Talk durations say who they are for** (conferences vs bookshops and libraries), as
+8. **Invite is built to be scanned** (the author: "HR and readers are now on TikTok"):
+   her portrait and one sentence first; each offer as its audience, a big title, one
+   short line and its length in mono; the whole format — and the action with its format
+   chosen — one tap away, in the page. A shared `#teams` link arrives open. Research
+   sets Time. Attention. Safety. in their own inks, as the home page does.
+9. **Talk durations say who they are for** (conferences vs bookshops and libraries), as
    the spec asks.
-9. **`.btn-solid` on two more controls**: the enquiry's submit and an event's booking
+10. **`.btn-solid` on two more controls**: the enquiry's submit and an event's booking
    link. The system reserves the solid block for "a form control [that] must read as a
    control"; both are that.
-10. **Event structured data without an offer**: schema.org wants a numeric price and the
+11. **Event structured data without an offer**: schema.org wants a numeric price and the
     site holds the verified price as a sentence. None is emitted on previews or for past
     events.
-11. **Email still required** in the email-draft form, as specified: the copyable fallback
+12. **Email still required** in the email-draft form, as specified: the copyable fallback
     text then carries a reply address, and the form needs no change when a backend comes.
 
 ## Verified (1 October 2026)
 
 - `npm run build`, `npx tsc --noEmit`, `npm run lint` (0 errors; the two warnings
   pre-date this work), `npm test` (13 tests).
-- 80 browser checks of the journeys at 390 and 1440 (scenes, Back/Forward, direct and
+- 85 browser checks of the journeys at 390 and 1440 (scenes, Back/Forward, direct and
   invalid `?scene=`, keyboard only, no-script reading, the header disclosure and phone
   menu, French untouched, all four offer → enquiry preselections, unknown query values,
   validation and error focus, the email draft's encoding and its honest wording, events'

@@ -7,7 +7,8 @@ import { siteConfig } from "@/site.config";
 import { getContent } from "@/lib/i18n";
 import { ext, extensionMetadata, extensionOn, visibleOffers } from "@/lib/extension";
 import type { OfferCopy } from "@/content/extension-types";
-import { PageHead, ScopeNote, Shell } from "@/components/extension/Shell";
+import { ScopeNote, Shell } from "@/components/extension/Shell";
+import { OpenOnHash } from "@/components/extension/OpenOnHash";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const locale = (await params).lang as Locale;
@@ -16,14 +17,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 /**
- * INVITE IVANA — the paid-sessions page.
+ * INVITE IVANA — the paid-sessions page, for someone who scans.
  *
- * Built like the press page, because the reader is the same kind of person:
- * an organiser who wants the facts quickly. An index of the four formats,
- * then the four in one template — who it is for, the proposed formats, what
- * it explores, one glimpse, what people take away, practicalities and scope —
- * each ending on the same action with its format already chosen. Every offer
- * is described before anyone is asked for anything. No fee appears.
+ * A face and one sentence first: organisers book a person. Then the four
+ * offers as four big lines — who it is for, the title, one short line, the
+ * length in mono — each opening in place to the whole format: who it is for,
+ * what it explores, a glimpse, what people take away, practicalities, scope,
+ * and the action with its format already chosen. Everything is in the page;
+ * nothing is asked of anyone before the format is described. No fee appears.
  */
 export default async function InvitePage({ params }: { params: Promise<{ lang: string }> }) {
   const locale = (await params).lang as Locale;
@@ -37,44 +38,48 @@ export default async function InvitePage({ params }: { params: Promise<{ lang: s
 
   return (
     <Shell locale={locale}>
-      <PageHead eyebrow={x.eyebrow} title={x.title}>
-        <p className="t-body">{x.intro}</p>
-        <p className="mt-4 text-sm text-quiet">{x.availabilityNote}</p>
-      </PageHead>
-
-      {/* The index: four audiences, each a link to its own section. */}
-      <nav aria-labelledby="invite-index" className="pb-[var(--space-section)]">
-        <div className="container-book grid md:grid-cols-12 gap-x-10 gap-y-4">
+      <header className="section">
+        <div className="container-book grid md:grid-cols-12 gap-x-10 gap-y-[var(--space-block)]">
           <div className="md:col-span-3">
-            <h2 id="invite-index" className="t-mono">{x.indexLabel}</h2>
+            <p className="t-label t-label-red">{x.eyebrow}</p>
+            {photo ? (
+              <Image
+                src={photo}
+                alt={c.author.photoAlt}
+                width={1200}
+                height={1200}
+                priority
+                sizes="(max-width: 767px) 160px, 22vw"
+                className="mt-4 w-[160px] md:w-full md:max-w-[220px] h-auto"
+              />
+            ) : null}
+            <p className="t-mono mt-3">{siteConfig.author.name} · {c.hero.credential}</p>
           </div>
           <div className="md:col-span-8">
-            <ol className="border-t border-[var(--rule)]">
-              {offers.map((o, i) => (
-                <li key={o.id} className="border-b border-[var(--rule)]">
-                  <a href={`#${o.id}`} className="flex items-baseline gap-4 py-3 hover:text-red">
-                    <span className="t-mono text-red shrink-0 w-7">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="flex-1 min-w-0">
-                      <span className="t-body block">{o.title}</span>
-                      <span className="t-mono block mt-1">{o.label}</span>
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ol>
+            <h1 className="t-display">{x.title}</h1>
+            <p className="t-body mt-[var(--space-tight)]">{x.intro}</p>
+            <p className="mt-3 text-sm text-quiet">{x.availabilityNote}</p>
             <p className="mt-[var(--space-block)]">
               <Link href={enquire("not_sure")} className="btn btn-red">{x.quoteLabel}</Link>
             </p>
           </div>
         </div>
-      </nav>
+      </header>
 
-      {offers.map((o, i) => (
-        <Offer key={o.id} offer={o} number={i + 1} href={enquire(o.id)} labels={x} />
-      ))}
+      <section aria-label={x.indexLabel} className="pb-[var(--space-section)]">
+        <div className="container-book grid md:grid-cols-12 gap-x-10">
+          <div className="md:col-span-8 md:col-start-4">
+            <ol className="border-t border-[var(--rule)]">
+              {offers.map((o) => (
+                <Offer key={o.id} offer={o} href={enquire(o.id)} labels={x} />
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
 
       {/* Shared questions, answered once. */}
-      <section className="section" aria-labelledby="invite-faq">
+      <section className="pb-[var(--space-section)]" aria-labelledby="invite-faq">
         <div className="container-book grid md:grid-cols-12 gap-x-10 gap-y-[var(--space-block)]">
           <div className="md:col-span-3">
             <h2 id="invite-faq" className="t-label t-label-red">{x.faqTitle}</h2>
@@ -96,17 +101,15 @@ export default async function InvitePage({ params }: { params: Promise<{ lang: s
       </section>
 
       {/* The author, for an organiser's programme notes, and the press kit. */}
-      <section className="section" aria-labelledby="invite-author">
-        <div className="container-book grid md:grid-cols-12 gap-x-10 gap-y-[var(--space-block)] items-start">
-          <div className="md:col-span-3">
-            {photo ? (
-              <Image src={photo} alt={c.author.photoAlt} width={1200} height={1200} sizes="(max-width: 767px) 160px, 22vw" className="w-[160px] md:w-full md:max-w-[220px] h-auto" />
-            ) : null}
-          </div>
-          <div className="md:col-span-8">
+      <section className="pb-[var(--space-section)]" aria-labelledby="invite-author">
+        <div className="container-book grid md:grid-cols-12 gap-x-10 gap-y-[var(--space-block)]">
+          <div className="md:col-span-8 md:col-start-4">
             <h2 id="invite-author" className="t-head">{siteConfig.author.name}</h2>
-            <p className="t-mono mt-2">{c.hero.credential}</p>
-            <p className="t-body mt-[var(--space-block)]">{longBio}</p>
+            <p className="t-body mt-[var(--space-tight)]">{c.author.bio}</p>
+            <details className="mt-4">
+              <summary className="btn">{x.moreAbout}</summary>
+              <p className="t-body mt-[var(--space-tight)]">{longBio}</p>
+            </details>
             {siteConfig.press.enabled ? (
               <div className="mt-[var(--space-block)]">
                 <Link href={`/${locale}/press`} className="btn">{x.pressLabel}</Link>
@@ -116,12 +119,14 @@ export default async function InvitePage({ params }: { params: Promise<{ lang: s
           </div>
         </div>
       </section>
+
+      <OpenOnHash locale={locale} />
     </Shell>
   );
 }
 
-/** One offer. All four share it, so no audience gets a thinner page. */
-function Offer({ offer: o, number, href, labels: x }: { offer: OfferCopy; number: number; href: string; labels: ReturnType<typeof ext>["invite"] }) {
+/** One offer: four lines to scan, the whole format one tap away. All four share it. */
+function Offer({ offer: o, href, labels: x }: { offer: OfferCopy; href: string; labels: ReturnType<typeof ext>["invite"] }) {
   const rows: [string, React.ReactNode][] = [
     [x.rows.audience, o.audience],
     [x.rows.formats, <ul key="f">{o.formats.map((f) => <li key={f}>{f}</li>)}</ul>],
@@ -137,17 +142,21 @@ function Offer({ offer: o, number, href, labels: x }: { offer: OfferCopy; number
     [x.rows.practical, o.practical],
   ];
   return (
-    <section id={o.id} className="section" aria-labelledby={`${o.id}-title`}>
-      <div className="container-book grid md:grid-cols-12 gap-x-10 gap-y-[var(--space-block)]">
-        <div className="md:col-span-3">
-          <p className="t-label t-label-red">{o.label}</p>
-          <p className="t-mono mt-3">{String(number).padStart(2, "0")}</p>
-          {!o.approvedForPublication ? <p className="t-mono mt-3">{x.draftOffer}</p> : null}
-        </div>
-        <div className="md:col-span-8">
-          <h2 id={`${o.id}-title`} className="t-head">{o.title}</h2>
-          <p className="t-lead mt-[var(--space-tight)]">{o.hook}</p>
-          <p className="t-body mt-[var(--space-block)]">{o.description}</p>
+    <li id={o.id} className="py-[var(--space-block)] border-b border-[var(--rule)]">
+      <p className="t-label t-label-red">{o.label}</p>
+      <h2 id={`${o.id}-title`} className="t-display mt-3">{o.title}</h2>
+      <p className="t-lead mt-[var(--space-tight)]">{o.short}</p>
+      <p className="t-mono text-ink mt-3">{o.duration} · {o.who}</p>
+      {!o.approvedForPublication ? <p className="t-mono mt-2">{x.draftOffer}</p> : null}
+
+      <details data-offer={o.id} className="mt-4">
+        <summary className="btn btn-red" aria-describedby={`${o.id}-title`}>
+          <span className="ext-closed">{x.seeFormat}</span>
+          <span className="ext-open">{x.closeFormat}</span>
+        </summary>
+        <div className="mt-[var(--space-block)]">
+          <p className="t-body">{o.hook}</p>
+          <p className="t-body mt-[var(--space-tight)]">{o.description}</p>
 
           <dl className="mt-[var(--space-block)] border-t border-[var(--rule)]">
             {rows.map(([label, value]) => (
@@ -164,7 +173,7 @@ function Offer({ offer: o, number, href, labels: x }: { offer: OfferCopy; number
             <Link href={href} className="btn btn-red">{x.quoteLabel}</Link>
           </p>
         </div>
-      </div>
-    </section>
+      </details>
+    </li>
   );
 }

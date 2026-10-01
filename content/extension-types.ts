@@ -35,6 +35,10 @@ export interface OfferCopy {
   id: "teams" | "talks" | "workshops" | "professionals";
   label: string;
   title: string;
+  /** What a skimmer reads: one line, the length, who it is for. The rest opens on a tap. */
+  short: string;
+  duration: string;
+  who: string;
   hook: string;
   description: string;
   audience: string;
@@ -104,6 +108,9 @@ export interface ExtensionContent {
       scope: string;
     };
     draftOffer: string;
+    seeFormat: string;
+    closeFormat: string;
+    moreAbout: string;
     offers: OfferCopy[];
     faqTitle: string;
     faq: { q: string; a: string }[];

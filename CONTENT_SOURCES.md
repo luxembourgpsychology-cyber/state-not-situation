@@ -510,6 +510,12 @@ change here.**
   title looked fine at lunch.", "Just one more folder."), and the scenes no longer repeat
   them. The 07:08 turn now says the cause she could not see ("dont get the photos?"):
   "The photos are sorted, every last one. You got to bed after one in the morning…".
+- **Invite, for someone who scans** (same day, at her request): each offer gained three
+  short strings — `short`, `duration`, `who` — and the rest opens on a tap. They are
+  derived, not new claims: `short` is the first sentence of the teams hook, and a
+  shortening of the other three hooks; `duration` restates the offer's own `formats`
+  ("60 or 90 minutes", "20, 40 or 75 minutes", "Three hours, or two × 90 minutes");
+  `who` shortens its `audience`. Kind 5, awaiting her approval.
 - **Talk durations name their audience**: "20-minute talk, for conferences and
   associations", "40-minute talk, for conferences and associations", "75-minute reading
   and conversation, for bookshops, libraries and book clubs" (the spec asks for it).

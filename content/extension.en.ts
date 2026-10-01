@@ -147,11 +147,17 @@ export const extensionEn: ExtensionContent = {
       scope: "Scope",
     },
     draftOffer: "Draft · not yet approved for publication",
+    seeFormat: "See the format",
+    closeFormat: "Close",
+    moreAbout: "More about Ivana",
     // The four offers from the handoff, word for word. The durations are
     // proposals, and the page says so. No fee appears anywhere.
     offers: [
       {
         id: "teams",
+        short: "A short email becomes a verdict.",
+        duration: "60 or 90 minutes",
+        who: "Teams, HR and team leaders",
         label: "For teams",
         title: "Warm Panels at Work",
         hook: "A short email becomes a verdict. An unfinished task follows someone home. Small pressures collect until an ordinary afternoon feels personal.",
@@ -171,6 +177,9 @@ export const extensionEn: ExtensionContent = {
       },
       {
         id: "talks",
+        short: "The distance between a feeling and the story that follows it.",
+        duration: "20, 40 or 75 minutes",
+        who: "Conferences, libraries, bookshops",
         label: "For audiences and venues",
         title: "Same Life, Different Settings",
         hook: "A memorable talk about the distance between a feeling and the story that follows it.",
@@ -195,6 +204,9 @@ export const extensionEn: ExtensionContent = {
       },
       {
         id: "workshops",
+        short: "Time to try the ideas, ask a question and hear another reading.",
+        duration: "Three hours, or two × 90 minutes",
+        who: "Small groups",
         label: "For curious groups",
         title: "The Instrument Panel",
         hook: "Some ideas are easier to understand when there is time to try them, ask a question and hear another reading.",
@@ -214,6 +226,9 @@ export const extensionEn: ExtensionContent = {
       },
       {
         id: "professionals",
+        short: "The framework and its evidence, on the table.",
+        duration: "60 or 90 minutes",
+        who: "Practitioners and students",
         label: "For professional audiences",
         title: "Reading Mode",
         hook: "Put the framework and its evidence on the table before deciding where it may be useful.",
