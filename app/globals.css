@@ -413,3 +413,32 @@ body {
 .ext-textarea:focus { outline: none; border-color: var(--red); }
 .ext-textarea[aria-invalid="true"] { border-color: var(--red); }
 .ext-choice { accent-color: var(--red); width: 1.1rem; height: 1.1rem; flex: 0 0 auto; margin-top: 0.3rem; }
+
+/* ---------- Mockups (branch mockup/explore-ideas only) ---------- */
+/* The timestamp at DISPLAY, in mono: the design system's own "Timestamp" motif. */
+.ext-stamp {
+  font-family: var(--font-mono);
+  font-size: var(--step-display);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+/* One moment per screen: a phone's height, the content in its middle. */
+.ext-screen {
+  min-height: calc(100svh - var(--nav-h) - 6rem);
+  display: flex;
+  align-items: flex-start;
+  padding-block: var(--space-block) var(--space-section);
+}
+.ext-screen > .container-book > * { max-width: 40rem; }
+/* The day as one pulse line, with its four times under it. */
+.ext-dayline { position: relative; padding-bottom: 2.25rem; }
+.ext-dayline svg { display: block; width: 100%; height: clamp(4.5rem, 10vw, 7rem); overflow: visible; }
+.ext-dayline__labels { position: absolute; left: 0; right: 0; bottom: 0; height: 1.5rem; }
+.ext-dayline__label { position: absolute; transform: translateX(-50%); min-height: 2.75rem; display: inline-flex; align-items: flex-start; }
+.ext-dayline__label:hover { color: var(--red); }
+.ext-dayline__path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ext-trace 1.6s ease-out 0.2s forwards; }
+@keyframes ext-trace { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .ext-dayline__path { animation: none; stroke-dashoffset: 0; } }
+/* Once one reading is chosen, the other steps aside: the turn follows the choice. */
+.ext-choices:has(details[open]) > details:not([open]) { display: none; }
