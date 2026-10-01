@@ -75,6 +75,10 @@ export interface ExtensionContent {
     close: string;
     back: string;
     chosen: string;
+    /** The day line's accessible description, and the morning row under the three moments. */
+    dayLabel: string;
+    morningTime: string;
+    morningHint: string;
     boundary: string;
     teamsLink: string;
     endTitle: string;

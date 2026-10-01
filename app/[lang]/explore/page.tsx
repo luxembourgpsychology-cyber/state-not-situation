@@ -51,6 +51,9 @@ export default async function ExplorePage({ params }: { params: Promise<{ lang: 
                 close: x.close,
                 back: x.back,
                 chosen: x.chosen,
+                dayLabel: x.dayLabel,
+                morningTime: x.morningTime,
+                morningHint: x.morningHint,
                 boundary: x.boundary,
               }}
               ending={<BookActions locale={locale} />}

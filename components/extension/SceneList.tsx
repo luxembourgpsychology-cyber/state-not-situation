@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } fro
 import type { SceneCopy } from "@/content/extension-types";
 import { track } from "@/lib/analytics";
 import { ScopeNote } from "./ScopeNote";
+import { DayLine } from "./DayLine";
 
 const noop = () => () => {};
 
@@ -14,12 +15,20 @@ type Labels = {
   close: string;
   back: string;
   chosen: string;
+  dayLabel: string;
+  morningTime: string;
+  morningHint: string;
   boundary: string;
 };
 
+/** Where each time sits under the day line, as a share of its width. */
+const STATION_LEFT: Record<string, string> = { message: "11.5%", starting: "34%", evening: "63.5%", morning: "88%" };
+
 /**
- * THE THREE MOMENTS. A list in the order and the register of page 4 — a time
- * in mono, a line at LEAD — where each moment opens in place.
+ * THE THREE MOMENTS, as one day. The day line first (DayLine.tsx), so the eye
+ * has something to land on; then each moment as a big mono time and one big
+ * sentence — page 4's timestamp, at DISPLAY — opening in place. The morning
+ * is shown as a time and a question mark: it is the evening's turn.
  *
  * Built on <details>, so with no script every scene and every reveal can
  * still be opened and read; the server sends all of it. With the script:
@@ -110,6 +119,15 @@ export function SceneList({
     if (reveals.current[id]) reveals.current[id]!.open = true;
   };
 
+  // From the day line or the morning row: open the moment and go to it.
+  const openScene = (id: string) => {
+    const el = panels.current[id];
+    if (!el) return;
+    el.open = true;
+    document.getElementById(`scene-${id}`)?.scrollIntoView({ block: "start" });
+    triggers.current[id]?.focus({ preventScroll: true });
+  };
+
   const closeScene = (id: string) => {
     if (panels.current[id]) panels.current[id]!.open = false;
     triggers.current[id]?.focus();
@@ -118,14 +136,22 @@ export function SceneList({
   return (
     <>
     {/* Said once, above all three: every scene below is invented. */}
-    <p className="t-mono mb-4">{labels.sceneLabel}</p>
-    <ol aria-label={labels.listLabel} className="border-t border-[var(--rule)]">
+    <p className="t-mono mb-6">{labels.sceneLabel}</p>
+    <DayLine
+      label={labels.dayLabel}
+      onSelect={mounted ? openScene : undefined}
+      stations={[
+        ...scenes.map((s) => ({ time: s.time, target: s.id, title: s.title, left: STATION_LEFT[s.id] })),
+        { time: labels.morningTime, target: "evening", title: labels.morningHint, left: STATION_LEFT.morning, quiet: true },
+      ]}
+    />
+    <ol aria-label={labels.listLabel} className="mt-[var(--space-block)] border-t border-[var(--rule)]">
       {scenes.map((s) => (
         <li key={s.id} id={`scene-${s.id}`} className="py-[var(--space-block)] border-b border-[var(--rule)]">
-          <div className="sm:grid sm:grid-cols-[6rem_1fr] sm:gap-x-8">
-            <p className="t-mono text-ink sm:pt-[0.55rem]">{s.time}</p>
+          <div>
+            <p className="ext-stamp">{s.time}</p>
             <div className="min-w-0">
-              <h2 id={`scene-${s.id}-title`} className="t-lead mt-2 sm:mt-0">{s.title}</h2>
+              <h2 id={`scene-${s.id}-title`} className="t-display mt-3">{s.title}</h2>
 
               <details
                 ref={(el) => { panels.current[s.id] = el; }}
@@ -180,7 +206,7 @@ export function SceneList({
                       {s.options.length && chosen[s.id] !== undefined ? (
                         <p className="t-mono mb-3">{labels.chosen}: {s.options[chosen[s.id]]}</p>
                       ) : null}
-                      {s.revealTime ? <p className="t-mono text-ink mb-3">{s.revealTime}</p> : null}
+                      {s.revealTime ? <p className="ext-stamp mb-4">{s.revealTime}</p> : null}
                       <p className="t-lead">{s.reveal}</p>
                       <p className="t-body mt-[var(--space-tight)]">{s.question}</p>
                       <ScopeNote className="mt-[var(--space-block)]">{labels.boundary}</ScopeNote>
@@ -202,6 +228,20 @@ export function SceneList({
           </div>
         </li>
       ))}
+      {/* The morning: a time and a question mark. The evening holds the answer. */}
+      <li className="py-[var(--space-block)] border-b border-[var(--rule)]">
+        <p className="ext-stamp text-quiet">{labels.morningTime}</p>
+        <p className="t-display mt-3 text-quiet" aria-hidden="true">?</p>
+        <p className="mt-3">
+          <a
+            href="#scene-evening"
+            className="t-label inline-flex items-center min-h-11 text-quiet hover:text-red"
+            onClick={mounted ? (e) => { e.preventDefault(); openScene("evening"); } : undefined}
+          >
+            {labels.morningHint}
+          </a>
+        </p>
+      </li>
     </ol>
     </>
   );
