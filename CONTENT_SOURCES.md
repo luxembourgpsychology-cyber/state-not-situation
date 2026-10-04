@@ -559,3 +559,15 @@ replace them, and the app's menu label reads "App (in development)".
 
 The original pages — the landing body, the extract, the press page, the French pages — are
 untouched by this pass.
+
+## The free first 16 pages, 4 October 2026
+
+The author approved an email offer on 4 October 2026, after the first three days of analytics showed 1 sign-up from about 26 real visitors.
+
+**The sample.** `public/press/State-Not-Situation-first-16-pages.pdf`, built by `lib/make_opening_pdf.py`. The pages are **copied from the v50 interior PDF, not re-set**: front cover, title page (iii), copyright page (iv), then printed pages 1–16 — the pilot, the first misreading, the map, You Know the Day, Before We Begin, the three ways to read a moment, how to read the cases, all of Chapter Zero, and its A NAME FOR IT entry. One closing page of our own says "Chapter 01 follows" with the printed title, the publication date and the address. Amazon's Look Inside shows these same pages from publication day.
+
+**The strings.** `status.offer.*` in all three languages are interface copy, category 3. French and German say the PDF is in English, because it is.
+
+**The switch.** `editions[lang].samplePdfUrl` in `site.config.ts`. Set, the form becomes the offer, the hero's second button and the phone menu say "Get the first 16 pages free", and the PDF is handed over on sign-up. Null puts every one of those back to the plain publication notice.
+
+**The event.** `opening_pages_downloaded` fires when the PDF is opened from the form, beside the existing `notify_submit`.

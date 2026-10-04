@@ -18,7 +18,8 @@ import { siteConfig } from "@/site.config";
 export type SiteEvent =
   | "excerpt_open" | "audio_play" | "amazon_click" | "notify_submit"
   | "sample_opened" | "sample_completed" | "offer_viewed"
-  | "enquiry_email_draft_opened" | "event_booking_clicked" | "app_outbound_clicked";
+  | "enquiry_email_draft_opened" | "event_booking_clicked" | "app_outbound_clicked"
+  | "opening_pages_downloaded";
 
 declare global {
   interface Window {

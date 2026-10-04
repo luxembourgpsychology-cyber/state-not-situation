@@ -43,6 +43,14 @@ export const fr: SiteContent = {
     forthcomingDatePrefix: "Parution le",
     buy: "Acheter sur Amazon",
     notifyCta: "Avis de parution",
+    offer: {
+      cta: "Recevoir gratuitement les 16 premières pages",
+      line: "L’ouverture et tout le chapitre zéro, tels qu’ils sont imprimés, en anglais, la langue du livre. Votre exemplaire est prêt dès l’inscription, et vous recevez un seul autre message, à la sortie du livre.",
+      submit: "Recevoir les pages",
+      success: "Voici vos pages. Vous recevrez un seul autre message, à la sortie du livre.",
+      download: "Télécharger les 16 premières pages (PDF, en anglais)",
+      privacy: "Adresse utilisée pour cet envoi et pour l’avis de parution, et pour rien d’autre."
+    },
     emailLabel: "Adresse e-mail",
     emailPlaceholder: "votre@email.com",
     submit: "Me prévenir",

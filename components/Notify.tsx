@@ -9,10 +9,22 @@ import { track } from "@/lib/analytics";
  * it posts there (Buttondown, Mailchimp, MailerLite and similar all accept a
  * plain form post). Without one it offers a pre-filled email instead of
  * pretending to collect anything.
+ *
+ * With samplePdfUrl set, the form is an offer rather than a notice: the
+ * book's first 16 pages for an email, handed over the moment the form is
+ * sent. Nobody subscribes to be told about a book; they subscribe to get
+ * something. Before the offer, 1 visitor in 26 signed up.
+ *
+ * The post is no-cors, so its answer is opaque and success is assumed. The
+ * sample is handed over either way: the same pages are public on Amazon's
+ * Look Inside from publication day, so nothing is lost if a subscription
+ * fails, and a reader is never left with nothing.
  */
 export function Notify({ content, edition, pressEmail, locale }: { content: SiteContent["status"]; edition: EditionSettings; pressEmail: string; locale: string }) {
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [email, setEmail] = useState("");
+  const sample = edition.samplePdfUrl ?? null;
+  const o = content.offer;
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,10 +47,29 @@ export function Notify({ content, edition, pressEmail, locale }: { content: Site
 
   return (
     <div className="max-w-xl">
-      <h3 id="notify-title" className="t-head">{content.notifyCta}</h3>
+      <h3 id="notify-title" className="t-head">{sample ? o.cta : content.notifyCta}</h3>
+      {sample && state !== "done" ? <p className="t-body mt-[var(--space-tight)]">{o.line}</p> : null}
+
       {edition.newsletterUrl ? (
         state === "done" ? (
-          <p className="mt-[var(--space-block)] t-mono text-red normal-case" role="status">{content.success}</p>
+          sample ? (
+            <div className="mt-[var(--space-block)]" role="status">
+              <p className="t-body">{o.success}</p>
+              <p className="mt-[var(--space-block)]">
+                <a
+                  href={sample}
+                  target="_blank"
+                  rel="noopener"
+                  className="btn btn-red"
+                  onClick={() => track("opening_pages_downloaded", { locale })}
+                >
+                  {o.download}
+                </a>
+              </p>
+            </div>
+          ) : (
+            <p className="mt-[var(--space-block)] t-mono text-red normal-case" role="status">{content.success}</p>
+          )
         ) : (
           <form onSubmit={onSubmit} className="mt-[var(--space-block)]">
             <label htmlFor="notify-email" className="t-mono block mb-2">{content.emailLabel}</label>
@@ -48,10 +79,10 @@ export function Notify({ content, edition, pressEmail, locale }: { content: Site
                 value={email} onChange={(e) => setEmail(e.target.value)} placeholder={content.emailPlaceholder}
                 className="flex-1 min-h-12 bg-transparent border-b-[1.5px] border-ink px-0 py-2 font-mono text-base placeholder:text-quiet focus:outline-none focus:border-red"
               />
-              <button type="submit" className="btn btn-solid min-h-12" disabled={state === "sending"}>{content.submit}</button>
+              <button type="submit" className="btn btn-solid min-h-12" disabled={state === "sending"}>{sample ? o.submit : content.submit}</button>
             </div>
             {state === "error" ? <p className="mt-4 t-mono normal-case text-red" role="alert">{content.error}</p> : null}
-            <p className="mt-4 text-sm text-quiet">{content.privacyNote}</p>
+            <p className="mt-4 text-sm text-quiet">{sample ? o.privacy : content.privacyNote}</p>
           </form>
         )
       ) : (

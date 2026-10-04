@@ -102,7 +102,7 @@ export function Hero({
               {published && amazonUrl ? (
                 <AmazonButton href={amazonUrl} label={c.status.buy} locale={locale} />
               ) : (
-                <a href="#notify" className="btn">{c.status.notifyCta}</a>
+                <a href="#notify" className="btn">{siteConfig.editions[locale].samplePdfUrl ? c.status.offer.cta : c.status.notifyCta}</a>
               )}
             </div>
           </div>

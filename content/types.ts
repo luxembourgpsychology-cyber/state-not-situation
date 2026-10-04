@@ -121,6 +121,11 @@ export interface SiteContent {
     buy: string;
     /** The second hero action and the closing form's heading. */
     notifyCta: string;
+    /**
+     * Used instead of the plain notice when editions[lang].samplePdfUrl is set:
+     * the form offers the book's first 16 pages and hands them over on sign-up.
+     */
+    offer: { cta: string; line: string; submit: string; success: string; download: string; privacy: string };
     emailLabel: string;
     emailPlaceholder: string;
     submit: string;

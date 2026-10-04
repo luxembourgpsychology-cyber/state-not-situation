@@ -44,6 +44,13 @@ export interface EditionSettings {
   newsletterEmailField: string;
   /** Fixed fields the tool expects beside the email (MailerLite: ml-submit, anticsrf). */
   newsletterExtraFields?: Record<string, string>;
+  /**
+   * The free sample a reader gets for their email, as a path under /public.
+   * Set it and the form offers the sample, hands it over on sign-up, and the
+   * buttons that lead to the form say so. Null keeps the plain publication
+   * notice. Built by lib/make_opening_pdf.py from the interior PDF.
+   */
+  samplePdfUrl?: string | null;
   /** ISBN-13 once issued. Used in structured data and on the press page. */
   isbn: string | null;
 }
@@ -133,6 +140,8 @@ export const siteConfig: SiteConfig = {
       newsletterUrl: "https://assets.mailerlite.com/jsonp/2647879/forms/199133787043399191/subscribe",
       newsletterEmailField: "fields[email]",
       newsletterExtraFields: { "ml-submit": "1", anticsrf: "true" },
+      // The first 16 pages as printed, offered for an email. 4 October 2026.
+      samplePdfUrl: "/press/State-Not-Situation-first-16-pages.pdf",
       isbn: "978-2-87996-258-0",
     },
     fr: {
@@ -146,6 +155,8 @@ export const siteConfig: SiteConfig = {
       newsletterUrl: "https://assets.mailerlite.com/jsonp/2647879/forms/199133787043399191/subscribe",
       newsletterEmailField: "fields[email]",
       newsletterExtraFields: { "ml-submit": "1", anticsrf: "true" },
+      // The first 16 pages as printed, offered for an email. 4 October 2026.
+      samplePdfUrl: "/press/State-Not-Situation-first-16-pages.pdf",
       isbn: null,
     },
     de: {
@@ -159,6 +170,8 @@ export const siteConfig: SiteConfig = {
       newsletterUrl: "https://assets.mailerlite.com/jsonp/2647879/forms/199133787043399191/subscribe",
       newsletterEmailField: "fields[email]",
       newsletterExtraFields: { "ml-submit": "1", anticsrf: "true" },
+      // The first 16 pages as printed, offered for an email. 4 October 2026.
+      samplePdfUrl: "/press/State-Not-Situation-first-16-pages.pdf",
       isbn: null,
     },
   },

@@ -49,6 +49,15 @@ export const en: SiteContent = {
     forthcomingDatePrefix: "Publishing",
     buy: "Buy on Amazon",
     notifyCta: "Publication updates",
+    // Interface, 4 October 2026: the form offers the first 16 pages, as printed.
+    offer: {
+      cta: "Get the first 16 pages free",
+      line: "The opening and all of Chapter Zero, exactly as printed. Your copy is ready the moment you sign up, and you hear once more, when the book is out.",
+      submit: "Send me the pages",
+      success: "Here are your pages. You will hear once more, when the book is out.",
+      download: "Download the first 16 pages (PDF)",
+      privacy: "Used for these pages and one publication email. Nothing else.",
+    },
     emailLabel: "Email address",
     emailPlaceholder: "your@email.com",
     submit: "Notify me",

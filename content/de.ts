@@ -44,6 +44,14 @@ export const de: SiteContent = {
     forthcomingDatePrefix: "Erscheint am",
     buy: "Bei Amazon kaufen",
     notifyCta: "Nachricht zum Erscheinen",
+    offer: {
+      cta: "Die ersten 16 Seiten kostenlos",
+      line: "Der Anfang und das ganze Kapitel Null, genau so, wie sie gedruckt sind, auf Englisch, der Sprache des Buches. Ihr Exemplar ist gleich nach der Anmeldung da, und Sie hören nur noch einmal von mir, wenn das Buch erscheint.",
+      submit: "Seiten erhalten",
+      success: "Hier sind Ihre Seiten. Sie hören nur noch einmal von mir, wenn das Buch erscheint.",
+      download: "Die ersten 16 Seiten herunterladen (PDF, Englisch)",
+      privacy: "Wird nur für diese Sendung und die Nachricht zum Erscheinen verwendet."
+    },
     emailLabel: "E-Mail-Adresse",
     emailPlaceholder: "name@beispiel.de",
     submit: "Benachrichtigen",

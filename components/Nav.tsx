@@ -230,7 +230,7 @@ export function Nav({
               {excerptAvailable ? (
                 <Link href={`${base}/read`} className="btn btn-red" onClick={() => setOpen(false)}>{c.hero.readCta}</Link>
               ) : null}
-              <Link href={`${base}#notify`} className="btn" onClick={() => setOpen(false)}>{c.status.notifyCta}</Link>
+              <Link href={`${base}#notify`} className="btn" onClick={() => setOpen(false)}>{siteConfig.editions[locale].samplePdfUrl ? c.status.offer.cta : c.status.notifyCta}</Link>
             </div>
           </div>
         </div>
