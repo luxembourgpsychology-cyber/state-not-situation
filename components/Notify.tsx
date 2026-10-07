@@ -19,8 +19,31 @@ import { track } from "@/lib/analytics";
  * sample is handed over either way: the same pages are public on Amazon's
  * Look Inside from publication day, so nothing is lost if a subscription
  * fails, and a reader is never left with nothing.
+ *
+ * On 7 October 2026 the form also opened in the hero, where its link used to
+ * jump a reader eight thousand pixels down the page: in the first week 50 of
+ * 53 visitors opened no page but the home page, and none took the pages.
+ * `compact` sets the offer's name at LABEL, in the face the link had, so the
+ * hero keeps its weight; `idBase` keeps the two forms' ids apart; `place`
+ * tells the two apart in analytics.
  */
-export function Notify({ content, edition, pressEmail, locale }: { content: SiteContent["status"]; edition: EditionSettings; pressEmail: string; locale: string }) {
+export function Notify({
+  content,
+  edition,
+  pressEmail,
+  locale,
+  compact = false,
+  idBase = "notify",
+  place = "closing",
+}: {
+  content: SiteContent["status"];
+  edition: EditionSettings;
+  pressEmail: string;
+  locale: string;
+  compact?: boolean;
+  idBase?: string;
+  place?: string;
+}) {
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [email, setEmail] = useState("");
   const sample = edition.samplePdfUrl ?? null;
@@ -36,7 +59,7 @@ export function Notify({ content, edition, pressEmail, locale }: { content: Site
       for (const [k, v] of Object.entries(edition.newsletterExtraFields ?? {})) body.set(k, v);
       const res = await fetch(edition.newsletterUrl, { method: "POST", body, mode: "no-cors" });
       // no-cors responses are opaque; treat a completed request as success.
-      if (res.type === "opaque" || res.ok) { setState("done"); track("notify_submit", { locale }); }
+      if (res.type === "opaque" || res.ok) { setState("done"); track("notify_submit", { locale, place }); }
       else setState("error");
     } catch {
       setState("error");
@@ -47,8 +70,12 @@ export function Notify({ content, edition, pressEmail, locale }: { content: Site
 
   return (
     <div className="max-w-xl">
-      <h3 id="notify-title" className="t-head">{sample ? o.cta : content.notifyCta}</h3>
-      {sample && state !== "done" ? <p className="t-body mt-[var(--space-tight)]">{o.line}</p> : null}
+      {compact ? (
+        <p id={`${idBase}-title`} className="t-label">{sample ? o.cta : content.notifyCta}</p>
+      ) : (
+        <h3 id={`${idBase}-title`} className="t-head">{sample ? o.cta : content.notifyCta}</h3>
+      )}
+      {sample && state !== "done" ? <p className={compact ? "t-body mt-2 text-ink-soft" : "t-body mt-[var(--space-tight)]"}>{o.line}</p> : null}
 
       {edition.newsletterUrl ? (
         state === "done" ? (
@@ -61,7 +88,7 @@ export function Notify({ content, edition, pressEmail, locale }: { content: Site
                   target="_blank"
                   rel="noopener"
                   className="btn btn-red"
-                  onClick={() => track("opening_pages_downloaded", { locale })}
+                  onClick={() => track("opening_pages_downloaded", { locale, place })}
                 >
                   {o.download}
                 </a>
@@ -71,11 +98,11 @@ export function Notify({ content, edition, pressEmail, locale }: { content: Site
             <p className="mt-[var(--space-block)] t-mono text-red normal-case" role="status">{content.success}</p>
           )
         ) : (
-          <form onSubmit={onSubmit} className="mt-[var(--space-block)]">
-            <label htmlFor="notify-email" className="t-mono block mb-2">{content.emailLabel}</label>
+          <form onSubmit={onSubmit} className={compact ? "mt-[var(--space-tight)]" : "mt-[var(--space-block)]"} aria-labelledby={`${idBase}-title`}>
+            <label htmlFor={`${idBase}-email`} className="t-mono block mb-2">{content.emailLabel}</label>
             <div className="flex flex-col sm:flex-row gap-4 sm:items-end">
               <input
-                id="notify-email" type="email" name={edition.newsletterEmailField} required autoComplete="email" inputMode="email"
+                id={`${idBase}-email`} type="email" name={edition.newsletterEmailField} required autoComplete="email" inputMode="email"
                 value={email} onChange={(e) => setEmail(e.target.value)} placeholder={content.emailPlaceholder}
                 className="flex-1 min-h-12 bg-transparent border-b-[1.5px] border-ink px-0 py-2 font-mono text-base placeholder:text-quiet focus:outline-none focus:border-red"
               />

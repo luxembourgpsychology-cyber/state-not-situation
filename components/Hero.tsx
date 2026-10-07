@@ -4,6 +4,7 @@ import { siteConfig } from "@/site.config";
 import type { SiteContent } from "@/content/types";
 import { AmazonButton } from "./AmazonButton";
 import { ExcerptLink } from "./ExcerptLink";
+import { Notify } from "./Notify";
 
 /**
  * The book as an object, its title, and no more than two decisions.
@@ -32,6 +33,8 @@ export function Hero({
 }) {
   const c = content;
   const status = published ? c.status.published : c.status.forthcoming;
+  const ed = siteConfig.editions[locale];
+  const offerHere = !(published && amazonUrl) && Boolean(ed.samplePdfUrl && ed.newsletterUrl);
 
   return (
     <section id="top" className="section" aria-labelledby="site-title">
@@ -101,10 +104,19 @@ export function Hero({
               ) : null}
               {published && amazonUrl ? (
                 <AmazonButton href={amazonUrl} label={c.status.buy} locale={locale} />
-              ) : (
-                <a href="#notify" className="btn">{siteConfig.editions[locale].samplePdfUrl ? c.status.offer.cta : c.status.notifyCta}</a>
+              ) : offerHere ? null : (
+                <a href="#notify" className="btn">{c.status.notifyCta}</a>
               )}
             </div>
+
+            {/* Before publication the offer is the form itself, not a link to
+                the foot of the page (7 October 2026). The closing keeps its
+                own copy of the form. */}
+            {offerHere ? (
+              <div className="mt-[var(--space-block)]">
+                <Notify content={c.status} edition={ed} pressEmail={siteConfig.author.pressEmail} locale={locale} compact idBase="hero-offer" place="hero" />
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
