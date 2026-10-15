@@ -90,12 +90,13 @@ export function Hero({
                   After publication the status leads and the date follows it. */}
               <p className="t-mono text-ink w-full sm:w-auto">
                 {published ? (
-                  <>
-                    {status}
-                    {publicationDate ? (
-                      <span className="text-quiet"> · {c.status.publicationDatePrefix} {publicationDate}</span>
-                    ) : null}
-                  </>
+                  // The prefix already says "Published" (Parution, Erschienen):
+                  // with a date, the status word would only repeat it (15 October 2026).
+                  publicationDate ? (
+                    <>{c.status.publicationDatePrefix} {publicationDate}</>
+                  ) : (
+                    status
+                  )
                 ) : publicationDate ? (
                   <>{c.status.forthcomingDatePrefix} {publicationDate}</>
                 ) : (
