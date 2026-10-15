@@ -571,3 +571,12 @@ The author approved an email offer on 4 October 2026, after the first three days
 **The switch.** `editions[lang].samplePdfUrl` in `site.config.ts`. Set, the form becomes the offer, the hero's second button and the phone menu say "Get the first 16 pages free", and the PDF is handed over on sign-up. Null puts every one of those back to the plain publication notice.
 
 **The event.** `opening_pages_downloaded` fires when the PDF is opened from the form, beside the existing `notify_submit`.
+
+## Get the book (15 October 2026)
+
+Publication day. `site.config.ts` → `editions.en` goes to `publicationStatus: "published"` with the store pages in `stores` and the list price in `listPrice`; `components/Stores.tsx` draws them on the first screen, in the closing and on `/read` in place of the single "Buy on Amazon" button.
+
+- "Get the book", "Paperback", "Kindle": interface labels (category 3). The store names are the stores' own.
+- "Each store sets its own price and delivery, so they vary by country." and "Paperback list price €28.90, before delivery.": written for Ivana on 15 October 2026 from her instruction that day ("add the live paperback and Kindle links … with a note that prices vary depending on place of delivery … let the people know my price is 28,99 without shipping"). The figure €28.90 is the list price she submitted to KDP on 14 October 2026 (SNS-LOGBOOK); she wrote "28,99" on 15 October, so one figure is to be confirmed before publication of the page. Category 2 once she signs the two sentences off.
+- No sentence names a reseller or a price other than the list price. The store pages were opened in a browser on 15 October 2026 at 14:40; what each showed is recorded beside its link in `site.config.ts`.
+- French and German: the same four labels and two sentences, as drafts under the languages' existing review status.

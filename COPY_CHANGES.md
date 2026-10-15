@@ -62,3 +62,8 @@ None of these block the preview; each is described honestly until supplied.
 - Confirmation of session durations and languages.
 - A sending service, if enquiries should be sent from the site rather than as an email draft.
 - Optional later: a short introduction video, or authorised testimonials.
+
+## 15 October 2026: Get the book
+
+- `status.getTheBook`, `status.formats`, `status.pricesVary`, `status.listPrice` added in all three languages (English the source; French and German as drafts). See CONTENT_SOURCES.md, "Get the book".
+- `editions.en.publicationStatus` set to `"published"`, with the Kindle page as `amazonUrl` and the store pages in `stores` (two shown, three held off with the reason). The branch carrying this is the launch switch; merging it to `main` puts the block live.

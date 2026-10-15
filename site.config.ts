@@ -19,11 +19,44 @@ export type Locale = "en" | "fr" | "de";
  */
 export type PublicationStatus = "forthcoming" | "preorder" | "published";
 
+/** The formats a store sells. */
+export type BookFormat = "paperback" | "kindle";
+
+/**
+ * One store page for one format ("Get the book", 15 October 2026).
+ * `show: false` keeps a link in this file, with the reason, without putting
+ * it on the site: a page that exists but sells the book at the wrong price,
+ * or cannot deliver, stays off until it is right. Only https links are ever
+ * rendered (lib/stores.ts).
+ */
+export interface StoreLink {
+  format: BookFormat;
+  /** The store's name as a reader knows it: "Amazon.de". */
+  store: string;
+  href: string;
+  show: boolean;
+  /** Why it is on or off, with the date it was checked. Never rendered. */
+  note?: string;
+}
+
 export interface EditionSettings {
   /** "forthcoming" shows the launch state, "published" shows Buy on Amazon; "preorder" changes only the new pages' book action. */
   publicationStatus: PublicationStatus;
   /** The retail link for this language edition. Null until it exists. */
   amazonUrl: string | null;
+  /**
+   * The store pages, each format at each store, in the order they are shown.
+   * The first shown link is the solid button, the rest plain actions. Empty,
+   * or all hidden: the site falls back to the single amazonUrl button. Shown
+   * only while publicationStatus is "published".
+   */
+  stores?: StoreLink[];
+  /**
+   * The paperback's list price as the publisher set it at KDP, written as a
+   * reader should see it ("€28.90"). Printed once under the store links, so
+   * a reseller's price is read as the reseller's. Null = not printed.
+   */
+  listPrice?: string | null;
   /**
    * ISO date (YYYY-MM-DD) or a human phrase. Null = not announced.
    *
@@ -126,8 +159,32 @@ export const siteConfig: SiteConfig = {
 
   editions: {
     en: {
-      publicationStatus: "forthcoming",
-      amazonUrl: null,
+      // Publication day, 15 October 2026. "published" turns every "Publishing"
+      // line into "Published" and puts the store links on the first screen,
+      // the closing and /read. The branch that set it is the switch: merging
+      // it to main puts the buy block live.
+      publicationStatus: "published",
+      // The one link the structured data, /read and the new pages use. Today
+      // the Kindle page: sold by Amazon itself at the set price, and it shows
+      // the paperback too. Move it to the paperback page once Amazon's own
+      // paperback offer is listed on Amazon.de (see stores below).
+      amazonUrl: "https://www.amazon.de/dp/B0HLZLHTJT",
+      // Each page opened in a browser on 15 October 2026, 14:40 Luxembourg.
+      stores: [
+        { format: "kindle", store: "Amazon.de", href: "https://www.amazon.de/dp/B0HLZLHTJT", show: true,
+          note: "15 Oct 14:40: €7.99, sold by Amazon Media EU." },
+        { format: "paperback", store: "Amazon.com", href: "https://www.amazon.com/dp/2879962587", show: true,
+          note: "15 Oct 14:40: sold by Amazon.com, in stock (EUR 26.96 shown to a Luxembourg visitor; delivery and import charges on top)." },
+        { format: "paperback", store: "Amazon.de", href: "https://www.amazon.de/dp/2879962587", show: false,
+          note: "15 Oct 14:40: page live, 4 reviews, but the only offer is a third-party seller at €51.72 (list €28.90), delivery 7 to 13 November. Set show: true the day Amazon's own offer appears." },
+        { format: "paperback", store: "Amazon.co.uk", href: "https://www.amazon.co.uk/dp/2879962587", show: false,
+          note: "15 Oct 14:40: third-party only, cannot deliver to Luxembourg." },
+        { format: "paperback", store: "Amazon.fr", href: "https://www.amazon.fr/dp/2879962587", show: false,
+          note: "15 Oct 14:40: 'currently unavailable'." },
+      ],
+      // As submitted to KDP on 14 October 2026 (SNS-LOGBOOK). Ivana wrote
+      // "28,99" on 15 October: confirm one figure before this goes live.
+      listPrice: "€28.90",
       // The author's date, 28 September 2026. It is the only date on the site.
       publicationDate: "2026-10-15",
       // Taken down 6 September 2026 at the author's request: the reading was

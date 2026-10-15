@@ -5,6 +5,8 @@ import { publicationDate } from "@/lib/publication";
 import { AmazonButton } from "./AmazonButton";
 import { Notify } from "./Notify";
 import { Reveal } from "./Reveal";
+import { Stores } from "./Stores";
+import { storeLinks } from "@/lib/stores";
 
 /**
  * The page ends once. Page 218’s question, then the line
@@ -45,7 +47,9 @@ export function Closing({ locale }: { locale: Locale }) {
               </Reveal>
             ) : null}
             <Reveal delay={100}>
-              {published && ed.amazonUrl ? (
+              {published && storeLinks(ed).length > 0 ? (
+                <Stores locale={locale} content={c} edition={ed} />
+              ) : published && ed.amazonUrl ? (
                 <AmazonButton href={ed.amazonUrl} label={c.status.buy} locale={locale} />
               ) : (
                 <Notify content={c.status} edition={ed} pressEmail={siteConfig.author.pressEmail} locale={locale} />

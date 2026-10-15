@@ -42,6 +42,10 @@ export const fr: SiteContent = {
     publicationDatePrefix: "Parution",
     forthcomingDatePrefix: "Parution le",
     buy: "Acheter sur Amazon",
+    getTheBook: "Se procurer le livre",
+    formats: { paperback: "Broché", kindle: "Kindle" },
+    pricesVary: "Chaque boutique fixe son prix et sa livraison ; ils varient selon le pays.",
+    listPrice: "Prix de vente conseillé du broché : {price}, hors livraison.",
     notifyCta: "Avis de parution",
     offer: {
       cta: "Recevoir gratuitement les 16 premières pages",

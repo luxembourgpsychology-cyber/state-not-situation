@@ -5,6 +5,8 @@ import type { SiteContent } from "@/content/types";
 import { AmazonButton } from "./AmazonButton";
 import { ExcerptLink } from "./ExcerptLink";
 import { Notify } from "./Notify";
+import { Stores } from "./Stores";
+import { storeLinks } from "@/lib/stores";
 
 /**
  * The book as an object, its title, and no more than two decisions.
@@ -35,6 +37,7 @@ export function Hero({
   const status = published ? c.status.published : c.status.forthcoming;
   const ed = siteConfig.editions[locale];
   const offerHere = !(published && amazonUrl) && Boolean(ed.samplePdfUrl && ed.newsletterUrl);
+  const hasStores = published && storeLinks(ed).length > 0;
 
   return (
     <section id="top" className="section" aria-labelledby="site-title">
@@ -103,11 +106,19 @@ export function Hero({
                 <ExcerptLink href={`/${locale}/read`} label={c.hero.readCta} locale={locale} className="btn btn-red" />
               ) : null}
               {published && amazonUrl ? (
-                <AmazonButton href={amazonUrl} label={c.status.buy} locale={locale} />
+                hasStores ? null : <AmazonButton href={amazonUrl} label={c.status.buy} locale={locale} />
               ) : offerHere ? null : (
                 <a href="#notify" className="btn">{c.status.notifyCta}</a>
               )}
             </div>
+
+            {/* Publication day, 15 October 2026: the store pages, each format
+                at each store, in a row of their own under the actions. */}
+            {hasStores ? (
+              <div className="mt-[var(--space-block)]">
+                <Stores locale={locale} content={c} edition={ed} />
+              </div>
+            ) : null}
 
             {/* Before publication the offer is the form itself, not a link to
                 the foot of the page (7 October 2026). The closing keeps its

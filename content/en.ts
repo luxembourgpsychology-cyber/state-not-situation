@@ -48,6 +48,12 @@ export const en: SiteContent = {
     publicationDatePrefix: "Published",
     forthcomingDatePrefix: "Publishing",
     buy: "Buy on Amazon",
+    // Interface, 15 October 2026. The price line is Ivana's fact: see
+    // CONTENT_SOURCES.md, "Get the book".
+    getTheBook: "Get the book",
+    formats: { paperback: "Paperback", kindle: "Kindle" },
+    pricesVary: "Each store sets its own price and delivery, so they vary by country.",
+    listPrice: "Paperback list price {price}, before delivery.",
     notifyCta: "Publication updates",
     // Interface, 4 October 2026: the form offers the first 16 pages, as printed.
     offer: {

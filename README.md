@@ -95,6 +95,8 @@ publicationDate: "2026-09-15",   // optional, shown beside the status
 
 Commit and push. Every "Publishing soon" and "Be notified" element becomes "Buy on Amazon" on its own, the notify form disappears, and the Book structured data gains an offer. Each language has its own block, so the French edition can stay forthcoming while English is on sale.
 
+Since 15 October 2026 an edition can also list its store pages, one per format and store, in `stores`, with `show` to hold one back (a page that exists but sells at the wrong price, say) and `listPrice` for the one price line under them. With at least one shown store the "Get the book" block (`components/Stores.tsx`) replaces the single button on the first screen, in the closing and on `/read`; `amazonUrl` still feeds the structured data, the new pages and the fallback. `lib/stores.ts` decides, and `tests/stores.test.mjs` checks it.
+
 ## 7. Add or replace the audio
 
 1. Export as MP3 (128 kbps mono is plenty for voice).

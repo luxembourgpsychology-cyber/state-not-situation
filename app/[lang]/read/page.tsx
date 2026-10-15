@@ -8,6 +8,8 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { PulseMark } from "@/components/PulseMark";
 import { Notify } from "@/components/Notify";
 import { Footer } from "@/components/Footer";
+import { Stores } from "@/components/Stores";
+import { storeLinks } from "@/lib/stores";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const locale = (await params).lang as Locale;
@@ -70,7 +72,9 @@ export default async function ReadPage({ params }: { params: Promise<{ lang: str
           </div>
 
           <div className="reading-body mt-16 md:mt-24 pt-10 border-t border-[var(--rule)]">
-            {isPublished(locale) && ed.amazonUrl ? (
+            {isPublished(locale) && storeLinks(ed).length > 0 ? (
+              <Stores locale={locale} content={c} edition={ed} />
+            ) : isPublished(locale) && ed.amazonUrl ? (
               <Link href={ed.amazonUrl} className="btn btn-solid">{c.status.buy}</Link>
             ) : (
               <Notify content={c.status} edition={ed} pressEmail={siteConfig.author.pressEmail} locale={locale} />

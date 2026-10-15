@@ -119,6 +119,15 @@ export interface SiteContent {
     /** Before publication, in front of the date: "Publishing 15 October 2026". */
     forthcomingDatePrefix: string;
     buy: string;
+    /**
+     * "Get the book" (15 October 2026): the heading over the store links, the
+     * two format labels, and the one line about price under them, where
+     * {price} is editions[lang].listPrice.
+     */
+    getTheBook: string;
+    formats: { paperback: string; kindle: string };
+    pricesVary: string;
+    listPrice: string;
     /** The second hero action and the closing form's heading. */
     notifyCta: string;
     /**
