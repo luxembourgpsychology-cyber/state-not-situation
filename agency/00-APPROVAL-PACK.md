@@ -14,6 +14,8 @@ D7. Your LinkedIn profile address, and whether an Instagram account exists or sh
 D8. Whether the optional reply line "If you would like to hear about talks and readings, reply with one word: yes." goes into the publication email. It cannot be added afterwards.
 D9. Every contact address. Nobody on the team could open an outlet's website today; each address was read from a search result on the organisation's own domain and is marked for you to open once before sending.
 
+D10. One standard for description. The fact checker's 91 notes are mostly the same judgement: the desks wrote short connective sentences describing the book ("a book about the stories we build around everyday moments") where the strict rule asks for a printed line. Decide once whether faithful connective paraphrase is acceptable in letters and pitches, or whether every description of the book must be a quotation. The pack as corrected keeps the paraphrase; say the word and it is replaced.
+
 ## Week 1, 16 to 23 October
 
 | No. | Item | File | To | Suggested date |
