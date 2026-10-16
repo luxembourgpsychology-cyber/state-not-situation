@@ -45,7 +45,7 @@ export const fr: SiteContent = {
     getTheBook: "Se procurer le livre",
     formats: { paperback: "Broché", kindle: "Kindle" },
     pricesVary: "Chaque boutique fixe son prix et sa livraison ; ils varient selon le pays.",
-    listPrice: "Prix de vente conseillé du broché : {price}, hors livraison.",
+    listPrice: "Prix de vente conseillé du broché : {price}, hors TVA et livraison.",
     notifyCta: "Avis de parution",
     offer: {
       cta: "Recevoir gratuitement les 16 premières pages",

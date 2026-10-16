@@ -46,7 +46,7 @@ export const de: SiteContent = {
     getTheBook: "Das Buch bekommen",
     formats: { paperback: "Taschenbuch", kindle: "Kindle" },
     pricesVary: "Preis und Lieferung legt jeder Shop selbst fest; sie sind je nach Land verschieden.",
-    listPrice: "Unverbindliche Preisempfehlung für das Taschenbuch: {price}, ohne Lieferung.",
+    listPrice: "Unverbindliche Preisempfehlung für das Taschenbuch: {price}, ohne MwSt. und Lieferung.",
     notifyCta: "Nachricht zum Erscheinen",
     offer: {
       cta: "Die ersten 16 Seiten kostenlos",

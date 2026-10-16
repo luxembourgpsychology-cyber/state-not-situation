@@ -53,7 +53,7 @@ export const en: SiteContent = {
     getTheBook: "Get the book",
     formats: { paperback: "Paperback", kindle: "Kindle" },
     pricesVary: "Each store sets its own price and delivery, so they vary by country.",
-    listPrice: "Paperback list price {price}, before delivery.",
+    listPrice: "Paperback list price {price}, before VAT and delivery.",
     notifyCta: "Publication updates",
     // Interface, 4 October 2026: the form offers the first 16 pages, as printed.
     offer: {
