@@ -38,7 +38,7 @@ Measured length of the short description above: 951 characters including line br
 
 ## 03.2 Longer description, with the sixteen names
 
-Same opening, then the author's own words, then page 292's list. The list is printed in the book as sixteen names. One of them, Demand–withdraw, is printed with a dash between the two words; it is written here with a plain hyphen, because this file carries none, and KDP will show whichever character you paste.
+Same opening, then the author's own words, then page 292's list. The list is printed in the book as sixteen names. One of them, Demand-withdraw, is printed in the book with a longer dash between the two words; it is written here with a plain hyphen, because this file carries none, and KDP will show whichever character you paste.
 
 ```
 The first misreading
