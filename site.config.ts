@@ -174,10 +174,10 @@ export const siteConfig: SiteConfig = {
       stores: [
         { format: "kindle", store: "Amazon.de", href: "https://www.amazon.de/dp/B0HLZLHTJT", show: true,
           note: "15 Oct 14:40: €7.99, sold by Amazon Media EU." },
+        { format: "paperback", store: "Amazon.de", href: "https://www.amazon.de/dp/2879962587", show: true,
+          note: "16 Oct 14:15: Amazon's own offer is listed (€28.90 before VAT, €30.92 with it, in stock, sold by Amazon) for a German delivery address; a Luxembourg address still saw only a third-party offer from €53.73. Switched on by Ivana's decision on 16 Oct; the price line under the buttons names the list price." },
         { format: "paperback", store: "Amazon.com", href: "https://www.amazon.com/dp/2879962587", show: true,
           note: "15 Oct 14:40: sold by Amazon.com, in stock (EUR 26.96 shown to a Luxembourg visitor; delivery and import charges on top)." },
-        { format: "paperback", store: "Amazon.de", href: "https://www.amazon.de/dp/2879962587", show: false,
-          note: "15 Oct 14:40: page live, 4 reviews, but the only offer is a third-party seller at €51.72 (list €28.90), delivery 7 to 13 November. Set show: true the day Amazon's own offer appears." },
         { format: "paperback", store: "Amazon.co.uk", href: "https://www.amazon.co.uk/dp/2879962587", show: false,
           note: "15 Oct 14:40: third-party only, cannot deliver to Luxembourg." },
         { format: "paperback", store: "Amazon.fr", href: "https://www.amazon.fr/dp/2879962587", show: false,
