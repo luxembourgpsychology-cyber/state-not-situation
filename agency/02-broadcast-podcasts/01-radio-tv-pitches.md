@@ -125,7 +125,7 @@ I am a clinical psychologist living and working in Luxembourg. My first book, St
 
 I would like to offer a studio interview or a short filmed conversation, five to ten minutes.
 
-The part that suits a live slot is an exercise printed on page 7. The book asks the reader to stop and notice: "Check your jaw. Check your breath. Check your shoulders. What you found is a reading." A presenter can do it with the viewer, on camera, and we can talk about what that reading is and what it is not. The book opens on pages 1 to 3 with the John F. Kennedy Jr. flight of 16 July 1999, which gives a second way in.
+The part that suits a live slot is an exercise printed on page 7. The book asks the reader to stop and notice: "Check your jaw. Check your breath. Check your shoulders. What you found is a reading." A presenter can do it with the viewer, on camera. The book opens on pages 1 to 3 with the John F. Kennedy Jr. flight of 16 July 1999, which gives a second way in.
 
 The press kit, with the cover and an author photograph, is at https://statenotsituation.com/press/State-Not-Situation-press-kit.zip. The opening pages can be read at https://statenotsituation.com/en/read. A review copy is available on request.
 
@@ -155,7 +155,7 @@ Subject: A Luxembourg author for Delano Newsmakers. State. Not Situation., publi
 
 Dear Delano Newsmakers team,
 
-I am a clinical psychologist living and working in Luxembourg, and I run Luxembourg Psychology. My first book, State. Not Situation., was published on 15 October. It is in English.
+I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is in English.
 
 I would like to offer a conversation for the podcast, recorded in person or remotely.
 

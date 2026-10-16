@@ -23,7 +23,7 @@ Subject: Episode idea: why the body's first reading of a moment is a draft, not 
 
 Dear Speaking of Psychology team,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October 2026. Its subtitle is "Why your body decides what a moment means before you do".
+I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October 2026.
 
 A segment idea for your listeners: the book sorts everyday misreadings under three questions, printed on page 9. Time: "What came before this moment? Sleep, meals, caffeine, recovery, the hour." Attention: "What keeps pulling me back? A message, a thought, a cue, an unfinished task." Safety: "What seems at stake? What have I observed, what am I assuming, and does anything need action?" We could walk through one ordinary day with those questions, using the five readings printed on page 4.
 
@@ -54,7 +54,7 @@ Subject: A new book on misattribution at kitchen scale, from a clinical psycholo
 
 Dear Psychologists Off the Clock team,
 
-I am a clinical psychologist in Luxembourg and the author of State. Not Situation., published on 15 October 2026. I have listened to your conversations with authors and I think the book would suit one.
+I am a clinical psychologist in Luxembourg and the author of State. Not Situation., published on 15 October 2026.
 
 The segment I would propose is about the ordinary version of a well-known error. Page 20 puts it this way: "This book is about the same error at kitchen scale. The version that happens every Tuesday. The version where your body writes a story about a message, a silence, a look, and your mind edits that story under the supervision of whatever your body is feeling at the time." Page 24 names it: "Giving a feeling the wrong cause. The body produces the feeling. The mind looks for a reason and takes the nearest one. The feeling is real. The reason is a guess."
 
@@ -68,7 +68,7 @@ Ivana Budišin
 Clinical psychologist, Luxembourg
 ivana@luxembourgpsychology.com
 
-Notes for Ivana: Find the contact route on offtheclockpsych.com. The line "I have listened to your conversations with authors" is only true if you have; delete it otherwise. Strongest reason not to send: the show is hosted by clinicians who often interview authors, so this is a good fit; the main risk is a long queue.
+Notes for Ivana: Find the contact route on offtheclockpsych.com. If you have listened to the show, say so in one sentence; it was left out because only you can say it truthfully. Strongest reason not to send: the show is hosted by clinicians who often interview authors, so this is a good fit; the main risk is a long queue.
 
 ---
 

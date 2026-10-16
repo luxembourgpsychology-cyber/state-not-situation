@@ -31,15 +31,15 @@ Subject: A Luxembourg psychology book in English, for your shelves and perhaps a
 
 Dear Ernster team,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is in English, 304 pages, ISBN 978-2-87996-258-0, and it was printed and deposited here.
+I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is in English, 304 pages, ISBN 978-2-87996-258-0, printed and deposited here.
 
-The back cover puts it in one line: "You may not be reacting to the world. You may be reacting to your state." The book examines the gap between what happened and what it felt like it meant.
+The back cover puts it in one line: "You may not be reacting to the world. You may be reacting to your state."
 
-I would like the book to be on a Luxembourg shelf rather than only online. At present a Luxembourg address on Amazon.de sees only a third party offer at over fifty euros, so a shop in the city is the natural place for a reader here to find it.
+I would like the book to be on a Luxembourg shelf. At present a Luxembourg address on Amazon.de sees only a third party offer at over fifty euros, so a shop in the city is where a reader here should find it.
 
 [TO CONFIRM WITH IVANA: is Expanded Distribution on, and what wholesale terms can we offer; otherwise offer consignment copies supplied by the author.] If ordering through your wholesaler is not possible, I can supply copies on consignment, signed if you wish.
 
-I also offer a reading and conversation of about 75 minutes, built around scenes from the book and audience discussion. Format, date and fee are agreed beforehand. No one needs to have read the book.
+I also offer a reading and conversation of about 75 minutes, built around scenes from the book and audience discussion. Format, date and fee are agreed beforehand.
 
 A review copy for your buyer and the press kit are yours on request.
 
@@ -49,7 +49,6 @@ Ivana Budišin
 Clinical psychologist
 ivana@luxembourgpsychology.com
 statenotsituation.com
-
 Notes for Ivana: confirm bookstore@ernster.com by opening the store page yourself. If Ernster's buying is central, this letter also covers Centre-Ville and the other branches; ask who buys English for the group. Strongest reason not to send: Ernster is a chain and may only order through a wholesaler feed, in which case the letter is wasted until the distribution question is settled.
 
 ---
@@ -68,15 +67,15 @@ Subject: A new English title by a Luxembourg author, for the Belle Etoile shop
 
 Dear Belle Etoile team,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., came out on 15 October. It is in English, 304 pages, paperback, ISBN 978-2-87996-258-0. Your page says you carry literature in English alongside French and German, which is why I am writing to this shop directly.
+I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., came out on 15 October. It is in English, 304 pages, paperback, ISBN 978-2-87996-258-0. Your page says you carry literature in English, which is why I am writing to this shop directly.
 
-The book is about ordinary moments. A short message feels cold. A meeting feels dangerous. A quiet room feels like judgement. It asks what the body adds to the reading before the mind explains it, and it examines the gap between what happened and what it felt like it meant.
+The book is about ordinary moments. A short message feels cold. A meeting feels dangerous. A quiet room feels like judgement. It examines the gap between what happened and what it felt like it meant.
 
 Right now a reader with a Luxembourg address finds the paperback hard to buy online at a fair price. I would rather they found it here.
 
 [TO CONFIRM WITH IVANA: is Expanded Distribution on, and what wholesale terms can we offer; otherwise offer consignment copies supplied by the author.] If your wholesaler does not list it, I can supply copies on consignment, signed if useful.
 
-I offer a reading and conversation of about 75 minutes, or a shorter talk of 20 or 40 minutes. Format, date and fee are agreed beforehand.
+I offer a reading and conversation of about 75 minutes, or a talk of 20 or 40 minutes. Format, date and fee are agreed beforehand.
 
 A review copy for your buyer and the press kit are available on request.
 
@@ -86,7 +85,6 @@ Ivana Budišin
 Clinical psychologist
 ivana@luxembourgpsychology.com
 statenotsituation.com
-
 Notes for Ivana: this may be redundant with 01.1 if one Ernster buyer handles English for all branches; ask before sending both. Strongest reason not to send: a shopping centre bookshop may not host evening events, so the stocking request alone might be the better ask.
 
 ---
@@ -105,15 +103,15 @@ Subject: Un livre de psychologie en anglais, écrit à Luxembourg, pour vos rayo
 
 Dear Alinéa team,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October, in English, 304 pages, ISBN 978-2-87996-258-0. I know your shop and I know that English titles sit among your non-fiction, so I am writing to you first among the independents.
+I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October, in English, 304 pages, ISBN 978-2-87996-258-0. I know that English titles sit among your non-fiction, so I am writing to you first among the independents.
 
-The book starts from the moments we all misread. "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost." It examines the gap between what happened and what it felt like it meant.
+The book starts from the moments we misread. "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost."
 
 A Luxembourg address currently sees the paperback on Amazon.de only through a third party at over fifty euros. A shop in rue Beaumont would be a better first home for it.
 
 [TO CONFIRM WITH IVANA: is Expanded Distribution on, and what wholesale terms can we offer; otherwise offer consignment copies supplied by the author.] If your usual channels cannot supply it, I will bring copies on consignment, signed if you wish.
 
-I would be glad to offer a reading and conversation for one of your Thursday evenings, around 75 minutes with discussion, or a talk of 20 or 40 minutes. Format, date and fee are agreed beforehand.
+I would be glad to offer a reading and conversation for one of your Thursday evenings, around 75 minutes with discussion. Format, date and fee are agreed beforehand.
 
 A review copy for your buyer and the press kit are available on request.
 
@@ -123,7 +121,6 @@ Ivana Budišin
 Clinical psychologist
 ivana@luxembourgpsychology.com
 statenotsituation.com
-
 Notes for Ivana: the subject line is in French because the shop's site is French; the body is English because the book is. Change either if you prefer. The sentence "I know your shop" should be deleted if it is not true. Strongest reason not to send: Alinéa's evenings appear to be French language literary events, so an English psychology reading may not fit their series.
 
 ---
@@ -144,15 +141,15 @@ Dear Diderich team,
 
 I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is in English, 304 pages, paperback, ISBN 978-2-87996-258-0, printed and deposited in Luxembourg.
 
-[TO CONFIRM WITH IVANA: does Diderich stock English language titles; the shop's site is French and this was not verified.]
+[TO CONFIRM WITH IVANA: does Diderich stock English language titles; not verified.]
 
-The book asks one question of ordinary days: is this the situation, or is this my state? Sleep, hunger, stress, timing, attention, memory and threat detection affect what we notice and how we interpret it. The book examines the gap between what happened and what it felt like it meant.
+The book asks one question of ordinary days: is this the situation, or is this my state? It examines the gap between what happened and what it felt like it meant.
 
-Readers in the south of the country cannot easily buy it at present. On Amazon.de a Luxembourg address sees only a third party offer at over fifty euros. A copy on your shelf solves that for them.
+Readers in the south of the country cannot easily buy it at present. On Amazon.de a Luxembourg address sees only a third party offer at over fifty euros. A copy on your shelf solves that.
 
 [TO CONFIRM WITH IVANA: is Expanded Distribution on, and what wholesale terms can we offer; otherwise offer consignment copies supplied by the author.] If your wholesaler cannot supply it, I can bring copies on consignment, signed if you wish.
 
-I offer a reading and conversation of about 75 minutes, or a talk of 20 or 40 minutes, with discussion. Format, date and fee are agreed beforehand. No one needs to have read the book.
+I offer a reading and conversation of about 75 minutes, or a talk of 20 or 40 minutes. Format, date and fee are agreed beforehand.
 
 A review copy for your buyer and the press kit are available on request.
 
@@ -162,5 +159,4 @@ Ivana Budišin
 Clinical psychologist
 ivana@luxembourgpsychology.com
 statenotsituation.com
-
 Notes for Ivana: delete the first bracketed line once you know whether Diderich sells English books; if it does not, do not send. Strongest reason not to send: a mostly French and German shop in Esch may have no English section at all.

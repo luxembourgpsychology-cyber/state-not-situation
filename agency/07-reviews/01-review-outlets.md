@@ -29,9 +29,9 @@ Dear Dr Sutton,
 
 I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October 2026 by Budisin Publishing. I am writing to ask whether The Psychologist would consider it for review.
 
-The subtitle is Why your body decides what a moment means before you do. From the back cover: "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost." The book examines the gap between what happened and what it felt like it meant. It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.
+From the back cover: "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost." The book examines the gap between what happened and what it felt like it meant. It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.
 
-Each chapter ends with a note on where the thinking came from, the work it is built on, and the work that limits it or explains the same evidence differently. The foreword is by Dr Kristina Herber.
+Each chapter ends with a note on the work it is built on and the work that limits it. The foreword is by Dr Kristina Herber.
 
 I would be glad to send a print or digital review copy. Paperback, 304 pages, ISBN 978-2-87996-258-0. The opening pages are at statenotsituation.com/en/read.
 
@@ -128,9 +128,9 @@ Dear Editors,
 
 I would like to offer State. Not Situation. for your list of books available for review. It was published on 15 October 2026 by Budisin Publishing, Luxembourg. Paperback, 304 pages, ISBN 978-2-87996-258-0.
 
-The subtitle is Why your body decides what a moment means before you do. The book examines the gap between what happened and what it felt like it meant. From the back cover: "Sleep, hunger, stress, timing, attention, memory and threat detection affect what we notice and how we interpret it. Together, they shape the explanation that feels most convincing." Each chapter ends with a note on where the thinking came from, the work it is built on, and the work that limits it or explains the same evidence differently.
+The subtitle is Why your body decides what a moment means before you do. The book examines the gap between what happened and what it felt like it meant. From the back cover: "Sleep, hunger, stress, timing, attention, memory and threat detection affect what we notice and how we interpret it. Together, they shape the explanation that feels most convincing." Each chapter ends with a note on the work it is built on and the work that limits it.
 
-I am a clinical psychologist living and working in Luxembourg; this is my first book. The foreword is by Dr Kristina Herber. I would be glad to send a print or digital copy to a reviewer you select. The opening pages are at statenotsituation.com/en/read.
+I am a clinical psychologist in Luxembourg; this is my first book. The foreword is by Dr Kristina Herber. I would be glad to send a print or digital copy to a reviewer you select. The opening pages are at statenotsituation.com/en/read.
 
 With thanks,
 Ivana Budišin
@@ -155,7 +155,7 @@ Dear Books Editor,
 
 I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October 2026 by Budisin Publishing. I am writing to offer a review copy.
 
-The subtitle is Why your body decides what a moment means before you do. From the back cover: "But what feels true is not produced by the situation alone. Sleep, hunger, stress, timing, attention, memory and threat detection affect what we notice and how we interpret it." The book examines the gap between what happened and what it felt like it meant. It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.
+The subtitle is Why your body decides what a moment means before you do. From the back cover: "But what feels true is not produced by the situation alone. Sleep, hunger, stress, timing, attention, memory and threat detection affect what we notice and how we interpret it." The book examines the gap between what happened and what it felt like it meant.
 
 Each chapter closes with a note on the work it is built on and the work that limits it, and the book marks its own evidence as high, medium or low. The foreword is by Dr Kristina Herber.
 
@@ -201,9 +201,7 @@ Dear Editors,
 
 I am a clinical psychologist living and working in Luxembourg, and a Luxembourger. My first book, State. Not Situation., was published here on 15 October 2026 by Budisin Publishing, with legal deposit at the Bibliothèque nationale du Luxembourg. I would like to offer it for review.
 
-The book is in English. Its subtitle is Why your body decides what a moment means before you do. From the back cover: "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost." The book examines the gap between what happened and what it felt like it meant, and asks where its own explanation stops being enough.
-
-Each chapter ends with a note on the work it is built on and the work that limits it. The foreword is by Dr Kristina Herber.
+The book is in English. Its subtitle is Why your body decides what a moment means before you do. From the back cover: "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost." The book examines the gap between what happened and what it felt like it meant, and asks where its own explanation stops being enough. The foreword is by Dr Kristina Herber.
 
 I would be glad to send a print or digital copy. Paperback, 304 pages, ISBN 978-2-87996-258-0. The opening pages are at statenotsituation.com/en/read.
 
