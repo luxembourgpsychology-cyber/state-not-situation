@@ -40,7 +40,11 @@ export default async function ReadPage({ params }: { params: Promise<{ lang: str
     <div className="reading-page flex flex-col min-h-dvh">
       <header className="sticky top-0 bg-page z-10 border-b border-[var(--rule)]">
         <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
-          <Link href={`/${locale}#read`} className="t-label text-quiet hover:text-ink inline-flex items-center min-h-11">← {x.back}</Link>
+          {/* Below 480px the bar also carries "Get the book" (16 October 2026),
+              so the words of the back link yield and the arrow stays, named. */}
+          <Link href={`/${locale}#read`} aria-label={x.back} className="t-label text-quiet hover:text-ink inline-flex items-center min-h-11 whitespace-nowrap">
+            ←<span className="hidden min-[480px]:inline">&nbsp;{x.back}</span>
+          </Link>
           <PulseMark className="w-8 h-auto shrink-0" />
           <div className="flex items-center gap-4">
             {/* 16 October 2026: the store buttons at the end of the extract,
