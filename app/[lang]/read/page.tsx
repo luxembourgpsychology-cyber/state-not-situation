@@ -42,7 +42,14 @@ export default async function ReadPage({ params }: { params: Promise<{ lang: str
         <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
           <Link href={`/${locale}#read`} className="t-label text-quiet hover:text-ink inline-flex items-center min-h-11">← {x.back}</Link>
           <PulseMark className="w-8 h-auto shrink-0" />
-          <LanguageSwitcher current={locale} locales={locales} browsable={enabledLocales()} label={c.a11y.languageSwitcher} />
+          <div className="flex items-center gap-4">
+            {/* 16 October 2026: the store buttons at the end of the extract,
+                one tap away while reading. */}
+            {isPublished(locale) && storeLinks(ed).length > 0 ? (
+              <Link href="#get-the-book" className="btn btn-solid btn-bar">{c.status.getTheBook}</Link>
+            ) : null}
+            <LanguageSwitcher current={locale} locales={locales} browsable={enabledLocales()} label={c.a11y.languageSwitcher} />
+          </div>
         </div>
       </header>
 
@@ -71,7 +78,7 @@ export default async function ReadPage({ params }: { params: Promise<{ lang: str
             <p className="t-mono mt-10">{x.endNote}</p>
           </div>
 
-          <div className="reading-body mt-16 md:mt-24 pt-10 border-t border-[var(--rule)]">
+          <div id="get-the-book" className="reading-body mt-16 md:mt-24 pt-10 border-t border-[var(--rule)] scroll-mt-20">
             {isPublished(locale) && storeLinks(ed).length > 0 ? (
               <Stores locale={locale} content={c} edition={ed} />
             ) : isPublished(locale) && ed.amazonUrl ? (

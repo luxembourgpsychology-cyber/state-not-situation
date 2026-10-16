@@ -1,14 +1,15 @@
 import type { EditionSettings, Locale } from "@/site.config";
 import type { SiteContent } from "@/content/types";
-import { priceLine, storeLinks } from "@/lib/stores";
+import { isPrimary, priceLine, storeLinks } from "@/lib/stores";
 import { AmazonButton } from "./AmazonButton";
 
 /**
  * "Get the book" (15 October 2026): every store page the book is sold on,
- * each format named, the first as the solid button and the rest as plain
- * actions, then one mono line about price. Nothing here says which store to
- * prefer and nothing mentions a reseller: the list price, printed once, lets
- * a reader judge any offer for themselves.
+ * each format named, the first store of each format as a solid button and
+ * any further store for that format as a plain action, then one mono line
+ * about price. Nothing here says which store to prefer and nothing mentions
+ * a reseller: the list price, printed once, lets a reader judge any offer
+ * for themselves.
  */
 export function Stores({ locale, content, edition }: { locale: Locale; content: SiteContent; edition: EditionSettings }) {
   const links = storeLinks(edition);
@@ -26,7 +27,7 @@ export function Stores({ locale, content, edition }: { locale: Locale; content: 
               label={`${s.formats[l.format]} · ${l.store}`}
               locale={locale}
               store={l.store}
-              className={i === 0 ? "btn btn-solid" : "btn"}
+              className={isPrimary(links, i) ? "btn btn-solid" : "btn"}
             />
           </li>
         ))}

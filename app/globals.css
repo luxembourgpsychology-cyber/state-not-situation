@@ -224,6 +224,8 @@ body {
   justify-content: center;
 }
 .btn-solid:hover { background: var(--ink); color: var(--paper); }
+/* The one solid button in the sticky bar: the same button, sized to a 56px bar. */
+.btn-bar { min-height: 2.25rem; padding: 0.4rem 0.9rem; white-space: nowrap; }
 
 /* ---------- Motion: one transition exists ---------- */
 .reveal {

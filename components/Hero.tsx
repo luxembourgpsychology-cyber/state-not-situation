@@ -53,6 +53,17 @@ export function Hero({
               <span className="block">{c.hero.titleB}</span>
             </h1>
             <p className="t-lead mt-[var(--space-tight)] text-ink-soft">{c.hero.subtitle}</p>
+
+            {/* Publication day, 15 October 2026; moved up here on 16 October
+                at the author's request: the store pages are the first thing
+                after the title, above the cover on a phone, Kindle and
+                paperback each as its own button. The header's "Get the book"
+                lands on this id, under the sticky bar. */}
+            {hasStores ? (
+              <div id="get-the-book" className="mt-[var(--space-block)] scroll-mt-20">
+                <Stores locale={locale} content={c} edition={ed} />
+              </div>
+            ) : null}
           </div>
 
           {/* The cover, above the actions on a phone, beside the words at 768. */}
@@ -112,14 +123,6 @@ export function Hero({
                 <a href="#notify" className="btn">{c.status.notifyCta}</a>
               )}
             </div>
-
-            {/* Publication day, 15 October 2026: the store pages, each format
-                at each store, in a row of their own under the actions. */}
-            {hasStores ? (
-              <div className="mt-[var(--space-block)]">
-                <Stores locale={locale} content={c} edition={ed} />
-              </div>
-            ) : null}
 
             {/* Before publication the offer is the form itself, not a link to
                 the foot of the page (7 October 2026). The closing keeps its

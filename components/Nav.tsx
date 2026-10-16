@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/site.config";
 import { siteConfig } from "@/site.config";
-import { enabledLocales, locales } from "@/lib/i18n";
+import { enabledLocales, isPublished, locales } from "@/lib/i18n";
+import { storeLinks } from "@/lib/stores";
 import type { SiteContent } from "@/content/types";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { PulseMark } from "./PulseMark";
@@ -33,6 +34,12 @@ import { PulseMark } from "./PulseMark";
  * place in the sheet. When the sheet has "More ways in", they come first, as
  * a swipe strip along the cover's pulse line: a word, a short line under it,
  * one tap. The sheet's own items follow unchanged.
+ *
+ * Once the book is on sale (16 October 2026, the author's request) the bar
+ * carries one solid button, "Get the book", at every width and on every
+ * page, beside the language marks. It goes to the store buttons under the
+ * title on the home page, so Kindle and paperback are one tap away wherever
+ * a reader is. It is the only solid button in the bar.
  */
 export function Nav({
   locale,
@@ -64,6 +71,9 @@ export function Nav({
   const moreButton = useRef<HTMLButtonElement>(null);
   const moreBar = useRef<HTMLDivElement>(null);
   const to = (hash: string) => (variant === "home" ? hash : `${base}${hash}`);
+  const buy = isPublished(locale) && storeLinks(siteConfig.editions[locale]).length > 0
+    ? { href: to("#get-the-book"), label: c.status.getTheBook }
+    : null;
 
   const links = [
     { href: to("#premise"), label: c.nav.book },
@@ -155,7 +165,10 @@ export function Nav({
           ) : null}
         </nav>
 
-        <div className="flex items-center gap-5 md:gap-3">
+        <div className="flex items-center gap-4 md:gap-5">
+          {buy ? (
+            <Link href={buy.href} className="btn btn-solid btn-bar">{buy.label}</Link>
+          ) : null}
           <LanguageSwitcher
             current={locale}
             locales={locales}
@@ -227,6 +240,9 @@ export function Nav({
               ))}
             </ul>
             <div className="mt-[var(--space-block)] flex flex-col items-start gap-4">
+              {buy ? (
+                <Link href={buy.href} className="btn btn-solid" onClick={() => setOpen(false)}>{buy.label}</Link>
+              ) : null}
               {excerptAvailable ? (
                 <Link href={`${base}/read`} className="btn btn-red" onClick={() => setOpen(false)}>{c.hero.readCta}</Link>
               ) : null}

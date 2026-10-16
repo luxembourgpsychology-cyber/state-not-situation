@@ -2,7 +2,7 @@
 // price on the site. Run: npm test
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { priceLine, storeLinks } from "../lib/stores.ts";
+import { isPrimary, priceLine, storeLinks } from "../lib/stores.ts";
 
 const kindle = { format: "kindle", store: "Amazon.de", href: "https://www.amazon.de/dp/EXAMPLE", show: true };
 const paperback = { format: "paperback", store: "Amazon.com", href: "https://www.amazon.com/dp/EXAMPLE", show: true };
@@ -15,6 +15,13 @@ test("store links: only while published, only those switched on, only https, in 
   assert.deepEqual(storeLinks({ publicationStatus: "published", stores: [kindle, hidden, paperback] }), [kindle, paperback]);
   assert.deepEqual(storeLinks({ publicationStatus: "published", stores: [{ ...kindle, href: "http://insecure.example" }] }), []);
   assert.deepEqual(storeLinks({ publicationStatus: "published", stores: [{ ...kindle, href: "" }] }), []);
+});
+
+test("solid buttons: the first store of each format, a further store for that format plain", () => {
+  const shown = storeLinks({ publicationStatus: "published", stores: [kindle, paperback, { ...hidden, show: true }] });
+  assert.deepEqual(shown.map((_, i) => isPrimary(shown, i)), [true, true, false]);
+  const one = storeLinks({ publicationStatus: "published", stores: [paperback] });
+  assert.deepEqual(one.map((_, i) => isPrimary(one, i)), [true]);
 });
 
 test("price line: the figure comes from the config, or the line is not printed", () => {

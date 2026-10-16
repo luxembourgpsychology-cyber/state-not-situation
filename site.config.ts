@@ -46,9 +46,10 @@ export interface EditionSettings {
   amazonUrl: string | null;
   /**
    * The store pages, each format at each store, in the order they are shown.
-   * The first shown link is the solid button, the rest plain actions. Empty,
-   * or all hidden: the site falls back to the single amazonUrl button. Shown
-   * only while publicationStatus is "published".
+   * The first shown store of each format is a solid button; a further store
+   * for the same format is a plain action after it. Empty, or all hidden: the
+   * site falls back to the single amazonUrl button. Shown only while
+   * publicationStatus is "published".
    */
   stores?: StoreLink[];
   /**
