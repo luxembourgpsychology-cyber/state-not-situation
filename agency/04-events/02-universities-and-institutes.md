@@ -19,9 +19,9 @@ Subject: A seminar for psychology students on a trade book's evidence and limits
 
 Dear Professor Kornadt,
 
-I am a clinical psychologist in private practice in Luxembourg. My first book, State. Not Situation., a psychology trade book, was published on 15 October. I am writing because the book is built to be argued with, and students are the right people to do it.
+I am a clinical psychologist in Luxembourg. My first book, State. Not Situation., a psychology trade book, was published on 15 October. It is built to be argued with, and students are the right people to do it.
 
-Each chapter closes with what the book calls its Scientific Heartbeat: "a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently." Claims carry a marker, High, Medium or Low, for the strength of the evidence behind them.
+Each chapter closes with what the book calls its Scientific Heartbeat: "a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently." Claims carry a marker, High, Medium or Low, for the evidence behind them.
 
 I would like to offer the department a seminar, "The book’s ideas, evidence and limits", from the series Reading Mode. It runs as a 60-minute seminar or a 90-minute seminar with discussion, and examines "what the research supports, what remains uncertain and where another explanation may fit better." Its scope is stated plainly: "The seminar does not carry a claim of CPD accreditation. The framework and its exercises are not presented as a validated treatment."
 
@@ -49,13 +49,13 @@ Subject: The book is out. Thank you, and an offer for your students
 
 Dear Dr Herber,
 
-The book is published. State. Not Situation. came out on 15 October, with your foreword at the front of it, and a copy is on its way to you. Thank you again for writing it. Your line, "Our first interpretation is not necessarily wrong. But it does not have to be our last", is already on the website, where readers meet it before they meet the book.
+The book is published. State. Not Situation. came out on 15 October with your foreword at the front, and a copy is on its way to you. Thank you again. Your line, "Our first interpretation is not necessarily wrong. But it does not have to be our last", is already on the website, where readers meet it before they meet the book.
 
-I would like to offer the institute something in return. The seminar is called "The book’s ideas, evidence and limits", from the series Reading Mode: a 60-minute seminar or a 90-minute seminar with discussion, "examining the framework in State. Not Situation.: what the research supports, what remains uncertain and where another explanation may fit better." It is written for practitioners, educators and psychology students. As the invitation page says, "The seminar does not carry a claim of CPD accreditation. The framework and its exercises are not presented as a validated treatment."
+I would like to offer the institute something in return. The seminar is "The book’s ideas, evidence and limits", from the series Reading Mode: a 60-minute seminar or a 90-minute seminar with discussion, "examining the framework in State. Not Situation.: what the research supports, what remains uncertain and where another explanation may fit better." It is for practitioners, educators and psychology students. As the invitation page says, "The seminar does not carry a claim of CPD accreditation. The framework and its exercises are not presented as a validated treatment."
 
-The format, date and fee are agreed before you book, and for AIHE I would want to discuss that openly with you. The session is described at https://statenotsituation.com/en/invite, and the press kit is at https://statenotsituation.com/en/press.
+The format, date and fee are agreed before you book, and with AIHE I would discuss that openly. Details are at https://statenotsituation.com/en/invite; the press kit is at https://statenotsituation.com/en/press.
 
-If a conversation with your students about the book would be welcome, I would be glad to come.
+If a conversation with your students would be welcome, I would be glad to come.
 
 With warm regards,
 Ivana Budišin
@@ -107,13 +107,13 @@ Subject: A seminar on evidence and its limits, for students who study the body
 
 Dear Professor De Nunzio,
 
-I am a clinical psychologist in Luxembourg, and my first book, State. Not Situation., was published on 15 October. Its subtitle is "Why your body decides what a moment means before you do", and one of its lines may interest students of movement and health: "The body is a sensor before it is a narrator."
+I am a clinical psychologist in Luxembourg, and my first book, State. Not Situation., was published on 15 October. One of its lines may interest students of movement and health: "The body is a sensor before it is a narrator."
 
-The book is a psychology trade book, not a textbook, but it grades its own evidence, High, Medium or Low, and each chapter lists the research that supports it and the research that complicates it. I would like to offer LUNEX a seminar built on that: "The book’s ideas, evidence and limits", from the series Reading Mode. It runs as a 60-minute seminar or a 90-minute seminar with discussion, "examining the framework in State. Not Situation.: what the research supports, what remains uncertain and where another explanation may fit better." Its scope: "The seminar does not carry a claim of CPD accreditation. The framework and its exercises are not presented as a validated treatment."
+It is a psychology trade book, not a textbook, but it grades its own evidence, High, Medium or Low, and each chapter lists the research that supports it and the research that complicates it. I would like to offer LUNEX a seminar built on that: "The book’s ideas, evidence and limits", from the series Reading Mode. It runs as a 60-minute seminar or a 90-minute seminar with discussion, "examining the framework in State. Not Situation.: what the research supports, what remains uncertain and where another explanation may fit better." Its scope: "The seminar does not carry a claim of CPD accreditation. The framework and its exercises are not presented as a validated treatment."
 
-The format, date and fee are agreed before you book. Details are at https://statenotsituation.com/en/invite and https://statenotsituation.com/en/research; the press kit is at https://statenotsituation.com/en/press.
+The format, date and fee are agreed before you book. Details are at https://statenotsituation.com/en/invite; the press kit is at https://statenotsituation.com/en/press.
 
-If a colleague teaching psychology or health would be the better reader of this letter, I would be grateful if you passed it on.
+If a colleague teaching psychology or health would be the better reader, I would be grateful if you passed this on.
 
 With kind regards,
 Ivana Budišin
