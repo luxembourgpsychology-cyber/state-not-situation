@@ -19,13 +19,13 @@ Subject: A session for teams on how ordinary messages get misread
 
 Dear House of Training team,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is about a small, common error: mistaking a state for a fact. "A short message feels cold. A meeting feels dangerous." Those lines are from the back cover, and most people recognise them from work.
+I am a clinical psychologist in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is about a small, common error: mistaking a state for a fact. "A short message feels cold. A meeting feels dangerous." Those lines are from the back cover, and most people recognise them from work.
 
-I would like to offer a session for teams and organisations, "Why ordinary messages become workplace misunderstandings", from the series Warm Panels at Work. It runs as a 60-minute introduction or a 90-minute session with discussion. In the words of my invitation page: "A short email can feel personal. An unfinished task can follow someone home. This session explores how pressure shapes the way teams read everyday situations, and how to ask better questions before settling on an explanation." Its scope is stated plainly: "The session does not replace addressing workload or harmful behaviour. Personal reflections are not reported to management." No one needs to have read the book.
+I would like to offer a session for teams, "Why ordinary messages become workplace misunderstandings", from the series Warm Panels at Work. It runs as a 60-minute introduction or a 90-minute session with discussion. In the words of my invitation page: "A short email can feel personal. An unfinished task can follow someone home. This session explores how pressure shapes the way teams read everyday situations, and how to ask better questions before settling on an explanation." Its scope: "The session does not replace addressing workload or harmful behaviour. Personal reflections are not reported to management." No one needs to have read the book.
 
 The format, date and fee are agreed before you book. Details are at https://statenotsituation.com/en/invite, and the biography and photograph are at https://statenotsituation.com/en/press.
 
-If this could sit in your catalogue or go to a client, I would be glad to discuss it.
+If this could sit in your catalogue, I would be glad to discuss it.
 
 With kind regards,
 Ivana Budišin
@@ -49,7 +49,7 @@ Subject: A short session for members on everyday misreadings at work
 
 Dear FEDIL team,
 
-I am a clinical psychologist in Luxembourg, and my first book, State. Not Situation., was published on 15 October. It is a psychology book for general readers about how people read everyday moments, and a good part of it takes place at work: an email that reads like a judgement, an unfinished task that follows someone home.
+I am a clinical psychologist in Luxembourg, and my first book, State. Not Situation., was published on 15 October. It is a psychology book about how people read everyday moments, and much of it takes place at work: an email that reads like a judgement, an unfinished task that follows someone home.
 
 I would like to offer your members a session, "Why ordinary messages become workplace misunderstandings", from the series Warm Panels at Work. It runs as a 60-minute introduction or a 90-minute session with discussion, and "explores how pressure shapes the way teams read everyday situations, and how to ask better questions before settling on an explanation." I want to be exact about what it is not: "The session does not replace addressing workload or harmful behaviour. Personal reflections are not reported to management." It is an educational session, not therapy, and no one is asked to share private experiences.
 
@@ -169,9 +169,9 @@ Subject: A lunchtime session at the Foyer européen on everyday misreadings at w
 
 Dear Mr Le Bohec,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is a psychology book for general readers about how we read ordinary moments, and much of it happens in offices: the email that lands cold, the task that follows someone home, the meeting that feels dangerous before a word is said.
+I am a clinical psychologist in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is a psychology book about how we read ordinary moments, and much of it happens in offices: the email that lands cold, the task that follows someone home, the meeting that feels dangerous before a word is said.
 
-I would like to offer the staff of the European institutions a session in English, "Why ordinary messages become workplace misunderstandings", from the series Warm Panels at Work. It runs as a 60-minute introduction, which fits a lunchtime at the Foyer, or a 90-minute session with discussion. It "explores how pressure shapes the way teams read everyday situations, and how to ask better questions before settling on an explanation." Its scope: "The session does not replace addressing workload or harmful behaviour. Personal reflections are not reported to management." No one needs to have read the book.
+I would like to offer the staff of the European institutions a session in English, "Why ordinary messages become workplace misunderstandings", from the series Warm Panels at Work. It runs as a 60-minute introduction, which fits a lunchtime, or a 90-minute session with discussion. It "explores how pressure shapes the way teams read everyday situations, and how to ask better questions before settling on an explanation." Its scope: "The session does not replace addressing workload or harmful behaviour. Personal reflections are not reported to management." No one needs to have read the book.
 
 The format, date and fee are agreed before you book. Details are at https://statenotsituation.com/en/invite; the biography and photograph are at https://statenotsituation.com/en/press.
 

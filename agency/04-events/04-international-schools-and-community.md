@@ -19,9 +19,9 @@ Subject: An evening for ISL parents: a reading and conversation
 
 Dear Parent Community Group,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is a psychology book for general readers about one ordinary error: a message reads cold, a quiet room feels like judgement, a whole day looks lost, and we mistake the state we are in for a fact about the world.
+I am a clinical psychologist in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is a psychology book about one ordinary error: a message reads cold, a quiet room feels like judgement, and we mistake the state we are in for a fact about the world.
 
-Parents live this daily, in both directions. I would like to offer the PCG an evening in English, "Why the same situation can feel so different", from the series Same Life, Different Settings, as a reading and conversation of 75 minutes. My invitation page describes it as "a talk or author reading about the stories we build around everyday moments. Through scenes from the book and audience discussion, Ivana explores why our first interpretation may not be the only one." It is an educational evening, not therapy; no one is asked to share private experiences, and no one needs to have read the book.
+Parents live this daily. I would like to offer the PCG an evening in English, "Why the same situation can feel so different", from the series Same Life, Different Settings, as a reading and conversation of 75 minutes. My invitation page describes it as "a talk or author reading about the stories we build around everyday moments. Through scenes from the book and audience discussion, Ivana explores why our first interpretation may not be the only one." It is an educational evening, not therapy; no one is asked to share private experiences, and no one needs to have read the book.
 
 The format, date and fee are agreed before you book. Details are at https://statenotsituation.com/en/invite; the biography and photograph are at https://statenotsituation.com/en/press.
 

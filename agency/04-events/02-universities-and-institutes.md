@@ -113,7 +113,7 @@ It is a psychology trade book, not a textbook, but it grades its own evidence, H
 
 The format, date and fee are agreed before you book. Details are at https://statenotsituation.com/en/invite; the press kit is at https://statenotsituation.com/en/press.
 
-If a colleague teaching psychology or health would be the better reader, I would be grateful if you passed this on.
+If a colleague teaching psychology would be the better reader, please pass this on.
 
 With kind regards,
 Ivana Budišin
