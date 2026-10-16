@@ -67,3 +67,7 @@ None of these block the preview; each is described honestly until supplied.
 
 - `status.getTheBook`, `status.formats`, `status.pricesVary`, `status.listPrice` added in all three languages (English the source; French and German as drafts). See CONTENT_SOURCES.md, "Get the book".
 - `editions.en.publicationStatus` set to `"published"`, with the Kindle page as `amazonUrl` and the store pages in `stores` (two shown, three held off with the reason). The branch carrying this is the launch switch; merging it to `main` puts the block live.
+
+## 16 October 2026, later: the price note and Alinéa
+
+- `status.listPrice` and `status.pricesVary` reworded and reordered (list price first, credited to delivery from Amazon in Germany; other stores second), now in the quiet colour. New optional `status.localNote`: "In Luxembourg, soon at Alinéa." See CONTENT_SOURCES.md, "Reworded, 16 October 2026".

@@ -45,8 +45,9 @@ export const de: SiteContent = {
     buy: "Bei Amazon kaufen",
     getTheBook: "Das Buch bekommen",
     formats: { paperback: "Taschenbuch", kindle: "Kindle" },
-    pricesVary: "Preis und Lieferung legt jeder Shop selbst fest; sie sind je nach Land verschieden.",
-    listPrice: "Unverbindliche Preisempfehlung für das Taschenbuch: {price}, ohne MwSt. und Lieferung.",
+    listPrice: "Listenpreis {price} ohne MwSt., geliefert von Amazon aus Deutschland.",
+    pricesVary: "Andere Shops und Länder legen Preis und Lieferung selbst fest.",
+    localNote: "In Luxemburg bald bei Alinéa.",
     notifyCta: "Nachricht zum Erscheinen",
     offer: {
       cta: "Die ersten 16 Seiten kostenlos",

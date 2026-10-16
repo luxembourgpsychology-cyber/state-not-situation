@@ -126,8 +126,12 @@ export interface SiteContent {
      */
     getTheBook: string;
     formats: { paperback: string; kindle: string };
-    pricesVary: string;
+    /** First under the buttons, in the quiet colour: the list price and where it applies. */
     listPrice: string;
+    /** Second: the other stores and countries. */
+    pricesVary: string;
+    /** Optional last line for readers in the author's own country: "In Luxembourg, soon at Alinéa." */
+    localNote?: string;
     /** The second hero action and the closing form's heading. */
     notifyCta: string;
     /**

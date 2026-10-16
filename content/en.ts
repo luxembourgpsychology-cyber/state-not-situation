@@ -52,8 +52,11 @@ export const en: SiteContent = {
     // CONTENT_SOURCES.md, "Get the book".
     getTheBook: "Get the book",
     formats: { paperback: "Paperback", kindle: "Kindle" },
-    pricesVary: "Each store sets its own price and delivery, so they vary by country.",
-    listPrice: "Paperback list price {price}, before VAT and delivery.",
+    // Reworded on 16 October 2026 at Ivana's request: quieter, and the best
+    // price credited to delivery from Germany; the Alinéa line is hers too.
+    listPrice: "List price {price} before VAT, with delivery from Amazon in Germany.",
+    pricesVary: "Other stores and countries set their own prices and delivery.",
+    localNote: "In Luxembourg, soon at Alinéa.",
     notifyCta: "Publication updates",
     // Interface, 4 October 2026: the form offers the first 16 pages, as printed.
     offer: {

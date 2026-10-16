@@ -580,3 +580,12 @@ Publication day. `site.config.ts` → `editions.en` goes to `publicationStatus: 
 - "Each store sets its own price and delivery, so they vary by country." and "Paperback list price €28.90, before VAT and delivery." (16 October: Amazon.de shows the same offer as €28.90 excl. VAT and €30.92 incl. 7% German VAT, so the figure is the price before VAT): written for Ivana on 15 October 2026 from her instruction that day ("add the live paperback and Kindle links … with a note that prices vary depending on place of delivery … let the people know my price is 28,99 without shipping"). The figure €28.90 is the list price she submitted to KDP on 14 October 2026 (SNS-LOGBOOK); she wrote "28,99" on 15 October, so one figure is to be confirmed before publication of the page. Category 2 once she signs the two sentences off.
 - No sentence names a reseller or a price other than the list price. The store pages were opened in a browser on 15 October 2026 at 14:40; what each showed is recorded beside its link in `site.config.ts`.
 - French and German: the same four labels and two sentences, as drafts under the languages' existing review status.
+
+### Reworded, 16 October 2026
+
+Ivana, the day after publication, in chat: "say for local Lux buyers they can soon find it at Alinéa" and "tweak the Amazon price line to be more diplomatic, saying that delivery in Germany is the best price, but quieter than now". Written for her from that instruction (category 2 on her sign-off):
+
+- "List price €28.90 before VAT, with delivery from Amazon in Germany. Other stores and countries set their own prices and delivery." (quiet colour, under the buttons)
+- "In Luxembourg, soon at Alinéa." (`status.localNote`; Alinéa said yes to copies, Ivana brings them; no date is promised)
+
+French and German as drafts under the languages' existing review status.

@@ -6,8 +6,9 @@ import { AmazonButton } from "./AmazonButton";
 /**
  * "Get the book" (15 October 2026): every store page the book is sold on,
  * each format named, the first store of each format as a solid button and
- * any further store for that format as a plain action, then one mono line
- * about price. Nothing here says which store to prefer and nothing mentions
+ * any further store for that format as a plain action, then a quiet mono
+ * note: the list price and where it applies, the other stores, and, when
+ * set, one line for readers in the author's own country. Nothing mentions
  * a reseller: the list price, printed once, lets a reader judge any offer
  * for themselves.
  */
@@ -32,10 +33,13 @@ export function Stores({ locale, content, edition }: { locale: Locale; content: 
           </li>
         ))}
       </ul>
-      <p className="t-mono mt-3">
+      {/* Quieter since 16 October 2026: the quiet colour, the list price first
+          and where it applies, then the other stores, then the local line. */}
+      <p className="t-mono text-quiet mt-3">
+        {price ? `${price} ` : null}
         {s.pricesVary}
-        {price ? ` ${price}` : null}
       </p>
+      {s.localNote ? <p className="t-mono text-ink mt-2">{s.localNote}</p> : null}
     </div>
   );
 }
