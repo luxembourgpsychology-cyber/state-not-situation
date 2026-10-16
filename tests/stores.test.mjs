@@ -18,7 +18,7 @@ test("store links: only while published, only those switched on, only https, in 
 });
 
 test("price line: the figure comes from the config, or the line is not printed", () => {
-  assert.equal(priceLine("Paperback list price {price}, before VAT and delivery.", "€28.90"), "Paperback list price €28.90, before delivery.");
+  assert.equal(priceLine("Paperback list price {price}, before VAT and delivery.", "€28.90"), "Paperback list price €28.90, before VAT and delivery.");
   assert.equal(priceLine("Paperback list price {price}, before VAT and delivery.", null), null);
   assert.equal(priceLine("Paperback list price {price}, before VAT and delivery.", undefined), null);
   assert.equal(priceLine("Paperback list price {price}, before VAT and delivery.", ""), null);
