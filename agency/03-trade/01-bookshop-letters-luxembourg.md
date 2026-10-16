@@ -103,7 +103,7 @@ Subject: Un livre de psychologie en anglais, écrit à Luxembourg, pour vos rayo
 
 Dear Alinéa team,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October, in English, 304 pages, ISBN 978-2-87996-258-0. I know that English titles sit among your non-fiction, so I am writing to you first among the independents.
+I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October, in English, 304 pages, ISBN 978-2-87996-258-0. I know that English titles sit among your non-fiction, so I am writing to you first.
 
 The book starts from the moments we misread. "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost."
 

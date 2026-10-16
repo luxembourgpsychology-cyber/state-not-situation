@@ -147,7 +147,7 @@ Dear You Are Not So Smart team,
 
 I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October 2026.
 
-Your show has spent years on the ways we are wrong about ourselves. The book takes one of those ways and follows it through an ordinary day. Page 4 prints five readings of the same day, from 06:38, "A heaviness arrives before the day does", to 22:47, "Two letters and a full stop feel hostile". Page 24 names the mechanism: "Giving a feeling the wrong cause. The body produces the feeling. The mind looks for a reason and takes the nearest one. The feeling is real. The reason is a guess."
+The book takes one way we are wrong about ourselves and follows it through an ordinary day. Page 4 prints five readings of the same day, from 06:38, "A heaviness arrives before the day does", to 22:47, "Two letters and a full stop feel hostile". Page 24 names the mechanism: "Giving a feeling the wrong cause. The body produces the feeling. The mind looks for a reason and takes the nearest one. The feeling is real. The reason is a guess."
 
 For a segment, I would suggest starting where the book starts, with the John F. Kennedy Jr. flight of 16 July 1999 on pages 1 to 3, and the line that follows it: "But the body's confident weather report about the world is only a draft."
 
@@ -178,9 +178,9 @@ Dear Eat Sleep Work Repeat team,
 
 I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October 2026.
 
-A segment for your listeners: the ordinary workplace misreading. Page 4 of the book prints a single day read five times, including 09:12, "A two-line email reads like a judgement", and 17:45, "An unanswered message starts charging cognitive rent". The book offers three questions, printed on page 9, to ask before settling on what a message meant. Time: "What came before this moment? Sleep, meals, caffeine, recovery, the hour." Attention: "What keeps pulling me back? A message, a thought, a cue, an unfinished task." Safety: "What seems at stake? What have I observed, what am I assuming, and does anything need action?"
+A segment for your listeners: the ordinary workplace misreading. Page 4 prints one day read five times, including 09:12, "A two-line email reads like a judgement", and 17:45, "An unanswered message starts charging cognitive rent". The book offers three questions, printed on page 9, to ask before settling on what a message meant. Time: "What came before this moment? Sleep, meals, caffeine, recovery, the hour." Attention: "What keeps pulling me back? A message, a thought, a cue, an unfinished task." Safety: "What seems at stake? What have I observed, what am I assuming, and does anything need action?"
 
-I also run a session for teams on the same ground, "Why ordinary messages become workplace misunderstandings", and would be glad to discuss what I see in practice. The session does not replace addressing workload or harmful behaviour.
+I also run a session for teams on the same ground, "Why ordinary messages become workplace misunderstandings". The session does not replace addressing workload or harmful behaviour.
 
 A digital review copy is available on request. Press kit: https://statenotsituation.com/press/State-Not-Situation-press-kit.zip.
 
