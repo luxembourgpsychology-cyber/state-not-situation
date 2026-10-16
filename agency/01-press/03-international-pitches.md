@@ -56,11 +56,11 @@ Pitch text, to paste into the form
 
 I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October 2026.
 
-Its premise, from the back cover: "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost. But what feels true is not produced by the situation alone."
+Its premise, from the back cover: "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong."
 
 I would like to offer Psyche a short piece built on the three questions the book gives on page 9. Time: "What came before this moment? Sleep, meals, caffeine, recovery, the hour." Attention: "What keeps pulling me back? A message, a thought, a cue, an unfinished task." Safety: "What seems at stake? What have I observed, what am I assuming, and does anything need action?" The piece would show what each question does to one ordinary moment, and where it stops being enough: "A person's state can influence an interpretation while a real concern remains."
 
-Alternatively, the opening of the book, pages 1 to 3, is available for licensing. It can be read at https://statenotsituation.com/en/read. Press materials are at https://statenotsituation.com/en/press.
+Alternatively, the opening of the book, pages 1 to 3, is available for licensing. It can be read at https://statenotsituation.com/en/read.
 
 Ivana Budišin
 
@@ -118,7 +118,7 @@ Behavioral Scientist's readers will know the finding the book names on page 24, 
 
 I would like to offer a short original piece on the three questions the book proposes on page 9, Time, Attention and Safety, and on the practice the book pairs with them: "Before acting on a confident judgement, name one fact that could change your mind." The opening, pages 1 to 3, is also available as an extract.
 
-Each chapter of the book carries an evidence marker, High, Medium or Low, and lists the work that limits it beside the work that supports it. A review copy is available. Press kit: https://statenotsituation.com/press/State-Not-Situation-press-kit.zip.
+Each chapter carries an evidence marker, High, Medium or Low. A review copy is available. Press kit: https://statenotsituation.com/press/State-Not-Situation-press-kit.zip.
 
 With kind regards,
 
