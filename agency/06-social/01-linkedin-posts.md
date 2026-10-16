@@ -197,7 +197,7 @@ Page 5.
 
 https://statenotsituation.com
 
-Notes for Ivana: page 292 prints Demand–withdraw with an en dash. The agency brief forbids dashes in anything sent, so the draft uses a hyphen. Your call: the printed form, or the hyphen. The names are run in one paragraph, not a list, since page 292's layout is not the device here. The image is the full wrap at 3805 × 2700; if LinkedIn trims it, use post-16x9-1920x1080.jpg instead.
+Notes for Ivana: page 292 prints Demand withdraw joined by an en dash. The agency brief forbids dashes in anything sent, so the draft uses a hyphen. Your call: the printed form, or the hyphen. The names are run in one paragraph, not a list, since page 292's layout is not the device here. The image is the full wrap at 3805 × 2700; if LinkedIn trims it, use post-16x9-1920x1080.jpg instead.
 
 ---
 
