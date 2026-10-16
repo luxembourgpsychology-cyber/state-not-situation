@@ -8,7 +8,7 @@ What the recipient is asked to do: replace the current description on both editi
 Attachments or links: none; all text is below
 Approval status: awaiting Ivana
 
-Source rule for this item. Every sentence in the two descriptions is either printed on the v50 back cover or is a sentence the author wrote herself, as recorded in the fact sheet. The order of the short description is the order the back cover prints. Nothing is paraphrased.
+Source rule for this item. Every sentence in the two descriptions is either printed on the v50 back cover or is a sentence the author wrote herself, as recorded in the fact sheet. The order of the short description is the order the back cover prints.
 
 ## 03.1 Short description, back cover order
 
@@ -38,7 +38,7 @@ Measured length of the short description above: 951 characters including line br
 
 ## 03.2 Longer description, with the sixteen names
 
-Same opening, then the author's own words, then page 292's list. The list is printed in the book as sixteen names. One of them, Demand-withdraw, is printed in the book with a longer dash between the two words; it is written here with a plain hyphen, because this file carries none, and KDP will show whichever character you paste.
+Same opening, then the author's own words, then page 292's list. The list is printed in the book as sixteen names. One of them, Demand–withdraw, is printed in the book with an en dash between the two words and is written here as printed; it is the one dash the brief permits, and KDP will show whichever character you paste.
 
 ```
 The first misreading
@@ -63,9 +63,9 @@ For anyone who has ever been certain about what a situation meant, then discover
 
 Sixteen names
 
-Narrating mode. Misattribution. The smoke detector principle. Variable reward. Wanting and liking. Wake Maintenance Zone. Default mode network. Evaluation threat. Rumination. Demand-withdraw. Metacognition. Stacking. Prediction error. Calibration. Warm panel. Forecast.
+Narrating mode. Misattribution. The smoke detector principle. Variable reward. Wanting and liking. Wake Maintenance Zone. Default mode network. Evaluation threat. Rumination. Demand–withdraw. Metacognition. Stacking. Prediction error. Calibration. Warm panel. Forecast.
 
-Each chapter closes with a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently.
+From The Scientific Heartbeat, page 242: "Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently."
 
 About the author
 
@@ -74,7 +74,7 @@ Ivana Budišin is a clinical psychologist living and working in Luxembourg. Stat
 Paperback, 304 pages. Published by Budisin Publishing, Luxembourg, 15 October 2026. ISBN 978-2-87996-258-0.
 ```
 
-Note on one sentence. "Each chapter closes with a short note on where the thinking came from…" is page 242's sentence with its first four words changed from "Each chapter has three parts here:" to make it stand alone. If Ivana prefers the printed wording exactly, replace the sentence with the printed one: "Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently." The headings "From the author", "Sixteen names" and "About the author" are interface labels, not copy.
+Note on one sentence. The Scientific Heartbeat sentence is quoted as page 242 prints it, introduced as the section at the back of the book; the earlier draft had reworded its opening and the fact checker struck that. The headings "From the author", "Sixteen names" and "About the author" are interface labels, not copy.
 
 ## 03.3 Seven KDP keyword slots (suggestions)
 

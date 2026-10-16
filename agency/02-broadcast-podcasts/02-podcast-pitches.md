@@ -87,7 +87,7 @@ Dear Behavioral Grooves team,
 
 I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., came out on 15 October 2026. It is about how sleep, hunger, stress, timing, attention, memory and threat detection shape the explanation that feels most convincing, as the back cover puts it.
 
-A segment for your audience: how a trade book handles uncertainty in applied behavioural science. Every claim in the book carries a marker, High, Medium or Low, which I describe as "Replicated or robust evidence", "Suggestive evidence with meaningful uncertainty" and "Plausible hypothesis or emerging evidence". Page 242 explains the structure: each chapter lists "the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently", because "Leaving them out would make the argument look tidier than it is." I would be glad to discuss where the framework stops being enough.
+A segment for your audience: how a trade book handles uncertainty in applied behavioural science. The book marks its evidence High, Medium or Low, which I describe as "Replicated or robust evidence", "Suggestive evidence with meaningful uncertainty" and "Plausible hypothesis or emerging evidence". Page 242 explains the structure: each chapter lists "the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently", because "Leaving them out would make the argument look tidier than it is." I would be glad to discuss where the framework stops being enough.
 
 A digital review copy is available on request. Press kit: https://statenotsituation.com/press/State-Not-Situation-press-kit.zip. Opening pages: https://statenotsituation.com/en/read.
 
@@ -242,7 +242,7 @@ I am a clinical psychologist living and working in Luxembourg. My first book, St
 
 A segment idea for your listeners: what happens in the minutes after a short message lands. Page 4 of the book reads one day five times, including 09:12, "A two-line email reads like a judgement", and 14:23, "Five neutral words tighten a jaw". Page 7 offers something a listener can do while listening: "Check your jaw. Check your breath. Check your shoulders. What you found is a reading."
 
-I should be clear about what the book is. It offers questions, not a diagnosis or a substitute for professional support, and it says so. I would be glad to talk about where its explanation stops being enough.
+I should be clear about what the book is. The book's research page says: "This framework offers questions, not a diagnosis or a substitute for professional support." I would be glad to talk about where its explanation stops being enough.
 
 A digital review copy is available on request. Press kit: https://statenotsituation.com/press/State-Not-Situation-press-kit.zip. The book's note on research and limits: https://statenotsituation.com/en/research.
 

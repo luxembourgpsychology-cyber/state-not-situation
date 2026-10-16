@@ -49,7 +49,7 @@ Subject: A short session for members on everyday misreadings at work
 
 Dear FEDIL team,
 
-I am a clinical psychologist in Luxembourg, and my first book, State. Not Situation., was published on 15 October. It is a psychology book about how people read everyday moments, and much of it takes place at work: an email that reads like a judgement, an unfinished task that follows someone home.
+I am a clinical psychologist in Luxembourg, and my first book, State. Not Situation., was published on 15 October. It is a psychology book about how people read everyday moments: an email that reads like a judgement, an unfinished task that follows someone home.
 
 I would like to offer your members a session, "Why ordinary messages become workplace misunderstandings", from the series Warm Panels at Work. It runs as a 60-minute introduction or a 90-minute session with discussion, and "explores how pressure shapes the way teams read everyday situations, and how to ask better questions before settling on an explanation." I want to be exact about what it is not: "The session does not replace addressing workload or harmful behaviour. Personal reflections are not reported to management." It is an educational session, not therapy, and no one is asked to share private experiences.
 
@@ -169,7 +169,7 @@ Subject: A lunchtime session at the Foyer européen on everyday misreadings at w
 
 Dear Mr Le Bohec,
 
-I am a clinical psychologist in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is a psychology book about how we read ordinary moments, and much of it happens in offices: the email that lands cold, the task that follows someone home, the meeting that feels dangerous before a word is said.
+I am a clinical psychologist in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is a psychology book about how we read ordinary moments: the email that lands cold, the task that follows someone home, the meeting that feels dangerous before a word is said.
 
 I would like to offer the staff of the European institutions a session in English, "Why ordinary messages become workplace misunderstandings", from the series Warm Panels at Work. It runs as a 60-minute introduction, which fits a lunchtime, or a 90-minute session with discussion. It "explores how pressure shapes the way teams read everyday situations, and how to ask better questions before settling on an explanation." Its scope: "The session does not replace addressing workload or harmful behaviour. Personal reflections are not reported to management." No one needs to have read the book.
 

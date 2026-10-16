@@ -4,7 +4,7 @@ Prepared 16 October 2026 by the Reviews, Rights and Endorsements desk. Draft for
 
 Rights position: Budisin Publishing is the publisher (page iv) and © 2026 Budisin Publishing. Ivana is the publisher as well as the author, so she holds all rights and can decide alone, without a publisher's permissions department. The press page already says "Extract licensing, interviews and events by arrangement."
 
-Two pieces are offered. The first is the opening, pages 1 to 3 (the flight of 16 July 1999), roughly 1,000 words, which stands alone and is already public at statenotsituation.com/en/read and as a PDF at https://statenotsituation.com/press/State-Not-Situation-extract-the-opening.pdf. The second is page 4, "The same day, five readings", five timed lines and a closing sentence, which is very short and could run as a stand alone piece or as a sidebar. Because the opening is already free to read on the site, "first serial" here means first appearance in a publication, not first appearance anywhere; the letter says so.
+Two pieces are offered. The first is the opening, pages 1 to 3 (the flight of 16 July 1999), about 750 words, which stands alone and is already public at statenotsituation.com/en/read and as a PDF at https://statenotsituation.com/press/State-Not-Situation-extract-the-opening.pdf. The second is page 4, "The same day, five readings", five timed lines and a closing sentence, which is very short and could run as a stand alone piece or as a sidebar. Because the opening is already free to read on the site, "first serial" here means first appearance in a publication, not first appearance anywhere; the letter says so.
 
 ---
 
@@ -25,7 +25,7 @@ I am the author and publisher of State. Not Situation., published on 15 October 
 
 I would like to offer [PUBLICATION] an extract.
 
-The first option is the opening, pages 1 to 3, about a thousand words. It tells the story of a small plane that took off from New Jersey on the evening of 16 July 1999 and ends with these lines: "You operate a body that produces signals and your mind often treats those signals as truth." and "But the body's confident weather report about the world is only a draft." It is attached as a PDF. I should say plainly that these pages can also be read free on the book's website, so what I am offering is first publication in a periodical, not first appearance anywhere.
+The first option is the opening, pages 1 to 3, about 750 words. It tells the story of a small plane that took off from New Jersey on the evening of 16 July 1999 and ends with these lines: "You operate a body that produces signals and your mind often treats those signals as truth." and "But the body's confident weather report about the world is only a draft." It is attached as a PDF. I should say plainly that these pages can also be read free on the book's website, so what I am offering is first publication in a periodical, not first appearance anywhere.
 
 The second option is page 4, which is very short: five readings of one day, each a time of day and one sentence, closing with "The body speaks first. The mind explains second." It would sit on its own or beside a review.
 

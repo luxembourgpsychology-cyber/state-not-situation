@@ -16,7 +16,7 @@ Guest: Ivana Budišin, clinical psychologist, Luxembourg. Author of State. Not S
 
 What the book is, in the author's words: "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting."
 
-What it is not: a treatment, a mental health guide, or a diagnosis. The book says it "offers questions, not a diagnosis or a substitute for professional support."
+What it is not: a treatment, a mental health guide, or a diagnosis. The book's research page says: "This framework offers questions, not a diagnosis or a substitute for professional support."
 
 | Minute | Beat | What happens on air |
 |---|---|---|

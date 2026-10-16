@@ -21,7 +21,7 @@ Dear Professor Kornadt,
 
 I am a clinical psychologist in Luxembourg. My first book, State. Not Situation., a psychology trade book, was published on 15 October. It is built to be argued with, and students are the right people to do it.
 
-Each chapter closes with what the book calls its Scientific Heartbeat: "a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently." Claims carry a marker, High, Medium or Low, for the evidence behind them.
+The book's section The Scientific Heartbeat, from page 242, gives for each chapter "a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently." Claims carry a marker, High, Medium or Low, for the evidence behind them.
 
 I would like to offer the department a seminar, "The book’s ideas, evidence and limits", from the series Reading Mode. It runs as a 60-minute seminar or a 90-minute seminar with discussion, and examines "what the research supports, what remains uncertain and where another explanation may fit better." Its scope is stated plainly: "The seminar does not carry a claim of CPD accreditation. The framework and its exercises are not presented as a validated treatment."
 
@@ -79,7 +79,7 @@ Subject: A seminar for colleagues: a new book's evidence and its limits
 
 Dear colleagues,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is a trade book for general readers about how we notice, interpret and revise everyday moments, and it tries to show its workings: each chapter lists the work it is built on and the work that limits or contradicts it, and its claims carry High, Medium or Low markers for the evidence behind them.
+I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is a trade book for general readers about how we notice, interpret and revise everyday moments, and it tries to show its workings: its section The Scientific Heartbeat, from page 242, gives for each chapter "a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently", and its claims carry High, Medium or Low markers for the evidence behind them.
 
 I would like to offer the society a seminar for members: "The book’s ideas, evidence and limits", from the series Reading Mode. It runs as a 60-minute seminar or a 90-minute seminar with discussion, "examining the framework in State. Not Situation.: what the research supports, what remains uncertain and where another explanation may fit better." I want to be exact about its scope: "The seminar does not carry a claim of CPD accreditation. The framework and its exercises are not presented as a validated treatment." Colleagues who find the framework wanting are exactly the audience I hope for.
 

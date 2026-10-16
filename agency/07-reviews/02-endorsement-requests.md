@@ -27,7 +27,7 @@ The book has no endorsements. I would rather it carried a few honest sentences f
 
 Nothing you write would be quoted anywhere without your written agreement to the exact wording and to where it appears. You could also withdraw it later.
 
-So you know what you would be reading: the subtitle is Why your body decides what a moment means before you do. The book examines the gap between what happened and what it felt like it meant. It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting. Each chapter ends with a note on where the thinking came from, the work it is built on, and the work that limits it or explains the same evidence differently. The opening pages are at statenotsituation.com/en/read.
+So you know what you would be reading: the subtitle is Why your body decides what a moment means before you do. The book examines the gap between what happened and what it felt like it meant. It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting. A section at the back of the book, The Scientific Heartbeat, page 242, says: "Each chapter has three parts here: a short note on where the thinking came from, a list of the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently." The opening pages are at statenotsituation.com/en/read.
 
 If you would like a copy, tell me which format and, for print, a postal address.
 

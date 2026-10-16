@@ -41,7 +41,7 @@ Where: your own shelf.
 Why it matters: the first review copies and the first consignment can go out this week only if copies exist now.
 
 8. What consignment terms will you offer a shop?
-Suggested terms to accept or change: the shop pays nothing up front, sells at the list price, keeps a share of each sale [TO CONFIRM: typical consignment shares are between 30 and 40 percent; choose a figure], and settles and returns unsold copies after an agreed period such as 90 days. Put it on one page with both signatures.
+Suggested terms to accept or change: the shop pays nothing up front, sells at the list price, keeps a share of each sale [TO CONFIRM: typical consignment shares are between 30 and 40 per cent; choose a figure], and settles and returns unsold copies after an agreed period such as 90 days. Put it on one page with both signatures.
 Why it matters: the letters offer consignment as the fallback. The terms must exist before a shop says yes.
 
 9. Can Budisin Publishing issue an invoice, and does it carry a VAT number?

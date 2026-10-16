@@ -18,7 +18,7 @@ Thank the person in one line and answer the question if there is one. If they as
 
 ## Comments describing a person's own symptoms, state or situation
 
-These will come, because the posts invite people to check their jaw and their breath. The book has three lines for exactly this, and they are the whole of the answer.
+These will come, because the posts invite people to check their jaw and their breath. The site and the book have three lines for exactly this, and they are the whole of the answer: the research page says two of them, and page 238 says the third.
 
 The research page: "A person’s state can influence an interpretation while a real concern remains. This framework offers questions, not a diagnosis or a substitute for professional support."
 

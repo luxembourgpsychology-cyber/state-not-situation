@@ -157,7 +157,7 @@ Notes for Ivana: Verify the address on www.blc.lu first. Strongest reason not to
 ## Item 4.6 · Book clubs: The Page Turners and Infinite Pages
 
 Channel: Facebook message (Page Turners) and Meetup message (Infinite Pages)
-To whom: The Page Turners, an English language club meeting one Sunday a month, organiser named as Susan Thomas in https://chronicle.lu/category/literature/45765-spotlight-on-book-clubs-the-page-turners-goosey-book-club; contact via its Facebook page, [CONTACT TO CONFIRM]. Infinite Pages, organised through Meetup, https://chronicle.lu/category/community/46044-spotlight-on-book-clubs-bookxx-club-infinite-pages-lbgtiq-book-club; [CONTACT TO CONFIRM]. Both sources are third party and may be dated.
+To whom: The Page Turners, an English language club meeting one Sunday a month, described in https://chronicle.lu/category/literature/45765-spotlight-on-book-clubs-the-page-turners-goosey-book-club; the organiser, via the club's Facebook page [CONTACT TO CONFIRM]. Infinite Pages, organised through Meetup, https://chronicle.lu/category/community/46044-spotlight-on-book-clubs-bookxx-club-infinite-pages-lbgtiq-book-club; [CONTACT TO CONFIRM]. Both sources are third party and may be dated.
 Suggested send date: Monday 10 November 2026, once stock in Luxembourg is confirmed
 What the recipient is asked to do: consider the book for a future month, with the author visiting; or the small group workshop.
 Attachments or links: https://statenotsituation.com/en/read, https://statenotsituation.com/en/invite

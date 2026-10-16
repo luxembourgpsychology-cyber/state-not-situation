@@ -31,7 +31,7 @@ I am a clinical psychologist living and working in Luxembourg. My first book, St
 
 From the back cover: "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost." The book examines the gap between what happened and what it felt like it meant. It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting.
 
-Each chapter ends with a note on the work it is built on and the work that limits it. The foreword is by Dr Kristina Herber.
+A section at the back, The Scientific Heartbeat, lists for each chapter "the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently." The foreword is by Dr Kristina Herber.
 
 I would be glad to send a print or digital review copy. Paperback, 304 pages, ISBN 978-2-87996-258-0. The opening pages are at statenotsituation.com/en/read.
 
@@ -100,7 +100,7 @@ Dear Foreword Reviews,
 
 I am submitting State. Not Situation. for consideration in the magazine. It was published on 15 October 2026 by Budisin Publishing, Luxembourg. Paperback, 304 pages, ISBN 978-2-87996-258-0. Category: psychology.
 
-From the back cover: "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost." The book examines the gap between what happened and what it felt like it meant. Each chapter ends with a note on the work it is built on and the work that limits it. The foreword is by Dr Kristina Herber.
+From the back cover: "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost." The book examines the gap between what happened and what it felt like it meant. A section at the back, The Scientific Heartbeat, lists for each chapter "the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently." The foreword is by Dr Kristina Herber.
 
 I am a clinical psychologist living and working in Luxembourg; this is my first book. A print or digital review copy is available on request.
 
@@ -128,7 +128,7 @@ Dear Editors,
 
 I would like to offer State. Not Situation. for your list of books available for review. It was published on 15 October 2026 by Budisin Publishing, Luxembourg. Paperback, 304 pages, ISBN 978-2-87996-258-0.
 
-The subtitle is Why your body decides what a moment means before you do. The book examines the gap between what happened and what it felt like it meant. From the back cover: "Sleep, hunger, stress, timing, attention, memory and threat detection affect what we notice and how we interpret it. Together, they shape the explanation that feels most convincing." Each chapter ends with a note on the work it is built on and the work that limits it.
+The subtitle is Why your body decides what a moment means before you do. The book examines the gap between what happened and what it felt like it meant. From the back cover: "Sleep, hunger, stress, timing, attention, memory and threat detection affect what we notice and how we interpret it. Together, they shape the explanation that feels most convincing." A section at the back, The Scientific Heartbeat, lists for each chapter "the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently."
 
 I am a clinical psychologist in Luxembourg; this is my first book. The foreword is by Dr Kristina Herber. I would be glad to send a print or digital copy to a reviewer you select. The opening pages are at statenotsituation.com/en/read.
 
@@ -157,7 +157,7 @@ I am a clinical psychologist living and working in Luxembourg. My first book, St
 
 The subtitle is Why your body decides what a moment means before you do. From the back cover: "But what feels true is not produced by the situation alone. Sleep, hunger, stress, timing, attention, memory and threat detection affect what we notice and how we interpret it." The book examines the gap between what happened and what it felt like it meant.
 
-Each chapter closes with a note on the work it is built on and the work that limits it, and the book marks its own evidence as high, medium or low. The foreword is by Dr Kristina Herber.
+A section at the back, The Scientific Heartbeat, lists for each chapter "the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently", and the book marks its own evidence High, Medium or Low. The foreword is by Dr Kristina Herber.
 
 Print or digital review copies are available. Paperback, 304 pages, ISBN 978-2-87996-258-0. The opening pages are at statenotsituation.com/en/read.
 
@@ -228,7 +228,7 @@ Dear Editors,
 
 I am a clinical psychologist living and working in Luxembourg, and a Luxembourger. My first book, State. Not Situation., was published on 15 October 2026 by Budisin Publishing, Luxembourg. I am writing to offer it to the Feuilleton for review.
 
-The book is in English. From the back cover: "You may not be reacting to the world. You may be reacting to your state." It examines the gap between what happened and what it felt like it meant. The chapters are organised around three systems that shape how the body's signals get weighted before the mind builds a story, and each chapter ends with a note on the work it is built on and the work that limits it.
+The book is in English. From the back cover: "You may not be reacting to the world. You may be reacting to your state." It examines the gap between what happened and what it felt like it meant. Page 7: "The chapters that follow are organised around three systems that shape how your body’s signals get weighted before your mind builds a story." A section at the back, The Scientific Heartbeat, lists for each chapter "the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently."
 
 The foreword is by Dr Kristina Herber. Before psychology, I worked in design and product design; the book was designed and typeset by me, with the cover by Zoe Larusson.
 

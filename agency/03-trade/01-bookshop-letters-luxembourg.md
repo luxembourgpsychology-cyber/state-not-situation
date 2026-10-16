@@ -31,7 +31,7 @@ Subject: A Luxembourg psychology book in English, for your shelves and perhaps a
 
 Dear Ernster team,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is in English, 304 pages, ISBN 978-2-87996-258-0, printed and deposited here.
+I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is in English, 304 pages, ISBN 978-2-87996-258-0, published and deposited here.
 
 The back cover puts it in one line: "You may not be reacting to the world. You may be reacting to your state."
 
@@ -103,7 +103,7 @@ Subject: Un livre de psychologie en anglais, écrit à Luxembourg, pour vos rayo
 
 Dear Alinéa team,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October, in English, 304 pages, ISBN 978-2-87996-258-0. I know that English titles sit among your non-fiction, so I am writing to you first.
+I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October, in English, 304 pages, ISBN 978-2-87996-258-0. [TO CONFIRM: I know that English titles sit among your non-fiction, so I am writing to you first.]
 
 The book starts from the moments we misread. "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost."
 
@@ -121,7 +121,7 @@ Ivana Budišin
 Clinical psychologist
 ivana@luxembourgpsychology.com
 statenotsituation.com
-Notes for Ivana: the subject line is in French because the shop's site is French; the body is English because the book is. Change either if you prefer. The sentence "I know your shop" should be deleted if it is not true. Strongest reason not to send: Alinéa's evenings appear to be French language literary events, so an English psychology reading may not fit their series.
+Notes for Ivana: the subject line is in French because the shop's site is French; the body is English because the book is. Change either if you prefer. The bracketed sentence "I know that English titles sit among your non-fiction, so I am writing to you first" rests on a search excerpt; confirm it on the shop's own page and remove the brackets, or delete the sentence if it is not true. Strongest reason not to send: Alinéa's evenings appear to be French language literary events, so an English psychology reading may not fit their series.
 
 ---
 
@@ -139,11 +139,11 @@ Subject: A new book by a Luxembourg clinical psychologist, for the shop in Esch
 
 Dear Diderich team,
 
-I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is in English, 304 pages, paperback, ISBN 978-2-87996-258-0, printed and deposited in Luxembourg.
+I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published on 15 October. It is in English, 304 pages, paperback, ISBN 978-2-87996-258-0, published in Luxembourg, with legal deposit at the Bibliothèque nationale.
 
 [TO CONFIRM WITH IVANA: does Diderich stock English language titles; not verified.]
 
-The book asks one question of ordinary days: is this the situation, or is this my state? It examines the gap between what happened and what it felt like it meant.
+Page 238 asks: "Is this the situation? Or is this their state?" It examines the gap between what happened and what it felt like it meant.
 
 Readers in the south of the country cannot easily buy it at present. On Amazon.de a Luxembourg address sees only a third party offer at over fifty euros. A copy on your shelf solves that.
 

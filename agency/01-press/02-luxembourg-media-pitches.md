@@ -110,7 +110,7 @@ Dear Editor,
 
 My first book, State. Not Situation., was published in Luxembourg on 15 October by Budisin Publishing. I am a clinical psychologist here and I run Luxembourg Psychology.
 
-Much of the book happens at work. Page 4: "A two-line email reads like a judgement." Page 20: "Nobody dies, but decisions get made. Relationships change. Self-assessments form. And none of it had to happen the way it did, because the data was right there the whole time." For teams I offer a session called "Why ordinary messages become workplace misunderstandings", details at https://statenotsituation.com/en/invite.
+Page 4: "A two-line email reads like a judgement." Page 20: "Nobody dies, but decisions get made. Relationships change. Self-assessments form. And none of it had to happen the way it did, because the data was right there the whole time." For teams I offer a session called "Why ordinary messages become workplace misunderstandings", details at https://statenotsituation.com/en/invite.
 
 I would be glad to give an interview, to send a review copy, print or digital, or to supply the three page opening as an extract. The press kit is at https://statenotsituation.com/press/State-Not-Situation-press-kit.zip.
 
@@ -290,7 +290,7 @@ Dear Editor,
 
 I am a clinical psychologist living and working in Luxembourg. My first book, State. Not Situation., was published here on 15 October.
 
-It is a book written to be read aloud in parts. Page 193: "The body is a sensor before it is a narrator." Page 9 gives three questions to ask about any moment that feels wrong at once. Time: "What came before this moment? Sleep, meals, caffeine, recovery, the hour." Attention: "What keeps pulling me back?" Safety: "What seems at stake?" A conversation about those three, with a short reading from the opening, would fit a culture slot.
+Page 193: "The body is a sensor before it is a narrator." Page 9 gives three questions to ask about any moment that feels wrong at once. Time: "What came before this moment? Sleep, meals, caffeine, recovery, the hour." Attention: "What keeps pulling me back?" Safety: "What seems at stake?" A conversation about those three, with a short reading from the opening, would fit a culture slot.
 
 I can send a review copy, print or digital, and the three page opening as an extract. The press kit is at https://statenotsituation.com/press/State-Not-Situation-press-kit.zip and the opening can be read at https://statenotsituation.com/en/read.
 

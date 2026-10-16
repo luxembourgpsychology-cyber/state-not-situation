@@ -22,7 +22,7 @@ The book was published on 15 October 2026 by Budisin Publishing, Luxembourg. It 
 
 Its question is on the back cover: "You may not be reacting to the world. You may be reacting to your state." The opening, pages 1 to 3, follows the flight of John F. Kennedy Jr. on the evening of 16 July 1999. Page 20 then brings the same error to "kitchen scale. The version that happens every Tuesday." The chapters are organised around three questions, Time, Attention and Safety, set out on page 9, and each chapter carries an evidence marker, High, Medium or Low, with the work that limits it listed beside the work that supports it in the closing section, The Scientific Heartbeat.
 
-The book offers questions, not a diagnosis or a substitute for professional support. I would rather a review held it to that than to anything larger.
+The book's research page on the site says: "This framework offers questions, not a diagnosis or a substitute for professional support." I would rather a review held it to that than to anything larger.
 
 I am glad to answer questions by email, to give an interview, or to arrange licensing of the opening as an extract. Cover files, an author photograph and the extract are in the press kit at https://statenotsituation.com/press/State-Not-Situation-press-kit.zip. Publication details are on the page that follows.
 

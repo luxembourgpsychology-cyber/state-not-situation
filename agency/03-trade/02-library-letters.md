@@ -97,7 +97,7 @@ I wrote last week to the acquisitions service about State. Not Situation., my bo
 
 I understand the bibnet.lu network is coordinated from the BnL and that each member library buys for itself. I do not want to write to twenty libraries blind. Could you tell me which member libraries hold English language non-fiction for adults, or pass this note to them?
 
-The book is a psychology trade book about everyday misreadings. The back cover puts it this way: "You may not be reacting to the world. You may be reacting to your state." It offers questions, not a diagnosis or a substitute for professional support.
+The book is a psychology trade book about everyday misreadings. The back cover puts it this way: "You may not be reacting to the world. You may be reacting to your state." The book's research page on the site says: "This framework offers questions, not a diagnosis or a substitute for professional support."
 
 For any member library, I can supply copies directly and I offer an author evening of about 75 minutes, a reading and conversation with discussion, with format, date and fee agreed beforehand. [TO CONFIRM WITH IVANA: whether a library can order the paperback through its supplier; see 05.]
 

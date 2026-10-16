@@ -189,7 +189,7 @@ Sources: page 292; page 5
 
 Sixteen names, from page 292 of State. Not Situation.
 
-Narrating mode. Misattribution. The smoke detector principle. Variable reward. Wanting and liking. Wake Maintenance Zone. Default mode network. Evaluation threat. Rumination. Demand-withdraw. Metacognition. Stacking. Prediction error. Calibration. Warm panel. Forecast.
+Narrating mode. Misattribution. The smoke detector principle. Variable reward. Wanting and liking. Wake Maintenance Zone. Default mode network. Evaluation threat. Rumination. Demand–withdraw. Metacognition. Stacking. Prediction error. Calibration. Warm panel. Forecast.
 
 16 cases. Three readings. One question: state or situation?
 

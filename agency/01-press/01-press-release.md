@@ -36,7 +36,7 @@ From page 7: "The chapters that follow are organised around three systems that s
 
 Each chapter carries an evidence marker. In the author's words: High, "Replicated or robust evidence." Medium, "Suggestive evidence with meaningful uncertainty." Low, "Plausible hypothesis or emerging evidence." The closing section, The Scientific Heartbeat, lists for each chapter "the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently", because, as page 242 puts it, "Leaving them out would make the argument look tidier than it is."
 
-[DRAFT QUOTE FOR IVANA TO APPROVE OR REWRITE] Ivana Budišin said: "The book is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting. It offers questions, not a diagnosis."
+[DRAFT QUOTE FOR IVANA TO APPROVE OR REWRITE] Ivana Budišin said: "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting. [DRAFT, NEW SENTENCE FOR IVANA TO ACCEPT OR STRIKE: It offers questions, not a diagnosis.]"
 
 The author describes the book as being "for anyone who has ever been certain about what a situation meant, then discovered that something else was happening. And for readers interested in the psychology of how we notice, interpret and revise the world around us."
 
@@ -56,7 +56,7 @@ About the author. Ivana Budišin is a clinical psychologist living and working i
 
 Press contact. Ivana Budišin, ivana@luxembourgpsychology.com
 
-Press kit. Cover files at 300 dpi, author photograph, a three page extract of the opening and the first sixteen pages as printed: https://statenotsituation.com/press/State-Not-Situation-press-kit.zip (zip, 2.8 MB, 22 files). Press page: https://statenotsituation.com/en/press
+Press kit. Cover files at 300 dpi and author photograph: https://statenotsituation.com/press/State-Not-Situation-press-kit.zip (zip, 2.8 MB, 22 files). Three page extract of the opening: https://statenotsituation.com/press/State-Not-Situation-extract-the-opening.pdf. The first sixteen pages as printed: https://statenotsituation.com/press/State-Not-Situation-first-16-pages.pdf. Press page: https://statenotsituation.com/en/press
 
 Review copies, print and digital, are available on request. Extract licensing, interviews and events by arrangement.
 

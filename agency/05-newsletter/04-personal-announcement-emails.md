@@ -20,7 +20,7 @@ Dear [name],
 
 A short note to say that my first book, State. Not Situation., was published on 15 October. The subtitle is Why your body decides what a moment means before you do. It is a psychology trade book about the gap between what happened and what it felt like it meant, written for general readers, with the evidence and its limits set out chapter by chapter at the back.
 
-The paperback and Kindle edition are on Amazon.de: https://www.amazon.de/dp/2879962587
+The paperback is on Amazon.de: https://www.amazon.de/dp/2879962587 and the Kindle edition is at https://www.amazon.de/dp/B0HLZLHTJT
 
 The opening can be read online here: https://statenotsituation.com/en/read
 

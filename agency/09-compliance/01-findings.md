@@ -190,3 +190,27 @@ Blocker: 15. Fix: 18. Note: 91 (several Note rows cover more than one line).
 ## Can the pack go to Ivana with these fixed?
 
 Yes. The fifteen Blockers are each a single clause or sentence, concentrated in one recurring structure claim and a handful of unsourced asides; none runs through a whole item. Every URL, page number, Dr Herber quotation, publication fact and price bracket is right. No style breach of the kind the brief forbids (dashes, exclamation marks, marketing adjectives, bullets in letter bodies) was found; the only spelling slip is one "percent" in an internal file. The Notes are mostly the same judgement repeated: the desks have written short descriptive sentences about the book where the rule asks for quotations, and Ivana should decide once whether she accepts faithful paraphrase in connective prose or wants every description to be a printed line. Once the Blockers and Fixes are made, the pack is fit to go to her for approval, with the three draft translations (one German radio pitch, one French subject line, one German subject line) held for the localisation desk.
+
+---
+
+## Corrections applied, 16 October 2026
+
+Copy Chief. Every Blocker and Fix row above was applied; no Note row was touched. Line numbers below are those of the files after correction; where they differ from the row, the quoted text was found and corrected.
+
+Folder 01-press. 01-press-release.md 39: her sentence restored word for word; the second sentence kept inside the DRAFT bracket, marked as new wording to accept or strike. 01-press-release.md 59: the two PDFs given by their own URLs beside the zip. 02-luxembourg-media-pitches.md 113: "Much of the book happens at work." cut; the paragraph now opens with Page 4. 02-luxembourg-media-pitches.md 293: "It is a book written to be read aloud in parts." cut; Page 193 opens the paragraph. 04-review-copy-letter.md 25: the research page sentence quoted as printed and attributed to the site's research page.
+
+Folder 02-broadcast-podcasts. 02-podcast-pitches.md 90: "The book marks its evidence High, Medium or Low, which I describe as…". 02-podcast-pitches.md 245: research page sentence quoted with attribution to the research page. 03-segment-outline-and-talking-points.md 19: as above.
+
+Folder 03-trade. 01-bookshop-letters-luxembourg.md 34: "published and deposited here". 142: "published in Luxembourg, with legal deposit at the Bibliothèque nationale". 146: "Page 238 asks: 'Is this the situation? Or is this their state?'". 106 and 124: the English titles claim bracketed [TO CONFIRM] in the body, and the note now names that sentence. 02-library-letters.md 100: research page sentence quoted with attribution to the site's research page. 03-amazon-listing.md 68: the printed page 242 sentence only, introduced "From The Scientific Heartbeat, page 242:". 11: "Nothing is paraphrased." removed. 41 and 66: "Demand–withdraw" as printed; the note at 41 now says the en dash is the one the brief permits. 05-wholesale-and-distribution-questions.md 44: "per cent".
+
+Folder 04-events. 02-universities-and-institutes.md 24: the section named at page 242 and the printed phrase quoted. 82: "limits or contradicts it" replaced with the printed phrase, the section named. 03-organisations-and-hr.md 52: "and much of it takes place at work" cut; the two scenes kept. 172: "and much of it happens in offices" cut. 04-international-schools-and-community.md 160: the private individual's name removed; "the organiser, via the club's Facebook page [CONTACT TO CONFIRM]".
+
+Folder 05-newsletter. 04-personal-announcement-emails.md 23: paperback and Kindle links given separately.
+
+Folder 06-social. 01-linkedin-posts.md 192: "Demand–withdraw". 04-reply-guidelines.md 21: "The site and the book have three lines for exactly this", with the research page and page 238 named as their sources.
+
+Folder 07-reviews. 01-review-outlets.md 34, 103, 131, 160, 231: each "Each chapter ends (closes) with a note…" replaced with "A section at the back, The Scientific Heartbeat, lists for each chapter 'the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently.'"; at 160 the labels are now "High, Medium or Low"; at 231 page 7's sentence is quoted as printed, with "your". 02-endorsement-requests.md 30: the printed page 242 sentence, introduced as the section's own sentence at the back of the book. 03-extract-licensing.md 7 and 28: "about 750 words".
+
+Not changed, because the rows did not cite them: 03-amazon-listing.md 77, a note describing the superseded "Each chapter closes…" sentence, which no longer appears in the description; and 01-linkedin-posts.md 200 and 00-INDEX.md 25, notes saying the draft uses a hyphen for Demand–withdraw, which it no longer does. Ivana can strike all three.
+
+Check after correction: grep -rn -e "—" -e "–" agency/0[1-7]-* | grep -v "Demand–withdraw" printed nothing. No exclamation mark was added; no new dash was added.
