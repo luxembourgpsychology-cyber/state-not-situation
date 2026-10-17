@@ -35,3 +35,15 @@ Each item carries a header: what it is, the channel, who receives it and where t
 Ivana approves by replying with the item number and one of: send as is, send with these changes, hold, drop. Anything marked [TO CONFIRM], [PRICE TO CONFIRM], [CONTACT TO CONFIRM] or [DRAFT QUOTE FOR IVANA TO APPROVE OR REWRITE] is a question for her, not a gap the agency may fill.
 
 Nothing in agency/ is published by the site. The folder is a working record in the repository; it is not deployed and it contains no code.
+
+## How Ivana is reached, set up 17 October 2026
+
+Her laptop is not always open, so approval runs through three things she already has on her phone.
+
+Email. The team writes to ivana@luxembourgpsychology.com. The first message, "Book launch: nine decisions that unlock the first week", went on 17 October. She replies with the item or decision number and one word: send, change, hold or drop. The team reads the replies and acts on them; nothing goes out to anyone else until she has written "send" for that item.
+
+Google Calendar. Each item due is placed on her primary calendar as a "BOOK ·" event at the time it should be approved or done, with the full text in the description, in the same form as her other campaigns. Six events were created on 17 October for Saturday 17 and Monday 19 to Tuesday 20 October. Her separate "State. Not Situation. Book campaign" calendar, forty briefs from 21 September to 13 November with finished films, was found the same day; it was not changed, and the overlap with the team's social series is decision D9.
+
+Push and check-ins. A phone notification goes with each approval email. A one-off check-in is scheduled for Monday 19 October 07:50 Luxembourg time to read her replies and send that day's digest. A recurring weekday digest was requested and refused by the session's permission settings; she can allow it by adding a permission rule for creating scheduled tasks, or ask for it each week.
+
+What the team may do without asking: write drafts, read her replies, update the pack, put items in her calendar, email her. What it may never do: send a message, post or campaign to anyone else, spend money, or change the live site.
