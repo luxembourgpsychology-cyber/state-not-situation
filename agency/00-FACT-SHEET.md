@@ -19,6 +19,17 @@ Language: English. The site says "French and German editions to follow." No Fren
 Legal deposit: Bibliothèque nationale du Luxembourg (P, page iv). The book claims no CIP record.
 Cover design: Zoe Larusson (P). Photography: Zoe Larusson (A). Book design and typesetting: Ivana Budišin (P).
 
+
+## The v53 cover, received 17 October 2026 (P)
+
+File: COVER - UPLOAD v53 (304 pages).pdf, the KDP upload. Same design as v50; the back now prints the complete biography and the red band names the app. Everything below is printed and may be quoted word for word.
+
+Back cover biography, complete: "Ivana Budišin trained first to look, then to measure. With a background in design and later in clinical psychology, she is interested in what happens between an event and the certainty we build around it. Her work brings research on attention, sleep, stress and bodily state into ordinary rooms, ordinary messages and ordinary mistakes. She lives and works in Luxembourg. State. Not Situation. is her first book." Then "LuxembourgPsychology.com".
+Back cover sign off, as set: "CHECK THE SIGNAL BEFORE YOU BELIEVE THE STORY."
+Red band: a QR code, then "STATE." / "THE COMPANION APP TO THIS BOOK" / "statenotsituation.com", beside the ISBN barcode 978-2-87996-258-0.
+So the app's printed name is STATE. and the cover calls it "the companion app to this book". Nothing else about the app is printed; its status, content and date remain as the site says: in development, no date announced.
+Front and spine unchanged from v50. Spine reads bottom to top: STATE. NOT SITUATION. / Ivana Budišin.
+
 ## Where to buy, as checked 15 and 16 October 2026 (O)
 
 Kindle, Amazon.de: https://www.amazon.de/dp/B0HLZLHTJT (€7.99, sold by Amazon Media EU, 15 Oct)
@@ -62,7 +73,7 @@ Headline: "You may not be reacting to the world. You may be reacting to your sta
 Four lines: "A short message feels cold. / A meeting feels dangerous. / A craving feels like a decision. / A quiet room feels like judgement."
 Paragraphs: "We often mistake a state for a fact. A person seems hostile. A task feels impossible. A relationship appears wrong. A whole day looks lost." / "But what feels true is not produced by the situation alone. Sleep, hunger, stress, timing, attention, memory and threat detection affect what we notice and how we interpret it. Together, they shape the explanation that feels most convincing." / "State. Not Situation. examines the gap between what happened and what it felt like it meant."
 Sign off: "Check the signal. Before you believe the story."
-Back cover biography, first two sentences only (the rest is not recorded): "Ivana Budišin trained first to look, then to measure. With a background in design and later in clinical psychology, she is interested in what happens between an event and the certainty we build around it."
+Back cover biography (the complete text is under The v53 cover, below), first two sentences: "Ivana Budišin trained first to look, then to measure. With a background in design and later in clinical psychology, she is interested in what happens between an event and the certainty we build around it."
 
 Page 4: "The same day, five readings" then 06:38 "A heaviness arrives before the day does." / 09:12 "A two-line email reads like a judgement." / 14:23 "Five neutral words tighten a jaw." / 17:45 "An unanswered message starts charging cognitive rent." / 22:47 "Two letters and a full stop feel hostile." and "The body speaks first. The mind explains second."
 Page 5: "16 cases. Three readings. One question: state or situation?" and "This book is the Investigation."
