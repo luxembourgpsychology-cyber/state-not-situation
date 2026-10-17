@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>M1 The chain</title>
+<meta name="description" content="Episode 1, section 6. The hypothalamus, pituitary, adrenal chain drawn as a line, the signal travelling it, cortisol at the gland, and the feedback line drawn back.">
+<meta name="motion:duration" content="12000">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&family=Barlow+Semi+Condensed:wght@700&display=swap">
+<style>
+  :root {
+    --cream: #F7F3EC; --ink: #111111; --quiet: #6F6A62; --red: #B5291C; --rule: rgba(17,17,17,.14);
+    --serif: "Instrument Serif", "Liberation Serif", "Times New Roman", serif;
+    --mono: "IBM Plex Mono", "DejaVu Sans Mono", "Liberation Mono", monospace;
+  }
+  html, body { margin: 0; background: var(--cream); }
+  body { width: 1920px; height: 1080px; overflow: hidden; position: relative; }
+  svg.frame { display: block; width: 1920px; height: 1080px; }
+
+  .line { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .leader { stroke: var(--rule); }
+  .point { fill: var(--ink); }
+  .mono { font-family: var(--mono); font-size: 36px; letter-spacing: .08em; text-transform: uppercase; fill: var(--quiet); }
+  .serif { font-family: var(--serif); font-weight: 400; font-size: 120px; letter-spacing: -0.005em; fill: var(--ink); }
+
+  /* A line being drawn: every path carries pathLength="1". */
+  .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw var(--d) linear var(--t) both; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  /* The site's one transition: opacity and an 8px rise over 400ms. */
+  .in { opacity: 0; animation: enter 400ms ease-out var(--t) both; }
+  @keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* The signal: one red dot travelling the chain. */
+  .signal {
+    position: absolute; left: 0; top: 0; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--red);
+    offset-path: path("M 705 450 C 705 640, 1000 650, 1155 708");
+    offset-rotate: 0deg; offset-distance: 0%;
+    animation: travel 1800ms ease-in-out 8500ms both;
+  }
+  @keyframes travel { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+</style>
+</head>
+<body>
+<svg class="frame" viewBox="0 0 1920 1080" aria-label="The hypothalamus, pituitary, adrenal chain">
+  <!-- Head, side profile, drawn in one stroke -->
+  <path class="line draw" pathLength="1" style="--t:300ms; --d:2400ms"
+    d="M 560 800 C 540 740, 520 700, 530 640 C 470 600, 430 520, 440 430 C 445 300, 520 170, 660 140 C 790 115, 900 180, 915 300 C 920 340, 905 360, 905 375 C 930 400, 960 430, 945 445 C 930 455, 905 455, 895 465 C 910 480, 915 500, 900 510 C 890 520, 905 540, 895 555 C 880 575, 860 590, 850 600 C 830 640, 790 660, 760 650 C 740 700, 735 760, 745 800" />
+
+  <!-- Hypothalamus -->
+  <circle class="point in" style="--t:2900ms" cx="690" cy="400" r="9" />
+  <path class="line leader draw" pathLength="1" style="--t:3000ms; --d:400ms" d="M 415 400 L 676 400" />
+  <text class="mono in" style="--t:3200ms" x="400" y="412" text-anchor="end">hypothalamus</text>
+
+  <!-- Pituitary -->
+  <circle class="point in" style="--t:3900ms" cx="705" cy="450" r="9" />
+  <path class="line leader draw" pathLength="1" style="--t:4000ms; --d:400ms" d="M 415 475 L 692 456" />
+  <text class="mono in" style="--t:4200ms" x="400" y="487" text-anchor="end">pituitary</text>
+
+  <!-- The chain, pituitary to adrenal -->
+  <path class="line draw" pathLength="1" style="--t:4900ms; --d:1500ms" d="M 705 450 C 705 640, 1000 650, 1155 708" />
+
+  <!-- Kidney, then the adrenal gland capping it -->
+  <path class="line draw" pathLength="1" style="--t:6500ms; --d:900ms"
+    d="M 1180 760 C 1250 760, 1280 830, 1275 880 C 1270 940, 1230 965, 1185 962 C 1150 960, 1135 935, 1140 905 C 1143 885, 1135 870, 1140 850 C 1145 820, 1135 790, 1155 770 C 1162 763, 1170 760, 1180 760" />
+  <path class="line draw" pathLength="1" style="--t:7400ms; --d:500ms" d="M 1135 762 C 1135 725, 1160 700, 1190 705 C 1208 720, 1202 752, 1192 760" />
+  <text class="mono in" style="--t:7900ms" x="1240" y="712">adrenal</text>
+
+  <!-- Cortisol, released at the gland -->
+  <text class="serif in" style="--t:10300ms" x="1320" y="880">cortisol</text>
+
+  <!-- Feedback, drawn back up to the first two -->
+  <path class="line draw" pathLength="1" style="--t:10900ms; --d:1000ms" d="M 1190 698 C 1210 470, 990 320, 715 390" />
+  <path class="line in" style="--t:11850ms" d="M 742 368 L 715 390 L 750 398" />
+</svg>
+<div class="signal" aria-hidden="true"></div>
+</body>
+</html>

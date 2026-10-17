@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>M6 Hair and saliva</title>
+<meta name="description" content="Episode 1, section 14. A hair strand with months marked along it, and a drop of saliva: hair cortisol integrates months, a saliva sample is minutes (Stalder et al., 2017).">
+<meta name="motion:duration" content="8000">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&family=Barlow+Semi+Condensed:wght@700&display=swap">
+<style>
+  :root {
+    --cream: #F7F3EC; --ink: #111111; --quiet: #6F6A62; --red: #B5291C; --rule: rgba(17,17,17,.14);
+    --serif: "Instrument Serif", "Liberation Serif", "Times New Roman", serif;
+    --mono: "IBM Plex Mono", "DejaVu Sans Mono", "Liberation Mono", monospace;
+  }
+  html, body { margin: 0; background: var(--cream); }
+  body { width: 1920px; height: 1080px; overflow: hidden; position: relative; }
+  svg.frame { display: block; width: 1920px; height: 1080px; }
+  .line { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .red { stroke: var(--red); }
+  .mono { font-family: var(--mono); font-size: 36px; letter-spacing: .08em; text-transform: uppercase; fill: var(--quiet); }
+  .serif { font-family: var(--serif); font-weight: 400; font-size: 77px; fill: var(--ink); }
+  .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw var(--d) linear var(--t) both; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .in { opacity: 0; animation: enter 400ms ease-out var(--t) both; }
+  @keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+<svg class="frame" viewBox="0 0 1920 1080" aria-label="A hair strand marked in months beside a drop of saliva">
+  <!-- The strand -->
+  <path class="line draw" pathLength="1" style="--t:300ms; --d:1600ms"
+    d="M 200 560 C 450 500, 650 600, 900 540 C 1050 500, 1150 540, 1250 530" />
+  <!-- Months marked along it -->
+  <g class="in" style="--t:2100ms">
+    <path class="line" d="M 462 522 L 458 568" />
+    <text class="mono" x="460" y="480" text-anchor="middle">1</text>
+  </g>
+  <g class="in" style="--t:2400ms">
+    <path class="line" d="M 724 548 L 727 594" />
+    <text class="mono" x="725" y="500" text-anchor="middle">2</text>
+  </g>
+  <g class="in" style="--t:2700ms">
+    <path class="line" d="M 988 500 L 992 546" />
+    <text class="mono" x="990" y="460" text-anchor="middle">3</text>
+  </g>
+  <text class="serif in" style="--t:3200ms" x="725" y="800" text-anchor="middle">months</text>
+
+  <!-- The drop, in red: it is what the kit measures -->
+  <path class="line red draw" pathLength="1" style="--t:4200ms; --d:1200ms"
+    d="M 1560 400 C 1540 440, 1460 540, 1460 600 C 1460 660, 1505 700, 1560 700 C 1615 700, 1660 660, 1660 600 C 1660 540, 1580 440, 1560 400" />
+  <text class="serif in" style="--t:5600ms" x="1560" y="800" text-anchor="middle">minutes</text>
+</svg>
+</body>
+</html>

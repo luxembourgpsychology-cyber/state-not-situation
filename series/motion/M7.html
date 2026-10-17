@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>M7 Three questions</title>
+<meta name="description" content="Episode 1, section 23. The three questions page 9 of the book prints, in the form the script prints them, drawn in one at a time.">
+<meta name="motion:duration" content="10000">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&family=Barlow+Semi+Condensed:wght@700&display=swap">
+<style>
+  :root {
+    --cream: #F7F3EC; --ink: #111111; --quiet: #6F6A62; --red: #B5291C;
+    --serif: "Instrument Serif", "Liberation Serif", "Times New Roman", serif;
+  }
+  html, body { margin: 0; background: var(--cream); }
+  html { font-size: 48px; }
+  body { width: 1920px; height: 1080px; overflow: hidden; position: relative; box-sizing: border-box; padding: 2rem; color: var(--ink); }
+  .questions { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+  p { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; line-height: 1.3; margin: 0; }
+  p + p { margin-top: 1.1em; }
+  .in { display: inline-block; opacity: 0; animation: enter 400ms ease-out var(--t) both; }
+  @keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+<div class="questions">
+  <p><span class="in" style="--t:500ms">Time:</span> <span class="in" style="--t:1000ms">“What came before this moment? Sleep, meals, caffeine, recovery, the hour.”</span></p>
+  <p><span class="in" style="--t:3500ms">Attention:</span> <span class="in" style="--t:4000ms">“What keeps pulling me back? A message, a thought, a cue, an unfinished task.”</span></p>
+  <p><span class="in" style="--t:6500ms">Safety:</span> <span class="in" style="--t:7000ms">“What seems at stake? What have I observed, what am I assuming, and does anything need action?”</span></p>
+</div>
+</body>
+</html>

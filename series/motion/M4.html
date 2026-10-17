@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>M4 The clock</title>
+<meta name="description" content="Episode 1, section 9. From the moment a stressor begins: the autonomic response in seconds, cortisol the slower second wave, peaking in saliva twenty-one to forty minutes later (Dickerson and Kemeny, 2004).">
+<meta name="motion:duration" content="11000">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&family=Barlow+Semi+Condensed:wght@700&display=swap">
+<style>
+  :root {
+    --cream: #F7F3EC; --ink: #111111; --quiet: #6F6A62; --red: #B5291C; --rule: rgba(17,17,17,.14);
+    --serif: "Instrument Serif", "Liberation Serif", "Times New Roman", serif;
+    --mono: "IBM Plex Mono", "DejaVu Sans Mono", "Liberation Mono", monospace;
+  }
+  html, body { margin: 0; background: var(--cream); }
+  body { width: 1920px; height: 1080px; overflow: hidden; position: relative; }
+  svg.frame { display: block; width: 1920px; height: 1080px; }
+  .line { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .band { fill: var(--rule); }
+  .mono { font-family: var(--mono); font-size: 36px; letter-spacing: .08em; text-transform: uppercase; fill: var(--quiet); }
+  .serif { font-family: var(--serif); font-weight: 400; font-size: 77px; fill: var(--ink); }
+  .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw var(--d) linear var(--t) both; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .in { opacity: 0; animation: enter 400ms ease-out var(--t) both; }
+  @keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .fade { opacity: 0; animation: fade 400ms ease-out var(--t) both; }
+  @keyframes fade { to { opacity: 1; } }
+</style>
+</head>
+<body>
+<svg class="frame" viewBox="0 0 1920 1080" aria-label="Autonomic and cortisol responses after a stressor begins">
+  <!-- Axis, 0 to 60 minutes, and the starting mark -->
+  <path class="line draw" pathLength="1" style="--t:300ms; --d:700ms" d="M 640 760 L 640 820 L 1824 820" />
+  <g class="in" style="--t:1000ms">
+    <path class="line" d="M 1034 820 L 1034 840 M 1429 820 L 1429 840 M 1824 820 L 1824 840" />
+    <text class="mono" x="640" y="890" text-anchor="middle">0</text>
+    <text class="mono" x="1034" y="890" text-anchor="middle">20</text>
+    <text class="mono" x="1429" y="890" text-anchor="middle">40</text>
+    <text class="mono" x="1824" y="890" text-anchor="middle">60 min</text>
+  </g>
+  <text class="serif in" style="--t:1300ms" x="600" y="790" text-anchor="end">stressor begins</text>
+
+  <!-- The autonomic line: up within seconds, then on -->
+  <path class="line draw" pathLength="1" style="--t:2000ms; --d:1400ms" d="M 640 820 L 652 440 L 1824 440" />
+  <text class="serif in" style="--t:3500ms" x="1824" y="410" text-anchor="end">autonomic</text>
+
+  <!-- The cortisol line: flat, then the slower second wave -->
+  <path class="line draw" pathLength="1" style="--t:4200ms; --d:3600ms"
+    d="M 640 800 C 900 800, 1000 795, 1080 710 C 1140 650, 1180 540, 1245 540 C 1310 540, 1450 610, 1824 660" />
+  <text class="serif in" style="--t:7900ms" x="1824" y="740" text-anchor="end">cortisol</text>
+
+  <!-- The window in which it peaks: 21 to 40 minutes -->
+  <rect class="band fade" style="--t:8600ms" x="1054" y="380" width="375" height="440" />
+  <text class="mono in" style="--t:9000ms" x="1241" y="350" text-anchor="middle">21 to 40 min</text>
+</svg>
+</body>
+</html>

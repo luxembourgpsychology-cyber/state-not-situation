@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>M5 Chronic stress</title>
+<meta name="description" content="Episode 1, section 10. Two daily curves: output highest near the onset of a stressor and declining as it persists (Miller, Chen and Zhou, 2007).">
+<meta name="motion:duration" content="8000">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&family=Barlow+Semi+Condensed:wght@700&display=swap">
+<style>
+  :root {
+    --cream: #F7F3EC; --ink: #111111; --quiet: #6F6A62; --red: #B5291C; --rule: rgba(17,17,17,.14);
+    --serif: "Instrument Serif", "Liberation Serif", "Times New Roman", serif;
+    --mono: "IBM Plex Mono", "DejaVu Sans Mono", "Liberation Mono", monospace;
+  }
+  html, body { margin: 0; background: var(--cream); }
+  body { width: 1920px; height: 1080px; overflow: hidden; position: relative; }
+  svg.frame { display: block; width: 1920px; height: 1080px; }
+  .line { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .mono { font-family: var(--mono); font-size: 36px; letter-spacing: .08em; text-transform: uppercase; fill: var(--quiet); }
+  .serif { font-family: var(--serif); font-weight: 400; font-size: 77px; fill: var(--ink); }
+  .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw var(--d) linear var(--t) both; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .in { opacity: 0; animation: enter 400ms ease-out var(--t) both; }
+  @keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+<svg class="frame" viewBox="0 0 1920 1080" aria-label="Daily cortisol near the onset of a stressor and as it persists">
+  <!-- Near onset -->
+  <path class="line draw" pathLength="1" style="--t:300ms; --d:500ms" d="M 160 760 L 880 760" />
+  <g class="in" style="--t:800ms">
+    <path class="line" d="M 340 760 L 340 780 M 520 760 L 520 780 M 700 760 L 700 780 M 880 760 L 880 780" />
+    <text class="mono" x="340" y="830" text-anchor="middle">06</text>
+    <text class="mono" x="520" y="830" text-anchor="middle">12</text>
+    <text class="mono" x="700" y="830" text-anchor="middle">18</text>
+    <text class="mono" x="880" y="830" text-anchor="middle">24</text>
+  </g>
+  <path id="onset" class="line draw" pathLength="1" style="--t:1200ms; --d:1800ms" d="" />
+  <text class="serif in" style="--t:3100ms" x="160" y="300">near onset</text>
+
+  <!-- Persisting -->
+  <path class="line draw" pathLength="1" style="--t:3800ms; --d:500ms" d="M 1040 760 L 1760 760" />
+  <g class="in" style="--t:4300ms">
+    <path class="line" d="M 1220 760 L 1220 780 M 1400 760 L 1400 780 M 1580 760 L 1580 780 M 1760 760 L 1760 780" />
+    <text class="mono" x="1220" y="830" text-anchor="middle">06</text>
+    <text class="mono" x="1400" y="830" text-anchor="middle">12</text>
+    <text class="mono" x="1580" y="830" text-anchor="middle">18</text>
+    <text class="mono" x="1760" y="830" text-anchor="middle">24</text>
+  </g>
+  <path id="persisting" class="line draw" pathLength="1" style="--t:4700ms; --d:1800ms" d="" />
+  <text class="serif in" style="--t:6600ms" x="1040" y="300">persisting</text>
+</svg>
+<script>
+  // Miller, Chen and Zhou (2007): output highest near the onset of a stressor and declining
+  // as it persists. Both curves keep the daily shape; the second is lower and flatter. Neither
+  // carries a value: the only measured things on the frame are the hours on the two axes.
+  const base = 760, height = 380;
+  const curve = (x0, x24, peak, sl, sr) => {
+    let d = '';
+    for (let i = 0; i <= 240; i++) {
+      const h = 24 * i / 240;
+      const s = h < 8 ? sl : sr;
+      const L = 0.08 + (peak - 0.08) * Math.exp(-((h - 8) ** 2) / (2 * s * s));
+      d += (i ? ' L ' : 'M ') + (x0 + (x24 - x0) * h / 24).toFixed(1) + ' ' + (base - height * L).toFixed(1);
+    }
+    return d;
+  };
+  document.getElementById('onset').setAttribute('d', curve(160, 880, 1.0, 1.8, 5.5));
+  document.getElementById('persisting').setAttribute('d', curve(1040, 1760, 0.5, 2.4, 7.0));
+</script>
+</body>
+</html>

@@ -164,3 +164,16 @@ never the application alone. Shorts may run to three minutes ([Cord Cutters News
 but this one stays under sixty seconds, because it is a door and not a room. Its
 related-video link, set in YouTube Studio, points at the episode ([Search Engine Land](https://searchengineland.com/youtube-enables-linking-shorts-long-form-videos-430655)),
 and its last frame is the thumbnail composition, so what a viewer sees is what they click.
+
+## Motion, decided 17 October 2026
+
+The author chose motion over static cards: "I love to show all the mechanics and parts of
+the body in simple sketches and also some words, to make it very easy to follow but still
+a serious talk." The static cards above are replaced by short line-drawn pieces in the same
+grammar: cream ground, ink line at 3 px, one red thing per frame, words in the serif,
+numbers in mono, nothing decorative, one thing moving at a time, and each piece holding its
+end frame so the host can keep talking over it. The pieces for episode 1 are in
+`series/motion/`, keyed to script sections, with their sources and their renderer in the
+README there. The source band, the name band, the title card and the end card are
+unchanged. The rule that nothing animates except the one transition is withdrawn for the
+series; the rule that nothing animates without a reason stands.
