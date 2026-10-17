@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>Identity preview</title>
+<meta name="description" content="One thumbnail and one title card for the Bifurcation series, set from the book's design system.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Source+Sans+3:wght@400&family=Barlow+Semi+Condensed:wght@700&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+  /* Everything from DESIGN_SYSTEM.md. The frame is 40rem across: 1rem = 48px at 1920. */
+  :root {
+    --cream: #F7F3EC;
+    --ink: #111111;
+    --quiet: #6F6A62;
+    --red: #B5291C;
+    --rule: rgba(17,17,17,.14);
+
+    --font-serif: "Instrument Serif", "ivypresto-display", "Times New Roman", serif;
+    --font-body: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+    --font-din: "Barlow Semi Condensed", "DIN Alternate", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+    --step-cover: 4.5rem;
+    --step-display: 3.75rem;
+    --step-head: 2.5rem;
+    --step-lead: 1.6rem;
+    --step-body: 1.1875rem;
+    --step-label: 0.75rem;
+
+    --gutter: 2rem;
+    --space-block: 3rem;
+    --space-tight: 1.1em;
+  }
+  html { background: var(--ink); font-size: 48px; }   /* 1rem on the frame; the steps are in rem */
+  body {
+    margin: 0;
+    width: 1920px;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--font-body);
+  }
+
+  /* The scaffold around the frames is not the identity: ink ground, mono captions. */
+  .caption {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cream);
+    padding: 24px 32px 12px;
+  }
+
+  .frame {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 48px;               /* 1rem on the frame */
+    box-sizing: border-box;
+    padding: var(--gutter);
+  }
+
+  .t-cover, .t-display, .t-head, .t-lead { font-family: var(--font-serif); font-weight: 400; margin: 0; }
+  .t-cover   { font-size: var(--step-cover);   line-height: 1.02; letter-spacing: -0.012em; }
+  .t-display { font-size: var(--step-display); line-height: 1.06; letter-spacing: -0.008em; }
+  .t-head    { font-size: var(--step-head);    line-height: 1.12; letter-spacing: -0.005em; }
+  .t-lead    { font-size: var(--step-lead);    line-height: 1.3; }
+  .t-body    { font-family: var(--font-body);  font-size: var(--step-body); line-height: 1.58; margin: 0; }
+  .t-label {
+    font-family: var(--font-din); font-weight: 700; font-size: var(--step-label);
+    letter-spacing: 0.16em; text-transform: uppercase; line-height: 1.35; margin: 0;
+  }
+  .t-mono {
+    font-family: var(--font-mono); font-weight: 400; font-size: var(--step-label);
+    letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.35; color: var(--quiet); margin: 0;
+  }
+  /* The site's timestamp: mono at DISPLAY, in ink. */
+  .stamp {
+    font-family: var(--font-mono); font-weight: 400; font-size: var(--step-display);
+    line-height: 1; letter-spacing: -0.03em; color: var(--ink); margin: 0;
+  }
+  .red { color: var(--red); }
+  .quiet { color: var(--quiet); }
+
+  /* Thumbnail: label, number, and the one red word at the foot. */
+  .thumb .word {
+    position: absolute;
+    left: var(--gutter);
+    bottom: var(--gutter);
+    right: var(--gutter);
+    color: var(--red);
+  }
+  .thumb .t-label { margin-bottom: var(--space-tight); }
+
+  /* Title card: TEXT layout. Label column, then content from a third across. */
+  .card {
+    display: grid;
+    grid-template-columns: 11rem 1fr;    /* 528px label column + content */
+    column-gap: 1rem;
+    height: 1080px;
+  }
+  .card .label-col { display: flex; flex-direction: column; }
+  .card .label-col .mark { width: 3rem; height: auto; display: block; margin-bottom: var(--space-block); }
+  .card .mark path { fill: none; stroke: var(--red); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .card .content { display: flex; flex-direction: column; justify-content: space-between; height: calc(1080px - 2 * var(--gutter)); }
+  .card .title .t-head { margin-top: 0.1em; }
+  .card .title .t-lead { margin-top: var(--space-tight); }
+  .card .host .t-mono { margin-top: 0.4em; }
+
+  /* The legibility check: the same thumbnail at 168px wide (a 0.0875 reduction). */
+  .check {
+    width: 168px; height: 94.5px; overflow: hidden; position: relative;
+    margin: 0 32px 32px;
+  }
+  .check .frame { transform: scale(0.0875); transform-origin: 0 0; }
+  .check-row { display: flex; align-items: flex-end; gap: 32px; }
+  .check-note { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); padding-bottom: 32px; }
+</style>
+</head>
+<body>
+
+<div class="caption">Thumbnail · 1920 × 1080 · cream ground · one red word at COVER · number in mono at DISPLAY</div>
+<section class="frame thumb" aria-label="Thumbnail, episode 02">
+  <p class="t-label quiet">Bifurcation · Dynamical Systems</p>
+  <p class="stamp">02</p>
+  <h1 class="t-cover word">Hysteresis</h1>
+</section>
+
+<div class="check-row">
+  <div class="check">
+    <section class="frame thumb" aria-hidden="true">
+      <p class="t-label quiet">Bifurcation · Dynamical Systems</p>
+      <p class="stamp">02</p>
+      <p class="t-cover word">Hysteresis</p>
+    </section>
+  </div>
+  <div class="check-note">The same thumbnail at 168 px wide, as YouTube's sidebar shows it</div>
+</div>
+
+<div class="caption">Title card · 1920 × 1080 · the TEXT layout · Bifurcation at COVER, Dynamical Systems at HEAD, subtitle at LEAD</div>
+<section class="frame card" aria-label="Series title card">
+  <div class="label-col">
+    <svg class="mark" viewBox="0 0 120 34" aria-hidden="true" focusable="false">
+      <path d="M2 21 H16 L22 17 L28 21 H36 L42 6 L48 30 L54 21 H64 L70 18 L76 21 H86 L92 10 L98 28 L104 21 H118" />
+    </svg>
+    <p class="t-mono">Episode 02</p>
+  </div>
+  <div class="content">
+    <div class="title">
+      <h2 class="t-cover red">Bifurcation</h2>
+      <p class="t-head">Dynamical Systems</p>
+      <p class="t-lead">The Biology of a State</p>
+    </div>
+    <div class="host">
+      <p class="t-lead">Ivana Budišin</p>
+      <p class="t-mono">Clinical psychologist</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
