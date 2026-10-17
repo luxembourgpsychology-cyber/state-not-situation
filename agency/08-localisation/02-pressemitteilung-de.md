@@ -38,7 +38,7 @@ Seite 7: „Die folgenden Kapitel sind um drei Systeme herum aufgebaut, die prä
 
 Jedes Kapitel trägt eine Markierung für die Belegstärke. In den Worten der Autorin: Hoch, „Wiederholt bestätigte oder belastbare Belege.“ Mittel, „Hinweise, deren Unsicherheit ins Gewicht fällt.“ Niedrig, „Plausible Hypothese oder erste Belege.“ Der Schlussteil, Der wissenschaftliche Herzschlag, führt für jedes Kapitel „eine Liste der Arbeiten, auf denen das Kapitel aufbaut, und eine Liste der Arbeiten, die es einschränken, komplizierter machen oder dieselben Belege anders erklären“ auf, denn, so Seite 242: „Ließe man sie weg, sähe die Argumentation aufgeräumter aus, als sie ist.“
 
-[DRAFT QUOTE FOR IVANA TO APPROVE OR REWRITE] Ivana Budišin: „Das Buch will Ihnen weniger beibringen, Ihren Instinkten zu vertrauen, als Ihnen zeigen, worauf genau Sie da vertrauen. Es bietet Fragen an, keine Diagnose.“
+Ivana Budišin: „Der Körper spricht zuerst, und der Kopf erklärt danach. Meist hören wir nur die Erklärung, und wir nennen sie die Wahrheit. In diesem Buch geht es um die paar Sekunden dazwischen, im Maßstab einer Küche: eine Nachricht, ein Schweigen, ein Blick.“
 
 Die Autorin beschreibt das Buch als eines „für alle, die sich schon einmal sicher waren, was eine Situation bedeutete, und dann entdeckt haben, dass etwas anderes im Gange war. Und für Leserinnen und Leser, die sich für die Psychologie interessieren: dafür, wie wir die Welt um uns herum wahrnehmen, deuten und unsere Deutung revidieren.“
 

@@ -6,7 +6,7 @@ To whom: every newsroom that receives the release
 Suggested send date: with the release, Monday 19 October 2026
 What the recipient is asked to do: nothing; this is the one sentence a journalist is most likely to quote
 Attachments or links: none
-Approval status: awaiting Ivana. She asked on 17 October for "a better one, a hook that can be understood"
+Approval status: settled. She chose option A on 17 October 2026; it is in the release and is category 2, her own words.
 
 These are drafts in her voice for her to pick, edit or replace. Once she has signed one, it is her own words (category 2). Each is built from printed lines so that it says nothing the book does not say. The test for each: could a reader who has never heard of the book understand it in one hearing, and does it make them want the second sentence.
 

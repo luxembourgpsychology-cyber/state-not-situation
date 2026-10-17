@@ -7,7 +7,7 @@ Compiled 16 October 2026. Everything below is a draft. Nothing has been sent, po
 D1. The paperback price. Settled 17 October: €28.90, confirmed by the Amazon.de screenshot (€29.77 shown to a Luxembourg address, which is €28.90 plus 3% VAT). Applied to every draft.
 D2. Settled 17 October by screenshot: Amazon's own offer for a Luxembourg address. Caveat withdrawn from every draft. Still to check: the second name in "Ivana Budišin and 1 more" on the listing.
 D3. Settled 17 October: Expanded Distribution is on. Bookshop letters now say the book can be ordered through the wholesaler; the discount and returnability are still [TERMS TO CONFIRM] in the KDP dashboard.
-D4. Open. She asked for a better, plainer hook. Three options are in 01-press/06-author-quote-options.md and in her email of 17 October; she picks or rewrites one.
+D4. Settled 17 October: option A, now in the press release as her words.
 D5. Settled: English only. Letters that implied French or German are to be adjusted before sending (events 1.5, 1.7, 3.1, 3.3; radio 100,7 and RTL Télé pitches).
 D6. Settled: case by case. The letters' line "The format, date and fee are agreed before you book" stands.
 D7. Settled: Instagram @ivanalaruss and her LinkedIn profile. Metricool is the free plan with the practice's accounts only, so no scheduler; she posts by hand from the plan.
@@ -16,7 +16,7 @@ D9. Every contact address. Nobody on the team could open an outlet's website tod
 
 D10. One standard for description. The fact checker's 91 notes are mostly the same judgement: the desks wrote short connective sentences describing the book ("a book about the stories we build around everyday moments") where the strict rule asks for a printed line. Decide once whether faithful connective paraphrase is acceptable in letters and pitches, or whether every description of the book must be a quotation. The pack as corrected keeps the paraphrase; say the word and it is replaced.
 
-D11. The social plan. She is no longer following the forty-brief campaign calendar and asked for a new plan. The Campaign Planner is drafting one unified plan (agency/10-plan) with three slots a week; the old calendar's events are deleted only after she approves it.
+D11. Settled 17 October: "plan yes" and "old delete". The six remaining events of the old campaign calendar were deleted; the seventeen posts of agency/10-plan/02-unified-plan.md go into her primary calendar as BOOK events.
 
 ## Week 1, 16 to 23 October
 

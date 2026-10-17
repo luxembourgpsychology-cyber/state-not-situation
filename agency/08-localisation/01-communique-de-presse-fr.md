@@ -38,7 +38,7 @@ Page 7 : « Les chapitres qui suivent s’organisent autour de trois système
 
 Chaque chapitre porte un marqueur de niveau de preuve. Dans les mots de l’autrice : Élevé, « Résultats répliqués ou robustes. » Moyen, « Résultats évocateurs, incertitude réelle. » Faible, « Hypothèse plausible ou premiers résultats. » La section finale, Le pouls scientifique, dresse pour chaque chapitre « une liste des travaux sur lesquels le chapitre est construit, et une liste des travaux qui le limitent, le compliquent, ou expliquent autrement les mêmes résultats », parce que, comme le dit la page 242, « Les laisser de côté ferait paraître l’argumentation plus nette qu’elle ne l’est. »
 
-[DRAFT QUOTE FOR IVANA TO APPROVE OR REWRITE] Ivana Budišin : « Ce livre cherche moins à vous apprendre à faire confiance à votre instinct qu’à vous montrer à quoi, au juste, vous faites confiance. Il propose des questions, pas un diagnostic. »
+Ivana Budišin : « Le corps parle d’abord et l’esprit explique ensuite. La plupart du temps, nous n’entendons que l’explication, et nous l’appelons la vérité. Ce livre parle des quelques secondes qui séparent les deux, à l’échelle de la cuisine : un message, un silence, un regard. »
 
 L’autrice décrit le livre comme écrit « pour quiconque a déjà été certain du sens d’une situation, puis a découvert qu’il se passait autre chose. Et pour les lecteurs qui s’intéressent à la psychologie de la façon dont nous remarquons, interprétons et révisons le monde qui nous entoure. »
 

@@ -88,6 +88,8 @@ Readers: "For anyone who has ever been certain about what a situation meant, the
 Evidence markers, her descriptions: High "Replicated or robust evidence." Medium "Suggestive evidence with meaningful uncertainty." Low "Plausible hypothesis or emerging evidence."
 Press page intro: "Review copies, print and digital, are available on request. Extract licensing, interviews and events by arrangement."
 
+The author's quotation for the press, chosen by her on 17 October 2026 from three drafts (category 2): "Your body speaks first and your mind explains second. Most of the time we only hear the explanation, and we call it the truth. This book is about the few seconds in between, at kitchen scale: a message, a silence, a look."
+
 ## Dr Herber's words, from the foreword, already live on the site
 
 "Our first interpretation is not necessarily wrong. But it does not have to be our last."

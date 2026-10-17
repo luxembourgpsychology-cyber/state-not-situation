@@ -36,7 +36,7 @@ From page 7: "The chapters that follow are organised around three systems that s
 
 Each chapter carries an evidence marker. In the author's words: High, "Replicated or robust evidence." Medium, "Suggestive evidence with meaningful uncertainty." Low, "Plausible hypothesis or emerging evidence." The closing section, The Scientific Heartbeat, lists for each chapter "the work the chapter is built on, and a list of the work that limits it, complicates it, or explains the same evidence differently", because, as page 242 puts it, "Leaving them out would make the argument look tidier than it is."
 
-[DRAFT QUOTE FOR IVANA TO APPROVE OR REWRITE] Ivana Budišin said: "It is less interested in teaching you to trust your instincts than in showing you what, exactly, you are trusting. [DRAFT, NEW SENTENCE FOR IVANA TO ACCEPT OR STRIKE: It offers questions, not a diagnosis.]"
+Ivana Budišin said: "Your body speaks first and your mind explains second. Most of the time we only hear the explanation, and we call it the truth. This book is about the few seconds in between, at kitchen scale: a message, a silence, a look."
 
 The author describes the book as being "for anyone who has ever been certain about what a situation meant, then discovered that something else was happening. And for readers interested in the psychology of how we notice, interpret and revise the world around us."
 
@@ -78,6 +78,6 @@ Sources: back cover of v50, headline, paragraphs and sign off, in printed order 
 
 ## Notes for Ivana
 
-Check before sending: the paperback price (€28.90 or €28.99), and whether the Amazon.de paperback offer is now Amazon's own for a Luxembourg address, since on 16 October a Luxembourg address still saw only a third party offer from €53.73. Approve or rewrite the one quotation: its first sentence is your own line from the site, its second is adapted from the Research page and is new until you accept it. Confirm that Dr Herber's title is to be printed exactly as on page v. Decide whether you want the release to carry the long biography instead of the short one; the short one is used because it is the boilerplate you approved.
+Check before sending: the paperback price (€28.90 or €28.99), and whether the Amazon.de paperback offer is now Amazon's own for a Luxembourg address, since on 16 October a Luxembourg address still saw only a third party offer from €53.73. The quotation is option A, which you chose on 17 October; it is now your own words. Confirm that Dr Herber's title is to be printed exactly as on page v. Decide whether you want the release to carry the long biography instead of the short one; the short one is used because it is the boilerplate you approved.
 
 Strongest reason not to send: a release with no third party endorsement and no event attached is easy for a newsroom to pass over. The pitches in item 02 do the work of asking; the release is the document they can check against.

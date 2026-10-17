@@ -124,3 +124,8 @@ Other points for the reviewer:
 ## Checks run
 
 Every file in this folder was searched after writing for U+2014 and U+2013 (none), for "!" outside the header blocks (none), and, in the French files, for a regular space before ; : ? ! or inside « » (none remain: every such space is U+202F, or U+00A0 before a colon). The bracketed items were searched for and are byte identical to the English source.
+
+
+## The author's quotation, 17 October 2026
+
+She chose option A in English. The French and German carry it with the site's own renderings of its two printed lines: content/fr.ts "Le corps parle d’abord. L’esprit explique ensuite." and "à l’échelle de la cuisine"; content/de.ts "Der Körper spricht zuerst. Der Kopf erklärt danach." and "im Maßstab einer Küche". The middle sentence is new in both languages and is for the native reviewer to check before sending.
