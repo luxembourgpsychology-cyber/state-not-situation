@@ -95,3 +95,173 @@ For heart rate variability, none confirmed. I found no study in which directing 
 For heart rate itself there is one recent primary source. Candia-Rivera, D., Sappia, M. S., Horschig, J. M., Colier, W. N. J. M., & Valenza, G. (2022). Confounding effects of heart rate, breathing rate, and frontal fNIRS on interoception. *Scientific Reports, 12*, Article 20701. https://doi.org/10.1038/s41598-022-25119-z. During a heartbeat counting task, heart rate and breathing rate fell relative to a control condition and cardiorespiratory coupling changed; the authors offer the fall as part of the physiological basis of attending to the heart, and they note that earlier studies had reported non-significant heart rate changes during the same task. They also state that heart rate cannot be controlled voluntarily through such tasks the way it can through neurofeedback. The confound they name is the one the series would have to answer on camera: attending to the heart slows the breath, and a slower breath moves heart rate and HRV on its own, so the effect cannot yet be assigned to attention rather than respiration.
 
 This is a finding, and it bears on the brief's third claim. "Attending to a bodily signal changes that signal's trajectory" is supported for appraisal (Jamieson) and for breathing (Vaschillo), where the act of attending is also an act of control. For the heartbeat, which cannot be controlled directly, the evidence is one 2022 study of heart rate against a background of null results, and nothing for variability. The claim as the brief states it should be marked proposed, not demonstrated, or rewritten around breath and appraisal, where it is demonstrated. What to look up next: heartbeat-evoked potential studies that report heart rate and respiration as control variables across attention conditions (Petzschner et al., 2019, *NeuroImage*, "Focus of attention modulates the heartbeat evoked potential", tested for cardiac differences between conditions; I could not read the result), and any within-subject design that paces breathing while switching attention between heart and an external rhythm.
+
+---
+
+# Episode 1 sources, carried from `episodes/01-cortisol/RESEARCH.md` on 17 October 2026
+
+Sources 11 to 30 are the references `RESEARCH.md` section 8 lists for the cortisol episode, other than Dickerson and Kemeny (6) and Lightman and Conway-Campbell (7), which were already here. Their status is the one `RESEARCH.md` recorded: every one confirmed by web search from bibliographic records on 17 October 2026, with publisher pages, PubMed, Europe PMC and Crossref unreachable from the session, so a finding that rests on an abstract or a citing paper says so. They were not re-verified when moved. Episode 1 attaches to source 6 the 208-study count, the 21 to 40 minute peak and the uncontrollability with social evaluation finding, and to source 7 the daily rhythm, the roughly hourly pulse and the receptor tracking; both as stated in those entries.
+
+## 11. Adam et al. (2017), Psychoneuroendocrinology
+
+Adam, E. K., Quinn, M. E., Tavernier, R., McQuillan, M. T., Dahlke, K. A., & Gilbert, K. E. (2017). Diurnal cortisol slopes and mental and physical health outcomes: A systematic review and meta-analysis. *Psychoneuroendocrinology, 83*, 25–41. https://doi.org/10.1016/j.psyneuen.2017.05.018
+
+A meta-analysis of 80 studies relating the slope of cortisol across the waking day to health. Flatter slopes went with poorer outcomes, a small pooled effect (r = .147) largest for immune outcomes. The script attaches to it: eighty studies, flatter slope with poorer health, the correlation of point one four seven, largest for immune outcomes, and the statement that this is a population association and not a test for one person. The sentence that follows, that nobody has shown changing a slope changes an outcome, is `RESEARCH.md`'s open question and carries no band.
+
+Status: confirmed by web search; publisher page not fetched.
+
+## 12. Bachour et al. (2025), BJPsych Open
+
+Bachour, G., Samir, A., Haddad, S., Houssaini, M. A., & El Radad, M. (2025). Effects of ashwagandha supplements on cortisol, stress, and anxiety levels in adults: A systematic review and meta-analysis. *BJPsych Open, 11*. https://doi.org/10.1192/bjo.2025.10136
+
+A meta-analysis of 15 randomised trials, 873 adults, reporting lower cortisol against placebo with low certainty of evidence and high heterogeneity. The script attaches to it exactly that: fifteen trials, eight hundred and seventy-three adults, lower cortisol against placebo, low certainty, high heterogeneity. The sentences after the band, that the effect's reality and importance are open and the trials small and heterogeneous, are `RESEARCH.md`'s section 7 and carry no band.
+
+Status: confirmed by web search; article number not seen; publisher page not fetched.
+
+## 13. Bornstein et al. (2016), Journal of Clinical Endocrinology and Metabolism
+
+Bornstein, S. R., Allolio, B., Arlt, W., Barthel, A., Don-Wauchope, A., Hammer, G. D., Husebye, E. S., Merke, D. P., Murad, M. H., Stratakis, C. A., & Torpy, D. J. (2016). Diagnosis and treatment of primary adrenal insufficiency: An Endocrine Society clinical practice guideline. *Journal of Clinical Endocrinology and Metabolism, 101*(2), 364–389. https://doi.org/10.1210/jc.2015-1710
+
+The Endocrine Society guideline on primary adrenal insufficiency, Addison's disease: rare, dangerous, treatable, confirmed by a short corticotropin stimulation test. The script attaches to it: Addison's disease as the adrenals failing, rare, dangerous and treatable, confirmed by a short corticotropin test. The closing sentence of section 20, that anyone with suggestive symptoms should be tested and not told they have adrenal fatigue, is `RESEARCH.md`'s own and sits after the band leaves.
+
+Status: confirmed by web search; publisher page not fetched.
+
+## 14. Cadegiani and Kater (2016), BMC Endocrine Disorders
+
+Cadegiani, F. A., & Kater, C. E. (2016). Adrenal fatigue does not exist: A systematic review. *BMC Endocrine Disorders, 16*, 48. https://doi.org/10.1186/s12902-016-0128-4
+
+A systematic review of 58 studies on "adrenal fatigue", finding no substantiation that it is a medical condition and noting weak assessment of fatigue and cortisol methods not endorsed by endocrinologists. The script attaches to it: fifty-eight studies, no substantiation that it is a medical condition, weak assessment of fatigue, cortisol methods endocrinologists do not endorse.
+
+Status: confirmed by web search; publisher page not fetched.
+
+## 15. Cain and Cidlowski (2017), Nature Reviews Immunology
+
+Cain, D. W., & Cidlowski, J. A. (2017). Immune regulation by glucocorticoids. *Nature Reviews Immunology, 17*(4), 233–247. https://doi.org/10.1038/nri.2017.1
+
+A review of glucocorticoid action on the immune system, presenting it as regulatory rather than simply suppressive, shaping inflammation in both directions. The script attaches to it one clause: its immune job is regulatory, shaping inflammation in both directions.
+
+Status: confirmed by web search; publisher page not fetched.
+
+## 16. Debono et al. (2023), NEJM Evidence
+
+Debono, M., Elder, C. J., Lewis, J., et al. (2023). Home waking salivary cortisone to screen for adrenal insufficiency. *NEJM Evidence, 2*(2). https://doi.org/10.1056/EVIDoa2200182
+
+A prospective study of home waking salivary cortisone, not cortisol, as a screen for adrenal insufficiency in people already at high risk and referred for testing. The script attaches to it: the best evidence for home saliva sampling, cortisone not cortisol, a population already at high risk of adrenal insufficiency, a screening tool for a defined disease in a referred population. The statement that its predictive values do not transfer to a healthy buyer is `RESEARCH.md`'s inference and follows the band.
+
+Status: confirmed by web search; author list incomplete; publisher page not fetched.
+
+## 17. Epel et al. (2000), Psychosomatic Medicine
+
+Epel, E. S., et al. (2000). Stress and body shape: Stress-induced cortisol secretion is consistently greater among women with central fat. *Psychosomatic Medicine, 62*(5), 623–632. PMID 11020091.
+
+A laboratory study in which women with a high waist-to-hip ratio secreted more cortisol under repeated stress and did not habituate; a cross-sectional design. The script attaches to it exactly that, including the design.
+
+Status: confirmed by web search; author list incomplete; no DOI recorded; publisher page not fetched.
+
+## 18. Fries et al. (2005), Psychoneuroendocrinology
+
+Fries, E., Hesse, J., Hellhammer, J., & Hellhammer, D. H. (2005). A new view on hypocortisolism. *Psychoneuroendocrinology, 30*(10), 1010–1016. PMID 15950390.
+
+A review proposing that low cortisol, described in chronic fatigue, fibromyalgia and PTSD, follows a long period of HPA overactivity. The script attaches to it: low cortisol in those three conditions, and the proposal that it follows a long period of overactivity in the axis. The script does not say "protective", because `RESEARCH.md` found that word in the keywords and secondary summaries and not in the abstract.
+
+Status: confirmed by web search; "protective" not seen in the abstract; publisher page not fetched.
+
+## 19. Hellhammer, Wüst and Kudielka (2009), Psychoneuroendocrinology
+
+Hellhammer, D. H., Wüst, S., & Kudielka, B. M. (2009). Salivary cortisol as a biomarker in stress research. *Psychoneuroendocrinology, 34*(2), 163–171. PMID 19095358.
+
+A methods review of salivary cortisol, treating it as an indirect index of HPA activity that may not track plasma ACTH and cortisol linearly under response conditions. The script attaches to it: an indirect index of the axis that may not track blood cortisol linearly while the axis is responding. The list of what a single sample depends on, which opens section 13, is `RESEARCH.md`'s own and carries no band.
+
+Status: confirmed by web search; publisher page not fetched.
+
+## 20. Incollingo Rodriguez et al. (2015), Psychoneuroendocrinology
+
+Incollingo Rodriguez, A. C., Epel, E. S., White, M. L., Standen, E. C., Seckl, J. R., & Tomiyama, A. J. (2015). Hypothalamic-pituitary-adrenal axis dysregulation and cortisol activity in obesity: A systematic review. *Psychoneuroendocrinology, 62*, 301–318. https://doi.org/10.1016/j.psyneuen.2015.08.014
+
+A systematic review of HPA activity in obesity, finding abdominal fat associated with a more responsive axis in many but not all studies, some showing blunted responses. The script attaches to it exactly that. The sentence that the round face of "cortisol face" is a sign of Cushing's syndrome and not of a hard week is `RESEARCH.md`'s own and follows the band.
+
+Status: confirmed by web search; publisher page not fetched.
+
+## 21. Kuo et al. (2015), Advances in Experimental Medicine and Biology
+
+Kuo, T., McQueen, A., Chen, T.-C., & Wang, J.-C. (2015). Regulation of glucose homeostasis by glucocorticoids. In J.-C. Wang & C. Harris (Eds.), *Glucocorticoid signaling: From molecules to mice to man* (Advances in Experimental Medicine and Biology, Vol. 872, pp. 99–126). Springer.
+
+A chapter on glucocorticoid control of glucose: driving gluconeogenesis in the liver, reducing glucose uptake in muscle and fat by opposing insulin, keeping glucose available to the brain. The script attaches to it: the metabolic job of keeping glucose available to the brain, by driving the liver to make glucose and by opposing insulin in muscle and fat.
+
+Status: partly confirmed by web search; cited elsewhere as "Kuo T, McQueen A, Chen TC, et al." and the fourth author not seen; no DOI recorded; publisher page not fetched.
+
+## 22. Miller, Chen and Zhou (2007), Psychological Bulletin
+
+Miller, G. E., Chen, E., & Zhou, E. S. (2007). If it goes up, must it come down? Chronic stress and the hypothalamic-pituitary-adrenocortical axis in humans. *Psychological Bulletin, 133*(1), 25–45. https://doi.org/10.1037/0033-2909.133.1.25
+
+A meta-analysis of chronic stress and HPA activity in humans, finding both raised and lowered activity depending on the stressor's timing and type and on the person: output highest near onset and declining as the stressor persists, traumatic or uncontrollable stressors with a high flat daily profile, lower output in PTSD. The script attaches to it exactly these findings, in section 10, under one band.
+
+Status: confirmed by web search; publisher page not fetched.
+
+## 23. Nieman et al. (2008), Journal of Clinical Endocrinology and Metabolism
+
+Nieman, L. K., et al. (2008). The diagnosis of Cushing's syndrome: An Endocrine Society clinical practice guideline. *Journal of Clinical Endocrinology and Metabolism, 93*(5), 1526–1540. https://doi.org/10.1210/jc.2008-0125
+
+The Endocrine Society guideline on diagnosing Cushing's syndrome: sustained cortisol excess, confirmed with late-night salivary cortisol, urinary free cortisol or dexamethasone suppression, repeated and read together, by an endocrinologist. The script attaches to it: sustained cortisol excess and the three named tests, repeated and read together.
+
+Status: confirmed by web search; author list incomplete; publisher page not fetched.
+
+## 24. Pruessner et al. (1997), Life Sciences
+
+Pruessner, J. C., Wolf, O. T., Hellhammer, D. H., Buske-Kirschbaum, A., von Auer, K., Jobst, S., Kaspers, F., & Kirschbaum, C. (1997). Free cortisol levels after awakening: A reliable biological marker for the assessment of adrenocortical activity. *Life Sciences, 61*(26), 2539–2549. https://doi.org/10.1016/S0024-3205(97)01008-4
+
+The paper that characterised the cortisol awakening response: free cortisol rising by roughly fifty to seventy-five percent in the thirty minutes after waking. The script attaches to it that figure and that window, in section 7, and reuses the figure without a band in section 25, where the composite's six o'clock sample is placed on that curve.
+
+Status: confirmed by web search; publisher page not fetched.
+
+## 25. Sapolsky, Romero and Munck (2000), Endocrine Reviews
+
+Sapolsky, R. M., Romero, L. M., & Munck, A. U. (2000). How do glucocorticoids influence stress responses? Integrating permissive, suppressive, stimulatory, and preparative actions. *Endocrine Reviews, 21*(1), 55–89. https://doi.org/10.1210/edrv.21.1.0389
+
+The review that sorted glucocorticoid actions into permissive, stimulatory, suppressive and preparative, the category depending on the endpoint. The script attaches to it the four kinds and that the kind depends on which endpoint is measured. The conclusion that "cortisol is bad" and "cortisol is good" are each a general statement the physiology does not make is `RESEARCH.md`'s and follows the band.
+
+Status: confirmed by web search; publisher page not fetched.
+
+## 26. Schaffer (2018), Healio Endocrine Today
+
+Schaffer, R. (2018, April 10). In age of internet diagnoses, endocrinologists confront myth of 'adrenal fatigue'. *Healio Endocrine Today*. https://www.healio.com/news/endocrinology/20180410/in-age-of-internet-diagnoses-endocrinologists-confront-myth-of-adrenal-fatigue
+
+A trade-press report on endocrinologists' response to "adrenal fatigue". `RESEARCH.md` cites it jointly with Seaborg (2017) for three things: the Endocrine Society's position that adrenal fatigue is not a real medical condition, Nieman's statement that the symptoms are real, and the Society's warning that supplements sold for it are unregulated and some contain glandular extracts. The script sets the supplement warning under this source alone, as reported in 2018; which of the two articles carries which claim is for the author to confirm before recording, since `RESEARCH.md` does not split them.
+
+Status: confirmed by web search; the page was not fetched.
+
+## 27. Seaborg (2017), Endocrine News
+
+Seaborg, E. (2017, September). The myth of adrenal fatigue. *Endocrine News*. https://endocrinenews.endocrine.org/myth-adrenal-fatigue
+
+The Endocrine Society's own magazine on "adrenal fatigue", quoting Lynnette Nieman, then the Society's president. The script sets under it the Society's position that adrenal fatigue is not a medical condition and Nieman's statement that the symptoms are real and deserve a search for a genuine disorder, in section 16, and the same Nieman statement again in section 25. See source 26 on the joint citation.
+
+Status: partly confirmed by web search; the page exists and quotes Nieman; byline and date are from a third-party citation; the Society's patient fact sheet could not be fetched.
+
+## 28. Stalder et al. (2016), Psychoneuroendocrinology
+
+Stalder, T., Kirschbaum, C., Kudielka, B. M., Adam, E. K., Pruessner, J. C., Wüst, S., Dockray, S., Smyth, N., Evans, P., Hellhammer, D. H., Miller, R., Wetherell, M. A., Lupien, S. J., & Clow, A. (2016). Assessment of the cortisol awakening response: Expert consensus guidelines. *Psychoneuroendocrinology, 63*, 414–432. https://doi.org/10.1016/j.psyneuen.2015.10.010
+
+The international consensus guidelines for measuring the cortisol awakening response: several timed samples, on more than one day, with waking time verified. The script attaches to it exactly that, in section 13.
+
+Status: confirmed by web search; publisher page not fetched.
+
+## 29. Stalder et al. (2017), Psychoneuroendocrinology
+
+Stalder, T., Steudte-Schmiedgen, S., Alexander, N., Klucken, T., Vater, A., Wichmann, S., Kirschbaum, C., & Miller, R. (2017). Stress-related and basic determinants of hair cortisol in humans: A meta-analysis. *Psychoneuroendocrinology, 77*, 261–274. https://doi.org/10.1016/j.psyneuen.2016.12.017
+
+A meta-analysis of 66 studies of hair cortisol, which integrates months of secretion: higher under ongoing chronic stress, unrelated to perceived stress. The script attaches to it: sixty-six studies, integrates months, higher under ongoing chronic stress, unrelated to how stressed people said they felt. The script quotes no percentage for the increase.
+
+Status: confirmed by web search; findings from citing papers, which give the chronic-stress increase as 22 or 43 percent, so no figure is to be quoted until checked; publisher page not fetched.
+
+## 30. Ulrich-Lai and Herman (2009), Nature Reviews Neuroscience
+
+Ulrich-Lai, Y. M., & Herman, J. P. (2009). Neural regulation of endocrine and autonomic stress responses. *Nature Reviews Neuroscience, 10*(6), 397–409. https://doi.org/10.1038/nrn2647
+
+A review of the neural circuits controlling the HPA axis and the autonomic stress response, which share limbic forebrain, hypothalamic and brainstem circuitry, with the balance between them shifting by stressor. The script attaches to it the chain: cortisol as the main human glucocorticoid, released by the adrenal cortex at the end of the hypothalamus, pituitary, adrenal line, feeding back on the first two. The shared-circuit finding is in `RESEARCH.md` and is not spoken.
+
+Status: confirmed by web search; publisher page not fetched.
+
+## The consumer kit question
+
+Asked for: a peer-reviewed validation of any direct-to-consumer cortisol kit against clinical testing. `RESEARCH.md` found none on 17 October 2026 and recorded the search to repeat: "direct-to-consumer" with "salivary cortisol". The script says so aloud in section 18, with no band, and offers Debono et al. (16) as the nearest evidence, which is for a different analyte in a referred population.
