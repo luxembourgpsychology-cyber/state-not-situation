@@ -4,54 +4,99 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=1920">
 <title>M2 A day</title>
-<meta name="description" content="Episode 1, section 7. The daily rhythm of cortisol, high in the morning and low at night, the hourly pulses riding on it, and one sample on the steep morning rise.">
-<meta name="motion:duration" content="10000">
+<meta name="description" content="Episode 1, section 7, second pass. The figure lies at the foot of the frame and sits up as the day begins; above, the 24-hour axis and the daily curve with the hourly pulses riding on it; then a swab enters the mouth at six in the morning and the one red dot lands on the steep morning rise: one sample.">
+<meta name="motion:duration" content="13300">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&family=Barlow+Semi+Condensed:wght@700&display=swap">
 <style>
   :root {
     --cream: #F7F3EC; --ink: #111111; --quiet: #6F6A62; --red: #B5291C; --rule: rgba(17,17,17,.14);
     --serif: "Instrument Serif", "Liberation Serif", "Times New Roman", serif;
     --mono: "IBM Plex Mono", "DejaVu Sans Mono", "Liberation Mono", monospace;
+    --hand: cubic-bezier(.45,.05,.55,.95);
   }
   html, body { margin: 0; background: var(--cream); }
   body { width: 1920px; height: 1080px; overflow: hidden; position: relative; }
   svg.frame { display: block; width: 1920px; height: 1080px; }
   .line { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .rule { stroke: var(--rule); }
   .mono { font-family: var(--mono); font-size: 36px; letter-spacing: .08em; text-transform: uppercase; fill: var(--quiet); }
   .serif { font-family: var(--serif); font-weight: 400; font-size: 77px; fill: var(--ink); }
-  .sample { fill: var(--red); }
-  .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw var(--d) linear var(--t) both; }
+  .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw var(--d) var(--hand) var(--t) both; }
   @keyframes draw { to { stroke-dashoffset: 0; } }
   .in { opacity: 0; animation: enter 400ms ease-out var(--t) both; }
   @keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* The figure lies on its back, head to the left; at six the torso turns about the hip and sits up. */
+  .torso { transform-box: view-box; transform-origin: 636px 950px; transform: rotate(-90deg);
+           animation: situp 800ms var(--hand) 5500ms both; }
+  @keyframes situp { from { transform: rotate(-90deg); } to { transform: rotate(0deg); } }
+
+  /* The sample: one red dot, from the swab in the mouth up to the curve. */
+  .sample {
+    position: absolute; left: 0; top: 0; width: 20px; height: 20px; border-radius: 50%;
+    background: var(--red); opacity: 0;
+    offset-rotate: 0deg; offset-distance: 0%;
+    animation: appear 400ms ease-out 10900ms both, carry 900ms var(--hand) 11300ms both;
+  }
+  @keyframes appear { to { opacity: 1; } }
+  @keyframes carry { from { offset-distance: 0%; } to { offset-distance: 100%; } }
 </style>
 </head>
 <body>
-<svg class="frame" viewBox="0 0 1920 1080" aria-label="Cortisol across a day">
-  <!-- The 24-hour axis -->
-  <path class="line draw" pathLength="1" style="--t:300ms; --d:700ms" d="M 240 820 L 1824 820" />
-  <g class="in" style="--t:1000ms">
-    <path class="line" d="M 636 820 L 636 840 M 1032 820 L 1032 840 M 1428 820 L 1428 840 M 1824 820 L 1824 840" />
-    <text class="mono" x="636" y="890" text-anchor="middle">06</text>
-    <text class="mono" x="1032" y="890" text-anchor="middle">12</text>
-    <text class="mono" x="1428" y="890" text-anchor="middle">18</text>
-    <text class="mono" x="1824" y="890" text-anchor="middle">24</text>
+<svg class="frame" viewBox="0 0 1920 1080" aria-label="A figure wakes under the day's cortisol curve; a swab takes one sample at six">
+  <defs>
+    <filter id="hand" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="2" seed="7" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- The 24-hour axis, in the mono -->
+  <path class="line draw" pathLength="1" style="--t:300ms; --d:900ms" d="M 240 500 L 1824 500" />
+  <g class="in" style="--t:1300ms">
+    <path class="line" d="M 636 500 L 636 518 M 1032 500 L 1032 518 M 1428 500 L 1428 518 M 1824 500 L 1824 518" />
+    <text class="mono" x="636" y="560" text-anchor="middle">06</text>
+    <text class="mono" x="1032" y="560" text-anchor="middle">12</text>
+    <text class="mono" x="1428" y="560" text-anchor="middle">18</text>
+    <text class="mono" x="1824" y="560" text-anchor="middle">24</text>
   </g>
 
-  <!-- The daily curve, high in the morning and low at night -->
-  <path id="day" class="line draw" pathLength="1" style="--t:1600ms; --d:2600ms" d="" />
-  <!-- The hourly pulses, riding on it -->
-  <path id="pulses" class="line draw" pathLength="1" style="--t:4600ms; --d:2600ms" d="" />
+  <g filter="url(#hand)">
+    <!-- Where the figure lies -->
+    <path class="line rule draw" pathLength="1" style="--t:1500ms; --d:500ms" d="M 230 1012 L 990 1012" />
 
-  <!-- One sample on the steep morning rise -->
-  <circle id="sample" class="sample in" style="--t:7800ms" cx="0" cy="0" r="11" />
-  <text class="serif in" style="--t:8400ms" x="615" y="425" text-anchor="end">one sample</text>
+    <!-- The torso, written upright and turned to lie down; it sits up at six -->
+    <g class="torso">
+      <path class="line draw" pathLength="1" style="--t:2100ms; --d:600ms"
+        d="M 672 590 C 697 591, 715 612, 714 636 C 713 660, 692 679, 668 678 C 644 677, 626 657, 627 633 C 628 609, 647 590, 670 590" />
+      <path class="line draw" pathLength="1" style="--t:2750ms; --d:200ms" d="M 646 678 L 650 700 M 684 678 L 688 696" />
+      <path class="line draw" pathLength="1" style="--t:3000ms; --d:600ms"
+        d="M 650 700 C 624 701, 602 712, 596 740 C 582 810, 586 880, 600 950" />
+      <path class="line draw" pathLength="1" style="--t:3650ms; --d:500ms"
+        d="M 686 700 C 702 710, 708 760, 702 810 C 696 860, 700 910, 694 950" />
+      <path class="line draw" pathLength="1" style="--t:4200ms; --d:400ms" d="M 614 718 C 644 770, 666 830, 674 890" />
+    </g>
+    <!-- The legs, lying out; they stay where they are when the figure sits up -->
+    <path class="line draw" pathLength="1" style="--t:4650ms; --d:500ms" d="M 640 944 C 740 936, 840 938, 930 942 L 936 898" />
+    <path class="line draw" pathLength="1" style="--t:5050ms; --d:400ms" d="M 640 962 C 740 954, 840 956, 925 960 L 931 916" />
+
+    <!-- The day: the curve with the hourly pulses on it, one stroke -->
+    <path id="day" class="line draw" pathLength="1" style="--t:6600ms; --d:2800ms" d="" />
+
+    <!-- The swab, entering the mouth at six -->
+    <path class="line draw" pathLength="1" style="--t:9700ms; --d:700ms" d="M 1010 614 L 707 649" />
+    <path class="line draw" pathLength="1" style="--t:10450ms; --d:200ms"
+      d="M 707 649 C 707 655, 697 655, 697 649 C 697 644, 707 644, 707 649" />
+  </g>
+
+  <text class="serif in" style="--t:12300ms" x="600" y="330" text-anchor="end">one sample</text>
 </svg>
+<div class="sample" id="sample" aria-hidden="true"></div>
 <script>
   // The shape is the one Lightman and Conway-Campbell (2010) describe: a circadian rhythm,
   // high in the morning and low at night, with an ultradian pulse roughly every hour.
   // No value on it is a measurement; only the hours on the axis are.
-  const x0 = 240, x24 = 1824, base = 820, height = 420;
+  const x0 = 240, x24 = 1824, base = 500, height = 240;
   const X = h => x0 + (x24 - x0) * h / 24;
   const level = h => {
     const s = h < 8 ? 1.8 : 5.5;
@@ -61,20 +106,17 @@
     const f = h - Math.floor(h);
     return Math.pow(Math.sin(Math.PI * f), 4) * (0.04 + 0.08 * level(h));
   };
-  const pts = (fn, n) => {
-    let d = '';
-    for (let i = 0; i <= n; i++) {
-      const h = 24 * i / n;
-      d += (i ? ' L ' : 'M ') + X(h).toFixed(1) + ' ' + (base - height * fn(h)).toFixed(1);
-    }
-    return d;
-  };
-  document.getElementById('day').setAttribute('d', pts(level, 240));
-  document.getElementById('pulses').setAttribute('d', pts(h => level(h) + bump(h), 960));
-  const hs = 6.5;
-  const s = document.getElementById('sample');
-  s.setAttribute('cx', X(hs).toFixed(1));
-  s.setAttribute('cy', (base - height * (level(hs) + bump(hs))).toFixed(1));
+  const Y = h => base - height * (level(h) + bump(h));
+  let d = '';
+  for (let i = 0; i <= 960; i++) {
+    const h = 24 * i / 960;
+    d += (i ? ' L ' : 'M ') + X(h).toFixed(1) + ' ' + Y(h).toFixed(1);
+  }
+  document.getElementById('day').setAttribute('d', d);
+  // The sample leaves the mouth and lands on the curve at half past six.
+  const hs = 6.5, sx = X(hs), sy = Y(hs);
+  document.getElementById('sample').style.offsetPath =
+    `path("M 702 650 C 770 600, 745 ${(sy + 80).toFixed(1)}, ${sx.toFixed(1)} ${sy.toFixed(1)}")`;
 </script>
 </body>
 </html>
