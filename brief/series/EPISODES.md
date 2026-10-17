@@ -1,4 +1,4 @@
-# Episodes, first skeletons
+# Episodes, first skeletons (superseded 17 October 2026; kept as the record of the ideas, see BRIEF.md)
 
 Four skeletons for the series described in `BRIEF.md`. Drafted 17 October 2026, not yet
 read by the author. Every factual sentence here rests on a source verified in
