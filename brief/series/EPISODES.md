@@ -1,8 +1,8 @@
 # Episodes, first skeletons
 
 Four skeletons for the series described in `BRIEF.md`. Drafted 17 October 2026, not yet
-read by the author. Every factual sentence here rests on one of the eight sources the
-brief names; where a fact is wanted that none of them covers, it is marked
+read by the author. Every factual sentence here rests on a source verified in
+`CITATIONS.md`; where a fact is wanted that none of them covers, it is marked
 `[citation needed]` and left open rather than filled. Sources in full are in
 `CITATIONS.md`.
 
@@ -21,11 +21,14 @@ is up. The metronome speeds up a little at a time. For a while nothing changes e
 tempo. Then, at a rate that differs a little from person to person, the fingers switch into
 moving together, in-phase, without being asked to and without the person deciding to. Just
 before the switch, the anti-phase pattern wobbles: the timing between the two fingers
-scatters more than it did. After the switch the wobble settles. Slow the metronome back
-down and the fingers stay in-phase; they do not return to anti-phase at the rate where they
-left it. The thing that changed was not the finger, not the muscle and not the instruction.
-It was the stability of a pattern between two fingers, and the measurable quantity was the
-relative phase between them (Haken, Kelso, & Bunz, 1985).
+scatters more than it did [citation needed: the fluctuation measurements of Kelso, Scholz
+and Schöner, 1986, not yet verified]. After the switch the wobble settles. Slow the
+metronome back down and the fingers stay in-phase; they do not return to anti-phase at the
+rate where they left it. The thing that changed was not the finger, not the muscle and not
+the instruction. It was the stability of a pattern between two fingers, and the measurable
+quantity was the relative phase between them. The switch was measured in people by Kelso
+(1984) and given its equation, a pitchfork-type loss of stability, by Haken, Kelso, and
+Bunz (1985).
 
 **The ordinary moment.** You are at your desk on a Tuesday and someone asks whether you are
 all right. You say yes, because the situation is fine and the feeling you can name is mild.
@@ -182,10 +185,14 @@ proposal. I know of no measurement of it."
 
 **Optional demonstration.** Honest and cheap, with one caveat said aloud. A fingertip
 heart-rate reading on screen. The host breathes slowly, at about six breaths a minute, and
-the heart rate begins to swing with the breath within a few cycles, because the baroreflex
-loop that couples blood pressure and heart rate has a delay of a few seconds and resonates
-near that rate (Lehrer & Gevirtz, 2014). Then the host attends to a sound in the room
+the amplitude of the heart rate's swing with the breath rises within the first minutes,
+because the baroreflex loop that couples blood pressure and heart rate has a delay of a few
+seconds and resonates near that rate (mechanism: Lehrer & Gevirtz, 2014; measurement:
+Vaschillo, Lehrer, Rishe, & Konstantinov, 2002). Then the host attends to a sound in the room
 instead, with no instruction about breathing, and the swing changes. The caveat: this does
-not demonstrate critical slowing down. It demonstrates the brief's third claim, that
-attending to a bodily signal changes that signal's trajectory, and it belongs here because
-it shows a recovery time being watched by someone who is part of the system being watched.
+not demonstrate critical slowing down. It demonstrates the brief's third claim in the
+form it is actually shown: where attending to a signal is also controlling it, as with the
+breath, the signal's trajectory changes. Whether attending to the heartbeat alone, which
+cannot be controlled, changes the heartbeat is proposed and not shown. It belongs here
+because it shows a recovery time being watched by someone who is part of the system being
+watched.

@@ -2,8 +2,8 @@
 ## The Biology of a State
 
 A discussion series by Ivana Budišin. Recorded for YouTube, linked from the book's site.
-Brief consolidated 17 October 2026 from the conversation of that day. Not committed; a
-working draft until the author has read it.
+Brief consolidated 17 October 2026 from the conversation of that day. On the branch
+`series/bifurcation-brief`; a working draft until the author has read it.
 
 ## What it is
 
@@ -24,12 +24,17 @@ Three are demonstrated and can be stated plainly, with the case that shows each:
    flipping from clear to turbid as nutrient load rises; two fingers switching from
    anti-phase to in-phase as the metronome speeds up.
 2. A biomarker is a trajectory, not a level. The body answers the shape of the change.
-   Two clocks: autonomic in seconds, endocrine (cortisol) in tens of minutes to hours.
-3. Experience is not an outside sensor. Attending to a bodily signal changes that
-   signal's trajectory, with a measurable lag and a direction set by appraisal. The
+   Two clocks: autonomic in seconds; cortisol in hourly pulses, peaking twenty to forty
+   minutes after a stressor begins.
+3. Experience is not an outside sensor. Where attending to a bodily signal is also an
+   act of control, as with the breath, it changes that signal's trajectory within
+   minutes; and how a signal is appraised changes the body's response to it. The
    observer is inside the loop.
 
-Everything beyond these three is marked, on camera, as proposed rather than shown.
+Everything beyond these three is marked, on camera, as proposed rather than shown. In
+particular, that attending to a signal one cannot control, the heartbeat, changes that
+signal is proposed, not shown: the one study that finds it cannot separate attention from
+the slowing of the breath that comes with it (see `CITATIONS.md`, 17 October 2026).
 
 ## The discipline
 
@@ -38,8 +43,8 @@ listener can feel, and one negative case: a change that looks like the idea and 
 Without the negative case the lens cannot be wrong and teaches nothing.
 
 Every factual sentence rests on a source a journalist could check. The failure to avoid
-is the one catastrophe theory committed in the 1970s: a diagram drawn over data nobody
-measured (Zahler & Sussmann, 1977).
+is the one Zahler and Sussmann (1977) dissected in the catastrophe theory of the 1970s: a
+diagram drawn over data nobody had measured as a dynamical system.
 
 ## Episode plan, first cut
 
