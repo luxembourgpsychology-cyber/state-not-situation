@@ -19,7 +19,7 @@ To whom: RTL Today Radio, programme editors or the presenter team of the English
 Suggested send date: Monday 19 October 2026
 What the recipient is asked to do: Book a studio or remote interview of 8 to 12 minutes, with a live listener exercise.
 Attachments or links: Press kit zip, press page, opening pages (see above). Review copy, print or digital, on request.
-Approval status: awaiting Ivana
+Approval status: awaiting Ivana. Decided 17 October: interviews in English only; say so in every pitch to a French or German language programme.
 
 Subject: A ninety-second exercise your listeners can do on air. New Luxembourg book, published 15 October
 

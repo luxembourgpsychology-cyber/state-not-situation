@@ -32,6 +32,8 @@ Gern schicke ich Ihnen ein Rezensionsexemplar, gedruckt oder digital, stehe für
 
 Das Buch erscheint auf Englisch; die Zitate oben sind aus der englischen Ausgabe übersetzt.
 
+Interviews gebe ich auf Englisch.
+
 Mit freundlichen Grüßen
 
 Ivana Budišin
@@ -61,6 +63,8 @@ Seite 7 bittet darum, eines zu tun, bevor es weitergeht: „Probieren Sie jetzt 
 Gern schicke ich Ihnen ein Rezensionsexemplar, gedruckt oder digital, stehe für ein Interview zur Verfügung oder stelle die ersten drei Seiten als Leseprobe zum Abdruck bereit. Die Pressemappe finden Sie unter https://statenotsituation.com/press/State-Not-Situation-press-kit.zip, der Anfang des Buches ist unter https://statenotsituation.com/en/read zu lesen.
 
 Das Buch erscheint auf Englisch; die Zitate oben sind aus der englischen Ausgabe übersetzt.
+
+Interviews gebe ich auf Englisch.
 
 Mit freundlichen Grüßen
 
@@ -92,6 +96,8 @@ Das längere Format des Journal würde zu einem Gespräch darüber passen, wie e
 
 Das Buch erscheint auf Englisch; die Zitate oben sind aus der englischen Ausgabe übersetzt.
 
+Interviews gebe ich auf Englisch.
+
 Mit freundlichen Grüßen
 
 Ivana Budišin
@@ -121,6 +127,8 @@ Das Buch ist so geschrieben, dass sich Teile davon vorlesen lassen. Seite 193: �
 Ich kann ein Rezensionsexemplar schicken, gedruckt oder digital, und die ersten drei Seiten als Leseprobe. Die Pressemappe finden Sie unter https://statenotsituation.com/press/State-Not-Situation-press-kit.zip, der Anfang des Buches ist unter https://statenotsituation.com/en/read zu lesen.
 
 Das Buch erscheint auf Englisch; die Zitate oben sind aus der englischen Ausgabe übersetzt.
+
+Interviews gebe ich auf Englisch.
 
 Mit freundlichen Grüßen
 

@@ -32,6 +32,8 @@ Je répondrai volontiers à vos questions, et je peux vous envoyer un exemplaire
 
 Le livre est publié en anglais ; les citations ci-dessus sont traduites de l’édition anglaise.
 
+Les entretiens se font en anglais.
+
 Bien cordialement,
 
 Ivana Budišin
@@ -62,6 +64,8 @@ Je vous enverrai volontiers un exemplaire de presse, imprimé ou numérique, je 
 
 Le livre est publié en anglais ; la citation ci-dessus est traduite de l’édition anglaise.
 
+Les entretiens se font en anglais.
+
 Bien cordialement,
 
 Ivana Budišin
@@ -91,6 +95,8 @@ Une grande partie du livre se passe au travail. Page 4 : « Un e-mail de deux
 Je serais heureuse de vous accorder un entretien, de vous envoyer un exemplaire de presse, imprimé ou numérique, ou de vous fournir les trois pages d’ouverture comme extrait. Le dossier de presse est à l’adresse https://statenotsituation.com/press/State-Not-Situation-press-kit.zip.
 
 Le livre est publié en anglais ; les citations ci-dessus sont traduites de l’édition anglaise.
+
+Les entretiens se font en anglais.
 
 Bien cordialement,
 
