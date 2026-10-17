@@ -28,6 +28,7 @@ Amazon.co.uk: third party only, cannot deliver to Luxembourg. Not linked.
 Amazon.fr: "currently unavailable" on 15 Oct. Not linked.
 Paperback list price as submitted to KDP: €28.90 before VAT and delivery. The author wrote "28,99" on 15 Oct. ONE FIGURE MUST BE CONFIRMED BY HER before any price is sent out. Until then write "[PRICE TO CONFIRM: €28.90 or €28.99]".
 Each store sets its own price and delivery, so they vary by country. (S)
+17 October 2026: the author reports the Amazon.de paperback is now listed at the normal price. Not seen by the team (Amazon refuses our requests); confirmed only by her screenshot. Until then the Luxembourg caveat stays in the drafts.
 
 ## Addresses (O)
 

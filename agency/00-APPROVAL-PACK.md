@@ -5,7 +5,7 @@ Compiled 16 October 2026. Everything below is a draft. Nothing has been sent, po
 ## Decide these first; many items wait on them
 
 D1. The paperback price. KDP has €28.90; you wrote 28,99 on 15 October. Every price line in the pack reads [PRICE TO CONFIRM: €28.90 or €28.99] until you choose.
-D2. The Amazon.de paperback for a Luxembourg address. On 16 October it was a third party offer at €53.73. Say when Amazon's own offer appears, or whether Luxembourg readers should be sent to Amazon.com. The publication email, the press release and the bookshop letters all carry a caveat that depends on this.
+D2. The Amazon.de paperback for a Luxembourg address. On 16 October it was a third party offer at €53.73. On 17 October you reported it listed at the normal price. Nobody on the team can open Amazon, so one screenshot of the top of the listing (price, seller, delivery) closes this; the Luxembourg caveat then comes out of the publication email, the press release and the bookshop letters.
 D3. KDP distribution. The twelve questions in 03-trade/05-wholesale-and-distribution-questions.md. No bookshop letter should go before they are answered.
 D4. The one author quotation in the press release (01-press/01-press-release.md). Approve it, rewrite it or strike it.
 D5. The languages you will give interviews and talks in. Several radio and venue letters imply French or German.
