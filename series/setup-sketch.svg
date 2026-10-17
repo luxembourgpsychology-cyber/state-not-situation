@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+  <title id="t">Set-up sketch: the room, the frame, the phone</title>
+  <desc id="d">Three panels. A top-down plan of the consulting room with the phone two metres from the host at forty-five degrees to one soft light or the window; the view through the phone with the host in the left third, the vertical Shorts column and the lower source band zone; and a phone screen listing the settings to check before recording.</desc>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&amp;family=Source+Sans+3:wght@400&amp;family=Barlow+Semi+Condensed:wght@700&amp;family=IBM+Plex+Mono&amp;display=swap');
+      .serif { font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif; font-weight: 400; fill: #111111; }
+      .body  { font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif; font-size: 17px; fill: #111111; }
+      .quiet { fill: #6F6A62; }
+      .label { font-family: 'Barlow Semi Condensed', 'Arial Narrow', Arial, sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; fill: #6F6A62; }
+      .mono  { font-family: 'IBM Plex Mono', Menlo, Consolas, 'Courier New', monospace; font-size: 13px; fill: #111111; }
+      .mono-q { font-family: 'IBM Plex Mono', Menlo, Consolas, 'Courier New', monospace; font-size: 12px; fill: #6F6A62; }
+      .mono-big { font-family: 'IBM Plex Mono', Menlo, Consolas, 'Courier New', monospace; font-size: 22px; fill: #111111; }
+      .ink   { fill: none; stroke: #111111; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .dash  { fill: none; stroke: #111111; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 8 7; }
+      .fine  { fill: none; stroke: #111111; stroke-width: 1; stroke-linecap: round; }
+      .rule  { fill: none; stroke: #111111; stroke-width: 1; stroke-opacity: 0.14; }
+      .dim   { fill: none; stroke: #6F6A62; stroke-width: 1; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#F7F3EC"/>
+
+  <!-- header -->
+  <text class="label" x="40" y="58">State. Not Situation. · the series · set-up sheet</text>
+  <text class="serif" x="40" y="108" font-size="44">The room, the frame, the phone.</text>
+  <text class="mono-q" x="1560" y="58" text-anchor="end">17 Oct 2026 · one take, two pictures · 3840 × 2160 · 25 fps</text>
+  <line class="rule" x1="40" y1="132" x2="1560" y2="132"/>
+
+  <!-- ============ PANEL 1: PLAN ============ -->
+  <text class="mono-q" x="40" y="168">01</text>
+  <text class="label" x="72" y="168">Plan · from above</text>
+
+  <!-- room -->
+  <rect class="ink" x="60" y="190" width="450" height="560"/>
+  <!-- window on left wall -->
+  <line class="ink" x1="52" y1="470" x2="52" y2="690"/>
+  <line class="ink" x1="68" y1="470" x2="68" y2="690"/>
+  <line class="fine" x1="52" y1="580" x2="68" y2="580"/>
+  <!-- curtain, a wavy line just inside -->
+  <path class="fine" d="M76 470 q6 8 0 16 q-6 8 0 16 q6 8 0 16 q-6 8 0 16 q6 8 0 16 q-6 8 0 16 q6 8 0 16 q-6 8 0 16 q6 8 0 16 q-6 8 0 16 q6 8 0 16 q-6 8 0 16 q6 8 0 16 q-6 4 0 12"/>
+  <text class="mono-q" x="84" y="458">window</text>
+
+  <!-- desk against top wall -->
+  <rect class="ink" x="300" y="200" width="200" height="70"/>
+  <text class="mono-q" x="312" y="243">desk, to one side or behind</text>
+
+  <!-- bookshelf along right wall -->
+  <rect class="ink" x="480" y="300" width="30" height="200"/>
+  <line class="fine" x1="480" y1="340" x2="510" y2="340"/>
+  <line class="fine" x1="480" y1="380" x2="510" y2="380"/>
+  <line class="fine" x1="480" y1="420" x2="510" y2="420"/>
+  <line class="fine" x1="480" y1="460" x2="510" y2="460"/>
+  <text class="mono-q" x="510" y="290" text-anchor="end">books</text>
+
+  <!-- rug -->
+  <rect class="dash" x="200" y="330" width="200" height="140" rx="4"/>
+  <text class="mono-q" x="206" y="462">rug</text>
+
+  <!-- chair with host, plan view -->
+  <path class="ink" d="M270 350 h60 v40 h-60 z"/>
+  <path class="ink" d="M266 350 a34 34 0 0 1 68 0"/>
+  <circle class="ink" cx="300" cy="400" r="12"/>
+  <text class="mono-q" x="318" y="404">host, eyes to lens</text>
+
+  <!-- eye line, dashed, chair to lens -->
+  <line class="dash" x1="300" y1="412" x2="300" y2="606"/>
+
+  <!-- tripod and phone at 2 m -->
+  <line class="ink" x1="300" y1="626" x2="278" y2="672"/>
+  <line class="ink" x1="300" y1="626" x2="322" y2="672"/>
+  <line class="ink" x1="300" y1="626" x2="300" y2="676"/>
+  <rect class="ink" x="286" y="612" width="28" height="14" rx="2"/>
+  <!-- the lens: the one filled mark -->
+  <circle cx="300" cy="610" r="4" fill="#B5291C"/>
+  <text class="mono-q" x="322" y="650">phone on tripod</text>
+  <text class="mono-q" x="322" y="666">lens at eye height</text>
+
+  <!-- distance dimension -->
+  <line class="dim" x1="420" y1="400" x2="420" y2="610"/>
+  <line class="dim" x1="414" y1="400" x2="426" y2="400"/>
+  <line class="dim" x1="414" y1="610" x2="426" y2="610"/>
+  <text class="mono" x="430" y="510">2.00 m</text>
+
+  <!-- key light at 45 degrees, camera side -->
+  <rect class="ink" x="118" y="548" width="44" height="32" transform="rotate(-45 140 564)"/>
+  <line class="ink" x1="140" y1="586" x2="140" y2="640"/>
+  <line class="ink" x1="122" y1="652" x2="158" y2="652"/>
+  <line class="ink" x1="140" y1="640" x2="122" y2="652"/>
+  <line class="ink" x1="140" y1="640" x2="158" y2="652"/>
+  <!-- 45 degree arc from the camera axis -->
+  <path class="dim" d="M300 480 a80 80 0 0 0 -56 23"/>
+  <text class="mono" x="222" y="505">45°</text>
+  <line class="dim" x1="166" y1="560" x2="292" y2="406" stroke-dasharray="3 5"/>
+  <text class="mono-q" x="96" y="700">key light, soft, a little above the eyes</text>
+  <text class="mono-q" x="96" y="718">or the overcast window, doing the same job</text>
+  <text class="mono-q" x="96" y="736">curtains closed unless the day is overcast</text>
+
+  <!-- scale -->
+  <line class="dim" x1="60" y1="790" x2="169" y2="790"/>
+  <line class="dim" x1="60" y1="784" x2="60" y2="796"/>
+  <line class="dim" x1="169" y1="784" x2="169" y2="796"/>
+  <text class="mono-q" x="178" y="794">1 m</text>
+
+  <text class="body" x="40" y="840">One light or one window, never both. The far side</text>
+  <text class="body" x="40" y="862">of the face is left to fall off. Nothing turned to</text>
+  <text class="body" x="40" y="884">camera: no diploma, no book, no plant.</text>
+
+  <!-- ============ PANEL 2: THE FRAME ============ -->
+  <text class="mono-q" x="560" y="168">02</text>
+  <text class="label" x="592" y="168">Through the phone · 16:9</text>
+
+  <!-- tape marks above the frame -->
+  <line class="ink" x1="585" y1="282" x2="585" y2="296"/>
+  <line class="ink" x1="731" y1="282" x2="731" y2="296"/>
+  <text class="mono-q" x="658" y="276" text-anchor="middle">tape here</text>
+
+  <!-- the 16:9 frame -->
+  <rect class="ink" x="585" y="300" width="460" height="259"/>
+
+  <!-- the 9:16 Shorts column, dashed -->
+  <rect class="dash" x="585" y="300" width="146" height="259"/>
+
+  <!-- eyes a third down -->
+  <line class="dim" x1="585" y1="386" x2="1045" y2="386" stroke-dasharray="3 5"/>
+  <text class="mono-q" x="848" y="380" text-anchor="end">eyes 1/3 down</text>
+
+  <!-- the host, line figure, no face -->
+  <circle class="ink" cx="658" cy="386" r="22"/>
+  <line class="ink" x1="658" y1="408" x2="658" y2="432"/>
+  <path class="ink" d="M604 470 q10 -40 54 -38 q44 -2 54 38"/>
+  <line class="ink" x1="604" y1="470" x2="596" y2="520"/>
+  <line class="ink" x1="712" y1="470" x2="720" y2="520"/>
+  <path class="ink" d="M596 520 q30 -18 62 0"/>
+  <path class="ink" d="M658 520 q30 -18 62 0"/>
+
+  <!-- headroom -->
+  <line class="dim" x1="760" y1="300" x2="760" y2="364"/>
+  <line class="dim" x1="754" y1="364" x2="766" y2="364"/>
+  <text class="mono-q" x="770" y="336">headroom</text>
+
+  <!-- room behind: a bookshelf and a curtain edge as lines only -->
+  <line class="fine" x1="860" y1="330" x2="860" y2="500"/>
+  <line class="fine" x1="980" y1="330" x2="980" y2="500"/>
+  <line class="fine" x1="860" y1="330" x2="980" y2="330"/>
+  <line class="fine" x1="860" y1="380" x2="980" y2="380"/>
+  <line class="fine" x1="860" y1="430" x2="980" y2="430"/>
+  <line class="fine" x1="860" y1="500" x2="980" y2="500"/>
+  <text class="mono-q" x="920" y="519" text-anchor="middle">her room, as it is</text>
+
+  <!-- the lower band zone, composited later -->
+  <line class="rule" x1="585" y1="527" x2="1045" y2="527"/>
+  <path class="fine" d="M585 559 l32 -32 M617 559 l32 -32 M649 559 l32 -32 M681 559 l32 -32 M713 559 l32 -32 M745 559 l32 -32 M777 559 l32 -32 M809 559 l32 -32 M841 559 l32 -32 M873 559 l32 -32 M905 559 l32 -32 M937 559 l32 -32 M969 559 l32 -32 M1001 559 l32 -32 M1033 559 l12 -12" stroke-opacity="0.35"/>
+  <text class="mono-q" x="1045" y="580" text-anchor="end">source band zone · composited in the edit</text>
+
+  <!-- column dimension -->
+  <line class="dim" x1="585" y1="580" x2="731" y2="580"/>
+  <line class="dim" x1="585" y1="574" x2="585" y2="586"/>
+  <line class="dim" x1="731" y1="574" x2="731" y2="586"/>
+  <text class="mono" x="658" y="604" text-anchor="middle">1215 px of 3840</text>
+  <text class="mono-q" x="658" y="622" text-anchor="middle">9:16 · the Short · full height</text>
+
+  <text class="body" x="560" y="680">She sits in the left or right third, never the centre,</text>
+  <text class="body" x="560" y="702">so the taped column takes her whole and the master</text>
+  <text class="body" x="560" y="724">still reads as a room with a person in it.</text>
+  <text class="body" x="560" y="760">Head and hands stay inside the tape. Hands at rest</text>
+  <text class="body" x="560" y="782">sit above the band zone. Nothing with a screen,</text>
+  <text class="body" x="560" y="804">no mirror, no door, not the light itself.</text>
+  <text class="body" x="560" y="840">Clothing plain and mid-tone: no fine pattern,</text>
+  <text class="body" x="560" y="862">no white or cream, no red.</text>
+
+  <!-- ============ PANEL 3: THE PHONE SCREEN ============ -->
+  <text class="mono-q" x="1080" y="168">03</text>
+  <text class="label" x="1112" y="168">Before pressing record</text>
+
+  <!-- phone, landscape -->
+  <rect class="ink" x="1090" y="290" width="470" height="218" rx="22"/>
+  <rect class="fine" x="1104" y="304" width="442" height="190" rx="12"/>
+  <!-- record button, outline only -->
+  <circle class="ink" cx="1512" cy="399" r="20"/>
+  <circle class="fine" cx="1512" cy="399" r="12"/>
+  <!-- heads-up readouts -->
+  <text class="mono-big" x="1120" y="340">4K  3840×2160</text>
+  <text class="mono-big" x="1120" y="372">25 fps</text>
+  <text class="mono-big" x="1120" y="404">1/50</text>
+  <text class="mono-big" x="1120" y="436">4500 K</text>
+  <text class="mono-big" x="1120" y="468">ISO fixed · AE/AF LOCKED</text>
+  <text class="mono-q" x="1452" y="320" text-anchor="end">00:00:00</text>
+
+  <!-- check list -->
+  <rect class="ink" x="1092" y="548" width="14" height="14"/>
+  <text class="mono" x="1118" y="560">3840 × 2160 at 25 fps</text>
+  <rect class="ink" x="1092" y="580" width="14" height="14"/>
+  <text class="mono" x="1118" y="592">shutter 1/50, locked</text>
+  <rect class="ink" x="1092" y="612" width="14" height="14"/>
+  <text class="mono" x="1118" y="624">white balance 4500 K, locked</text>
+  <rect class="ink" x="1092" y="644" width="14" height="14"/>
+  <text class="mono" x="1118" y="656">ISO fixed · focus held on her face</text>
+  <rect class="ink" x="1092" y="676" width="14" height="14"/>
+  <text class="mono" x="1118" y="688">airplane mode on</text>
+  <rect class="ink" x="1092" y="708" width="14" height="14"/>
+  <text class="mono" x="1118" y="720">wired lavalier in, 48 kHz, shown as input</text>
+  <rect class="ink" x="1092" y="740" width="14" height="14"/>
+  <text class="mono" x="1118" y="752">30 s test clip, checked on a laptop</text>
+  <rect class="ink" x="1092" y="772" width="14" height="14"/>
+  <text class="mono" x="1118" y="784">10 s room tone at the end</text>
+
+  <text class="body" x="1080" y="840">Blackmagic Camera, free, fixes every value above.</text>
+  <text class="body" x="1080" y="862">The native camera locks focus and exposure only;</text>
+  <text class="body" x="1080" y="884">it cannot hold shutter or white balance.</text>
+
+  <!-- foot -->
+  <line class="rule" x1="40" y1="930" x2="1560" y2="930"/>
+  <text class="mono-q" x="40" y="958">series/SETUP.md carries the walk-through · PRODUCTION.md fixed the decisions</text>
+  <text class="mono-q" x="1560" y="958" text-anchor="end">the red mark is the lens: the one thing in the room her eyes go to</text>
+</svg>
