@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=1920">
 <title>M4 The two clocks</title>
-<meta name="description" content="Episode 1, section 9, second pass. The figure seated, as the camera sees her. At stressor begins the heart in the chest jumps and a quickening pulse line leaves it; the adrenal at the back stays still, and at about twenty minutes a slow line rises from it, peaking in the window of 21 to 40 minutes (Dickerson and Kemeny, 2004) while the heart line has long since settled.">
+<meta name="description" content="Episode 1, section 9, third pass. The figure seated in profile, facing the clock. At stressor begins the heart in the chest jumps and a quickening pulse line leaves the chest to the right; the two adrenals, capping the kidneys at the back, stay still, and at about twenty minutes a slow line leaves the back, passes under the seat behind her and climbs to join the same timeline, peaking in the window of 21 to 40 minutes (Dickerson and Kemeny, 2004) while the heart line has long since settled.">
 <meta name="motion:duration" content="14000">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&family=Barlow+Semi+Condensed:wght@700&display=swap">
 <style>
@@ -53,13 +53,18 @@
 </style>
 </head>
 <body>
-<svg class="frame" viewBox="0 0 1920 1080" aria-label="A seated figure: the heart answers in seconds, the adrenal gland in tens of minutes">
+<svg class="frame" viewBox="0 0 1920 1080" aria-label="A figure seated in profile: the heart in the chest answers in seconds, the adrenal glands at the back in tens of minutes">
   <defs>
     <filter id="hand" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="2" seed="7" result="n" />
       <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" />
     </filter>
     <clipPath id="wipe"><rect class="wipe" x="560" y="0" width="1264" height="1080" /></clipPath>
+    <!-- The lower leg, as a thing the cortisol line passes behind: the line is hidden where the shin is -->
+    <mask id="behind">
+      <rect x="0" y="0" width="1920" height="1080" fill="#fff" />
+      <path fill="#000" d="M 736 742 L 790 742 L 788 960 L 738 960 Z" />
+    </mask>
   </defs>
 
   <!-- The window in which salivary cortisol peaks: 21 to 40 minutes after the stressor begins -->
@@ -67,42 +72,41 @@
   <text class="mono in" style="--t:12700ms" x="1271" y="322" text-anchor="middle">21 to 40 min</text>
 
   <g filter="url(#hand)">
-    <!-- The figure, seated, front on: head, neck, shoulders, sides, lap, legs, the chair's seat -->
+    <!-- The figure, seated, in profile and facing right, drawn as a hand would:
+         head, neck, back, front, thigh and shin, the back of the shin, the chair -->
     <path class="line draw" pathLength="1" style="--t:300ms; --d:800ms"
-      d="M 562 240 C 596 241, 621 268, 620 302 C 619 336, 592 362, 558 361 C 526 360, 500 334, 501 300 C 502 266, 528 240, 560 240" />
-    <path class="line draw" pathLength="1" style="--t:1150ms; --d:200ms" d="M 540 360 L 538 388 M 580 360 L 582 388" />
+      d="M 580 240 C 614 241, 639 268, 638 302 C 637 336, 610 362, 576 361 C 544 360, 518 334, 519 300 C 520 266, 546 240, 578 240" />
+    <path class="line draw" pathLength="1" style="--t:1150ms; --d:200ms" d="M 548 360 L 544 390 M 602 360 L 608 390" />
     <path class="line draw" pathLength="1" style="--t:1400ms; --d:700ms"
-      d="M 440 452 C 450 402, 500 388, 560 388 C 620 388, 670 402, 680 452" />
-    <path class="line draw" pathLength="1" style="--t:2150ms; --d:450ms" d="M 440 452 C 432 540, 438 630, 446 700" />
-    <path class="line draw" pathLength="1" style="--t:2600ms; --d:450ms" d="M 680 452 C 688 540, 682 630, 674 700" />
-    <path class="line draw" pathLength="1" style="--t:3100ms; --d:450ms"
-      d="M 446 700 C 462 682, 500 682, 518 698 L 602 698 C 620 682, 658 682, 674 700" />
-    <path class="line draw" pathLength="1" style="--t:3600ms; --d:350ms" d="M 484 700 C 486 790, 484 870, 482 950 L 452 956" />
-    <path class="line draw" pathLength="1" style="--t:3950ms; --d:350ms" d="M 636 700 C 638 790, 636 870, 638 950 L 668 956" />
-    <path class="line draw" pathLength="1" style="--t:4300ms; --d:300ms" d="M 464 670 C 474 658, 496 658, 508 670" />
-    <path class="line draw" pathLength="1" style="--t:4650ms; --d:300ms" d="M 612 670 C 624 658, 646 658, 656 670" />
-    <path class="line rule draw" pathLength="1" style="--t:5000ms; --d:500ms" d="M 404 724 L 404 372 L 716 372 L 716 724" />
+      d="M 544 390 C 500 394, 466 420, 468 470 C 458 560, 460 640, 480 732" />
+    <path class="line draw" pathLength="1" style="--t:2150ms; --d:550ms"
+      d="M 608 390 C 646 394, 662 430, 658 476 C 652 546, 642 612, 622 684" />
+    <path class="line draw" pathLength="1" style="--t:2750ms; --d:700ms"
+      d="M 622 684 C 666 678, 724 676, 754 690 C 778 700, 786 720, 782 752 C 780 820, 778 890, 776 950 L 828 956" />
+    <path class="line draw" pathLength="1" style="--t:3500ms; --d:400ms" d="M 742 742 C 740 820, 742 890, 744 950" />
+    <path class="line rule draw" pathLength="1" style="--t:4000ms; --d:500ms" d="M 440 956 L 440 736 L 724 736 L 724 956" />
 
-    <!-- The heart, in the chest, a little to her left -->
+    <!-- The heart, in the chest, behind the breastbone -->
     <path class="line draw heart" pathLength="1" style="--t:5600ms; --d:500ms"
-      d="M 590 532 C 565 512, 556 486, 572 480 C 582 476, 589 486, 590 492 C 591 486, 598 476, 608 480 C 624 486, 615 512, 590 532" />
+      d="M 606 528 C 581 508, 572 482, 588 476 C 598 472, 605 482, 606 488 C 607 482, 614 472, 624 476 C 640 482, 631 508, 606 528" />
 
-    <!-- The two kidneys at the back, at waist height, each capped by its adrenal -->
+    <!-- At the back, at waist height: two kidneys, one a little behind the other, each capped by its adrenal -->
     <path class="line draw" pathLength="1" style="--t:6200ms; --d:400ms"
-      d="M 526 606 C 510 605, 505 622, 507 642 C 509 658, 522 662, 530 655 C 537 648, 537 633, 534 622 C 532 613, 530 607, 526 606" />
+      d="M 533 580 C 517 579, 512 598, 514 618 C 516 634, 529 638, 537 630 C 544 623, 544 606, 541 594 C 539 586, 537 581, 533 580" />
     <path class="line draw" pathLength="1" style="--t:6600ms; --d:400ms"
-      d="M 596 606 C 612 605, 617 622, 615 642 C 613 658, 600 662, 592 655 C 585 648, 585 633, 588 622 C 590 613, 592 607, 596 606" />
-    <path class="line draw" pathLength="1" style="--t:7000ms; --d:200ms" d="M 534 607 C 530 596, 516 594, 509 603" />
-    <path class="line draw" pathLength="1" style="--t:7200ms; --d:200ms" d="M 588 607 C 592 596, 606 594, 613 603" />
+      d="M 498 594 C 482 593, 477 613, 479 634 C 481 650, 494 654, 502 646 C 509 639, 509 622, 506 609 C 504 600, 502 595, 498 594" />
+    <path class="line draw" pathLength="1" style="--t:7000ms; --d:200ms" d="M 541 582 C 537 570, 523 568, 516 578" />
+    <path class="line draw" pathLength="1" style="--t:7200ms; --d:200ms" d="M 506 596 C 502 584, 488 582, 481 592" />
 
-    <!-- The pulse line, from the heart, revealed at the clock's rate -->
+    <!-- The pulse line, from the heart out through the chest, revealed at the clock's rate -->
     <path id="pulse" class="line" clip-path="url(#wipe)" d="" />
-    <!-- The cortisol line, from the gland, drawn from twenty minutes on -->
-    <path id="cortisol" class="line draw" pathLength="1" style="--t:10590ms; --d:3333ms" d="" />
+    <!-- The cortisol line, from the gland at the back, drawn from twenty minutes on: it leaves
+         backwards, passes under the seat behind her, and climbs to the same timeline -->
+    <path id="cortisol" class="line draw" mask="url(#behind)" pathLength="1" style="--t:10590ms; --d:3333ms" d="" />
   </g>
 
-  <path class="line leader draw" pathLength="1" style="--t:7400ms; --d:300ms" d="M 612 652 L 700 690" />
-  <text class="mono in" style="--t:7600ms" x="712" y="702">adrenal</text>
+  <path class="line leader draw" pathLength="1" style="--t:7400ms; --d:300ms" d="M 486 588 L 404 560" />
+  <text class="mono in" style="--t:7600ms" x="392" y="572" text-anchor="end">adrenal</text>
 
   <text class="serif in" style="--t:8100ms" x="700" y="250">stressor begins</text>
 </svg>
@@ -128,7 +132,7 @@
   // settles"; it is not a heart rate. The cortisol line's height and its fall are a drawing.
   const x0 = 700, x60 = 1824, px = (x60 - x0) / 60;
   const yh = 440;
-  let d = `M 608 492 L ${x0} ${yh}`;
+  let d = `M 626 488 L ${x0} ${yh}`;
   let phase = 0;
   for (let x = x0; x <= x60; x += 2) {
     const s = x - x0;
@@ -138,10 +142,13 @@
     d += ` L ${x} ${(yh - amp * Math.sin(phase)).toFixed(1)}`;
   }
   document.getElementById('pulse').setAttribute('d', d);
-  // From the right adrenal: slow, up to a peak at about thirty minutes, down again.
+  // From the adrenal nearest the back: out through the back, down and under the seat,
+  // behind the shin, then slowly up to a peak at about thirty minutes, and down again.
   const xp = x0 + px * 30.5;
   document.getElementById('cortisol').setAttribute('d',
-    `M 602 598 C 760 597, 1000 592, ${(xp - 150).toFixed(0)} 540 S ${(xp + 90).toFixed(0)} 500, ${(xp + 230).toFixed(0)} 516 C ${(xp + 370).toFixed(0)} 532, 1700 560, ${x60} 570`);
+    `M 484 588 C 442 582, 408 628, 410 688 C 412 748, 470 770, 560 770 C 660 770, 730 770, 830 760 ` +
+    `C 990 744, 1060 640, ${(xp - 150).toFixed(0)} 540 S ${(xp + 90).toFixed(0)} 500, ${(xp + 230).toFixed(0)} 516 ` +
+    `C ${(xp + 370).toFixed(0)} 532, 1700 560, ${x60} 570`);
 </script>
 </body>
 </html>

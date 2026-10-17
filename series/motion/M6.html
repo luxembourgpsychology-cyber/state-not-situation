@@ -4,52 +4,89 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=1920">
 <title>M6 Hair and saliva</title>
-<meta name="description" content="Episode 1, section 14. A hair strand with months marked along it, and a drop of saliva: hair cortisol integrates months, a saliva sample is minutes (Stalder et al., 2017).">
-<meta name="motion:duration" content="8000">
+<meta name="description" content="Episode 1, section 14, second pass. The figure's head in profile, large. One long hair is drawn from the crown with three marks along it, 1, 2, 3, and the word months at its end; then from the mouth a drop, in red, with the word minutes. The drop is what a kit measures; the hair integrates months (Stalder et al., 2017).">
+<meta name="motion:duration" content="10500">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono&family=Barlow+Semi+Condensed:wght@700&display=swap">
 <style>
   :root {
     --cream: #F7F3EC; --ink: #111111; --quiet: #6F6A62; --red: #B5291C; --rule: rgba(17,17,17,.14);
     --serif: "Instrument Serif", "Liberation Serif", "Times New Roman", serif;
     --mono: "IBM Plex Mono", "DejaVu Sans Mono", "Liberation Mono", monospace;
+    --hand: cubic-bezier(.45,.05,.55,.95);
   }
   html, body { margin: 0; background: var(--cream); }
   body { width: 1920px; height: 1080px; overflow: hidden; position: relative; }
   svg.frame { display: block; width: 1920px; height: 1080px; }
   .line { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  /* The head is M1's head at five times its size; the stroke is held at 3px on the frame. */
+  .head .line { stroke-width: 0.6; }
   .red { stroke: var(--red); }
   .mono { font-family: var(--mono); font-size: 36px; letter-spacing: .08em; text-transform: uppercase; fill: var(--quiet); }
   .serif { font-family: var(--serif); font-weight: 400; font-size: 77px; fill: var(--ink); }
-  .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw var(--d) linear var(--t) both; }
+  .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw var(--d) var(--hand) var(--t) both; }
   @keyframes draw { to { stroke-dashoffset: 0; } }
   .in { opacity: 0; animation: enter 400ms ease-out var(--t) both; }
   @keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 </style>
 </head>
 <body>
-<svg class="frame" viewBox="0 0 1920 1080" aria-label="A hair strand marked in months beside a drop of saliva">
-  <!-- The strand -->
-  <path class="line draw" pathLength="1" style="--t:300ms; --d:1600ms"
-    d="M 200 560 C 450 500, 650 600, 900 540 C 1050 500, 1150 540, 1250 530" />
-  <!-- Months marked along it -->
-  <g class="in" style="--t:2100ms">
-    <path class="line" d="M 462 522 L 458 568" />
-    <text class="mono" x="460" y="480" text-anchor="middle">1</text>
-  </g>
-  <g class="in" style="--t:2400ms">
-    <path class="line" d="M 724 548 L 727 594" />
-    <text class="mono" x="725" y="500" text-anchor="middle">2</text>
-  </g>
-  <g class="in" style="--t:2700ms">
-    <path class="line" d="M 988 500 L 992 546" />
-    <text class="mono" x="990" y="460" text-anchor="middle">3</text>
-  </g>
-  <text class="serif in" style="--t:3200ms" x="725" y="800" text-anchor="middle">months</text>
+<svg class="frame" viewBox="0 0 1920 1080" aria-label="A head in profile: one hair from the crown marked in months, one drop from the mouth marked in minutes">
+  <defs>
+    <filter id="hand" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="2" seed="7" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
 
-  <!-- The drop, in red: it is what the kit measures -->
-  <path class="line red draw" pathLength="1" style="--t:4200ms; --d:1200ms"
-    d="M 1560 400 C 1540 440, 1460 540, 1460 600 C 1460 660, 1505 700, 1560 700 C 1615 700, 1660 660, 1660 600 C 1660 540, 1580 440, 1560 400" />
-  <text class="serif in" style="--t:5600ms" x="1560" y="800" text-anchor="middle">minutes</text>
+  <g filter="url(#hand)">
+    <!-- The head: M1's, facing left, five times the size, centred at (760, 520); the neck and the shoulder line run off the frame -->
+    <g class="head" transform="translate(760 520) scale(5) translate(-471 -185)">
+      <!-- M1's head; its last point is brought up to its first, because at five times the size the 2px seam M1 leaves would read as a break -->
+      <path class="line draw" pathLength="1" style="--t:300ms; --d:1000ms"
+        d="M 472 125 C 506 126, 532 156, 531 188 C 530 222, 500 246, 468 245 C 436 244, 410 218, 411 186 C 412 154, 438 126, 472.4 125.3" />
+      <path class="line draw" pathLength="1" style="--t:1400ms; --d:300ms" d="M 508 238 L 520 274 M 446 238 L 441 272" />
+      <path class="line draw" pathLength="1" style="--t:1800ms; --d:500ms" d="M 520 274 C 540 275, 562 282, 580 300" />
+      <path class="line draw" pathLength="1" style="--t:2300ms; --d:500ms" d="M 441 272 C 428 282, 410 296, 396 310" />
+    </g>
+
+    <!-- One hair, long, from the crown -->
+    <path id="hair" class="line draw" pathLength="1" style="--t:3200ms; --d:1800ms"
+      d="M 812 225 C 850 120, 1000 90, 1150 130 C 1350 180, 1500 300, 1620 470 C 1670 540, 1700 620, 1710 690" />
+
+    <!-- The drop, in red, from the mouth: it is what the kit measures -->
+    <path class="line red draw" pathLength="1" style="--t:7800ms; --d:900ms"
+      d="M 476 636 C 466 676, 424 716, 424 748 C 424 780, 447 802, 478 802 C 509 802, 532 780, 532 748 C 532 716, 490 676, 480 636" />
+  </g>
+
+  <!-- Months along the hair, in the mono: three marks, placed by the script below -->
+  <g id="marks"></g>
+  <text class="serif in" style="--t:6700ms" x="1710" y="800" text-anchor="end">months</text>
+  <text class="serif in" style="--t:9000ms" x="478" y="900" text-anchor="middle">minutes</text>
 </svg>
+<script>
+  // Stalder et al. (2017): hair cortisol integrates months. The three marks along the hair are a
+  // drawing device: they say "months", not centimetres per month, and claim nothing about how
+  // much hair holds a month. Each mark is a short tick across the hair, set on the hair itself.
+  const hair = document.getElementById('hair'), marks = document.getElementById('marks');
+  const ns = 'http://www.w3.org/2000/svg', L = hair.getTotalLength();
+  [[0.30, 5300], [0.55, 5700], [0.80, 6100]].forEach(([f, t], i) => {
+    const p = hair.getPointAtLength(f * L), q = hair.getPointAtLength(f * L + 1);
+    const nx = -(q.y - p.y), ny = q.x - p.x, n = Math.hypot(nx, ny);
+    const ux = nx / n, uy = ny / n;                     // the normal to the hair
+    const g = document.createElementNS(ns, 'g');
+    g.setAttribute('class', 'in'); g.style.setProperty('--t', t + 'ms');
+    const tick = document.createElementNS(ns, 'path');
+    tick.setAttribute('class', 'line');
+    tick.setAttribute('d', `M ${(p.x - 22 * ux).toFixed(1)} ${(p.y - 22 * uy).toFixed(1)} L ${(p.x + 22 * ux).toFixed(1)} ${(p.y + 22 * uy).toFixed(1)}`);
+    const text = document.createElementNS(ns, 'text');
+    text.setAttribute('class', 'mono'); text.setAttribute('text-anchor', 'middle');
+    // The number sits on the upper side of the hair, 60px off it along the normal.
+    const side = uy < 0 ? 1 : -1;
+    text.setAttribute('x', (p.x + 60 * ux * side).toFixed(1));
+    text.setAttribute('y', (p.y + 60 * uy * side + 12).toFixed(1));
+    text.textContent = String(i + 1);
+    g.append(tick, text); marks.append(g);
+  });
+</script>
 </body>
 </html>
