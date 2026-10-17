@@ -42,7 +42,7 @@ The author describes the book as being "for anyone who has ever been certain abo
 
 The foreword is by Dr Kristina Herber, Managing Director, AIHE Academic Institute for Higher Education, who writes: "Our first interpretation is not necessarily wrong. But it does not have to be our last."
 
-State. Not Situation. is available in paperback from Amazon.de (https://www.amazon.de/dp/2879962587) and Amazon.com (https://www.amazon.com/dp/2879962587), and on Kindle from Amazon.de (https://www.amazon.de/dp/B0HLZLHTJT). Paperback [PRICE TO CONFIRM: €28.90 or €28.99] before VAT and delivery; each store sets its own price and delivery. The opening pages can be read at https://statenotsituation.com/en/read.
+State. Not Situation. is available in paperback from Amazon.de (https://www.amazon.de/dp/2879962587) and Amazon.com (https://www.amazon.com/dp/2879962587), and on Kindle from Amazon.de (https://www.amazon.de/dp/B0HLZLHTJT). Paperback €28.90 before VAT and delivery; each store sets its own price and delivery. The opening pages can be read at https://statenotsituation.com/en/read.
 
 ENDS
 

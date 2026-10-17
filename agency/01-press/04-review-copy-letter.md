@@ -35,7 +35,7 @@ https://statenotsituation.com
 
 Publication details, on the reverse or a second sheet
 
-State. Not Situation. Why your body decides what a moment means before you do. Ivana Budišin. Foreword by Dr Kristina Herber, Managing Director, AIHE Academic Institute for Higher Education. Budisin Publishing, Luxembourg, © 2026. Published 15 October 2026. Paperback, 6 × 9 in, 304 pages. ISBN-13 978-2-87996-258-0. Kindle edition, Amazon ASIN B0HLZLHTJT. Psychology / Cognitive psychology. English; French and German editions to follow. Legal deposit: Bibliothèque nationale du Luxembourg. Cover design and photography: Zoe Larusson. Book design and typesetting: Ivana Budišin. Paperback [PRICE TO CONFIRM: €28.90 or €28.99] before VAT and delivery; each store sets its own price. Paperback at https://www.amazon.de/dp/2879962587 and https://www.amazon.com/dp/2879962587. Kindle at https://www.amazon.de/dp/B0HLZLHTJT.
+State. Not Situation. Why your body decides what a moment means before you do. Ivana Budišin. Foreword by Dr Kristina Herber, Managing Director, AIHE Academic Institute for Higher Education. Budisin Publishing, Luxembourg, © 2026. Published 15 October 2026. Paperback, 6 × 9 in, 304 pages. ISBN-13 978-2-87996-258-0. Kindle edition, Amazon ASIN B0HLZLHTJT. Psychology / Cognitive psychology. English; French and German editions to follow. Legal deposit: Bibliothèque nationale du Luxembourg. Cover design and photography: Zoe Larusson. Book design and typesetting: Ivana Budišin. Paperback €28.90 before VAT and delivery; each store sets its own price. Paperback at https://www.amazon.de/dp/2879962587 and https://www.amazon.com/dp/2879962587. Kindle at https://www.amazon.de/dp/B0HLZLHTJT.
 
 ## 04.2 Cover letter, digital copy
 

@@ -123,4 +123,4 @@ Recommendation, for Ivana to decide:
 4. The €53.73 offer is the strongest argument for a Luxembourg bookshop; it is why the four letters in 01 exist.
 5. [TO CONFIRM WITH IVANA: whether Amazon.de's own paperback offer appears for a Luxembourg address once the KDP paperback has been live for a week; new KDP paperbacks often take days to show in every marketplace. If it still does not after 23 October, raise a case with KDP support.]
 
-Notes for Ivana: the price line "[PRICE TO CONFIRM: €28.90 or €28.99]" must be settled before any price is printed anywhere; none of the text above states a price for that reason. Strongest reason this item might not be worth doing now: if the KDP listing is still propagating across marketplaces, changes to the description can be delayed while Amazon reprocesses the title.
+Notes for Ivana: the price line "€28.90" must be settled before any price is printed anywhere; none of the text above states a price for that reason. Strongest reason this item might not be worth doing now: if the KDP listing is still propagating across marketplaces, changes to the description can be delayed while Amazon reprocesses the title.

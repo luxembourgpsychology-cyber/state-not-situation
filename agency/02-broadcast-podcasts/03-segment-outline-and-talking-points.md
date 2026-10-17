@@ -30,7 +30,7 @@ What it is not: a treatment, a mental health guide, or a diagnosis. The book's r
 
 Shorter version, 8 minutes: drop the opening story and the "Where it came from" beat to two minutes.
 
-Practical: Guest can appear in studio in Luxembourg or remotely by video or phone. Print copies of the book available for the presenter in advance. Cover, author photograph and extract are in the press kit. Prices vary by store and country; please do not quote a price on air. [PRICE TO CONFIRM: €28.90 or €28.99]
+Practical: Guest can appear in studio in Luxembourg or remotely by video or phone. Print copies of the book available for the presenter in advance. Cover, author photograph and extract are in the press kit. Prices vary by store and country; please do not quote a price on air. €28.90
 
 Please avoid introducing the guest as Dr, PhD or professor. She is a clinical psychologist.
 
@@ -166,7 +166,7 @@ No app release date. If asked about the companion app: "A release date and acces
 No credential beyond "clinical psychologist". Not Dr, not PhD, not professor, not business owner, not founder. Correct the presenter gently if introduced that way.
 No "science-backed", "proven", "evidence-based method", "transform your life", "tool for anxiety", "mental health guide". The book is a psychology trade book, not a treatment.
 No French or German edition yet. No audiobook. The site says "French and German editions to follow", nothing more.
-No price on air until one figure is confirmed. [PRICE TO CONFIRM: €28.90 or €28.99]
+No price on air until one figure is confirmed. €28.90
 No sentence from the foreword other than the two already on the site.
 
 ---

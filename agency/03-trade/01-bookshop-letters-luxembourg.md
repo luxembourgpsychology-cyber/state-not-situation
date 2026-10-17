@@ -35,9 +35,9 @@ I am a clinical psychologist living and working in Luxembourg. My first book, St
 
 The back cover puts it in one line: "You may not be reacting to the world. You may be reacting to your state."
 
-I would like the book to be on a Luxembourg shelf. At present a Luxembourg address on Amazon.de sees only a third party offer at over fifty euros, so a shop in the city is where a reader here should find it.
+I would like the book to be on a Luxembourg shelf, where a reader here can pick it up and read a page before deciding.
 
-[TO CONFIRM WITH IVANA: is Expanded Distribution on, and what wholesale terms can we offer; otherwise offer consignment copies supplied by the author.] If ordering through your wholesaler is not possible, I can supply copies on consignment, signed if you wish.
+The paperback is distributed through KDP Expanded Distribution, so it can be ordered through your usual wholesaler under its standard terms [TERMS TO CONFIRM in the KDP dashboard: discount and returnability]. If ordering through your wholesaler is not possible, I can supply copies on consignment, signed if you wish.
 
 I also offer a reading and conversation of about 75 minutes, built around scenes from the book and audience discussion. Format, date and fee are agreed beforehand.
 
@@ -73,7 +73,7 @@ The book is about ordinary moments. A short message feels cold. A meeting feels 
 
 Right now a reader with a Luxembourg address finds the paperback hard to buy online at a fair price. I would rather they found it here.
 
-[TO CONFIRM WITH IVANA: is Expanded Distribution on, and what wholesale terms can we offer; otherwise offer consignment copies supplied by the author.] If your wholesaler does not list it, I can supply copies on consignment, signed if useful.
+The paperback is distributed through KDP Expanded Distribution, so it can be ordered through your usual wholesaler under its standard terms [TERMS TO CONFIRM in the KDP dashboard: discount and returnability]. If your wholesaler does not list it, I can supply copies on consignment, signed if useful.
 
 I offer a reading and conversation of about 75 minutes, or a talk of 20 or 40 minutes. Format, date and fee are agreed beforehand.
 
@@ -109,7 +109,7 @@ The book starts from the moments we misread. "We often mistake a state for a fac
 
 A Luxembourg address currently sees the paperback on Amazon.de only through a third party at over fifty euros. A shop in rue Beaumont would be a better first home for it.
 
-[TO CONFIRM WITH IVANA: is Expanded Distribution on, and what wholesale terms can we offer; otherwise offer consignment copies supplied by the author.] If your usual channels cannot supply it, I will bring copies on consignment, signed if you wish.
+The paperback is distributed through KDP Expanded Distribution, so it can be ordered through your usual wholesaler under its standard terms [TERMS TO CONFIRM in the KDP dashboard: discount and returnability]. If your usual channels cannot supply it, I will bring copies on consignment, signed if you wish.
 
 I would be glad to offer a reading and conversation for one of your Thursday evenings, around 75 minutes with discussion. Format, date and fee are agreed beforehand.
 
@@ -145,9 +145,9 @@ I am a clinical psychologist living and working in Luxembourg. My first book, St
 
 Page 238 asks: "Is this the situation? Or is this their state?" It examines the gap between what happened and what it felt like it meant.
 
-Readers in the south of the country cannot easily buy it at present. On Amazon.de a Luxembourg address sees only a third party offer at over fifty euros. A copy on your shelf solves that.
+I would like readers in the south of the country to find it on a shelf near them.
 
-[TO CONFIRM WITH IVANA: is Expanded Distribution on, and what wholesale terms can we offer; otherwise offer consignment copies supplied by the author.] If your wholesaler cannot supply it, I can bring copies on consignment, signed if you wish.
+The paperback is distributed through KDP Expanded Distribution, so it can be ordered through your usual wholesaler under its standard terms [TERMS TO CONFIRM in the KDP dashboard: discount and returnability]. If your wholesaler cannot supply it, I can bring copies on consignment, signed if you wish.
 
 I offer a reading and conversation of about 75 minutes, or a talk of 20 or 40 minutes. Format, date and fee are agreed beforehand.
 

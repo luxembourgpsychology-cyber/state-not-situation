@@ -24,5 +24,5 @@ Open points for Ivana, gathered from the files:
 2. The press kit post images are named but not described in the fact sheet. Please check each pairing before approving.
 3. Page 292 prints Demand withdraw joined by an en dash; the drafts use a hyphen under the agency's no dash rule. Your decision.
 4. The back cover's four lines are carried in LinkedIn post 1 rather than as a separate post, so that the set stays at twelve.
-5. No price appears in any post. If you want one, it must be the confirmed figure: [PRICE TO CONFIRM: €28.90 or €28.99].
+5. No price appears in any post. If you want one, it must be the confirmed figure: €28.90.
 6. Dr Herber's two sentences are the only lines of the foreword used; consider telling her the date of post 12.

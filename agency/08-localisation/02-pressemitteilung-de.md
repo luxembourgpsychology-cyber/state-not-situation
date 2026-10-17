@@ -44,7 +44,7 @@ Die Autorin beschreibt das Buch als eines „für alle, die sich schon einmal si
 
 Das Vorwort stammt von Dr Kristina Herber, Managing Director, AIHE Academic Institute for Higher Education. Sie schreibt: „Unsere erste Deutung ist nicht zwangsläufig falsch. Aber sie muss nicht unsere letzte sein.“
 
-State. Not Situation. ist als Taschenbuch bei Amazon.de (https://www.amazon.de/dp/2879962587) und Amazon.com (https://www.amazon.com/dp/2879962587) erhältlich, als Kindle-Ausgabe bei Amazon.de (https://www.amazon.de/dp/B0HLZLHTJT). Taschenbuch [PRICE TO CONFIRM: €28.90 or €28.99] ohne MwSt. und Lieferung; Preis und Lieferung legt jeder Shop selbst fest. Die ersten Seiten sind unter https://statenotsituation.com/en/read zu lesen.
+State. Not Situation. ist als Taschenbuch bei Amazon.de (https://www.amazon.de/dp/2879962587) und Amazon.com (https://www.amazon.com/dp/2879962587) erhältlich, als Kindle-Ausgabe bei Amazon.de (https://www.amazon.de/dp/B0HLZLHTJT). Taschenbuch €28.90 ohne MwSt. und Lieferung; Preis und Lieferung legt jeder Shop selbst fest. Die ersten Seiten sind unter https://statenotsituation.com/en/read zu lesen.
 
 ENDE
 

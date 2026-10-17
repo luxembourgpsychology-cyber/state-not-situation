@@ -26,9 +26,11 @@ Paperback, Amazon.de: https://www.amazon.de/dp/2879962587 (Amazon's own offer �
 Paperback, Amazon.com: https://www.amazon.com/dp/2879962587 (sold by Amazon.com, in stock)
 Amazon.co.uk: third party only, cannot deliver to Luxembourg. Not linked.
 Amazon.fr: "currently unavailable" on 15 Oct. Not linked.
-Paperback list price as submitted to KDP: €28.90 before VAT and delivery. The author wrote "28,99" on 15 Oct. ONE FIGURE MUST BE CONFIRMED BY HER before any price is sent out. Until then write "[PRICE TO CONFIRM: €28.90 or €28.99]".
+Paperback list price: €28.90 before VAT and delivery (KDP). Confirmed 17 October 2026 by the author's own Amazon.de screenshot: a Luxembourg address (Esch-sur-Alzette) is shown €29.77, which is €28.90 plus Luxembourg's 3% VAT on books. The "28,99" of 15 October is superseded.
 Each store sets its own price and delivery, so they vary by country. (S)
-17 October 2026: the author reports the Amazon.de paperback is now listed at the normal price. Not seen by the team (Amazon refuses our requests); confirmed only by her screenshot. Until then the Luxembourg caveat stays in the drafts.
+17 October 2026, from the author's screenshot of https://www.amazon.de/dp/2879962587 for a Luxembourg delivery address: paperback €29.77 with Amazon's instalment offer, so Amazon's own offer; the listing shows the v50 cover; the author line reads "Ivana Budišin and 1 more" [TO CONFIRM: that the second contributor is Dr Kristina Herber, foreword, and not an error]; the rating line shows 5.0 from 6 ratings. The Luxembourg delivery caveat is withdrawn from every draft. Ratings are a fact of the listing, not a review; they are not quoted in any outgoing material.
+
+Decisions recorded 17 October 2026 (author, by email and in the app): D3 KDP Expanded Distribution is on. D5 interviews and talks in English only. D6 fees case by case. D7 the book posts from Instagram @ivanalaruss and her LinkedIn profile; the Metricool account is the free plan and holds only the practice's accounts, so posting is manual. D8 the publication email carries no opt in line. D9 she wants one new, simpler social plan to replace the forty-brief campaign calendar.
 
 ## Addresses (O)
 

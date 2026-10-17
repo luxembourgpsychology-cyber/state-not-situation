@@ -30,7 +30,7 @@ Approval status: awaiting Ivana
 
 10. Links. Paste every link from item 01 exactly as written. Do not shorten them and do not let MailerLite replace them with a tracked redirect if that option can be turned off; if it cannot, accept it. Open each link from the test send.
 
-11. Price. Replace "[PRICE TO CONFIRM: €28.90 or €28.99]" with the one figure Ivana confirms. Do not send with the bracket in place.
+11. Price. Replace "€28.90" with the one figure Ivana confirms. Do not send with the bracket in place.
 
 12. Luxembourg delivery sentence. Confirm or delete the bracketed sentence about Amazon.com delivering to Luxembourg, as item 01 explains.
 

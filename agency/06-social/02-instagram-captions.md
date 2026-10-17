@@ -162,4 +162,4 @@ The last line of the back cover of State. Not Situation. Paperback and Kindle.
 
 statenotsituation.com
 
-Notes for Ivana: closes the six week window. No price appears anywhere in the set; if you want one on a Story, it must be the confirmed figure, [PRICE TO CONFIRM: €28.90 or €28.99], and it varies by store.
+Notes for Ivana: closes the six week window. No price appears anywhere in the set; if you want one on a Story, it must be the confirmed figure, €28.90, and it varies by store.

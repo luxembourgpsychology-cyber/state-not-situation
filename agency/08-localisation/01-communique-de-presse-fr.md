@@ -44,7 +44,7 @@ L’autrice décrit le livre comme écrit « pour quiconque a déjà été cer
 
 La préface est signée Dr Kristina Herber, Managing Director, AIHE Academic Institute for Higher Education, qui écrit : « Notre première interprétation n’est pas nécessairement fausse. Mais elle n’a pas à être la dernière. »
 
-State. Not Situation. est disponible en version brochée sur Amazon.de (https://www.amazon.de/dp/2879962587) et Amazon.com (https://www.amazon.com/dp/2879962587), et en édition Kindle sur Amazon.de (https://www.amazon.de/dp/B0HLZLHTJT). Broché [PRICE TO CONFIRM: €28.90 or €28.99] hors TVA et livraison ; chaque boutique fixe son prix et sa livraison. Les premières pages se lisent à l’adresse https://statenotsituation.com/en/read.
+State. Not Situation. est disponible en version brochée sur Amazon.de (https://www.amazon.de/dp/2879962587) et Amazon.com (https://www.amazon.com/dp/2879962587), et en édition Kindle sur Amazon.de (https://www.amazon.de/dp/B0HLZLHTJT). Broché €28.90 hors TVA et livraison ; chaque boutique fixe son prix et sa livraison. Les premières pages se lisent à l’adresse https://statenotsituation.com/en/read.
 
 FIN
 

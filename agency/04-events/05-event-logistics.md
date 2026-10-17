@@ -20,7 +20,7 @@ Offer 2 on /en/invite: "Why the same situation can feel so different", series Sa
 |---|---|---|---|---|
 | T minus 60 | | Arrive. Check room, chairs, lectern or table, water, light on the reader. | Ivana, host | One copy of the book on the table, cover facing the room. |
 | T minus 45 | | Sound check if a microphone is used. Test any recording. | Host technician | Recording only if agreed in advance (see B). |
-| T minus 30 | | Book table set up, if sales were agreed. Float and card reader checked. | Host or bookseller | Price per the agreed arrangement; see fact sheet [PRICE TO CONFIRM]. |
+| T minus 30 | | Book table set up, if sales were agreed. Float and card reader checked. | Host or bookseller | Price per the agreed arrangement; see fact sheet €28.90. |
 | T minus 15 | | Doors open. | Host | |
 | 00:00 | 3 | Host welcomes the room and introduces the author with the short biography: "Ivana Budišin is a clinical psychologist living and working in Luxembourg. State. Not Situation. is her first book." | Host | No other credential. Not "Dr". |
 | 00:03 | 7 | Ivana opens: why the book exists, in her own words, and one line from the cover: "Your body speaks first, your mind explains second." | Ivana | |

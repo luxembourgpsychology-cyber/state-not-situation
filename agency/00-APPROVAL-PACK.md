@@ -4,17 +4,19 @@ Compiled 16 October 2026. Everything below is a draft. Nothing has been sent, po
 
 ## Decide these first; many items wait on them
 
-D1. The paperback price. KDP has €28.90; you wrote 28,99 on 15 October. Every price line in the pack reads [PRICE TO CONFIRM: €28.90 or €28.99] until you choose.
-D2. The Amazon.de paperback for a Luxembourg address. On 16 October it was a third party offer at €53.73. On 17 October you reported it listed at the normal price. Nobody on the team can open Amazon, so one screenshot of the top of the listing (price, seller, delivery) closes this; the Luxembourg caveat then comes out of the publication email, the press release and the bookshop letters.
-D3. KDP distribution. The twelve questions in 03-trade/05-wholesale-and-distribution-questions.md. No bookshop letter should go before they are answered.
-D4. The one author quotation in the press release (01-press/01-press-release.md). Approve it, rewrite it or strike it.
-D5. The languages you will give interviews and talks in. Several radio and venue letters imply French or German.
-D6. Whether a fee applies to universities, clubs and parent groups, or is waived case by case. The letters leave the figure to you.
-D7. Your LinkedIn profile address, and whether an Instagram account exists or should.
-D8. Whether the optional reply line "If you would like to hear about talks and readings, reply with one word: yes." goes into the publication email. It cannot be added afterwards.
+D1. The paperback price. Settled 17 October: €28.90, confirmed by the Amazon.de screenshot (€29.77 shown to a Luxembourg address, which is €28.90 plus 3% VAT). Applied to every draft.
+D2. Settled 17 October by screenshot: Amazon's own offer for a Luxembourg address. Caveat withdrawn from every draft. Still to check: the second name in "Ivana Budišin and 1 more" on the listing.
+D3. Settled 17 October: Expanded Distribution is on. Bookshop letters now say the book can be ordered through the wholesaler; the discount and returnability are still [TERMS TO CONFIRM] in the KDP dashboard.
+D4. Open. She asked for a better, plainer hook. Three options are in 01-press/06-author-quote-options.md and in her email of 17 October; she picks or rewrites one.
+D5. Settled: English only. Letters that implied French or German are to be adjusted before sending (events 1.5, 1.7, 3.1, 3.3; radio 100,7 and RTL Télé pitches).
+D6. Settled: case by case. The letters' line "The format, date and fee are agreed before you book" stands.
+D7. Settled: Instagram @ivanalaruss and her LinkedIn profile. Metricool is the free plan with the practice's accounts only, so no scheduler; she posts by hand from the plan.
+D8. Settled: no opt in line. The publication email goes as the one promised message.
 D9. Every contact address. Nobody on the team could open an outlet's website today; each address was read from a search result on the organisation's own domain and is marked for you to open once before sending.
 
 D10. One standard for description. The fact checker's 91 notes are mostly the same judgement: the desks wrote short connective sentences describing the book ("a book about the stories we build around everyday moments") where the strict rule asks for a printed line. Decide once whether faithful connective paraphrase is acceptable in letters and pitches, or whether every description of the book must be a quotation. The pack as corrected keeps the paraphrase; say the word and it is replaced.
+
+D11. The social plan. She is no longer following the forty-brief campaign calendar and asked for a new plan. The Campaign Planner is drafting one unified plan (agency/10-plan) with three slots a week; the old calendar's events are deleted only after she approves it.
 
 ## Week 1, 16 to 23 October
 

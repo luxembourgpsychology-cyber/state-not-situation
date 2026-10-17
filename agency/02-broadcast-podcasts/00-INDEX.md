@@ -26,6 +26,6 @@ Verification note: on 16 October 2026 the working environment could not load any
 Open points for Ivana, across the folder:
 
 [TO CONFIRM: the languages in which you will be interviewed on air, for 100,7 and RTL Télé.]
-[PRICE TO CONFIRM: €28.90 or €28.99] before any price is given on air or in print.
+€28.90 before any price is given on air or in print.
 Addresses for RTL Today Radio, RTL Télé and Delano must be found by hand; their sites blocked our tools.
 Item 2.2 leaves out any claim to have listened to the show; add one sentence if true.

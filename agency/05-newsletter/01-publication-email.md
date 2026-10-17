@@ -28,9 +28,7 @@ Paperback, Amazon.com: https://www.amazon.com/dp/2879962587
 Paperback, Amazon.de: https://www.amazon.de/dp/2879962587
 Kindle, Amazon.de: https://www.amazon.de/dp/B0HLZLHTJT
 
-Paperback list price [PRICE TO CONFIRM: €28.90 or €28.99], before VAT and delivery. Each store sets its own price and delivery, so they vary by country.
-
-A note if you are in Luxembourg. On 16 October, Amazon.de showed its own paperback offer only for a German delivery address. A Luxembourg address saw a third party offer at a higher price. Please check the delivery options before you order. [TO CONFIRM: whether Amazon.com delivers the paperback to a Luxembourg address]
+Paperback list price €28.90, before VAT and delivery. Each store sets its own price and delivery, so they vary by country.
 
 If you would like to read the opening first, it is here: https://statenotsituation.com/en/read
 
