@@ -2,6 +2,10 @@
 
 Compiled 16 October 2026. Everything below is a draft. Nothing has been sent, posted, scheduled or changed on the site. Each item lives in the file named, with its own header, full text and notes. Reply with the item number and one word: send, change, hold or drop. Where you write change, say what.
 
+## The box, 19 October 2026
+
+Approval now runs through Notion: My day · HQ, the view "📬 Book · for your approval". How it works is in agency/12-chief-of-staff/00-THE-BOX.md; the first eight cards are in 01-first-set.md. The tables below are the material the desks drafted on 16 and 17 October; none of it is sent, and any item comes back only if Ivana names it.
+
 ## Reset, 17 October 2026, evening
 
 The author rejected the social plan as a jumble, too sharp in tone, and too like the mass emails she receives. Every book event was removed from her calendars at her request. She has written to people about the book herself already and will not chase anyone; an audit of her sent mail and spam is in agency/11-reset. The campaign is to be rebuilt as a small number of carefully crafted pieces. Nothing below is to be sent until that rebuild is approved; the drafts stand as material, not as a schedule.

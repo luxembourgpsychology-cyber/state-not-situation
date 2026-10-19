@@ -1,5 +1,7 @@
 # Signals: when the team writes to Ivana, and about what
 
+Since 19 October the check reads the approval box in Notion first (agency/12-chief-of-staff/00-THE-BOX.md), then these signals.
+
 Set 17 October 2026 at her request: not a fixed schedule, but a message when something has changed. The mechanism underneath is still a check that runs on a timer, because nothing on Amazon or a social platform pushes a notice to this session; the difference is that the check writes to her only when a signal crosses its line. A quiet day produces no email.
 
 ## What the team can see from here, and what it cannot
