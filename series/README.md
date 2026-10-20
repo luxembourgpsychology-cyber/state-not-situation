@@ -7,6 +7,11 @@ Read `BRIEF.md` first; it governs. `CITATIONS.md` holds every verified source; n
 reaches a script from memory alone. `IDENTITY.md` carries the book's visual identity to
 the channel. `PRODUCTION.md` sets format, length and what is on screen.
 
+`SEASON.md` lists the ten episodes with their hooks and source leads. To build one, type
+`/episode NN` in a Claude Code session on this repository; the command in
+`.claude/skills/episode/SKILL.md` assembles the team and writes the episode's folder.
+`AGENCY-BRIEF.md` is the hand-over to the editing agency.
+
 Each episode lives in `episodes/NN-slug/` with its research (`RESEARCH.md`), its script
 (`SCRIPT.md`) and its on-screen cue sheet (`CUES.md`).
 
