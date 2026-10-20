@@ -52,3 +52,20 @@ The principle, the audit, the first set, the second set drafted only after yes (
 ## Waiting: Martina Schweiher, American Women's Club
 
 Outline sent 29 September; she said early next year; nothing owed until she writes. A two line note mentioning the launch date is drafted once the date exists.
+
+## Added 20 October: reply to the National Library (legal deposit)
+
+Charles Hilger, Service Dépôt légal, replied on 19 October: one paperback is the deposit for a print on demand title; the ebook edition goes to depot-legal@bnl.etat.lu as a file; MyGuichet gives proof. Drafted reply (in the thread):
+
+Dear Mr Hilger,
+
+Thank you for the clear answer. The paperback is printed on demand, so I will deliver one copy to the library [by hand this week / by post this week]. The ebook edition follows to this address as a file.
+
+May I ask whom to contact about the circulating collection, or whether the deposit copy is also considered for it?
+
+Kind regards,
+Ivana Budišin
+
+## Check log
+
+20 October, 07:50: Dr Herber thank you and the KDP checks ticked Finished by Ivana; set Done. National Library reply received, card added, one email sent to Ivana. MailerLite campaign still a draft. Traffic 17 to 20 October: 7 visitors, 2 from LinkedIn, 1 from Facebook. Note: a separate automation emails her "site stats" twice a day from her own account; the team does not duplicate it.
