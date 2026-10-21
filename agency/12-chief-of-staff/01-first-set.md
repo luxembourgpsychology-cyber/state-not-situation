@@ -69,3 +69,5 @@ Ivana Budišin
 ## Check log
 
 20 October, 07:50: Dr Herber thank you and the KDP checks ticked Finished by Ivana; set Done. National Library reply received, card added, one email sent to Ivana. MailerLite campaign still a draft. Traffic 17 to 20 October: 7 visitors, 2 from LinkedIn, 1 from Facebook. Note: a separate automation emails her "site stats" twice a day from her own account; the team does not duplicate it.
+
+21 October, 07:50: nothing changed in the box (National Library, Laura Bannier, memo, launch evening, MailerLite send and today's post all still waiting on Ivana; no Notes written). No reply from any of the warm threads, Dr Herber or the Library in the last two days; one unsolicited sales email about a Halloween post, not the book, ignored. MailerLite campaign still a draft. Traffic 19 to 20 October: 16 visitors, 19 page views, in line with the previous week. No email sent to Ivana; nothing crossed a line. Next check armed for Thursday 22 October, 05:50 UTC.
