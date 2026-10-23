@@ -47,7 +47,7 @@ export const de: SiteContent = {
     formats: { paperback: "Taschenbuch", kindle: "Kindle" },
     listPrice: "Listenpreis {price} ohne MwSt., geliefert von Amazon aus Deutschland.",
     pricesVary: "Andere Shops und Länder legen Preis und Lieferung selbst fest.",
-    localNote: "In Luxemburg bald bei Alinéa.",
+    localNote: "In Luxemburg bei Alinéa.",
     notifyCta: "Nachricht zum Erscheinen",
     offer: {
       cta: "Die ersten 16 Seiten kostenlos",

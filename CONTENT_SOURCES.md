@@ -589,3 +589,11 @@ Ivana, the day after publication, in chat: "say for local Lux buyers they can so
 - "In Luxembourg, soon at Alinéa." (`status.localNote`; Alinéa said yes to copies, Ivana brings them; no date is promised)
 
 French and German as drafts under the languages' existing review status.
+
+### On the shelf at Alinéa, 23 October 2026
+
+The book is on the shelf at Alinéa: Ivana filmed it there on 23 October 2026 (SNS-LOGBOOK, "Alinéa shelf reel"). "Soon" is dropped and nothing else is added, no price and no address (category 2 on her sign-off of the preview):
+
+- "In Luxembourg, at Alinéa." (`status.localNote`)
+
+French "Au Luxembourg, chez Alinéa." and German "In Luxemburg bei Alinéa.": the same cut, as drafts under the languages' existing review status.

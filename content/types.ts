@@ -130,7 +130,7 @@ export interface SiteContent {
     listPrice: string;
     /** Second: the other stores and countries. */
     pricesVary: string;
-    /** Optional last line for readers in the author's own country: "In Luxembourg, soon at Alinéa." */
+    /** Optional last line for readers in the author's own country: "In Luxembourg, at Alinéa." */
     localNote?: string;
     /** The second hero action and the closing form's heading. */
     notifyCta: string;

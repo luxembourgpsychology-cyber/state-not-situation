@@ -46,7 +46,7 @@ export const fr: SiteContent = {
     formats: { paperback: "Broché", kindle: "Kindle" },
     listPrice: "Prix de vente conseillé {price} hors TVA, livré par Amazon depuis l’Allemagne.",
     pricesVary: "Les autres boutiques et pays fixent leurs propres prix et frais de livraison.",
-    localNote: "Au Luxembourg, bientôt chez Alinéa.",
+    localNote: "Au Luxembourg, chez Alinéa.",
     notifyCta: "Avis de parution",
     offer: {
       cta: "Recevoir gratuitement les 16 premières pages",

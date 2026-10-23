@@ -54,9 +54,10 @@ export const en: SiteContent = {
     formats: { paperback: "Paperback", kindle: "Kindle" },
     // Reworded on 16 October 2026 at Ivana's request: quieter, and the best
     // price credited to delivery from Germany; the Alinéa line is hers too.
+    // 23 October 2026: the book is on the shelf at Alinéa, so no longer "soon".
     listPrice: "List price {price} before VAT, with delivery from Amazon in Germany.",
     pricesVary: "Other stores and countries set their own prices and delivery.",
-    localNote: "In Luxembourg, soon at Alinéa.",
+    localNote: "In Luxembourg, at Alinéa.",
     notifyCta: "Publication updates",
     // Interface, 4 October 2026: the form offers the first 16 pages, as printed.
     offer: {

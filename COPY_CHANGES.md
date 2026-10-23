@@ -71,3 +71,7 @@ None of these block the preview; each is described honestly until supplied.
 ## 16 October 2026, later: the price note and Alinéa
 
 - `status.listPrice` and `status.pricesVary` reworded and reordered (list price first, credited to delivery from Amazon in Germany; other stores second), now in the quiet colour. New optional `status.localNote`: "In Luxembourg, soon at Alinéa." See CONTENT_SOURCES.md, "Reworded, 16 October 2026".
+
+## 23 October 2026: on the shelf at Alinéa
+
+- `status.localNote` loses "soon" in all three languages: "In Luxembourg, at Alinéa." / "Au Luxembourg, chez Alinéa." / "In Luxemburg bei Alinéa." No price, no address. See CONTENT_SOURCES.md, "On the shelf at Alinéa, 23 October 2026".
