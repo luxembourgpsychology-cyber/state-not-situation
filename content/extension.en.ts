@@ -351,6 +351,14 @@ export const extensionEn: ExtensionContent = {
       terms: "Booking and cancellation terms",
     },
     free: "Free",
+    // Interface, 28 October 2026: an event that takes reservations by email.
+    reserve: {
+      cta: "Reserve a place",
+      status: "Reserve a place by email",
+      line: "Places are reserved by email. The button opens a message to Ivana, ready to send; she confirms each place by reply.",
+      included: "The evening",
+      row: "Places",
+    },
   },
 
   app: {

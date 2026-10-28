@@ -199,6 +199,8 @@ export interface ExtensionContent {
     termsLabel: string;
     sections: { expect: string; whoFor: string; when: string; included: string; access: string; terms: string };
     free: string;
+    /** An event that takes reservations by email (28 October 2026). */
+    reserve: { cta: string; status: string; line: string; included: string; row: string };
   };
 
   app: {

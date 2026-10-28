@@ -8,8 +8,8 @@ import { Notify } from "./Notify";
 import { Stores } from "./Stores";
 import { storeLinks } from "@/lib/stores";
 import Link from "next/link";
-import { eventLists, extensionOn } from "@/lib/extension";
-import { formatEventWhen } from "@/lib/extension/rules";
+import { eventLists, ext, extensionOn } from "@/lib/extension";
+import { formatEventWhen, reserveLink } from "@/lib/extension/rules";
 
 /**
  * The book as an object, its title, and no more than two decisions.
@@ -45,6 +45,7 @@ export function Hero({
   // author asked for the launch evening to be visible on the front page).
   const nextEvent = extensionOn(locale) ? eventLists().upcoming[0] ?? null : null;
   const nextWhen = nextEvent ? formatEventWhen(nextEvent) : null;
+  const nextReserve = nextEvent ? reserveLink(nextEvent, new Date()) : null;
 
   return (
     <section id="top" className="section" aria-labelledby="site-title">
@@ -82,6 +83,9 @@ export function Hero({
                   <Link href={`/${locale}/events/${nextEvent.slug}`} className="underline underline-offset-4">{nextEvent.title}</Link>
                 </p>
                 <p className="t-mono mt-1">{nextEvent.venueOrOnline}</p>
+                {nextReserve ? (
+                  <p className="mt-[var(--space-tight)]"><a href={nextReserve} className="btn btn-solid">{ext().events.reserve.cta}</a></p>
+                ) : null}
               </div>
             ) : null}
           </div>

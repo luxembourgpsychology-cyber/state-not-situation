@@ -8,7 +8,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   extensionVisible, draftsAllowed, resolveBookAction, resolveAppState,
-  isPublishable, effectiveStatus, bookingLink, partitionEvents, eventProblems, bookingProblems, formatEventWhen,
+  isPublishable, effectiveStatus, bookingLink, reserveLink, partitionEvents, eventProblems, bookingProblems, formatEventWhen,
   parseFormat, parseSource, validateEnquiry, composeEnquiry, mailtoHref, cleanField, ENQUIRY_LIMITS,
 } from "../lib/extension/rules.ts";
 
@@ -190,4 +190,14 @@ test("enquiry: the draft leaves out blank fields and keeps text as text", () => 
 test("enquiry: mailto encodes subject and body with CRLF and a fixed recipient", () => {
   const href = mailtoHref("ivana@luxembourgpsychology.com", "Enquiry: Teams & talks", "Line one\nLine two?");
   assert.equal(href, "mailto:ivana@luxembourgpsychology.com?subject=Enquiry%3A%20Teams%20%26%20talks&body=Line%20one%0D%0ALine%20two%3F");
+});
+
+test("events: reserve by email is a mailto only while announced and upcoming, never on a bookable or past event", () => {
+  const r = { address: "fixture@example.org", subject: "A place", body: "Hello" };
+  assert.equal(reserveLink(base, NOW), null);
+  const link = reserveLink({ ...base, reserveByEmail: r }, NOW);
+  assert.ok(link && link.startsWith("mailto:fixture@example.org?subject=A%20place&body=Hello"));
+  assert.equal(reserveLink({ ...bookable, reserveByEmail: r }, NOW), null);
+  assert.equal(reserveLink({ ...base, reserveByEmail: r, endAt: "2020-01-01T21:00:00+01:00", startAt: "2020-01-01T19:00:00+01:00" }, NOW), null);
+  assert.equal(reserveLink({ ...base, reserveByEmail: { ...r, address: "not an address" } }, NOW), null);
 });

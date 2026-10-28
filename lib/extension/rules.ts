@@ -127,6 +127,13 @@ export interface EventRecord {
   bookingTermsUrl?: string | null;
   /** Shown as the organiser wrote it, when status is "cancelled". */
   cancellationInformation?: string | null;
+  /**
+   * A place reserved by writing to the organiser (28 October 2026): while the
+   * event is announced and upcoming, a "Reserve a place" button opens an
+   * email to this address with the subject and body filled in. No provider,
+   * no payment, no terms: the organiser confirms each place by reply.
+   */
+  reserveByEmail?: { address: string; subject: string; body: string } | null;
 }
 
 /** Every field a public record needs, whatever its state. */
@@ -192,6 +199,14 @@ export function effectiveStatus(e: EventRecord, now: Date): Exclude<EventStatus,
 export function bookingLink(e: EventRecord, now: Date): { url: string; provider: string; termsUrl: string } | null {
   if (!isPublishable(e) || effectiveStatus(e, now) !== "bookable") return null;
   return { url: e.checkoutUrl as string, provider: e.bookingProvider as string, termsUrl: e.bookingTermsUrl as string };
+}
+
+/** The mailto link for an announced, upcoming event that takes reservations by email, or null. */
+export function reserveLink(e: EventRecord, now: Date): string | null {
+  const r = e.reserveByEmail;
+  if (!r || !isPublishable(e) || effectiveStatus(e, now) !== "announced") return null;
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(r.address)) return null;
+  return `mailto:${r.address}?subject=${encodeURIComponent(r.subject)}&body=${encodeURIComponent(r.body)}`;
 }
 
 /** Upcoming first by date; past ones separately, most recent first. Drafts and incomplete records never appear. */

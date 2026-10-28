@@ -187,7 +187,9 @@ export const siteConfig: SiteConfig = {
       ],
       // As submitted to KDP on 14 October 2026 (SNS-LOGBOOK). Ivana wrote
       // "28,99" on 15 October: confirm one figure before this goes live.
-      listPrice: "€28.90",
+      // Taken off the page on 28 October 2026 at the author's request ("take
+      // out the book price"). Set the figure again to bring the line back.
+      listPrice: null,
       // The author's date, 28 September 2026. It is the only date on the site.
       publicationDate: "2026-10-15",
       // Taken down 6 September 2026 at the author's request: the reading was

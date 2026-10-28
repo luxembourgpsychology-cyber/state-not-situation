@@ -46,7 +46,7 @@ export default async function EventPage({ params }: { params: Promise<{ lang: st
   const c = getContent(locale);
   const x = ext().events;
   const now = new Date();
-  const { state, rows, bookLine } = eventFacts(e, now);
+  const { state, rows, bookLine, reserve } = eventFacts(e, now);
   const booking = bookingLink(e, now);
   const photo = siteConfig.press.authorPhoto;
   const events = `/${locale}/events`;
@@ -64,7 +64,10 @@ export default async function EventPage({ params }: { params: Promise<{ lang: st
   const statusBlock =
     state === "bookable" ? null : (
       <div className="mt-[var(--space-block)]">
-        <p className="t-lead">{x.statusLine[state]}</p>
+        <p className="t-lead">{reserve ? x.reserve.line : x.statusLine[state]}</p>
+        {reserve ? (
+          <p className="mt-[var(--space-tight)]"><a href={reserve} className="btn btn-solid">{x.reserve.cta}</a></p>
+        ) : null}
         {state === "cancelled" && e.cancellationInformation ? (
           <ScopeNote className="mt-[var(--space-tight)]">{e.cancellationInformation}</ScopeNote>
         ) : null}
@@ -115,14 +118,14 @@ export default async function EventPage({ params }: { params: Promise<{ lang: st
             <div className="md:col-span-8 md:col-start-4">
               {section(x.sections.expect, e.description.map((p) => <p key={p}>{p}</p>))}
               {e.whoFor ? section(x.sections.whoFor, <p>{e.whoFor}</p>) : null}
-              {section(x.sections.included, (
+              {section(reserve ? x.reserve.included : x.sections.included, (
                 <>
                   <ul>
                     {e.includedItems.map((t) => (
                       <li key={t} className="flex gap-3"><span aria-hidden="true" className="text-quiet">—</span><span>{t}</span></li>
                     ))}
                   </ul>
-                  <p className="mt-[var(--space-tight)]">{bookLine}</p>
+                  {reserve ? null : <p className="mt-[var(--space-tight)]">{bookLine}</p>}
                 </>
               ))}
               {section(x.sections.access, (
