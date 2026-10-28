@@ -7,6 +7,9 @@ import { ExcerptLink } from "./ExcerptLink";
 import { Notify } from "./Notify";
 import { Stores } from "./Stores";
 import { storeLinks } from "@/lib/stores";
+import Link from "next/link";
+import { eventLists, extensionOn } from "@/lib/extension";
+import { formatEventWhen } from "@/lib/extension/rules";
 
 /**
  * The book as an object, its title, and no more than two decisions.
@@ -38,6 +41,10 @@ export function Hero({
   const ed = siteConfig.editions[locale];
   const offerHere = !(published && amazonUrl) && Boolean(ed.samplePdfUrl && ed.newsletterUrl);
   const hasStores = published && storeLinks(ed).length > 0;
+  // The next public event, from content/events.ts (28 October 2026: the
+  // author asked for the launch evening to be visible on the front page).
+  const nextEvent = extensionOn(locale) ? eventLists().upcoming[0] ?? null : null;
+  const nextWhen = nextEvent ? formatEventWhen(nextEvent) : null;
 
   return (
     <section id="top" className="section" aria-labelledby="site-title">
@@ -62,6 +69,19 @@ export function Hero({
             {hasStores ? (
               <div id="get-the-book" className="mt-[var(--space-block)] scroll-mt-20">
                 <Stores locale={locale} content={c} edition={ed} />
+              </div>
+            ) : null}
+
+            {/* The next event, set under the stores as one ruled block: the
+                date, the title as the link, the place. Facts from the event
+                record only; no new sentence. */}
+            {nextEvent && nextWhen ? (
+              <div className="mt-[var(--space-block)] border-t border-[var(--rule)] pt-[var(--space-tight)]">
+                <p className="t-mono text-ink">{nextWhen.date} · {nextWhen.time}</p>
+                <p className="t-lead mt-2">
+                  <Link href={`/${locale}/events/${nextEvent.slug}`} className="underline underline-offset-4">{nextEvent.title}</Link>
+                </p>
+                <p className="t-mono mt-1">{nextEvent.venueOrOnline}</p>
               </div>
             ) : null}
           </div>

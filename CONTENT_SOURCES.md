@@ -581,3 +581,14 @@ Publication day. `site.config.ts` → `editions.en` goes to `publicationStatus: 
 - No sentence names a reseller or a price other than the list price. The store pages were opened in a browser on 15 October 2026 at 14:40; what each showed is recorded beside its link in `site.config.ts`.
 - French and German: the same four labels and two sentences, as drafts under the languages' existing review status.
 - 28 October 2026: "Alinéa, Luxembourg" added as a paperback store, at Ivana's request ("update the site with availability at Alinea"). The fact is the shop's own email of 27 October ordering 10 more copies, delivered by Ivana that day. The name is the shop's own (category 3); no new sentence was written.
+
+## Events (28 October 2026)
+
+The first record in `content/events.ts`: the launch evening, Thursday 3 December 2026, 18:00 to 20:00, Cereal Lovers, 11C place du Théâtre, Luxembourg.
+
+- Date, time and place: Ivana's own words of 27 October 2026, "I will do it at Cereal Lovers on 03.12 from 18", confirmed with "2026! yes" on 28 October. The end time, 20:00, is the team's working estimate in her calendar, not her statement.
+- The address is the café's own, as written in the Cereal Lovers records in her Notion HQ.
+- Description and included items ("A short reading from the book, a conversation, and time to talk"; "Copies of the book to buy and have signed"): written for Ivana from her plan of 27 October for the evening. To be signed off by her; change them in `content/events.ts`.
+- Status "announced": no booking provider or price is set, so the page says "Booking details to follow". Access: the organiser's email, because the café's access details were not given.
+- No claim about the book is made beyond its title.
+- Front page, 28 October 2026, at Ivana's request ("make it also on the front page more visible"): under the store buttons, the next upcoming event as one ruled block of its date and time, its title as the link to its page, and its place. Every word comes from the event record; nothing new was written. When the event has passed, the block disappears at the next deploy.
