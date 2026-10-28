@@ -59,13 +59,13 @@ export const events: EventRecord[] = [
     description: [
       "An evening to mark the publication of State. Not Situation., with its author, Ivana Budišin.",
       "Not a lecture. A short reading, then a conversation about the moments that stay with us longer than they should: the message that felt cold, the evening that turned for no clear reason, and the story we tell ourselves about it afterwards.",
-      "Come with a question, or simply with the day you have had. There is coffee, there is time to talk, and the author signs copies.",
+      "Come with a question, or simply with the day you have had. There are drinks, there is time to talk, and the author signs copies.",
     ],
     whoFor: "Anyone who has ever read a short reply three times.",
     includedItems: [
       "A short reading from the book",
       "A conversation, with time for your questions",
-      "Coffee, and copies signed by the author",
+      "Drinks, and copies signed by the author",
     ],
     bookIncluded: null,
     reserveByEmail: {
