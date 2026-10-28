@@ -134,6 +134,8 @@ export interface EventRecord {
    * no payment, no terms: the organiser confirms each place by reply.
    */
   reserveByEmail?: { address: string; subject: string; body: string } | null;
+  /** The person in conversation with the author, with a short line about them, as approved by them. */
+  inDialogue?: { name: string; bio: string } | null;
 }
 
 /** Every field a public record needs, whatever its state. */

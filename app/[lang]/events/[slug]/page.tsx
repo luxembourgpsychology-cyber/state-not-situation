@@ -94,6 +94,7 @@ export default async function EventPage({ params }: { params: Promise<{ lang: st
             <div className="md:col-span-8">
               <p className="t-label t-label-red">{e.format}</p>
               <h1 className="t-display mt-3">{e.title}</h1>
+              {e.inDialogue ? <p className="t-lead mt-3 text-ink-soft">{x.inDialogue.with} {e.inDialogue.name}</p> : null}
               {statusBlock}
 
               <section className="mt-[var(--space-block)]" aria-label={x.sections.when}>
@@ -117,6 +118,7 @@ export default async function EventPage({ params }: { params: Promise<{ lang: st
           <div className="container-book grid md:grid-cols-12 gap-x-10">
             <div className="md:col-span-8 md:col-start-4">
               {section(x.sections.expect, e.description.map((p) => <p key={p}>{p}</p>))}
+              {e.inDialogue ? section(x.inDialogue.heading, <p>{e.inDialogue.bio}</p>) : null}
               {e.whoFor ? section(x.sections.whoFor, <p>{e.whoFor}</p>) : null}
               {section(reserve ? x.reserve.included : x.sections.included, (
                 <>

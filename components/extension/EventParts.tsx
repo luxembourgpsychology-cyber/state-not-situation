@@ -37,6 +37,7 @@ export function EventRow({ e, href, now }: { e: EventRecord; href: string; now: 
     <li className="py-[var(--space-block)] border-b border-[var(--rule)]">
       <p className="t-mono text-ink">{rows[0][1]} · {rows[1][1]}</p>
       <h3 className="t-lead mt-2">{e.title}</h3>
+      {e.inDialogue ? <p className="t-body mt-1 text-ink-soft">{x.inDialogue.with} {e.inDialogue.name}</p> : null}
       <p className="t-mono mt-2">{e.format} · {e.venueOrOnline} · {e.language}</p>
       <p className="t-mono mt-2 text-ink">{reserve ? x.reserve.status : x.status[state]}</p>
       <p className="mt-4"><Link href={href} className="btn">{x.detailLink}<span className="sr-only">: {e.title}</span></Link></p>

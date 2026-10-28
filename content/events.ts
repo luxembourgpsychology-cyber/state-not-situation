@@ -46,7 +46,7 @@ export const events: EventRecord[] = [
   {
     slug: "launch-evening-luxembourg-2026-12",
     title: "Launch evening: State. Not Situation.",
-    format: "A reading and a conversation",
+    format: "A reading and a dialogue",
     approvedForPublication: true,
     status: "announced",
     startAt: "2026-12-03T18:00:00+01:00",
@@ -58,16 +58,20 @@ export const events: EventRecord[] = [
     organiserContact: "Ivana Budišin, ivana@luxembourgpsychology.com",
     description: [
       "An evening to mark the publication of State. Not Situation., with its author, Ivana Budišin.",
-      "Not a lecture. A short reading, then a conversation about the moments that stay with us longer than they should: the message that felt cold, the evening that turned for no clear reason, and the story we tell ourselves about it afterwards.",
+      "Not a lecture. A short reading, then a dialogue with the journalist Jessika Maria Rauch about the moments that stay with us longer than they should: the message that felt cold, the evening that turned for no clear reason, and the story we tell ourselves about it afterwards.",
       "Come with a question, or simply with the day you have had. There are drinks, there is time to talk, and the author signs copies.",
     ],
     whoFor: "Anyone who has ever read a short reply three times.",
     includedItems: [
       "A short reading from the book",
-      "A conversation, with time for your questions",
+      "A dialogue, with time for your questions",
       "Drinks, and copies signed by the author",
     ],
     bookIncluded: null,
+    inDialogue: {
+      name: "Jessika Maria Rauch",
+      bio: "Jessika Maria Rauch is a journalist in Luxembourg. She writes about culture and the people who shape it for ELLE Luxembourg, and has written for the Luxemburger Wort.",
+    },
     reserveByEmail: {
       address: "ivana@luxembourgpsychology.com",
       subject: "A place at the launch evening, 3 December",

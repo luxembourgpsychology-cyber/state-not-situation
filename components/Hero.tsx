@@ -82,6 +82,9 @@ export function Hero({
                 <p className="t-lead mt-2">
                   <Link href={`/${locale}/events/${nextEvent.slug}`} className="underline underline-offset-4">{nextEvent.title}</Link>
                 </p>
+                {nextEvent.inDialogue ? (
+                  <p className="t-body mt-1 text-ink-soft">{ext().events.inDialogue.with} {nextEvent.inDialogue.name}</p>
+                ) : null}
                 <p className="t-mono mt-1">{nextEvent.venueOrOnline}</p>
                 {nextReserve ? (
                   <p className="mt-[var(--space-tight)]"><a href={nextReserve} className="btn btn-solid">{ext().events.reserve.cta}</a></p>

@@ -359,6 +359,7 @@ export const extensionEn: ExtensionContent = {
       included: "The evening",
       row: "Places",
     },
+    inDialogue: { heading: "In dialogue", with: "In dialogue with" },
   },
 
   app: {

@@ -201,6 +201,8 @@ export interface ExtensionContent {
     free: string;
     /** An event that takes reservations by email (28 October 2026). */
     reserve: { cta: string; status: string; line: string; included: string; row: string };
+    /** The person in conversation with the author (28 October 2026). */
+    inDialogue: { heading: string; with: string };
   };
 
   app: {
