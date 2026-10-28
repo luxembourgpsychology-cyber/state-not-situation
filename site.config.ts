@@ -176,6 +176,8 @@ export const siteConfig: SiteConfig = {
           note: "15 Oct 14:40: €7.99, sold by Amazon Media EU." },
         { format: "paperback", store: "Amazon.de", href: "https://www.amazon.de/dp/2879962587", show: true,
           note: "16 Oct 14:15: Amazon's own offer is listed (€28.90 before VAT, €30.92 with it, in stock, sold by Amazon) for a German delivery address; a Luxembourg address still saw only a third-party offer from €53.73. Switched on by Ivana's decision on 16 Oct; the price line under the buttons names the list price." },
+        { format: "paperback", store: "Alinéa, Luxembourg", href: "https://alinea.lu/", show: true,
+          note: "28 Oct: Librairie Alinéa, 30 rue des Capucins, L-1313 Luxembourg, stocks the paperback. On 27 Oct the shop ordered 10 more copies and Ivana delivered them the same day (Gmail, 'Order 10x State Not Situation'). Added at Ivana's request of 28 Oct. The link is the shop's own site; it could not be opened from the build container, so check it in a browser." },
         { format: "paperback", store: "Amazon.com", href: "https://www.amazon.com/dp/2879962587", show: true,
           note: "15 Oct 14:40: sold by Amazon.com, in stock (EUR 26.96 shown to a Luxembourg visitor; delivery and import charges on top)." },
         { format: "paperback", store: "Amazon.co.uk", href: "https://www.amazon.co.uk/dp/2879962587", show: false,
