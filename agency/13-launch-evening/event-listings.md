@@ -18,9 +18,9 @@ Details:
 
 An evening to mark the publication of State. Not Situation., with its author, Ivana Budišin.
 
-Not a lecture. A short reading, then a conversation about the moments that stay with us longer than they should: the message that felt cold, the evening that turned for no clear reason, and the story we tell ourselves about it afterwards.
+Not a lecture. A short reading, then a dialogue with the journalist Jessika Maria Rauch about the moments that stay with us longer than they should: the message that felt cold, the evening that turned for no clear reason, and the story we tell ourselves about it afterwards.
 
-Come with a question, or simply with the day you have had. There is coffee, there is time to talk, and the author signs copies.
+Come with a question, or simply with the day you have had. There are drinks, there is time to talk, and the author signs copies.
 
 In English, with questions welcome in French. Places are reserved by email: https://statenotsituation.com/en/events/launch-evening-luxembourg-2026-12
 
@@ -35,7 +35,7 @@ Start: 3 December 2026, 18:00. End: 20:00.
 
 Description (Google allows 1,500 characters):
 
-A short reading and a conversation with Ivana Budišin, clinical psychologist, to mark the publication of her book State. Not Situation. An evening about the moments that stay with us longer than they should, and the story we tell ourselves about them afterwards. Coffee, time to talk, and signed copies. In English, with questions welcome in French.
+A short reading and a dialogue: Ivana Budišin, clinical psychologist, in conversation with the journalist Jessika Maria Rauch, to mark the publication of her book State. Not Situation. An evening about the moments that stay with us longer than they should, and the story we tell ourselves about them afterwards. Drinks, time to talk, and signed copies. In English, with questions welcome in French.
 
 Button: "Learn more", with the reservation link above.
 
@@ -47,7 +47,7 @@ When: Thursday 3 December 2026, 18:00 to 20:00
 
 Description:
 
-A short reading and a conversation, then time to talk. I would love to see you there.
+A short reading and a dialogue with Jessika Maria Rauch, then time to talk. I would love to see you there.
 Details: https://statenotsituation.com/en/events/launch-evening-luxembourg-2026-12
 
 Ivana
