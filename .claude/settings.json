@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Edit",
+      "Write",
+      "Read",
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(cd *)",
+      "mcp__Notion",
+      "mcp__Google_Calendar",
+      "mcp__Gmail__search_threads",
+      "mcp__Gmail__get_thread",
+      "mcp__Gmail__get_message",
+      "mcp__Gmail__list_drafts",
+      "mcp__Gmail__get_draft",
+      "mcp__Gmail__create_draft",
+      "mcp__Gmail__update_draft",
+      "mcp__MailerLite__list_campaigns",
+      "mcp__MailerLite__get_subscriber_count",
+      "mcp__Vercel__count_pageviews",
+      "mcp__Vercel__aggregate_pageviews",
+      "mcp__claude-code-remote__send_later",
+      "mcp__claude-code-remote__create_trigger",
+      "mcp__claude-code-remote__update_trigger",
+      "WebSearch",
+      "WebFetch"
+    ],
+    "ask": [
+      "mcp__Gmail__send_message"
+    ]
+  }
+}
