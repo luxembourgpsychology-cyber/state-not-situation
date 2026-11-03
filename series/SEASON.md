@@ -31,7 +31,7 @@ information, not the level; it peaks twenty-one to forty minutes after a stresso
 **Sources.** Verified, in `CITATIONS.md` 6, 7, 11 to 30.
 **Drawing.** Done: M1 to M8.
 
-### 02 · sleep · open
+### 02 · sleep · scripted
 
 **Claim.** You need eight hours, and you can catch up at the weekend.
 **Hook, draft.** The most influential sleep book of the decade has a chapter that its own
@@ -212,7 +212,7 @@ question that sorted them.
 | No. | Slug | Act | Status |
 |---|---|---|---|
 | 01 | cortisol | Time | done |
-| 02 | sleep | Time | open |
+| 02 | sleep | Time | scripted |
 | 03 | hunger | Time | open |
 | 04 | goldfish | Attention | open |
 | 05 | dopamine | Attention | open |
