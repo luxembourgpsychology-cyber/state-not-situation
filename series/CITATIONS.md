@@ -491,3 +491,276 @@ Status: the 1856 event confirmed across the museum's page, the Old Treasury Buil
 ## What remains unconfirmed for episode 2
 
 Guzey's essay in its own text, and with it the cardiovascular meta-analysis point and the exact page for the book's sentences. Walker's post of 19 December 2019 in its own text. The BBC broadcast of 25 January 2020. Any statement from the University of California, Berkeley. The figure number in *Why We Sleep* and the hours and injury rate of the removed bar. The page in *Sleep and Wakefulness* where the cave is reported. Banks 2010's result sentence. Depner's control-group size and author list. Owen's 1817 wording in a primary or scholarly record, and any documented line from it to the sleep figure. Each is marked where it sits in the research and story files, and none reaches the script until it is closed.
+
+# Mogging and looksmaxxing sources, verified 10 November 2026
+
+Verified for episode R01 by web search run on 10 November 2026; the full account is in `episodes/R01-mogging/FACTCHECK.md`. Direct retrieval failed for every host tried, so no publisher page or full text was opened: each entry rests on an abstract, a repository record or at least two independent reports, and says which. Where search returned surnames without initials, or a first page without a last, the reference is left incomplete and marked, not filled from memory.
+
+## 58. Germine et al. (2015), Current Biology
+
+Germine, L., Russell, Bronstad, Blokland, Smoller, Kwok, Anthony, Nakayama, Rhodes, & Wilmer, J. (2015). Individual aesthetic preferences for faces are shaped mostly by environments, not genes. *Current Biology, 25*(20), 2684–2689. https://doi.org/10.1016/j.cub.2015.08.048 (Co-authors' initials not returned by search; complete from the DOI record.)
+
+547 identical and 214 same-sex non-identical twin pairs rated 200 faces. As the PMC record gives it, 48% of the variation in face ratings is explained by common preferences and the remaining 52% is attributable to individual face preferences; identical and non-identical twin correlations did not significantly differ (p = 0.1), so individual preferences are attributed mostly to environments unique to the person. The script attaches to it: "about half of the variation in how people rated faces came from taste people share, and about half from the individual rater's own taste", and that identical twins were not significantly more alike than non-identical twins. It does not say "half the rating is the rater" without the word variation, does not say two people agree "48 percent of the time", and does not give a twin correlation of 0.22, which no record of the paper returned.
+
+Status: citation confirmed across the publisher's index entry, a university repository, PMC4629915 and the institutions' releases; the 48 and 52 from the PMC record and one summary as returned by search; variance table and twin correlations not seen.
+
+## 59. Hönekopp (2006), Journal of Experimental Psychology: Human Perception and Performance
+
+Hönekopp, J. (2006). Once more: Is beauty in the eye of the beholder? Relative contributions of private and shared taste to judgments of facial attractiveness. *Journal of Experimental Psychology: Human Perception and Performance, 32*(2), 199–209.
+
+Three experiments with diverse face and rater samples, with repeat ratings used to separate a rater's own stable taste from taste shared with others; the abstract concludes that, contrary to the prevalent notion in the literature, "private taste is about as powerful as shared taste". The script attaches to it one sentence of corroboration for 58 and nothing numerical.
+
+Status: confirmed from the abstract as held by the author's university repository and from the American Psychological Association's Monitor summary; DOI not recorded; the beholder index values not seen.
+
+## 60. Gram et al. (2026), Social Science & Medicine
+
+Gram, E. G., Mintzes, B., Copp, T., Moynihan, R., Brown, A., Shih, P., & Nickel, B. (2026). Selling masculinity: A qualitative analysis of gender representations in social media content about "low T". *Social Science & Medicine, 393*, 118903. https://doi.org/10.1016/j.socscimed.2025.118903
+
+A qualitative content analysis of 46 high-reach Instagram and TikTok posts promoting testosterone testing and treatment, yielding four themes, among them low testosterone as a threat to male sexual performance and its rebranding from an older man's problem to a young, fit man's. The script attaches to it: the number 46, the two platforms, and the description of what the posts sell. No percentage is attached to this entry; see 61.
+
+Status: title, journal, volume, article number and DOI confirmed across three university research portals and the release; Gram, Mintzes, Moynihan and Nickel seen today, the remaining names carried from the research file; online date of 26 December 2025 from one report; abstract seen only in paraphrase; the paper not read.
+
+## 61. University of Sydney (2026), news release
+
+University of Sydney. (2026, February 3). *"Masculinity crisis": Influencers on social media promote low testosterone to young men, study finds* [Press release]. https://www.sydney.edu.au/news-opinion/news/2026/02/03/influencers-on-social-media-promote-low-testosterone-to-young-men-study-finds.html
+
+The release for 60. It states that none of the posts cited scientific evidence, that about 67 per cent linked to products or consultations, and that 31 per cent of the individual influencers claimed to be medical doctors. Secondary reports add that 72% of posts had financial interests and that the accounts had 6.8 million followers; one summary adds 85 percent published by individuals. The script attaches to it: "the researchers report that none of the posts cited scientific evidence", in those words of attribution. The percentages are spoken only as the university's, 72 percent only as a share of posts, and 85 percent and 6.8 million not at all.
+
+Status: release confirmed by search and syndication, page not fetched; none of the percentages confirmed in the paper.
+
+## 62. Dubin et al. (2022), JAMA Internal Medicine
+
+Dubin, J. M., Jesse, E., Fantus, R. J., Bennett, N. E., Brannigan, R. E., Thirumavalavan, N., & Halpern, J. A. (2022). Guideline-discordant care among direct-to-consumer testosterone therapy platforms. *JAMA Internal Medicine, 182*(12), 1321–1323. https://doi.org/10.1001/jamainternmed.2022.4928
+
+A research letter. A secret shopper followed a script for a 34-year-old man with low energy and low libido who wanted future fertility and reported normal total and free testosterone; six of seven United States platforms offered him testosterone, six had no testosterone threshold for treatment, and one of seven asked about recent cardiovascular events or fertility. The script attaches to it: the age, the normal level, the wish for children, and six of seven.
+
+Status: confirmed from the journal citation and four independent reports of the letter; first three authors seen today, the rest carried from the research file; the polycythaemia detail not re-verified and not spoken.
+
+## 63. Brambilla et al. (2009), Journal of Clinical Endocrinology & Metabolism
+
+Brambilla, D. J., Matsumoto, Araujo, & McKinlay. (2009). The effect of diurnal variation on clinical measurement of serum testosterone and other sex hormone levels in men. *Journal of Clinical Endocrinology & Metabolism, 94*(3), 907–913. https://doi.org/10.1210/jc.2008-1902 (Co-authors' initials not returned by search.)
+
+Sixty-six men aged 30 to 80 from the Boston Area Community Health Survey, sampled on three mornings and three afternoons. In men 30 to 40, testosterone was 20 to 25% lower at 16:00 than at 08:00, the gap narrowing to about 10% at 70; the authors conclude measurement should be restricted to morning hours. The script attaches to it: the afternoon fall in men in their thirties and the reason a test is taken in the morning.
+
+Status: confirmed from the PubMed abstract (PMID 19088162) and PMC2681273 as returned by search; the number of men aged 30 to 40 not seen.
+
+## 64. Leproult and Van Cauter (2011), JAMA
+
+Leproult, R., & Van Cauter, E. (2011). Effect of 1 week of sleep restriction on testosterone levels in young healthy men. *JAMA, 305*(21), 2173–2174. https://doi.org/10.1001/jama.2011.710
+
+A research letter. Ten healthy young men; after a week of sleep restricted to five hours a night, daytime testosterone was 10 to 15% lower. The authors call the group a small convenience sample. The script attaches to it: ten men, a week, five hours, 10 to 15 percent, with the sample size said aloud. The "ageing 10 to 15 years" comparison is the press release's and is not used.
+
+Status: confirmed from PMC4445839, the CDC repository copy and the University of Chicago's account.
+
+## 65. World Health Organization Task Force (1990), The Lancet
+
+World Health Organization Task Force on Methods for the Regulation of Male Fertility. (1990). Contraceptive efficacy of testosterone-induced azoospermia in normal men. *The Lancet, 336*, 955–959.
+
+Ten centres in seven countries; 271 healthy fertile men given 200 mg testosterone enanthate weekly; 157 became azoospermic, a cumulative rate of 65% at six months; median 3.7 months from azoospermia to recovery of sperm concentration after stopping. The script attaches to it: 65 percent of 271 men within six months, named as a contraceptive trial on a fixed weekly dose.
+
+Status: confirmed from the PubMed abstract (PMID 1977002) and several citing records; issue number and DOI not recorded.
+
+## 66. Bhasin et al. (2018), Journal of Clinical Endocrinology & Metabolism
+
+Bhasin, S., et al. (2018). Testosterone therapy in men with hypogonadism: An Endocrine Society clinical practice guideline. *Journal of Clinical Endocrinology & Metabolism, 103*(5), 1715–1744. (Full author list not returned by search.)
+
+Recommendation 1.2: "We recommend against routine screening of men in the general population for hypogonadism." Diagnosis requires symptoms and signs of testosterone deficiency and "unequivocally and consistently low" total or free testosterone, measured fasting in the morning and confirmed by repeating. The script attaches to it: the screening sentence verbatim, and the requirement of symptoms plus repeated low fasting morning values.
+
+Status: both quotations confirmed from the Endocrine Society's full-guideline page as returned by search and from independent coverage; DOI not recorded.
+
+## 67. Travison et al. (2007), Journal of Clinical Endocrinology & Metabolism
+
+Travison, T. G., Araujo, O'Donnell, Kupelian, & McKinlay. (2007). A population-level decline in serum testosterone levels in American men. *Journal of Clinical Endocrinology & Metabolism, 92*(1), 196–202. https://doi.org/10.1210/jc.2006-1375 (Co-authors' initials not returned by search.)
+
+Massachusetts Male Aging Study, three waves between 1987 and 2004 in randomly selected men aged 45 to 79: a substantial age-independent decline in testosterone not attributable to observed changes in factors such as smoking and obesity; trade coverage gives the age-matched trend as 1.2% lower per year (95% CI 1.0 to 1.4). The script attaches to it: "about one percent lower per calendar year at the same age", one regional cohort of middle-aged and older men.
+
+Status: citation and the conclusion confirmed from the journal and PubMed records; the 1.2% from trade coverage, not the abstract; per-wave sample sizes not confirmed.
+
+## 68. Andersson et al. (2007), Journal of Clinical Endocrinology & Metabolism
+
+Andersson, A.-M., et al. (2007). Secular decline in male testosterone and sex hormone binding globulin serum levels in Danish population surveys. *Journal of Clinical Endocrinology & Metabolism, 92*(12), 4696 onward. (Co-authors and last page not returned by search.)
+
+5,350 serum samples from four Danish population surveys between 1982 and 2001. A cohort and period decline in both hormones; adjusting for the concurrent rise in body mass index reduced the testosterone changes, "which no longer were significant", while the SHBG changes remained significant. The script attaches to it: that the Danish fall in testosterone was no longer significant once rising body weight was accounted for.
+
+Status: confirmed from the abstract as held by the journal mirror and a university portal.
+
+## 69. Mew v General Dental Council (2026), High Court
+
+*Mew v General Dental Council* [2026] EWHC 1116 (Admin). https://caselaw.nationalarchives.gov.uk/ewhc/admin/2026/1116
+
+The appeal under section 29 of the Dentists Act 1984 against the Professional Conduct Committee's determination of 6 November 2024 that Michael Mew's fitness to practise was impaired by misconduct and that his name be erased from the Dentists' Register. Charles Bagot KC, sitting as a Deputy High Court Judge, 15 May 2026: every ground failed, fresh evidence was refused, and erasure was held the only appropriate and proportionate outcome. The script attaches to it: the committee ordered erasure on 6 November 2024 and the High Court dismissed the appeal on 15 May 2026.
+
+Status: citation, judge, date and the 6 November 2024 determination confirmed from the National Archives index entry as returned by search; the dismissal from the case note of the regulator's counsel; transcript not read.
+
+## 70. American Association of Orthodontists (2024), press release
+
+American Association of Orthodontists. (2024, January). *AAO warns against unregulated practice of "mewing"* [Press release].
+
+The association says the trend lacks scientific backing; its president, Myron Guymon: "There's no scientific evidence to support its claims of reshaping the jawline, and the potential risks outweigh any unproven benefits." The script attaches to it: that the American Association of Orthodontists says there is no scientific evidence mewing reshapes the jawline.
+
+Status: confirmed through two trade publications reproducing the release; the association's own page and the exact day not seen. The British Orthodontic Society's statement of November 2024 is not entered: only its general position was seen, through trade press.
+
+## 71. American Psychiatric Association (2022), DSM-5-TR
+
+American Psychiatric Association. (2022). *Diagnostic and statistical manual of mental disorders* (5th ed., text rev.).
+
+The source for body dysmorphic disorder's criteria. Secondary sources agree that Criterion B requires repetitive behaviours such as mirror checking, excessive grooming, skin picking or reassurance seeking, or mental acts such as comparing one's appearance with that of others, in response to the appearance concerns. The script attaches to it: a paraphrase that comparing one's appearance with others is listed among the behaviours and mental acts of the disorder, followed at once by the statement that one feature is not a diagnosis.
+
+Status: the manual not seen; substance confirmed from coverage of the criterion's author, a 2015 study of the DSM-5 criteria, BMJ Best Practice and the BDD Foundation. Not to be quoted on screen until the manual is opened.
+
+## 72. Veale et al. (2016), Body Image
+
+Veale, D., Gledhill, Christodoulou, & Hodsoll. (2016). Body dysmorphic disorder in different settings: A systematic review and estimated weighted prevalence. *Body Image, 18*, 168–186. https://doi.org/10.1016/j.bodyim.2016.07.003 (Co-authors' initials not returned by search.)
+
+Weighted prevalence of 1.9% in community adults, 2.2% in adolescents and 3.3% in students, and much higher in psychiatric and cosmetic settings. The script attaches to it: "about 2 percent".
+
+Status: confirmed from the PubMed abstract (PMID 27498379).
+
+## 73. Bjornsson et al. (2013), Comprehensive Psychiatry
+
+Bjornsson, A. S., Didie, E. R., Grant, J. E., Menard, W., Stalker, E., & Phillips, K. A. (2013). Age at onset and clinical correlates in body dysmorphic disorder. *Comprehensive Psychiatry, 54*(7), 893–903. https://doi.org/10.1016/j.comppsych.2013.03.019
+
+Mean age at onset 16.7 years in each of two adult samples; about two thirds had onset before 18. The script attaches to it: onset at sixteen to seventeen on average and before eighteen in about two thirds. The link between early onset and suicide attempts was seen only in a later chapter and is not attached.
+
+Status: confirmed from the abstract as held by an institutional record and PMC3667613.
+
+## 74. Angelakis et al. (2016), Clinical Psychology Review
+
+Angelakis, I., Gooding, P. A., & Panagioti, M. (2016). Suicidality in body dysmorphic disorder (BDD): A systematic review with meta-analysis. *Clinical Psychology Review, 49*, 55–66. https://doi.org/10.1016/j.cpr.2016.08.002
+
+Seventeen studies: OR 3.63 (95% CI 2.62 to 4.63) for suicidality, 3.30 for attempts, 2.57 for ideation; the authors caution that the studies are few and of low methodological quality and that evidence on deaths is scarce. The script attaches to it: about three and a half times the odds, with the caution spoken.
+
+Status: confirmed from the PubMed abstract (PMID 27607741) and two university repositories.
+
+## 75. National Institute for Health and Care Excellence (2005), CG31
+
+National Institute for Health and Care Excellence. (2005, November 29). *Obsessive-compulsive disorder and body dysmorphic disorder: Treatment* (Clinical guideline CG31). https://www.nice.org.uk/guidance/cg31
+
+Covers adults, young people and children aged 8 and over. For adults with body dysmorphic disorder: cognitive behavioural therapy including exposure and response prevention for mild impairment, CBT or an SSRI for moderate, both for severe. The script attaches to it: that the national guideline recommends CBT, an SSRI or both according to severity.
+
+Status: title and date confirmed; the adult stepped care from the BDD Foundation's summary and a secondary site; recommendations for under-18s not returned and not spoken.
+
+## 76. Phillips et al. (2002), Archives of General Psychiatry
+
+Phillips, K. A., Albertini, R. S., & Rasmussen, S. A. (2002). A randomized placebo-controlled trial of fluoxetine in body dysmorphic disorder. *Archives of General Psychiatry, 59*(4), 381–388.
+
+Sixty-seven patients randomised to 12 weeks of fluoxetine or placebo; 18 of 34 (53%) responded to fluoxetine against 6 of 33 (18%) to placebo. The script attaches to it: 53 percent against 18 percent, named as one trial.
+
+Status: confirmed from the abstract (PMID 11926939) as returned by search; DOI not recorded.
+
+## 77. Harrison et al. (2016), Clinical Psychology Review
+
+Harrison, A., Fernández de la Cruz, L., Enander, J., Radua, J., & Mataix-Cols, D. (2016). Cognitive-behavioral therapy for body dysmorphic disorder: A systematic review and meta-analysis of randomized controlled trials. *Clinical Psychology Review, 48*, 43–51. https://doi.org/10.1016/j.cpr.2016.05.007
+
+Seven randomised trials, N = 299: CBT superior to waitlist or credible psychological placebo on symptoms (delta = -1.22, 95% CI -1.66 to -0.79), gains maintained at two to four months in three studies. The script attaches to it: that across seven trials CBT did better than waiting or a placebo therapy. A 2026 meta-analysis of 19 trials exists and was not verified.
+
+Status: confirmed from the PubMed abstract (PMID 27393916) and a university repository.
+
+## 78. Halpin et al. (2025), Sociology of Health & Illness
+
+Halpin, M., Gosse, M., Yeo, K., Handlovsky, I., & Maguire, F. (2025). When help is harm: Health, lookism and self-improvement in the manosphere. *Sociology of Health & Illness, 47*(3), e70015. https://doi.org/10.1111/1467-9566.70015
+
+A qualitative analysis of 8,072 discussion-board comments in total from a looksmaxxing community with 6 million unique visitors a month, from two of its boards in 2023; 5,327 is the count returned for one of them. The authors describe users as demoralised, pushed toward substantial bodily change, and, as the lead author told the CBC, regularly encouraged toward suicide. The script attaches to it: "more than eight thousand comments", the forum's reach, and the word demoralisation. It diagnosed no one, and no share of threads containing insults is attached.
+
+Status: confirmed from the PubMed abstract (PMID 40069550) and PMC11896937 as returned by search; authors from a reference list giving first names in full; methods section not read.
+
+## 79. Collins (2026), Word of the Year
+
+CNN. (2026, November 3). *Mogging is Collins word of the year. But what does it mean?* CP24. https://www.cp24.com/news/world/2026/11/03/mogging-is-collins-word-of-the-year-but-what-does-it-mean/
+Euronews. (2026, November 3). *Collins English Dictionary reveals their 2026 word of the year*. https://www.euronews.com/2026/11/03/collins-english-dictionary-reveals-their-2026-word-of-the-year-do-you-know-what-mogging-me
+
+Collins announced "mogging" on 3 November 2026: slang meaning to outshine someone or something, use up 210% in 2026, around since the 2010s and now adopted by Generations Z and Alpha "in a playful and ironic way"; believed to come from AMOG, "alpha male of the group", a bodybuilding noun later made a verb and "briefly adopted by the manosphere". Euronews adds that mogging "implies more of a comparison" than looksmaxxing. The script attaches to it: the date, the definition, 210 percent, the playful and ironic use, and the gym origin in the 2010s. It does not say "mostly" or "2016", and credits the comparison gloss to Euronews.
+
+Status: confirmed across the Associated Press wire, CNN, Euronews, LBC and 1News as returned by search; Collins's own page not fetched; article titles taken from search listings and to be checked at the URLs.
+
+## 80. Dictionary.com (2026), Word of the Year
+
+Euronews. (2026, October 26). *Dictionary.com reveals 2026 word of the year*. https://euronews.com/2026/10/26/dictionarycoms-reveals-2026-word-of-the-year-and-its-a-depressing-one
+
+Dictionary.com named "maxxing" its 2026 Word of the Year on Monday 26 October 2026: short for "maximizing", used alone or as a suffix; shortlist affordability, data center, odyssey and unc. The script attaches to it: the word and the last week of October. The date in the episode's working files, 27 October, is the Boston Globe's publication date and is corrected here.
+
+Status: confirmed across Euronews, an aggregator giving the Monday, the Boston Globe and syndicated television reports; Dictionary.com's own page not fetched.
+
+## 81. Joel, Eastwick and Finkel (2017), Psychological Science
+
+Joel, S., Eastwick, P. W., & Finkel, E. J. (2017). Is romantic desire predictable? Machine learning applied to initial romantic attraction. *Psychological Science, 28*(10), 1478–1489. https://doi.org/10.1177/0956797617714580
+
+Two speed-dating samples with more than a hundred traits and preferences reported beforehand: random forest models predicted 4 to 18% of actor variance and 7 to 27% of partner variance, and were unable to predict relationship variance, one person's particular desire for another. The script attaches to it: that who tends to be desired was partly predictable and who would desire whom was not.
+
+Status: confirmed from the abstract as held by the UK Data Service and the journal's and school's listings; volume and pages carried from the research file; sample size not re-verified.
+
+## 82. Langlois et al. (2000), Psychological Bulletin
+
+Langlois, J. H., Kalakanis, Rubenstein, A. J., Larson, Hallam, & Smoot. (2000). Maxims or myths of beauty? A meta-analytic and theoretical review. *Psychological Bulletin, 126*(3), 390–423. https://doi.org/10.1037/0033-2909.126.3.390 (Remaining initials not returned by search.)
+
+Eleven meta-analyses: raters agree about who is attractive within and across cultures; attractive children and adults are judged and treated more positively than unattractive ones, including by people who know them. The script attaches to it: that looks do change how people are treated, the part of the trend that is true. No effect size is attached.
+
+Status: confirmed from the abstract as indexed in several catalogues and from later papers citing it for the treatment finding; full abstract seen in fragments.
+
+## 83. Hamermesh and Biddle (1994), American Economic Review
+
+Hamermesh, D. S., & Biddle, J. E. (1994). Beauty and the labor market. *American Economic Review, 84*(5), 1174–1194.
+
+Interviewers' ratings of looks in three surveys from the United States and Canada: "The plainness penalty is 5 to 10 percent, slightly larger than the beauty premium", with effects for men at least as great as for women. The script attaches to it: the 5 to 10 percent penalty, named as one study.
+
+Status: confirmed from the abstract in RePEc and the NBER working paper record.
+
+## 84. YouTube (2023), official blog
+
+Beser, J. (2023, November 2). *Continued support for teen wellbeing and mental health on YouTube*. YouTube Official Blog. https://blog.youtube/inside-youtube/continued-support-for-teen-wellbeing-and-mental-health-on-youtube/
+
+YouTube limits repeated recommendations to teens of videos that compare "physical features and idealizes some types over others", idealise specific fitness levels or body weights, or display social aggression; first in the United States, with other countries to follow. A limit on repetition, not a removal. Production guidance for the episode; the script does not speak it.
+
+Status: the quoted categories and the date confirmed across CNN, Tubefilter and wire coverage; the blog post not fetched, its title taken from the URL.
+
+## 85. TikTok, Community Guidelines
+
+TikTok. (2025). *Community guidelines: Mental and behavioral health*. https://www.tiktok.com/community-guidelines/en/mental-behavioral-health
+
+A tracked copy dated August 2025 says TikTok does not allow content encouraging disordered eating, risky methods for losing weight or gaining muscle, or harmful body comparisons; 2024 coverage describes four tiers from allowed to ineligible for the For You feed. Production guidance only.
+
+Status: tracked copy and news coverage only; TikTok's page not read; a later revision is indicated and unverified. Nothing is quoted from it.
+
+## 86. Johns Hopkins All Children's Hospital (2026)
+
+Johns Hopkins All Children's Hospital. (2026, August). *"Looksmaxxing" trend poses risks for boys and teens*. https://www.hopkinsmedicine.org/news/articles/2026/08/looksmaxxing-trend-poses-risks-for-boys-and-teens
+
+"Softmaxxing" is "considered to be lower-risk advice", covering hygiene, grooming, skin and hair care, or fashion; the piece quotes Dr Jasmine Reese and notes apps that score faces. The script attaches to it: that the grooming end of the trend is the lower-risk part, in one hospital's words.
+
+Status: confirmed from the hospital's page as returned by search; exact day not shown.
+
+## 87. Body Dysmorphic Disorder Foundation (2024), GP card
+
+Body Dysmorphic Disorder Foundation. (2024). *GP card* [Screening card]. https://bddfoundation.org/wp-content/uploads/2024/01/GP-Card-A5-Document.pdf
+
+Four screening questions, the first being whether the person spends an hour or more a day worrying about their appearance, the second naming mirror checking, grooming and comparing; the Foundation says the questions screen and do not diagnose. The script attaches to it: an hour a day of worry as a first screening question.
+
+Status: confirmed from the card's text as returned by search; the third question's wording not seen; year taken from the file path.
+
+## 88. Cornell, Cox and Piatkowski (2025), commentary
+
+Cornell, S., Cox, L., & Piatkowski, T. (2025, August). *Why are young men "T maxxing" testosterone? Do they need it? And what are the risks?* UNSW Newsroom, republished from The Conversation. https://www.unsw.edu.au/newsroom/news/2025/08/young-men-t-maxxing-testosterone-need-vs-risks
+
+Commentary: "Hypogonadism affects around one in 200 men, although estimates vary", more common in older men and men with diabetes or obesity. The script attaches to it, if at all: "around one man in two hundred, and estimates vary", shown as commentary. No primary source for the figure was seen.
+
+Status: confirmed across the university's page and several republications; exact day not shown.
+
+## 89. Flinders University (2026), release on a Body Image experiment
+
+Flinders University. (2026, April 29). *TikTok's muscle dream is a nightmare for young men*. https://news.flinders.edu.au/blog/2026/04/29/tiktoks-muscle-dream-is-a-nightmare-for-young-men/
+
+The release for an experiment in *Body Image, 57*, 102082 (https://doi.org/10.1016/j.bodyim.2026.102082; lead author N. Beos, senior author I. Prichard; title not returned). 282 men aged 17 to 30 randomly allocated to fitness, supplement or travel videos: the fitness and supplement videos lowered nutrition satisfaction and raised intentions to use creatine, and men who compared themselves with the bodies shown reported poorer satisfaction. The script attaches to it: the comparison finding only.
+
+Status: release and abstract record as returned by search; the paper's title, full author list and body-satisfaction result not seen; the date is the release's, not 29 March.
+
+## 90. Know Your Meme, PSL scale
+
+Know Your Meme. (n.d.). *PSL scale*. https://knowyourmeme.com/memes/psl-scale
+
+A meme archive's account: the scale arose on early lookism forums as a supposedly objective system (the search summary's wording, not checked as a quotation), and the name is read as PUAHate, SlutHate and Lookism. Not scholarly, and the only origin account found. The script attaches to it: that the scale presents itself as objective, and the three forum names. Sources disagree on the scale's range, so none is stated.
+
+Status: confirmed from the archive's entry and its guide as returned by search, and consistent with other glossaries.
+
+## What remains unconfirmed for R01
+
+The twin correlations and variance table in Germine et al. (2015), and with them the 0.22 figure. Every percentage in the low T study as the paper prints it, and whether the paper states that no post cited evidence. The polycythaemia detail in Dubin et al. (2022). The number of men aged 30 to 40 in Brambilla et al. (2009). The 1.2% and the per-wave samples in Travison et al. (2007) as the paper gives them. The British Orthodontic Society's statement in its own words. The transcript of *Mew v General Dental Council*. The text of DSM-5-TR Criterion B. NICE CG31's recommendations for under-18s. Any proportion of forum threads containing insults in Halpin et al. (2025). Collins's and Dictionary.com's own announcement pages. The current text of TikTok's guidelines, and YouTube's blog post and its 2024 extension. Everything in the three research files that was not on the fact-check list of 10 November 2026 keeps the status its own file gives it. None of these reaches the script until it is closed.
