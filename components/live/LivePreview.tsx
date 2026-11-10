@@ -78,6 +78,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
   }, [personalTrail.length, side]);
 
   function selectMoment(index: number) {
+    setRounds(old => old.map((item, index) => index === moment && item.phase === "typing" ? { ...item, phase: "ready" } : item));
     setArrival(false);
     setWordOpen(false);
     setOwnWord(["", ""]);

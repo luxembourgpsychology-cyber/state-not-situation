@@ -103,6 +103,17 @@
 .chat-preview .chat-arrival input { width: 100%; min-height: 49px; padding: 12px 14px; border: 1px solid var(--chat-line); border-radius: 0; background: #fffdf9; color: var(--chat-ink); font-size: 17px; }
 .chat-preview .chat-arrival .chat-send { justify-content: space-between; width: 100%; min-height: 49px; padding-inline: 16px; font-size: 17px!important; }
 .chat-preview .chat-arrival > small { display: block; margin-top: 19px; color: var(--chat-quiet); font-size: 11px; line-height: 1.5; }
+@media (min-width: 701px) {
+  .chat-preview { padding-block: 18px 20px; }
+  .chat-preview .chat-book-header { min-height: 68px; padding-block: 12px; }
+  .chat-preview .chat-header { min-height: 44px; }
+  .chat-preview .chat-prompt { padding-block: 4px 12px; }
+  .chat-preview .chat-thread { min-height: 220px; max-height: 42dvh; }
+  .chat-preview .chat-host-controls { margin-top: 14px; }
+}
+@media (min-width: 701px) and (max-height: 800px) {
+  .chat-preview .chat-feeling-trail ol { max-height: 120px; }
+}
 @media (max-width: 700px) {
   .chat-preview { padding: 15px 16px 25px; }
   .chat-preview .chat-demo-bar { align-items: flex-start; flex-direction: column; gap: 5px; margin-bottom: 12px; }
