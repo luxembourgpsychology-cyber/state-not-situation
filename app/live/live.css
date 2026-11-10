@@ -400,3 +400,6 @@ body.book-live {
 .experiment-share > p { font-size: 13px; color: var(--live-quiet); }
 .experiment-sealed { display: flex; align-items: center; justify-content: center; width: 54px; height: 54px; margin-top: 14px; border: 1px solid var(--live-line); border-radius: 50%; color: var(--live-red); font-size: 28px; }
 @media (prefers-reduced-motion: reduce) { .experiment-preview .live-typing-bubble i { animation: none; } }
+
+.experiment-metaemotion { border-top: 1px solid var(--live-line); padding-top: 22px; display: grid; gap: 12px; }
+.experiment-metaemotion > p:not(.conversation-eyebrow,.conversation-quiet) { font-size: 17px; line-height: 1.45; }
