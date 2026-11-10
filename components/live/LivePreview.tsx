@@ -22,6 +22,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
   const [topPicker, setTopPicker] = useState(false);
   const [selectedStateId, setSelectedStateId] = useState<number | null>(null);
   const thread = useRef<HTMLDivElement>(null);
+  const composeArea = useRef<HTMLDivElement>(null);
   const trail = useRef<HTMLOListElement>(null);
   const round = state.rounds[state.moment];
   const timeline = state.timelines[state.side];
@@ -54,8 +55,13 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
     if (state.reviewing) {
       element.scrollTop = 0;
       element.scrollIntoView({ block: "start", behavior: "auto" });
-    } else element.scrollTop = element.scrollHeight;
-  }, [state.arrival, state.reviewing, state.moment, state.side, conversation.length, round.phase]);
+    } else {
+      element.scrollTop = element.scrollHeight;
+      if (window.matchMedia("(max-width: 700px)").matches && writing && (round.phase === "waiting" || state.moment > 0)) {
+        composeArea.current?.scrollIntoView({ block: "nearest", behavior: "auto" });
+      }
+    }
+  }, [state.arrival, state.reviewing, state.moment, state.side, conversation.length, round.phase, writing]);
 
   useEffect(() => {
     const element = trail.current;
@@ -67,7 +73,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
   function chooseFeeling(value: string) {
     const log = thread.current;
     let contextEventId = highlightedEventId;
-    if (contextEventId === undefined && log) {
+    if (log) {
       const box = log.getBoundingClientRect();
       const visible = Array.from(log.querySelectorAll<HTMLElement>("[data-event-id]")).filter(element => {
         const bounds = element.getBoundingClientRect();
@@ -164,7 +170,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
               {!state.reviewing && isHeld && <p className="chat-wait">Waiting for Ivana</p>}
               {round.phase === "revealed" && state.moment === 3 && <div className="chat-share">{state.shared[state.side] ? <span>Marked for sharing in this demo.</span> : <button onClick={() => dispatch({ type: "share", side: state.side })}>Share my last message with the room</button>}</div>}
             </div>
-            {!state.reviewing && <div className="chat-compose-area"><form className="chat-composer" onSubmit={event => { event.preventDefault(); setTopPicker(false); setSelectedStateId(null); dispatch({ type: "send", moment: state.moment, side: state.side }); }}><label className="sr-only" htmlFor={`chat-message-${state.moment}`}>Your message</label><textarea id={`chat-message-${state.moment}`} value={draft} disabled={!writing} onChange={event => dispatch({ type: "draft", moment: state.moment, side: state.side, value: event.target.value })} placeholder={replyingToTrick ? "Reply to this message…" : round.phase === "compose" ? "Your message…" : "Sent"} rows={2} maxLength={500} required /><button className="chat-send" type="submit" disabled={!writing || !draft.trim()} aria-label="Send"><span aria-hidden="true">↗</span></button></form>{(replyingToTrick || unsentDraft) && <p className="chat-composer-note">{unsentDraft ? "Unsent draft. Only you can see this." : "Your reply waits for the reveal."}</p>}</div>}
+            {!state.reviewing && <div className="chat-compose-area" ref={composeArea}><form className="chat-composer" onSubmit={event => { event.preventDefault(); setTopPicker(false); setSelectedStateId(null); dispatch({ type: "send", moment: state.moment, side: state.side }); }}><label className="sr-only" htmlFor={`chat-message-${state.moment}`}>Your message</label><textarea id={`chat-message-${state.moment}`} value={draft} disabled={!writing} onChange={event => dispatch({ type: "draft", moment: state.moment, side: state.side, value: event.target.value })} placeholder={replyingToTrick ? "Reply to this message…" : round.phase === "compose" ? "Your message…" : "Sent"} rows={2} maxLength={500} required /><button className="chat-send" type="submit" disabled={!writing || !draft.trim()} aria-label="Send"><span aria-hidden="true">↗</span></button></form>{(replyingToTrick || unsentDraft) && <p className="chat-composer-note">{unsentDraft ? "Unsent draft. Only you can see this." : "Your reply waits for the reveal."}</p>}</div>}
           </div>
 
           <aside className="chat-feelings" aria-label="Your private feelings">

@@ -107,8 +107,8 @@ function deliverReply(state: PreviewState): PreviewState {
       next = append(next, side, moment, {
         kind: "reveal",
         text: side === target
-          ? `Your partner didn’t write “${planted[moment]}”. Here is their reply.`
-          : `Your partner saw “${planted[moment]}”. We placed that line in the exchange.`,
+          ? `The line “${planted[moment]}” wasn’t from your partner. Here is their reply.`
+          : `Your partner saw the line “${planted[moment]}” as part of the experiment.`,
       });
     }
     const owner: Side = side === 0 ? 1 : 0;
