@@ -113,6 +113,8 @@
 }
 @media (min-width: 701px) and (max-height: 800px) {
   .chat-preview .chat-feeling-trail ol { max-height: 120px; }
+  .chat-preview .chat-feeling-trail li { padding-bottom: 8px; }
+  .chat-preview .chat-feeling-trail li:last-child { padding-bottom: 0; }
 }
 @media (max-width: 700px) {
   .chat-preview { padding: 15px 16px 25px; }
