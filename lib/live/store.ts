@@ -1,6 +1,9 @@
 import "server-only";
 import { neon } from "@neondatabase/serverless";
 import type { Room } from "./types";
+import { randomBytes, randomUUID } from "node:crypto";
+import { createRoom } from "./engine";
+import { LAUNCH_ENDS, LAUNCH_ROOM_CODE } from "./launch";
 
 export class LiveError extends Error {
   constructor(message: string, public status = 400) { super(message); }
@@ -20,6 +23,16 @@ export async function readRoom(code: string): Promise<Room> {
 export async function insertRoom(room: Room) {
   await db()`INSERT INTO book_live_rooms (code, body, revision, expires_at) VALUES (${room.code}, ${JSON.stringify(room)}::jsonb, ${room.revision}, ${new Date(room.expiresAt).toISOString()})`;
   return room;
+}
+
+// Opening the launch controls again must restore the same room and answers.
+// Never replace this row when the host returns or deploys a new version.
+export async function ensureLaunchRoom(): Promise<Room> {
+  if (Date.now() >= LAUNCH_ENDS) throw new LiveError("The launch has finished. Create a test room to practise again.", 410);
+  const room = createRoom({ id: randomUUID(), code: LAUNCH_ROOM_CODE, inviteToken: randomBytes(24).toString("base64url"), mode: "live", now: Date.now() });
+  room.expiresAt = LAUNCH_ENDS;
+  await db()`INSERT INTO book_live_rooms (code, body, revision, expires_at) VALUES (${room.code}, ${JSON.stringify(room)}::jsonb, 0, ${new Date(LAUNCH_ENDS).toISOString()}) ON CONFLICT (code) DO NOTHING`;
+  return readRoom(LAUNCH_ROOM_CODE);
 }
 
 // Compare-and-swap serializes pair creation and answer changes across Functions.

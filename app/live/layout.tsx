@@ -10,8 +10,8 @@ const instrument = Instrument_Serif({ weight: "400", subsets: ["latin"], variabl
 const barlow = Barlow_Semi_Condensed({ weight: ["600", "700"], subsets: ["latin"], variable: "--font-barlow", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Book games | State. Not Situation.",
-  description: "Join Ivana's book event and follow the games together.",
+  title: "Four small moments | State. Not Situation.",
+  description: "Join in, watch, or pass at Ivana's book launch. There is no score.",
   robots: { index: false, follow: false, nocache: true },
   referrer: "no-referrer",
 };

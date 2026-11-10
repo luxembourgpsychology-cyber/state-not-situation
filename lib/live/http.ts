@@ -3,8 +3,9 @@ import { createHash, createHmac, randomBytes, timingSafeEqual } from "node:crypt
 import { NextRequest, NextResponse } from "next/server";
 import { LiveError, rateLimit } from "./store";
 import type { Room, Participant } from "./types";
+import { LAUNCH_OPENS } from "./launch";
 
-export const PUBLIC_OPENING = Date.parse("2026-12-03T17:00:00Z");
+export const PUBLIC_OPENING = LAUNCH_OPENS;
 export const hash = (value: string) => createHash("sha256").update(value).digest("hex");
 export const token = () => randomBytes(24).toString("base64url");
 export const guestCookie = (code: string) => `book_live_${code}`;

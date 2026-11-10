@@ -84,5 +84,6 @@ export interface HostState {
   forecast: Forecast;
   forecastLocked: boolean;
   joinPath?: string;
+  screenPath?: string;
 }
 export type HostAction = "pair" | "next" | "pause" | "resume" | "look_up" | "return" | "reveal" | "skip";

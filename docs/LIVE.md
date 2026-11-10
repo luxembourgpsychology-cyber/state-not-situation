@@ -4,11 +4,15 @@ This app belongs to **State. Not Situation.** It has no connection to another pr
 
 ## For the host
 
+Open `/live/preview` to try all four moments on your own, without a password or another person. It reuses the guest forms, labels its fictional example partner, and keeps all practice answers in local page state. It never joins or submits to an event room.
+
+For the actual launch, press **Open the 3 December event**. Its printed QR always points to `https://statenotsituation.com/live/launch` and its fixed room is `LAUNCH2026`. Reopening these controls preserves the room and answers. The QR shows a waiting page before opening, updates automatically, then shows a finished message after the event window. Print `/live/launch-qr.pdf`; do not print a temporary test-room QR.
+
 Open `/live/host` and sign in with the private host key. Create a test room, share its QR code with at least two people, press **Pair the guests**, then **Start Card 01**. Everyone stays on the same step until you continue. People do not need phone numbers or accounts.
 
 Use the main action to move forward. **Look up** holds the phone screens during conversation. **Pause session** is under Room tools. Pairing and saved answers survive refreshing the browser. For an odd number, one guest waits through the pair activities and can join the individual games. A helper can join as an extra real participant before pairing.
 
-The first message, its meaning, the interpretation, replies and expectations are entered by real participants. Typing dots come only from recent input in a partner's reply field. They expire after three seconds and stop during host pauses. The host explicitly controls reply delivery. No sample people, simulated typing or generated answers are used.
+In hosted rooms, the first message, its meaning, the interpretation, replies and expectations are entered by real participants. Typing dots come only from recent input in a partner's reply field. They expire after three seconds and stop during host pauses. The host explicitly controls reply delivery. No sample people, simulated typing or generated answers enter hosted rooms. The separate solo preview uses clearly labelled fictional examples.
 
 Before Card 04, save how many people you expect to select each answer. This prediction locks when Card 04 opens. **Open the final reveal** requires confirmation. The room screen has its own link and never projects pair messages.
 

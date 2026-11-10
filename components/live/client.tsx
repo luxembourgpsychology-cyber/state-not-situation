@@ -17,7 +17,7 @@ export const stepNames: Record<Step, string> = {
   lobby: "Welcome", compose: "Write a message", interpret: "Read your message", reply: "Write a reply", reply_delivered: "Read your reply", context: "A different tomorrow", room: "Hear from Ivana", ready_reveal: "Ready for the reveal", reveal_message: "The message", reveal_pause: "The wait", reveal_context: "The context", reveal_room: "The room", finished: "Thank you",
 };
 export const nextNames: Partial<Record<Step, string>> = {
-  lobby: "Start Card 01", compose: "Show the messages", interpret: "Open the reply", reply: "Deliver the replies", reply_delivered: "Open Card 03", context: "Open Card 04", room: "Finish the games", reveal_message: "Show the wait", reveal_pause: "Show the contexts", reveal_context: "Show the room", reveal_room: "Finish the session",
+  lobby: "Start Moment 01", compose: "Show the messages", interpret: "Open the reply", reply: "Deliver the replies", reply_delivered: "Open Moment 03", context: "Open Moment 04", room: "Finish the moments", reveal_message: "Show the wait", reveal_pause: "Show the contexts", reveal_context: "Show the room", reveal_room: "Finish the session",
 };
 
 export function requestId() { return crypto.randomUUID(); }
@@ -78,7 +78,7 @@ export function usePolling<T>(url: string | null, interval = 1500) {
 export function Brand({ mode, code }: { mode?: string; code?: string }) {
   return <header className="live-header">
     <Link className="live-wordmark" href="/en" aria-label="State. Not Situation. book website">STATE.<span>NOT SITUATION.</span></Link>
-    <div className="live-header-meta"><span>Book event games</span>{code && <span>Room {code}</span>}{mode === "rehearsal" && <strong className="live-rehearsal">Test room</strong>}</div>
+    <div className="live-header-meta"><span>Book event moments</span>{code && <span>Room {code}</span>}{mode === "rehearsal" && <strong className="live-rehearsal">Test room</strong>}</div>
   </header>;
 }
 
@@ -91,9 +91,9 @@ export function Waiting({ title = "You’re ready.", children }: { title?: strin
   return <div className="live-waiting"><span className="live-waiting-rule" aria-hidden="true" /><h1>{title}</h1><div className="live-waiting-copy">{children || "Ivana will open the next step. Keep this page open."}</div></div>;
 }
 
-export function Typing({ active }: { active?: boolean }) {
+export function Typing({ active, label = "Your partner is typing" }: { active?: boolean; label?: string }) {
   if (!active) return <p className="live-caption live-typing-idle">Replies will appear when Ivana opens the next step.</p>;
-  return <div className="live-typing" role="status" aria-live="polite"><span className="live-typing-bubble" aria-hidden="true"><i /><i /><i /></span><span>Your partner is typing</span></div>;
+  return <div className="live-typing" role="status" aria-live="polite"><span className="live-typing-bubble" aria-hidden="true"><i /><i /><i /></span><span>{label}</span></div>;
 }
 
 export function Message({ label, text }: { label: string; text?: string }) {
@@ -102,6 +102,6 @@ export function Message({ label, text }: { label: string; text?: string }) {
 
 export function Saved() { return <p className="live-saved" role="status"><span aria-hidden="true">✓</span> Saved. We’ll come back to this at the reveal.</p>; }
 
-export function CountResults({ forecast, counts }: { forecast?: Record<Interest, number>; counts?: Record<Interest, number> }) {
-  return <div className="live-results"><div className="live-result-head"><span>Response</span><span>Ivana’s guess</span><span>The room</span></div>{interests.map(interest => <div className="live-result-row" key={interest}><span>{interest}</span><strong>{forecast?.[interest] ?? "Not saved"}</strong><strong>{counts?.[interest] ?? 0}</strong></div>)}</div>;
+export function CountResults({ forecast, counts, forecastLabel = "Ivana’s guess", countsLabel = "The room" }: { forecast?: Record<Interest, number>; counts?: Record<Interest, number>; forecastLabel?: string; countsLabel?: string }) {
+  return <div className="live-results"><div className="live-result-head"><span>Response</span><span>{forecastLabel}</span><span>{countsLabel}</span></div>{interests.map(interest => <div className="live-result-row" key={interest}><span>{interest}</span><strong>{forecast?.[interest] ?? "Not saved"}</strong><strong>{counts?.[interest] ?? 0}</strong></div>)}</div>;
 }

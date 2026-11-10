@@ -1,12 +1,17 @@
 import { randomBytes, randomUUID } from "node:crypto";
 import { NextRequest } from "next/server";
 import { createRoom, hostCommand, hostView, setForecast } from "@/lib/live/engine";
-import { changeRoom, clearRoomTyping, insertRoom, listRooms, LiveError, readRoom } from "@/lib/live/store";
+import { changeRoom, clearRoomTyping, ensureLaunchRoom, insertRoom, listRooms, LiveError, readRoom } from "@/lib/live/store";
 import { body, checkPassword, cookieOptions, fail, hostSession, json, PUBLIC_OPENING, requireHost, roomCode, token } from "@/lib/live/http";
+import { LAUNCH_PATH, LAUNCH_ROOM_CODE } from "@/lib/live/launch";
 
 export const runtime = "nodejs";
 function view(room: Parameters<typeof hostView>[0]) {
-  return { ...hostView(room), joinPath: `/live?room=${room.code}&invite=${encodeURIComponent(room.inviteToken)}` };
+  return {
+    ...hostView(room),
+    joinPath: room.code === LAUNCH_ROOM_CODE ? LAUNCH_PATH : `/live?room=${room.code}&invite=${encodeURIComponent(room.inviteToken)}`,
+    screenPath: `/live/screen?room=${room.code}&invite=${encodeURIComponent(room.inviteToken)}`,
+  };
 }
 
 export async function GET(request: NextRequest) {
@@ -27,6 +32,7 @@ export async function POST(request: NextRequest) {
       return response;
     }
     requireHost(request);
+    if (data.action === "launch") return json(view(await ensureLaunchRoom()));
     if (data.action === "logout") {
       const response = json({ ok: true }); response.cookies.set("book_live_host", "", { ...cookieOptions, maxAge: 0 }); return response;
     }
