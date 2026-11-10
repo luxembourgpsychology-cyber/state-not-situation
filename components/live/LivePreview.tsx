@@ -12,7 +12,7 @@ function FeelingPicker({ selected, onChoose }: { selected: string; onChoose: (fe
   return <div className="chat-emotion-picker">
     <div className="chat-emotion-options" aria-label="Choose a feeling">{feelingChoices.map(feeling => <button type="button" key={feeling} aria-pressed={selected === feeling} onClick={() => onChoose(feeling)}>{feeling}</button>)}</div>
     <button type="button" aria-expanded={custom} onClick={() => setCustom(old => !old)}>Other</button>
-    {custom && <form className="chat-other-feeling" onSubmit={event => { event.preventDefault(); if (word.trim()) onChoose(word); }}><label className="sr-only" htmlFor={inputId}>Your own feeling</label><input id={inputId} value={word} onChange={event => setWord(event.target.value)} placeholder="Your word…" maxLength={40} autoFocus /><button aria-label="Save feeling" disabled={!word.trim()}>↗</button></form>}
+    {custom && <form className="chat-other-feeling" onSubmit={event => { event.preventDefault(); if (word.trim()) onChoose(word); }}><label className="sr-only" htmlFor={inputId}>Your own feeling</label><input id={inputId} value={word} onChange={event => setWord(event.target.value)} placeholder="Your word…" maxLength={40} autoFocus /><button disabled={!word.trim()}>Save privately</button></form>}
   </div>;
 }
 
@@ -24,12 +24,13 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
   const trail = useRef<HTMLOListElement>(null);
   const round = state.rounds[state.moment];
   const timeline = state.timelines[state.side];
+  const conversation = timeline.filter(event => event.kind !== "feeling");
   const personalFeelings = timeline.filter(event => event.kind === "feeling");
+  const lastFeeling = personalFeelings.at(-1);
   const stage = feelingStage(state);
   const currentFeeling = personalFeelings.filter(event => event.moment === state.moment && event.stage === stage).at(-1)?.value || "";
   const partnerLabel = state.side === 0 ? "07" : "12";
   const isHeld = round.phase === "ready" || round.phase === "waiting";
-  const showInlinePicker = !state.reviewing && !topPicker && !currentFeeling && (isHeld || round.phase === "revealed");
 
   useEffect(() => {
     if (round.phase !== "typing") return;
@@ -48,7 +49,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
       element.scrollTop = 0;
       element.scrollIntoView({ block: "start", behavior: "auto" });
     } else element.scrollTop = element.scrollHeight;
-  }, [state.arrival, state.reviewing, state.moment, state.side, timeline.length, round.phase]);
+  }, [state.arrival, state.reviewing, state.moment, state.side, conversation.length, round.phase]);
 
   useEffect(() => {
     const element = trail.current;
@@ -83,7 +84,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
 
   function renderEntry(entry: ChatEvent) {
     if (entry.kind === "prompt") return <div className="chat-prompt-card" key={entry.id} data-prompt-moment={entry.moment}><small className="chat-event-label">Ivana · Prompt 0{entry.moment + 1}</small><p>{entry.text}</p></div>;
-    if (entry.kind === "feeling") return <div className="chat-feeling-event" key={entry.id}><small className="chat-event-label">Your feeling · Private</small><span className="chat-feeling-word">{entry.value}</span><small className="chat-feeling-stage">0{entry.moment + 1} · {stageNames[entry.stage]}</small></div>;
+    if (entry.kind === "feeling") return null;
     if (entry.kind === "reveal") return <div className="chat-app-reveal" key={entry.id}><small className="chat-event-label">App reveal</small><p>{entry.text}</p></div>;
     const own = entry.owner === state.side;
     const experiment = entry.message.source === "experiment";
@@ -120,22 +121,23 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
         <section className={`chat-experience ${state.reviewing ? "is-reviewing" : ""}`} aria-label="Guest experience">
           <header className="chat-book-header"><Link className="chat-wordmark" href="/en">STATE.<br />NOT SITUATION.</Link><span className="chat-step">{state.reviewing ? "Full conversation" : `0${state.moment + 1} / 04`}</span></header>
           <div className="chat-main">
-            <header className="chat-header"><span>Someone in this room · {partnerLabel}</span><span className="chat-presence" aria-label="Partner name hidden" /></header>
+            <header className="chat-header chat-connection"><h2>You’re paired with someone in this room.</h2><p>Neither of you sees the other’s name.</p></header>
             <div className="chat-thread" role="log" aria-label="Your conversation" aria-live="polite" ref={thread}>
-              {timeline.map(renderEntry)}
+              {conversation.map(renderEntry)}
               {!state.reviewing && round.phase === "typing" && <div className="chat-typing" aria-label="Example partner is typing"><i /><i /><i /></div>}
               {!state.reviewing && isHeld && <p className="chat-wait">Waiting for Ivana</p>}
-              {showInlinePicker && <section className="chat-inline-feeling" aria-label="Record your feeling"><small className="chat-event-label">Your feeling · Private</small><p>How do you feel right now?</p><FeelingPicker key={`inline-${state.side}-${state.moment}-${round.phase}`} selected={currentFeeling} onChoose={chooseFeeling} /></section>}
               {round.phase === "revealed" && state.moment === 3 && <div className="chat-share">{state.shared[state.side] ? <span>Marked for sharing in this demo.</span> : <button onClick={() => dispatch({ type: "share", side: state.side })}>Share my last message with the room</button>}</div>}
             </div>
             {!state.reviewing && <form className="chat-composer" onSubmit={event => { event.preventDefault(); setTopPicker(false); dispatch({ type: "send", moment: state.moment, side: state.side }); }}><label className="sr-only" htmlFor={`chat-message-${state.moment}`}>Your message</label><textarea id={`chat-message-${state.moment}`} value={round.phase === "compose" ? round.drafts[state.side] : ""} disabled={round.phase !== "compose"} onChange={event => dispatch({ type: "draft", moment: state.moment, side: state.side, value: event.target.value })} placeholder={round.phase === "compose" ? "Your message…" : "Sent"} rows={2} maxLength={500} required /><button className="chat-send" type="submit" disabled={round.phase !== "compose" || !round.drafts[state.side].trim()} aria-label="Send"><span aria-hidden="true">↗</span></button></form>}
           </div>
 
           <aside className="chat-feelings" aria-label="Your private feelings">
-            <header><h2>Your feelings</h2><span>Private</span></header>
-            <button className="chat-add-feeling" aria-expanded={topPicker} disabled={state.reviewing} onClick={() => setTopPicker(old => !old)}>＋ Add a feeling</button>
+            <header><h2>Private feelings</h2><span>Only you</span></header>
+            <p className="chat-private-note">Never sent to your partner.</p>
+            {lastFeeling && <p className="chat-last-feeling">Last noted: <strong>{lastFeeling.value}</strong></p>}
+            <button className="chat-add-feeling" aria-expanded={topPicker} disabled={state.reviewing} onClick={() => setTopPicker(old => !old)}>How I feel</button>
             {topPicker && <div className="chat-top-picker"><FeelingPicker key={`top-${state.side}-${state.moment}-${round.phase}`} selected={currentFeeling} onChoose={chooseFeeling} /></div>}
-            <div className="chat-feeling-trail" aria-live="polite">{personalFeelings.length ? <ol ref={trail} aria-label="Your feelings so far">{personalFeelings.map(feeling => <li key={feeling.id}><span className="chat-trail-point" aria-hidden="true" /><small>0{feeling.moment + 1} · {stageNames[feeling.stage]}</small><span>{feeling.value}</span></li>)}</ol> : <p className="chat-trail-empty">Your choices appear here.</p>}</div>
+            {state.reviewing && <div className="chat-feeling-trail" aria-live="polite">{personalFeelings.length ? <ol ref={trail} aria-label="Your private feeling notes">{personalFeelings.map(feeling => <li key={feeling.id}><span className="chat-trail-point" aria-hidden="true" /><small>0{feeling.moment + 1} · {stageNames[feeling.stage]}</small><span>{feeling.value}</span></li>)}</ol> : <p className="chat-trail-empty">No private feelings recorded.</p>}</div>}
           </aside>
         </section>
         <div className="chat-host-controls" aria-label="Ivana’s demo controls"><span>Ivana</span><button className="chat-host-action" onClick={hostAction} disabled={!ready}>{hostLabel}<span aria-hidden="true">↗</span></button></div>

@@ -223,3 +223,28 @@
   .chat-preview *, .chat-preview *::before, .chat-preview *::after { animation: none!important; transition: none!important; scroll-behavior: auto!important; }
   .chat-preview .chat-typing i { opacity: .7; }
 }
+
+/* The conversation and private feelings are separate spaces. */
+.chat-preview .chat-connection { display: block; padding-block: 16px 20px; }
+.chat-preview .chat-connection h2 { max-width: 24ch; margin: 0; font-family: var(--font-bebas, Impact, sans-serif); font-size: clamp(32px, 3vw, 40px); font-weight: 700; line-height: 1.03; letter-spacing: .005em; }
+.chat-preview .chat-connection > p { margin-top: 9px; color: var(--chat-quiet); font-size: 15px; line-height: 1.4; }
+.chat-preview .chat-feelings { gap: 12px; background: rgba(17,17,17,.018); }
+.chat-preview .chat-private-note { color: var(--chat-quiet); font-size: 12px; line-height: 1.4; }
+.chat-preview .chat-last-feeling { margin-block: 4px; color: var(--chat-quiet); font-size: 13px; line-height: 1.4; overflow-wrap: anywhere; }
+.chat-preview .chat-last-feeling strong { color: var(--chat-ink); font-weight: 600; }
+.chat-preview .chat-feelings .chat-add-feeling { font-size: 13px; }
+.chat-preview .chat-other-feeling button { min-width: 80px; white-space: normal; font-size: 12px; }
+.chat-preview .chat-experience.is-reviewing .chat-feeling-trail ol { max-height: 60dvh; }
+@media (max-width: 700px) {
+  .chat-preview .chat-connection { padding-block: 12px 17px; }
+  .chat-preview .chat-connection h2 { max-width: 27ch; font-size: 32px; }
+  .chat-preview .chat-connection > p { font-size: 14px; margin-top: 7px; }
+  .chat-preview .chat-feelings { gap: 4px 12px; padding-block: 12px; }
+  .chat-preview .chat-feelings > header { grid-column: 1; grid-row: 1; }
+  .chat-preview .chat-private-note { grid-column: 1; grid-row: 2; font-size: 11px; }
+  .chat-preview .chat-last-feeling { grid-column: 1; grid-row: 3; margin-block: 2px 0; font-size: 12px; }
+  .chat-preview .chat-add-feeling { grid-column: 2; grid-row: 1 / 4; align-self: center; }
+  .chat-preview .chat-top-picker { grid-column: 1 / -1; grid-row: 4; margin-top: 8px; }
+  .chat-preview .chat-feeling-trail { grid-column: 1 / -1; grid-row: 5; }
+  .chat-preview .chat-experience.is-reviewing .chat-feeling-trail ol { max-height: none; }
+}
