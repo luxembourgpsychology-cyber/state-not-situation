@@ -12,3 +12,4 @@ docs-screenshots
 
 # review workbooks are generated, not source
 review/*.json
+.env*

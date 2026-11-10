@@ -16,6 +16,7 @@ function preferred(req: NextRequest): Locale {
 /** Sends un-prefixed paths to the visitor's best enabled language. */
 export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  if (pathname === "/live" || pathname.startsWith("/live/")) return NextResponse.next();
   const first = pathname.split("/")[1];
   if ((all as string[]).includes(first)) return NextResponse.next();
   const url = req.nextUrl.clone();
