@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const moments = [
   { title: "Someone in this room.", question: "What would you like to say to your partner?", short: "Hello" },
@@ -27,6 +27,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
   const [nickname, setNickname] = useState("");
   const [rounds, setRounds] = useState<Round[]>(makeRounds);
   const [shared, setShared] = useState(false);
+  const revealHeading = useRef<HTMLHeadingElement>(null);
   const round = rounds[moment];
   const current = moments[moment];
   const partner = side === 0 ? 1 : 0;
@@ -37,6 +38,12 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
   const reactionNeeded = round.phase === "waiting" && seesPlant && !round.feelings[side];
   const ownName = side === 0 ? nickname || "You" : "You";
   const partnerMessage = round.messages[partner] || examples[moment][partner];
+
+  useEffect(() => {
+    if (arrival || !isOpen) return;
+    revealHeading.current?.focus({ preventScroll: true });
+    revealHeading.current?.scrollIntoView({ block: "start", behavior: "auto" });
+  }, [arrival, isOpen, moment]);
 
   function updateRound(index: number, update: (old: Round) => Round) {
     setRounds(old => old.map((item, i) => i === index ? update(item) : item));
@@ -58,6 +65,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
     setArrival(false);
     setMoment(index);
     window.history.replaceState(null, "", `?moment=${index + 1}`);
+    window.scrollTo({ top: 0, behavior: "auto" });
   }
 
   function send(event: React.FormEvent<HTMLFormElement>) {
@@ -77,6 +85,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
   function startAgain() {
     setRounds(makeRounds()); setShared(false); setNickname(""); setSide(0); setMoment(0); setArrival(true);
     window.history.replaceState(null, "", window.location.pathname);
+    window.scrollTo({ top: 0, behavior: "auto" });
   }
 
   return <main className="live-app conversation-preview experiment-preview">
@@ -89,7 +98,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
         {arrival ? <div className="conversation-arrival"><p className="conversation-eyebrow">A person. A message. A little curiosity.</p><h1>Someone’s<br />on the other side.</h1><p>You’ll write to one person in this room. Your name stays hidden.</p><p className="experiment-arrival-note">Some messages are part of tonight’s experiment. We’ll reveal which.</p><form onSubmit={event => { event.preventDefault(); chooseMoment(0); }}><label htmlFor="conversation-nickname">Your name or nickname</label><input id="conversation-nickname" value={nickname} onChange={event => setNickname(event.target.value)} placeholder="What shall we call you?" autoComplete="nickname" maxLength={40} required /><button className="conversation-send" type="submit">Join<span aria-hidden="true">↗</span></button></form></div>
           : <div className="conversation-body">
             <div className="conversation-partner"><span className="conversation-partner-dot" aria-hidden="true" /><span>Your partner: <strong>{partnerLabel}</strong></span><span>Name hidden</span></div>
-            <h1>{isOpen ? target !== null ? <>A little<br />reveal.</> : moment === 3 ? <>Thank you<br />for sharing.</> : <>A message<br />for you.</> : reactionNeeded ? <>A message<br />for you.</> : current.title}</h1>
+            <h1 ref={revealHeading} tabIndex={-1}>{isOpen ? target !== null ? <>A little<br />reveal.</> : moment === 3 ? <>Thank you<br />for sharing.</> : <>A message<br />for you.</> : reactionNeeded ? <>A message<br />for you.</> : current.title}</h1>
             {isOpen ? <div className="conversation-opened" aria-live="polite">
               {target !== null && <div className="experiment-reveal"><p className="conversation-eyebrow">Part of the experiment</p><p className="experiment-planted-line"><s>{planted[moment]}</s></p><p>{seesPlant ? "Your partner did not write this." : "Your partner saw this. You did not write it."}</p>{seesPlant && round.feelings[side] && <p className="experiment-feeling-recap">Your word: <strong>{round.feelings[side]}</strong></p>}</div>}
               <div className="conversation-bubble conversation-bubble-partner"><span>Partner {partnerLabel}{target !== null ? " actually wrote" : ""}</span><p>{partnerMessage}</p></div>
