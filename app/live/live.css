@@ -379,3 +379,24 @@ body.book-live {
   .conversation-compose textarea { min-height: 135px; font-size: 17px; }
   .conversation-bubble p { font-size: 16px; }
 }
+
+/* The paired message experiment, guest preview only. */
+.experiment-phones { display: flex; gap: 18px; margin: -3px 0 16px; }
+.experiment-phones button { border: 0; border-bottom: 1px solid transparent; padding: 5px 0; background: transparent; color: var(--live-quiet); font-size: 12px; }
+.experiment-phones button[aria-pressed="true"] { border-bottom-color: currentColor; color: var(--live-red); }
+.experiment-arrival-note { border-left: 2px solid var(--live-red); padding-left: 15px; font-size: 14px!important; color: var(--live-quiet); }
+.experiment-preview .conversation-phone { min-height: 650px; }
+.experiment-reveal { border-top: 2px solid var(--live-red); padding: 18px 0; display: grid; gap: 12px; }
+.experiment-reveal > p:not(.conversation-eyebrow) { font-size: 16px; line-height: 1.45; }
+.experiment-reveal .experiment-planted-line { font-family: var(--font-serif); font-size: 29px!important; line-height: 1.2!important; color: var(--live-quiet); }
+.experiment-planted-line s { text-decoration-thickness: 1px; text-decoration-color: var(--live-red); }
+.experiment-feeling-recap { padding-top: 3px; color: var(--live-quiet); }
+.experiment-feeling-recap strong { color: var(--live-ink); font-weight: 600; }
+.experiment-feeling input { width: 100%; border: 1px solid var(--live-line); border-radius: 0; padding: 14px 16px; background: #fffdf9; color: var(--live-ink); font-size: 18px; }
+.experiment-book-note { display: grid; gap: 14px; padding: 20px 0 3px; border-top: 1px solid var(--live-line); }
+.experiment-book-note > p:not(.conversation-eyebrow,.conversation-quiet) { font-family: var(--font-serif); font-size: 24px; line-height: 1.25; }
+.experiment-starters { color: var(--live-quiet); font-size: 14px; line-height: 1.6; }
+.experiment-share { padding-top: 5px; }
+.experiment-share > p { font-size: 13px; color: var(--live-quiet); }
+.experiment-sealed { display: flex; align-items: center; justify-content: center; width: 54px; height: 54px; margin-top: 14px; border: 1px solid var(--live-line); border-radius: 50%; color: var(--live-red); font-size: 28px; }
+@media (prefers-reduced-motion: reduce) { .experiment-preview .live-typing-bubble i { animation: none; } }
