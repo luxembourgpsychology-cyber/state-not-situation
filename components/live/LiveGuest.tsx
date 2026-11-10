@@ -28,7 +28,7 @@ export default function LiveGuest({ roomCode = "", invite = "" }: Props) {
   return <main className="live-app live-guest">
     <Brand code={state?.room.code || undefined} mode={state?.room.mode} />
     {!state ? <div className="live-entry live-container">
-      <div className="live-entry-intro"><p className="live-label">The book. In the room. With you.</p><h1>Let’s try<br />something.</h1><p>Four small moments with the people in this room. Follow the steps on your phone. Ivana will guide you.</p><p className="live-caption">Join in, watch, or pass. There is no score.</p></div>
+      <div className="live-entry-intro"><p className="live-label">The book. In the room. With you.</p><h1>Let’s try<br />something.</h1><p>Four small moments with the people in this room. Follow the steps on your phone. Ivana will guide you.</p><p className="live-caption">A few words are enough. There is no score.</p></div>
       {needsJoin || polling.error ? <form className="live-join-form" onSubmit={join}>
         <h2>Join the room</h2>
         {!roomCode && <label className="live-field">Room code<input autoComplete="off" autoCapitalize="characters" value={room} onChange={e => setRoom(e.target.value.toUpperCase())} required maxLength={12} /></label>}
@@ -37,7 +37,7 @@ export default function LiveGuest({ roomCode = "", invite = "" }: Props) {
         <label className="live-check"><input type="checkbox" checked={consent} onChange={e => setConsent(e.target.checked)} required /><span>I agree to take part and share my messages with my partner.</span></label>
         {(joinError || polling.error && !(polling.error instanceof ApiError && polling.error.status === 401)) && <p className="live-error" role="alert">{joinError || polling.error?.message}</p>}
         <button className="live-button" disabled={busy || !consent}>{busy ? "Joining…" : "Join the room"}<span aria-hidden="true">↗</span></button>
-        <p className="live-caption">Keep this page open during the session.</p>{roomCode && <Link className="live-text-button" href={`/live/screen?room=${encodeURIComponent(roomCode)}&invite=${encodeURIComponent(invite)}`}>I’ll just watch</Link>}
+        <p className="live-caption">Keep this page open during the session.</p>
       </form> : <Waiting title="Opening the room…">Please wait a moment.</Waiting>}
     </div> : <>
       <Progress step={state.room.step} />
@@ -72,7 +72,6 @@ function AnswerForm({ state, initial, onState, onAnswer, practice = false }: Ste
   const [values, setValues] = useState<Record<string, string>>({ ...initial });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const [watching, setWatching] = useState(false);
   const typingThrottled = useRef(false);
   const typingThrottleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -134,15 +133,13 @@ function AnswerForm({ state, initial, onState, onAnswer, practice = false }: Ste
     return <fieldset className="live-options"><legend>{legend}</legend>{items.map(item => <label key={item} className={values[field] === item ? "is-selected" : ""}><input type="radio" name={field} value={item} checked={values[field] === item} onChange={() => change(field, item)} required disabled={sent || busy} /><span>{item}</span></label>)}</fieldset>;
   }
 
-  if (watching) return <Waiting title="You can watch this step."><button className="live-text-button" onClick={() => setWatching(false)}>Return to the prompt</button></Waiting>;
-
   return <form onSubmit={submit} className="live-answer-form">
     {step === "compose" && <><p className="live-label">Moment 01 · The message</p><h1>Write a message.</h1><p>Write a short message to your partner. It can be simple and everyday. Please avoid personal details.</p>{text("message", "Your message", "What would you like to say?", 300)}{text("intention", "What do you want them to understand?", "Write what you mean.", 300)}<p className="live-caption">Your partner sees the message first. Your intention stays hidden until the final reveal.</p></>}
     {step === "interpret" && <><p className="live-label">Moment 01 · The message</p><h1>Read your message.</h1><Message label={practice ? "From the example partner" : "From your partner"} text={state.partnerMessage} />{text("interpretation", "What do you think they mean?", "Write your first thought.")}{options("confidence", "How sure are you?", confidences)}<p className="live-caption">Your answer stays hidden until the final reveal.</p></>}
     {step === "reply" && <><p className="live-label">Moment 02 · The wait</p><h1>What comes next?</h1><Message label="Your partner’s message" text={state.partnerMessage} /><Typing active={state.partnerTyping} label={practice ? "Example partner typing · demonstration" : undefined} />{text("reply", "Write your reply", "A short reply is enough.", 300)}{text("expectation", "What do you think your partner will reply?", "Write what you expect.")}<p className="live-caption">Replies appear when Ivana continues. Your expectation stays hidden until the final reveal.</p></>}
     {step === "context" && <><p className="live-label">Moment 03 · Tomorrow</p><h1>Imagine this situation.</h1><div className="live-scenario"><span className="live-label">For this round, imagine…</span><p>{state.scenario || "Your scenario is loading. Please wait before answering."}</p></div><Message label="A message arrives" text="Can we talk tomorrow?" />{options("contextTone", "How does this message feel?", ["Reassuring", "Neutral", "Concerning", "Not sure"])}{text("contextReply", "What would you reply?", "Write a short reply.", 300)}<p className="live-caption">This is a fictional situation. There is no correct answer.</p></>}
     {step === "room" && <><p className="live-label">Moment 04 · The room</p><h1>Your response<br />to Ivana.</h1><p>{practice ? "Read Ivana’s words in the host guide before you answer." : "Listen to Ivana before you answer."}</p>{options("interest", "After hearing that, how interested are you in the conversation?", interests)}<p className="live-caption">Only the room’s totals will appear on the shared screen.</p></>}
-    {sent ? practice ? <p className="live-saved" role="status">Saved in this practice only. You can continue below.</p> : <Saved /> : <><button className="live-button" disabled={busy || step === "context" && !state.scenario}>{busy ? "Saving…" : step === "compose" ? "Save my message" : step === "reply" ? "Save my reply" : "Save my answer"}<span aria-hidden="true">↗</span></button>{error && <p className="live-error" role="alert">{error}</p>}<p className="live-caption">{practice ? "Your practice answers stay on this page. Nothing is sent to the event." : "Drafts stay in this browser tab. “Saved” means the room has received your answer."}</p><button className="live-text-button" type="button" onClick={() => setWatching(true)}>I’ll watch this step</button></>}
+    {sent ? practice ? <p className="live-saved" role="status">Saved in this practice only. You can continue below.</p> : <Saved /> : <><button className="live-button" disabled={busy || step === "context" && !state.scenario}>{busy ? "Saving…" : step === "compose" ? "Save my message" : step === "reply" ? "Save my reply" : "Save my answer"}<span aria-hidden="true">↗</span></button>{error && <p className="live-error" role="alert">{error}</p>}<p className="live-caption">{practice ? "Your practice answers stay on this page. Nothing is sent to the event." : "Drafts stay in this browser tab. “Saved” means the room has received your answer."}</p></>}
   </form>;
 }
 

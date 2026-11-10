@@ -307,3 +307,75 @@ body.book-live {
   .live-preview-navigation .live-button { font-size: 15px; padding-inline: 15px; }
   .live-preview-pass { align-items: flex-start; flex-direction: column; }
 }
+
+/* Guest-first conversation preview. Controls outside the page simulate Ivana. */
+.conversation-preview { padding: 30px 18px 45px; }
+.conversation-preview-shell { width: min(100%, 470px); margin-inline: auto; }
+.conversation-preview-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: var(--font-mono, monospace); font-size: 10px; color: var(--live-quiet); }
+.conversation-preview-toolbar button { padding: 5px 0; border: 0; border-bottom: 1px solid transparent; color: inherit; background: transparent; font-family: inherit; font-size: 10px; }
+.conversation-preview-toolbar button.is-active { border-bottom-color: currentColor; color: var(--live-red); }
+.conversation-preview-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-block: 17px 20px; }
+.conversation-preview-tabs button { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 8px 0 12px; border: 0; border-bottom: 1px solid var(--live-line); border-radius: 0; color: var(--live-quiet); background: transparent; font-size: 11px; text-align: left; }
+.conversation-preview-tabs button > span:first-child { font-family: var(--font-mono, monospace); font-size: 11px; }
+.conversation-preview-tabs button.is-active { color: var(--live-red); border-bottom: 2px solid currentColor; }
+.conversation-phone { min-height: 650px; display: flex; flex-direction: column; padding: 28px 30px 20px; border: 1px solid var(--live-line); background: var(--live-cream); }
+.conversation-brand { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--live-line); }
+.conversation-brand > span:first-child { font-family: var(--font-bebas, Impact, sans-serif); font-weight: 700; font-size: 21px; line-height: .95; letter-spacing: .015em; }
+.conversation-brand > span:last-child { max-width: 16ch; padding-top: 2px; font-family: var(--font-mono, monospace); font-size: 9px; line-height: 1.5; text-align: right; color: var(--live-quiet); }
+.conversation-body { padding-block: 23px 35px; flex: 1; }
+.conversation-partner { display: flex; align-items: center; gap: 8px; margin-bottom: 30px; font-size: 12px; color: var(--live-quiet); }
+.conversation-partner strong { font-weight: 600; color: var(--live-ink); }
+.conversation-partner > span:last-child { margin-left: auto; font-family: var(--font-mono, monospace); font-size: 9px; }
+.conversation-partner-dot { width: 5px; height: 5px; flex-shrink: 0; background: var(--live-red); border-radius: 50%; }
+.conversation-preview .conversation-phone h1 { margin-bottom: 30px; font-size: clamp(3rem, 12vw, 3.9rem); font-weight: 700; line-height: .98; letter-spacing: .005em; }
+.conversation-compose { display: flex; flex-direction: column; align-items: stretch; gap: 16px; }
+.conversation-compose label { font-size: 18px; font-weight: 400; line-height: 1.4; max-width: 29ch; }
+.conversation-compose textarea { display: block; width: 100%; min-height: 140px; resize: vertical; padding: 16px; background: #fffdf9; border: 1px solid var(--live-line); border-radius: 0; color: var(--live-ink); font-family: var(--font-body, Arial, sans-serif); font-size: 18px; line-height: 1.5; }
+.conversation-compose textarea::placeholder { color: var(--live-quiet); }
+.conversation-send { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; min-height: 54px; padding: 13px 18px; border: 1px solid var(--live-red); border-radius: 0; background: var(--live-red); color: var(--live-cream); font-size: 17px; font-weight: 600; }
+.conversation-send > span { font-size: 23px; font-weight: 400; }
+.conversation-send:hover:not(:disabled) { background: var(--live-ink); border-color: var(--live-ink); }
+.conversation-send:disabled { opacity: .42; }
+.conversation-previous { margin-bottom: 27px; padding: 17px 18px; background: #eae5dd; border-radius: 13px 13px 13px 2px; }
+.conversation-previous > span, .conversation-bubble > span { display: block; margin-bottom: 9px; font-family: var(--font-mono, monospace); font-size: 9px; color: var(--live-quiet); }
+.conversation-previous p { font-size: 16px; line-height: 1.45; }
+.conversation-opened, .conversation-holding { display: flex; flex-direction: column; align-items: stretch; gap: 21px; }
+.conversation-bubble { padding: 17px 18px; overflow-wrap: anywhere; }
+.conversation-bubble p { font-size: 17px; line-height: 1.45; white-space: pre-wrap; }
+.conversation-bubble-own { margin-left: 30px; border: 1px solid var(--live-line); border-radius: 13px 13px 2px 13px; }
+.conversation-bubble-partner { margin-right: 22px; background: #eae5dd; border-radius: 13px 13px 13px 2px; }
+.conversation-saved { display: flex; align-items: baseline; gap: 9px; color: var(--live-quiet); font-size: 13px; }
+.conversation-saved > span { color: var(--live-ink); font-size: 17px; }
+.conversation-waiting { max-width: 29ch; margin-top: 10px!important; font-family: var(--font-serif, Georgia, serif); font-size: 24px; line-height: 1.2; }
+.conversation-example-typing { display: flex; align-items: center; gap: 12px; min-height: 45px; font-size: 12px; color: var(--live-quiet); }
+.conversation-example-typing .live-typing-bubble { width: 68px; height: 39px; }
+.conversation-example-typing .live-typing-bubble i { width: 6px; height: 6px; }
+.conversation-quiet { font-size: 13px; line-height: 1.5; color: var(--live-quiet); }
+.conversation-last-note { padding-top: 14px; font-family: var(--font-serif, Georgia, serif); font-size: 25px; line-height: 1.2; }
+.conversation-phone-footer { display: flex; justify-content: space-between; gap: 15px; padding-top: 18px; border-top: 1px solid var(--live-line); font-family: var(--font-mono, monospace); font-size: 8px; text-transform: uppercase; letter-spacing: .05em; color: var(--live-quiet); }
+.conversation-preview-controls { display: flex; flex-direction: column; align-items: stretch; gap: 12px; padding: 22px 0 0; }
+.conversation-preview-main-control { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 47px; border: 1px solid var(--live-ink); border-radius: 0; padding: 12px 16px; color: var(--live-ink); background: transparent; font-size: 14px; font-weight: 600; }
+.conversation-preview-main-control:not(:disabled):hover { border-color: var(--live-red); color: var(--live-red); }
+.conversation-preview-controls > p { color: var(--live-quiet); font-size: 12px; line-height: 1.45; }
+.conversation-preview-disclosure { padding-top: 2px; font-family: var(--font-mono, monospace); font-size: 9px; line-height: 1.5; color: var(--live-quiet); }
+.conversation-arrival { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; flex: 1; padding-block: 30px 40px; }
+.conversation-eyebrow { color: var(--live-red); font-family: var(--font-mono, monospace); font-size: 10px; line-height: 1.5; }
+.conversation-preview .conversation-arrival h1 { margin-bottom: 0; }
+.conversation-arrival > p:not(.conversation-eyebrow) { font-size: 16px; line-height: 1.5; max-width: 34ch; }
+.conversation-arrival form { display: flex; flex-direction: column; gap: 13px; align-items: stretch; width: 100%; padding-top: 4px; }
+.conversation-arrival label { font-size: 15px; font-weight: 600; }
+.conversation-arrival input { width: 100%; border: 1px solid var(--live-line); border-radius: 0; padding: 14px 15px; background: #fffdf9; font-size: 17px; color: var(--live-ink); }
+@media (max-width: 520px) {
+  .conversation-preview { padding: 18px 16px 30px; }
+  .conversation-preview-tabs { gap: 12px; margin-bottom: 16px; }
+  .conversation-preview-tabs button { font-size: 10px; }
+  .conversation-phone { padding: 24px 22px 18px; min-height: 620px; }
+  .conversation-preview .conversation-phone h1 { font-size: 3.25rem; }
+  .conversation-brand { padding-bottom: 20px; }
+  .conversation-brand > span:first-child { font-size: 19px; }
+  .conversation-body { padding-top: 20px; }
+  .conversation-partner { margin-bottom: 26px; }
+  .conversation-compose label { font-size: 17px; }
+  .conversation-compose textarea { min-height: 135px; font-size: 17px; }
+  .conversation-bubble p { font-size: 16px; }
+}

@@ -11,7 +11,7 @@ const barlow = Barlow_Semi_Condensed({ weight: ["600", "700"], subsets: ["latin"
 
 export const metadata: Metadata = {
   title: "Four small moments | State. Not Situation.",
-  description: "Join in, watch, or pass at Ivana's book launch. There is no score.",
+  description: "Four small moments and one real conversation at Ivana's book launch.",
   robots: { index: false, follow: false, nocache: true },
   referrer: "no-referrer",
 };

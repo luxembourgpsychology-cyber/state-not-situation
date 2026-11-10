@@ -18,7 +18,7 @@ export default function LaunchHolding({ ended }: { ended: boolean }) {
     <p className="live-label">State. Not Situation. · Book launch</p>
     <h1>{ended ? "Thank you for joining us." : "Four small moments."}</h1>
     {ended ? <p>This event has finished. Thank you for being part of the evening.</p> : <>
-      <p>Join in, watch, or pass. There is no score.</p>
+      <p>A few words are enough. There is no score.</p>
       <p style={{ marginTop: 24 }}>The room opens on <strong>3 December 2026 at 18:00 Luxembourg time.</strong></p>
       <p className="live-caption" style={{ marginTop: 16 }}>You have the right link. Keep this page open. It will update when the room opens.</p>
     </>}
