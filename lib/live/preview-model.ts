@@ -1,13 +1,20 @@
 export type Side = 0 | 1;
 export type Pair<T> = [T, T];
 export type Phase = "compose" | "typing" | "ready" | "waiting" | "revealed";
-export type FeelingStage = "before" | "waiting" | "reading" | "after";
-export type Message = { text: string; source: "typed" | "example" | "experiment" };
-export type Round = { drafts: Pair<string>; messages: Pair<Message | null>; phase: Phase; prompted: boolean };
+export type FeelingStage = "before" | "waiting" | "reading" | "responded" | "after";
+export type Message = { text: string; source: "typed" | "example" | "experiment"; replyTo?: string };
+export type Round = {
+  drafts: Pair<string>;
+  messages: Pair<Message | null>;
+  responseDrafts: Pair<string>;
+  responses: Pair<Message[]>;
+  phase: Phase;
+  prompted: boolean;
+};
 type EventPayload =
   | { kind: "prompt"; text: string }
   | { kind: "message"; owner: Side; message: Message }
-  | { kind: "feeling"; value: string; stage: FeelingStage }
+  | { kind: "feeling"; value: string; stage: FeelingStage; contextEventId?: number }
   | { kind: "reveal"; text: string };
 export type ChatEvent = EventPayload & { id: number; moment: number };
 export type PreviewState = {
@@ -27,7 +34,7 @@ export type Action =
   | { type: "send"; moment: number; side: Side }
   | { type: "ready"; moment: number; generation: number }
   | { type: "host"; moment: number; phase: Phase }
-  | { type: "feeling"; side: Side; value: string }
+  | { type: "feeling"; side: Side; value: string; contextEventId?: number }
   | { type: "side"; side: Side }
   | { type: "share"; side: Side }
   | { type: "review"; open: boolean }
@@ -44,7 +51,7 @@ export const feelingChoices = [
   "Unsure", "Confused", "Surprised", "Relieved", "Embarrassed", "Annoyed", "Impatient", "Neutral",
 ];
 export const planted = ["Can I be honest?", "", "I didn’t expect that.", ""];
-export const stageNames: Record<FeelingStage, string> = { before: "Before", waiting: "Waiting", reading: "Reading", after: "After the reply" };
+export const stageNames: Record<FeelingStage, string> = { before: "Before", waiting: "Waiting", reading: "Reading", responded: "After my reply", after: "After the reply" };
 const examples: Pair<string>[] = [
   ["I look calm. This is excellent acting.", "I came for the book. The snacks helped."],
   ["I’m here with a friend. We both wanted to hear about the book.", "I like book events. You always meet someone interesting."],
@@ -61,8 +68,21 @@ export function feelingStage(state: PreviewState): FeelingStage {
   const phase = state.rounds[state.moment].phase;
   if (phase === "revealed") return "after";
   if (phase === "compose") return "before";
-  if (phase === "waiting" && targetFor(state.moment) === state.side) return "reading";
+  if (phase === "waiting" && targetFor(state.moment) === state.side) {
+    return state.rounds[state.moment].responses[state.side].length > 0 ? "responded" : "reading";
+  }
   return "waiting";
+}
+export function canWrite(state: PreviewState): boolean {
+  if (state.arrival || state.reviewing) return false;
+  const phase = state.rounds[state.moment].phase;
+  return phase === "compose" || (phase === "waiting" && targetFor(state.moment) === state.side);
+}
+export function composerDraft(state: PreviewState): string {
+  const round = state.rounds[state.moment];
+  if (round.phase === "compose") return round.drafts[state.side];
+  if (round.phase === "waiting" || round.phase === "revealed") return round.responseDrafts[state.side];
+  return "";
 }
 function append(state: PreviewState, side: Side, moment: number, payload: EventPayload): PreviewState {
   const entry: ChatEvent = { ...payload, moment, id: state.nextId };
@@ -84,18 +104,26 @@ function deliverReply(state: PreviewState): PreviewState {
   let next = state;
   for (const side of [0, 1] as const) {
     if (target !== null) {
-      next = append(next, side, moment, { kind: "reveal", text: side === target ? `“${planted[moment]}” was added by the app.` : "Your partner also saw a message added by the app." });
+      next = append(next, side, moment, {
+        kind: "reveal",
+        text: side === target
+          ? `Your partner didn’t write “${planted[moment]}”. Here is their reply.`
+          : `Your partner saw “${planted[moment]}”. We placed that line in the exchange.`,
+      });
     }
     const owner: Side = side === 0 ? 1 : 0;
     const message = state.rounds[moment].messages[owner];
     if (message) next = append(next, side, moment, { kind: "message", owner, message });
+    for (const response of state.rounds[moment].responses[owner]) {
+      next = append(next, side, moment, { kind: "message", owner, message: response });
+    }
   }
   return patchRound(next, moment, round => ({ ...round, phase: "revealed" }));
 }
 export function createPreview({ moment = 0, arrival = true, generation = 0 }: { moment?: number; arrival?: boolean; generation?: number } = {}): PreviewState {
   const initial: PreviewState = {
     moment, side: 0, arrival, reviewing: false,
-    rounds: prompts.map(() => ({ drafts: ["", ""], messages: [null, null], phase: "compose", prompted: false })),
+    rounds: prompts.map(() => ({ drafts: ["", ""], messages: [null, null], responseDrafts: ["", ""], responses: [[], []], phase: "compose", prompted: false })),
     timelines: [[], []], shared: [false, false], nextId: 1, generation,
   };
   return arrival ? initial : enterMoment(initial, moment);
@@ -105,12 +133,23 @@ export function previewReducer(state: PreviewState, action: Action): PreviewStat
   switch (action.type) {
     case "join": return state.arrival ? enterMoment(state, state.moment) : state;
     case "draft":
-      if (state.arrival || action.moment !== state.moment || action.side !== state.side || round.phase !== "compose") return state;
-      return patchRound(state, state.moment, old => ({ ...old, drafts: withSide(old.drafts, action.side, action.value) }));
+      if (action.moment !== state.moment || action.side !== state.side || !canWrite(state)) return state;
+      return patchRound(state, state.moment, old => round.phase === "waiting"
+        ? { ...old, responseDrafts: withSide(old.responseDrafts, action.side, action.value) }
+        : { ...old, drafts: withSide(old.drafts, action.side, action.value) });
     case "send": {
-      if (state.arrival || action.moment !== state.moment || action.side !== state.side || round.phase !== "compose") return state;
-      const text = round.drafts[action.side].trim();
+      if (action.moment !== state.moment || action.side !== state.side || !canWrite(state)) return state;
+      const text = composerDraft(state).trim();
       if (!text) return state;
+      if (round.phase === "waiting") {
+        const message: Message = { text, source: "typed", replyTo: planted[state.moment] };
+        const next = patchRound(state, state.moment, old => ({
+          ...old,
+          responseDrafts: withSide(old.responseDrafts, action.side, ""),
+          responses: withSide(old.responses, action.side, [...old.responses[action.side], message]),
+        }));
+        return append(next, action.side, state.moment, { kind: "message", owner: action.side, message });
+      }
       const partner: Side = action.side === 0 ? 1 : 0;
       const messages = withSide(round.messages, action.side, { text, source: "typed" } as Message);
       if (messages[partner] === null) messages[partner] = { text: examples[state.moment][partner], source: "example" };
@@ -142,9 +181,16 @@ export function previewReducer(state: PreviewState, action: Action): PreviewStat
       const value = action.value.trim().slice(0, 40);
       if (!value) return state;
       const stage = feelingStage(state);
-      const latest = state.timelines[action.side].at(-1);
-      if (latest?.kind === "feeling" && latest.moment === state.moment && latest.stage === stage && latest.value === value) return state;
-      return append(state, action.side, state.moment, { kind: "feeling", value, stage });
+      const timeline = state.timelines[action.side];
+      const requestedContext = timeline.find(event => event.id === action.contextEventId && event.kind !== "feeling");
+      const fallbackContext = timeline.filter(event => event.kind !== "feeling").at(-1);
+      const contextEventId = (requestedContext ?? fallbackContext)?.id;
+      const latest = timeline.at(-1);
+      if (latest?.kind === "feeling" && latest.moment === state.moment && latest.stage === stage && latest.value === value && latest.contextEventId === contextEventId) return state;
+      return append(state, action.side, state.moment, {
+        kind: "feeling", value, stage,
+        ...(contextEventId !== undefined ? { contextEventId } : {}),
+      });
     }
     case "side": return { ...state, side: action.side };
     case "share":
