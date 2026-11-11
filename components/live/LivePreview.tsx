@@ -5,15 +5,44 @@ import Link from "next/link";
 import { canWrite, composerDraft, createPreview, feelingChoices, feelingStage, previewReducer, prompts, stageNames, type ChatEvent } from "@/lib/live/preview-model";
 import "@/app/live/experience-preview.css";
 
-function FeelingPicker({ selected, onChoose }: { selected: string; onChoose: (feeling: string) => void }) {
+const firstFeelings = ["Curious", "Excited", "Calm", "Unsure", "Shy", "Amused"];
+
+function FeelingChoices({ selected, onChoose }: { selected: string; onChoose: (feeling: string) => void }) {
+  const [more, setMore] = useState(false);
   const [custom, setCustom] = useState(false);
   const [word, setWord] = useState("");
   const inputId = useId();
-  return <div className="chat-emotion-picker">
-    <div className="chat-emotion-options" aria-label="Choose a feeling">{feelingChoices.map(feeling => <button type="button" key={feeling} aria-pressed={selected === feeling} onClick={() => onChoose(feeling)}>{feeling}</button>)}</div>
-    <button type="button" aria-expanded={custom} onClick={() => setCustom(old => !old)}>Other</button>
+  const options = more ? [...firstFeelings, ...feelingChoices.filter(feeling => !firstFeelings.includes(feeling))] : firstFeelings;
+  return <div className="chat-veil-choices">
+    <div className="chat-veil-words" role="group" aria-label="Choose a feeling">{options.map(feeling => <button type="button" key={feeling} aria-pressed={selected === feeling} onClick={() => onChoose(feeling)}>{feeling}</button>)}</div>
+    <div className="chat-veil-more">
+      <button type="button" aria-expanded={more} onClick={() => setMore(old => !old)}>{more ? "Fewer feelings" : "More feelings"}</button>
+      <button type="button" aria-expanded={custom} onClick={() => setCustom(old => !old)}>My own word</button>
+    </div>
     {custom && <form className="chat-other-feeling" onSubmit={event => { event.preventDefault(); if (word.trim()) onChoose(word); }}><label className="sr-only" htmlFor={inputId}>Your own feeling</label><input id={inputId} value={word} onChange={event => setWord(event.target.value)} placeholder="Your word…" maxLength={40} autoFocus /><button disabled={!word.trim()}>Save privately</button></form>}
   </div>;
+}
+
+function FeelingVeil({ open, selected, onChoose, onDismiss }: { open: boolean; selected: string; onChoose: (feeling: string) => void; onDismiss: () => void }) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
+  const noteId = useId();
+
+  useEffect(() => {
+    const element = dialog.current;
+    if (!element) return;
+    if (open && !element.open) element.showModal();
+    if (!open && element.open) element.close();
+  }, [open]);
+
+  return <dialog ref={dialog} className="chat-feeling-veil" aria-labelledby={titleId} aria-describedby={noteId} onCancel={event => { event.preventDefault(); onDismiss(); }} onClick={event => { if (event.target === event.currentTarget) onDismiss(); }}>
+    {open && <div className="chat-veil-body">
+      <header className="chat-veil-header"><span>My state · Private</span><button type="button" onClick={onDismiss} autoFocus>Not now</button></header>
+      <h2 id={titleId}>What are you feeling right now?</h2>
+      <p id={noteId}>Excited, unsure, or something else? Only you see your choice.</p>
+      <FeelingChoices selected={selected} onChoose={onChoose} />
+    </div>}
+  </dialog>;
 }
 
 export default function LivePreview({ initialMoment = 1, startAtArrival = true }: { initialMoment?: number; startAtArrival?: boolean }) {
@@ -24,6 +53,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
   const thread = useRef<HTMLDivElement>(null);
   const composeArea = useRef<HTMLDivElement>(null);
   const trail = useRef<HTMLOListElement>(null);
+  const feelingContext = useRef<number | undefined>(undefined);
   const round = state.rounds[state.moment];
   const timeline = state.timelines[state.side];
   const conversation = timeline.filter(event => event.kind !== "feeling");
@@ -70,7 +100,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
     element.scrollLeft = element.scrollWidth;
   }, [personalFeelings.length, state.side]);
 
-  function chooseFeeling(value: string) {
+  function openFeelingVeil() {
     const log = thread.current;
     let contextEventId = highlightedEventId;
     if (log) {
@@ -83,7 +113,12 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
       const id = (highlighted ?? visible.at(-1))?.dataset.eventId;
       if (id !== undefined) contextEventId = Number(id);
     }
-    dispatch({ type: "feeling", side: state.side, value, contextEventId });
+    feelingContext.current = contextEventId;
+    setTopPicker(true);
+  }
+
+  function chooseFeeling(value: string) {
+    dispatch({ type: "feeling", side: state.side, value, contextEventId: feelingContext.current });
     setTopPicker(false);
     setSelectedStateId(null);
   }
@@ -176,8 +211,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
           <aside className="chat-feelings" aria-label="Your private feelings">
             <header><h2>My state</h2><span>Private</span></header>
             <p className="chat-private-note">What I feel. Never sent to your partner.</p>
-            <button className="chat-add-feeling" aria-expanded={topPicker} disabled={state.reviewing} onClick={() => setTopPicker(old => !old)}>How I feel</button>
-            {topPicker && <div className="chat-top-picker"><FeelingPicker key={`top-${state.side}-${state.moment}-${round.phase}`} selected={currentFeeling} onChoose={chooseFeeling} /></div>}
+            <button className="chat-add-feeling" aria-haspopup="dialog" aria-expanded={topPicker} disabled={state.reviewing} onClick={openFeelingVeil}>How I feel</button>
             <div className="chat-state-trace" aria-live="polite">{personalFeelings.length ? <><ol ref={trail} aria-label="Your private state trace">{personalFeelings.map((feeling, index) => <li key={feeling.id} className={`${index === personalFeelings.length - 1 ? "is-current" : ""} ${selectedStateId === feeling.id ? "is-selected" : ""}`}><button className="chat-state-point" aria-pressed={selectedStateId === feeling.id} onClick={() => revisitFeeling(feeling.id)}><span className="chat-state-dot" aria-hidden="true" /><strong>{feeling.value}</strong><small>0{feeling.moment + 1} · {stageNames[feeling.stage]}</small></button>{index < personalFeelings.length - 1 && <svg className="chat-state-wave" viewBox="0 0 48 18" aria-hidden="true"><path d="M0 9 C8 -2 16 20 24 9 S40 -2 48 9" fill="none" /></svg>}</li>)}</ol><p className="chat-state-hint">Tap a feeling to revisit that moment.</p></> : <p className="chat-trail-empty">Your trace starts with your first choice.</p>}</div>
             {state.reviewing && <p className="chat-review-note">We changed a line on your screen. What changed for you?</p>}
           </aside>
@@ -186,5 +220,6 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
       </>}
       <p className="chat-demo-note">Example pair. Nothing is sent to the event.</p>
     </div>
+    <FeelingVeil open={topPicker} selected={currentFeeling} onChoose={chooseFeeling} onDismiss={() => setTopPicker(false)} />
   </main>;
 }
