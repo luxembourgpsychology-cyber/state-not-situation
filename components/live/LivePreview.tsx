@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useReducer, useRef, useState } from "react";
 import Link from "next/link";
-import { canWrite, composerDraft, createPreview, feelingChoices, feelingStage, previewReducer, prompts, stageNames, type ChatEvent } from "@/lib/live/preview-model";
+import { canWrite, composerDraft, createPreview, feelingChoices, feelingStage, previewReducer, prompts, stageNames, targetFor, type ChatEvent } from "@/lib/live/preview-model";
 import "@/app/live/experience-preview.css";
 
 const firstFeelings = ["Curious", "Excited", "Calm", "Unsure", "Shy", "Amused"];
@@ -161,12 +161,19 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
     const contextClass = entry.id === highlightedEventId ? " is-state-context" : "";
     if (entry.kind === "prompt") return <div className={`chat-prompt-card${contextClass}`} key={entry.id} data-prompt-moment={entry.moment} data-event-id={entry.id}><small className="chat-event-label">Ivana · Prompt 0{entry.moment + 1}</small><p>{entry.text}</p></div>;
     if (entry.kind === "feeling") return null;
-    if (entry.kind === "reveal") return <div className={`chat-app-reveal${contextClass}`} key={entry.id} data-event-id={entry.id}><small className="chat-event-label">A small trick</small><p>{entry.text}</p></div>;
+    if (entry.kind === "reveal") {
+      const question = entry.moment === 0
+        ? "In the book, Katrin is already tense. “Nothing urgent” sounds like bad news. What did you expect?"
+        : targetFor(entry.moment) === state.side
+          ? "Read it once with surprise, once with doubt. What did you hear first?"
+          : "How did you expect your partner’s answer to sound?";
+      return <div className={`chat-app-reveal${contextClass}`} key={entry.id} data-event-id={entry.id}><small className="chat-event-label">What happened</small><p>{entry.text}</p><p>{question}</p></div>;
+    }
     const own = entry.owner === state.side;
     const experiment = entry.message.source === "experiment";
     const disclosed = experiment && state.rounds[entry.moment].phase === "revealed";
     return <div className={`chat-bubble ${own ? "is-own" : "is-partner"} ${experiment ? "is-planted" : ""} ${disclosed ? "is-retired" : ""}${contextClass}`} key={entry.id} data-event-id={entry.id}>
-      <small className="chat-bubble-label">{disclosed ? "Experiment line" : own ? "You" : `Partner ${partnerLabel}`}</small>
+      <small className="chat-bubble-label">{disclosed ? "Added by the app" : own ? "You" : `Partner ${partnerLabel}`}</small>
       <p>{disclosed ? <s>{entry.message.text}</s> : entry.message.text}</p>
       {entry.message.source === "example" && <small className="chat-bubble-source">Example</small>}
       {disclosed && <small className="chat-bubble-source">Not written by your partner</small>}
@@ -181,10 +188,10 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
     <h1 className="sr-only">Your book launch conversation</h1>
     <div className="chat-preview-shell">
       <header className="chat-demo-bar">
-        <span>Demo · example pair</span>
+        <span>Solo demo · Phone {state.side === 0 ? "A" : "B"}</span>
         <div className="chat-demo-tools">
           <nav className="chat-demo-moments" aria-label="Conversation prompts">{prompts.map((_, index) => <button key={index} aria-label={`Prompt ${index + 1}`} aria-current={!state.arrival && state.moment === index ? "step" : undefined} disabled={!state.rounds[index].prompted} onClick={() => jumpToPrompt(index)}>0{index + 1}</button>)}</nav>
-          <div className="chat-phone-switch" aria-label="Preview phone">{([0, 1] as const).map(side => <button key={side} aria-pressed={state.side === side} onClick={() => { dispatch({ type: "side", side }); setTopPicker(false); setSelectedStateId(null); }}>{side === 0 ? "A" : "B"}</button>)}</div>
+          <div className="chat-phone-switch" aria-label="Preview phone">{([0, 1] as const).map(side => <button key={side} aria-label={side === 0 ? "Phone A" : "Phone B"} aria-pressed={state.side === side} onClick={() => { dispatch({ type: "side", side }); setTopPicker(false); setSelectedStateId(null); }}>{side === 0 ? "A" : "B"}</button>)}</div>
           <button className="chat-restart" onClick={restart}>Restart</button>
         </div>
       </header>
@@ -205,7 +212,7 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
               {!state.reviewing && isHeld && <p className="chat-wait">Waiting for Ivana</p>}
               {round.phase === "revealed" && state.moment === 3 && <div className="chat-share">{state.shared[state.side] ? <span>Marked for sharing in this demo.</span> : <button onClick={() => dispatch({ type: "share", side: state.side })}>Share my last message with the room</button>}</div>}
             </div>
-            {!state.reviewing && <div className="chat-compose-area" ref={composeArea}><form className="chat-composer" onSubmit={event => { event.preventDefault(); setTopPicker(false); setSelectedStateId(null); dispatch({ type: "send", moment: state.moment, side: state.side }); }}><label className="sr-only" htmlFor={`chat-message-${state.moment}`}>Your message</label><textarea id={`chat-message-${state.moment}`} value={draft} disabled={!writing} onChange={event => dispatch({ type: "draft", moment: state.moment, side: state.side, value: event.target.value })} placeholder={replyingToTrick ? "Reply to this message…" : round.phase === "compose" ? "Your message…" : "Sent"} rows={2} maxLength={500} required /><button className="chat-send" type="submit" disabled={!writing || !draft.trim()} aria-label="Send"><span aria-hidden="true">↗</span></button></form>{(replyingToTrick || unsentDraft) && <p className="chat-composer-note">{unsentDraft ? "Unsent draft. Only you can see this." : "Your reply waits for the reveal."}</p>}</div>}
+            {!state.reviewing && <div className="chat-compose-area" ref={composeArea}><form className="chat-composer" onSubmit={event => { event.preventDefault(); setTopPicker(false); setSelectedStateId(null); dispatch({ type: "send", moment: state.moment, side: state.side }); }}><label className="sr-only" htmlFor={`chat-message-${state.moment}`}>Your message</label><textarea id={`chat-message-${state.moment}`} value={draft} disabled={!writing} onChange={event => dispatch({ type: "draft", moment: state.moment, side: state.side, value: event.target.value })} placeholder={replyingToTrick ? "Reply to this message…" : round.phase === "compose" ? "Your message…" : "Sent"} rows={2} maxLength={500} required /><button className="chat-send" type="submit" disabled={!writing || !draft.trim()} aria-label="Send"><span aria-hidden="true">↗</span></button></form>{(replyingToTrick || unsentDraft) && <p className="chat-composer-note">{unsentDraft ? "Unsent draft. Only you can see this." : "If you send a reply, your partner sees it after Ivana reveals."}</p>}</div>}
           </div>
 
           <aside className="chat-feelings" aria-label="Your private feelings">
@@ -213,12 +220,12 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
             <p className="chat-private-note">What I feel. Never sent to your partner.</p>
             <button className="chat-add-feeling" aria-haspopup="dialog" aria-expanded={topPicker} disabled={state.reviewing} onClick={openFeelingVeil}>How I feel</button>
             <div className="chat-state-trace" aria-live="polite">{personalFeelings.length ? <><ol ref={trail} aria-label="Your private state trace">{personalFeelings.map((feeling, index) => <li key={feeling.id} className={`${index === personalFeelings.length - 1 ? "is-current" : ""} ${selectedStateId === feeling.id ? "is-selected" : ""}`}><button className="chat-state-point" aria-pressed={selectedStateId === feeling.id} onClick={() => revisitFeeling(feeling.id)}><span className="chat-state-dot" aria-hidden="true" /><strong>{feeling.value}</strong><small>0{feeling.moment + 1} · {stageNames[feeling.stage]}</small></button>{index < personalFeelings.length - 1 && <svg className="chat-state-wave" viewBox="0 0 48 18" aria-hidden="true"><path d="M0 9 C8 -2 16 20 24 9 S40 -2 48 9" fill="none" /></svg>}</li>)}</ol><p className="chat-state-hint">Tap a feeling to revisit that moment.</p></> : <p className="chat-trail-empty">Your trace starts with your first choice.</p>}</div>
-            {state.reviewing && <p className="chat-review-note">We changed a line on your screen. What changed for you?</p>}
+            {state.reviewing && <p className="chat-review-note">What was on the screen? What did you feel? What did you think it meant?</p>}
           </aside>
         </section>
         <div className="chat-host-controls" aria-label="Ivana’s demo controls"><span>Ivana</span><button className="chat-host-action" onClick={hostAction} disabled={!ready}>{hostLabel}<span aria-hidden="true">↗</span></button></div>
       </>}
-      <p className="chat-demo-note">Example pair. Nothing is sent to the event.</p>
+      <p className="chat-demo-note">The other phone is simulated. Nothing is sent to the event.</p>
     </div>
     <FeelingVeil open={topPicker} selected={currentFeeling} onChoose={chooseFeeling} onDismiss={() => setTopPicker(false)} />
   </main>;

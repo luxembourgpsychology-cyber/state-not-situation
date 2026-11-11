@@ -41,22 +41,22 @@ export type Action =
   | { type: "restart" };
 
 export const prompts = [
-  "Make them smile in one sentence.",
-  "Reply to their message.",
-  "Ask them about something they said.",
-  "Answer their question.",
+  "If your face had subtitles, what would they say right now?",
+  "Read their first message again. Ask about one detail.",
+  "Answer their question in one sentence.",
+  "Finish this sentence: “At first I thought…”",
 ];
 export const feelingChoices = [
   "Curious", "Calm", "Happy", "Amused", "Excited", "Playful", "Shy", "Nervous",
   "Unsure", "Confused", "Surprised", "Relieved", "Embarrassed", "Annoyed", "Impatient", "Neutral",
 ];
-export const planted = ["Can I be honest?", "", "I didn’t expect that.", ""];
-export const stageNames: Record<FeelingStage, string> = { before: "Before", waiting: "Waiting", reading: "Reading", responded: "After my reply", after: "After the reply" };
+export const planted = ["Can I be honest?", "", "Wait, really?", ""];
+export const stageNames: Record<FeelingStage, string> = { before: "Before sending", waiting: "While waiting", reading: "At the first line", responded: "After my reply", after: "After the reveal" };
 const examples: Pair<string>[] = [
-  ["I look calm. This is excellent acting.", "I came for the book. The snacks helped."],
-  ["I’m here with a friend. We both wanted to hear about the book.", "I like book events. You always meet someone interesting."],
-  ["What made you say yes to this one?", "Have you and your friend read any of the book yet?"],
-  ["A little. We keep recognising ourselves in the everyday examples.", "I wanted to hear the conversation, and meet a few people."],
+  ["I look calm. This is excellent acting.", "I’m trying to look mysterious. Mostly I’m looking for snacks."],
+  ["Which snack would break your cover?", "What made you choose that line?"],
+  ["Making myself laugh makes me feel less awkward.", "Anything with chocolate. Then all bets are off."],
+  ["At first I thought I’d said something wrong.", "At first I heard doubt. On the second read, it sounded like surprise."],
 ];
 export function withSide<T>(pair: Pair<T>, side: Side, value: T): Pair<T> {
   return side === 0 ? [value, pair[1]] : [pair[0], value];
@@ -107,8 +107,8 @@ function deliverReply(state: PreviewState): PreviewState {
       next = append(next, side, moment, {
         kind: "reveal",
         text: side === target
-          ? `The line “${planted[moment]}” wasn’t from your partner. Here is their reply.`
-          : `Your partner saw the line “${planted[moment]}” as part of the experiment.`,
+          ? `The app showed “${planted[moment]}” only on your phone. Your partner’s own message is below.`
+          : `The app showed “${planted[moment]}” only on your partner’s phone. They can see your message now.`,
       });
     }
     const owner: Side = side === 0 ? 1 : 0;
