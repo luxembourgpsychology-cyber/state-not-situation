@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useReducer, useRef, useState } from "react";
 import Link from "next/link";
-import { canWrite, composerDraft, createPreview, feelingChoices, feelingStage, previewReducer, prompts, stageNames, targetFor, type ChatEvent } from "@/lib/live/preview-model";
+import { canWrite, composerDraft, createPreview, feelingChoices, feelingStage, planted, previewReducer, prompts, stageNames, targetFor, type ChatEvent } from "@/lib/live/preview-model";
 import "@/app/live/experience-preview.css";
 
 const firstFeelings = ["Curious", "Excited", "Calm", "Unsure", "Shy", "Amused"];
@@ -52,22 +52,32 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
   const [selectedStateId, setSelectedStateId] = useState<number | null>(null);
   const thread = useRef<HTMLDivElement>(null);
   const composeArea = useRef<HTMLDivElement>(null);
+  const revealSummary = useRef<HTMLElement>(null);
   const trail = useRef<HTMLOListElement>(null);
   const feelingContext = useRef<number | undefined>(undefined);
   const round = state.rounds[state.moment];
   const timeline = state.timelines[state.side];
   const conversation = timeline.filter(event => event.kind !== "feeling");
   const personalFeelings = timeline.filter(event => event.kind === "feeling");
+  const momentFeelings = personalFeelings.filter(event => event.moment === state.moment);
   const selectedFeeling = personalFeelings.find(feeling => feeling.id === selectedStateId);
   const highlightedEventId = selectedFeeling?.contextEventId ?? (selectedFeeling ? conversation.filter(event => event.id < selectedFeeling.id).at(-1)?.id : undefined);
   const stage = feelingStage(state);
-  const currentFeeling = personalFeelings.filter(event => event.moment === state.moment && event.stage === stage).at(-1)?.value || "";
+  const currentFeeling = momentFeelings.filter(event => event.stage === stage).at(-1)?.value || "";
   const partnerLabel = state.side === 0 ? "07" : "12";
   const isHeld = round.phase === "ready" || round.phase === "waiting";
   const writing = canWrite(state);
   const draft = composerDraft(state);
   const replyingToTrick = round.phase === "waiting" && writing;
   const unsentDraft = round.phase === "revealed" && Boolean(draft.trim());
+  const beforeReveal = momentFeelings.filter(event => event.stage !== "after").at(-1)?.value;
+  const afterReveal = momentFeelings.filter(event => event.stage === "after").at(-1)?.value;
+  const cueTarget = targetFor(state.moment);
+  const revealedSituation = cueTarget === state.side
+    ? `The app showed you “${planted[state.moment]}” before the reply.`
+    : cueTarget !== null
+      ? "You waited for the reply. The app’s line was on your partner’s phone."
+      : "Your partner’s message appeared at the reveal.";
 
   useEffect(() => {
     if (round.phase !== "typing") return;
@@ -92,6 +102,12 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
       }
     }
   }, [state.arrival, state.reviewing, state.moment, state.side, conversation.length, round.phase, writing]);
+
+  useEffect(() => {
+    if (round.phase === "revealed" && !state.reviewing && window.matchMedia("(max-width: 700px)").matches) {
+      revealSummary.current?.scrollIntoView({ block: "nearest", behavior: "auto" });
+    }
+  }, [round.phase, state.moment, state.reviewing]);
 
   useEffect(() => {
     const element = trail.current;
@@ -205,19 +221,45 @@ export default function LivePreview({ initialMoment = 1, startAtArrival = true }
         <section className={`chat-experience ${state.reviewing ? "is-reviewing" : ""}`} aria-label="Guest experience">
           <header className="chat-book-header"><Link className="chat-wordmark" href="/en">STATE.<br />NOT SITUATION.</Link><span className="chat-step">{state.reviewing ? "Full conversation" : `0${state.moment + 1} / 04`}</span></header>
           <div className="chat-main">
-            <header className="chat-header chat-connection"><span className="chat-space-label">The situation</span><h2>You’re paired with someone in this room.</h2><p>Neither of you sees the other’s name.</p></header>
+            <header className="chat-header chat-connection">
+              <div className="chat-space-key"><strong>Situation</strong><span>What’s happening around you</span></div>
+              <h2>You’re paired with someone in this room.</h2><p>Neither of you sees the other’s name.</p>
+            </header>
             <div className="chat-thread" role="log" aria-label="Your conversation" aria-live="polite" ref={thread}>
               {conversation.map(renderEntry)}
               {!state.reviewing && round.phase === "typing" && <div className="chat-typing" aria-label="Example partner is typing"><i /><i /><i /></div>}
               {!state.reviewing && isHeld && <p className="chat-wait">Waiting for Ivana</p>}
               {round.phase === "revealed" && state.moment === 3 && <div className="chat-share">{state.shared[state.side] ? <span>Marked for sharing in this demo.</span> : <button onClick={() => dispatch({ type: "share", side: state.side })}>Share my last message with the room</button>}</div>}
             </div>
-            {!state.reviewing && <div className="chat-compose-area" ref={composeArea}><form className="chat-composer" onSubmit={event => { event.preventDefault(); setTopPicker(false); setSelectedStateId(null); dispatch({ type: "send", moment: state.moment, side: state.side }); }}><label className="sr-only" htmlFor={`chat-message-${state.moment}`}>Your message</label><textarea id={`chat-message-${state.moment}`} value={draft} disabled={!writing} onChange={event => dispatch({ type: "draft", moment: state.moment, side: state.side, value: event.target.value })} placeholder={replyingToTrick ? "Reply to this message…" : round.phase === "compose" ? "Your message…" : "Sent"} rows={2} maxLength={500} required /><button className="chat-send" type="submit" disabled={!writing || !draft.trim()} aria-label="Send"><span aria-hidden="true">↗</span></button></form>{(replyingToTrick || unsentDraft) && <p className="chat-composer-note">{unsentDraft ? "Unsent draft. Only you can see this." : "If you send a reply, your partner sees it after Ivana reveals."}</p>}</div>}
+            {!state.reviewing && <div className="chat-compose-area" ref={composeArea}>
+              {round.phase === "revealed" && <section className="chat-reveal-summary" aria-label="Situation and state at the reveal" ref={revealSummary}>
+                <div className="chat-summary-situation">
+                  <h3>Situation</h3>
+                  <p className="chat-summary-caption">What happened</p>
+                  <p className="chat-summary-value">{revealedSituation}</p>
+                </div>
+                <div className="chat-summary-state">
+                  <div className="chat-summary-heading"><h3>My state</h3><span>Private</span></div>
+                  <p className="chat-summary-caption">What I felt</p>
+                  {beforeReveal || afterReveal ? <dl className="chat-summary-feelings">
+                    {beforeReveal && <div><dt>Before the reveal</dt><dd>{beforeReveal}</dd></div>}
+                    {afterReveal && <div><dt>After the reveal</dt><dd>{afterReveal}</dd></div>}
+                  </dl> : <p className="chat-summary-value">No check-in yet.</p>}
+                  <button className="chat-summary-check-in" type="button" aria-haspopup="dialog" aria-expanded={topPicker} onClick={openFeelingVeil}>How I feel now</button>
+                </div>
+              </section>}
+              {(round.phase !== "revealed" || unsentDraft) && <form className="chat-composer" onSubmit={event => { event.preventDefault(); setTopPicker(false); setSelectedStateId(null); dispatch({ type: "send", moment: state.moment, side: state.side }); }}>
+                <label className="sr-only" htmlFor={`chat-message-${state.moment}`}>Your message</label>
+                <textarea id={`chat-message-${state.moment}`} value={draft} disabled={!writing} onChange={event => dispatch({ type: "draft", moment: state.moment, side: state.side, value: event.target.value })} placeholder={replyingToTrick ? "Reply to this message…" : round.phase === "compose" ? "Your message…" : "Sent"} rows={2} maxLength={500} required />
+                <button className="chat-send" type="submit" disabled={!writing || !draft.trim()} aria-label="Send"><span aria-hidden="true">↗</span></button>
+              </form>}
+              {(replyingToTrick || unsentDraft) && <p className="chat-composer-note">{unsentDraft ? "Unsent draft. Only you can see this." : "If you send a reply, your partner sees it after Ivana reveals."}</p>}
+            </div>}
           </div>
 
           <aside className="chat-feelings" aria-label="Your private feelings">
             <header><h2>My state</h2><span>Private</span></header>
-            <p className="chat-private-note">What I feel. Never sent to your partner.</p>
+            <p className="chat-private-note">What’s happening in me. Only I can see it.</p>
             <button className="chat-add-feeling" aria-haspopup="dialog" aria-expanded={topPicker} disabled={state.reviewing} onClick={openFeelingVeil}>How I feel</button>
             <div className="chat-state-trace" aria-live="polite">{personalFeelings.length ? <><ol ref={trail} aria-label="Your private state trace">{personalFeelings.map((feeling, index) => <li key={feeling.id} className={`${index === personalFeelings.length - 1 ? "is-current" : ""} ${selectedStateId === feeling.id ? "is-selected" : ""}`}><button className="chat-state-point" aria-pressed={selectedStateId === feeling.id} onClick={() => revisitFeeling(feeling.id)}><span className="chat-state-dot" aria-hidden="true" /><strong>{feeling.value}</strong><small>0{feeling.moment + 1} · {stageNames[feeling.stage]}</small></button>{index < personalFeelings.length - 1 && <svg className="chat-state-wave" viewBox="0 0 48 18" aria-hidden="true"><path d="M0 9 C8 -2 16 20 24 9 S40 -2 48 9" fill="none" /></svg>}</li>)}</ol><p className="chat-state-hint">Tap a feeling to revisit that moment.</p></> : <p className="chat-trail-empty">Your trace starts with your first choice.</p>}</div>
             {state.reviewing && <p className="chat-review-note">What was on the screen? What did you feel? What did you think it meant?</p>}
