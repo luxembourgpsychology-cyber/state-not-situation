@@ -50,9 +50,14 @@ a small sample: treat anything short of a clear break as noise.
 - Other tools posting to the account: **undecided.** This desk does not schedule while another
   tool is posting.
 
+## What the first post proved (16 November 2026)
+
+Metricool published a four-slide carousel automatically, from public image addresses in this
+repository, within about five minutes of scheduling. No hand posting and no Instagram login.
+
 ## Queue
 
-1. `2026-w47-stress` (drafted, rendered)
+1. `2026-w47-stress` (published 16 November 2026)
 2. `2026-w47-anxiety` (drafted, rendered)
 3. `2026-w47-burnout` (drafted, rendered)
 4. "We look at the whole picture." with the three lenses from /how-i-work/ (Mind, Body, Environment)
