@@ -41,7 +41,9 @@ a small sample: treat anything short of a clear break as noise.
 - Scheduling permission: **ask each time.**
 - Cadence: three posts a week at most.
 - Language: English. French when she says so.
-- Hashtags: none.
+- Hashtags: five at most, plain ones, last line of the caption (her word, 16 November 2026).
+- Every caption says where and how to book, in the site's words: "Start with a conversation. 20 minutes online to ask questions and see what kind of support fits." then "Book a free introductory call at luxembourgpsychology.com, under Fees & booking."
+- No em dashes or en dashes. Straight talk.
 - Look: soft scenery behind the words, the three-circle mark, the site's own fonts (her word, 16 November 2026).
 - Imagery: Adobe Stock free collection only. A paid licence needs her word.
 - Every rendered post is filed in Adobe Creative Cloud under `Luxembourg Psychology/Instagram/`.
