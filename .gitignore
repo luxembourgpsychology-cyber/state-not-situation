@@ -13,3 +13,6 @@ docs-screenshots
 # review workbooks are generated, not source
 review/*.json
 .env*
+
+# rendered working file; the PNGs and post.json are the record
+social/posts/*/post.html
