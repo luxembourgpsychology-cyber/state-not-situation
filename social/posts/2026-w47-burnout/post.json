@@ -10,8 +10,40 @@
     "Text on a pale ground: We look at the whole picture. Luxembourg Psychology, Ivana Budišin."
   ],
   "slides": [
-    { "type": "line", "text": "You might still get through the workday and have little energy left in the evening." },
-    { "type": "matrix", "label": "The biopsychosocial model", "title": "Burnout at work", "rows": [["Body", "Exhaustion that persists"], ["Mind", "Feeling detached from your work"], ["Environment", "Prolonged pressure at work with limited support"]] },
-    { "type": "close", "ground": "paper", "label": "The biopsychosocial approach", "text": "We look at the whole picture.", "sub": "In counselling, we look at how your body, mind and daily life affect one another.", "url": "luxembourgpsychology.com" }
-  ]
+    {
+      "type": "line",
+      "text": "You might still get through the workday and have little energy left in the evening.",
+      "scenery": "lake-fog"
+    },
+    {
+      "type": "matrix",
+      "label": "The biopsychosocial model",
+      "title": "Burnout at work",
+      "rows": [
+        [
+          "Body",
+          "Exhaustion that persists"
+        ],
+        [
+          "Mind",
+          "Feeling detached from your work"
+        ],
+        [
+          "Environment",
+          "Prolonged pressure at work with limited support"
+        ]
+      ],
+      "scenery": "lake-fog"
+    },
+    {
+      "type": "close",
+      "ground": "paper",
+      "label": "The biopsychosocial approach",
+      "text": "We look at the whole picture.",
+      "sub": "In counselling, we look at how your body, mind and daily life affect one another.",
+      "url": "luxembourgpsychology.com",
+      "scenery": "morning-fog"
+    }
+  ],
+  "imagery": "Adobe Stock, free collection, licensed 16 Nov 2026: 530533663 (lake-fog), 291311462 (morning-fog), 144565430 (beach-dawn). Softened and veiled; real photographs, not generated."
 }

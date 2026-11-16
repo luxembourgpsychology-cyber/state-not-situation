@@ -10,8 +10,40 @@
     "Text on a pale ground: We look at the whole picture. Luxembourg Psychology, Ivana Budišin."
   ],
   "slides": [
-    { "type": "line", "text": "You might rehearse the conversation all evening and notice your heart race as the meeting gets closer." },
-    { "type": "matrix", "label": "The biopsychosocial model", "title": "Anxiety", "rows": [["Body", "A racing heart and tight shoulders"], ["Mind", "Anticipating what might go wrong"], ["Environment", "An upcoming meeting with unclear expectations"]] },
-    { "type": "close", "ground": "paper", "label": "The biopsychosocial approach", "text": "We look at the whole picture.", "sub": "In counselling, we look at how your body, mind and daily life affect one another.", "url": "luxembourgpsychology.com" }
-  ]
+    {
+      "type": "line",
+      "text": "You might rehearse the conversation all evening and notice your heart race as the meeting gets closer.",
+      "scenery": "beach-dawn"
+    },
+    {
+      "type": "matrix",
+      "label": "The biopsychosocial model",
+      "title": "Anxiety",
+      "rows": [
+        [
+          "Body",
+          "A racing heart and tight shoulders"
+        ],
+        [
+          "Mind",
+          "Anticipating what might go wrong"
+        ],
+        [
+          "Environment",
+          "An upcoming meeting with unclear expectations"
+        ]
+      ],
+      "scenery": "beach-dawn"
+    },
+    {
+      "type": "close",
+      "ground": "paper",
+      "label": "The biopsychosocial approach",
+      "text": "We look at the whole picture.",
+      "sub": "In counselling, we look at how your body, mind and daily life affect one another.",
+      "url": "luxembourgpsychology.com",
+      "scenery": "morning-fog"
+    }
+  ],
+  "imagery": "Adobe Stock, free collection, licensed 16 Nov 2026: 530533663 (lake-fog), 291311462 (morning-fog), 144565430 (beach-dawn). Softened and veiled; real photographs, not generated."
 }

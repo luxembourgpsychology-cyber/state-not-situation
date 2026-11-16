@@ -17,10 +17,10 @@ const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 const css = `
-@font-face{font-family:"Newsreader";font-weight:400 500;src:url(${font("newsreader-latin-wght-normal.woff2")}) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC}
-@font-face{font-family:"Newsreader";font-weight:400 500;src:url(${font("newsreader-latin-ext-wght-normal.woff2")}) format("woff2");unicode-range:U+0100-02BA,U+1E00-1E9F}
-@font-face{font-family:"Hanken Grotesk";font-weight:400 600;src:url(${font("hanken-grotesk-latin-wght-normal.woff2")}) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC}
-@font-face{font-family:"Hanken Grotesk";font-weight:400 600;src:url(${font("hanken-grotesk-latin-ext-wght-normal.woff2")}) format("woff2");unicode-range:U+0100-02BA,U+1E00-1E9F}
+@font-face{font-family:"Newsreader";font-weight:400 500;src:url(${font("newsreader-latin.woff2")}) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC}
+@font-face{font-family:"Newsreader";font-weight:400 500;src:url(${font("newsreader-latin-ext.woff2")}) format("woff2");unicode-range:U+0100-02BA,U+1E00-1E9F}
+@font-face{font-family:"Hanken Grotesk";font-weight:400 600;src:url(${font("hanken-grotesk-latin.woff2")}) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC}
+@font-face{font-family:"Hanken Grotesk";font-weight:400 600;src:url(${font("hanken-grotesk-latin-ext.woff2")}) format("woff2");unicode-range:U+0100-02BA,U+1E00-1E9F}
 :root{--paper:#f6f8fc;--white:#fff;--ink:#15253c;--muted:#4c5e76;--blue:#204dbd;--line:#cbd7e8;--navy:#132747;--navy-muted:#c1d3ea}
 *{box-sizing:border-box;margin:0}
 body{background:#888;font:400 34px/1.45 "Hanken Grotesk",sans-serif;-webkit-font-smoothing:antialiased}
@@ -43,34 +43,54 @@ body{background:#888;font:400 34px/1.45 "Hanken Grotesk",sans-serif;-webkit-font
 .navy .brand{color:var(--white)}
 .brand span{display:block;margin-top:9px;font:500 19px/1.2 "Hanken Grotesk",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .navy .brand span{color:var(--navy-muted)}
+.scene{background-size:cover;background-position:center}
+.scene.navy{text-shadow:0 1px 24px #0b1a3266}
+.scene .panel{text-shadow:none;border-color:#ffffff66}
+.who{display:flex;align-items:center;gap:16px}
+.mark{width:52px;height:52px;flex:none}
+.close-who{display:flex;align-items:center;gap:22px}
+.close-who .mark{width:84px;height:84px}
 .sub{margin-top:28px;color:var(--muted);font-size:36px;line-height:1.45;max-width:22em}
 .navy .sub{color:var(--navy-muted)}
 `;
 
+// The practice's mark, exactly as in the site's favicon.svg: three circles on a dark tile.
+const mark = `<svg class="mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#101C22"/><circle cx="32" cy="24" r="13" fill="#B9D0FA" opacity=".95"/><circle cx="23" cy="40" r="13" fill="#D9C7FA" opacity=".9"/><circle cx="41" cy="40" r="13" fill="#FBD3C2" opacity=".9"/></svg>`;
 const foot = (i, n) =>
-  `<div class="foot"><span>Luxembourg Psychology</span><span>${i} / ${n}</span></div>`;
+  `<div class="foot"><span class="who">${mark}<span>Luxembourg Psychology</span></span><span>${i} / ${n}</span></div>`;
+// Softened photographs in social/kit/scenery/<name>-soft.jpg, under a veil of the ground colour
+// so the sentence stays the loudest thing on the slide.
+const scene = (s, ground) => {
+  if (!s.scenery) return ["", ""];
+  const veil = ground === "paper"
+    ? "linear-gradient(#f6f8fcb8,#f6f8fcd9)"
+    : "linear-gradient(#132747a6,#132747d1)";
+  const url = pathToFileURL(join(here, "scenery", `${s.scenery}-soft.jpg`)).href;
+  return [" scene", ` style="background-image:${veil},url(${url})"`];
+};
 
 function slide(s, i, n) {
   const ground = s.ground === "paper" ? "paper" : "navy";
+  const [sc, bg] = scene(s, ground);
   if (s.type === "line") {
     const long = s.text.length > 70 ? " long" : "";
-    return `<section class="slide ${ground}">
+    return `<section class="slide ${ground}${sc}"${bg}>
   ${s.label ? `<p class="label">${esc(s.label)}</p>` : ""}
   <p class="sentence${long}">${esc(s.text)}</p>
   ${foot(i, n)}</section>`;
   }
   if (s.type === "matrix") {
-    return `<section class="slide ${ground}">
+    return `<section class="slide ${ground}${sc}"${bg}>
   <div class="panel"><p class="label" style="color:var(--blue)">${esc(s.label)}</p><h2>${esc(s.title)}</h2>
   <dl>${s.rows.map(([k, v]) => `<div class="row"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl></div>
   ${foot(i, n)}</section>`;
   }
   if (s.type === "close") {
-    return `<section class="slide ${ground}">
+    return `<section class="slide ${ground}${sc}"${bg}>
   <p class="label">${esc(s.label ?? "")}</p>
   <div style="margin-top:auto;margin-bottom:auto"><p class="sentence" style="margin:0">${esc(s.text)}</p>
   ${s.sub ? `<p class="sub">${esc(s.sub)}</p>` : ""}</div>
-  <div class="foot" style="align-items:flex-end"><div class="brand">Luxembourg Psychology<span>Ivana Budišin</span></div><span>${esc(s.url ?? "")}</span></div></section>`;
+  <div class="foot" style="align-items:flex-end"><div class="close-who">${mark}<div class="brand">Luxembourg Psychology<span>Ivana Budišin</span></div></div><span>${esc(s.url ?? "")}</span></div></section>`;
   }
   throw new Error(`Unknown slide type: ${s.type}`);
 }

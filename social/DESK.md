@@ -42,6 +42,9 @@ a small sample: treat anything short of a clear break as noise.
 - Cadence: three posts a week at most.
 - Language: English. French when she says so.
 - Hashtags: none.
+- Look: soft scenery behind the words, the three-circle mark, the site's own fonts (her word, 16 November 2026).
+- Imagery: Adobe Stock free collection only. A paid licence needs her word.
+- Every rendered post is filed in Adobe Creative Cloud under `Luxembourg Psychology/Instagram/`.
 - Other tools posting to the account: **undecided.** This desk does not schedule while another
   tool is posting.
 

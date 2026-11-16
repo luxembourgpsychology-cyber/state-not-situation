@@ -54,6 +54,13 @@ Reduced motion removes even that.
 scripts only from self, one hashed inline script and Cal.com. A new script, font host, image host
 or embed will be blocked unless the policy is changed with it. Check before proposing any.
 
+**The mark.** Three overlapping circles on a dark rounded tile, `assets/favicon.svg`: tile
+`#101C22`, circles `#B9D0FA` (top), `#D9C7FA` (left), `#FBD3C2` (right). It is the only place
+lilac and peach appear. Use the file as it is.
+
+**Where it is live.** On 16 November 2026 www.luxembourgpsychology.com answered from Vercel with
+this design, these fonts and this mark.
+
 ## The biopsychosocial model on the home page
 
 A white panel in the opening, `data-pressure-examples`, driven by `pressure-examples.js`: three
@@ -87,5 +94,7 @@ adults, couples and teenagers from 14; English and French. Re-read before repeat
   advising; assume the last record is stale.
 - "Study it, do not touch it" is a normal instruction from her. When she says it, nothing on a
   live site, a deployment or a domain changes, and the reply says so.
+- She found plain type on flat navy boring (16 November 2026) and asked for blurred scenery and
+  calm. Calm is the brief: soft photographs of water, fog and distance behind the words.
 - Her standard for sameness: a section that will not fit the system is rewritten, not given a new
   size, colour or component.
