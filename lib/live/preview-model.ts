@@ -42,7 +42,7 @@ export type Action =
 
 export const prompts = [
   "If your face had subtitles, what would they say right now?",
-  "Read their first message again. Ask about one detail.",
+  "Pause. Notice your jaw or shoulders. Read their first message again. Does it sound the same? Ask about one detail.",
   "Answer their question in one sentence.",
   "Finish this sentence: “At first I thought…”",
 ];
@@ -63,6 +63,12 @@ export function withSide<T>(pair: Pair<T>, side: Side, value: T): Pair<T> {
 }
 export function targetFor(moment: number): Side | null {
   return moment === 0 ? 0 : moment === 2 ? 1 : null;
+}
+
+export function cueDisclosure(moment: number, side: Side): string {
+  return side === targetFor(moment)
+    ? `The app showed “${planted[moment]}” only on your phone. Your partner’s own message is below.`
+    : `The app showed “${planted[moment]}” only on your partner’s phone. They can see your message now.`;
 }
 export function feelingStage(state: PreviewState): FeelingStage {
   const phase = state.rounds[state.moment].phase;
@@ -106,9 +112,7 @@ function deliverReply(state: PreviewState): PreviewState {
     if (target !== null) {
       next = append(next, side, moment, {
         kind: "reveal",
-        text: side === target
-          ? `The app showed “${planted[moment]}” only on your phone. Your partner’s own message is below.`
-          : `The app showed “${planted[moment]}” only on your partner’s phone. They can see your message now.`,
+        text: cueDisclosure(moment, side),
       });
     }
     const owner: Side = side === 0 ? 1 : 0;

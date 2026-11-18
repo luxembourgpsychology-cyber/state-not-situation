@@ -3,17 +3,10 @@ import type {
   Interest, Participant, Room, RoomSummary, Step,
 } from "./types.ts";
 import { CONFIDENCES, CONTEXT_TONES, INTERESTS, STEPS } from "./types.ts";
+import { EngineError } from "./engine-error.ts";
+import { advanceExperience, disclosedVotes, experienceGuestView, experienceProgress, experienceReadiness } from "./experience.ts";
 
-export class EngineError extends Error {
-  status: number;
-  code: string;
-  constructor(message: string, status = 400, code = "invalid_action") {
-    super(message);
-    this.name = "EngineError";
-    this.status = status;
-    this.code = code;
-  }
-}
+export { EngineError } from "./engine-error.ts";
 
 export const SCENARIOS = {
   a: "You and a colleague have not finished a task. You are worried that something is missing.",
@@ -51,6 +44,9 @@ function partnerFor(room: Room, id: string): string | undefined {
   return pair ? (pair.a === id ? pair.b : pair.a) : undefined;
 }
 function waiting(room: Room, id: string): boolean {
+  if (room.experience) {
+    return room.experience.phase === "chat" && room.experience.chatGuests.includes(id) && !pairFor(room, id);
+  }
   return !pairFor(room, id) && (room.step === "lobby" || PAIR_STEPS.includes(room.step));
 }
 
@@ -174,7 +170,10 @@ export function hostCommand(room: Room, action: HostAction, requestId: string, e
   else if (action === "return") { room.lookUp = false; }
   else {
     if (room.paused || room.lookUp) throw new EngineError("Return everyone to the task before continuing.", 409, "paused");
-    if (action === "pair") pairParticipants(room);
+    if (room.experience) {
+      if (action !== "next") throw new EngineError("Tap the next step for this experience.");
+      advanceExperience(room, room.experience);
+    } else if (action === "pair") pairParticipants(room);
     else if (action === "reveal") {
       if (room.step !== "ready_reveal") throw new EngineError("Complete or skip the activities before opening the final reveal.", 409);
       room.step = "reveal_message";
@@ -199,8 +198,11 @@ export function hostCommand(room: Room, action: HostAction, requestId: string, e
   return room;
 }
 
-function summary(room: Room): RoomSummary {
-  return { code: room.code, mode: room.mode, step: room.step, revision: room.revision, paused: room.paused, lookUp: room.lookUp };
+export function roomSummary(room: Room): RoomSummary {
+  return {
+    code: room.code, mode: room.mode, step: room.step, revision: room.revision, paused: room.paused, lookUp: room.lookUp,
+    ...(room.experience ? { experience: experienceProgress(room.experience) } : {}),
+  };
 }
 
 export function participantView(room: Room, id: string): GuestState {
@@ -210,10 +212,14 @@ export function participantView(room: Room, id: string): GuestState {
   const partner = partnerId ? room.answers[partnerId] ?? {} : {};
   const own = room.answers[id] ?? {};
   const view: GuestState = {
-    room: summary(room),
+    room: roomSummary(room),
     participant: { id: person.id, name: person.name, paired: !!pair, ...(pair ? { pairLabel: pair.label } : {}), waiting: waiting(room, id) },
     own: { ...own },
   };
+  if (room.experience) {
+    view.experience = experienceGuestView(room, room.experience, id);
+    return view;
+  }
   const stepIndex = STEPS.indexOf(room.step);
   if (stepIndex >= STEPS.indexOf("interpret") && partner.message !== undefined) view.partnerMessage = partner.message;
   if (stepIndex >= STEPS.indexOf("reply_delivered") && partner.reply !== undefined) view.partnerReply = partner.reply;
@@ -265,17 +271,24 @@ function submitted(room: Room, id: string): boolean {
 
 /** Host readiness never includes private answer text or a guest's partner identity. */
 export function hostView(room: Room): HostState {
+  const experience = room.experience;
   const people = room.participants.map(person => {
     const pair = pairFor(room, person.id);
-    return { id: person.id, name: person.name, ...(pair ? { pairLabel: pair.label } : {}), waiting: waiting(room, person.id), submitted: submitted(room, person.id) };
+    return {
+      id: person.id, name: person.name, ...(pair ? { pairLabel: pair.label } : {}), waiting: waiting(room, person.id),
+      submitted: experience ? experienceReadiness(room, experience, person.id).submitted : submitted(room, person.id),
+    };
   });
-  const eligible = people.filter(person => !person.waiting && (ANSWER_STEPS.includes(room.step)));
+  const eligible = people.filter(person => experience
+    ? experienceReadiness(room, experience, person.id).eligible
+    : !person.waiting && ANSWER_STEPS.includes(room.step));
   return {
-    room: summary(room),
+    room: roomSummary(room),
     counts: {
       joined: people.length, paired: room.pairs.length * 2, waiting: people.filter(person => person.waiting).length,
       submitted: eligible.filter(person => person.submitted).length, total: eligible.length,
     },
     participants: people, forecast: { ...room.forecast }, forecastLocked: room.forecastLocked,
+    ...(experience ? { voteTotals: disclosedVotes(experience) } : {}),
   };
 }

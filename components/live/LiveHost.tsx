@@ -5,7 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import QRCode from "qrcode";
 import { LAUNCH_ROOM_CODE } from "@/lib/live/launch";
+import { experienceCheckpoint } from "@/lib/live/experience-copy";
+import type { ExperienceProgress } from "@/lib/live/types";
 import { ApiError, api, Brand, HostState, Interest, interests, nextNames, Progress, requestId, RoomSummary, stepNames, usePolling } from "./client";
+import { VoteResults } from "./ExperiencePanels";
 
 export default function LiveHost() {
   const [roomCode, setRoomCode] = useState("");
@@ -34,7 +37,7 @@ export default function LiveHost() {
   }
   async function create(mode: "rehearsal" | "live") {
     if (busyRef.current) return; busyRef.current = true; setBusy(true); setError("");
-    try { const next = await api<HostState>("/api/live/host", { action: "create", mode }); select(next.room.code); current.setData(next); await rooms.refresh(); }
+    try { const next = await api<HostState>("/api/live/host", { action: "create", mode, experience: true }); select(next.room.code); current.setData(next); await rooms.refresh(); }
     catch (err) { setError(err instanceof Error ? err.message : "The room was not created."); }
     finally { busyRef.current = false; setBusy(false); }
   }
@@ -42,7 +45,11 @@ export default function LiveHost() {
     if (!state || busyRef.current) return;
     busyRef.current = true; setBusy(true); setError("");
     try {
-      const next = await api<HostState>("/api/live/host", { action: actionName, room: state.room.code, expectedRevision: state.room.revision, requestId: requestId(), ...extra });
+      const next = await api<HostState>("/api/live/host", {
+        action: actionName, room: state.room.code,
+        expectedRevision: state.room.revision, requestId: requestId(), checkpoint: experienceCheckpoint(state.room),
+        ...extra,
+      });
       current.setData(next); setConfirmReveal(false);
     } catch (err) { setError(err instanceof Error ? err.message : "That step did not complete. Please try again."); await current.refresh(); }
     finally { busyRef.current = false; setBusy(false); }
@@ -62,6 +69,28 @@ export default function LiveHost() {
   const predictionReady = state ? interests.some(interest => (state.forecast?.[interest] || 0) > 0) : false;
   const cannotContinue = Boolean(current.error) || Boolean(state && state.room.step === "lobby" && state.counts.paired < 2) || Boolean(state && state.room.step === "context" && !predictionReady);
   if (!authenticated) return <main className="live-app live-host"><Brand /><div className="live-container live-entry"><div className="live-entry-intro"><p className="live-label">For Ivana and the event team</p><h1>Guide the moments.<br />One step at a time.</h1><p>Use the solo preview to try all four. At the event, share the QR code and press Next when everyone is ready.</p><Link className="live-outline-button" href="/live/preview">Try all four on your own <span aria-hidden="true">↗</span></Link></div>{needsLogin ? <form className="live-join-form" onSubmit={login}><h2>Host sign in</h2><label className="live-field">Host password<input type="password" autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)} required /></label><button className="live-button" disabled={busy}>{busy ? "Signing in…" : "Sign in"}<span aria-hidden="true">↗</span></button>{error && <p className="live-error" role="alert">{error}</p>}</form> : <div><p role="status">{rooms.error ? rooms.error.message : "Opening your event controls…"}</p>{rooms.error && <button className="live-text-button" onClick={() => void rooms.refresh()}>Try again</button>}</div>}</div></main>;
+
+  function copyGuestLink() {
+    if (!state) return;
+    void navigator.clipboard.writeText(new URL(state.joinPath, window.location.origin).toString())
+      .then(() => { setCopied(true); setTimeout(() => setCopied(false), 2500); })
+      .catch(() => setError("Copy is not available here. Select the link below."));
+  }
+
+  if (state?.room.experience) return <main className="live-app live-host">
+    <Brand mode={state.room.mode} code={state.room.code} />
+    <div className="live-host-grid live-container">
+      <ExperienceControls
+        state={state} progress={state.room.experience} busy={busy} error={error || (current.error ? "Reconnect before moving on." : "")}
+        connected={!current.error} onAction={name => void action(name)} onBack={() => select("")}
+      />
+      <aside className="live-host-aside">
+        <JoinCode path={state.joinPath} code={state.room.code} copied={copied} onCopy={copyGuestLink} />
+        <p className="live-caption">{state.room.mode === "rehearsal" ? "Test QR only. This room expires after 24 hours." : "The fixed launch QR opens on 3 December at 18:00 Luxembourg time."}</p>
+        {state.room.code === LAUNCH_ROOM_CODE && <a className="live-outline-button" href="/live/launch-qr.pdf" download>Download the print sign <span aria-hidden="true">↓</span></a>}
+      </aside>
+    </div>
+  </main>;
 
   return <main className="live-app live-host"><Brand mode={state?.room.mode} code={state?.room.code} />
     {!roomCode ? <div className="live-container live-host-home"><p className="live-label">Your event controls</p><h1>Let’s get the room ready.</h1><p>Try the solo preview first. Use a test room to practise with other people. The 3 December event has its own fixed QR code.</p><div className="live-create-options"><Link className="live-outline-button" href="/live/preview">Try all four on your own <span aria-hidden="true">↗</span></Link><button className="live-button" disabled={busy} onClick={() => void create("rehearsal")}>Create a test room<span aria-hidden="true">↗</span></button><button className="live-outline-button" disabled={busy} onClick={() => void openLaunch()}>Open the 3 December event</button></div><RoomList rooms={rooms.data?.rooms || []} onSelect={select} />{error && <p className="live-error" role="alert">{error}</p>}</div>
@@ -91,11 +120,100 @@ export default function LiveHost() {
             {state.forecastLocked && <p className="live-caption live-forecast-locked">Your prediction is locked. It will appear in the final reveal.</p>}
             <div className="live-host-guests"><h2>People in the room</h2>{state.participants.length === 0 ? <p className="live-caption">No guests yet. Show the QR code and ask people to join.</p> : <div className="live-participants"><div className="live-participant-heading"><span>Game name</span><span>Pair</span><span>This step</span></div>{state.participants.map(person => <div key={person.id}><span>{person.name}</span><span>{person.pairLabel || "Waiting"}</span><span>{person.submitted ? "Saved" : person.waiting ? "Waiting for a pair" : "Not saved yet"}</span></div>)}</div>}</div>
           </section>
-          <aside className="live-host-aside"><JoinCode path={state.joinPath} code={state.room.code} copied={copied} onCopy={() => { void navigator.clipboard.writeText(new URL(state.joinPath, window.location.origin).toString()).then(() => { setCopied(true); setTimeout(() => setCopied(false), 2500); }).catch(() => setError("Copy is not available here. Select the link below.")); }} /><p className="live-caption">{state.room.mode === "rehearsal" ? "Test QR only. This room expires after 24 hours. Use the fixed launch QR for printing." : "This is the fixed launch QR. It opens on 3 December 2026 at 18:00 Luxembourg time."}</p>{state.room.code === LAUNCH_ROOM_CODE && <a className="live-outline-button" href="/live/launch-qr.pdf" download>Download the print sign <span aria-hidden="true">↓</span></a>}<a className="live-outline-button" target="_blank" rel="noopener noreferrer" href={state.screenPath || state.joinPath.replace("/live?", "/live/screen?")}>Open room screen <span aria-hidden="true">↗</span></a><p className="live-caption">The room screen shows shared prompts and totals. Keep your event controls on your own screen.</p></aside>
+          <aside className="live-host-aside"><JoinCode path={state.joinPath} code={state.room.code} copied={copied} onCopy={copyGuestLink} /><p className="live-caption">{state.room.mode === "rehearsal" ? "Test QR only. This room expires after 24 hours. Use the fixed launch QR for printing." : "This is the fixed launch QR. It opens on 3 December 2026 at 18:00 Luxembourg time."}</p>{state.room.code === LAUNCH_ROOM_CODE && <a className="live-outline-button" href="/live/launch-qr.pdf" download>Download the print sign <span aria-hidden="true">↓</span></a>}<a className="live-outline-button" target="_blank" rel="noopener noreferrer" href={state.screenPath || state.joinPath.replace("/live?", "/live/screen?")}>Open room screen <span aria-hidden="true">↗</span></a><p className="live-caption">The room screen shows shared prompts and totals. Keep your event controls on your own screen.</p></aside>
         </div>
       </>}
     {confirmReveal && state && <RevealConfirm busy={busy} onCancel={() => setConfirmReveal(false)} onConfirm={() => void action("reveal")} />}
   </main>;
+}
+
+function eventCue({ phase, moment, conversationPhase }: ExperienceProgress) {
+  if (phase === "welcome") return {
+    title: "Welcome the room",
+    next: "Open Experience 1",
+    cue: "Jessika writes her prediction and seals it. Ask guests to scan the QR, then tap Experience 1 when it opens.",
+  };
+  if (phase === "vote") return {
+    title: "Jessika’s quick vote",
+    next: "Show room vote",
+    cue: "Give people a moment to look up. Ask who felt like checking again while they waited. Jessika opens her envelope, then you show the vote.",
+  };
+  if (phase === "vote_result") return {
+    title: "How the room voted",
+    next: "Open Experience 2",
+    cue: "Read the result aloud. Jessika says, “Keep that feeling in mind. This time, there really is a reply coming.”",
+  };
+  if (phase === "finished") return {
+    title: "Thank you",
+    next: "",
+    cue: "Guests can look back at their chat. Close with, “What did you know, and what might your state have added?”",
+  };
+  const title = `Moment 0${moment + 1}`;
+  if (conversationPhase === "waiting") return {
+    title,
+    next: "Reveal the real reply",
+    cue: "Give guests a few seconds to notice how they feel. They can write a short reply if they saw a line.",
+  };
+  if (conversationPhase === "revealed") return {
+    title: `${title} revealed`,
+    next: moment < 3 ? "Next moment" : "Finish the session",
+    cue: [
+      "Jessika asks, “Who had already written the next line in their head?” Take one or two reactions.",
+      "Ask whether the same words landed differently once people paused and read them again.",
+      "Jessika shows “I thought you were coming” and reads it first with relief, then with annoyance.",
+      "Invite someone to finish “At first I thought…” aloud, if they’d like to share.",
+    ][moment],
+  };
+  return {
+    title,
+    next: moment === 0 || moment === 2 ? "Show the message" : "Reveal the replies",
+    cue: [
+      "Say, “Tap Experience 2 and send one line.” Guests are paired as they enter.",
+      "Say, “Look up for a second. Notice your jaw or shoulders, then reread their first message.”",
+      "Give the room a moment to answer their partner’s question.",
+      "Ask everyone to finish, “At first I thought…”",
+    ][moment],
+  };
+}
+
+function ExperienceControls({ state, progress, busy, connected, error, onAction, onBack }: {
+  state: HostState;
+  progress: ExperienceProgress;
+  busy: boolean;
+  connected: boolean;
+  error: string;
+  onAction: (action: string) => void;
+  onBack: () => void;
+}) {
+  const { title, next, cue } = eventCue(progress);
+  const { paused, lookUp } = state.room;
+  const onHold = paused || lookUp;
+  const activeChat = progress.phase === "chat";
+  return <section className="live-host-main">
+    <div className="live-host-topline">
+      <p className="live-label">Your event controls</p>
+      <button className="live-text-button" disabled={busy} onClick={onBack}>Rooms</button>
+    </div>
+    <h1>{onHold ? "Look up." : title}</h1>
+    <p className="live-host-cue">{cue}</p>
+    {progress.phase === "vote_result" && state.voteTotals && <VoteResults totals={state.voteTotals} />}
+    {(progress.phase === "vote" || activeChat) && <div className="live-counts">
+      <div><strong>{state.counts.submitted}</strong><span>{activeChat ? "Messages sent" : "Votes in"}</span></div>
+      {activeChat && <>
+        <div><strong>{state.counts.paired / 2}</strong><span>Pairs</span></div>
+        <div><strong>{state.counts.waiting}</strong><span>Waiting for a partner</span></div>
+      </>}
+    </div>}
+    {progress.phase !== "finished" && <div className="live-host-actions">
+      <button className="live-button" disabled={busy || !connected || (activeChat && !onHold && state.counts.paired === 0)}
+        onClick={() => onAction(paused ? "resume" : lookUp ? "return" : "next")}>
+        {busy ? "Updating…" : onHold ? "Return to phones" : next}<span aria-hidden="true">↗</span>
+      </button>
+      {activeChat && !onHold && <button className="live-outline-button" disabled={busy || !connected} onClick={() => onAction("look_up")}>Look up for a moment</button>}
+    </div>}
+    {activeChat && !state.counts.paired && <p className="live-caption">The first pair appears after two guests tap Experience 2.</p>}
+    {error && <p className="live-error" role="alert">{error}</p>}
+  </section>;
 }
 
 function RoomList({ rooms, onSelect }: { rooms: RoomSummary[]; onSelect: (code: string) => void }) {

@@ -1,3 +1,6 @@
+import type { ChatEvent, Side } from "./preview-model.ts";
+import type { VoteChoice, VoteTotals } from "./experience-copy.ts";
+
 export const STEPS = [
   "lobby", "compose", "interpret", "reply", "reply_delivered", "context", "room",
   "ready_reveal", "reveal_message", "reveal_pause", "reveal_context", "reveal_room", "finished",
@@ -28,7 +31,7 @@ export interface Participant {
   joinedAt: number;
   context: "a" | "b";
 }
-export interface Pair { id: string; a: string; b: string; label: string }
+export interface Pair { id: string; a: string; b: string; label: string; startMoment?: number }
 export interface Room {
   id: string;
   code: string;
@@ -46,6 +49,32 @@ export interface Room {
   forecast: Forecast;
   forecastLocked: boolean;
   processedCommands: string[];
+  experience?: BookExperience;
+}
+export type ExperiencePhase = "welcome" | "vote" | "vote_result" | "chat" | "finished";
+export type ConversationPhase = "compose" | "waiting" | "revealed";
+export interface ExperienceProgress {
+  phase: ExperiencePhase;
+  moment: number;
+  conversationPhase: ConversationPhase;
+}
+export interface BookExperience extends ExperienceProgress {
+  votes: Record<string, VoteChoice>;
+  chatGuests: string[];
+  rounds: Array<{ messages: Record<string, string>; replies: Record<string, string> }>;
+}
+export interface ExperienceGuest {
+  vote?: VoteChoice;
+  totals?: VoteTotals;
+  joinedChat: boolean;
+  chat?: {
+    side: Side;
+    label: string;
+    entries: ChatEvent[];
+    cueShown: boolean;
+    hasPartnerMessage: boolean;
+    writing: boolean;
+  };
 }
 export interface RoomSummary {
   code: string;
@@ -54,6 +83,7 @@ export interface RoomSummary {
   revision: number;
   paused: boolean;
   lookUp: boolean;
+  experience?: ExperienceProgress;
 }
 export interface Reveal {
   message?: string;
@@ -76,6 +106,7 @@ export interface GuestState {
   scenario?: string;
   reveal?: Reveal;
   partnerTyping?: boolean;
+  experience?: ExperienceGuest;
 }
 export interface HostState {
   room: RoomSummary;
@@ -85,5 +116,6 @@ export interface HostState {
   forecastLocked: boolean;
   joinPath?: string;
   screenPath?: string;
+  voteTotals?: VoteTotals;
 }
 export type HostAction = "pair" | "next" | "pause" | "resume" | "look_up" | "return" | "reveal" | "skip";

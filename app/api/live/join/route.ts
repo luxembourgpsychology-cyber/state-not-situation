@@ -20,7 +20,9 @@ export async function POST(request: NextRequest) {
     const participant = { id: randomUUID(), tokenHash: hash(secret), name: name || "Guest", joinedAt: Date.now(), context: (room.participants.length % 2 ? "b" : "a") as "a" | "b" };
     room = await changeRoom(code, current => {
       if (current.participants.length >= 120) throw new LiveError("This room is full.");
-      addParticipant(current, participant);
+      addParticipant(current, current.experience && !name
+        ? { ...participant, name: `Guest ${String(current.participants.length + 1).padStart(2, "0")}` }
+        : participant);
     });
     const response = json(participantView(room, participant.id));
     response.cookies.set(guestCookie(code), `${participant.id}.${secret}`, cookieOptions);

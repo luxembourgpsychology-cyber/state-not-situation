@@ -38,7 +38,17 @@ export async function api<T>(url: string, body?: unknown, signal?: AbortSignal):
 }
 
 export function usePolling<T>(url: string | null, interval = 1500) {
-  const [data, setData] = useState<T | null>(null);
+  const [data, replaceData] = useState<T | null>(null);
+  const setData = useCallback((next: T) => {
+    replaceData(previous => {
+      // A poll started before a vote, join or host action can finish after it.
+      const before = previous as { room?: Room; participant?: unknown } | null;
+      const after = next as { room?: Room; participant?: unknown };
+      if (before?.room && after?.room && before.room.code === after.room.code &&
+        (before.room.revision > after.room.revision || (before.participant && !after.participant))) return previous;
+      return next;
+    });
+  }, []);
   const [error, setError] = useState<ApiError | Error | null>(null);
   const [loading, setLoading] = useState(Boolean(url));
   const generation = useRef(0);
@@ -51,7 +61,7 @@ export function usePolling<T>(url: string | null, interval = 1500) {
     } catch (err) {
       if (current === generation.current) { setError(err instanceof Error ? err : new Error("Connection lost.")); setLoading(false); }
     }
-  }, [url]);
+  }, [url, setData]);
   useEffect(() => {
     let cancelled = false;
     let timeout: ReturnType<typeof setTimeout>;
@@ -71,7 +81,7 @@ export function usePolling<T>(url: string | null, interval = 1500) {
     const wake = () => { if (document.visibilityState === "visible") void refresh(); };
     document.addEventListener("visibilitychange", wake);
     return () => { cancelled = true; controller.abort(); clearTimeout(timeout); document.removeEventListener("visibilitychange", wake); };
-  }, [url, interval, refresh]);
+  }, [url, interval, refresh, setData]);
   return { data, setData, error, loading, refresh };
 }
 

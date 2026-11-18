@@ -3,6 +3,7 @@ import { neon } from "@neondatabase/serverless";
 import type { Room } from "./types";
 import { randomBytes, randomUUID } from "node:crypto";
 import { createRoom } from "./engine";
+import { createBookExperience } from "./experience";
 import { LAUNCH_ENDS, LAUNCH_ROOM_CODE } from "./launch";
 
 export class LiveError extends Error {
@@ -17,7 +18,13 @@ function db() {
 export async function readRoom(code: string): Promise<Room> {
   const rows = await db()`SELECT body FROM book_live_rooms WHERE code = ${code} AND expires_at > now()`;
   if (!rows[0]) throw new LiveError("Room not found or closed. Please check the link.", 404);
-  return rows[0].body as Room;
+  const room = rows[0].body as Room;
+  // The fixed launch room may have been prepared before the two experiences
+  // were added. Upgrade its empty lobby without resetting a room in use.
+  if (code === LAUNCH_ROOM_CODE && !room.experience && room.step === "lobby" && !room.participants.length && !room.pairs.length) {
+    room.experience = createBookExperience();
+  }
+  return room;
 }
 
 export async function insertRoom(room: Room) {
@@ -30,6 +37,7 @@ export async function insertRoom(room: Room) {
 export async function ensureLaunchRoom(): Promise<Room> {
   if (Date.now() >= LAUNCH_ENDS) throw new LiveError("The launch has finished. Create a test room to practise again.", 410);
   const room = createRoom({ id: randomUUID(), code: LAUNCH_ROOM_CODE, inviteToken: randomBytes(24).toString("base64url"), mode: "live", now: Date.now() });
+  room.experience = createBookExperience();
   room.expiresAt = LAUNCH_ENDS;
   await db()`INSERT INTO book_live_rooms (code, body, revision, expires_at) VALUES (${room.code}, ${JSON.stringify(room)}::jsonb, 0, ${new Date(LAUNCH_ENDS).toISOString()}) ON CONFLICT (code) DO NOTHING`;
   return readRoom(LAUNCH_ROOM_CODE);
