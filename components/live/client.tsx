@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { ApiError, api } from "@/lib/live/api";
+export { ApiError, api } from "@/lib/live/api";
 import type { GuestState as EngineGuestState, HostState as EngineHostState, RoomSummary as EngineRoomSummary, Step as EngineStep, Interest as EngineInterest } from "@/lib/live/types";
 
 export const interests = ["More interested", "About the same", "Less interested", "Not sure"] as const;
@@ -21,21 +23,6 @@ export const nextNames: Partial<Record<Step, string>> = {
 };
 
 export function requestId() { return crypto.randomUUID(); }
-
-export class ApiError extends Error {
-  constructor(message: string, public status: number) { super(message); }
-}
-
-export async function api<T>(url: string, body?: unknown, signal?: AbortSignal): Promise<T> {
-  const response = await fetch(url, {
-    method: body === undefined ? "GET" : "POST", credentials: "same-origin", cache: "no-store", signal,
-    headers: body === undefined ? undefined : { "Content-Type": "application/json" },
-    body: body === undefined ? undefined : JSON.stringify(body),
-  });
-  const data = await response.json().catch(() => null);
-  if (!response.ok) throw new ApiError(typeof data?.message === "string" ? data.message : typeof data?.error === "string" ? data.error : "We could not complete that. Please try again.", response.status);
-  return data as T;
-}
 
 export function usePolling<T>(url: string | null, interval = 1500) {
   const [data, replaceData] = useState<T | null>(null);

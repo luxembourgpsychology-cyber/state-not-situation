@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
+import { connect, constants } from "node:http2";
 import { writeFile } from "node:fs/promises";
 
 try { process.loadEnvFile(".env.local"); } catch { /* CI can inject the host password. */ }
@@ -7,14 +8,52 @@ const origin = process.env.LIVE_TEST_ORIGIN || "http://127.0.0.1:3117";
 const groupSizes = (process.env.LIVE_PAIRING_COUNTS || "4,10,20,50").split(",").map(Number);
 assert(groupSizes.every(size => Number.isInteger(size) && size >= 2 && size <= 120), "Use group sizes between 2 and 120");
 const cookies = new Map();
-const report = { origin, startedAt: new Date().toISOString(), groups: [] };
+const report = { origin, startedAt: new Date().toISOString(), retriedReads: 0, retriedSends: 0, groups: [] };
 let roomCode;
+let connection;
+const connections = new Set();
 
-async function request(actor, path, payload, expected = 200) {
+function browserRequest(path, options) {
+  if (!origin.startsWith("https:")) return fetch(origin + path, options);
+  // Multiplex the guest requests over HTTP/2, as the deployed browser page
+  // does, instead of opening 50 new TLS connections from one test computer.
+  if (!connection || connection.closed || connection.destroyed) {
+    connection = connect(origin);
+    connections.add(connection);
+    const current = connection;
+    current.on("error", () => { /* Each active stream reports its own error. */ });
+    current.on("goaway", () => { current.close(); });
+    current.on("close", () => connections.delete(current));
+  }
+  return new Promise((resolve, reject) => {
+    const stream = connection.request({ ":method": options.method, ":path": path, ...options.headers });
+    const headers = new Headers();
+    let status;
+    let text = "";
+    stream.setEncoding("utf8");
+    stream.on("response", incoming => {
+      status = incoming[":status"];
+      for (const [name, value] of Object.entries(incoming)) {
+        if (name.startsWith(":") || value === undefined) continue;
+        for (const part of Array.isArray(value) ? value : [value]) headers.append(name, String(part));
+      }
+    });
+    stream.on("data", chunk => { text += chunk; });
+    stream.on("end", () => resolve(new Response(text, { status, headers })));
+    stream.on("error", reject);
+    stream.setTimeout(90000, () => {
+      stream.close(constants.NGHTTP2_CANCEL);
+      reject(new Error("Timed out waiting for the test response"));
+    });
+    stream.end(options.body);
+  });
+}
+
+async function sendRequest(actor, path, payload, expected) {
   const headers = { Origin: origin };
   if (cookies.has(actor)) headers.Cookie = cookies.get(actor);
   if (payload !== undefined) headers["Content-Type"] = "application/json";
-  const response = await fetch(origin + path, {
+  const response = await browserRequest(path, {
     method: payload === undefined ? "GET" : "POST",
     headers,
     body: payload === undefined ? undefined : JSON.stringify(payload),
@@ -25,6 +64,31 @@ async function request(actor, path, payload, expected = 200) {
   const data = await response.json().catch(() => ({}));
   assert.equal(response.status, expected, `${actor} ${path.split("?")[0]} returned ${response.status}: ${data.error || ""}`);
   return data;
+}
+
+async function request(actor, path, payload, expected = 200) {
+  // The app polls again after a lost read. Exercise that recovery without
+  // replaying a join whose cookie might have been lost after it committed.
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      return await sendRequest(actor, path, payload, expected);
+    } catch (error) {
+      const safeSend = path === "/api/live/answer" || path === "/api/live/typing"
+        || (path === "/api/live/host" && payload?.requestId);
+      const cause = error.cause?.code || error.cause?.message || error.message;
+      if ((payload !== undefined && !safeSend) || attempt === 2) {
+        throw new Error(`${error.message} (${cause})`, { cause: error });
+      }
+      if (payload === undefined) report.retriedReads++;
+      else report.retriedSends++;
+      console.log(`Retrying a ${payload === undefined ? "read" : "repeat-safe send"} after ${cause}.`);
+      await new Promise(resolve => setTimeout(resolve, (attempt + 1) * 500));
+    }
+  }
+}
+
+async function saveReport() {
+  if (process.env.LIVE_PAIRING_REPORT) await writeFile(process.env.LIVE_PAIRING_REPORT, JSON.stringify(report, null, 2));
 }
 
 async function together(label, tasks) {
@@ -153,12 +217,17 @@ try {
       }
     }
     report.groups.push({ guests: count, pairs: Math.floor(count / 2), waiting: count % 2, repetitions: 2, seconds: Math.round((performance.now() - started) / 1000), freshDrawChanged: assignments[0] !== assignments[1], passed: true });
+    await saveReport();
     console.log(JSON.stringify(report.groups.at(-1)));
   }
   report.finishedAt = new Date().toISOString();
-  if (process.env.LIVE_PAIRING_REPORT) await writeFile(process.env.LIVE_PAIRING_REPORT, JSON.stringify(report, null, 2));
+  await saveReport();
   console.log("PASS: simultaneous guests, random draw, unique pairs, four moments, reconnect, repeat on the same QR, and private replies.");
 } catch (error) {
+  report.error = error.message;
+  await saveReport();
   console.error(`FAIL in dedicated test room ${roomCode || "not created"}: ${error.message}`);
   process.exitCode = 1;
+} finally {
+  for (const active of connections) active.close();
 }
