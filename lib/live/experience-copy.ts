@@ -11,5 +11,5 @@ export function emptyVoteTotals(): VoteTotals {
 }
 export function experienceCheckpoint(room: Pick<RoomSummary, "experience" | "paused" | "lookUp">) {
   const progress = room.experience;
-  return progress && [progress.phase, progress.moment, progress.conversationPhase, room.paused, room.lookUp].join(":");
+  return progress && [progress.run ?? 0, progress.phase, progress.moment, progress.conversationPhase, room.paused, room.lookUp].join(":");
 }

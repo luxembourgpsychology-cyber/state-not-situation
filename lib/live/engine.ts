@@ -4,7 +4,7 @@ import type {
 } from "./types.ts";
 import { CONFIDENCES, CONTEXT_TONES, INTERESTS, STEPS } from "./types.ts";
 import { EngineError } from "./engine-error.ts";
-import { advanceExperience, disclosedVotes, experienceGuestView, experienceProgress, experienceReadiness } from "./experience.ts";
+import { advanceExperience, createBookExperience, disclosedVotes, experienceGuestView, experienceProgress, experienceReadiness } from "./experience.ts";
 
 export { EngineError } from "./engine-error.ts";
 
@@ -45,7 +45,7 @@ function partnerFor(room: Room, id: string): string | undefined {
 }
 function waiting(room: Room, id: string): boolean {
   if (room.experience) {
-    return room.experience.phase === "chat" && room.experience.chatGuests.includes(id) && !pairFor(room, id);
+    return (room.experience.phase === "chat" || room.experience.phase === "pairing") && room.experience.chatGuests.includes(id) && !pairFor(room, id);
   }
   return !pairFor(room, id) && (room.step === "lobby" || PAIR_STEPS.includes(room.step));
 }
@@ -171,8 +171,16 @@ export function hostCommand(room: Room, action: HostAction, requestId: string, e
   else {
     if (room.paused || room.lookUp) throw new EngineError("Return everyone to the task before continuing.", 409, "paused");
     if (room.experience) {
-      if (action !== "next") throw new EngineError("Tap the next step for this experience.");
-      advanceExperience(room, room.experience);
+      if (action === "restart_rehearsal") {
+        if (room.mode !== "rehearsal") throw new EngineError("Start another round in a test room.", 403, "rehearsal_only");
+        room.experience = createBookExperience((room.experience.run ?? 0) + 1);
+        room.pairs = [];
+        room.answers = Object.fromEntries(room.participants.map(person => [person.id, {}]));
+        room.step = "lobby";
+      } else {
+        if (action !== "next") throw new EngineError("Tap the next step for this experience.");
+        advanceExperience(room, room.experience);
+      }
     } else if (action === "pair") pairParticipants(room);
     else if (action === "reveal") {
       if (room.step !== "ready_reveal") throw new EngineError("Complete or skip the activities before opening the final reveal.", 409);
@@ -289,6 +297,6 @@ export function hostView(room: Room): HostState {
       submitted: eligible.filter(person => person.submitted).length, total: eligible.length,
     },
     participants: people, forecast: { ...room.forecast }, forecastLocked: room.forecastLocked,
-    ...(experience ? { voteTotals: disclosedVotes(experience) } : {}),
+    ...(experience ? { voteTotals: disclosedVotes(experience), chatReady: experience.chatGuests.length } : {}),
   };
 }

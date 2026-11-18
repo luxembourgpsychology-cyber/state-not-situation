@@ -3,8 +3,9 @@ import { emptyVoteTotals, VOTE_CHOICES, type VoteChoice } from "./experience-cop
 import { cueDisclosure, planted, prompts, targetFor, type ChatEvent, type Side } from "./preview-model.ts";
 import type { BookExperience, ExperienceGuest, ExperienceProgress, Pair, Room } from "./types.ts";
 
-export function createBookExperience(): BookExperience {
+export function createBookExperience(run = 0): BookExperience {
   return {
+    run,
     phase: "welcome",
     moment: 0,
     conversationPhase: "compose",
@@ -16,7 +17,7 @@ export function createBookExperience(): BookExperience {
 
 export function experienceProgress(experience: BookExperience): ExperienceProgress {
   const { phase, moment, conversationPhase } = experience;
-  return { phase, moment, conversationPhase };
+  return { phase, moment, conversationPhase, run: experience.run ?? 0 };
 }
 
 export function disclosedVotes(experience: BookExperience) {
@@ -26,9 +27,15 @@ export function disclosedVotes(experience: BookExperience) {
   return totals;
 }
 
-function matchWaiting(room: Room, experience: BookExperience) {
+function matchWaiting(room: Room, experience: BookExperience, random: () => number) {
   const paired = new Set(room.pairs.flatMap(pair => [pair.a, pair.b]));
   const waiting = experience.chatGuests.filter(id => !paired.has(id));
+  for (let index = waiting.length - 1; index > 0; index--) {
+    const draw = random();
+    if (!Number.isFinite(draw) || draw < 0 || draw >= 1) throw new EngineError("Pairing could not complete. Please try again.");
+    const other = Math.floor(draw * (index + 1));
+    [waiting[index], waiting[other]] = [waiting[other], waiting[index]];
+  }
   for (let index = 0; index + 1 < waiting.length; index += 2) {
     const ordinal = room.pairs.length + 1;
     room.pairs.push({
@@ -46,7 +53,7 @@ function hasCue(experience: BookExperience, pair: Pair, moment: number) {
   return targetFor(moment) !== null && Boolean(messages[pair.a] && messages[pair.b]);
 }
 
-export function advanceExperience(room: Room, experience: BookExperience) {
+export function advanceExperience(room: Room, experience: BookExperience, random: () => number = Math.random) {
   switch (experience.phase) {
     case "welcome":
       experience.phase = "vote";
@@ -55,6 +62,11 @@ export function advanceExperience(room: Room, experience: BookExperience) {
       experience.phase = "vote_result";
       return;
     case "vote_result":
+      experience.phase = "pairing";
+      return;
+    case "pairing":
+      if (experience.chatGuests.length < 2) throw new EngineError("Wait for at least two guests to tap Experience 2.", 409, "waiting");
+      matchWaiting(room, experience, random);
       experience.phase = "chat";
       room.step = "compose";
       return;
@@ -70,7 +82,7 @@ export function advanceExperience(room: Room, experience: BookExperience) {
   } else if (moment + 1 < prompts.length) {
     experience.moment += 1;
     experience.conversationPhase = "compose";
-    matchWaiting(room, experience);
+    matchWaiting(room, experience, random);
   } else {
     experience.phase = "finished";
     room.step = "finished";
@@ -97,6 +109,9 @@ export function submitExperienceAnswer(room: Room, experience: BookExperience, i
   if (room.paused || room.lookUp) throw new EngineError("Look up for a moment. You can continue when Ivana is ready.", 409, "paused");
   if (!payload || typeof payload !== "object" || Array.isArray(payload)) throw new EngineError("Please send a valid answer.");
   const answer = payload as Record<string, unknown>;
+  if ((answer.run !== undefined || (experience.run ?? 0) > 0) && answer.run !== (experience.run ?? 0)) {
+    throw new EngineError("A new rehearsal has started. Your phone will update in a moment.", 409, "step_changed");
+  }
 
   if (answer.kind === "vote") {
     if (experience.phase !== "vote") throw new EngineError("The vote has closed.", 409, "step_changed");
@@ -104,12 +119,12 @@ export function submitExperienceAnswer(room: Room, experience: BookExperience, i
     saveOnce(experience.votes, id, answer.choice as VoteChoice);
     return;
   }
-  if (experience.phase !== "chat") throw new EngineError("The chat is not open.", 409, "step_changed");
   if (answer.kind === "chat_join") {
+    if (experience.phase !== "chat" && experience.phase !== "pairing") throw new EngineError("The chat is not open.", 409, "step_changed");
     if (!experience.chatGuests.includes(id)) experience.chatGuests.push(id);
-    if (experience.conversationPhase === "compose") matchWaiting(room, experience);
     return;
   }
+  if (experience.phase !== "chat") throw new EngineError("The chat is not open.", 409, "step_changed");
 
   const { moment, conversationPhase } = experience;
   if (answer.moment !== moment) throw new EngineError("Ivana has opened a new moment.", 409, "step_changed");
@@ -189,6 +204,9 @@ export function experienceTypingAllowed(room: Room, id: string): boolean {
 }
 
 export function experienceReadiness(room: Room, experience: BookExperience, id: string) {
+  if (experience.phase === "pairing") {
+    return { eligible: experience.chatGuests.includes(id), submitted: false };
+  }
   if (experience.phase === "vote" || experience.phase === "vote_result") {
     return { eligible: true, submitted: Boolean(experience.votes[id]) };
   }

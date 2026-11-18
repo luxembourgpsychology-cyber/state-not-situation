@@ -51,9 +51,10 @@ export interface Room {
   processedCommands: string[];
   experience?: BookExperience;
 }
-export type ExperiencePhase = "welcome" | "vote" | "vote_result" | "chat" | "finished";
+export type ExperiencePhase = "welcome" | "vote" | "vote_result" | "pairing" | "chat" | "finished";
 export type ConversationPhase = "compose" | "waiting" | "revealed";
 export interface ExperienceProgress {
+  run?: number;
   phase: ExperiencePhase;
   moment: number;
   conversationPhase: ConversationPhase;
@@ -117,5 +118,6 @@ export interface HostState {
   joinPath?: string;
   screenPath?: string;
   voteTotals?: VoteTotals;
+  chatReady?: number;
 }
-export type HostAction = "pair" | "next" | "pause" | "resume" | "look_up" | "return" | "reveal" | "skip";
+export type HostAction = "pair" | "next" | "pause" | "resume" | "look_up" | "return" | "reveal" | "skip" | "restart_rehearsal";

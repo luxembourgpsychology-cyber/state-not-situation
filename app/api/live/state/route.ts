@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
     const canType = partner && (room.experience
       ? experienceTypingAllowed(room, partner)
       : room.step === "reply" && !room.paused && !room.lookUp && !room.answers[partner]?.reply);
-    const typingKey = room.experience ? `${partner}:${room.experience.moment}` : partner;
+    const typingKey = room.experience ? `${partner}:${room.experience.run ?? 0}:${room.experience.moment}` : partner;
     view.partnerTyping = Boolean(canType && typingKey && await isTyping(room.code, typingKey));
     return json(view);
   } catch (error) { return fail(error); }

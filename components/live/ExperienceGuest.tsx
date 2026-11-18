@@ -12,7 +12,7 @@ type ChatView = NonNullable<NonNullable<GuestState["experience"]>["chat"]>;
 type LocalNotes = { drafts: Record<string, string>; feelings: FeelingEntry[] };
 
 export default function ExperienceGuest({ roomCode, invite }: { roomCode: string; invite?: string }) {
-  const [showVote, setShowVote] = useState(false);
+  const [voteRun, setVoteRun] = useState<number | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const submitting = useRef(false);
@@ -33,7 +33,7 @@ export default function ExperienceGuest({ roomCode, invite }: { roomCode: string
         const joined = await api<GuestState>("/api/live/join", { room: roomCode, invite, consent: true });
         session.setData(joined);
       }
-      const next = await api<GuestState>("/api/live/answer", { room: roomCode, data: answer });
+      const next = await api<GuestState>("/api/live/answer", { room: roomCode, data: { ...answer, run: progress?.run ?? 0 } });
       session.setData(next);
       return true;
     } catch (err) {
@@ -54,27 +54,29 @@ export default function ExperienceGuest({ roomCode, invite }: { roomCode: string
   }
   if (experience.joinedChat && state.participant && experience.chat) {
     return <GuestConversation
-      key={state.participant.id}
+      key={`${state.participant.id}:${progress.run ?? 0}`}
       state={state}
       chat={experience.chat}
       progress={progress}
-      storageKey={`sns:experience:${roomCode}:${state.participant.id}`}
+      storageKey={`sns:experience:${roomCode}:${state.participant.id}:${progress.run ?? 0}`}
       busy={busy}
       error={error || (session.error ? "Reconnecting to the room…" : "")}
       submit={submit}
     />;
   }
   if (experience.joinedChat && progress.phase !== "finished") {
-    return <BookFrame><BookStatus title="Finding a partner.">Keep this page open. Ivana will guide the room.</BookStatus></BookFrame>;
+    return <BookFrame><BookStatus title={progress.phase === "pairing" ? "You’re ready." : "Waiting for a partner."}>
+      {progress.phase === "pairing" ? "Ivana will pair the room when everyone is ready." : "Ivana can see that you’re waiting. Keep this page open."}
+    </BookStatus></BookFrame>;
   }
   if (progress.phase === "finished") {
     return <BookFrame><BookStatus title="Thank you.">What did you know, and what might your state have added?</BookStatus></BookFrame>;
   }
 
   return <BookFrame>
-    {showVote && (progress.phase === "vote" || progress.phase === "vote_result")
+    {voteRun === (progress.run ?? 0) && (progress.phase === "vote" || progress.phase === "vote_result")
       ? <RoomVote vote={experience.vote} totals={experience.totals} busy={busy} error={error} onVote={choice => void submit({ kind: "vote", choice })} />
-      : <ExperienceCards phase={progress.phase} disabled={busy} error={error} onVote={() => setShowVote(true)} onChat={() => void submit({ kind: "chat_join" })} />}
+      : <ExperienceCards phase={progress.phase} disabled={busy} error={error} onVote={() => setVoteRun(progress.run ?? 0)} onChat={() => void submit({ kind: "chat_join" })} />}
   </BookFrame>;
 }
 
@@ -123,7 +125,7 @@ function GuestConversation({ state, chat, progress, storageKey, busy, error, sub
     const now = Date.now();
     if (now - lastTyping.current < 850) return;
     lastTyping.current = now;
-    void api("/api/live/typing", { room: state.room.code, moment, active: true }).catch(() => {});
+    void api("/api/live/typing", { room: state.room.code, run: progress.run ?? 0, moment, active: true }).catch(() => {});
   }
 
   async function send() {

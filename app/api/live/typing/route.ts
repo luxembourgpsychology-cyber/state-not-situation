@@ -12,9 +12,9 @@ export async function POST(request: NextRequest) {
     const paired = room.pairs.some(p => p.a === participant.id || p.b === participant.id);
     if (typeof data.active !== "boolean") throw new LiveError("Invalid typing update.");
     if (room.experience) {
-      if (data.moment === room.experience.moment) {
+      if (data.moment === room.experience.moment && (data.run ?? 0) === (room.experience.run ?? 0)) {
         const active = data.active && experienceTypingAllowed(room, participant.id);
-        await saveTyping(room.code, `${participant.id}:${room.experience.moment}`, active);
+        await saveTyping(room.code, `${participant.id}:${room.experience.run ?? 0}:${room.experience.moment}`, active);
       }
       return json({ ok: true });
     }

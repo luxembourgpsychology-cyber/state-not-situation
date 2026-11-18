@@ -36,7 +36,7 @@ export function ExperienceCards({ phase, onVote, onChat, disabled = false, error
   error?: string;
 }) {
   const voteOpen = phase === "vote" || phase === "vote_result";
-  const chatOpen = phase === "chat";
+  const chatOpen = phase === "pairing" || phase === "chat";
   const voteStatus = phase === "vote" ? "Open" : phase === "vote_result" ? "See the result" : phase === "welcome" ? "Opens shortly" : "Done";
   return <section className="chat-entry-frame" aria-label="Choose an experience">
     <BookHeader />

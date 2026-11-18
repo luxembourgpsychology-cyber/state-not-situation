@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { addParticipant, createRoom, hostCommand, hostView, participantView } from "../lib/live/engine.ts";
-import { createBookExperience, submitExperienceAnswer } from "../lib/live/experience.ts";
+import { advanceExperience, createBookExperience, submitExperienceAnswer } from "../lib/live/experience.ts";
 
 function rehearsal() {
   const room = createRoom({ id: "test", code: "TEST1234", inviteToken: "rehearsal", mode: "rehearsal", now: 1 });
@@ -9,13 +9,14 @@ function rehearsal() {
   let command = 0;
   const add = id => addParticipant(room, { id, name: `Guest ${id}`, tokenHash: `key-${id}`, joinedAt: 1, context: "a" });
   const next = () => hostCommand(room, "next", `cue-${++command}`, room.revision);
-  const answer = (id, data) => submitExperienceAnswer(room, room.experience, id, data);
+  const answer = (id, data) => submitExperienceAnswer(room, room.experience, id, { run: room.experience.run ?? 0, ...data });
   const state = id => participantView(room, id).experience;
   const chat = id => state(id).chat;
   const enterChat = id => answer(id, { kind: "chat_join" });
+  const draw = () => advanceExperience(room, room.experience, () => 0.999);
   const message = (id, text) => answer(id, { kind: "message", moment: room.experience.moment, text });
   const chatMessages = id => chat(id).entries.filter(entry => entry.kind === "message").map(entry => entry.message.text);
-  return { room, add, next, answer, state, chat, enterChat, message, chatMessages };
+  return { room, add, next, answer, state, chat, enterChat, draw, message, chatMessages };
 }
 
 test("Jessika’s vote is counted once and totals are released on the host cue", () => {
@@ -39,12 +40,15 @@ test("Jessika’s vote is counted once and totals are released on the host cue",
 });
 
 test("both sides receive real replies only on reveal, with the planted line alternating A then B", () => {
-  const { room, add, next, answer, chat, enterChat, message, chatMessages } = rehearsal();
+  const { room, add, next, answer, chat, enterChat, draw, message, chatMessages } = rehearsal();
   add("a");
   add("b");
   next(); next(); next();
   enterChat("a");
   enterChat("b");
+  assert.equal(room.experience.phase, "pairing");
+  assert.equal(room.pairs.length, 0);
+  draw();
   assert.equal(chat("a").side, 0);
   assert.equal(chat("b").side, 1);
 
@@ -82,12 +86,13 @@ test("both sides receive real replies only on reveal, with the planted line alte
 });
 
 test("only guests who tap Experience 2 are paired and an unfinished pair gets no invented reply", () => {
-  const { room, add, next, enterChat, message, chat, chatMessages } = rehearsal();
+  const { room, add, next, enterChat, draw, message, chat, chatMessages } = rehearsal();
   for (const id of ["a", "b", "c", "d"]) add(id);
   next(); next(); next();
   enterChat("a");
   enterChat("b");
   enterChat("c");
+  draw();
   assert.equal(room.pairs.length, 1);
   assert.equal(chat("c"), undefined);
   assert.equal(chat("d"), undefined);
@@ -102,4 +107,87 @@ test("only guests who tap Experience 2 are paired and an unfinished pair gets no
   assert.equal(room.pairs.length, 2);
   assert.equal(chat("c").entries[0].moment, 1);
   assert.equal(chat("a").side, 0);
+});
+
+test("the host draws from the ready guests and keeps random pairs stable for 4, 10, 20, 50 and 51 guests", () => {
+  for (const count of [4, 10, 20, 50, 51]) {
+    const { room, add, next, enterChat, chat, message } = rehearsal();
+    for (let index = 0; index < count; index++) add(`guest-${index}`);
+    next(); next(); next();
+    for (let index = 0; index < count; index++) enterChat(`guest-${index}`);
+    assert.equal(room.pairs.length, 0, "tapping Experience 2 must wait for the host draw");
+    assert.equal(hostView(room).chatReady, count);
+    next();
+    assert.equal(room.pairs.length, Math.floor(count / 2));
+    const paired = room.pairs.flatMap(pair => [pair.a, pair.b]);
+    assert.equal(new Set(paired).size, Math.floor(count / 2) * 2);
+    assert(room.pairs.every(pair => pair.a !== pair.b));
+    assert.equal(hostView(room).counts.waiting, count % 2);
+    const originalPairs = structuredClone(room.pairs);
+    for (const pair of room.pairs) {
+      for (const id of [pair.a, pair.b]) {
+        enterChat(id);
+        addParticipant(room, { ...room.participants.find(person => person.id === id) });
+        message(id, `A line from ${id}`);
+      }
+      assert.equal(chat(pair.a).label, chat(pair.b).label);
+      assert.notEqual(chat(pair.a).side, chat(pair.b).side);
+    }
+    next(); next();
+    assert.deepEqual(room.pairs, originalPairs);
+    for (const pair of room.pairs) {
+      const replies = chat(pair.a).entries.filter(entry => entry.kind === "message" && entry.owner === 1);
+      assert(replies.some(entry => entry.message.text === `A line from ${pair.b}`));
+      assert(replies.every(entry => entry.message.text === `A line from ${pair.b}` || entry.message.source === "experiment"));
+    }
+  }
+});
+
+test("a rehearsal can restart on the same QR while stale answers stay out of the new run", () => {
+  const { room, add, next, enterChat, draw, message, answer } = rehearsal();
+  for (const id of ["a", "b", "c", "d"]) add(id);
+  next(); next(); next();
+  for (const id of ["a", "b", "c", "d"]) enterChat(id);
+  draw();
+  message("a", "Old test message");
+  const ids = room.participants.map(person => person.id);
+  const invitation = room.inviteToken;
+  const restart = () => hostCommand(room, "restart_rehearsal", "restart-test", room.revision);
+  restart();
+  assert.equal(room.experience.run, 1);
+  assert.equal(room.experience.phase, "welcome");
+  assert.deepEqual(room.participants.map(person => person.id), ids);
+  assert.equal(room.inviteToken, invitation);
+  assert.deepEqual(room.pairs, []);
+  assert.deepEqual(room.experience.chatGuests, []);
+  restart();
+  assert.equal(room.experience.run, 1, "retrying one restart must not restart again");
+  next();
+  assert.throws(() => answer("a", { kind: "vote", choice: "Check again", run: 0 }), { code: "step_changed" });
+  next(); next();
+  for (const id of ["a", "b", "c", "d"]) enterChat(id);
+  advanceExperience(room, room.experience, () => 0);
+  assert.equal(room.pairs.length, 2);
+  assert(room.pairs.every(pair => pair.a !== pair.b));
+  assert(!JSON.stringify(room.experience).includes("Old test message"));
+  room.mode = "live";
+  assert.throws(() => hostCommand(room, "restart_rehearsal", "restart-live", room.revision), { code: "rehearsal_only" });
+});
+
+test("random draws can produce all three possible pairings for four guests", () => {
+  const combinations = new Set();
+  for (let seed = 1; seed <= 60; seed++) {
+    const { room, add, next, enterChat } = rehearsal();
+    for (const id of ["a", "b", "c", "d"]) add(id);
+    next(); next(); next();
+    for (const id of ["a", "b", "c", "d"]) enterChat(id);
+    let counter = seed;
+    const random = () => {
+      counter = (Math.imul(counter, 1664525) + 1013904223) >>> 0;
+      return counter / 4294967296;
+    };
+    advanceExperience(room, room.experience, random);
+    combinations.add(room.pairs.map(pair => [pair.a, pair.b].sort().join("")).sort().join("-"));
+  }
+  assert.equal(combinations.size, 3);
 });

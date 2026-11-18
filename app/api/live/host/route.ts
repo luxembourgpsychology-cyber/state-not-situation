@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
         if (current.revision !== data.expectedRevision) throw new LiveError("The room changed. Please try again.", 409);
         setForecast(current, data.forecast);
       } else {
-        const allowed = ["pair", "next", "pause", "resume", "look_up", "return", "reveal", "skip"];
+        const allowed = ["pair", "next", "pause", "resume", "look_up", "return", "reveal", "skip", "restart_rehearsal"];
         if (!allowed.includes(String(data.action))) throw new LiveError("Unknown host action.");
         // A guest joining or voting should not cancel a host cue. A change
         // to what the audience is looking at still invalidates a stale tap.
@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
         hostCommand(current, data.action as Parameters<typeof hostCommand>[1], data.requestId as string, revision);
       }
     });
-    if (!room.experience && data.action !== "forecast" && data.action !== "pair") await clearRoomTyping(code);
+    if ((!room.experience && data.action !== "forecast" && data.action !== "pair") || data.action === "restart_rehearsal") await clearRoomTyping(code);
     return json(view(room));
   } catch (error) { return fail(error); }
 }

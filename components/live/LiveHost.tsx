@@ -23,10 +23,20 @@ export default function LiveHost() {
   const current = usePolling<HostState>(roomCode ? `/api/live/host?room=${encodeURIComponent(roomCode)}` : null);
   const state = current.data?.room.code === roomCode ? current.data : null;
   const authenticated = Boolean(rooms.data) && !(rooms.error instanceof ApiError && rooms.error.status === 401);
-  useEffect(() => { try { const saved = sessionStorage.getItem("sns-host-room") || ""; queueMicrotask(() => setRoomCode(saved)); } catch { /* Room selection can be made again. */ } }, []);
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("room");
+    let saved = "";
+    try { saved = sessionStorage.getItem("sns-host-room") || ""; } catch { /* Room selection can be made again. */ }
+    const code = requested && /^[A-Z0-9]{8,16}$/i.test(requested) ? requested.toUpperCase() : saved;
+    queueMicrotask(() => setRoomCode(code));
+  }, []);
 
   function select(code: string) {
     setRoomCode(code); setError(""); setConfirmReveal(false);
+    const url = new URL(window.location.href);
+    if (code) url.searchParams.set("room", code);
+    else url.searchParams.delete("room");
+    window.history.replaceState(null, "", url);
     try { sessionStorage.setItem("sns-host-room", code); } catch { /* This is only a convenience. */ }
   }
   async function login(event: React.FormEvent<HTMLFormElement>) {
@@ -143,6 +153,11 @@ function eventCue({ phase, moment, conversationPhase }: ExperienceProgress) {
     next: "Open Experience 2",
     cue: "Read the result aloud. Jessika says, “Keep that feeling in mind. This time, there really is a reply coming.”",
   };
+  if (phase === "pairing") return {
+    title: "Guests ready for pairing",
+    next: "Pair guests and start",
+    cue: "Ask everyone to tap Experience 2. When the ready count is right, make the random draw. Pairs stay together for all four moments.",
+  };
   if (phase === "finished") return {
     title: "Thank you",
     next: "",
@@ -168,7 +183,7 @@ function eventCue({ phase, moment, conversationPhase }: ExperienceProgress) {
     title,
     next: moment === 0 || moment === 2 ? "Show the message" : "Reveal the replies",
     cue: [
-      "Say, “Tap Experience 2 and send one line.” Guests are paired as they enter.",
+      "Say, “Send one line.” The random pairs stay together throughout the chat.",
       "Say, “Look up for a second. Notice your jaw or shoulders, then reread their first message.”",
       "Give the room a moment to answer their partner’s question.",
       "Ask everyone to finish, “At first I thought…”",
@@ -189,6 +204,7 @@ function ExperienceControls({ state, progress, busy, connected, error, onAction,
   const { paused, lookUp } = state.room;
   const onHold = paused || lookUp;
   const activeChat = progress.phase === "chat";
+  const pairing = progress.phase === "pairing";
   return <section className="live-host-main">
     <div className="live-host-topline">
       <p className="live-label">Your event controls</p>
@@ -197,21 +213,29 @@ function ExperienceControls({ state, progress, busy, connected, error, onAction,
     <h1>{onHold ? "Look up." : title}</h1>
     <p className="live-host-cue">{cue}</p>
     {progress.phase === "vote_result" && state.voteTotals && <VoteResults totals={state.voteTotals} />}
-    {(progress.phase === "vote" || activeChat) && <div className="live-counts">
+    {(progress.phase === "vote" || pairing || activeChat) && <div className="live-counts">
+      {pairing ? <div><strong>{state.chatReady ?? 0}</strong><span>Ready to pair</span></div> :
       <div><strong>{state.counts.submitted}</strong><span>{activeChat ? "Messages sent" : "Votes in"}</span></div>
+      }
       {activeChat && <>
         <div><strong>{state.counts.paired / 2}</strong><span>Pairs</span></div>
         <div><strong>{state.counts.waiting}</strong><span>Waiting for a partner</span></div>
       </>}
     </div>}
     {progress.phase !== "finished" && <div className="live-host-actions">
-      <button className="live-button" disabled={busy || !connected || (activeChat && !onHold && state.counts.paired === 0)}
+      <button className="live-button" disabled={busy || !connected || (pairing && (state.chatReady ?? 0) < 2) || (activeChat && !onHold && state.counts.paired === 0)}
         onClick={() => onAction(paused ? "resume" : lookUp ? "return" : "next")}>
         {busy ? "Updating…" : onHold ? "Return to phones" : next}<span aria-hidden="true">↗</span>
       </button>
       {activeChat && !onHold && <button className="live-outline-button" disabled={busy || !connected} onClick={() => onAction("look_up")}>Look up for a moment</button>}
     </div>}
     {activeChat && !state.counts.paired && <p className="live-caption">The first pair appears after two guests tap Experience 2.</p>}
+    {activeChat && state.counts.waiting > 0 && <p className="live-caption">{state.counts.waiting} {state.counts.waiting === 1 ? "guest is" : "guests are"} waiting. Ask a helper to tap Experience 2, then include the waiting guests in the next moment.</p>}
+    {state.room.mode === "rehearsal" && <details className="live-prediction-details">
+      <summary>Rehearsal tools</summary>
+      <p className="live-caption">Start again with the same phones and QR. Test messages and votes start fresh.</p>
+      <button className="live-outline-button" disabled={busy || !connected || onHold} onClick={() => onAction("restart_rehearsal")}>Start another rehearsal</button>
+    </details>}
     {error && <p className="live-error" role="alert">{error}</p>}
   </section>;
 }
