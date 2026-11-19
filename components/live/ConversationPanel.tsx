@@ -118,12 +118,11 @@ export default function ConversationPanel({
     && entry.owner !== side && entry.message.source !== "experiment" && !entry.message.replyTo);
   const replyingToCue = phase === "waiting" && writing;
   const unsentDraft = phase === "revealed" && Boolean(draft.trim());
-  let revealedSituation = hasPartnerMessage ? "Your partner’s message appeared at the reveal." : "This round ended without a message from your partner.";
-  if (cueShown) {
-    revealedSituation = targetFor(moment) === side
-      ? `The app showed you “${planted[moment]}” before the reply.`
-      : "You waited for the reply. The app’s line was on your partner’s phone.";
-  }
+  const cueOnThisPhone = cueShown && targetFor(moment) === side;
+  const revealedSituation = cueOnThisPhone
+    ? "Added by the app."
+    : cueShown ? `The app added “${planted[moment]}” on your partner’s phone.` : "";
+  const revealedReply = hasPartnerMessage ? "Your partner’s reply is now visible." : "No reply arrived this round.";
 
   useEffect(() => {
     const element = thread.current;
@@ -186,16 +185,25 @@ export default function ConversationPanel({
     else log.scrollTop += entry.getBoundingClientRect().top - log.getBoundingClientRect().top - 10;
   }
 
+  function revisitFeeling(feeling: FeelingEntry) {
+    setSelectedStateId(feeling.id);
+    if (feeling.contextEventId !== undefined) goToEntry(`[data-event-id="${feeling.contextEventId}"]`);
+    if (!reviewing) thread.current?.scrollIntoView({ block: "nearest", behavior: "auto" });
+  }
+
   function renderEntry(entry: Exclude<ChatEvent, { kind: "feeling" }>) {
     const contextClass = entry.id === highlightedEventId ? " is-state-context" : "";
     if (entry.kind === "prompt") {
       return <div className={`chat-prompt-card${contextClass}`} key={entry.id} data-prompt-moment={entry.moment} data-event-id={entry.id}>
         <small className="chat-event-label">Ivana · Prompt 0{entry.moment + 1}</small>
-        <p>{entry.moment === 1 && !firstReply ? "Notice your jaw or shoulders. Then ask your partner one small question." : entry.text}</p>
-        {entry.moment === 1 && firstReply?.kind === "message" && <blockquote className="chat-reread">
-          <small>Their first message</small>
-          <p>{firstReply.message.text}</p>
-        </blockquote>}
+        {entry.moment === 1 ? <>
+          {firstReply?.kind === "message" && <blockquote className="chat-reread">
+            <small>Your partner wrote</small>
+            <p>{firstReply.message.text}</p>
+          </blockquote>}
+          <p>{firstReply ? "Read it again. " : ""}Tap <button type="button" className="chat-prompt-feeling" aria-haspopup="dialog" aria-expanded={topPicker}
+            disabled={reviewing} onClick={openFeelingVeil}>How I feel</button>, then reply with a question.</p>
+        </> : <p>{entry.text}</p>}
       </div>;
     }
     if (entry.kind === "reveal") {
@@ -263,17 +271,28 @@ export default function ConversationPanel({
           {phase === "revealed" && <section className="chat-reveal-summary" aria-label="Situation and state at the reveal" ref={revealSummary}>
             <div className="chat-summary-situation">
               <h3>Situation</h3><p className="chat-summary-caption">What happened</p>
-              <p className="chat-summary-value">{revealedSituation}</p>
+              {cueOnThisPhone && <blockquote className="chat-summary-line">“{planted[moment]}”</blockquote>}
+              {revealedSituation && <p className="chat-summary-value">{revealedSituation}</p>}
+              <p className="chat-summary-value">{revealedReply}</p>
             </div>
             <div className="chat-summary-state">
               <div className="chat-summary-heading"><h3>My state</h3><span>Private</span></div>
               <p className="chat-summary-caption">What I felt</p>
-              {beforeReveal || afterReveal ? <dl className="chat-summary-feelings">
-                {beforeReveal && <div><dt>Before the reveal</dt><dd>{beforeReveal}</dd></div>}
-                {afterReveal && <div><dt>After the reveal</dt><dd>{afterReveal}</dd></div>}
-              </dl> : <p className="chat-summary-value">No check-in yet.</p>}
-              <button className="chat-summary-check-in" type="button" aria-haspopup="dialog" aria-expanded={topPicker} onClick={openFeelingVeil}>How I feel now</button>
+              <dl className="chat-summary-feelings">
+                <div><dt>Before the reveal</dt><dd>{beforeReveal || <span className="chat-summary-empty">Not recorded</span>}</dd></div>
+                <div><dt>Now</dt><dd>{afterReveal || <button className="chat-summary-check-in" type="button" aria-haspopup="dialog" aria-expanded={topPicker} onClick={openFeelingVeil}>How I feel now</button>}</dd></div>
+              </dl>
+              {afterReveal && <button className="chat-summary-check-in" type="button" aria-label="Update how I feel now" aria-haspopup="dialog" aria-expanded={topPicker} onClick={openFeelingVeil}>Update</button>}
             </div>
+            {feelings.length > 0 && <details className="chat-summary-history">
+              <summary>My feelings so far <span>Private</span></summary>
+              <ol aria-label="All my feeling check-ins">{feelings.map(feeling => <li key={feeling.id}>
+                <button type="button" aria-pressed={selectedStateId === feeling.id} onClick={() => revisitFeeling(feeling)}>
+                  <small>0{feeling.moment + 1} · {stageNames[feeling.stage]}</small><strong>{feeling.value}</strong>
+                </button>
+              </li>)}</ol>
+              <p>Tap a feeling to revisit that moment.</p>
+            </details>}
           </section>}
           {(phase !== "revealed" || unsentDraft) && <form className="chat-composer" onSubmit={event => {
             event.preventDefault();
@@ -295,10 +314,7 @@ export default function ConversationPanel({
         <div className="chat-state-trace" aria-live="polite">
           {feelings.length ? <>
             <ol ref={trail} aria-label="Your private state trace">{feelings.map((feeling, index) => <li key={feeling.id} className={`${index === feelings.length - 1 ? "is-current" : ""} ${selectedStateId === feeling.id ? "is-selected" : ""}`}>
-              <button className="chat-state-point" aria-pressed={selectedStateId === feeling.id} onClick={() => {
-                setSelectedStateId(feeling.id);
-                if (feeling.contextEventId !== undefined) goToEntry(`[data-event-id="${feeling.contextEventId}"]`);
-              }}>
+              <button className="chat-state-point" aria-pressed={selectedStateId === feeling.id} onClick={() => revisitFeeling(feeling)}>
                 <span className="chat-state-dot" aria-hidden="true" /><strong>{feeling.value}</strong><small>0{feeling.moment + 1} · {stageNames[feeling.stage]}</small>
               </button>
               {index < feelings.length - 1 && <svg className="chat-state-wave" viewBox="0 0 48 18" aria-hidden="true"><path d="M0 9 C8 -2 16 20 24 9 S40 -2 48 9" fill="none" /></svg>}

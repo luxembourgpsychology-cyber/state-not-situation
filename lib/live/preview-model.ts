@@ -42,7 +42,7 @@ export type Action =
 
 export const prompts = [
   "If your face had subtitles, what would they say right now?",
-  "Pause. Notice your jaw or shoulders. Read their first message again. Does it sound the same? Ask about one detail.",
+  "Read it again. Tap “How I feel”, then reply with a question.",
   "Answer their question in one sentence.",
   "Finish this sentence: “At first I thought…”",
 ];

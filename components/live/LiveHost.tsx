@@ -184,7 +184,7 @@ function eventCue({ phase, moment, conversationPhase }: ExperienceProgress) {
     next: moment === 0 || moment === 2 ? "Show the message" : "Reveal the replies",
     cue: [
       "Say, “Send one line.” The random pairs stay together throughout the chat.",
-      "Say, “Look up for a second. Notice your jaw or shoulders, then reread their first message.”",
+      "Say, “Read the message on your phone again. Tap ‘How I feel’, then reply with a question.”",
       "Give the room a moment to answer their partner’s question.",
       "Ask everyone to finish, “At first I thought…”",
     ][moment],
