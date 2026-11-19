@@ -4,7 +4,7 @@ import { createRoom, hostCommand, hostView, setForecast } from "@/lib/live/engin
 import { createBookExperience } from "@/lib/live/experience";
 import { experienceCheckpoint } from "@/lib/live/experience-copy";
 import { changeRoom, clearRoomTyping, ensureLaunchRoom, insertRoom, listRooms, LiveError, readRoom } from "@/lib/live/store";
-import { body, checkPassword, cookieOptions, fail, hostSession, json, PUBLIC_OPENING, requireHost, roomCode, token } from "@/lib/live/http";
+import { body, checkHostLink, checkPassword, cookieOptions, fail, hostSession, json, privateHostPath, PUBLIC_OPENING, requireHost, roomCode, token } from "@/lib/live/http";
 import { LAUNCH_PATH, LAUNCH_ROOM_CODE } from "@/lib/live/launch";
 
 export const runtime = "nodejs";
@@ -28,12 +28,14 @@ export async function POST(request: NextRequest) {
   try {
     const data = await body(request);
     if (data.action === "login") {
-      await checkPassword(request, data.password);
+      if (data.accessKey !== undefined) await checkHostLink(request, data.accessKey);
+      else await checkPassword(request, data.password);
       const response = json({ ok: true });
       response.cookies.set("book_live_host", hostSession(), { ...cookieOptions, maxAge: 12 * 60 * 60 });
       return response;
     }
     requireHost(request);
+    if (data.action === "host_link") return json({ path: privateHostPath() });
     if (data.action === "launch") return json(view(await ensureLaunchRoom()));
     if (data.action === "logout") {
       const response = json({ ok: true }); response.cookies.set("book_live_host", "", { ...cookieOptions, maxAge: 0 }); return response;

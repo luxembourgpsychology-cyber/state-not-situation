@@ -12,24 +12,43 @@ import { VoteResults } from "./ExperiencePanels";
 
 export default function LiveHost() {
   const [roomCode, setRoomCode] = useState("");
-  const [password, setPassword] = useState("");
+  const [hasPrivateEntry, setHasPrivateEntry] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [confirmReveal, setConfirmReveal] = useState(false);
   const [operatorOpen, setOperatorOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const busyRef = useRef(false);
+  const entryAttempted = useRef(false);
   const rooms = usePolling<{ rooms: RoomSummary[] }>("/api/live/host", 5000);
   const current = usePolling<HostState>(roomCode ? `/api/live/host?room=${encodeURIComponent(roomCode)}` : null);
+  const refreshRooms = rooms.refresh;
+  const refreshCurrent = current.refresh;
   const state = current.data?.room.code === roomCode ? current.data : null;
   const authenticated = Boolean(rooms.data) && !(rooms.error instanceof ApiError && rooms.error.status === 401);
+  const needsLogin = !authenticated && rooms.error instanceof ApiError && rooms.error.status === 401;
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get("room");
     let saved = "";
     try { saved = sessionStorage.getItem("sns-host-room") || ""; } catch { /* Room selection can be made again. */ }
     const code = requested && /^[A-Z0-9]{8,16}$/i.test(requested) ? requested.toUpperCase() : saved;
-    queueMicrotask(() => setRoomCode(code));
+    queueMicrotask(() => {
+      setRoomCode(code);
+      setHasPrivateEntry(new URLSearchParams(window.location.hash.slice(1)).has("host"));
+    });
   }, []);
+
+  useEffect(() => {
+    if (authenticated) { entryAttempted.current = false; return; }
+    if (!needsLogin || entryAttempted.current) return;
+    const accessKey = new URLSearchParams(window.location.hash.slice(1)).get("host");
+    if (!accessKey) return;
+    entryAttempted.current = true;
+    void api("/api/live/host", { action: "login", accessKey }).then(async () => {
+      await refreshRooms();
+      await refreshCurrent();
+    }).catch(err => setError(err instanceof Error ? err.message : "Please open your private host QR again."));
+  }, [authenticated, needsLogin, refreshRooms, refreshCurrent]);
 
   function select(code: string) {
     setRoomCode(code); setError(""); setConfirmReveal(false);
@@ -38,12 +57,6 @@ export default function LiveHost() {
     else url.searchParams.delete("room");
     window.history.replaceState(null, "", url);
     try { sessionStorage.setItem("sns-host-room", code); } catch { /* This is only a convenience. */ }
-  }
-  async function login(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault(); setBusy(true); setError("");
-    try { await api("/api/live/host", { action: "login", password }); setPassword(""); await rooms.refresh(); await current.refresh(); }
-    catch (err) { setError(err instanceof Error ? err.message : "Please try again."); }
-    finally { setBusy(false); }
   }
   async function create(mode: "rehearsal" | "live") {
     if (busyRef.current) return; busyRef.current = true; setBusy(true); setError("");
@@ -75,10 +88,12 @@ export default function LiveHost() {
     finally { busyRef.current = false; setBusy(false); }
   }
 
-  const needsLogin = !authenticated && rooms.error instanceof ApiError && rooms.error.status === 401;
   const predictionReady = state ? interests.some(interest => (state.forecast?.[interest] || 0) > 0) : false;
   const cannotContinue = Boolean(current.error) || Boolean(state && state.room.step === "lobby" && state.counts.paired < 2) || Boolean(state && state.room.step === "context" && !predictionReady);
-  if (!authenticated) return <main className="live-app live-host"><Brand /><div className="live-container live-entry"><div className="live-entry-intro"><p className="live-label">For Ivana and the event team</p><h1>Guide the moments.<br />One step at a time.</h1><p>Use the solo preview to try all four. At the event, share the QR code and press Next when everyone is ready.</p><Link className="live-outline-button" href="/live/preview">Try all four on your own <span aria-hidden="true">↗</span></Link></div>{needsLogin ? <form className="live-join-form" onSubmit={login}><h2>Host sign in</h2><label className="live-field">Host password<input type="password" autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)} required /></label><button className="live-button" disabled={busy}>{busy ? "Signing in…" : "Sign in"}<span aria-hidden="true">↗</span></button>{error && <p className="live-error" role="alert">{error}</p>}</form> : <div><p role="status">{rooms.error ? rooms.error.message : "Opening your event controls…"}</p>{rooms.error && <button className="live-text-button" onClick={() => void rooms.refresh()}>Try again</button>}</div>}</div></main>;
+  if (!authenticated) return <main className="live-app live-host"><Brand /><div className="live-container live-entry">
+    <div className="live-entry-intro"><p className="live-label">For Ivana and the event team</p><h1>Your host<br />dashboard.</h1><p>Open your private host QR to go straight to your event controls.</p><Link className="live-outline-button" href="/live/preview">Try the audience demo <span aria-hidden="true">↗</span></Link></div>
+    <div><p role="status">{error || (needsLogin ? hasPrivateEntry ? "Opening your controls…" : "Use your private host QR. No password needed." : rooms.error?.message || "Opening your controls…")}</p>{(error || (rooms.error && !needsLogin)) && <button className="live-text-button" onClick={() => window.location.reload()}>Try again</button>}</div>
+  </div></main>;
 
   function copyGuestLink() {
     if (!state) return;

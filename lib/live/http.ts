@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { LiveError, rateLimit } from "./store";
 import type { Room, Participant } from "./types";
 import { LAUNCH_OPENS } from "./launch";
+import { hostAccessKey, validHostAccessKey } from "./host-access";
 
 export const PUBLIC_OPENING = LAUNCH_OPENS;
 export const hash = (value: string) => createHash("sha256").update(value).digest("hex");
@@ -91,4 +92,18 @@ export async function checkPassword(request: NextRequest, value: unknown) {
   const expected = process.env.LIVE_HOST_PASSWORD;
   if (!expected) throw new LiveError("Host access is not set up.", 503);
   if (typeof value !== "string" || !timingSafeEqual(Buffer.from(hash(value)), Buffer.from(hash(expected)))) throw new LiveError("The host key is not correct.", 401);
+}
+
+export function privateHostPath() {
+  const secret = process.env.LIVE_SESSION_SECRET;
+  if (!secret) throw new LiveError("Host access is not set up.", 503);
+  return `/live/host#host=${hostAccessKey(secret)}`;
+}
+
+export async function checkHostLink(request: NextRequest, value: unknown) {
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "local";
+  await rateLimit(`host:${hash(ip)}`, 8, 600);
+  const secret = process.env.LIVE_SESSION_SECRET;
+  if (!secret) throw new LiveError("Host access is not set up.", 503);
+  if (!validHostAccessKey(value, secret)) throw new LiveError("Open your latest private host QR to continue.", 401);
 }
