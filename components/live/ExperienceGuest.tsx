@@ -5,7 +5,7 @@ import type { FeelingStage } from "@/lib/live/preview-model";
 import type { ExperienceProgress, GuestState } from "@/lib/live/types";
 import { api, usePolling } from "./client";
 import ConversationPanel, { type FeelingContext, type FeelingEntry } from "./ConversationPanel";
-import { BookFrame, BookStatus, ExperienceCards, RoomVote } from "./ExperiencePanels";
+import { BookFrame, BookStatus, ExperienceCards, RoomVote, SessionClosing } from "./ExperiencePanels";
 
 type EntryState = Pick<GuestState, "room" | "experience" | "partnerTyping"> & { participant?: GuestState["participant"] };
 type ChatView = NonNullable<NonNullable<GuestState["experience"]>["chat"]>;
@@ -70,7 +70,7 @@ export default function ExperienceGuest({ roomCode, invite }: { roomCode: string
     </BookStatus></BookFrame>;
   }
   if (progress.phase === "finished") {
-    return <BookFrame><BookStatus title="Thank you.">What did you know, and what might your state have added?</BookStatus></BookFrame>;
+    return <BookFrame><SessionClosing /></BookFrame>;
   }
 
   return <BookFrame>
@@ -91,6 +91,7 @@ function GuestConversation({ state, chat, progress, storageKey, busy, error, sub
 }) {
   const [notes, setNotes] = useState<LocalNotes>({ drafts: {}, feelings: [] });
   const [loaded, setLoaded] = useState(false);
+  const [reviewingChat, setReviewingChat] = useState(false);
   const lastTyping = useRef(0);
   const { moment, conversationPhase, phase } = progress;
   const kind = conversationPhase === "compose" ? "message" : "cue_reply";
@@ -148,6 +149,8 @@ function GuestConversation({ state, chat, progress, storageKey, busy, error, sub
     });
   }
 
+  if (phase === "finished" && !reviewingChat) return <BookFrame><SessionClosing onReview={() => setReviewingChat(true)} /></BookFrame>;
+
   return <ConversationPanel
     entries={[...chat.entries, ...notes.feelings]}
     moment={moment}
@@ -162,6 +165,7 @@ function GuestConversation({ state, chat, progress, storageKey, busy, error, sub
     typing={Boolean(state.partnerTyping)}
     held={conversationPhase === "waiting" || (conversationPhase === "compose" && !chat.writing)}
     reviewing={phase === "finished"}
+    onClosing={phase === "finished" ? () => setReviewingChat(false) : undefined}
     busy={busy}
     error={error}
     onDraft={changeDraft}

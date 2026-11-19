@@ -346,6 +346,7 @@ html:has(.chat-feeling-veil[open]) { overflow: hidden; }
 
 /* At each reveal, put the event and the guest's own check-in in one glance. */
 .chat-preview .chat-reveal-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--chat-line); background: #fffdf9; }
+.chat-preview .chat-summary-moment { grid-column: 1 / -1; padding: 10px 14px; border-bottom: 1px solid var(--chat-line); color: var(--chat-quiet); font: 400 10px/1.4 var(--font-mono, monospace); }
 .chat-preview .chat-reveal-summary > div { padding: 12px 14px 10px; }
 .chat-preview .chat-summary-state { border-left: 1px solid var(--chat-line); background: rgba(17, 17, 17, .026); }
 .chat-preview .chat-summary-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 7px; }
@@ -373,6 +374,7 @@ html:has(.chat-feeling-veil[open]) { overflow: hidden; }
 .chat-preview .chat-summary-history button strong { font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
 .chat-preview .chat-summary-history button:hover, .chat-preview .chat-summary-history button[aria-pressed="true"] { color: var(--chat-red); }
 .chat-preview .chat-summary-history > p { padding: 9px 14px 12px; color: var(--chat-quiet); font-size: 11px; line-height: 1.4; }
+.chat-preview .chat-summary-reflection { grid-column: 1 / -1; padding: 11px 14px; border-top: 1px solid var(--chat-line); font-size: 13px; line-height: 1.4; }
 .chat-preview .chat-reveal-summary + .chat-composer { margin-top: 14px; }
 @media (max-width: 700px) {
   .chat-preview .chat-reveal-summary { scroll-margin-bottom: calc(82px + env(safe-area-inset-bottom, 0px)); }
@@ -410,6 +412,24 @@ html:has(.chat-feeling-veil[open]) { overflow: hidden; }
 .chat-preview .chat-reread { margin: 0 0 9px; padding: 0 0 10px; border-bottom: 1px solid var(--chat-line); }
 .chat-preview .chat-reread small { color: var(--chat-quiet); font-family: var(--font-mono, monospace); font-size: 10px; }
 .chat-preview .chat-reread p { margin-top: 4px; font-size: 15px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.chat-preview .chat-closing { width: min(100%, 620px); margin-inline: auto; }
+.chat-preview .chat-closing h2 { font: 700 clamp(32px, 5vw, 42px)/1.05 var(--font-bebas, Impact, sans-serif); }
+.chat-preview .chat-closing-cards { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--chat-line); margin-block: 4px; }
+.chat-preview .chat-closing-cards > div { padding: 14px; }
+.chat-preview .chat-closing-cards > div + div { border-left: 1px solid var(--chat-line); background: rgba(17,17,17,.026); }
+.chat-preview .chat-closing-cards h3 { font: 600 17px/1.2 var(--font-body, Arial, sans-serif); }
+.chat-preview .chat-closing-cards > div:first-child h3 { color: var(--chat-red); }
+.chat-preview .chat-closing-cards p { margin-top: 7px; font-size: 14px; line-height: 1.4; }
+.chat-preview .chat-closing-question { font-size: 17px; font-weight: 600; line-height: 1.3; }
+.chat-preview .chat-closing-book { padding-block: 14px; border-block: 1px solid var(--chat-line); }
+.chat-preview .chat-closing-book > span { color: var(--chat-red); }
+.chat-preview .chat-closing-book > p { margin-top: 8px; font-size: 15px; line-height: 1.45; }
+.chat-preview .chat-closing-takeaway { font-family: var(--font-serif, Georgia, serif); font-size: 24px; line-height: 1.2; }
+.chat-preview .chat-closing-trick { color: var(--chat-quiet); font-size: 13px; line-height: 1.4; }
+.chat-preview .chat-closing-trick summary { min-height: 44px; padding-block: 12px; cursor: pointer; }
+.chat-preview .chat-closing-review { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 11px 14px; border: 1px solid var(--chat-red); background: transparent; color: var(--chat-red); font-size: 15px; text-align: left; }
+.chat-preview .chat-return-closing, .chat-preview .chat-closing-restart { min-height: 44px; padding: 10px 0; border: 0; background: transparent; color: var(--chat-quiet); font-size: 13px; text-align: left; text-decoration: underline; text-underline-offset: 3px; }
+.chat-preview .chat-return-closing { align-self: flex-start; margin-bottom: 10px; }
 @media (max-width: 700px) {
   .chat-preview.chat-live { padding-bottom: 26px; }
   .chat-preview.chat-live .chat-reveal-summary { scroll-margin-bottom: 12px; }

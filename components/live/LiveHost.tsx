@@ -159,9 +159,9 @@ function eventCue({ phase, moment, conversationPhase }: ExperienceProgress) {
     cue: "Ask everyone to tap Experience 2. When the ready count is right, make the random draw. Pairs stay together for all four moments.",
   };
   if (phase === "finished") return {
-    title: "Thank you",
+    title: "The closing screen is open",
     next: "",
-    cue: "Guests can look back at their chat. Close with, “What did you know, and what might your state have added?”",
+    cue: "Everyone now sees the book connection on their own phone. Ask, “What did you know, and what did you guess?” Guests can look back at their own chat afterwards.",
   };
   const title = `Moment 0${moment + 1}`;
   if (conversationPhase === "waiting") return {
@@ -171,7 +171,7 @@ function eventCue({ phase, moment, conversationPhase }: ExperienceProgress) {
   };
   if (conversationPhase === "revealed") return {
     title: `${title} revealed`,
-    next: moment < 3 ? "Next moment" : "Finish the session",
+    next: moment < 3 ? "Next moment" : "Show closing screen",
     cue: [
       "Jessika asks, “Who had already written the next line in their head?” Take one or two reactions.",
       "Ask whether the same words landed differently once people paused and read them again.",
@@ -205,23 +205,33 @@ function ExperienceControls({ state, progress, busy, connected, error, onAction,
   const onHold = paused || lookUp;
   const activeChat = progress.phase === "chat";
   const pairing = progress.phase === "pairing";
-  return <section className="live-host-main">
+  const round = state.chatStats?.rounds.find(round => round.moment === progress.moment);
+  const voteStage = progress.phase === "vote" || progress.phase === "vote_result";
+  const showResponses = voteStage || Boolean(round);
+  const sent = voteStage ? state.counts.submitted : round?.sent ?? 0;
+  const total = voteStage ? state.counts.total : round?.total ?? 0;
+  return <section className="live-host-main live-event-controls">
     <div className="live-host-topline">
-      <p className="live-label">Your event controls</p>
+      <p className="live-label">Your host dashboard</p>
       <button className="live-text-button" disabled={busy} onClick={onBack}>Rooms</button>
     </div>
+    <p className={`live-room-connection${connected ? "" : " is-offline"}`} role="status"><span aria-hidden="true" />{connected ? "Live updates" : "Reconnecting…"}</p>
     <h1>{onHold ? "Look up." : title}</h1>
+    <div className="live-counts live-room-counts" aria-label="Room numbers">
+      <div><strong>{state.counts.joined}</strong><span>Joined</span></div>
+      <div><strong>{state.chatReady ?? 0}</strong><span>{pairing ? "Ready to pair" : "Joined the chat"}</span></div>
+      <div><strong>{state.counts.paired / 2}</strong><span>Pairs</span></div>
+      <div><strong>{state.counts.waiting}</strong><span>Waiting for a partner</span></div>
+    </div>
+    {showResponses && <section className="live-response-progress" aria-label="Response progress">
+      <div><h2>{voteStage ? "Votes in" : "Messages in"}</h2><strong>{sent}<span> / {total}</span></strong></div>
+      <progress max={Math.max(1, total)} value={sent} aria-label={voteStage ? "Guests who voted" : "Guests who sent a message"} />
+      {round && <p>{round.pairsReady} of {round.pairs} pairs have both messages.</p>}
+      {activeChat && progress.conversationPhase === "waiting" && Boolean(state.chatStats?.cueRecipients) && <p>{state.chatStats?.cueReplies} of {state.chatStats?.cueRecipients} replied to the suspense line. This reply is optional.</p>}
+      {total > 0 && sent < total && <p>{total - sent} {total - sent === 1 ? "person has" : "people have"} not sent {voteStage ? "a vote" : "a message"} yet. You can wait or continue.</p>}
+    </section>}
     <p className="live-host-cue">{cue}</p>
     {progress.phase === "vote_result" && state.voteTotals && <VoteResults totals={state.voteTotals} />}
-    {(progress.phase === "vote" || pairing || activeChat) && <div className="live-counts">
-      {pairing ? <div><strong>{state.chatReady ?? 0}</strong><span>Ready to pair</span></div> :
-      <div><strong>{state.counts.submitted}</strong><span>{activeChat ? "Messages sent" : "Votes in"}</span></div>
-      }
-      {activeChat && <>
-        <div><strong>{state.counts.paired / 2}</strong><span>Pairs</span></div>
-        <div><strong>{state.counts.waiting}</strong><span>Waiting for a partner</span></div>
-      </>}
-    </div>}
     {progress.phase !== "finished" && <div className="live-host-actions">
       <button className="live-button" disabled={busy || !connected || (pairing && (state.chatReady ?? 0) < 2) || (activeChat && !onHold && state.counts.paired === 0)}
         onClick={() => onAction(paused ? "resume" : lookUp ? "return" : "next")}>
@@ -230,7 +240,16 @@ function ExperienceControls({ state, progress, busy, connected, error, onAction,
       {activeChat && !onHold && <button className="live-outline-button" disabled={busy || !connected} onClick={() => onAction("look_up")}>Look up for a moment</button>}
     </div>}
     {activeChat && !state.counts.paired && <p className="live-caption">The first pair appears after two guests tap Experience 2.</p>}
-    {activeChat && state.counts.waiting > 0 && <p className="live-caption">{state.counts.waiting} {state.counts.waiting === 1 ? "guest is" : "guests are"} waiting. Ask a helper to tap Experience 2, then include the waiting guests in the next moment.</p>}
+    {activeChat && state.counts.waiting > 0 && <p className="live-caption">{state.counts.waiting === 1
+      ? "One guest is waiting for a partner. A helper can tap Experience 2 so they can join the next moment together."
+      : `${state.counts.waiting} guests are waiting. New pairs join at the next moment.`}</p>}
+    {Boolean(state.chatStats?.rounds.length) && <details className="live-round-history">
+      <summary>Progress through the four moments</summary>
+      <ol>{state.chatStats?.rounds.map(round => <li key={round.moment}>
+        <span>Moment 0{round.moment + 1}</span><strong>{round.sent} / {round.total}</strong><small>{round.pairsReady} of {round.pairs} pairs have both messages</small>
+      </li>)}</ol>
+    </details>}
+    <p className="live-caption live-host-privacy">You see numbers here. Guests’ messages and private check-ins stay out of your dashboard.</p>
     {state.room.mode === "rehearsal" && <details className="live-prediction-details">
       <summary>Rehearsal tools</summary>
       <p className="live-caption">Start again with the same phones and QR. Test messages and votes start fresh.</p>

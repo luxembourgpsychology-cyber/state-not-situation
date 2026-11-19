@@ -5,7 +5,7 @@ import { emptyVoteTotals, type VoteChoice } from "@/lib/live/experience-copy";
 import { canWrite, composerDraft, createPreview, feelingStage, previewReducer, targetFor } from "@/lib/live/preview-model";
 import type { ExperiencePhase } from "@/lib/live/types";
 import ConversationPanel from "./ConversationPanel";
-import { BookFrame, ExperienceCards, RoomVote } from "./ExperiencePanels";
+import { BookFrame, ExperienceCards, RoomVote, SessionClosing } from "./ExperiencePanels";
 
 export default function LivePreview({ initialMoment = 1, directChat = false }: { initialMoment?: number; directChat?: boolean }) {
   const [screen, setScreen] = useState<"cards" | "vote" | "chat">(directChat ? "chat" : "cards");
@@ -50,6 +50,7 @@ export default function LivePreview({ initialMoment = 1, directChat = false }: {
 
 function PreviewChat({ initialMoment, restart }: { initialMoment: number; restart: () => void }) {
   const [state, dispatch] = useReducer(previewReducer, { moment: initialMoment - 1, arrival: false }, createPreview);
+  const [reviewingChat, setReviewingChat] = useState(false);
   const { moment, side, reviewing } = state;
   const round = state.rounds[moment];
   const { phase } = round;
@@ -61,9 +62,14 @@ function PreviewChat({ initialMoment, restart }: { initialMoment: number; restar
   }, [moment, phase, state.generation]);
 
   let label = "Show the message";
-  if (reviewing) label = "Back to the conversation";
+  if (reviewing) label = "Back to the closing screen";
   else if (phase === "waiting") label = "Reveal the real reply";
-  else if (phase === "revealed") label = moment < 3 ? "Next moment" : "See the whole exchange";
+  else if (phase === "revealed") label = moment < 3 ? "Next moment" : "Show closing screen";
+
+  if (reviewing && !reviewingChat) return <BookFrame rehearsal>
+    <SessionClosing onReview={() => setReviewingChat(true)} />
+    <button className="chat-restart chat-closing-restart" onClick={restart}>Restart the demo</button>
+  </BookFrame>;
 
   return <ConversationPanel
     entries={state.timelines[side]}
@@ -88,7 +94,7 @@ function PreviewChat({ initialMoment, restart }: { initialMoment: number; restar
       restart,
       changeSide: nextSide => dispatch({ type: "side", side: nextSide }),
       advance: () => reviewing
-        ? dispatch({ type: "review", open: false })
+        ? setReviewingChat(false)
         : dispatch({ type: "host", moment, phase }),
       share: () => dispatch({ type: "share", side }),
       shared: state.shared[side],

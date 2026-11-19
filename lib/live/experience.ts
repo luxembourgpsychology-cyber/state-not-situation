@@ -1,7 +1,7 @@
 import { EngineError } from "./engine-error.ts";
 import { emptyVoteTotals, VOTE_CHOICES, type VoteChoice } from "./experience-copy.ts";
 import { cueDisclosure, planted, prompts, targetFor, type ChatEvent, type Side } from "./preview-model.ts";
-import type { BookExperience, ExperienceGuest, ExperienceProgress, Pair, Room } from "./types.ts";
+import type { BookExperience, ExperienceGuest, ExperienceProgress, HostState, Pair, Room } from "./types.ts";
 
 export function createBookExperience(run = 0): BookExperience {
   return {
@@ -25,6 +25,30 @@ export function disclosedVotes(experience: BookExperience) {
   const totals = emptyVoteTotals();
   for (const vote of Object.values(experience.votes)) totals[vote]++;
   return totals;
+}
+
+/** Counts for the host. Message text and private check-ins are excluded. */
+export function experienceHostStats(room: Room, experience: BookExperience): NonNullable<HostState["chatStats"]> {
+  const active = experience.phase === "chat" || experience.phase === "finished";
+  const rounds = active ? experience.rounds.slice(0, experience.moment + 1).map((round, moment) => {
+    const pairs = room.pairs.filter(pair => (pair.startMoment ?? 0) <= moment);
+    return {
+      moment,
+      sent: pairs.reduce((sum, pair) => sum + Number(Boolean(round.messages[pair.a])) + Number(Boolean(round.messages[pair.b])), 0),
+      total: pairs.length * 2,
+      pairsReady: pairs.filter(pair => round.messages[pair.a] && round.messages[pair.b]).length,
+      pairs: pairs.length,
+    };
+  }) : [];
+  const target = targetFor(experience.moment);
+  const cuePairs = active && target !== null && experience.conversationPhase !== "compose"
+    ? room.pairs.filter(pair => hasCue(experience, pair, experience.moment)) : [];
+  const replies = experience.rounds[experience.moment].replies;
+  return {
+    rounds,
+    cueRecipients: cuePairs.length,
+    cueReplies: cuePairs.filter(pair => replies[target === 0 ? pair.a : pair.b]).length,
+  };
 }
 
 function matchWaiting(room: Room, experience: BookExperience, random: () => number) {

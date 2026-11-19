@@ -4,7 +4,7 @@ import type {
 } from "./types.ts";
 import { CONFIDENCES, CONTEXT_TONES, INTERESTS, STEPS } from "./types.ts";
 import { EngineError } from "./engine-error.ts";
-import { advanceExperience, createBookExperience, disclosedVotes, experienceGuestView, experienceProgress, experienceReadiness } from "./experience.ts";
+import { advanceExperience, createBookExperience, disclosedVotes, experienceGuestView, experienceHostStats, experienceProgress, experienceReadiness } from "./experience.ts";
 
 export { EngineError } from "./engine-error.ts";
 
@@ -297,6 +297,6 @@ export function hostView(room: Room): HostState {
       submitted: eligible.filter(person => person.submitted).length, total: eligible.length,
     },
     participants: people, forecast: { ...room.forecast }, forecastLocked: room.forecastLocked,
-    ...(experience ? { voteTotals: disclosedVotes(experience), chatReady: experience.chatGuests.length } : {}),
+    ...(experience ? { voteTotals: disclosedVotes(experience), chatReady: experience.chatGuests.length, chatStats: experienceHostStats(room, experience) } : {}),
   };
 }

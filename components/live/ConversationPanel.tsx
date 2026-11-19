@@ -31,6 +31,7 @@ type ConversationProps = {
   typing: boolean;
   held: boolean;
   reviewing?: boolean;
+  onClosing?: () => void;
   busy?: boolean;
   error?: string;
   onDraft: (value: string) => void;
@@ -97,7 +98,7 @@ function FeelingVeil({ open, selected, onChoose, onDismiss }: {
 
 export default function ConversationPanel({
   entries, moment, side, phase, stage, partnerLabel, cueShown, hasPartnerMessage, writing, draft, typing, held,
-  reviewing, busy, error, onDraft, onSend, onFeeling, preview,
+  reviewing, onClosing, busy, error, onDraft, onSend, onFeeling, preview,
 }: ConversationProps) {
   const [topPicker, setTopPicker] = useState(false);
   const [selectedStateId, setSelectedStateId] = useState<number | null>(null);
@@ -121,7 +122,7 @@ export default function ConversationPanel({
   const cueOnThisPhone = cueShown && targetFor(moment) === side;
   const revealedSituation = cueOnThisPhone
     ? "Added by the app."
-    : cueShown ? `The app added “${planted[moment]}” on your partner’s phone.` : "";
+    : cueShown ? `The app added “${planted[moment]}” on your partner’s phone.` : "The reply was still hidden.";
   const revealedReply = hasPartnerMessage ? "Your partner’s reply is now visible." : "No reply arrived this round.";
 
   useEffect(() => {
@@ -202,18 +203,13 @@ export default function ConversationPanel({
             <p>{firstReply.message.text}</p>
           </blockquote>}
           <p>{firstReply ? "Read it again. " : ""}Tap <button type="button" className="chat-prompt-feeling" aria-haspopup="dialog" aria-expanded={topPicker}
-            disabled={reviewing} onClick={openFeelingVeil}>How I feel</button>, then reply with a question.</p>
+            disabled={reviewing} onClick={openFeelingVeil}>How I feel</button>{firstReply ? ", then reply with a question." : ", then ask your partner a question."}</p>
         </> : <p>{entry.text}</p>}
       </div>;
     }
     if (entry.kind === "reveal") {
-      const question = entry.moment === 0
-        ? "In the book, Katrin is already tense. “Nothing urgent” sounds like bad news. What did you expect?"
-        : targetFor(entry.moment) === side
-          ? "Read it once with surprise, once with doubt. What did you hear first?"
-          : "How did you expect your partner’s answer to sound?";
       return <div className={`chat-app-reveal${contextClass}`} key={entry.id} data-event-id={entry.id}>
-        <small className="chat-event-label">What happened</small><p>{entry.text}</p><p>{question}</p>
+        <small className="chat-event-label">What happened</small><p>{entry.text}</p>
       </div>;
     }
     const own = entry.owner === side;
@@ -255,6 +251,7 @@ export default function ConversationPanel({
     <section className={`chat-experience ${reviewing ? "is-reviewing" : ""}`} aria-label="Guest experience">
       <BookHeader step={reviewing ? "Full conversation" : `0${moment + 1} / 04`} />
       <div className="chat-main">
+        {reviewing && onClosing && <button type="button" className="chat-return-closing" onClick={onClosing}>Back to the closing screen</button>}
         <header className="chat-header chat-connection">
           <div className="chat-space-key"><strong>Situation</strong><span>What’s happening around you</span></div>
           <h2>You’re paired with someone in this room.</h2><p>Neither of you sees the other’s name.</p>
@@ -269,21 +266,24 @@ export default function ConversationPanel({
         </div>
         {!reviewing && <div className="chat-compose-area" ref={composeArea}>
           {phase === "revealed" && <section className="chat-reveal-summary" aria-label="Situation and state at the reveal" ref={revealSummary}>
+            <p className="chat-summary-moment">That moment before the reply</p>
             <div className="chat-summary-situation">
-              <h3>Situation</h3><p className="chat-summary-caption">What happened</p>
+              <h3>Situation</h3><p className="chat-summary-caption">What was on your screen</p>
               {cueOnThisPhone && <blockquote className="chat-summary-line">“{planted[moment]}”</blockquote>}
+              {cueOnThisPhone && <p className="chat-summary-value">You saw this while the real reply was still hidden.</p>}
               {revealedSituation && <p className="chat-summary-value">{revealedSituation}</p>}
               <p className="chat-summary-value">{revealedReply}</p>
             </div>
             <div className="chat-summary-state">
               <div className="chat-summary-heading"><h3>My state</h3><span>Private</span></div>
-              <p className="chat-summary-caption">What I felt</p>
+              <p className="chat-summary-caption">What was happening in you</p>
               <dl className="chat-summary-feelings">
-                <div><dt>Before the reveal</dt><dd>{beforeReveal || <span className="chat-summary-empty">Not recorded</span>}</dd></div>
+                <div><dt>While I waited</dt><dd>{beforeReveal || <span className="chat-summary-empty">Not recorded</span>}</dd></div>
                 <div><dt>Now</dt><dd>{afterReveal || <button className="chat-summary-check-in" type="button" aria-haspopup="dialog" aria-expanded={topPicker} onClick={openFeelingVeil}>How I feel now</button>}</dd></div>
               </dl>
               {afterReveal && <button className="chat-summary-check-in" type="button" aria-label="Update how I feel now" aria-haspopup="dialog" aria-expanded={topPicker} onClick={openFeelingVeil}>Update</button>}
             </div>
+            <p className="chat-summary-reflection">Think back: what did you think was coming?</p>
             {feelings.length > 0 && <details className="chat-summary-history">
               <summary>My feelings so far <span>Private</span></summary>
               <ol aria-label="All my feeling check-ins">{feelings.map(feeling => <li key={feeling.id}>

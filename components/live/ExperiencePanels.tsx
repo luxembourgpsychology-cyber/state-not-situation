@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { VOTE_CHOICES, voteQuestion, type VoteChoice, type VoteTotals } from "@/lib/live/experience-copy";
 import type { ExperiencePhase } from "@/lib/live/types";
 import "@/app/live/experience-preview.css";
@@ -105,6 +105,33 @@ export function BookStatus({ title, children }: { title: string; children?: Reac
     <div className="chat-entry-body chat-entry-status" role="status">
       <h2>{title}</h2>
       {children && <p className="chat-entry-note">{children}</p>}
+    </div>
+  </section>;
+}
+
+export function SessionClosing({ onReview }: { onReview?: () => void }) {
+  useEffect(() => { window.scrollTo({ top: 0, behavior: "auto" }); }, []);
+  return <section className="chat-entry-frame chat-closing" aria-label="The book connection">
+    <BookHeader step="One last thought" />
+    <div className="chat-entry-body">
+      <h2>What did you think was coming?</h2>
+      <p className="chat-entry-note">Think back to the pause before Ivana revealed the reply.</p>
+      <div className="chat-closing-cards">
+        <div><h3>Situation</h3><p>The words on your screen. The wait. Then the real reply.</p></div>
+        <div><h3>My state</h3><p>What you felt while you waited. What you felt when you read it.</p></div>
+      </div>
+      <p className="chat-closing-question">What did you know? What did you guess?</p>
+      <div className="chat-closing-book">
+        <span className="chat-event-label">In the book · Katrin</span>
+        <p>Her manager asks for a short meeting. “Nothing urgent.”</p>
+        <p>She is tired and tense. She reads it as a warning. The meeting turns out to be about a budget timeline.</p>
+      </div>
+      <p className="chat-closing-takeaway">A feeling is real. It does not tell you the whole situation.</p>
+      <details className="chat-closing-trick">
+        <summary>About the small trick</summary>
+        <p>Some phones saw “Can I be honest?” or “Wait, really?” before the real reply. Those lines were added by the app. Your partner’s own messages appeared at the reveal.</p>
+      </details>
+      {onReview && <button className="chat-closing-review" type="button" onClick={onReview}>Look back at my chat <span aria-hidden="true">↗</span></button>}
     </div>
   </section>;
 }

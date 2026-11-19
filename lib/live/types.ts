@@ -119,5 +119,10 @@ export interface HostState {
   screenPath?: string;
   voteTotals?: VoteTotals;
   chatReady?: number;
+  chatStats?: {
+    rounds: Array<{ moment: number; sent: number; total: number; pairsReady: number; pairs: number }>;
+    cueReplies: number;
+    cueRecipients: number;
+  };
 }
 export type HostAction = "pair" | "next" | "pause" | "resume" | "look_up" | "return" | "reveal" | "skip" | "restart_rehearsal";

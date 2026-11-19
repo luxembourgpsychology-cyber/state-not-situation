@@ -191,3 +191,42 @@ test("random draws can produce all three possible pairings for four guests", () 
   }
   assert.equal(combinations.size, 3);
 });
+
+test("the host sees accurate room progress without message text, including late pairs and the closing screen", () => {
+  const { room, add, next, enterChat, draw, message, answer } = rehearsal();
+  for (const id of ["a", "b", "c", "d", "e", "f"]) add(id);
+  assert.deepEqual(hostView(room).chatStats, { rounds: [], cueReplies: 0, cueRecipients: 0 });
+  next(); next(); next();
+  for (const id of ["a", "b", "c", "d", "e"]) enterChat(id);
+  draw();
+  message("a", "PRIVATE_MESSAGE_A");
+  message("b", "PRIVATE_MESSAGE_B");
+  message("c", "PRIVATE_MESSAGE_C");
+  let host = hostView(room);
+  assert.equal(host.counts.joined, 6);
+  assert.equal(host.chatReady, 5);
+  assert.equal(host.counts.waiting, 1);
+  assert.deepEqual(host.chatStats.rounds, [{ moment: 0, sent: 3, total: 4, pairsReady: 1, pairs: 2 }]);
+  next();
+  host = hostView(room);
+  assert.equal(host.chatStats.cueRecipients, 1, "only a pair with both messages receives a suspense line");
+  assert.equal(host.chatStats.cueReplies, 0);
+  answer("a", { kind: "cue_reply", moment: 0, text: "PRIVATE_CUE_REPLY" });
+  assert.equal(hostView(room).chatStats.cueReplies, 1);
+  enterChat("f");
+  next(); next();
+  assert.equal(room.pairs.length, 3);
+  for (let moment = 1; moment < 4; moment++) {
+    assert.equal(room.experience.moment, moment);
+    for (const id of ["a", "b", "c", "d", "e", "f"]) message(id, `PRIVATE_MOMENT_${moment}_${id}`);
+    next();
+    if (room.experience.conversationPhase === "waiting") next();
+    next();
+  }
+  host = hostView(room);
+  assert.equal(host.room.experience.phase, "finished");
+  assert.deepEqual(host.chatStats.rounds.map(round => round.total), [4, 6, 6, 6], "later guests do not inflate earlier rounds");
+  assert.deepEqual(host.chatStats.rounds.map(round => round.pairsReady), [1, 3, 3, 3]);
+  assert.equal(host.chatStats.rounds.at(-1).sent, 6, "the final dashboard retains the finished round's totals");
+  assert.doesNotMatch(JSON.stringify(host), /PRIVATE_|tokenHash|draft|feeling/i);
+});
