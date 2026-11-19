@@ -80,10 +80,10 @@ export default function HostTalkGuide({ progress, detailsRef, liveStatus, onCont
   const index = chosen ?? active;
   const note = notes[index];
   const titleId = useId();
-  const card = useRef<HTMLElement>(null);
+  const navigation = useRef<HTMLElement>(null);
   function showNote(position: number | null) {
     setChosen(position);
-    requestAnimationFrame(() => card.current?.scrollIntoView({ block: "start", behavior: "auto" }));
+    requestAnimationFrame(() => navigation.current?.scrollIntoView({ block: "start", behavior: "auto" }));
   }
   return <details className="live-talk-guide" ref={detailsRef}>
     <summary><span>Your talk and timing</span><small>30-minute plan · Private</small></summary>
@@ -99,10 +99,10 @@ export default function HostTalkGuide({ progress, detailsRef, liveStatus, onCont
         <dl><div><dt>Situation</dt><dd>What appeared on the screen. The wait. The real reply.</dd></div><div><dt>State</dt><dd>What I felt in that moment.</dd></div><div><dt>My guess</dt><dd>What I thought those words meant.</dd></div></dl>
         <p>The app creates uncertainty, then adds information at the reveal. Discuss how people formed and revised a guess.</p>
       </details>
-      <nav className="live-talk-nav" aria-label="Interview notes">{notes.map((part, position) => <button type="button" key={part.title}
+      <nav className="live-talk-nav" aria-label="Interview notes" ref={navigation}>{notes.map((part, position) => <button type="button" key={part.title}
         aria-label={`Note ${position + 1}: ${part.title}`} aria-current={position === index ? "step" : undefined}
         onClick={() => showNote(position)}>0{position + 1}</button>)}</nav>
-      <article className="live-talk-card" aria-labelledby={titleId} ref={card}>
+      <article className="live-talk-card" aria-labelledby={titleId}>
         <p className="live-talk-time">{note.time} · Note {index + 1} of {notes.length}</p>
         <h2 id={titleId}>{note.title}</h2>
         <div className="live-talk-question"><span>Jessika asks</span><p>{note.question}</p></div>

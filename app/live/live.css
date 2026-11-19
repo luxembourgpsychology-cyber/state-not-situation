@@ -171,11 +171,10 @@ body.book-live {
 .live-talk-book dl > div { display: grid; grid-template-columns: 75px minmax(0, 1fr); gap: 8px; }
 .live-talk-book dt { font-weight: 600; color: var(--live-red); }
 .live-talk-book dd { margin: 0; }
-.live-talk-nav { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; margin-bottom: 16px; }
+.live-talk-nav { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; margin-bottom: 16px; scroll-margin-top: 100px; }
 .live-talk-nav button { min-height: 44px; padding: 8px 0; border: 1px solid var(--live-line); background: transparent; color: var(--live-quiet); font: 400 12px/1.2 var(--font-mono, monospace); }
 .live-talk-nav button[aria-current="step"] { border-color: var(--live-ink); background: var(--live-ink); color: var(--live-cream); }
 .live-talk-card .live-talk-time { color: var(--live-quiet); font: 400 10px/1.4 var(--font-mono, monospace); }
-.live-talk-card { scroll-margin-top: 100px; }
 .live-talk-card h2 { margin-block: 8px 18px; font: 700 34px/1.05 var(--font-bebas, Impact, sans-serif); }
 .live-talk-question > span, .live-talk-line > span { display: block; margin-bottom: 5px; color: var(--live-red); font: 400 10px/1.4 var(--font-mono, monospace); }
 .live-talk-question > p { font-size: 19px; font-weight: 600; line-height: 1.3; }
