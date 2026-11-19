@@ -156,6 +156,42 @@ body.book-live {
 .live-round-history li strong { font-weight: 600; }
 .live-round-history li small { grid-column: 1 / -1; color: var(--live-quiet); font-size: 12px; }
 .live-host-privacy { margin-block: 17px; }
+.live-talk-guide { margin-block: 22px; border: 1px solid var(--live-line); scroll-margin-top: 12px; }
+.live-talk-guide > summary { min-height: 52px; padding: 13px 16px; cursor: pointer; font-size: 16px; font-weight: 600; }
+.live-talk-guide > summary > small { display: block; margin: 3px 0 0 15px; color: var(--live-quiet); font: 400 10px/1.4 var(--font-mono, monospace); }
+.live-talk-body { padding: 0 16px 16px; }
+.live-talk-sticky { position: sticky; top: 0; z-index: 3; background: var(--live-cream); }
+.live-talk-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 15px; }
+.live-talk-toolbar button { min-height: 44px; padding: 5px 0; border: 0; background: transparent; color: var(--live-red); font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+.live-talk-status { padding: 9px 0; border-block: 1px solid var(--live-line); color: var(--live-quiet); font: 400 11px/1.5 var(--font-mono, monospace); }
+.live-talk-guide .live-talk-overview { margin-block: 12px; color: var(--live-quiet); font-size: 14px; line-height: 1.45; }
+.live-talk-book { margin-bottom: 14px; font-size: 14px; line-height: 1.4; }
+.live-talk-book > summary, .live-talk-steps > summary { min-height: 44px; padding-block: 11px; cursor: pointer; font-weight: 600; }
+.live-talk-book dl { display: grid; gap: 9px; margin-block: 4px 12px; }
+.live-talk-book dl > div { display: grid; grid-template-columns: 75px minmax(0, 1fr); gap: 8px; }
+.live-talk-book dt { font-weight: 600; color: var(--live-red); }
+.live-talk-book dd { margin: 0; }
+.live-talk-nav { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; margin-bottom: 16px; }
+.live-talk-nav button { min-height: 44px; padding: 8px 0; border: 1px solid var(--live-line); background: transparent; color: var(--live-quiet); font: 400 12px/1.2 var(--font-mono, monospace); }
+.live-talk-nav button[aria-current="step"] { border-color: var(--live-ink); background: var(--live-ink); color: var(--live-cream); }
+.live-talk-card .live-talk-time { color: var(--live-quiet); font: 400 10px/1.4 var(--font-mono, monospace); }
+.live-talk-card { scroll-margin-top: 100px; }
+.live-talk-card h2 { margin-block: 8px 18px; font: 700 34px/1.05 var(--font-bebas, Impact, sans-serif); }
+.live-talk-question > span, .live-talk-line > span { display: block; margin-bottom: 5px; color: var(--live-red); font: 400 10px/1.4 var(--font-mono, monospace); }
+.live-talk-question > p { font-size: 19px; font-weight: 600; line-height: 1.3; }
+.live-talk-line { margin-block: 18px; }
+.live-talk-line blockquote { margin: 0; padding-left: 12px; border-left: 2px solid var(--live-line); font-size: 17px; line-height: 1.4; }
+.live-talk-card > ul { margin: 0 0 18px; padding-left: 18px; font-size: 15px; line-height: 1.45; }
+.live-talk-card > ul li + li { margin-top: 7px; }
+.live-talk-bridge { padding-block: 12px; border-block: 1px solid var(--live-line); font-size: 15px; line-height: 1.4; }
+.live-talk-bridge strong { display: block; margin-bottom: 5px; color: var(--live-quiet); font-size: 12px; font-weight: 400; }
+.live-talk-steps { font-size: 14px; line-height: 1.4; }
+.live-talk-steps ol { padding-left: 20px; margin: 7px 0 16px; }
+.live-talk-steps li + li { margin-top: 9px; }
+.live-talk-paging { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 15px; }
+.live-talk-paging button { min-height: 48px; padding: 10px 8px; border: 1px solid var(--live-line); background: transparent; color: var(--live-ink); font-size: 13px; }
+.live-talk-guide .live-talk-private { margin-top: 12px; color: var(--live-quiet); font-size: 12px; line-height: 1.4; }
+.live-host-main:has(.live-talk-guide) > .live-host-topline > .live-label { margin-right: auto; }
 .live-host-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
 .live-host-actions > .live-button { flex-grow: 1; }
 .live-host-aside { padding-top: 3px; display: flex; flex-direction: column; align-items: stretch; gap: 25px; }

@@ -9,6 +9,7 @@ import { experienceCheckpoint } from "@/lib/live/experience-copy";
 import type { ExperienceProgress } from "@/lib/live/types";
 import { ApiError, api, Brand, HostState, Interest, interests, nextNames, Progress, requestId, RoomSummary, stepNames, usePolling } from "./client";
 import { VoteResults } from "./ExperiencePanels";
+import HostTalkGuide from "./HostTalkGuide";
 
 export default function LiveHost() {
   const [roomCode, setRoomCode] = useState("");
@@ -118,7 +119,7 @@ export default function LiveHost() {
   </main>;
 
   return <main className="live-app live-host"><Brand mode={state?.room.mode} code={state?.room.code} />
-    {!roomCode ? <div className="live-container live-host-home"><p className="live-label">Your event controls</p><h1>Let’s get the room ready.</h1><p>Try the solo preview first. Use a test room to practise with other people. The 3 December event has its own fixed QR code.</p><div className="live-create-options"><Link className="live-outline-button" href="/live/preview">Try all four on your own <span aria-hidden="true">↗</span></Link><button className="live-button" disabled={busy} onClick={() => void create("rehearsal")}>Create a test room<span aria-hidden="true">↗</span></button><button className="live-outline-button" disabled={busy} onClick={() => void openLaunch()}>Open the 3 December event</button></div><RoomList rooms={rooms.data?.rooms || []} onSelect={select} />{error && <p className="live-error" role="alert">{error}</p>}</div>
+    {!roomCode ? <div className="live-container live-host-home"><p className="live-label">Your event controls</p><h1>Let’s get the room ready.</h1><p>Try the solo preview first. Use a test room to practise with other people. The 3 December event has its own fixed QR code.</p><HostTalkGuide /><div className="live-create-options"><Link className="live-outline-button" href="/live/preview">Try all four on your own <span aria-hidden="true">↗</span></Link><button className="live-button" disabled={busy} onClick={() => void create("rehearsal")}>Create a test room<span aria-hidden="true">↗</span></button><button className="live-outline-button" disabled={busy} onClick={() => void openLaunch()}>Open the 3 December event</button></div><RoomList rooms={rooms.data?.rooms || []} onSelect={select} />{error && <p className="live-error" role="alert">{error}</p>}</div>
       : !state ? <div className="live-container live-host-home"><p role="status">{current.error ? current.error.message : "Opening the room…"}</p><button className="live-text-button" onClick={() => select("")}>Back to your rooms</button></div>
       : <>
         <Progress step={state.room.step} />
@@ -215,6 +216,8 @@ function ExperienceControls({ state, progress, busy, connected, error, onAction,
   onAction: (action: string) => void;
   onBack: () => void;
 }) {
+  const talk = useRef<HTMLDetailsElement>(null);
+  const controls = useRef<HTMLElement>(null);
   const { title, next, cue } = eventCue(progress);
   const { paused, lookUp } = state.room;
   const onHold = paused || lookUp;
@@ -225,9 +228,12 @@ function ExperienceControls({ state, progress, busy, connected, error, onAction,
   const showResponses = voteStage || Boolean(round);
   const sent = voteStage ? state.counts.submitted : round?.sent ?? 0;
   const total = voteStage ? state.counts.total : round?.total ?? 0;
-  return <section className="live-host-main live-event-controls">
+  return <section className="live-host-main live-event-controls" ref={controls}>
     <div className="live-host-topline">
       <p className="live-label">Your host dashboard</p>
+      <button className="live-text-button" onClick={() => {
+        if (talk.current) { talk.current.open = true; talk.current.scrollIntoView({ block: "start", behavior: "auto" }); }
+      }}>Your talk</button>
       <button className="live-text-button" disabled={busy} onClick={onBack}>Rooms</button>
     </div>
     <p className={`live-room-connection${connected ? "" : " is-offline"}`} role="status"><span aria-hidden="true" />{connected ? "Live updates" : "Reconnecting…"}</p>
@@ -258,6 +264,9 @@ function ExperienceControls({ state, progress, busy, connected, error, onAction,
     {activeChat && state.counts.waiting > 0 && <p className="live-caption">{state.counts.waiting === 1
       ? "One guest is waiting for a partner. A helper can tap Experience 2 so they can join the next moment together."
       : `${state.counts.waiting} guests are waiting. New pairs join at the next moment.`}</p>}
+    <HostTalkGuide detailsRef={talk} progress={progress}
+      liveStatus={`${connected ? "Live" : "Reconnecting"} · ${state.counts.joined} joined${showResponses ? ` · ${sent} of ${total} ${voteStage ? "votes" : "messages"} in` : ""}`}
+      onControls={() => controls.current?.scrollIntoView({ block: "start", behavior: "auto" })} />
     {Boolean(state.chatStats?.rounds.length) && <details className="live-round-history">
       <summary>Progress through the four moments</summary>
       <ol>{state.chatStats?.rounds.map(round => <li key={round.moment}>
