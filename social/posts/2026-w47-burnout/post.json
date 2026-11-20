@@ -1,0 +1,49 @@
+{
+  "slug": "2026-w47-burnout",
+  "lang": "en",
+  "status": "draft, not scheduled",
+  "source": "luxembourgpsychology.com home page, 'The biopsychosocial model' panel, Burnout at work tab; closing line is the h1 of /how-i-work/. Word for word, preview deployment of 14 November 2026.",
+  "caption": "You might still get through the workday and have little energy left in the evening. We can explore what would make work more manageable.\n\nIn counselling, we look at how your body, mind and daily life affect one another.\n\nIvana Budišin, clinical psychologist in Luxembourg. Counselling in English and French.",
+  "alt": [
+    "Text on a dark blue ground: You might still get through the workday and have little energy left in the evening.",
+    "A table titled Burnout at work. Body: exhaustion that persists. Mind: feeling detached from your work. Environment: prolonged pressure at work with limited support.",
+    "Text on a pale ground: We look at the whole picture. Luxembourg Psychology, Ivana Budišin."
+  ],
+  "slides": [
+    {
+      "type": "line",
+      "text": "You might still get through the workday and have little energy left in the evening.",
+      "scenery": "lake-fog"
+    },
+    {
+      "type": "matrix",
+      "label": "The biopsychosocial model",
+      "title": "Burnout at work",
+      "rows": [
+        [
+          "Body",
+          "Exhaustion that persists"
+        ],
+        [
+          "Mind",
+          "Feeling detached from your work"
+        ],
+        [
+          "Environment",
+          "Prolonged pressure at work with limited support"
+        ]
+      ],
+      "scenery": "lake-fog"
+    },
+    {
+      "type": "close",
+      "ground": "paper",
+      "label": "The biopsychosocial approach",
+      "text": "We look at the whole picture.",
+      "sub": "In counselling, we look at how your body, mind and daily life affect one another.",
+      "url": "luxembourgpsychology.com",
+      "scenery": "morning-fog"
+    }
+  ],
+  "imagery": "Adobe Stock, free collection, licensed 16 Nov 2026: 530533663 (lake-fog), 291311462 (morning-fog), 144565430 (beach-dawn). Softened and veiled; real photographs, not generated."
+}
