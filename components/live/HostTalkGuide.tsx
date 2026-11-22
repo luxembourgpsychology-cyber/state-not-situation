@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState, type RefObject } from "react";
+import { useId, useState } from "react";
 import type { ExperienceProgress } from "@/lib/live/types";
 
 const interviewAnswers = [
@@ -73,68 +73,56 @@ const notes = [
 
 function currentNote(progress?: ExperienceProgress) {
   if (!progress || progress.phase === "welcome") return 0;
-  if (progress.phase === "vote" || progress.phase === "vote_result") return 1;
-  if (progress.phase === "finished") return 6;
-  return progress.phase === "pairing" ? 2 : progress.moment + 2;
+  if (progress.phase === "vote" || progress.phase === "vote_result") return 7;
+  if (progress.phase === "finished") return 12;
+  return progress.phase === "pairing" ? 8 : progress.moment + 8;
 }
 
-export default function HostTalkGuide({ progress, detailsRef, liveStatus, onControls }: {
+const pages = [
+  { title: notes[0].title, question: notes[0].question, paragraphs: [notes[0].line, notes[0].bridge] },
+  ...interviewAnswers.map(item => ({ title: item.question, question: item.question, paragraphs: [item.answer] })),
+  ...notes.slice(1).map(note => ({
+    title: note.title,
+    question: note.question,
+    paragraphs: [note.line, ...(note.title === "Bring it home" ? note.points : []), note.bridge],
+  })),
+];
+
+export default function HostTalkGuide({ progress, liveStatus }: {
   progress?: ExperienceProgress;
-  detailsRef?: RefObject<HTMLDetailsElement | null>;
   liveStatus?: string;
-  onControls?: () => void;
 }) {
   const [chosen, setChosen] = useState<number | null>(null);
   const active = currentNote(progress);
   const index = chosen ?? active;
-  const note = notes[index];
+  const page = pages[index];
   const titleId = useId();
-  const navigation = useRef<HTMLElement>(null);
+  const jumpId = useId();
   function showNote(position: number | null) {
     setChosen(position);
-    requestAnimationFrame(() => navigation.current?.scrollIntoView({ block: "start", behavior: "auto" }));
+    window.scrollTo({ top: 0, behavior: "auto" });
   }
-  return <details className="live-talk-guide" ref={detailsRef}>
-    <summary><span>Your talk and timing</span><small>30-minute plan · Private</small></summary>
-    <div className="live-talk-body">
-      <div className="live-talk-sticky"><div className="live-talk-toolbar">
-        {onControls && <button type="button" onClick={onControls}>Back to live controls ↑</button>}
-        {progress && <button type="button" onClick={() => showNote(null)}>Current part</button>}
-      </div>
-      {liveStatus && <p className="live-talk-status" role="status">{liveStatus}</p>}</div>
-      <p className="live-talk-overview">About 8 to 10 minutes of phone activity, spread through a 30-minute conversation. Use these times as a guide.</p>
-      <details className="live-talk-book">
-        <summary>Practise Jessika’s interview questions</summary>
-        {interviewAnswers.map(item => <details className="live-talk-steps" key={item.question}>
-          <summary>{item.question}</summary><p>{item.answer}</p>
-          {item.source && <p><a href={item.source} target="_blank" rel="noreferrer">{item.label}</a></p>}
-        </details>)}
-      </details>
-      <details className="live-talk-book">
-        <summary>The book connection</summary>
-        <dl><div><dt>Situation</dt><dd>What appeared on the screen. The wait. The real reply.</dd></div><div><dt>State</dt><dd>What I felt in that moment.</dd></div><div><dt>My guess</dt><dd>What I thought those words meant.</dd></div></dl>
-        <p>The app creates uncertainty, then adds information at the reveal. Discuss how people formed and revised a guess.</p>
-      </details>
-      <nav className="live-talk-nav" aria-label="Interview notes" ref={navigation}>{notes.map((part, position) => <button type="button" key={part.title}
-        aria-label={`Note ${position + 1}: ${part.title}`} aria-current={position === index ? "step" : undefined}
-        onClick={() => showNote(position)}>0{position + 1}</button>)}</nav>
-      <article className="live-talk-card" aria-labelledby={titleId}>
-        <p className="live-talk-time">{note.time} · Note {index + 1} of {notes.length}</p>
-        <h2 id={titleId}>{note.title}</h2>
-        <div className="live-talk-question"><span>Jessika asks</span><p>{note.question}</p></div>
-        <div className="live-talk-line"><span>Ivana · Suggested words</span><blockquote>{note.line}</blockquote></div>
-        <ul>{note.points.map(point => <li key={point}>{point}</li>)}</ul>
-        <p className="live-talk-bridge"><strong>Book connection</strong>{note.bridge}</p>
-        <details className="live-talk-steps" key={index}>
-          <summary>Phone steps for this part</summary>
-          <ol>{note.steps.map(step => <li key={step}>{step}</li>)}</ol>
-        </details>
-      </article>
-      <div className="live-talk-paging">
+  return <section className="host-talk-reader" aria-label="My talk">
+    <header className="host-talk-heading">
+      <div><p className="live-label">Private notes</p><h1>My talk</h1></div>
+      {progress && <button className="live-outline-button" type="button" onClick={() => showNote(null)}>Current part</button>}
+    </header>
+    {liveStatus && <p className="host-talk-live-status" role="status">{liveStatus}</p>}
+    <label className="host-talk-jump" htmlFor={jumpId}>Jump to
+      <select id={jumpId} value={index} onChange={event => showNote(Number(event.target.value))}>
+        {pages.map((part, position) => <option key={part.title} value={position}>{String(position + 1).padStart(2, "0")} · {part.title}</option>)}
+      </select>
+    </label>
+    <article className="host-talk-page" aria-labelledby={titleId}>
+      <p className="host-talk-position">{index + 1} / {pages.length}</p>
+      {page.title === page.question && <p className="live-label">Jessika</p>}
+      <h2 id={titleId}>{page.title}</h2>
+      {page.title !== page.question && <div className="host-talk-question"><span>Jessika</span><p>{page.question}</p></div>}
+      <div className="host-talk-answer"><span>Ivana</span>{page.paragraphs.map((paragraph, position) => <p key={position}>{paragraph}</p>)}</div>
+    </article>
+    <div className="host-talk-paging">
         <button type="button" disabled={index === 0} onClick={() => showNote(index - 1)}>← Previous note</button>
-        <button type="button" disabled={index === notes.length - 1} onClick={() => showNote(index + 1)}>Next note →</button>
-      </div>
-      <p className="live-talk-private">These are your notes. Guests stay on their current screen while you browse.</p>
+        <button type="button" disabled={index === pages.length - 1} onClick={() => showNote(index + 1)}>Next note →</button>
     </div>
-  </details>;
+  </section>;
 }
