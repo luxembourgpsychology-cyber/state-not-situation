@@ -14,11 +14,14 @@ import HostTalkGuide from "./HostTalkGuide";
 export default function LiveHost() {
   const [roomCode, setRoomCode] = useState("");
   const [hasPrivateEntry, setHasPrivateEntry] = useState(false);
+  const [entryVersion, setEntryVersion] = useState(0);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [confirmReveal, setConfirmReveal] = useState(false);
   const [operatorOpen, setOperatorOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [pane, setPane] = useState<"event" | "talk">("event");
+  const scrollPositions = useRef({ event: 0, talk: 0 });
   const busyRef = useRef(false);
   const entryAttempted = useRef(false);
   const rooms = usePolling<{ rooms: RoomSummary[] }>("/api/live/host", 5000);
@@ -30,13 +33,18 @@ export default function LiveHost() {
   const needsLogin = !authenticated && rooms.error instanceof ApiError && rooms.error.status === 401;
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get("room");
-    let saved = "";
-    try { saved = sessionStorage.getItem("sns-host-room") || ""; } catch { /* Room selection can be made again. */ }
-    const code = requested && /^[A-Z0-9]{8,16}$/i.test(requested) ? requested.toUpperCase() : saved;
+    const code = requested && /^[A-Z0-9]{8,16}$/i.test(requested) ? requested.toUpperCase() : "";
     queueMicrotask(() => {
       setRoomCode(code);
       setHasPrivateEntry(new URLSearchParams(window.location.hash.slice(1)).has("host"));
     });
+    function refreshEntry() {
+      entryAttempted.current = false;
+      setHasPrivateEntry(new URLSearchParams(window.location.hash.slice(1)).has("host"));
+      setEntryVersion(version => version + 1);
+    }
+    window.addEventListener("hashchange", refreshEntry);
+    return () => window.removeEventListener("hashchange", refreshEntry);
   }, []);
 
   useEffect(() => {
@@ -49,19 +57,29 @@ export default function LiveHost() {
       await refreshRooms();
       await refreshCurrent();
     }).catch(err => setError(err instanceof Error ? err.message : "Please open your private host QR again."));
-  }, [authenticated, needsLogin, refreshRooms, refreshCurrent]);
+  }, [authenticated, needsLogin, refreshRooms, refreshCurrent, entryVersion]);
 
-  function select(code: string) {
+  function select(code: string, keepView = false) {
     setRoomCode(code); setError(""); setConfirmReveal(false);
+    if (!keepView) setPane("event");
+    scrollPositions.current.event = 0;
     const url = new URL(window.location.href);
     if (code) url.searchParams.set("room", code);
     else url.searchParams.delete("room");
     window.history.replaceState(null, "", url);
-    try { sessionStorage.setItem("sns-host-room", code); } catch { /* This is only a convenience. */ }
+    if (!keepView) window.scrollTo({ top: 0, behavior: "auto" });
+  }
+  function showPane(next: "event" | "talk") {
+    if (next !== pane) {
+      scrollPositions.current[pane] = window.scrollY;
+      setPane(next);
+      requestAnimationFrame(() => window.scrollTo({ top: scrollPositions.current[next], behavior: "auto" }));
+    }
+    if (next === "event" && !roomCode) void openLaunch();
   }
   async function create(mode: "rehearsal" | "live") {
     if (busyRef.current) return; busyRef.current = true; setBusy(true); setError("");
-    try { const next = await api<HostState>("/api/live/host", { action: "create", mode, experience: true }); select(next.room.code); current.setData(next); await rooms.refresh(); }
+    try { const next = await api<HostState>("/api/live/host", { action: "create", mode, experience: true }); select(next.room.code, true); current.setData(next); await rooms.refresh(); }
     catch (err) { setError(err instanceof Error ? err.message : "The room was not created."); }
     finally { busyRef.current = false; setBusy(false); }
   }
@@ -84,7 +102,7 @@ export default function LiveHost() {
     busyRef.current = true; setBusy(true); setError("");
     try {
       const next = await api<HostState>("/api/live/host", { action: "launch" });
-      select(next.room.code); current.setData(next); await rooms.refresh();
+      select(next.room.code, true); current.setData(next); await rooms.refresh();
     } catch (err) { setError(err instanceof Error ? err.message : "Please try again."); }
     finally { busyRef.current = false; setBusy(false); }
   }
@@ -92,7 +110,7 @@ export default function LiveHost() {
   const predictionReady = state ? interests.some(interest => (state.forecast?.[interest] || 0) > 0) : false;
   const cannotContinue = Boolean(current.error) || Boolean(state && state.room.step === "lobby" && state.counts.paired < 2) || Boolean(state && state.room.step === "context" && !predictionReady);
   if (!authenticated) return <main className="live-app live-host"><Brand /><div className="live-container live-entry">
-    <div className="live-entry-intro"><p className="live-label">For Ivana and the event team</p><h1>Your host<br />dashboard.</h1><p>Open your private host QR to go straight to your event controls.</p><Link className="live-outline-button" href="/live/preview">Try the audience demo <span aria-hidden="true">↗</span></Link></div>
+    <div className="live-entry-intro"><p className="live-label">For Ivana</p><h1>Your control<br />room.</h1><p>Open your private host QR.</p></div>
     <div><p role="status">{error || (needsLogin ? hasPrivateEntry ? "Opening your controls…" : "Use your private host QR. No password needed." : rooms.error?.message || "Opening your controls…")}</p>{(error || (rooms.error && !needsLogin)) && <button className="live-text-button" onClick={() => window.location.reload()}>Try again</button>}</div>
   </div></main>;
 
@@ -103,19 +121,45 @@ export default function LiveHost() {
       .catch(() => setError("Copy is not available here. Select the link below."));
   }
 
-  if (state?.room.experience) return <main className="live-app live-host">
-    <Brand mode={state.room.mode} code={state.room.code} />
-    <div className="live-host-grid live-container">
-      <ExperienceControls
-        state={state} progress={state.room.experience} busy={busy} error={error || (current.error ? "Reconnect before moving on." : "")}
-        connected={!current.error} onAction={name => void action(name)} onBack={() => select("")}
-      />
-      <aside className="live-host-aside">
-        <JoinCode path={state.joinPath} code={state.room.code} copied={copied} onCopy={copyGuestLink} />
-        <p className="live-caption">{state.room.mode === "rehearsal" ? "Test QR only. This room expires after 24 hours." : "The fixed launch QR opens on 3 December at 18:00 Luxembourg time."}</p>
-        {state.room.code === LAUNCH_ROOM_CODE && <a className="live-outline-button" href="/live/launch-qr.pdf" download>Download the print sign <span aria-hidden="true">↓</span></a>}
-      </aside>
+  const experience = state?.room.experience;
+  if (!state || experience) return <main className="live-app live-host live-host-console">
+    <Brand />
+    <div className="live-container host-console-content">
+      <section aria-label="Event controls" hidden={pane !== "event"}>
+        {!roomCode ? <div className="host-console-entry">
+          <p className="live-label">Your control room</p><h1>Your event.</h1>
+          <button className="live-button" disabled={busy} onClick={() => void openLaunch()}>{busy ? "Opening…" : "Open the event"}<span aria-hidden="true">↗</span></button>
+          {error && <p className="live-error" role="alert">{error}</p>}
+          <details className="host-console-setup">
+            <summary>Practice and setup</summary>
+            <div className="live-create-options">
+              <button className="live-outline-button" disabled={busy} onClick={() => void create("rehearsal")}>Create a practice room</button>
+              <Link className="live-outline-button" href="/live/preview">Solo preview</Link>
+            </div>
+            <RoomList rooms={rooms.data?.rooms || []} onSelect={select} />
+          </details>
+        </div> : !state || !experience ? <div className="host-console-entry">
+          <p role="status">{current.error?.message || "Opening your event…"}</p>
+          <button className="live-outline-button" onClick={() => select("")}>Back</button>
+        </div> : <>
+          <div className="host-console-context"><span>{state.room.mode === "rehearsal" ? "Practice room" : "Book launch · 3 December"}</span><button className="live-text-button" onClick={() => select("")}>Setup</button></div>
+          <ExperienceControls state={state} progress={experience} busy={busy}
+            error={error || (current.error ? "Reconnect before moving on." : "")}
+            connected={!current.error} onAction={name => void action(name)} />
+          <details className="host-console-sharing"><summary>Guest QR and link</summary>
+            <JoinCode path={state.joinPath} code={state.room.code} copied={copied} onCopy={copyGuestLink} />
+            {state.room.mode === "rehearsal" && <p className="live-caption">This practice room lasts 24 hours.</p>}
+          </details>
+        </>}
+      </section>
+      <section aria-label="Talk notes" hidden={pane !== "talk"}>
+        <HostTalkGuide progress={experience} liveStatus={state && experience ? `${current.error ? "Reconnecting" : eventCue(experience).title} · ${state.counts.joined} joined` : undefined} />
+      </section>
     </div>
+    <nav className="host-console-navigation" aria-label="Host navigation">
+      <button type="button" aria-pressed={pane === "event"} onClick={() => showPane("event")}>Event</button>
+      <button type="button" aria-pressed={pane === "talk"} onClick={() => showPane("talk")}>My talk</button>
+    </nav>
   </main>;
 
   return <main className="live-app live-host"><Brand mode={state?.room.mode} code={state?.room.code} />
@@ -207,18 +251,15 @@ function eventCue({ phase, moment, conversationPhase }: ExperienceProgress) {
   };
 }
 
-function ExperienceControls({ state, progress, busy, connected, error, onAction, onBack }: {
+function ExperienceControls({ state, progress, busy, connected, error, onAction }: {
   state: HostState;
   progress: ExperienceProgress;
   busy: boolean;
   connected: boolean;
   error: string;
   onAction: (action: string) => void;
-  onBack: () => void;
 }) {
-  const talk = useRef<HTMLDetailsElement>(null);
-  const controls = useRef<HTMLElement>(null);
-  const { title, next, cue } = eventCue(progress);
+  const { title, next } = eventCue(progress);
   const { paused, lookUp } = state.room;
   const onHold = paused || lookUp;
   const activeChat = progress.phase === "chat";
@@ -228,16 +269,9 @@ function ExperienceControls({ state, progress, busy, connected, error, onAction,
   const showResponses = voteStage || Boolean(round);
   const sent = voteStage ? state.counts.submitted : round?.sent ?? 0;
   const total = voteStage ? state.counts.total : round?.total ?? 0;
-  return <section className="live-host-main live-event-controls" ref={controls}>
-    <div className="live-host-topline">
-      <p className="live-label">Your host dashboard</p>
-      <button className="live-text-button" onClick={() => {
-        if (talk.current) { talk.current.open = true; talk.current.scrollIntoView({ block: "start", behavior: "auto" }); }
-      }}>Your talk</button>
-      <button className="live-text-button" disabled={busy} onClick={onBack}>Rooms</button>
-    </div>
+  return <section className="live-host-main live-event-controls">
     <p className={`live-room-connection${connected ? "" : " is-offline"}`} role="status"><span aria-hidden="true" />{connected ? "Live updates" : "Reconnecting…"}</p>
-    <h1>{onHold ? "Look up." : title}</h1>
+    <h1>{onHold ? "Phones paused." : title}</h1>
     <div className="live-counts live-room-counts" aria-label="Room numbers">
       <div><strong>{state.counts.joined}</strong><span>Joined</span></div>
       <div><strong>{state.chatReady ?? 0}</strong><span>{pairing ? "Ready to pair" : "Joined the chat"}</span></div>
@@ -251,29 +285,24 @@ function ExperienceControls({ state, progress, busy, connected, error, onAction,
       {activeChat && progress.conversationPhase === "waiting" && Boolean(state.chatStats?.cueRecipients) && <p>{state.chatStats?.cueReplies} of {state.chatStats?.cueRecipients} replied to the suspense line. This reply is optional.</p>}
       {total > 0 && sent < total && <p>{total - sent} {total - sent === 1 ? "person has" : "people have"} not sent {voteStage ? "a vote" : "a message"} yet. You can wait or continue.</p>}
     </section>}
-    <p className="live-host-cue">{cue}</p>
     {progress.phase === "vote_result" && state.voteTotals && <VoteResults totals={state.voteTotals} />}
     {progress.phase !== "finished" && <div className="live-host-actions">
       <button className="live-button" disabled={busy || !connected || (pairing && (state.chatReady ?? 0) < 2) || (activeChat && !onHold && state.counts.paired === 0)}
         onClick={() => onAction(paused ? "resume" : lookUp ? "return" : "next")}>
         {busy ? "Updating…" : onHold ? "Return to phones" : next}<span aria-hidden="true">↗</span>
       </button>
-      {activeChat && !onHold && <button className="live-outline-button" disabled={busy || !connected} onClick={() => onAction("look_up")}>Look up for a moment</button>}
+      {!onHold && <button className="live-outline-button" disabled={busy || !connected} onClick={() => onAction("look_up")}>Pause phones</button>}
     </div>}
     {activeChat && !state.counts.paired && <p className="live-caption">The first pair appears after two guests tap Experience 2.</p>}
     {activeChat && state.counts.waiting > 0 && <p className="live-caption">{state.counts.waiting === 1
       ? "One guest is waiting for a partner. A helper can tap Experience 2 so they can join the next moment together."
       : `${state.counts.waiting} guests are waiting. New pairs join at the next moment.`}</p>}
-    <HostTalkGuide detailsRef={talk} progress={progress}
-      liveStatus={`${connected ? "Live" : "Reconnecting"} · ${state.counts.joined} joined${showResponses ? ` · ${sent} of ${total} ${voteStage ? "votes" : "messages"} in` : ""}`}
-      onControls={() => controls.current?.scrollIntoView({ block: "start", behavior: "auto" })} />
     {Boolean(state.chatStats?.rounds.length) && <details className="live-round-history">
       <summary>Progress through the four moments</summary>
       <ol>{state.chatStats?.rounds.map(round => <li key={round.moment}>
         <span>Moment 0{round.moment + 1}</span><strong>{round.sent} / {round.total}</strong><small>{round.pairsReady} of {round.pairs} pairs have both messages</small>
       </li>)}</ol>
     </details>}
-    <p className="live-caption live-host-privacy">You see numbers here. Guests’ messages and private check-ins stay out of your dashboard.</p>
     {state.room.mode === "rehearsal" && <details className="live-prediction-details">
       <summary>Rehearsal tools</summary>
       <p className="live-caption">Start again with the same phones and QR. Test messages and votes start fresh.</p>
