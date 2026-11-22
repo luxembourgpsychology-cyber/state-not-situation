@@ -7,16 +7,6 @@ import { BookFrame, BookHeader } from "./ExperiencePanels";
 export type FeelingEntry = Extract<ChatEvent, { kind: "feeling" }>;
 export type FeelingContext = Pick<FeelingEntry, "moment" | "stage" | "contextEventId">;
 
-type PreviewControls = {
-  changeSide: (side: Side) => void;
-  restart: () => void;
-  advance: () => void;
-  label: string;
-  ready: boolean;
-  share: () => void;
-  shared: boolean;
-};
-
 type ConversationProps = {
   entries: ChatEvent[];
   moment: number;
@@ -37,7 +27,7 @@ type ConversationProps = {
   onDraft: (value: string) => void;
   onSend: () => void;
   onFeeling: (value: string, context: FeelingContext) => void;
-  preview?: PreviewControls;
+  rehearsal?: boolean;
 };
 
 const firstFeelings = ["Curious", "Excited", "Calm", "Unsure", "Shy", "Amused"];
@@ -98,32 +88,26 @@ function FeelingVeil({ open, selected, onChoose, onDismiss }: {
 
 export default function ConversationPanel({
   entries, moment, side, phase, stage, partnerLabel, cueShown, hasPartnerMessage, writing, draft, typing, held,
-  reviewing, onClosing, busy, error, onDraft, onSend, onFeeling, preview,
+  reviewing, onClosing, busy, error, onDraft, onSend, onFeeling, rehearsal,
 }: ConversationProps) {
   const [topPicker, setTopPicker] = useState(false);
   const [selectedStateId, setSelectedStateId] = useState<number | null>(null);
   const thread = useRef<HTMLDivElement>(null);
   const composeArea = useRef<HTMLDivElement>(null);
-  const revealSummary = useRef<HTMLElement>(null);
   const trail = useRef<HTMLOListElement>(null);
   const feelingContext = useRef<FeelingContext | null>(null);
   const conversation = entries.filter(event => event.kind !== "feeling");
   const feelings = entries.filter(event => event.kind === "feeling");
   const momentFeelings = feelings.filter(event => event.moment === moment);
   const currentFeeling = momentFeelings.filter(event => event.stage === stage).at(-1)?.value || "";
-  const beforeReveal = momentFeelings.filter(event => event.stage !== "after").at(-1)?.value;
-  const afterReveal = momentFeelings.filter(event => event.stage === "after").at(-1)?.value;
   const selectedFeeling = feelings.find(feeling => feeling.id === selectedStateId);
   const highlightedEventId = selectedFeeling?.contextEventId;
   const firstReply = conversation.find(entry => entry.kind === "message" && entry.moment === 0
     && entry.owner !== side && entry.message.source !== "experiment" && !entry.message.replyTo);
-  const replyingToCue = phase === "waiting" && writing;
+  const partnerQuestion = conversation.find(entry => entry.kind === "message" && entry.moment === 1
+    && entry.owner !== side && entry.message.source !== "experiment" && !entry.message.replyTo);
+  const replyingToCue = phase === "waiting" && cueShown && writing;
   const unsentDraft = phase === "revealed" && Boolean(draft.trim());
-  const cueOnThisPhone = cueShown && targetFor(moment) === side;
-  const revealedSituation = cueOnThisPhone
-    ? "Added by the app."
-    : cueShown ? `The app added “${planted[moment]}” on your partner’s phone.` : "The reply was still hidden.";
-  const revealedReply = hasPartnerMessage ? "Your partner’s reply is now visible." : "No reply arrived this round.";
 
   useEffect(() => {
     const element = thread.current;
@@ -142,12 +126,6 @@ export default function ConversationPanel({
       composeArea.current?.scrollIntoView({ block: "nearest", behavior: "auto" });
     }
   }, [reviewing, moment, side, conversation.length, phase, writing]);
-
-  useEffect(() => {
-    if (phase === "revealed" && !reviewing && window.matchMedia("(max-width: 700px)").matches) {
-      revealSummary.current?.scrollIntoView({ block: "nearest", behavior: "auto" });
-    }
-  }, [phase, moment, reviewing]);
 
   useEffect(() => {
     const element = trail.current;
@@ -197,7 +175,10 @@ export default function ConversationPanel({
     if (entry.kind === "prompt") {
       return <div className={`chat-prompt-card${contextClass}`} key={entry.id} data-prompt-moment={entry.moment} data-event-id={entry.id}>
         <small className="chat-event-label">Ivana · Prompt 0{entry.moment + 1}</small>
-        {entry.moment === 1 ? <>
+        {entry.moment === 2 && partnerQuestion?.kind === "message" ? <>
+          <blockquote className="chat-reread"><small>Your partner asked</small><p>{partnerQuestion.message.text}</p></blockquote>
+          <p>Answer their question in one sentence.</p>
+        </> : entry.moment === 1 ? <>
           {firstReply?.kind === "message" && <blockquote className="chat-reread">
             <small>Your partner wrote</small>
             <p>{firstReply.message.text}</p>
@@ -224,30 +205,7 @@ export default function ConversationPanel({
     </div>;
   }
 
-  const hostControl = preview && <div className="chat-host-controls" aria-label="Ivana’s demo controls">
-    <span>Ivana</span>
-    <button className="chat-host-action" disabled={!preview.ready} onClick={() => {
-      setSelectedStateId(null);
-      preview.advance();
-    }}>{preview.label}<span aria-hidden="true">↗</span></button>
-  </div>;
-
-  return <BookFrame controls={hostControl}>
-    {preview && <header className="chat-demo-bar">
-      <span>Solo demo · Phone {side === 0 ? "A" : "B"}</span>
-      <div className="chat-demo-tools">
-        <nav className="chat-demo-moments" aria-label="Conversation prompts">
-          {prompts.map((_, index) => <button key={index} aria-label={`Prompt ${index + 1}`} aria-current={moment === index ? "step" : undefined}
-            disabled={!conversation.some(entry => entry.kind === "prompt" && entry.moment === index)}
-            onClick={() => { setSelectedStateId(null); goToEntry(`[data-prompt-moment="${index}"]`); }}>0{index + 1}</button>)}
-        </nav>
-        <div className="chat-phone-switch" aria-label="Preview phone">
-          {([0, 1] as const).map(phone => <button key={phone} aria-label={phone === 0 ? "Phone A" : "Phone B"} aria-pressed={side === phone}
-            onClick={() => { setSelectedStateId(null); preview.changeSide(phone); }}>{phone === 0 ? "A" : "B"}</button>)}
-        </div>
-        <button className="chat-restart" onClick={preview.restart}>Restart</button>
-      </div>
-    </header>}
+  return <BookFrame rehearsal={rehearsal}>
     <section className={`chat-experience ${reviewing ? "is-reviewing" : ""}`} aria-label="Guest experience">
       <BookHeader step={reviewing ? "Full conversation" : `0${moment + 1} / 04`} />
       <div className="chat-main">
@@ -258,42 +216,41 @@ export default function ConversationPanel({
         </header>
         <div className="chat-thread" role="log" aria-label="Your conversation" aria-live="polite" ref={thread}>
           {conversation.map(renderEntry)}
-          {!reviewing && typing && <div className="chat-typing" aria-label={preview ? "Example partner is typing" : "Your partner is typing"}><i /><i /><i /></div>}
+          {!reviewing && typing && <div className="chat-typing" aria-label={rehearsal ? "Typing demonstration" : "Your partner is typing"}><i /><i /><i /></div>}
           {!reviewing && held && <p className="chat-wait">Waiting for Ivana</p>}
-          {preview && phase === "revealed" && moment === 3 && <div className="chat-share">
-            {preview.shared ? <span>Marked for sharing in this demo.</span> : <button onClick={preview.share}>Share my last message with the room</button>}
-          </div>}
         </div>
+        {reviewing && <section className="chat-final-reflections" aria-label="Your situation and state recap">
+          <h2>Look back at each moment.</h2>
+          {prompts.map((_, index) => {
+            const events = conversation.filter(entry => entry.moment === index);
+            if (!events.length) return null;
+            const notes = feelings.filter(entry => entry.moment === index);
+            const before = notes.filter(entry => entry.stage !== "after").at(-1)?.value;
+            const after = notes.filter(entry => entry.stage === "after").at(-1)?.value;
+            const disclosed = events.some(entry => entry.kind === "reveal");
+            const receivedCue = disclosed && targetFor(index) === side;
+            return <section className="chat-reveal-summary" key={index}>
+              <p className="chat-summary-moment">Moment 0{index + 1} · Before and after the reply</p>
+              <div className="chat-summary-situation">
+                <h3>Situation</h3><p className="chat-summary-caption">What was on the screen</p>
+                <p className="chat-summary-value">{receivedCue
+                  ? `You saw “${planted[index]}” while the real reply was hidden.`
+                  : disclosed ? `Your partner saw “${planted[index]}” while your message was hidden.` : "You waited for your partner’s real message."}</p>
+                {disclosed && <p className="chat-summary-value">That extra line came from the app.</p>}
+              </div>
+              <div className="chat-summary-state">
+                <div className="chat-summary-heading"><h3>My state</h3><span>Private</span></div>
+                <p className="chat-summary-caption">What I recorded</p>
+                <dl className="chat-summary-feelings">
+                  <div><dt>Before the reply</dt><dd>{before || <span className="chat-summary-empty">Not recorded</span>}</dd></div>
+                  <div><dt>After the reply</dt><dd>{after || <span className="chat-summary-empty">Not recorded</span>}</dd></div>
+                </dl>
+              </div>
+            </section>;
+          })}
+        </section>}
         {!reviewing && <div className="chat-compose-area" ref={composeArea}>
-          {phase === "revealed" && <section className="chat-reveal-summary" aria-label="Situation and state at the reveal" ref={revealSummary}>
-            <p className="chat-summary-moment">That moment before the reply</p>
-            <div className="chat-summary-situation">
-              <h3>Situation</h3><p className="chat-summary-caption">What was on your screen</p>
-              {cueOnThisPhone && <blockquote className="chat-summary-line">“{planted[moment]}”</blockquote>}
-              {cueOnThisPhone && <p className="chat-summary-value">You saw this while the real reply was still hidden.</p>}
-              {revealedSituation && <p className="chat-summary-value">{revealedSituation}</p>}
-              <p className="chat-summary-value">{revealedReply}</p>
-            </div>
-            <div className="chat-summary-state">
-              <div className="chat-summary-heading"><h3>My state</h3><span>Private</span></div>
-              <p className="chat-summary-caption">What was happening in you</p>
-              <dl className="chat-summary-feelings">
-                <div><dt>While I waited</dt><dd>{beforeReveal || <span className="chat-summary-empty">Not recorded</span>}</dd></div>
-                <div><dt>Now</dt><dd>{afterReveal || <button className="chat-summary-check-in" type="button" aria-haspopup="dialog" aria-expanded={topPicker} onClick={openFeelingVeil}>How I feel now</button>}</dd></div>
-              </dl>
-              {afterReveal && <button className="chat-summary-check-in" type="button" aria-label="Update how I feel now" aria-haspopup="dialog" aria-expanded={topPicker} onClick={openFeelingVeil}>Update</button>}
-            </div>
-            <p className="chat-summary-reflection">Think back: what did you think was coming?</p>
-            {feelings.length > 0 && <details className="chat-summary-history">
-              <summary>My feelings so far <span>Private</span></summary>
-              <ol aria-label="All my feeling check-ins">{feelings.map(feeling => <li key={feeling.id}>
-                <button type="button" aria-pressed={selectedStateId === feeling.id} onClick={() => revisitFeeling(feeling)}>
-                  <small>0{feeling.moment + 1} · {stageNames[feeling.stage]}</small><strong>{feeling.value}</strong>
-                </button>
-              </li>)}</ol>
-              <p>Tap a feeling to revisit that moment.</p>
-            </details>}
-          </section>}
+          {phase === "revealed" && <p className="chat-wait">{hasPartnerMessage ? "Look up for a moment. Ivana will continue." : "No reply arrived this round. Look up for a moment."}</p>}
           {(phase !== "revealed" || unsentDraft) && <form className="chat-composer" onSubmit={event => {
             event.preventDefault();
             if (writing && !busy && draft.trim()) onSend();
@@ -325,7 +282,7 @@ export default function ConversationPanel({
         {reviewing && <p className="chat-review-note">What was on the screen? What did you feel? What did you think it meant?</p>}
       </aside>
     </section>
-    {preview && <p className="chat-demo-note">The other phone is simulated. Nothing is sent to the event.</p>}
+    {rehearsal && <p className="chat-demo-note">Rehearsal pair · Both views follow Your controls. Nothing is sent to the event.</p>}
     <FeelingVeil open={topPicker} selected={currentFeeling} onChoose={chooseFeeling} onDismiss={() => setTopPicker(false)} />
   </BookFrame>;
 }
