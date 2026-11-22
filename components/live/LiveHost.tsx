@@ -284,7 +284,32 @@ function ExperienceControls({ state, progress, busy, connected, error, onAction,
 }
 
 function RoomList({ rooms, onSelect }: { rooms: RoomSummary[]; onSelect: (code: string) => void }) {
-  return <section className="live-room-list"><h2>Your rooms</h2>{rooms.length ? rooms.map(room => <button key={room.code} onClick={() => onSelect(room.code)}><span><strong>{room.code === LAUNCH_ROOM_CODE ? "Book launch · 3 December" : room.code}</strong><span>{room.mode === "rehearsal" ? "Test room" : "Event room"} · {stepNames[room.step]}</span></span><span aria-hidden="true">↗</span></button>) : <p className="live-caption">Your rooms will appear here.</p>}</section>;
+  const completed = rooms.filter(room => room.mode === "rehearsal" && room.step === "finished");
+  const events = rooms.filter(room => room.mode === "live");
+  const practices = rooms.filter(room => room.mode === "rehearsal" && room.step !== "finished");
+  function roomButton(room: RoomSummary, title: string, description: string) {
+    return <button key={room.code} onClick={() => onSelect(room.code)}>
+      <span><strong>{title}</strong><span>{description}</span></span>
+      <span aria-hidden="true">↗</span>
+    </button>;
+  }
+  return <section className="live-room-list">
+    <h2>Your rooms</h2>
+    {events.map(room => roomButton(room,
+      room.code === LAUNCH_ROOM_CODE ? "Book launch · 3 December" : "Event room",
+      room.code === LAUNCH_ROOM_CODE ? "Guests join with the printed QR." : `Room ${room.code} · ${stepNames[room.step]}`,
+    ))}
+    {practices.map((room, index) => roomButton(room,
+      practices.length === 1 ? "Your practice room" : `Practice room ${index + 1}`,
+      "Try it with your phones.",
+    ))}
+    {!events.length && !practices.length && <p className="live-caption">Create a practice room above to try the experiences.</p>}
+    {completed.length > 0 && <details className="live-prediction-details">
+      <summary>Completed practice rooms ({completed.length})</summary>
+      <p className="live-caption">Finished practice sessions. They close automatically after 24 hours.</p>
+      <div className="live-room-list">{completed.map(room => roomButton(room, `Completed practice · ${room.code}`, "Finished"))}</div>
+    </details>}
+  </section>;
 }
 
 function Forecast({ state, busy, onSave }: { state: HostState; busy: boolean; onSave: (forecast: Record<Interest, number>) => Promise<void> }) {
