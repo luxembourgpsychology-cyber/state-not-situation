@@ -1,6 +1,6 @@
 import { EngineError } from "./engine-error.ts";
 import { emptyVoteTotals, VOTE_CHOICES, type VoteChoice } from "./experience-copy.ts";
-import { cueDisclosure, planted, prompts, targetFor, type ChatEvent, type Side } from "./preview-model.ts";
+import { cueDisclosure, planted, promptFor, prompts, targetFor, type ChatEvent, type Side } from "./preview-model.ts";
 import type { BookExperience, ExperienceGuest, ExperienceProgress, HostState, Pair, Room } from "./types.ts";
 
 export function createBookExperience(run = 0): BookExperience {
@@ -185,7 +185,7 @@ export function experienceGuestView(room: Room, experience: BookExperience, id?:
     const round = experience.rounds[moment];
     const phase = moment < active ? "revealed" : conversationPhase;
     const cueThisPair = hasCue(experience, pair, moment);
-    entries.push({ id: offset + 1, moment, kind: "prompt", text: prompts[moment] });
+    entries.push({ id: offset + 1, moment, kind: "prompt", text: promptFor(moment, side) });
     if (round.messages[id]) entries.push({ id: offset + 2, moment, kind: "message", owner: side, message: { text: round.messages[id], source: "typed" } });
     if (cueThisPair && targetFor(moment) === side && phase !== "compose") {
       entries.push({

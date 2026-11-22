@@ -32,6 +32,7 @@ export type Action =
   | { type: "join" }
   | { type: "draft"; moment: number; side: Side; value: string }
   | { type: "send"; moment: number; side: Side }
+  | { type: "sample"; moment: number }
   | { type: "ready"; moment: number; generation: number }
   | { type: "host"; moment: number; phase: Phase }
   | { type: "feeling"; side: Side; value: string; contextEventId?: number }
@@ -46,6 +47,11 @@ export const prompts = [
   "Answer their question in one sentence.",
   "Finish this sentence: “At first I thought…”",
 ];
+export function promptFor(moment: number, side: Side): string {
+  return moment === 0 && side === 1
+    ? "What do people often get wrong about you at first glance?"
+    : prompts[moment];
+}
 export const feelingChoices = [
   "Curious", "Calm", "Happy", "Amused", "Excited", "Playful", "Shy", "Nervous",
   "Unsure", "Confused", "Surprised", "Relieved", "Embarrassed", "Annoyed", "Impatient", "Neutral",
@@ -53,9 +59,9 @@ export const feelingChoices = [
 export const planted = ["Can I be honest?", "", "Wait, really?", ""];
 export const stageNames: Record<FeelingStage, string> = { before: "Before sending", waiting: "While waiting", reading: "At the first line", responded: "After my reply", after: "After the reveal" };
 const examples: Pair<string>[] = [
-  ["I look calm. This is excellent acting.", "I’m trying to look mysterious. Mostly I’m looking for snacks."],
-  ["Which snack would break your cover?", "What made you choose that line?"],
-  ["Making myself laugh makes me feel less awkward.", "Anything with chocolate. Then all bets are off."],
+  ["I look calm. This is excellent acting.", "People think I’m confident. I’m usually rehearsing what to say."],
+  ["Is looking confident part of the acting?", "What do you do when you feel nervous?"],
+  ["I make myself laugh before I speak.", "Sometimes. It’s my face trying to help."],
   ["At first I thought I’d said something wrong.", "At first I heard doubt. On the second read, it sounded like surprise."],
 ];
 export function withSide<T>(pair: Pair<T>, side: Side, value: T): Pair<T> {
@@ -82,7 +88,8 @@ export function feelingStage(state: PreviewState): FeelingStage {
 export function canWrite(state: PreviewState): boolean {
   if (state.arrival || state.reviewing) return false;
   const phase = state.rounds[state.moment].phase;
-  return phase === "compose" || (phase === "waiting" && targetFor(state.moment) === state.side);
+  return (phase === "compose" && !state.rounds[state.moment].messages[state.side])
+    || (phase === "waiting" && targetFor(state.moment) === state.side && state.rounds[state.moment].responses[state.side].length === 0);
 }
 export function composerDraft(state: PreviewState): string {
   const round = state.rounds[state.moment];
@@ -101,7 +108,7 @@ function enterMoment(state: PreviewState, moment: number): PreviewState {
   let next = { ...state, moment, arrival: false, reviewing: false };
   if (next.rounds[moment].prompted) return next;
   next = patchRound(next, moment, round => ({ ...round, prompted: true }));
-  for (const side of [0, 1] as const) next = append(next, side, moment, { kind: "prompt", text: prompts[moment] });
+  for (const side of [0, 1] as const) next = append(next, side, moment, { kind: "prompt", text: promptFor(moment, side) });
   return next;
 }
 function deliverReply(state: PreviewState): PreviewState {
@@ -154,14 +161,19 @@ export function previewReducer(state: PreviewState, action: Action): PreviewStat
         }));
         return append(next, action.side, state.moment, { kind: "message", owner: action.side, message });
       }
-      const partner: Side = action.side === 0 ? 1 : 0;
       const messages = withSide(round.messages, action.side, { text, source: "typed" } as Message);
-      if (messages[partner] === null) messages[partner] = { text: examples[state.moment][partner], source: "example" };
+      const next = patchRound(state, state.moment, old => ({
+        ...old, messages, drafts: withSide(old.drafts, action.side, ""),
+        phase: messages.every(Boolean) ? "typing" : "compose",
+      }));
+      return append(next, action.side, state.moment, { kind: "message", owner: action.side, message: messages[action.side]! });
+    }
+    case "sample": {
+      if (action.moment !== state.moment || round.phase !== "compose"
+        || round.messages.some(Boolean) || round.drafts.some(value => value.trim())) return state;
+      const messages: Pair<Message | null> = examples[state.moment].map(text => ({ text, source: "example" })) as Pair<Message>;
       let next = patchRound(state, state.moment, old => ({ ...old, messages, phase: "typing" }));
-      for (const side of [0, 1] as const) {
-        const message = messages[side];
-        if (message) next = append(next, side, state.moment, { kind: "message", owner: side, message });
-      }
+      for (const side of [0, 1] as const) next = append(next, side, state.moment, { kind: "message", owner: side, message: messages[side]! });
       return next;
     }
     case "ready":
@@ -203,6 +215,6 @@ export function previewReducer(state: PreviewState, action: Action): PreviewStat
     case "review":
       if (state.moment !== 3 || round.phase !== "revealed") return state;
       return { ...state, reviewing: action.open };
-    case "restart": return createPreview({ generation: state.generation + 1 });
+    case "restart": return createPreview({ arrival: false, generation: state.generation + 1 });
   }
 }
