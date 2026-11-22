@@ -301,7 +301,7 @@ function RoomList({ rooms, onSelect }: { rooms: RoomSummary[]; onSelect: (code: 
     ))}
     {practices.map((room, index) => roomButton(room,
       practices.length === 1 ? "Your practice room" : `Practice room ${index + 1}`,
-      "Try it with your phones.",
+      `Try it with your phones · ${room.code}`,
     ))}
     {!events.length && !practices.length && <p className="live-caption">Create a practice room above to try the experiences.</p>}
     {completed.length > 0 && <details className="live-prediction-details">
