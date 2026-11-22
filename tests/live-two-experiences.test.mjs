@@ -51,6 +51,8 @@ test("both sides receive real replies only on reveal, with the planted line alte
   draw();
   assert.equal(chat("a").side, 0);
   assert.equal(chat("b").side, 1);
+  assert.match(chat("a").entries[0].text, /subtitles/);
+  assert.match(chat("b").entries[0].text, /first glance/);
 
   message("a", "A’s first line");
   message("b", "B’s first line");
