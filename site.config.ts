@@ -273,7 +273,7 @@ export const siteConfig: SiteConfig = {
     website: "https://luxembourgpsychology.com",
     pressEmail: "ivana@luxembourgpsychology.com",
     social: {
-      instagram: null,
+      instagram: "https://www.instagram.com/ivanalaruss/",
       linkedin: null,
       x: null,
     },

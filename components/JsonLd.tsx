@@ -12,6 +12,9 @@ export function JsonLd({ locale }: { locale: Locale }) {
     "@id": `${siteConfig.siteUrl}/#author`,
     name: siteConfig.author.name,
     ...(siteConfig.author.website ? { url: siteConfig.author.website } : {}),
+    jobTitle: "Clinical psychologist",
+    // Her other pages, so search engines connect the book's author to them.
+    sameAs: [siteConfig.author.website, ...Object.values(siteConfig.author.social)].filter(Boolean),
   };
   const book = {
     "@context": "https://schema.org",
@@ -24,6 +27,7 @@ export function JsonLd({ locale }: { locale: Locale }) {
     publisher: { "@type": "Organization", name: siteConfig.publisher.name, address: siteConfig.publisher.place },
     inLanguage: siteConfig.languages[locale].htmlLang,
     bookFormat: "https://schema.org/Paperback",
+    numberOfPages: 304,
     image: `${siteConfig.siteUrl}/images/cover-front.jpg`,
     url: localeUrl(locale),
     ...(ed.isbn ? { isbn: ed.isbn } : {}),

@@ -22,7 +22,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const c = getContent(lang);
   return {
     metadataBase: new URL(siteConfig.siteUrl),
-    title: { default: c.meta.title, template: c.meta.titleTemplate },
+    // The home page's tab and search-result title carries the author's name
+    // as well as the book's: people search for her by name. Both are printed
+    // on the front cover; no new words. og:title and the Book data keep the
+    // title alone.
+    title: { default: `${c.meta.title} · ${siteConfig.author.name}`, template: c.meta.titleTemplate },
     description: c.meta.description,
     alternates: { canonical: localeUrl(lang), languages: alternatesFor() },
     openGraph: {
