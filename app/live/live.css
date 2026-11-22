@@ -191,6 +191,54 @@ body.book-live {
 .live-talk-paging button { min-height: 48px; padding: 10px 8px; border: 1px solid var(--live-line); background: transparent; color: var(--live-ink); font-size: 13px; }
 .live-talk-guide .live-talk-private { margin-top: 12px; color: var(--live-quiet); font-size: 12px; line-height: 1.4; }
 .live-host-main:has(.live-talk-guide) > .live-host-topline > .live-label { margin-right: auto; }
+
+/* The host's phone keeps the event and speech one tap apart. */
+.live-host-console { padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px)); }
+.live-host-console [hidden] { display: none !important; }
+.host-console-content { width: min(calc(100% - 40px), 720px); padding: 28px 0; }
+.host-console-entry { padding-block: 18px; }
+.host-console-entry h1 { margin-block: 10px 30px; font-size: clamp(3.5rem, 9vw, 5rem); }
+.host-console-entry > .live-button { width: 100%; min-height: 68px; font-size: 21px; }
+.host-console-setup { margin-top: 54px; border-top: 1px solid var(--live-line); }
+.host-console-setup > summary, .host-console-sharing > summary { min-height: 52px; padding-block: 16px; cursor: pointer; font-size: 15px; }
+.host-console-setup .live-create-options { margin-block: 20px 36px; }
+.host-console-setup .live-room-list strong { font-size: 16px; }
+.host-console-context { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 24px; }
+.host-console-context > span { color: var(--live-quiet); font: 11px/1.4 var(--font-mono, monospace); }
+.host-console-context > button { min-height: 44px; padding-inline: 10px; }
+.host-console-sharing { margin-top: 28px; border-top: 1px solid var(--live-line); }
+.host-console-sharing .live-join-code { max-width: 320px; margin-block: 16px; }
+.live-host-console .live-event-controls .live-host-actions { position: static; padding-bottom: 0; }
+.live-host-console .live-host-actions > button { min-height: 58px; font-size: 18px; }
+.host-console-navigation { position: fixed; z-index: 30; bottom: 0; left: 0; right: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px max(20px, calc((100vw - 720px) / 2)) calc(12px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--live-line); background: var(--live-cream); }
+.host-console-navigation > button { min-height: 58px; padding: 12px; border: 1px solid var(--live-ink); border-radius: 0; background: transparent; color: var(--live-ink); font: 600 20px/1.2 var(--font-body, Arial, sans-serif); }
+.host-console-navigation > button[aria-pressed="true"] { background: var(--live-ink); color: var(--live-cream); }
+.host-console-navigation > button:focus-visible { outline: 3px solid var(--live-red); outline-offset: 3px; }
+.host-talk-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.host-talk-heading h1 { font-size: clamp(3rem, 9vw, 4rem); margin-top: 8px; }
+.host-talk-heading .live-outline-button { min-height: 48px; padding: 10px 12px; font-size: 14px; }
+.host-talk-live-status { margin-bottom: 22px; color: var(--live-quiet); font: 11px/1.5 var(--font-mono, monospace); }
+.host-talk-jump { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; font-size: 14px; }
+.host-talk-jump select { min-height: 54px; max-width: 100%; padding: 10px 12px; border: 1px solid var(--live-line); border-radius: 0; color: var(--live-ink); background: #fffdf9; font: 16px/1.4 var(--font-body, Arial, sans-serif); }
+.host-talk-position { margin-bottom: 10px; color: var(--live-quiet); font: 11px/1.4 var(--font-mono, monospace); }
+.host-talk-page h2 { margin-bottom: 26px; font: 700 34px/1.12 var(--font-bebas, Impact, sans-serif); }
+.host-talk-question > span, .host-talk-answer > span { display: block; margin-bottom: 8px; color: var(--live-red); font: 12px/1.4 var(--font-mono, monospace); }
+.host-talk-question > p { font-size: 21px; line-height: 1.4; font-weight: 600; }
+.host-talk-answer { margin-top: 28px; }
+.host-talk-answer > p { font-size: 21px; line-height: 1.55; }
+.host-talk-answer > p + p { margin-top: 18px; }
+.host-talk-reader { padding-bottom: 68px; }
+.host-talk-paging { position: fixed; z-index: 25; left: max(20px, calc((100vw - 720px) / 2)); right: max(20px, calc((100vw - 720px) / 2)); bottom: calc(83px + env(safe-area-inset-bottom, 0px)); display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding-block: 12px; background: var(--live-cream); }
+.host-talk-paging > button { min-height: 50px; padding: 10px; border: 1px solid var(--live-line); border-radius: 0; color: var(--live-ink); background: var(--live-cream); font: 16px/1.3 var(--font-body, Arial, sans-serif); }
+.host-talk-paging > button:disabled { opacity: .4; }
+@media (max-width: 650px) {
+  .host-console-content { width: calc(100% - 36px); padding-block: 14px; }
+  .host-console-context { margin-bottom: 12px; }
+  .live-host-console .live-room-counts { margin-block: 18px; padding-block: 16px; gap: 16px 12px; }
+  .live-host-console .live-room-counts strong { font-size: 29px; }
+  .live-host-console .live-event-controls > h1 { font-size: 2.9rem; }
+  .host-talk-page h2 { font-size: 31px; }
+}
 .live-host-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
 .live-host-actions > .live-button { flex-grow: 1; }
 .live-host-aside { padding-top: 3px; display: flex; flex-direction: column; align-items: stretch; gap: 25px; }
